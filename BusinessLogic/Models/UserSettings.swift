@@ -1,0 +1,29 @@
+enum UserSettingKey: String {
+    case currency = "currency"
+}
+
+// New: supported app languages
+enum AppLanguage: String, CaseIterable, Codable {
+    case en = "en"
+    case de = "de"
+    case ru = "ru"
+    case kk = "kk"
+    case tr = "tr"
+    case uk = "uk"
+
+    var displayName: String {
+        switch self {
+            case .en: return "🇬🇧 English"
+            case .de: return "🇩🇪 Deutsch"
+            case .ru: return "🇷🇺 Русский"
+            case .kk: return "🇰🇿 Қазақша"
+            case .tr: return "🇹🇷 Türkçe"
+            case .uk: return "🇺🇦 Українська"
+        }
+    }
+}
+
+// Add key constant for language
+extension UserSettingKey {
+    static let language = UserSettingKey(rawValue: "language")!
+}

@@ -1,0 +1,114 @@
+/* English localization */
+
+/* Common UI */
+"Cancel" = "Cancel";
+"Save" = "Save";
+"Close" = "Close";
+"Delete" = "Delete";
+"Delete All" = "Delete All";
+"Next" = "Next";
+"Skip" = "Skip";
+"Previous" = "Previous";
+"Yes" = "Yes";
+"No" = "No";
+"Name" = "Name";
+"Optional" = "Optional";
+"Add" = "Add";
+"Edit" = "Edit";
+"Open" = "Open";
+"Create" = "Create";
+"Select" = "Select";
+"Loading" = "Loading";
+"Error" = "Error";
+"Warning" = "Warning";
+"Information" = "Information";
+"Success" = "Success";
+"Failed" = "Failed";
+"Retry" = "Retry";
+"OK" = "OK";
+
+/* Menu */
+"Stats" = "Stats";
+"Settings" = "Settings";
+"About" = "About";
+
+/* User Settings */
+"User settings" = "User settings";
+"Currency" = "Currency";
+"Select default currency" = "Select default currency";
+"Notifications enabled" = "Notifications enabled";
+"Language" = "Language";
+"Select your language" = "Select your language";
+"About app" = "About app";
+"App version" = "App version";
+"Developer" = "Developer";
+"What is the app about?" = "What is the app about?";
+"Rate the app" = "Rate the app";
+"Contact developer via Telegram" = "Contact developer via Telegram";
+
+/* Onboarding */
+"Welcome to" = "Welcome to";
+"Get started" = "Get started";
+"Start onboarding again" = "Start onboarding again";
+
+/* Export & Import */
+"Export & Import" = "Export & Import";
+"Export Data..." = "Export Data...";
+"Import Data..." = "Import Data...";
+"Preparing export..." = "Preparing export...";
+"Importing data..." = "Importing data...";
+"Export your data to back it up or transfer to another device." = "Export your data to back it up or transfer to another device.";
+"Import will replace all existing data." = "Import will replace all existing data.";
+"Export Error" = "Export Error";
+"Import Error" = "Import Error";
+"Confirm Import" = "Confirm Import";
+"Import and Replace All Data" = "Import and Replace All Data";
+"Source" = "Source";
+"Export Date" = "Export Date";
+"Schema Version" = "Schema Version";
+"Data Summary" = "Data Summary";
+"notifications" = "notifications";
+"Date Range" = "Date Range";
+"Warning: Importing will DELETE ALL existing data. This cannot be undone." = "Warning: Importing will DELETE ALL existing data. This cannot be undone.";
+
+/* Export/Import Errors */
+"export.error.invalid_json" = "Invalid file format. Please select a valid backup file.";
+"export.error.invalid_date" = "Invalid date found in backup file.";
+"export.error.corrupted" = "The backup file is corrupted and cannot be restored.";
+
+/* iCloud Backup */
+"iCloud Backup" = "iCloud Backup";
+"iCloud Not Available" = "iCloud Not Available";
+"Please sign in to iCloud in Settings to enable backups." = "Please sign in to iCloud in Settings to enable backups.";
+"Backup Now" = "Backup Now";
+"Creating backup..." = "Creating backup...";
+"Last backup" = "Last backup";
+"View Backup History" = "View Backup History";
+"Automatic backups to iCloud keep your data safe." = "Automatic backups to iCloud keep your data safe.";
+"Maximum 5 backups kept, older than 30 days auto-deleted." = "Maximum 5 backups kept, older than 30 days auto-deleted.";
+"iCloud Backups" = "iCloud Backups";
+"Loading backups..." = "Loading backups...";
+"No backups found" = "No backups found";
+"Create your first backup to get started" = "Create your first backup to get started";
+"Delete Backup?" = "Delete Backup?";
+"Delete All Backups?" = "Delete All Backups?";
+"Are you sure you want to delete a backup from %@?" = "Are you sure you want to delete a backup from %@?";
+"Are you sure you want to delete all backups? This cannot be undone." = "Are you sure you want to delete all backups? This cannot be undone.";
+"Restore from Backup?" = "Restore from Backup?";
+"This will replace all current data with the backup from %@. This cannot be undone." = "This will replace all current data with the backup from %@. This cannot be undone.";
+"Restore" = "Restore";
+"Backup Error" = "Backup Error";
+
+/* Backup Errors */
+"backup.error.icloud_not_available" = "iCloud is not available. Please sign in to iCloud in Settings.";
+"backup.error.network_unavailable" = "No internet connection. Please check your network.";
+"backup.error.icloud_storage_full" = "iCloud storage is full. Please free up space or upgrade your plan.";
+"backup.error.dev_backup_restore_on_prod_app" = "Development backup cannot be restored on a production build. Use a production backup instead.";
+
+/* Network Warning */
+"No Internet Connection" = "No Internet Connection";
+"Connect to the internet to create or restore backups." = "Connect to the internet to create or restore backups.";
+
+/* Automatic Backup */
+"Automatic Backup" = "Automatic Backup";
+"Last: " = "Last: ";

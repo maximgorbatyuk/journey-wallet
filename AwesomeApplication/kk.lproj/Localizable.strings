@@ -1,0 +1,114 @@
+/* Kazakh localization */
+
+/* Common UI */
+"Cancel" = "Бас тарт";
+"Save" = "Сақтау";
+"Close" = "Жабу";
+"Delete" = "Жою";
+"Delete All" = "Барлығын жою";
+"Next" = "Келесі";
+"Skip" = "Өтіп кесу";
+"Previous" = "Алдыңғы";
+"Yes" = "Иә";
+"No" = "Жоқ";
+"Name" = "Аты";
+"Optional" = "Міндетті емес";
+"Add" = "Қосу";
+"Edit" = "Өзгерту";
+"Open" = "Ашу";
+"Create" = "Жасау";
+"Select" = "Таңда";
+"Loading" = "Жүктелуде";
+"Error" = "Қате";
+"Warning" = "Ескерту";
+"Information" = "Ақпарат";
+"Success" = "Сәтті";
+"Failed" = "Сәтсіз";
+"Retry" = "Қайтала";
+"OK" = "ОК";
+
+/* Menu */
+"Stats" = "Статистика";
+"Settings" = "Параметрлер";
+"About" = "Осы туралы";
+
+/* User Settings */
+"User settings" = "Пайдалан параметрлері";
+"Currency" = "Валюта";
+"Select default currency" = "Әдепкі валютаны таңдаңыз";
+"Notifications enabled" = "Хабарландырулар қосылды";
+"Language" = "Тіл";
+"Select your language" = "Тіліңізді таңдаңыз";
+"About app" = "Қосымша туралы";
+"App version" = "Қосымша нұсқасы";
+"Developer" = "Дамушушы";
+"What is the app about?" = "Бұл қосымша не туралы?";
+"Rate the app" = "Қосымшаны бағалаңыз";
+"Contact developer via Telegram" = "Telegram арқылы дамушушымен байланысыңыз";
+
+/* Onboarding */
+"Welcome to" = "Қош келдіңіз";
+"Get started" = "Бастау";
+"Start onboarding again" = "Таныстыруды қайтадан бастау";
+
+/* Export & Import */
+"Export & Import" = "Экспорт және импорт";
+"Export Data..." = "Деректерді экспорттау...";
+"Import Data..." = "Деректерді импорттау...";
+"Preparing export..." = "Экспорт дайындалуда...";
+"Importing data..." = "Деректер импортталуда...";
+"Export your data to back it up or transfer to another device." = "Деректеріңізді сақтау үшін экспорттаңыз немесе басқа құрылғаға беріңіз.";
+"Import will replace all existing data." = "Импорт барлық деректерді алмастырады.";
+"Export Error" = "Экспорт қатесі";
+"Import Error" = "Импорт қатесі";
+"Confirm Import" = "Импортты растау";
+"Import and Replace All Data" = "Импорт және барлық деректерді алмастыру";
+"Source" = "Көз";
+"Export Date" = "Экспорт күні";
+"Schema Version" = "Схема нұсқасы";
+"Data Summary" = "Деректерді қорытындысы";
+"notifications" = "хабарландырулар";
+"Date Range" = "Күн ауқымы";
+"Warning: Importing will DELETE ALL existing data. This cannot be undone." = "Ескерту: Импорттау БАРЛЫҚ деректерді ЖОЯДЫ. Бұл қайтырар мүмкін емес.";
+
+/* Export/Import Errors */
+"export.error.invalid_json" = "Жарамсыз файл пішімі. Қолайты сақтау файлын таңдаңыз.";
+"export.error.invalid_date" = "Сақтау файлынан жарамсыз күн табылды.";
+"export.error.corrupted" = "Сақтау файлы зақдалған және қалпына келмейді.";
+
+/* iCloud Backup */
+"iCloud Backup" = "iCloud сақталу";
+"iCloud Not Available" = "iCloud қолжымсыз";
+"Please sign in to iCloud in Settings to enable backups." = "Сақтауларды қосу үшін Параметрлерде iCloud-ге кіріңіз.";
+"Backup Now" = "Қазір сақтау";
+"Creating backup..." = "Сақтау жасалуда...";
+"Last backup" = "Соңғы сақтау";
+"View Backup History" = "Сақтау тарихын қараңыз";
+"Automatic backups to iCloud keep your data safe." = "Автоматты iCloud сақтаулары деректеріңізді қауіпсіз сақтайды.";
+"Maximum 5 backups kept, older than 30 days auto-deleted." = "Максимум 5 сақтау сақталады, 30 күннен ескілері автоматты түрде жояды.";
+"iCloud Backups" = "iCloud сақтаулары";
+"Loading backups..." = "Сақтаулар жүктелуде...";
+"No backups found" = "Сақтаулар табылмады";
+"Create your first backup to get started" = "Бастау үшін алғашқы сақтауыңыз жасаңыз";
+"Delete Backup?" = "Сақтауды жоюға келесіз бе?";
+"Delete All Backups?" = "Барлық сақтауларды жояға келесіз бе?";
+"Are you sure you want to delete a backup from %@" = "%@ сақтауын жоюға сенімізсіз бе?";
+"Are you sure you want to delete all backups? This cannot be undone." = "Барлық сақтауларды жоюға сенімізсіз бе? Бұл қайтырар мүмкін емес.";
+"Restore from Backup?" = "Сақтаудан қалпына келтіру?";
+"This will replace all current data with a backup from %@. This cannot be undone." = "Бұл %@ сақтауынан алынған деректермен барлық ағымғы деректерді алмастырады. Бұл қайтырар мүмкін емес.";
+"Restore" = "Қалпына келтіру";
+"Backup Error" = "Сақтау қатесі";
+
+/* Backup Errors */
+"backup.error.icloud_not_available" = "iCloud қолжымсыз. Параметрлерден iCloud-ге кіріңіз.";
+"backup.error.network_unavailable" = "Интернет байланысыз. Желіңізді тексеріңіз.";
+"backup.error.icloud_storage_full" = "iCloud сақтасы толы. Орын босатыңыз немесе жоспарыңыз жаңартыңыз.";
+"backup.error.dev_backup_restore_on_prod_app" = "Өндіріс сақтауын өндіру нұсқасында қалпына келтіру мүмкін емес. Өндіріс емес сақтауын қолданыңыз.";
+
+/* Network Warning */
+"No Internet Connection" = "Интернет байланысыз";
+"Connect to the internet to create or restore backups." = "Сақтауларды жасау немесе қалпына келтіру үшін интернетке қосылыңыз.";
+
+/* Automatic Backup */
+"Automatic Backup" = "Автоматты сақтау";
+"Last: " = "Соңғы: ";

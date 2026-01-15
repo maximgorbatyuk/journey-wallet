@@ -1,0 +1,105 @@
+import SwiftUI
+
+struct OnboardingLanguageSelectionView: SwiftUICore.View {
+
+    let onCurrentLanguageSelected: (_ selectedLanguage: AppLanguage) -> Void
+    
+    @ObservedObject var localizationManager: LocalizationManager = .shared
+    @ObservedObject var analytics: AnalyticsService = .shared
+
+    @State var selectedLanguage: AppLanguage
+
+    var body: some SwiftUICore.View {
+        VStack(spacing: 20) {
+            Spacer()
+
+            Image("BackgroundImage")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 100, height: 100) // Adjust size as needed
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .shadow(radius: 10)
+
+            VStack(spacing: 6) {
+                Text(L("Welcome to"))
+                    .font(.title2)
+                    .foregroundColor(.secondary)
+
+                Text("AwesomeApplication")
+                    .font(.largeTitle)
+                    .bold()
+                    .multilineTextAlignment(.center)
+            }
+
+            Text(L("Select your language"))
+                .font(.headline)
+                .foregroundColor(.secondary)
+                .padding(.top, 5)
+
+            // Language options
+            VStack(spacing: 10) {
+                ForEach(AppLanguage.allCases, id: \.self) { language in
+                    LanguageButton(
+                        language: language,
+                        isSelected: selectedLanguage == language
+                    ) {
+                        withAnimation(.spring()) {
+                            selectedLanguage = language
+                            do {
+                                try localizationManager.setLanguage(language)
+                            } catch {
+                                GlobalLogger.shared.error("Failed to set language to \(language.rawValue): \(error)")
+                            }
+
+                            onCurrentLanguageSelected(language)
+
+                            analytics.trackEvent("language_selected", properties: [
+                                "language": language.rawValue,
+                                "screen": "onboarding_language_selection"
+                            ])
+                        }
+                    }
+                }
+            }
+            .padding(.horizontal)
+            
+            Spacer()
+        }
+        .padding()
+    } // end of body
+}
+
+struct LanguageButton: SwiftUICore.View {
+    let language: AppLanguage
+    let isSelected: Bool
+    let action: () -> Void
+
+    var body: some SwiftUICore.View {
+        Button(action: action) {
+            HStack {
+                Text(language.displayName)
+                    .font(.headline)
+                    .foregroundColor(isSelected ? .white : .primary)
+
+                Spacer()
+                
+                if isSelected {
+                    Image(systemName: "checkmark.circle.fill")
+                        .foregroundColor(.white)
+                        .font(.title3)
+                }
+            }
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(isSelected ? Color.blue : Color(.systemGray6))
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(isSelected ? Color.blue : Color.clear, lineWidth: 2)
+            )
+        }
+        .buttonStyle(.plain)
+    }
+}
