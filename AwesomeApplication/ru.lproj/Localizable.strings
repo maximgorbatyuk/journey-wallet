@@ -1,0 +1,114 @@
+/* Russian localization */
+
+/* Common UI */
+"Cancel" = "Отмена";
+"Save" = "Сохранить";
+"Close" = "Закрыть";
+"Delete" = "Удалить";
+"Delete All" = "Удалить все";
+"Next" = "Далее";
+"Skip" = "Пропустить";
+"Previous" = "Назад";
+"Yes" = "Да";
+"No" = "Нет";
+"Name" = "Название";
+"Optional" = "Необязательно";
+"Add" = "Добавить";
+"Edit" = "Редактировать";
+"Open" = "Открыть";
+"Create" = "Создать";
+"Select" = "Выбрать";
+"Loading" = "Загрузка";
+"Error" = "Ошибка";
+"Warning" = "Предупреждение";
+"Information" = "Информация";
+"Success" = "Успешно";
+"Failed" = "Не удалось";
+"Retry" = "Повторить";
+"OK" = "ОК";
+
+/* Menu */
+"Stats" = "Статистика";
+"Settings" = "Настройки";
+"About" = "О приложении";
+
+/* User Settings */
+"User settings" = "Настройки пользователя";
+"Currency" = "Валюта";
+"Select default currency" = "Выбрать валюту по умолчанию";
+"Notifications enabled" = "Уведомления включены";
+"Language" = "Язык";
+"Select your language" = "Выберите язык";
+"About app" = "О приложении";
+"App version" = "Версия приложения";
+"Developer" = "Разработчик";
+"What is the app about?" = "Что это за приложение?";
+"Rate the app" = "Оцените приложение";
+"Contact developer via Telegram" = "Связаться с разработчиком через Telegram";
+
+/* Onboarding */
+"Welcome to" = "Добро пожаловать в";
+"Get started" = "Начать";
+"Start onboarding again" = "Начать обучение заново";
+
+/* Export & Import */
+"Export & Import" = "Экспорт и импорт";
+"Export Data..." = "Экспорт данных...";
+"Import Data..." = "Импорт данных...";
+"Preparing export..." = "Подготовка экспорта...";
+"Importing data..." = "Импорт данных...";
+"Export your data to back it up or transfer to another device." = "Экспортируйте свои данные, чтобы создать резервную копию или перенести на другое устройство.";
+"Import will replace all existing data." = "Импорт заменит все существующие данные.";
+"Export Error" = "Ошибка экспорта";
+"Import Error" = "Ошибка импорта";
+"Confirm Import" = "Подтвердить импорт";
+"Import and Replace All Data" = "Импорт и замена всех данных";
+"Source" = "Источник";
+"Export Date" = "Дата экспорта";
+"Schema Version" = "Версия схемы";
+"Data Summary" = "Сводка данных";
+"notifications" = "уведомления";
+"Date Range" = "Диапазон дат";
+"Warning: Importing will DELETE ALL existing data. This cannot be undone." = "Предупреждение: При импорте ВСЕ существующие данные будут УДАЛЕНЫ. Это действие нельзя отменить.";
+
+/* Export/Import Errors */
+"export.error.invalid_json" = "Недопустимый формат файла. Пожалуйста, выберите корректный файл резервной копии.";
+"export.error.invalid_date" = "Обнаружена недопустимая дата в файле резервной копии.";
+"export.error.corrupted" = "Файл резервной копии поврежден и не может быть восстановлен.";
+
+/* iCloud Backup */
+"iCloud Backup" = "Резервное копирование iCloud";
+"iCloud Not Available" = "iCloud недоступно";
+"Please sign in to iCloud in Settings to enable backups." = "Пожалуйста, войдите в iCloud в настройках, чтобы включить резервное копирование.";
+"Backup Now" = "Создать резервную копию";
+"Creating backup..." = "Создание резервной копии...";
+"Last backup" = "Последняя резервная копия";
+"View Backup History" = "Просмотреть историю резервных копий";
+"Automatic backups to iCloud keep your data safe." = "Автоматическое резервное копирование в iCloud сохраняет ваши данные в безопасности.";
+"Maximum 5 backups kept, older than 30 days auto-deleted." = "Максимум 5 резервных копий сохраняются, старее 30 дней автоматически удаляются.";
+"iCloud Backups" = "Резервные копии iCloud";
+"Loading backups..." = "Загрузка резервных копий...";
+"No backups found" = "Резервные копии не найдены";
+"Create your first backup to get started" = "Создайте свою первую резервную копию, чтобы начать";
+"Delete Backup?" = "Удалить резервную копию?";
+"Delete All Backups?" = "Удалить все резервные копии?";
+"Are you sure you want to delete a backup from %@" = "Вы уверены, что хотите удалить резервную копию от %@?";
+"Are you sure you want to delete all backups? This cannot be undone." = "Вы уверены, что хотите удалить все резервные копии? Это действие нельзя отменить.";
+"Restore from Backup?" = "Восстановить из резервной копии?";
+"This will replace all current data with backup from %@. This cannot be undone." = "Это заменит все текущие данными резервной копией от %@. Это действие нельзя отменить.";
+"Restore" = "Восстановить";
+"Backup Error" = "Ошибка резервного копирования";
+
+/* Backup Errors */
+"backup.error.icloud_not_available" = "iCloud недоступно. Пожалуйста, войдите в iCloud в настройках.";
+"backup.error.network_unavailable" = "Нет подключения к интернету. Пожалуйста, проверьте вашу сеть.";
+"backup.error.icloud_storage_full" = "Хранилище iCloud заполнен. Пожалуйста, освободите место или обновите ваш план.";
+"backup.error.dev_backup_restore_on_prod_app" = "Резервная копия разработки не может быть восстановлена в рабочей версии. Используйте рабочую резервную копию.";
+
+/* Network Warning */
+"No Internet Connection" = "Нет подключения к интернету";
+"Connect to the internet to create or restore backups." = "Подключитесь к интернету, чтобы создавать или восстанавливать резервные копии.";
+
+/* Automatic Backup */
+"Automatic Backup" = "Автоматическое резервное копирование";
+"Last: " = "Последний: ";

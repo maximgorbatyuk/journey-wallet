@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AppStoreId</key>
+	<string>$(APP_STORE_ID)</string>
+	<key>AppVisibleVersion</key>
+	<string>$(APP_VISIBLE_VERSION)</string>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>dev.mgorbatyuk.awesomeapplication.daily-backup</string>
+	</array>
+	<key>BuildEnvironment</key>
+	<string>$(BUILD_ENVIRONMENT)</string>
+	<key>DeveloperName</key>
+	<string>$(DEVELOPER_NAME)</string>
+	<key>DeveloperTelegramLink</key>
+	<string>$(DEVELOPER_TELEGRAM_LINK)</string>
+	<key>GithubRepoUrl</key>
+	<string>$(GITHUB_REPO_URL)</string>
+</dict>
+</plist>

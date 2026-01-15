@@ -1,0 +1,114 @@
+/* Turkish localization */
+
+/* Common UI */
+"Cancel" = "İptal";
+"Save" = "Kaydet";
+"Close" = "Kapat";
+"Delete" = "Sil";
+"Delete All" = "Tümünü Sil";
+"Next" = "Sonraki";
+"Skip" = "Atla";
+"Previous" = "Önceki";
+"Yes" = "Evet";
+"No" = "Hayır";
+"Name" = "İsim";
+"Optional" = "İsteğe bağlı";
+"Add" = "Ekle";
+"Edit" = "Düzenle";
+"Open" = "Aç";
+"Create" = "Oluştur";
+"Select" = "Seç";
+"Loading" = "Yükleniyor";
+"Error" = "Hata";
+"Warning" = "Uyarı";
+"Information" = "Bilgi";
+"Success" = "Başarılı";
+"Failed" = "Başarısız";
+"Retry" = "Tekrar dene";
+"OK" = "Tamam";
+
+/* Menu */
+"Stats" = "İstatistikler";
+"Settings" = "Ayarlar";
+"About" = "Hakkında";
+
+/* User Settings */
+"User settings" = "Kullanıcı ayarları";
+"Currency" = "Para birimi";
+"Select default currency" = "Varsayılan para birimini seç";
+"Notifications enabled" = "Bildirimler etkin";
+"Language" = "Dil";
+"Select your language" = "Dilinizi seçin";
+"About app" = "Uygulama hakkında";
+"App version" = "Uygulama sürümü";
+"Developer" = "Geliştirici";
+"What is the app about?" = "Uygulama ne hakkında?";
+"Rate the app" = "Uygulamayı değerlendir";
+"Contact developer via Telegram" = "Geliştirici ile Telegram üzerinden iletişime geç";
+
+/* Onboarding */
+"Welcome to" = "Hoş geldiniz";
+"Get started" = "Başla";
+"Start onboarding again" = "Yine başlangıç yap";
+
+/* Export & Import */
+"Export & Import" = "Dışa Aktar ve İçe Aktar";
+"Export Data..." = "Verileri Dışa Aktar...";
+"Import Data..." = "Verileri İçe Aktar...";
+"Preparing export..." = "Dışa aktarım hazırlanıyor...";
+"Importing data..." = "Veriler içe aktarılıyor...";
+"Export your data to back it up or transfer to another device." = "Verilerinizi yedeklemek veya başka bir cihaza aktarmak için dışa aktarın.";
+"Import will replace all existing data." = "İçe aktarma, mevcut tüm verilerin yerini alacak.";
+"Export Error" = "Dışa aktarma hatası";
+"Import Error" = "İçe aktarma hatası";
+"Confirm Import" = "İçe Aktarmayı Onayla";
+"Import and Replace All Data" = "İçe Aktar ve Tüm Verileri Değiştir";
+"Source" = "Kaynak";
+"Export Date" = "Dışa Aktarma Tarihi";
+"Schema Version" = "Şema Sürümü";
+"Data Summary" = "Veri Özeti";
+"notifications" = "bildirimler";
+"Date Range" = "Tarih Aralığı";
+"Warning: Importing will DELETE ALL existing data. This cannot be undone." = "Uyarı: İçe aktarma sırasında MEVCUT TÜM veriler SİLİNECEK. Bu işlem geri alınamaz.";
+
+/* Export/Import Errors */
+"export.error.invalid_json" = "Geçersiz dosya formatı. Lütfen geçerli bir yedek dosyası seçin.";
+"export.error.invalid_date" = "Yedek dosyasında geçersiz tarih bulundu.";
+"export.error.corrupted" = "Yedek dosyası bozuk ve geri yüklenemiyor.";
+
+/* iCloud Backup */
+"iCloud Backup" = "iCloud Yedekleme";
+"iCloud Not Available" = "iCloud Kullanılamıyor";
+"Please sign in to iCloud in Settings to enable backups." = "Yedeklemeleri etkinleştirmek için Ayarlarda iCloud'a giriş yapın.";
+"Backup Now" = "Şimdi Yedekle";
+"Creating backup..." = "Yedek oluşturuluyor...";
+"Last backup" = "Son yedek";
+"View Backup History" = "Yedek Geçmişini Görüntüle";
+"Automatic backups to iCloud keep your data safe." = "Otomatik iCloud yedeklemeleri verilerinizi güvende tutar.";
+"Maximum 5 backups kept, older than 30 days auto-deleted." = "Maksimum 5 yedek tutulur, 30 günden eskileri otomatik silinir.";
+"iCloud Backups" = "iCloud Yedekleri";
+"Loading backups..." = "Yedekler yükleniyor...";
+"No backups found" = "Yedek bulunamadı";
+"Create your first backup to get started" = "Başlamak için ilk yedeğinizi oluşturun";
+"Delete Backup?" = "Yedeği Sil?";
+"Delete All Backups?" = "Tüm Yedekleri Sil?";
+"Are you sure you want to delete a backup from %@" = "%@ tarihli yedeği silmek istediğinizden emin misiniz?";
+"Are you sure you want to delete all backups? This cannot be undone." = "Tüm yedekleri silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.";
+"Restore from Backup?" = "Yedekten Geri Yükle?";
+"This will replace all current data with backup from %@. This cannot be undone." = "Bu işlem %@ tarihli yedekle mevcut tüm verilerin yerini alacak. Bu işlem geri alınamaz.";
+"Restore" = "Geri Yükle";
+"Backup Error" = "Yedekleme Hatası";
+
+/* Backup Errors */
+"backup.error.icloud_not_available" = "iCloud kullanılamıyor. Lütfen Ayarlarda iCloud'a giriş yapın.";
+"backup.error.network_unavailable" = "İnternet bağlantısı yok. Lütfen ağınızı kontrol edin.";
+"backup.error.icloud_storage_full" = "iCloud deposu dolu. Lütfen alan boşaltın veya planınızı yükseltin.";
+"backup.error.dev_backup_restore_on_prod_app" = "Geliştirme yedeği üretim sürümüne geri yüklenemez. Bunun yerine bir üretim yedeği kullanın.";
+
+/* Network Warning */
+"No Internet Connection" = "İnternet Bağlantısı Yok";
+"Connect to the internet to create or restore backups." = "Yedek oluşturmak veya geri yüklemek için internete bağlanın.";
+
+/* Automatic Backup */
+"Automatic Backup" = "Otomatik Yedekleme";
+"Last: " = "Son: ";
