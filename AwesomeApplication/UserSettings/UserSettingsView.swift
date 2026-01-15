@@ -644,7 +644,7 @@ struct UserSettingsView: SwiftUICore.View {
         \(L("Schema Version")): \(preview.schemaVersion)
 
         \(L("Data Summary")):
-        • \(preview.notificationsCount) \(L("notifications"))
+            TODO Here goes summary of records, e.g.:
 
         ⚠️ \(L("Warning: Importing will DELETE ALL existing data. This cannot be undone."))
         """

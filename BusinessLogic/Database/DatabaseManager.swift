@@ -52,8 +52,8 @@ class DatabaseManager : DatabaseManagerProtocol {
         }
     }
 
-    func deleteAllData() throws {
-        throws NotImplementedError()
+    func deleteAllData() -> Void {
+        // to be implemented
     }
 
     func getDatabaseSchemaVersion() -> Int {

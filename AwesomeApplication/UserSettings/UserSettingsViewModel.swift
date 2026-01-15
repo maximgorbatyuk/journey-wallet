@@ -46,10 +46,8 @@ class UserSettingsViewModel: ObservableObject {
     private let backgroundTaskManager: BackgroundTaskManager
     private let db: DatabaseManager
     private let userSettingsRepository: UserSettingsRepository?
-    private let expensesRepository: ExpensesRepository
     private let developerMode: DeveloperModeManager
 
-    private var _allCars: [CarDto] = []
     private let logger: Logger
 
     init(
@@ -89,10 +87,6 @@ class UserSettingsViewModel: ObservableObject {
 
     func openWebURL(_ url: URL) {
         UIApplication.shared.open(url)
-    }
-
-    func hasAnyExpense(_ carId: Int64? = nil) -> Bool {
-        return expensesRepository.expensesCount(carId) > 0
     }
 
     func getDefaultCurrency() -> Currency {
@@ -194,11 +188,6 @@ class UserSettingsViewModel: ObservableObject {
                 exportDate: exportData.metadata.createdAt,
                 appVersion: exportData.metadata.appVersion,
                 schemaVersion: exportData.metadata.databaseSchemaVersion,
-                carsCount: exportData.cars.count,
-                expensesCount: exportData.expenses.count,
-                maintenanceCount: exportData.plannedMaintenance.count,
-                notificationsCount: exportData.delayedNotifications.count,
-                dateRange: calculateDateRange(from: exportData.expenses)
             )
 
             isImporting = false
@@ -382,9 +371,4 @@ struct ImportPreviewData {
     let exportDate: Date
     let appVersion: String
     let schemaVersion: Int
-    let carsCount: Int
-    let expensesCount: Int
-    let maintenanceCount: Int
-    let notificationsCount: Int
-    let dateRange: String
 }

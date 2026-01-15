@@ -191,11 +191,6 @@ struct BackupRow: SwiftUI.View {
                 .foregroundColor(.secondary)
 
             HStack(spacing: 12) {
-                Label("\(backup.carsCount)", systemImage: "car.fill")
-                Label("\(backup.expensesCount)", systemImage: "dollarsign.circle.fill")
-                Label("\(backup.maintenanceCount)", systemImage: "wrench.fill")
-
-                Spacer()
 
                 Text("v\(backup.appVersion)")
                     .font(.caption2)
