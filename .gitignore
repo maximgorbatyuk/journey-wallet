@@ -96,4 +96,12 @@ iOSInjectionProject/
 
 # macOS
 .DS_Store
+
+# Environment files with secrets
 .env
+scripts/.env
+ci_scripts/.env
+
+# Firebase config (generated from env vars)
+GoogleService-Info.plist
+**/GoogleService-Info.plist

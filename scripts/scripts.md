@@ -8,35 +8,60 @@ This document outlines the automation scripts for the EV Charging Tracker iOS ap
 
 Scripts are located in the `scripts/` directory and help automate common development tasks such as testing, linting, formatting, and building.
 
-## ⚠️ Important: Firebase Configuration Required
+## ⚠️ Important: Firebase Configuration
 
-**The app uses Firebase Analytics and requires `GoogleService-Info.plist` to build.**
+**The app uses Firebase Analytics. The `GoogleService-Info.plist` is git-ignored for security.**
 
-This file is **gitignored** for security and must be generated or downloaded before building:
+### Build Modes
 
-### Quick Setup (Choose One):
+| Mode | Firebase | GoogleService-Info.plist |
+|------|----------|-------------------------|
+| Debug (local) | Disabled | Not required |
+| Release (local test) | Enabled | Generated from scripts/.env |
+| Release (Xcode Cloud) | Enabled | Generated from Xcode Cloud secrets |
 
-**Option 1: Use Build & Distribute Script** (Recommended)
+### Local Development (Debug)
+
+**No Firebase setup required!** The app skips Firebase initialization in DEBUG builds.
+
+Just open Xcode and build - it works without `GoogleService-Info.plist`.
+
+### Local Release Testing
+
+To test Release builds locally with Firebase:
+
 ```bash
-# Create scripts/.env with Firebase credentials (one-time setup)
-cat > scripts/.env << 'EOF'
-export FIREBASE_API_KEY="your-api-key"
-export FIREBASE_GCM_SENDER_ID="your-sender-id"
-export FIREBASE_APP_ID="1:123456789:ios:abc123"
-EOF
+# 1. Create scripts/.env from template (one-time)
+cp scripts/.env.template scripts/.env
 
-# Run the complete build and distribution workflow
-./scripts/build_and_distribute.sh
+# 2. Edit scripts/.env with your Firebase credentials
+#    Get values from: https://console.firebase.google.com > Project Settings > iOS app
+
+# 3. Generate the plist
+./scripts/generate_firebase_plist.sh
+
+# 4. Build Release in Xcode
 ```
 
-**Option 2: Download from Firebase Console** (For local development only)
-- Download from: https://console.firebase.google.com → `journey-wallet-firebase` → Project Settings → iOS app
-- Place at: `JourneyWallet/GoogleService-Info.plist`
-- Build in Xcode normally
+### Xcode Cloud / App Store Distribution
 
-**For CI/CD:**
-- **Xcode Cloud:** Set environment variables in App Store Connect (handled by `ci_scripts/ci_post_clone.sh`)
-- **GitHub Actions:** Set secrets in repository settings (see CI/CD Configuration section)
+Xcode Cloud automatically generates `GoogleService-Info.plist` using the `ci_scripts/ci_post_clone.sh` script.
+
+**Setup (one-time):**
+1. Go to **App Store Connect > Xcode Cloud > Your Workflow**
+2. Click **Environment** tab
+3. Add these as **Secrets** (not Variables):
+   - `FIREBASE_API_KEY`
+   - `FIREBASE_GCM_SENDER_ID`
+   - `FIREBASE_APP_ID`
+
+The ci_post_clone.sh script will read these secrets and generate the plist before each build.
+
+### Security Notes
+
+- Never commit `GoogleService-Info.plist` or `.env` files
+- Use Xcode Cloud Secrets for CI/CD (they're encrypted)
+- The `scripts/.env.template` is safe to commit (contains no real values)
 
 ---
 

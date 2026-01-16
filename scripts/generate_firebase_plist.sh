@@ -1,38 +1,46 @@
-#!/bin/sh
-# ci_scripts/ci_post_clone.sh
-# This script runs after Xcode Cloud clones your repository
-#
-# Required Environment Variables (set in Xcode Cloud):
-#   - FIREBASE_API_KEY
-#   - FIREBASE_GCM_SENDER_ID
-#   - FIREBASE_APP_ID
-#
-# To set these in Xcode Cloud:
-#   1. Go to App Store Connect > Xcode Cloud > Your Workflow
-#   2. Click "Environment" tab
-#   3. Add each variable as a "Secret" (not "Variable")
+#!/bin/bash
+# Generate GoogleService-Info.plist from environment variables
+# This script is for LOCAL development and testing only
+# For Xcode Cloud, secrets are stored in Xcode Cloud environment variables
 
 set -e
 
-echo "🔧 Generating GoogleService-Info.plist from Xcode Cloud environment variables..."
+echo "🔥 Generating GoogleService-Info.plist..."
+echo ""
 
-# Verify required environment variables
-if [ -z "$FIREBASE_API_KEY" ] || [ -z "$FIREBASE_GCM_SENDER_ID" ] || [ -z "$FIREBASE_APP_ID" ]; then
-    echo "❌ Error: Required Firebase environment variables not set in Xcode Cloud"
+# Check for .env file
+ENV_FILE="./scripts/.env"
+if [ ! -f "$ENV_FILE" ]; then
+    echo "❌ Error: scripts/.env file not found!"
     echo ""
-    echo "Required secrets:"
-    echo "  - FIREBASE_API_KEY"
-    echo "  - FIREBASE_GCM_SENDER_ID"
-    echo "  - FIREBASE_APP_ID"
+    echo "Create scripts/.env file with the following content:"
     echo ""
-    echo "Set these in: App Store Connect > Xcode Cloud > Workflow > Environment"
+    echo "  export FIREBASE_API_KEY=\"your-api-key\""
+    echo "  export FIREBASE_GCM_SENDER_ID=\"your-sender-id\""
+    echo "  export FIREBASE_APP_ID=\"your-app-id\""
+    echo ""
+    echo "Get these values from Firebase Console:"
+    echo "  https://console.firebase.google.com > Project Settings > Your iOS app"
     exit 1
 fi
 
-# Define the path where the plist should be created
-PLIST_PATH="$CI_PRIMARY_REPOSITORY_PATH/JourneyWallet/GoogleService-Info.plist"
+# Source environment variables
+source "$ENV_FILE"
 
-# Create the GoogleService-Info.plist file
+# Verify required variables
+if [ -z "$FIREBASE_API_KEY" ] || [ -z "$FIREBASE_GCM_SENDER_ID" ] || [ -z "$FIREBASE_APP_ID" ]; then
+    echo "❌ Error: Required Firebase environment variables not set"
+    echo ""
+    echo "Required variables in scripts/.env:"
+    echo "  - FIREBASE_API_KEY"
+    echo "  - FIREBASE_GCM_SENDER_ID"
+    echo "  - FIREBASE_APP_ID"
+    exit 1
+fi
+
+# Generate the plist
+PLIST_PATH="./JourneyWallet/GoogleService-Info.plist"
+
 cat > "$PLIST_PATH" << EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -66,10 +74,11 @@ cat > "$PLIST_PATH" << EOF
 </plist>
 EOF
 
-# Verify the file was created (don't print contents - they contain secrets)
 if [ -f "$PLIST_PATH" ]; then
-    echo "✅ GoogleService-Info.plist generated successfully"
+    echo "✅ GoogleService-Info.plist generated successfully!"
     echo "   Path: $PLIST_PATH"
+    echo ""
+    echo "⚠️  Remember: This file is git-ignored and should NOT be committed."
 else
     echo "❌ Failed to generate GoogleService-Info.plist"
     exit 1
