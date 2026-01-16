@@ -18,7 +18,7 @@
                BlueprintIdentifier = "87756BD62E963D240055273C"
                BuildableName = "JourneyWallet.app"
                BlueprintName = "JourneyWallet"
-                ReferencedContainer = "container:JourneyWallet.xcodeproj">
+               ReferencedContainer = "container:JourneyWallet.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
