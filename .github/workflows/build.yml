@@ -25,10 +25,6 @@ jobs:
       - name: Show Swift version
         run: swift --version
 
-      - name: Run SwiftLint (optional)
-        uses: norio-nomura/action-swiftlint@3.2.1
-        continue-on-error: true
-
       - name: Build
         run: |
           xcodebuild -project JourneyWallet.xcodeproj \
