@@ -42,10 +42,6 @@ Source: https://stackoverflow.com/a/10239376
 - Release notes for App Store: [appstore_releases](appstore_releases)
 - Privacy policy: [privacy-policy.md](privacy-policy.md)
 
-## Contributors
-
-- [@maximgorbatyuk](https://github.com/maximgorbatyuk) - Product ownership, iOS development
-
 ## Development references
 
 - [Swift UI icons](https://github.com/andrewtavis/sf-symbols-online/blob/master/README.md)
