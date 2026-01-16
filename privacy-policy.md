@@ -1,25 +1,23 @@
-# Privacy Policy for EV Charging Tracker
+# Privacy Policy for Journey Wallet
 
-**Last Updated: January 15, 2026**
+**Last Updated: January 16, 2026**
 
 ## Introduction
 
-EV Charging Tracker ("we", "our", or "the app") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our iOS application.
+Journey Wallet ("we", "our", or "the app") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our iOS application.
 
 ## Information We Collect
 
 ### Information You Provide
 
-When you use EV Charging Tracker, you may provide the following information:
+When you use Journey Wallet, you may provide the following information:
 
-- **Charging Session Data**: Date, time, location, duration, and cost of charging sessions
-- **Vehicle Information**: Vehicle model, battery capacity, and related specifications
-- **Expense Records**: Charging costs, maintenance expenses, and other vehicle-related financial data
+- **Expense Records**: Date, time, amount, category, and description of expenses
+- **Categories and Tags**: Custom categories and tags for organizing your expenses
 - **Notes and Custom Data**: Any personal notes or custom information you choose to add to your records
 
 ### Automatically Collected Information
 
-- **Location Data**: If you enable location services, we may collect location information to automatically log charging locations
 - **Usage Data**: Information about how you use the app, including features accessed and app performance data
 - **Device Information**: Device type, operating system version, and app version
 
@@ -27,20 +25,20 @@ When you use EV Charging Tracker, you may provide the following information:
 
 We use the collected information to:
 
-- Provide core app functionality for tracking charging sessions and expenses
-- Generate reports and analytics about your charging history and costs
+- Provide core app functionality for tracking and organizing your expenses
+- Generate reports and analytics about your spending history
 - Improve app performance and user experience
-- Calculate statistics such as cost per charge, total expenses, and charging patterns
+- Calculate statistics such as totals by category, spending patterns, and expense trends
 
 ## Data Storage
 
-All your personal data (charging sessions, vehicle information, expenses) is stored locally on your device. We do not transfer your personal data to external servers.
+All your personal data (expenses, categories, notes) is stored locally on your device. We do not transfer your personal data to external servers.
 
 ## iCloud Backup
 
-EV Charging Tracker offers iCloud backup functionality to help you safeguard your data and sync it across your Apple devices. When you enable iCloud backup in the app:
+Journey Wallet offers iCloud backup functionality to help you safeguard your data and sync it across your Apple devices. When you enable iCloud backup in the app:
 
-- Your charging sessions, vehicle data, and expense records are backed up to your personal iCloud account
+- Your expenses, categories, and notes are backed up to your personal iCloud account
 - Backups are encrypted by Apple and protected by your Apple ID
 - Data is accessible only through your iCloud account
 - Backup and sync is subject to [Apple's Privacy Policy](https://www.apple.com/legal/privacy/)
@@ -49,12 +47,7 @@ You can enable or disable iCloud backup at any time in the app settings. If disa
 
 ## Location Services
 
-If you grant location permissions, we use your location data to:
-
-- Automatically tag charging sessions with location information
-- Help you identify where you charged your vehicle
-
-You can revoke location permissions at any time through your device settings. The app will continue to function without location services, but you'll need to manually enter location information if desired.
+Journey Wallet does not use location services.
 
 ## Analytics
 
@@ -74,7 +67,7 @@ You can limit ad tracking and analytics collection through your device's privacy
 
 ## Data Sharing and Third Parties
 
-We do not sell, trade, or transfer your personal information to third parties. Your personal data (charging sessions, expenses, vehicle information) remains on your device and in your personal iCloud account (if enabled).
+We do not sell, trade, or transfer your personal information to third parties. Your personal data (expenses, categories, notes) remains on your device and in your personal iCloud account (if enabled).
 
 We share anonymous usage data with Google Analytics as described above to improve the app.
 
@@ -97,7 +90,7 @@ You have the right to:
 
 ## Children's Privacy
 
-EV Charging Tracker is not intended for use by children under the age of 13. We do not knowingly collect personal information from children under 13.
+Journey Wallet is not intended for use by children under the age of 13. We do not knowingly collect personal information from children under 13.
 
 ## Changes to This Privacy Policy
 
@@ -121,8 +114,8 @@ Since all data is stored locally on your device, no cross-border data transfers 
 If you have questions about this Privacy Policy or our privacy practices, please contact us at:
 
 **Email**: [maximgorbatyuk191093@gmail.com](mailto:maximgorbatyuk191093@gmail.com)  
-**GitHub**: https://github.com/maximgorbatyuk/ev-charging-tracker
+**GitHub**: https://github.com/maximgorbatyuk/journey-wallet
 
 ## Consent
 
-By using EV Charging Tracker, you consent to this Privacy Policy and agree to its terms.
+By using Journey Wallet, you consent to this Privacy Policy and agree to its terms.

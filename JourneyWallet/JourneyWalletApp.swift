@@ -3,7 +3,7 @@ import UserNotifications
 import FirebaseCore
 
 @main
-struct AwesomeApplicationApp: App {
+struct JourneyWalletApp: App {
 
     // For allowing notifications in foreground
     @UIApplicationDelegateAdaptor(ForegroundNotificationDelegate.self) var appDelegate

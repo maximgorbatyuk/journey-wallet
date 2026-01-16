@@ -19,19 +19,19 @@
 			containerPortal = 87756BCF2E963D230055273C /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 87756BD62E963D240055273C;
-			remoteInfo = AwesomeApplication;
+			remoteInfo = JourneyWallet;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		874BB4FF2EA265B2004AFFD5 /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
-		87756BD72E963D240055273C /* AwesomeApplication-Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AwesomeApplication-Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		87756BE42E963D240055273C /* AwesomeApplicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AwesomeApplicationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		87756BD72E963D240055273C /* JourneyWallet-Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JourneyWallet-Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		87756BE42E963D240055273C /* JourneyWalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JourneyWalletTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87D58E512EA5035A00F4454C /* privacy-policy.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "privacy-policy.md"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		87411A602EA140CB008F69EE /* Exceptions for "AwesomeApplication" folder in "AwesomeApplication" target */ = {
+		87411A602EA140CB008F69EE /* Exceptions for "JourneyWallet" folder in "JourneyWallet" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Config/Base.xcconfig,
@@ -39,7 +39,7 @@
 				Config/Release.xcconfig,
 				Info.plist,
 			);
-			target = 87756BD62E963D240055273C /* AwesomeApplication */;
+			target = 87756BD62E963D240055273C /* JourneyWallet */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -49,12 +49,12 @@
 			path = BusinessLogic;
 			sourceTree = "<group>";
 		};
-		87756BD92E963D240055273C /* AwesomeApplication */ = {
+		87756BD92E963D240055273C /* JourneyWallet */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				87411A602EA140CB008F69EE /* Exceptions for "AwesomeApplication" folder in "AwesomeApplication" target */,
+				87411A602EA140CB008F69EE /* Exceptions for "JourneyWallet" folder in "JourneyWallet" target */,
 			);
-			path = AwesomeApplication;
+			path = JourneyWallet;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -85,7 +85,7 @@
 				87171B3F2ED9B1240084F6D7 /* BusinessLogic */,
 				87D58E512EA5035A00F4454C /* privacy-policy.md */,
 				874BB4FF2EA265B2004AFFD5 /* readme.md */,
-				87756BD92E963D240055273C /* AwesomeApplication */,
+				87756BD92E963D240055273C /* JourneyWallet */,
 				87756BD82E963D240055273C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,8 +93,8 @@
 		87756BD82E963D240055273C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				87756BD72E963D240055273C /* AwesomeApplication-Dev.app */,
-				87756BE42E963D240055273C /* AwesomeApplicationTests.xctest */,
+				87756BD72E963D240055273C /* JourneyWallet-Dev.app */,
+				87756BE42E963D240055273C /* JourneyWalletTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,9 +102,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		87756BD62E963D240055273C /* AwesomeApplication */ = {
+		87756BD62E963D240055273C /* JourneyWallet */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 87756BF82E963D250055273C /* Build configuration list for PBXNativeTarget "AwesomeApplication" */;
+			buildConfigurationList = 87756BF82E963D250055273C /* Build configuration list for PBXNativeTarget "JourneyWallet" */;
 			buildPhases = (
 				87756BD32E963D240055273C /* Sources */,
 				87756BD42E963D240055273C /* Frameworks */,
@@ -116,20 +116,20 @@
 			);
 			fileSystemSynchronizedGroups = (
 				87171B3F2ED9B1240084F6D7 /* BusinessLogic */,
-				87756BD92E963D240055273C /* AwesomeApplication */,
+				87756BD92E963D240055273C /* JourneyWallet */,
 			);
-			name = AwesomeApplication;
+			name = JourneyWallet;
 			packageProductDependencies = (
 				87756C022E963DBC0055273C /* SQLite */,
 				87DD139A2EBB7949005982AB /* FirebaseAnalytics */,
 			);
-			productName = AwesomeApplication;
-			productReference = 87756BD72E963D240055273C /* AwesomeApplication-Dev.app */;
+			productName = JourneyWallet;
+			productReference = 87756BD72E963D240055273C /* JourneyWallet-Dev.app */;
 			productType = "com.apple.product-type.application";
 		};
-		87756BE32E963D240055273C /* AwesomeApplicationTests */ = {
+		87756BE32E963D240055273C /* JourneyWalletTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 87756BFB2E963D250055273C /* Build configuration list for PBXNativeTarget "AwesomeApplicationTests" */;
+			buildConfigurationList = 87756BFB2E963D250055273C /* Build configuration list for PBXNativeTarget "JourneyWalletTests" */;
 			buildPhases = (
 				87756BE02E963D240055273C /* Sources */,
 				87756BE12E963D240055273C /* Frameworks */,
@@ -140,11 +140,11 @@
 			dependencies = (
 				87756BE62E963D240055273C /* PBXTargetDependency */,
 			);
-			name = AwesomeApplicationTests;
+			name = JourneyWalletTests;
 			packageProductDependencies = (
 			);
-			productName = AwesomeApplicationTests;
-			productReference = 87756BE42E963D240055273C /* AwesomeApplicationTests.xctest */;
+			productName = JourneyWalletTests;
+			productReference = 87756BE42E963D240055273C /* JourneyWalletTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -166,7 +166,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 87756BD22E963D230055273C /* Build configuration list for PBXProject "AwesomeApplication" */;
+			buildConfigurationList = 87756BD22E963D230055273C /* Build configuration list for PBXProject "JourneyWallet" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -189,8 +189,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				87756BD62E963D240055273C /* AwesomeApplication */,
-				87756BE32E963D240055273C /* AwesomeApplicationTests */,
+				87756BD62E963D240055273C /* JourneyWallet */,
+				87756BE32E963D240055273C /* JourneyWalletTests */,
 			);
 		};
 /* End PBXProject section */
@@ -234,7 +234,7 @@
 /* Begin PBXTargetDependency section */
 		87756BE62E963D240055273C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 87756BD62E963D240055273C /* AwesomeApplication */;
+			target = 87756BD62E963D240055273C /* JourneyWallet */;
 			targetProxy = 87756BE52E963D240055273C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -242,7 +242,7 @@
 /* Begin XCBuildConfiguration section */
 		87756BF62E963D250055273C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReferenceAnchor = 87756BD92E963D240055273C /* AwesomeApplication */;
+			baseConfigurationReferenceAnchor = 87756BD92E963D240055273C /* JourneyWallet */;
 			baseConfigurationReferenceRelativePath = Config/Debug.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -311,7 +311,7 @@
 		};
 		87756BF72E963D250055273C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReferenceAnchor = 87756BD92E963D240055273C /* AwesomeApplication */;
+			baseConfigurationReferenceAnchor = 87756BD92E963D240055273C /* JourneyWallet */;
 			baseConfigurationReferenceRelativePath = Config/Release.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -373,21 +373,21 @@
 		};
 		87756BF92E963D250055273C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReferenceAnchor = 87756BD92E963D240055273C /* AwesomeApplication */;
+			baseConfigurationReferenceAnchor = 87756BD92E963D240055273C /* JourneyWallet */;
 			baseConfigurationReferenceRelativePath = Config/Debug.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = AwesomeApplication/AwesomeApplication.entitlements;
+				CODE_SIGN_ENTITLEMENTS = JourneyWallet/JourneyWallet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EKKL63HDHJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AwesomeApplication/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = AwesomeApplication;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_FILE = JourneyWallet/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Journey Wallet";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -399,7 +399,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2026.1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mgorbatyuk.AwesomeApplicationDebug;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.mgorbatyuk.JourneyWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)-Dev";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -409,21 +409,21 @@
 		};
 		87756BFA2E963D250055273C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReferenceAnchor = 87756BD92E963D240055273C /* AwesomeApplication */;
+			baseConfigurationReferenceAnchor = 87756BD92E963D240055273C /* JourneyWallet */;
 			baseConfigurationReferenceRelativePath = Config/Release.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = AwesomeApplication/AwesomeApplication.entitlements;
+				CODE_SIGN_ENTITLEMENTS = JourneyWallet/JourneyWallet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EKKL63HDHJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AwesomeApplication/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = AwesomeApplication;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_FILE = JourneyWallet/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Journey Wallet";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -435,7 +435,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2026.1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mgorbatyuk.AwesomeApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.mgorbatyuk.JourneyWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -445,7 +445,7 @@
 		};
 		87756BFC2E963D250055273C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReferenceAnchor = 87756BD92E963D240055273C /* AwesomeApplication */;
+			baseConfigurationReferenceAnchor = 87756BD92E963D240055273C /* JourneyWallet */;
 			baseConfigurationReferenceRelativePath = Config/Debug.xcconfig;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -455,7 +455,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mgorbatyuk.AwesomeApplicationTests;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.mgorbatyuk.JourneyWalletTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -465,7 +465,7 @@
 		};
 		87756BFD2E963D250055273C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReferenceAnchor = 87756BD92E963D240055273C /* AwesomeApplication */;
+			baseConfigurationReferenceAnchor = 87756BD92E963D240055273C /* JourneyWallet */;
 			baseConfigurationReferenceRelativePath = Config/Release.xcconfig;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -475,7 +475,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mgorbatyuk.AwesomeApplicationTests;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.mgorbatyuk.JourneyWalletTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -486,7 +486,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		87756BD22E963D230055273C /* Build configuration list for PBXProject "AwesomeApplication" */ = {
+		87756BD22E963D230055273C /* Build configuration list for PBXProject "JourneyWallet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				87756BF62E963D250055273C /* Debug */,
@@ -495,7 +495,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		87756BF82E963D250055273C /* Build configuration list for PBXNativeTarget "AwesomeApplication" */ = {
+		87756BF82E963D250055273C /* Build configuration list for PBXNativeTarget "JourneyWallet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				87756BF92E963D250055273C /* Debug */,
@@ -504,7 +504,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		87756BFB2E963D250055273C /* Build configuration list for PBXNativeTarget "AwesomeApplicationTests" */ = {
+		87756BFB2E963D250055273C /* Build configuration list for PBXNativeTarget "JourneyWalletTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				87756BFC2E963D250055273C /* Debug */,

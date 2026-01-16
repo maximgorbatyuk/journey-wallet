@@ -41,7 +41,7 @@ echo ""
 # ============================================================================
 echo "🔧 Step 2: Generating GoogleService-Info.plist..."
 
-PLIST_PATH="./EVChargingTracker/GoogleService-Info.plist"
+PLIST_PATH="./JourneyWallet/GoogleService-Info.plist"
 
 cat > "$PLIST_PATH" << EOF
 <?xml version="1.0" encoding="UTF-8"?>
@@ -55,11 +55,11 @@ cat > "$PLIST_PATH" << EOF
     <key>PLIST_VERSION</key>
     <string>1</string>
     <key>BUNDLE_ID</key>
-    <string>dev.mgorbatyuk.EvChargeTracker</string>
+    <string>dev.mgorbatyuk.JourneyWallet</string>
     <key>PROJECT_ID</key>
-    <string>ev-charge-tracker-851bf</string>
+    <string>journey-wallet-firebase</string>
     <key>STORAGE_BUCKET</key>
-    <string>ev-charge-tracker-851bf.firebasestorage.app</string>
+    <string>journey-wallet-firebase.firebasestorage.app</string>
     <key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -89,7 +89,7 @@ echo ""
 # ============================================================================
 echo "📦 Step 3: Building app locally to verify configuration..."
 
-SCHEME="EVChargingTracker"
+SCHEME="JourneyWallet"
 ARCHIVE_PATH="./build/${SCHEME}.xcarchive"
 
 # Clean build directory

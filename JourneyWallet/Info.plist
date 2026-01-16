@@ -8,7 +8,7 @@
 	<string>$(APP_VISIBLE_VERSION)</string>
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
 	<array>
-		<string>dev.mgorbatyuk.awesomeapplication.daily-backup</string>
+		<string>dev.mgorbatyuk.journeywallet.daily-backup</string>
 	</array>
 	<key>BuildEnvironment</key>
 	<string>$(BUILD_ENVIRONMENT)</string>

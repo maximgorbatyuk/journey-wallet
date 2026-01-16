@@ -30,8 +30,8 @@ EOF
 ```
 
 **Option 2: Download from Firebase Console** (For local development only)
-- Download from: https://console.firebase.google.com → `ev-charge-tracker-851bf` → Project Settings → iOS app
-- Place at: `EVChargingTracker/GoogleService-Info.plist`
+- Download from: https://console.firebase.google.com → `journey-wallet-firebase` → Project Settings → iOS app
+- Place at: `JourneyWallet/GoogleService-Info.plist`
 - Build in Xcode normally
 
 **For CI/CD:**
@@ -55,7 +55,7 @@ set -e
 echo "🧪 Running tests..."
 
 xcodebuild test \
-  -scheme EVChargingTracker \
+  -scheme JourneyWallet \
   -destination 'platform=iOS Simulator,name=iPhone 15 Pro,OS=18.0' \
   -enableCodeCoverage YES \
   -resultBundlePath ./build/TestResults.xcresult
@@ -167,8 +167,8 @@ if ! which periphery >/dev/null; then
 fi
 
 periphery scan \
-  --schemes EVChargingTracker \
-  --targets EVChargingTracker \
+  --schemes JourneyWallet \
+  --targets JourneyWallet \
   --format xcode
 
 echo "✅ Unused code detection completed!"
@@ -241,7 +241,7 @@ echo ""
 # ============================================================================
 echo "🔧 Step 2: Generating GoogleService-Info.plist..."
 
-PLIST_PATH="./EVChargingTracker/GoogleService-Info.plist"
+PLIST_PATH="./JourneyWallet/GoogleService-Info.plist"
 
 cat > "$PLIST_PATH" << EOF
 <?xml version="1.0" encoding="UTF-8"?>
@@ -255,11 +255,11 @@ cat > "$PLIST_PATH" << EOF
     <key>PLIST_VERSION</key>
     <string>1</string>
     <key>BUNDLE_ID</key>
-    <string>dev.mgorbatyuk.EvChargeTracker</string>
+    <string>dev.mgorbatyuk.JourneyWallet</string>
     <key>PROJECT_ID</key>
-    <string>ev-charge-tracker-851bf</string>
+    <string>journey-wallet-firebase</string>
     <key>STORAGE_BUCKET</key>
-    <string>ev-charge-tracker-851bf.firebasestorage.app</string>
+    <string>journey-wallet-firebase.firebasestorage.app</string>
     <key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -289,7 +289,7 @@ echo ""
 # ============================================================================
 echo "📦 Step 3: Building app locally to verify configuration..."
 
-SCHEME="EVChargingTracker"
+SCHEME="JourneyWallet"
 ARCHIVE_PATH="./build/${SCHEME}.xcarchive"
 
 # Clean build directory
@@ -411,7 +411,7 @@ chmod +x scripts/build_and_distribute.sh
 
 **What the Script Does:**
 1. ✅ Loads Firebase secrets from `scripts/.env`
-2. ✅ Generates `GoogleService-Info.plist` in `EVChargingTracker/`
+2. ✅ Generates `GoogleService-Info.plist` in `JourneyWallet/`
 3. ✅ Builds app locally to verify configuration is correct
 4. ✅ Prompts to commit and push changes
 5. ✅ Push triggers Xcode Cloud workflow automatically
@@ -524,7 +524,7 @@ jobs:
       - name: Run Tests
         run: |
           xcodebuild test \
-            -scheme EVChargingTracker \
+            -scheme JourneyWallet \
             -destination 'platform=iOS Simulator,name=iPhone 15 Pro' \
             -enableCodeCoverage YES
 ```
@@ -589,10 +589,10 @@ source scripts/.env
 **Option 2: Download from Firebase Console**
 ```bash
 # 1. Go to Firebase Console (https://console.firebase.google.com)
-# 2. Select your project: ev-charge-tracker-851bf
+# 2. Select your project: journey-wallet-firebase
 # 3. Go to Project Settings > Your apps > iOS app
 # 4. Download GoogleService-Info.plist
-# 5. Place it at: EVChargingTracker/GoogleService-Info.plist
+# 5. Place it at: JourneyWallet/GoogleService-Info.plist
 ```
 
 **Option 3: Add to Shell Profile (for permanent setup)**
@@ -678,11 +678,11 @@ chmod +x scripts/*.sh
    ```
 
 2. **Download from Firebase Console:**
-   - Visit https://console.firebase.google.com
-   - Select project: `ev-charge-tracker-851bf`
-   - Project Settings > Your apps > iOS app
-   - Download `GoogleService-Info.plist`
-   - Place at: `EVChargingTracker/GoogleService-Info.plist`
+    - Visit https://console.firebase.google.com
+    - Select project: `journey-wallet-firebase`
+    - Project Settings > Your apps > iOS app
+    - Download `GoogleService-Info.plist`
+    - Place at: `JourneyWallet/GoogleService-Info.plist`
 
 3. **Use .env file (recommended for team):**
    ```bash
@@ -711,16 +711,18 @@ source scripts/.env
 ```
 
 ### Build succeeds but app crashes on launch with Firebase error
+
+### Build succeeds but app crashes on launch with Firebase error
 **Problem:** GoogleService-Info.plist has incorrect values or is missing from build.
 
 **Solution:**
-1. Verify the file exists: `ls -la EVChargingTracker/GoogleService-Info.plist`
-2. Check file contents: `cat EVChargingTracker/GoogleService-Info.plist`
+1. Verify file exists: `ls -la JourneyWallet/GoogleService-Info.plist`
+2. Check file contents: `cat JourneyWallet/GoogleService-Info.plist`
 3. Ensure file is included in Xcode target:
    - Open Xcode
    - Select `GoogleService-Info.plist` in Project Navigator
-   - Check "Target Membership" in File Inspector (right panel)
-   - Ensure `EVChargingTracker` target is checked
+    - Check "Target Membership" in File Inspector (right panel)
+    - Ensure `JourneyWallet` target is checked
 4. Clean build: Xcode → Product → Clean Build Folder (⌘+Shift+K)
 5. Rebuild: `./scripts/build_and_distribute.sh`
 

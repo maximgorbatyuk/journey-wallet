@@ -1,9 +1,9 @@
 #!/bin/bash
-# Setup script for EVChargingTracker development environment
+# Setup script for JourneyWallet development environment
 
 set -e
 
-echo "🛠️  Setting up EVChargingTracker development environment..."
+echo "🛠️  Setting up JourneyWallet development environment..."
 echo ""
 
 # ============================================================================
@@ -104,7 +104,7 @@ EOF
         echo ""
         echo "⚠️  IMPORTANT: Edit scripts/.env and add your actual Firebase credentials!"
         echo "   You can get these from: https://console.firebase.google.com"
-        echo "   Project: ev-charge-tracker-851bf"
+        echo "   Project: journey-wallet-firebase"
     fi
 fi
 
