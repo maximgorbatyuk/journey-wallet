@@ -25,14 +25,14 @@ cat > "$PLIST_PATH" << EOF
     <key>GCM_SENDER_ID</key>
     <string>$FIREBASE_GCM_SENDER_ID</string>
     <key>PLIST_VERSION</key>
-    <string>1</string>
-    <key>BUNDLE_ID</key>
-    <string>dev.mgorbatyuk.JourneyWallet</string>
-    <key>PROJECT_ID</key>
-    <string>journey-wallet-firebase</string>
-    <key>STORAGE_BUCKET</key>
-    <string>journey-wallet-firebase.firebasestorage.app</string>
-    <key>IS_ADS_ENABLED</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>dev.mgorbatyuk.JourneyWallet</string>
+	<key>PROJECT_ID</key>
+	<string>journey-wallet-ce323</string>
+	<key>STORAGE_BUCKET</key>
+	<string>journey-wallet-ce323.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
 	<false></false>
