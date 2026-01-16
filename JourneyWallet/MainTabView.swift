@@ -17,15 +17,9 @@ struct MainTabView: SwiftUI.View {
     var body: some SwiftUI.View {
         ZStack {
             TabView(selection: $selectedTab) {
-                OnboardingView(
-                    onOnboardingSkipped: {
-                        selectedTab = 2
-                    },
-                    onOnboardingCompleted: {
-                        selectedTab = 2
-                    })
+                PlaceholderTabView(title: "Home", iconName: "house.fill")
                     .tabItem {
-                        Label(L("Onboarding"), systemImage: "star.fill")
+                        Label("Home", systemImage: "house.fill")
                     }
                     .tint(nil)
                     .tag(0)
@@ -48,11 +42,11 @@ struct MainTabView: SwiftUI.View {
                     .tabItem {
                         Label(L("Settings"), systemImage: "gear")
                     }
-                    .tag(3)
                     .tint(nil)
+                    .tag(3)
                     .badge(showAppVersionBadge ? "New!" : nil)
             }
-            .tint(getTabViewColor())
+            .tint(Color.orange)
             .id(loc.currentLanguage.rawValue)
             .onAppear {
                 Task {
@@ -60,21 +54,6 @@ struct MainTabView: SwiftUI.View {
                     showAppVersionBadge = appVersionCheckResult ?? false
                 }
             }
-        }
-    }
-    
-    private func getTabViewColor() -> Color {
-        switch selectedTab {
-            case 0:
-                return Color.orange
-            case 1:
-                return Color.green
-            case 2:
-                return Color.cyan
-            case 3:
-                return Color.blue
-            default:
-            return Color.primary
         }
     }
 }
