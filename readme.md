@@ -2,7 +2,20 @@
 
 ## Description
 
-Journey Wallet is an iOS app that allows users to manage their journey expenses.
+Keep your journey in one place.
+
+Journey Wallet is an iOS app that allows users to keep all journey details, bookings, receipts, docs, and more on one place.
+
+## Features
+
+- Flight details
+- Hotel details
+- Car rental details
+- Booking details
+- Keep docs, tickets, receipts, and other journey-related documents (PDF, JPEG, PNG, etc.)
+- Flight reminders
+- iCloud backups
+- Offline mode
 
 ## App Store screenshot resolutions
 
@@ -28,10 +41,6 @@ Source: https://stackoverflow.com/a/10239376
 - Development: [changelog.md](changelog.md)
 - Release notes for App Store: [appstore_releases](appstore_releases)
 - Privacy policy: [privacy-policy.md](privacy-policy.md)
-
-## Contributors
-
-- [@maximgorbatyuk](https://github.com/maximgorbatyuk) - Product ownership, iOS development
 
 ## Development references
 

@@ -1,16 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap");
 
 :root {
-  --bg: #daf5f0;
-  --bg-alt: #f1f7f2;
+  --bg: #f5deda;
+  --bg-alt: #f7f2f1;
   --ink: #121212;
   --muted: #4f4f4f;
-  --call-to-action: #90ee90;
-  --call-to-action-secondary: #ffeddb;
-  --accent: #a388ee;
-  --accent-dark: #9723c9;
-  --accent-very-dark: #1e0628;
-  --shock: #c4a1ff;
+  --call-to-action: #f3864b;
+  --call-to-action-secondary: #fdefec;
+  --accent: #88b2ee;
+  --accent-dark: #2326c9;
+  --accent-very-dark: #060728;
+  --shock: #729be2;
   --warn: #ff6b1a;
   --card: #ffffff;
   --stroke: #111111;
@@ -38,13 +38,11 @@ body {
     linear-gradient(135deg, rgba(22, 219, 101, 0.06), transparent 60%),
     radial-gradient(circle at 10% 20%, rgba(11, 88, 244, 0.08), transparent 45%),
     radial-gradient(circle at 80% 10%, rgba(255, 107, 26, 0.1), transparent 50%),
-    repeating-linear-gradient(
-      90deg,
+    repeating-linear-gradient(90deg,
       rgba(0, 0, 0, 0.03),
       rgba(0, 0, 0, 0.03) 1px,
       transparent 1px,
-      transparent 10px
-    );
+      transparent 10px);
 }
 
 .page {
@@ -131,7 +129,7 @@ body {
 }
 
 .badge:hover {
-  background: #d9e8da;
+  background: var(--accent);
 }
 
 .cta {
@@ -371,6 +369,7 @@ body {
     transform: scale(0.7) rotate(-6deg);
     opacity: 0;
   }
+
   100% {
     transform: scale(1) rotate(0deg);
     opacity: 1;
@@ -382,6 +381,7 @@ body {
     opacity: 0;
     transform: translateY(12px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
