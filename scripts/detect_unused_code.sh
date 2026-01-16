@@ -10,8 +10,8 @@ if ! which periphery >/dev/null; then
 fi
 
 periphery scan \
-  --schemes EVChargingTracker \
-  --targets EVChargingTracker \
+  --schemes JourneyWallet \
+  --targets JourneyWallet \
   --format xcode
 
 echo "✅ Unused code detection completed!"

@@ -9,10 +9,10 @@ echo "🔧 Generating GoogleService-Info.plist from environment variables..."
 
 # Define the path where the plist should be created
 # Replace "YourApp" with your actual target name
-PLIST_PATH="$CI_PRIMARY_REPOSITORY_PATH/EVChargingTracker/GoogleService-Info.plist"
+PLIST_PATH="$CI_PRIMARY_REPOSITORY_PATH/JourneyWallet/GoogleService-Info.plist"
 
 # Get bundle identifier from the project
-BUNDLE_ID="${PRODUCT_BUNDLE_IDENTIFIER:-dev.mgorbatyuk.EvChargeTracker}"
+BUNDLE_ID="${PRODUCT_BUNDLE_IDENTIFIER:-dev.mgorbatyuk.JourneyWallet}"
 
 # Create the GoogleService-Info.plist file
 cat > "$PLIST_PATH" << EOF
@@ -27,11 +27,11 @@ cat > "$PLIST_PATH" << EOF
     <key>PLIST_VERSION</key>
     <string>1</string>
     <key>BUNDLE_ID</key>
-    <string>dev.mgorbatyuk.EvChargeTracker</string>
+    <string>dev.mgorbatyuk.JourneyWallet</string>
     <key>PROJECT_ID</key>
-    <string>ev-charge-tracker-851bf</string>
+    <string>journey-wallet-firebase</string>
     <key>STORAGE_BUCKET</key>
-    <string>ev-charge-tracker-851bf.firebasestorage.app</string>
+    <string>journey-wallet-firebase.firebasestorage.app</string>
     <key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>

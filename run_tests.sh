@@ -11,14 +11,14 @@ fi
 
 # Clean xcodebuild artifacts
 xcodebuild clean \
-  -scheme EVChargingTracker
+  -scheme JourneyWallet
 
 echo "✅ Build artifacts cleaned"
 echo ""
 echo "🧪 Running tests..."
 
 xcodebuild test \
-  -scheme EVChargingTracker \
+  -scheme JourneyWallet \
   -destination 'platform=iOS Simulator,name=iPhone 17 Pro Max,OS=26.2' \
   -enableCodeCoverage YES \
   -resultBundlePath ./build/TestResults.xcresult
