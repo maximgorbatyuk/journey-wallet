@@ -25,7 +25,7 @@ struct OnboardingLanguageSelectionView: SwiftUICore.View {
                     .font(.title2)
                     .foregroundColor(.secondary)
 
-                Text("AwesomeApplication")
+                Text("Journey Wallet")
                     .font(.largeTitle)
                     .bold()
                     .multilineTextAlignment(.center)
