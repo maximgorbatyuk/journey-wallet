@@ -28,6 +28,26 @@ This document outlines the implementation plan for Journey Wallet iOS app featur
 - Flight/journey reminders
 - Statistics and travel history
 
+## User stories
+
+Below are some key user stories for the app:
+
+1. As a user, I want to add a journey so that I can manage my travel plans.
+2. As a user, I want to add transports to a journey so that I can track my travel itinerary.
+3. As a user, I want to add hotels to a journey so that I can manage my accommodation.
+4. As a user, I want to add car rentals to a journey so that I can track my car rental details.
+5. As a user, I want to add documents to a journey so that I can store important travel documents.
+6. As a user, I want to add notes to a journey so that I can add additional information.
+7. As a user, I want to add places to visit to a journey so that I can plan my travel activities.
+8. As a user, I want to add reminders to a journey so that I don't forget important travel details.
+9. As a user, I want to add expenses to a journey so that I can track my travel expenses.
+10. As a user, I want to have an option to open any file (PDF, JPEG, PNG, photo) via the system share sheet, so I can add the file to a selected journey. The file should be copied to the app's Documents directory and linked to the journey. *(Implemented via Share Extension - see Phase 8, Step 8.5)*
+11. As a user, I want to view, delete, or share files (PDF, images) related to a journey within the app. *(Implemented via PDFKit for PDFs, UIImageView for images - see Phase 8, Step 8.4)*
+
+**Note:** This list is not exhaustive. Additional features may be identified during development.
+
+## Features and Views
+
 **Main tabs**
 - Tab 1: MainView
   - Stats
@@ -489,11 +509,37 @@ This document outlines the implementation plan for Journey Wallet iOS app featur
 
 ### Step 8.4: DocumentPreviewView
 - Create `DocumentPreviewView.swift`
-- Use `QuickLook` for PDF preview
-- Image viewer for JPEG/PNG
-- Share functionality
+- **PDF Viewing**: Use `PDFKit` (`PDFView`) for native PDF rendering with zoom, scroll, page navigation
+- **Image Viewing**: Use `UIImageView` wrapped in SwiftUI for JPEG/PNG display with pinch-to-zoom
+- **Actions**: View, delete, share to other apps via `UIActivityViewController`
+- Full-screen presentation with dismiss gesture
 
-### Step 8.5: Update Backup Service
+### Step 8.5: Share Extension (Import from System Share Sheet)
+- **Create Share Extension target** in Xcode project
+  - File > New > Target > Share Extension
+  - Name: `JourneyWalletShare`
+  - Configure for file types: PDF, JPEG, PNG, HEIC
+- **ShareViewController.swift**
+  - Extend `SLComposeServiceViewController` or use SwiftUI-based approach
+  - Receive shared file via `NSExtensionContext`
+  - Display journey picker to select target journey
+  - Copy file to App Group shared container
+  - Show success/error feedback
+- **App Group Configuration**
+  - Create App Group in Apple Developer Portal
+  - Enable App Group capability in both main app and extension
+  - Shared `UserDefaults` for passing journey selection
+  - Shared container for file transfer between extension and main app
+- **Main App Integration**
+  - On app launch, check shared container for pending files
+  - Process pending files and move to Documents directory
+  - Link files to selected journey in database
+  - Clean up shared container after processing
+- **Info.plist Configuration**
+  - Define `NSExtensionActivationRule` for supported file types
+  - Set `NSExtensionPointIdentifier` to `com.apple.share-services`
+
+### Step 8.6: Update Backup Service
 - Add document files to iCloud backup
 - Handle large file exports
 - Progress indicator for document backup
@@ -645,7 +691,11 @@ This document outlines the implementation plan for Journey Wallet iOS app featur
   - Add hotel, car rental
   - Add notes, places, expenses
   - Create and manage reminders
-  - Import document
+  - Import document via in-app picker
+  - Import document via Share Extension (share from Files/Photos/Safari)
+  - View PDF documents with PDFKit
+  - View images with zoom/pan
+  - Share documents to other apps
   - Backup/restore
   - Search functionality
 
@@ -677,7 +727,7 @@ This document outlines the implementation plan for Journey Wallet iOS app featur
 | Phase 5 | Transport Management | High | High |
 | Phase 6 | Hotel Management | High | Medium |
 | Phase 7 | Car Rental Management | Medium | Medium |
-| Phase 8 | Document Management | High | High |
+| Phase 8 | Document Management & Share Extension | High | High |
 | Phase 9 | Notes, Places & Budget | Medium | High |
 | Phase 10 | Reminders & Notifications (Tab 4) | High | Medium |
 | Phase 11 | Statistics Service | Medium | Low |
