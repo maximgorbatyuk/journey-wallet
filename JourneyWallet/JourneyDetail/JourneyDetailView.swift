@@ -4,6 +4,8 @@ struct JourneyDetailView: View {
 
     @State private var viewModel = JourneyDetailViewModel()
     @State private var showAddJourneySheet = false
+    @State private var showTransportList = false
+    @State private var showHotelList = false
     @ObservedObject private var analytics = AnalyticsService.shared
 
     var body: some View {
@@ -38,25 +40,39 @@ struct JourneyDetailView: View {
                     ScrollView {
                         LazyVStack(spacing: 0) {
                             // Transport Section
+                            NavigationLink(destination: TransportListView(journeyId: viewModel.selectedJourneyId ?? UUID()), isActive: $showTransportList) {
+                                EmptyView()
+                            }
+                            .hidden()
+
                             sectionContainer(
                                 header: SectionHeaderView(
                                     title: L("journey.detail.section.transport"),
                                     iconName: "airplane",
                                     iconColor: .blue,
                                     itemCount: viewModel.sectionCounts.transports,
-                                    onSeeAll: viewModel.sectionCounts.transports > 0 ? {
-                                        // TODO: Navigate to full transport list
+                                    onSeeAll: viewModel.selectedJourneyId != nil ? {
+                                        showTransportList = true
                                     } : nil
                                 ),
                                 content: {
                                     if viewModel.upcomingTransports.isEmpty {
-                                        EmptySectionView(
-                                            message: L("journey.detail.transport.empty"),
-                                            iconName: "airplane"
-                                        )
+                                        Button {
+                                            showTransportList = true
+                                        } label: {
+                                            EmptySectionView(
+                                                message: L("journey.detail.transport.empty"),
+                                                iconName: "airplane"
+                                            )
+                                        }
+                                        .buttonStyle(.plain)
                                     } else {
                                         ForEach(viewModel.upcomingTransports) { transport in
                                             TransportPreviewRow(transport: transport)
+                                                .contentShape(Rectangle())
+                                                .onTapGesture {
+                                                    showTransportList = true
+                                                }
                                             if transport.id != viewModel.upcomingTransports.last?.id {
                                                 Divider().padding(.leading, 56)
                                             }
@@ -66,25 +82,39 @@ struct JourneyDetailView: View {
                             )
 
                             // Hotels Section
+                            NavigationLink(destination: HotelListView(journeyId: viewModel.selectedJourneyId ?? UUID()), isActive: $showHotelList) {
+                                EmptyView()
+                            }
+                            .hidden()
+
                             sectionContainer(
                                 header: SectionHeaderView(
                                     title: L("journey.detail.section.hotels"),
                                     iconName: "building.2.fill",
                                     iconColor: .purple,
                                     itemCount: viewModel.sectionCounts.hotels,
-                                    onSeeAll: viewModel.sectionCounts.hotels > 0 ? {
-                                        // TODO: Navigate to full hotel list
+                                    onSeeAll: viewModel.selectedJourneyId != nil ? {
+                                        showHotelList = true
                                     } : nil
                                 ),
                                 content: {
                                     if viewModel.upcomingHotels.isEmpty {
-                                        EmptySectionView(
-                                            message: L("journey.detail.hotels.empty"),
-                                            iconName: "building.2"
-                                        )
+                                        Button {
+                                            showHotelList = true
+                                        } label: {
+                                            EmptySectionView(
+                                                message: L("journey.detail.hotels.empty"),
+                                                iconName: "building.2"
+                                            )
+                                        }
+                                        .buttonStyle(.plain)
                                     } else {
                                         ForEach(viewModel.upcomingHotels) { hotel in
                                             HotelPreviewRow(hotel: hotel)
+                                                .contentShape(Rectangle())
+                                                .onTapGesture {
+                                                    showHotelList = true
+                                                }
                                             if hotel.id != viewModel.upcomingHotels.last?.id {
                                                 Divider().padding(.leading, 56)
                                             }

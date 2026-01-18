@@ -272,3 +272,145 @@
 "journey.detail.places.empty" = "Henüz gezilecek yer yok";
 "journey.detail.reminders.empty" = "Henüz hatırlatma yok";
 "journey.detail.budget.empty" = "Henüz harcama kaydedilmedi";
+
+/* Transport List */
+"transport.list.title" = "Ulaşım";
+"transport.list.empty.title" = "Ulaşım rezervasyonu yok";
+"transport.list.empty.subtitle" = "Uçuşlarınızı, trenlerinizi, otobüslerinizi ve diğer ulaşım rezervasyonlarınızı ekleyin.";
+"transport.list.empty.add_button" = "Ulaşım Ekle";
+
+/* Transport Filters */
+"transport.filter.all" = "Tümü";
+"transport.filter.upcoming" = "Yaklaşan";
+"transport.filter.in_progress" = "Devam Eden";
+"transport.filter.past" = "Geçmiş";
+"transport.filter.all_types" = "Tüm Tipler";
+
+/* Transport Status */
+"transport.status.upcoming" = "Yaklaşan";
+"transport.status.in_progress" = "Devam Eden";
+"transport.status.completed" = "Tamamlandı";
+
+/* Transport Detail */
+"transport.detail.seat" = "Koltuk";
+"transport.detail.booking_reference" = "Rezervasyon Numarası";
+"transport.detail.cost" = "Maliyet";
+"transport.detail.notes" = "Notlar";
+"transport.detail.add_reminder" = "Hatırlatma Ekle";
+"transport.detail.departs_in" = "Kalkış";
+"transport.detail.departing_soon" = "Yakında kalkıyor";
+"transport.detail.delete_confirm.title" = "Ulaşımı Sil?";
+"transport.detail.delete_confirm.message" = "Bu ulaşım rezervasyonu ve ilişkili tüm hatırlatmalar kalıcı olarak silinecek.";
+
+/* Transport Form */
+"transport.form.add_title" = "Ulaşım Ekle";
+"transport.form.edit_title" = "Ulaşımı Düzenle";
+"transport.form.section.type" = "Ulaşım Tipi";
+"transport.form.section.carrier" = "Taşıyıcı Bilgisi";
+"transport.form.section.route" = "Güzergah";
+"transport.form.section.schedule" = "Zaman Çizelgesi";
+"transport.form.section.details" = "Detaylar";
+"transport.form.section.cost" = "Maliyet";
+"transport.form.section.notes" = "Notlar";
+"transport.form.type" = "Tip";
+"transport.form.departure" = "Kalkış";
+"transport.form.arrival" = "Varış";
+"transport.form.duration" = "Süre";
+"transport.form.seat" = "Koltuk Numarası";
+"transport.form.booking_reference" = "Rezervasyon Numarası";
+"transport.form.cost" = "Maliyet";
+"transport.form.error.departure_required" = "Lütfen bir kalkış yeri girin.";
+"transport.form.error.arrival_required" = "Lütfen bir varış yeri girin.";
+"transport.form.error.invalid_times" = "Varış zamanı kalkış zamanından sonra olmalıdır.";
+"transport.form.error.invalid_cost" = "Lütfen geçerli bir tutar girin.";
+
+/* Transport Reminders */
+"transport.reminder.24h_before" = "24 saat önce";
+"transport.reminder.3h_before" = "3 saat önce";
+"transport.reminder.1h_before" = "1 saat önce";
+"transport.reminder.custom" = "Özel zaman";
+"transport.reminder.when" = "Ne zaman hatırlat";
+"transport.reminder.date" = "Hatırlatma Tarihi";
+"transport.reminder.preview" = "Hatırlatma gönderilecek";
+"transport.reminder.notification.title" = "Ulaşım Hatırlatması";
+
+/* Hotel Management */
+"hotel.list.title" = "Oteller";
+"hotel.list.empty.title" = "Otel yok";
+"hotel.list.empty.message" = "Konaklamalarınızı takip etmek için otel rezervasyonlarınızı ekleyin.";
+"hotel.list.add_first" = "Otel Ekle";
+
+/* Hotel Filters */
+"hotel.filter.all" = "Tümü";
+"hotel.filter.upcoming" = "Yaklaşan";
+"hotel.filter.active" = "Aktif";
+"hotel.filter.past" = "Geçmiş";
+
+/* Hotel Status */
+"hotel.status.upcoming" = "Yaklaşan";
+"hotel.status.active" = "Konaklama";
+"hotel.status.past" = "Geçmiş";
+
+/* Hotel Nights */
+"hotel.nights" = "gece";
+"hotel.nights_short" = "g";
+
+/* Hotel Detail */
+"hotel.detail.title" = "Otel Detayları";
+"hotel.detail.address" = "Adres";
+"hotel.detail.phone" = "Telefon";
+"hotel.detail.check_in" = "Giriş";
+"hotel.detail.check_out" = "Çıkış";
+"hotel.detail.duration" = "Süre";
+"hotel.detail.booking_reference" = "Rezervasyon Numarası";
+"hotel.detail.room_type" = "Oda Tipi";
+"hotel.detail.total_cost" = "Toplam Maliyet";
+"hotel.detail.per_night" = "Gece Başına";
+"hotel.detail.notes" = "Notlar";
+"hotel.detail.check_in_in" = "Giriş";
+"hotel.detail.checking_in_soon" = "Yakında giriş";
+"hotel.detail.add_reminder" = "Hatırlatıcı Ekle";
+"hotel.detail.delete_confirm.title" = "Oteli Sil?";
+"hotel.detail.delete_confirm.message" = "Bu işlem otel rezervasyonunu ve ilgili tüm hatırlatıcıları kalıcı olarak silecektir.";
+
+/* Hotel Detail Actions */
+"hotel.detail.action.call" = "Oteli Ara";
+"hotel.detail.action.map" = "Haritada Aç";
+"hotel.detail.action.reminder" = "Hatırlatıcı Ekle";
+
+/* Hotel Form */
+"hotel.form.add_title" = "Otel Ekle";
+"hotel.form.edit_title" = "Oteli Düzenle";
+"hotel.form.section.hotel" = "Otel Bilgileri";
+"hotel.form.section.dates" = "Tarihler";
+"hotel.form.section.booking" = "Rezervasyon Detayları";
+"hotel.form.section.contact" = "İletişim";
+"hotel.form.section.cost" = "Maliyet";
+"hotel.form.section.notes" = "Notlar";
+"hotel.form.name" = "Otel Adı";
+"hotel.form.address" = "Adres";
+"hotel.form.check_in" = "Giriş";
+"hotel.form.check_out" = "Çıkış";
+"hotel.form.nights" = "Gece";
+"hotel.form.booking_reference" = "Rezervasyon Numarası";
+"hotel.form.room_type" = "Oda Tipi";
+"hotel.form.phone" = "İletişim Telefonu";
+"hotel.form.currency" = "Para Birimi";
+"hotel.form.total_cost" = "Toplam Maliyet";
+"hotel.form.per_night" = "Gece Başına";
+"hotel.form.notes" = "Notlar";
+"hotel.form.validation.error" = "Doğrulama Hatası";
+"hotel.form.validation.name_required" = "Lütfen bir otel adı girin.";
+"hotel.form.validation.address_required" = "Lütfen bir adres girin.";
+"hotel.form.validation.date_order" = "Çıkış tarihi giriş tarihinden sonra olmalıdır.";
+
+/* Hotel Reminders */
+"hotel.reminder.title" = "Hatırlatıcı Ekle";
+"hotel.reminder.when" = "Ne Zaman Hatırlat";
+"hotel.reminder.day_before" = "Girişten bir gün önce";
+"hotel.reminder.two_days_before" = "2 gün önce";
+"hotel.reminder.week_before" = "Bir hafta önce";
+"hotel.reminder.custom" = "Özel zaman";
+"hotel.reminder.date" = "Hatırlatma Tarihi";
+"hotel.reminder.save" = "Hatırlatıcıyı Kaydet";
+"hotel.reminder.notification.title" = "Otel Girişi";

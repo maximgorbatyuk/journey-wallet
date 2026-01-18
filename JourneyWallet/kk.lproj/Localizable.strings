@@ -272,3 +272,145 @@
 "journey.detail.places.empty" = "Баратын орындар жоқ";
 "journey.detail.reminders.empty" = "Еске салулар жоқ";
 "journey.detail.budget.empty" = "Шығындар тіркелмеген";
+
+/* Transport List */
+"transport.list.title" = "Көлік";
+"transport.list.empty.title" = "Көлік брондау жоқ";
+"transport.list.empty.subtitle" = "Ұшақтарыңызды, пойыздарыңызды, автобустарыңызды және басқа көлік брондауларын қосыңыз.";
+"transport.list.empty.add_button" = "Көлік қосу";
+
+/* Transport Filters */
+"transport.filter.all" = "Барлығы";
+"transport.filter.upcoming" = "Алдағы";
+"transport.filter.in_progress" = "Жолда";
+"transport.filter.past" = "Өткен";
+"transport.filter.all_types" = "Барлық түрлер";
+
+/* Transport Status */
+"transport.status.upcoming" = "Алдағы";
+"transport.status.in_progress" = "Жолда";
+"transport.status.completed" = "Аяқталған";
+
+/* Transport Detail */
+"transport.detail.seat" = "Орын";
+"transport.detail.booking_reference" = "Брондау нөмірі";
+"transport.detail.cost" = "Құны";
+"transport.detail.notes" = "Жазбалар";
+"transport.detail.add_reminder" = "Еске салу қосу";
+"transport.detail.departs_in" = "Шығу";
+"transport.detail.departing_soon" = "Жақында шығады";
+"transport.detail.delete_confirm.title" = "Көлікті жою?";
+"transport.detail.delete_confirm.message" = "Бұл көлік брондауы және барлық байланысты еске салулар біржола жойылады.";
+
+/* Transport Form */
+"transport.form.add_title" = "Көлік қосу";
+"transport.form.edit_title" = "Көлікті өзгерту";
+"transport.form.section.type" = "Көлік түрі";
+"transport.form.section.carrier" = "Тасымалдаушы ақпараты";
+"transport.form.section.route" = "Бағыт";
+"transport.form.section.schedule" = "Кесте";
+"transport.form.section.details" = "Мәліметтер";
+"transport.form.section.cost" = "Құны";
+"transport.form.section.notes" = "Жазбалар";
+"transport.form.type" = "Түрі";
+"transport.form.departure" = "Шығу";
+"transport.form.arrival" = "Келу";
+"transport.form.duration" = "Ұзақтығы";
+"transport.form.seat" = "Орын нөмірі";
+"transport.form.booking_reference" = "Брондау нөмірі";
+"transport.form.cost" = "Құны";
+"transport.form.error.departure_required" = "Шығу орнын енгізіңіз.";
+"transport.form.error.arrival_required" = "Келу орнын енгізіңіз.";
+"transport.form.error.invalid_times" = "Келу уақыты шығу уақытынан кейін болуы керек.";
+"transport.form.error.invalid_cost" = "Жарамды соманы енгізіңіз.";
+
+/* Transport Reminders */
+"transport.reminder.24h_before" = "24 сағат бұрын";
+"transport.reminder.3h_before" = "3 сағат бұрын";
+"transport.reminder.1h_before" = "1 сағат бұрын";
+"transport.reminder.custom" = "Өзгеше уақыт";
+"transport.reminder.when" = "Қашан еске салу";
+"transport.reminder.date" = "Еске салу күні";
+"transport.reminder.preview" = "Еске салу жіберіледі";
+"transport.reminder.notification.title" = "Көлік еске салуы";
+
+/* Hotel Management */
+"hotel.list.title" = "Қонақ үйлер";
+"hotel.list.empty.title" = "Қонақ үйлер жоқ";
+"hotel.list.empty.message" = "Тұрғылықты бақылау үшін қонақ үй брондарын қосыңыз.";
+"hotel.list.add_first" = "Қонақ үй қосу";
+
+/* Hotel Filters */
+"hotel.filter.all" = "Барлығы";
+"hotel.filter.upcoming" = "Алдағы";
+"hotel.filter.active" = "Белсенді";
+"hotel.filter.past" = "Өткен";
+
+/* Hotel Status */
+"hotel.status.upcoming" = "Алдағы";
+"hotel.status.active" = "Тұру";
+"hotel.status.past" = "Өткен";
+
+/* Hotel Nights */
+"hotel.nights" = "түн";
+"hotel.nights_short" = "т";
+
+/* Hotel Detail */
+"hotel.detail.title" = "Қонақ үй мәліметтері";
+"hotel.detail.address" = "Мекенжай";
+"hotel.detail.phone" = "Телефон";
+"hotel.detail.check_in" = "Кіру";
+"hotel.detail.check_out" = "Шығу";
+"hotel.detail.duration" = "Ұзақтығы";
+"hotel.detail.booking_reference" = "Брондау нөмірі";
+"hotel.detail.room_type" = "Бөлме түрі";
+"hotel.detail.total_cost" = "Жалпы құны";
+"hotel.detail.per_night" = "Түніне";
+"hotel.detail.notes" = "Ескертпелер";
+"hotel.detail.check_in_in" = "Кіру";
+"hotel.detail.checking_in_soon" = "Жақында кіру";
+"hotel.detail.add_reminder" = "Еске салу қосу";
+"hotel.detail.delete_confirm.title" = "Қонақ үйді жою?";
+"hotel.detail.delete_confirm.message" = "Бұл қонақ үй брондауын және барлық байланысты еске салуларды біржола жояды.";
+
+/* Hotel Detail Actions */
+"hotel.detail.action.call" = "Қонақ үйге қоңырау шалу";
+"hotel.detail.action.map" = "Картадан ашу";
+"hotel.detail.action.reminder" = "Еске салу қосу";
+
+/* Hotel Form */
+"hotel.form.add_title" = "Қонақ үй қосу";
+"hotel.form.edit_title" = "Қонақ үйді өңдеу";
+"hotel.form.section.hotel" = "Қонақ үй ақпараты";
+"hotel.form.section.dates" = "Күндер";
+"hotel.form.section.booking" = "Брондау мәліметтері";
+"hotel.form.section.contact" = "Байланыс";
+"hotel.form.section.cost" = "Құны";
+"hotel.form.section.notes" = "Ескертпелер";
+"hotel.form.name" = "Қонақ үй атауы";
+"hotel.form.address" = "Мекенжай";
+"hotel.form.check_in" = "Кіру";
+"hotel.form.check_out" = "Шығу";
+"hotel.form.nights" = "Түн";
+"hotel.form.booking_reference" = "Брондау нөмірі";
+"hotel.form.room_type" = "Бөлме түрі";
+"hotel.form.phone" = "Байланыс телефоны";
+"hotel.form.currency" = "Валюта";
+"hotel.form.total_cost" = "Жалпы құны";
+"hotel.form.per_night" = "Түніне";
+"hotel.form.notes" = "Ескертпелер";
+"hotel.form.validation.error" = "Тексеру қатесі";
+"hotel.form.validation.name_required" = "Қонақ үй атауын енгізіңіз.";
+"hotel.form.validation.address_required" = "Мекенжай енгізіңіз.";
+"hotel.form.validation.date_order" = "Шығу күні кіру күнінен кейін болуы керек.";
+
+/* Hotel Reminders */
+"hotel.reminder.title" = "Еске салу қосу";
+"hotel.reminder.when" = "Қашан еске салу";
+"hotel.reminder.day_before" = "Кіруден бір күн бұрын";
+"hotel.reminder.two_days_before" = "2 күн бұрын";
+"hotel.reminder.week_before" = "Бір апта бұрын";
+"hotel.reminder.custom" = "Өзгеше уақыт";
+"hotel.reminder.date" = "Еске салу күні";
+"hotel.reminder.save" = "Еске салуды сақтау";
+"hotel.reminder.notification.title" = "Қонақ үйге кіру";

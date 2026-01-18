@@ -272,3 +272,145 @@
 "journey.detail.places.empty" = "Місць для відвідування поки немає";
 "journey.detail.reminders.empty" = "Нагадувань поки немає";
 "journey.detail.budget.empty" = "Витрати ще не відстежуються";
+
+/* Transport List */
+"transport.list.title" = "Транспорт";
+"transport.list.empty.title" = "Немає бронювань транспорту";
+"transport.list.empty.subtitle" = "Додайте ваші рейси, потяги, автобуси та інші бронювання транспорту.";
+"transport.list.empty.add_button" = "Додати транспорт";
+
+/* Transport Filters */
+"transport.filter.all" = "Всі";
+"transport.filter.upcoming" = "Майбутні";
+"transport.filter.in_progress" = "В дорозі";
+"transport.filter.past" = "Минулі";
+"transport.filter.all_types" = "Всі типи";
+
+/* Transport Status */
+"transport.status.upcoming" = "Майбутній";
+"transport.status.in_progress" = "В дорозі";
+"transport.status.completed" = "Завершений";
+
+/* Transport Detail */
+"transport.detail.seat" = "Місце";
+"transport.detail.booking_reference" = "Номер бронювання";
+"transport.detail.cost" = "Вартість";
+"transport.detail.notes" = "Нотатки";
+"transport.detail.add_reminder" = "Додати нагадування";
+"transport.detail.departs_in" = "Відправлення через";
+"transport.detail.departing_soon" = "Скоро відправлення";
+"transport.detail.delete_confirm.title" = "Видалити транспорт?";
+"transport.detail.delete_confirm.message" = "Це назавжди видалить це бронювання та всі пов'язані нагадування.";
+
+/* Transport Form */
+"transport.form.add_title" = "Додати транспорт";
+"transport.form.edit_title" = "Редагувати транспорт";
+"transport.form.section.type" = "Тип транспорту";
+"transport.form.section.carrier" = "Інформація про перевізника";
+"transport.form.section.route" = "Маршрут";
+"transport.form.section.schedule" = "Розклад";
+"transport.form.section.details" = "Деталі";
+"transport.form.section.cost" = "Вартість";
+"transport.form.section.notes" = "Нотатки";
+"transport.form.type" = "Тип";
+"transport.form.departure" = "Відправлення";
+"transport.form.arrival" = "Прибуття";
+"transport.form.duration" = "Тривалість";
+"transport.form.seat" = "Номер місця";
+"transport.form.booking_reference" = "Номер бронювання";
+"transport.form.cost" = "Вартість";
+"transport.form.error.departure_required" = "Будь ласка, введіть місце відправлення.";
+"transport.form.error.arrival_required" = "Будь ласка, введіть місце прибуття.";
+"transport.form.error.invalid_times" = "Час прибуття повинен бути пізніше часу відправлення.";
+"transport.form.error.invalid_cost" = "Будь ласка, введіть коректну суму.";
+
+/* Transport Reminders */
+"transport.reminder.24h_before" = "За 24 години";
+"transport.reminder.3h_before" = "За 3 години";
+"transport.reminder.1h_before" = "За 1 годину";
+"transport.reminder.custom" = "Інший час";
+"transport.reminder.when" = "Коли нагадати";
+"transport.reminder.date" = "Дата нагадування";
+"transport.reminder.preview" = "Нагадування буде надіслано";
+"transport.reminder.notification.title" = "Нагадування про транспорт";
+
+/* Hotel Management */
+"hotel.list.title" = "Готелі";
+"hotel.list.empty.title" = "Немає готелів";
+"hotel.list.empty.message" = "Додайте бронювання готелів, щоб відстежувати ваше проживання.";
+"hotel.list.add_first" = "Додати готель";
+
+/* Hotel Filters */
+"hotel.filter.all" = "Всі";
+"hotel.filter.upcoming" = "Майбутні";
+"hotel.filter.active" = "Активні";
+"hotel.filter.past" = "Минулі";
+
+/* Hotel Status */
+"hotel.status.upcoming" = "Майбутній";
+"hotel.status.active" = "Проживання";
+"hotel.status.past" = "Минулий";
+
+/* Hotel Nights */
+"hotel.nights" = "ночей";
+"hotel.nights_short" = "н";
+
+/* Hotel Detail */
+"hotel.detail.title" = "Деталі готелю";
+"hotel.detail.address" = "Адреса";
+"hotel.detail.phone" = "Телефон";
+"hotel.detail.check_in" = "Заїзд";
+"hotel.detail.check_out" = "Виїзд";
+"hotel.detail.duration" = "Тривалість";
+"hotel.detail.booking_reference" = "Номер бронювання";
+"hotel.detail.room_type" = "Тип номера";
+"hotel.detail.total_cost" = "Загальна вартість";
+"hotel.detail.per_night" = "За ніч";
+"hotel.detail.notes" = "Нотатки";
+"hotel.detail.check_in_in" = "Заїзд через";
+"hotel.detail.checking_in_soon" = "Скоро заїзд";
+"hotel.detail.add_reminder" = "Додати нагадування";
+"hotel.detail.delete_confirm.title" = "Видалити готель?";
+"hotel.detail.delete_confirm.message" = "Це назавжди видалить бронювання готелю та всі пов'язані нагадування.";
+
+/* Hotel Detail Actions */
+"hotel.detail.action.call" = "Зателефонувати в готель";
+"hotel.detail.action.map" = "Відкрити на карті";
+"hotel.detail.action.reminder" = "Додати нагадування";
+
+/* Hotel Form */
+"hotel.form.add_title" = "Додати готель";
+"hotel.form.edit_title" = "Редагувати готель";
+"hotel.form.section.hotel" = "Інформація про готель";
+"hotel.form.section.dates" = "Дати";
+"hotel.form.section.booking" = "Деталі бронювання";
+"hotel.form.section.contact" = "Контакт";
+"hotel.form.section.cost" = "Вартість";
+"hotel.form.section.notes" = "Нотатки";
+"hotel.form.name" = "Назва готелю";
+"hotel.form.address" = "Адреса";
+"hotel.form.check_in" = "Заїзд";
+"hotel.form.check_out" = "Виїзд";
+"hotel.form.nights" = "Ночей";
+"hotel.form.booking_reference" = "Номер бронювання";
+"hotel.form.room_type" = "Тип номера";
+"hotel.form.phone" = "Контактний телефон";
+"hotel.form.currency" = "Валюта";
+"hotel.form.total_cost" = "Загальна вартість";
+"hotel.form.per_night" = "За ніч";
+"hotel.form.notes" = "Нотатки";
+"hotel.form.validation.error" = "Помилка валідації";
+"hotel.form.validation.name_required" = "Будь ласка, введіть назву готелю.";
+"hotel.form.validation.address_required" = "Будь ласка, введіть адресу.";
+"hotel.form.validation.date_order" = "Дата виїзду повинна бути пізніше дати заїзду.";
+
+/* Hotel Reminders */
+"hotel.reminder.title" = "Додати нагадування";
+"hotel.reminder.when" = "Коли нагадати";
+"hotel.reminder.day_before" = "За день до заїзду";
+"hotel.reminder.two_days_before" = "За 2 дні";
+"hotel.reminder.week_before" = "За тиждень";
+"hotel.reminder.custom" = "Інший час";
+"hotel.reminder.date" = "Дата нагадування";
+"hotel.reminder.save" = "Зберегти нагадування";
+"hotel.reminder.notification.title" = "Заїзд до готелю";

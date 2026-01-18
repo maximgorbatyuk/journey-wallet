@@ -272,3 +272,145 @@
 "journey.detail.places.empty" = "Noch keine Sehenswürdigkeiten";
 "journey.detail.reminders.empty" = "Noch keine Erinnerungen";
 "journey.detail.budget.empty" = "Noch keine Ausgaben erfasst";
+
+/* Transport List */
+"transport.list.title" = "Transport";
+"transport.list.empty.title" = "Keine Transportbuchungen";
+"transport.list.empty.subtitle" = "Fügen Sie Ihre Flüge, Züge, Busse und andere Transportbuchungen hinzu.";
+"transport.list.empty.add_button" = "Transport hinzufügen";
+
+/* Transport Filters */
+"transport.filter.all" = "Alle";
+"transport.filter.upcoming" = "Bevorstehend";
+"transport.filter.in_progress" = "Unterwegs";
+"transport.filter.past" = "Vergangen";
+"transport.filter.all_types" = "Alle Typen";
+
+/* Transport Status */
+"transport.status.upcoming" = "Bevorstehend";
+"transport.status.in_progress" = "Unterwegs";
+"transport.status.completed" = "Abgeschlossen";
+
+/* Transport Detail */
+"transport.detail.seat" = "Sitzplatz";
+"transport.detail.booking_reference" = "Buchungsreferenz";
+"transport.detail.cost" = "Kosten";
+"transport.detail.notes" = "Notizen";
+"transport.detail.add_reminder" = "Erinnerung hinzufügen";
+"transport.detail.departs_in" = "Abfahrt in";
+"transport.detail.departing_soon" = "Abfahrt bald";
+"transport.detail.delete_confirm.title" = "Transport löschen?";
+"transport.detail.delete_confirm.message" = "Dies löscht diese Transportbuchung und alle zugehörigen Erinnerungen dauerhaft.";
+
+/* Transport Form */
+"transport.form.add_title" = "Transport hinzufügen";
+"transport.form.edit_title" = "Transport bearbeiten";
+"transport.form.section.type" = "Transporttyp";
+"transport.form.section.carrier" = "Beförderer-Info";
+"transport.form.section.route" = "Route";
+"transport.form.section.schedule" = "Zeitplan";
+"transport.form.section.details" = "Details";
+"transport.form.section.cost" = "Kosten";
+"transport.form.section.notes" = "Notizen";
+"transport.form.type" = "Typ";
+"transport.form.departure" = "Abfahrt";
+"transport.form.arrival" = "Ankunft";
+"transport.form.duration" = "Dauer";
+"transport.form.seat" = "Sitznummer";
+"transport.form.booking_reference" = "Buchungsreferenz";
+"transport.form.cost" = "Kosten";
+"transport.form.error.departure_required" = "Bitte geben Sie einen Abfahrtsort ein.";
+"transport.form.error.arrival_required" = "Bitte geben Sie einen Ankunftsort ein.";
+"transport.form.error.invalid_times" = "Ankunftszeit muss nach der Abfahrtszeit liegen.";
+"transport.form.error.invalid_cost" = "Bitte geben Sie einen gültigen Betrag ein.";
+
+/* Transport Reminders */
+"transport.reminder.24h_before" = "24 Stunden vorher";
+"transport.reminder.3h_before" = "3 Stunden vorher";
+"transport.reminder.1h_before" = "1 Stunde vorher";
+"transport.reminder.custom" = "Benutzerdefiniert";
+"transport.reminder.when" = "Wann erinnern";
+"transport.reminder.date" = "Erinnerungsdatum";
+"transport.reminder.preview" = "Erinnerung wird gesendet";
+"transport.reminder.notification.title" = "Transport-Erinnerung";
+
+/* Hotel Management */
+"hotel.list.title" = "Hotels";
+"hotel.list.empty.title" = "Keine Hotels";
+"hotel.list.empty.message" = "Fügen Sie Ihre Hotelbuchungen hinzu, um Ihre Unterkünfte zu verfolgen.";
+"hotel.list.add_first" = "Hotel hinzufügen";
+
+/* Hotel Filters */
+"hotel.filter.all" = "Alle";
+"hotel.filter.upcoming" = "Bevorstehend";
+"hotel.filter.active" = "Aktiv";
+"hotel.filter.past" = "Vergangen";
+
+/* Hotel Status */
+"hotel.status.upcoming" = "Bevorstehend";
+"hotel.status.active" = "Aufenthalt";
+"hotel.status.past" = "Vergangen";
+
+/* Hotel Nights */
+"hotel.nights" = "Nächte";
+"hotel.nights_short" = "N";
+
+/* Hotel Detail */
+"hotel.detail.title" = "Hoteldetails";
+"hotel.detail.address" = "Adresse";
+"hotel.detail.phone" = "Telefon";
+"hotel.detail.check_in" = "Check-in";
+"hotel.detail.check_out" = "Check-out";
+"hotel.detail.duration" = "Dauer";
+"hotel.detail.booking_reference" = "Buchungsnummer";
+"hotel.detail.room_type" = "Zimmertyp";
+"hotel.detail.total_cost" = "Gesamtkosten";
+"hotel.detail.per_night" = "Pro Nacht";
+"hotel.detail.notes" = "Notizen";
+"hotel.detail.check_in_in" = "Check-in in";
+"hotel.detail.checking_in_soon" = "Check-in bald";
+"hotel.detail.add_reminder" = "Erinnerung hinzufügen";
+"hotel.detail.delete_confirm.title" = "Hotel löschen?";
+"hotel.detail.delete_confirm.message" = "Dadurch werden diese Hotelbuchung und alle zugehörigen Erinnerungen dauerhaft gelöscht.";
+
+/* Hotel Detail Actions */
+"hotel.detail.action.call" = "Hotel anrufen";
+"hotel.detail.action.map" = "In Karten öffnen";
+"hotel.detail.action.reminder" = "Erinnerung hinzufügen";
+
+/* Hotel Form */
+"hotel.form.add_title" = "Hotel hinzufügen";
+"hotel.form.edit_title" = "Hotel bearbeiten";
+"hotel.form.section.hotel" = "Hotelinformationen";
+"hotel.form.section.dates" = "Daten";
+"hotel.form.section.booking" = "Buchungsdetails";
+"hotel.form.section.contact" = "Kontakt";
+"hotel.form.section.cost" = "Kosten";
+"hotel.form.section.notes" = "Notizen";
+"hotel.form.name" = "Hotelname";
+"hotel.form.address" = "Adresse";
+"hotel.form.check_in" = "Check-in";
+"hotel.form.check_out" = "Check-out";
+"hotel.form.nights" = "Nächte";
+"hotel.form.booking_reference" = "Buchungsnummer";
+"hotel.form.room_type" = "Zimmertyp";
+"hotel.form.phone" = "Kontakttelefon";
+"hotel.form.currency" = "Währung";
+"hotel.form.total_cost" = "Gesamtkosten";
+"hotel.form.per_night" = "Pro Nacht";
+"hotel.form.notes" = "Notizen";
+"hotel.form.validation.error" = "Validierungsfehler";
+"hotel.form.validation.name_required" = "Bitte geben Sie einen Hotelnamen ein.";
+"hotel.form.validation.address_required" = "Bitte geben Sie eine Adresse ein.";
+"hotel.form.validation.date_order" = "Das Check-out-Datum muss nach dem Check-in-Datum liegen.";
+
+/* Hotel Reminders */
+"hotel.reminder.title" = "Erinnerung hinzufügen";
+"hotel.reminder.when" = "Wann erinnern";
+"hotel.reminder.day_before" = "Tag vor Check-in";
+"hotel.reminder.two_days_before" = "2 Tage vorher";
+"hotel.reminder.week_before" = "Woche vorher";
+"hotel.reminder.custom" = "Benutzerdefiniert";
+"hotel.reminder.date" = "Erinnerungsdatum";
+"hotel.reminder.save" = "Erinnerung speichern";
+"hotel.reminder.notification.title" = "Hotel Check-in";

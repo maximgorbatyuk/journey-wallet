@@ -272,3 +272,145 @@
 "journey.detail.places.empty" = "Мест для посещения пока нет";
 "journey.detail.reminders.empty" = "Напоминаний пока нет";
 "journey.detail.budget.empty" = "Расходы не отслеживаются";
+
+/* Transport List */
+"transport.list.title" = "Транспорт";
+"transport.list.empty.title" = "Нет бронирований транспорта";
+"transport.list.empty.subtitle" = "Добавьте ваши рейсы, поезда, автобусы и другие бронирования.";
+"transport.list.empty.add_button" = "Добавить транспорт";
+
+/* Transport Filters */
+"transport.filter.all" = "Все";
+"transport.filter.upcoming" = "Предстоящие";
+"transport.filter.in_progress" = "В пути";
+"transport.filter.past" = "Прошедшие";
+"transport.filter.all_types" = "Все виды";
+
+/* Transport Status */
+"transport.status.upcoming" = "Предстоящий";
+"transport.status.in_progress" = "В пути";
+"transport.status.completed" = "Завершён";
+
+/* Transport Detail */
+"transport.detail.seat" = "Место";
+"transport.detail.booking_reference" = "Номер бронирования";
+"transport.detail.cost" = "Стоимость";
+"transport.detail.notes" = "Заметки";
+"transport.detail.add_reminder" = "Добавить напоминание";
+"transport.detail.departs_in" = "Отправление через";
+"transport.detail.departing_soon" = "Скоро отправление";
+"transport.detail.delete_confirm.title" = "Удалить транспорт?";
+"transport.detail.delete_confirm.message" = "Это навсегда удалит это бронирование и все связанные напоминания.";
+
+/* Transport Form */
+"transport.form.add_title" = "Добавить транспорт";
+"transport.form.edit_title" = "Редактировать транспорт";
+"transport.form.section.type" = "Тип транспорта";
+"transport.form.section.carrier" = "Информация о перевозчике";
+"transport.form.section.route" = "Маршрут";
+"transport.form.section.schedule" = "Расписание";
+"transport.form.section.details" = "Детали";
+"transport.form.section.cost" = "Стоимость";
+"transport.form.section.notes" = "Заметки";
+"transport.form.type" = "Тип";
+"transport.form.departure" = "Отправление";
+"transport.form.arrival" = "Прибытие";
+"transport.form.duration" = "Длительность";
+"transport.form.seat" = "Номер места";
+"transport.form.booking_reference" = "Номер бронирования";
+"transport.form.cost" = "Стоимость";
+"transport.form.error.departure_required" = "Укажите место отправления.";
+"transport.form.error.arrival_required" = "Укажите место прибытия.";
+"transport.form.error.invalid_times" = "Время прибытия должно быть позже времени отправления.";
+"transport.form.error.invalid_cost" = "Введите корректную сумму.";
+
+/* Transport Reminders */
+"transport.reminder.24h_before" = "За 24 часа";
+"transport.reminder.3h_before" = "За 3 часа";
+"transport.reminder.1h_before" = "За 1 час";
+"transport.reminder.custom" = "Другое время";
+"transport.reminder.when" = "Когда напомнить";
+"transport.reminder.date" = "Дата напоминания";
+"transport.reminder.preview" = "Напоминание будет отправлено";
+"transport.reminder.notification.title" = "Напоминание о транспорте";
+
+/* Hotel Management */
+"hotel.list.title" = "Отели";
+"hotel.list.empty.title" = "Нет отелей";
+"hotel.list.empty.message" = "Добавьте бронирования отелей, чтобы отслеживать ваше проживание.";
+"hotel.list.add_first" = "Добавить отель";
+
+/* Hotel Filters */
+"hotel.filter.all" = "Все";
+"hotel.filter.upcoming" = "Предстоящие";
+"hotel.filter.active" = "Активные";
+"hotel.filter.past" = "Прошедшие";
+
+/* Hotel Status */
+"hotel.status.upcoming" = "Предстоит";
+"hotel.status.active" = "Проживание";
+"hotel.status.past" = "Прошло";
+
+/* Hotel Nights */
+"hotel.nights" = "ночей";
+"hotel.nights_short" = "н";
+
+/* Hotel Detail */
+"hotel.detail.title" = "Детали отеля";
+"hotel.detail.address" = "Адрес";
+"hotel.detail.phone" = "Телефон";
+"hotel.detail.check_in" = "Заезд";
+"hotel.detail.check_out" = "Выезд";
+"hotel.detail.duration" = "Продолжительность";
+"hotel.detail.booking_reference" = "Номер брони";
+"hotel.detail.room_type" = "Тип номера";
+"hotel.detail.total_cost" = "Общая стоимость";
+"hotel.detail.per_night" = "За ночь";
+"hotel.detail.notes" = "Заметки";
+"hotel.detail.check_in_in" = "Заезд через";
+"hotel.detail.checking_in_soon" = "Скоро заезд";
+"hotel.detail.add_reminder" = "Добавить напоминание";
+"hotel.detail.delete_confirm.title" = "Удалить отель?";
+"hotel.detail.delete_confirm.message" = "Это навсегда удалит бронирование отеля и все связанные напоминания.";
+
+/* Hotel Detail Actions */
+"hotel.detail.action.call" = "Позвонить в отель";
+"hotel.detail.action.map" = "Открыть на карте";
+"hotel.detail.action.reminder" = "Добавить напоминание";
+
+/* Hotel Form */
+"hotel.form.add_title" = "Добавить отель";
+"hotel.form.edit_title" = "Редактировать отель";
+"hotel.form.section.hotel" = "Информация об отеле";
+"hotel.form.section.dates" = "Даты";
+"hotel.form.section.booking" = "Детали бронирования";
+"hotel.form.section.contact" = "Контакт";
+"hotel.form.section.cost" = "Стоимость";
+"hotel.form.section.notes" = "Заметки";
+"hotel.form.name" = "Название отеля";
+"hotel.form.address" = "Адрес";
+"hotel.form.check_in" = "Заезд";
+"hotel.form.check_out" = "Выезд";
+"hotel.form.nights" = "Ночей";
+"hotel.form.booking_reference" = "Номер брони";
+"hotel.form.room_type" = "Тип номера";
+"hotel.form.phone" = "Контактный телефон";
+"hotel.form.currency" = "Валюта";
+"hotel.form.total_cost" = "Общая стоимость";
+"hotel.form.per_night" = "За ночь";
+"hotel.form.notes" = "Заметки";
+"hotel.form.validation.error" = "Ошибка валидации";
+"hotel.form.validation.name_required" = "Пожалуйста, введите название отеля.";
+"hotel.form.validation.address_required" = "Пожалуйста, введите адрес.";
+"hotel.form.validation.date_order" = "Дата выезда должна быть позже даты заезда.";
+
+/* Hotel Reminders */
+"hotel.reminder.title" = "Добавить напоминание";
+"hotel.reminder.when" = "Когда напомнить";
+"hotel.reminder.day_before" = "За день до заезда";
+"hotel.reminder.two_days_before" = "За 2 дня";
+"hotel.reminder.week_before" = "За неделю";
+"hotel.reminder.custom" = "Другое время";
+"hotel.reminder.date" = "Дата напоминания";
+"hotel.reminder.save" = "Сохранить напоминание";
+"hotel.reminder.notification.title" = "Заезд в отель";
