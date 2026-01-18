@@ -414,3 +414,86 @@
 "hotel.reminder.date" = "Erinnerungsdatum";
 "hotel.reminder.save" = "Erinnerung speichern";
 "hotel.reminder.notification.title" = "Hotel Check-in";
+
+/* Car Rental Management */
+"car_rental.list.title" = "Mietwagen";
+"car_rental.list.empty.title" = "Keine Mietwagen";
+"car_rental.list.empty.message" = "Fügen Sie Ihre Mietwagenbuchungen hinzu, um Ihre Fahrzeuge zu verfolgen.";
+"car_rental.list.add_first" = "Mietwagen hinzufügen";
+
+/* Car Rental Filters */
+"car_rental.filter.all" = "Alle";
+"car_rental.filter.upcoming" = "Bevorstehend";
+"car_rental.filter.active" = "Aktiv";
+"car_rental.filter.past" = "Vergangen";
+
+/* Car Rental Status */
+"car_rental.status.upcoming" = "Bevorstehend";
+"car_rental.status.active" = "Aktiv";
+"car_rental.status.past" = "Vergangen";
+
+/* Car Rental Days */
+"car_rental.days" = "Tage";
+"car_rental.days_short" = "T";
+
+/* Car Rental Detail */
+"car_rental.detail.title" = "Mietwagendetails";
+"car_rental.detail.pickup_location" = "Abholort";
+"car_rental.detail.dropoff_location" = "Rückgabeort";
+"car_rental.detail.same_location" = "Gleicher Abhol- und Rückgabeort";
+"car_rental.detail.pickup" = "Abholung";
+"car_rental.detail.dropoff" = "Rückgabe";
+"car_rental.detail.duration" = "Dauer";
+"car_rental.detail.booking_reference" = "Buchungsnummer";
+"car_rental.detail.car_type" = "Fahrzeugtyp";
+"car_rental.detail.total_cost" = "Gesamtkosten";
+"car_rental.detail.per_day" = "Pro Tag";
+"car_rental.detail.notes" = "Notizen";
+"car_rental.detail.pickup_in" = "Abholung in";
+"car_rental.detail.pickup_soon" = "Abholung bald";
+"car_rental.detail.add_reminder" = "Erinnerung hinzufügen";
+"car_rental.detail.delete_confirm.title" = "Mietwagen löschen?";
+"car_rental.detail.delete_confirm.message" = "Dadurch werden diese Mietwagenbuchung und alle zugehörigen Erinnerungen dauerhaft gelöscht.";
+
+/* Car Rental Detail Actions */
+"car_rental.detail.action.map_pickup" = "Abholort in Karten öffnen";
+"car_rental.detail.action.reminder" = "Erinnerung hinzufügen";
+
+/* Car Rental Form */
+"car_rental.form.add_title" = "Mietwagen hinzufügen";
+"car_rental.form.edit_title" = "Mietwagen bearbeiten";
+"car_rental.form.section.company" = "Unternehmen";
+"car_rental.form.section.locations" = "Standorte";
+"car_rental.form.section.dates" = "Daten";
+"car_rental.form.section.booking" = "Buchungsdetails";
+"car_rental.form.section.cost" = "Kosten";
+"car_rental.form.section.notes" = "Notizen";
+"car_rental.form.company" = "Autovermietung";
+"car_rental.form.car_type" = "Fahrzeugtyp";
+"car_rental.form.pickup_location" = "Abholort";
+"car_rental.form.dropoff_location" = "Rückgabeort";
+"car_rental.form.same_location" = "Rückgabe am gleichen Ort";
+"car_rental.form.pickup_date" = "Abholdatum";
+"car_rental.form.dropoff_date" = "Rückgabedatum";
+"car_rental.form.duration" = "Dauer";
+"car_rental.form.booking_reference" = "Buchungsnummer";
+"car_rental.form.currency" = "Währung";
+"car_rental.form.total_cost" = "Gesamtkosten";
+"car_rental.form.per_day" = "Pro Tag";
+"car_rental.form.notes" = "Notizen";
+"car_rental.form.validation.error" = "Validierungsfehler";
+"car_rental.form.validation.company_required" = "Bitte geben Sie einen Autovermietungsnamen ein.";
+"car_rental.form.validation.pickup_required" = "Bitte geben Sie einen Abholort ein.";
+"car_rental.form.validation.dropoff_required" = "Bitte geben Sie einen Rückgabeort ein.";
+"car_rental.form.validation.date_order" = "Das Rückgabedatum muss nach dem Abholdatum liegen.";
+
+/* Car Rental Reminders */
+"car_rental.reminder.title" = "Erinnerung hinzufügen";
+"car_rental.reminder.when" = "Wann erinnern";
+"car_rental.reminder.day_before" = "Tag vor Abholung";
+"car_rental.reminder.two_days_before" = "2 Tage vorher";
+"car_rental.reminder.week_before" = "Woche vorher";
+"car_rental.reminder.custom" = "Benutzerdefiniert";
+"car_rental.reminder.date" = "Erinnerungsdatum";
+"car_rental.reminder.save" = "Erinnerung speichern";
+"car_rental.reminder.notification.title" = "Mietwagen-Abholung";

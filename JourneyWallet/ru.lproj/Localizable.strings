@@ -414,3 +414,91 @@
 "hotel.reminder.date" = "Дата напоминания";
 "hotel.reminder.save" = "Сохранить напоминание";
 "hotel.reminder.notification.title" = "Заезд в отель";
+
+/* Car Rental Management */
+"car_rental.list.title" = "Аренда авто";
+"car_rental.list.empty.title" = "Нет аренды автомобилей";
+"car_rental.list.empty.message" = "Добавьте бронирования автомобилей, чтобы отслеживать ваши поездки.";
+"car_rental.list.add_first" = "Добавить аренду авто";
+
+/* Car Rental Filters */
+"car_rental.filter.all" = "Все";
+"car_rental.filter.upcoming" = "Предстоящие";
+"car_rental.filter.active" = "Активные";
+"car_rental.filter.past" = "Прошедшие";
+
+/* Car Rental Status */
+"car_rental.status.upcoming" = "Предстоит";
+"car_rental.status.active" = "Активная";
+"car_rental.status.past" = "Прошло";
+
+/* Car Rental Days */
+"car_rental.days" = "дней";
+"car_rental.days_short" = "д";
+
+/* Car Rental Detail */
+"car_rental.detail.title" = "Детали аренды";
+"car_rental.detail.company" = "Компания";
+"car_rental.detail.car_type" = "Тип автомобиля";
+"car_rental.detail.pickup" = "Получение";
+"car_rental.detail.dropoff" = "Возврат";
+"car_rental.detail.pickup_location" = "Место получения";
+"car_rental.detail.dropoff_location" = "Место возврата";
+"car_rental.detail.same_location" = "Возврат в том же месте";
+"car_rental.detail.duration" = "Продолжительность";
+"car_rental.detail.booking_reference" = "Номер брони";
+"car_rental.detail.total_cost" = "Общая стоимость";
+"car_rental.detail.per_day" = "В день";
+"car_rental.detail.notes" = "Заметки";
+"car_rental.detail.pickup_in" = "Получение через";
+"car_rental.detail.picking_up_soon" = "Скоро получение";
+"car_rental.detail.add_reminder" = "Добавить напоминание";
+"car_rental.detail.delete_confirm.title" = "Удалить аренду?";
+"car_rental.detail.delete_confirm.message" = "Это навсегда удалит бронирование аренды и все связанные напоминания.";
+
+/* Car Rental Detail Actions */
+"car_rental.detail.action.call" = "Позвонить в компанию";
+"car_rental.detail.action.pickup_map" = "Место получения на карте";
+"car_rental.detail.action.dropoff_map" = "Место возврата на карте";
+"car_rental.detail.action.reminder" = "Добавить напоминание";
+
+/* Car Rental Form */
+"car_rental.form.add_title" = "Добавить аренду авто";
+"car_rental.form.edit_title" = "Редактировать аренду";
+"car_rental.form.section.company" = "Информация о компании";
+"car_rental.form.section.vehicle" = "Транспортное средство";
+"car_rental.form.section.pickup" = "Получение";
+"car_rental.form.section.dropoff" = "Возврат";
+"car_rental.form.section.booking" = "Детали бронирования";
+"car_rental.form.section.cost" = "Стоимость";
+"car_rental.form.section.notes" = "Заметки";
+"car_rental.form.company" = "Компания по аренде";
+"car_rental.form.car_type" = "Тип автомобиля";
+"car_rental.form.pickup_date" = "Дата получения";
+"car_rental.form.pickup_location" = "Место получения";
+"car_rental.form.dropoff_date" = "Дата возврата";
+"car_rental.form.dropoff_location" = "Место возврата";
+"car_rental.form.same_location" = "Возврат в том же месте";
+"car_rental.form.days" = "Дней";
+"car_rental.form.booking_reference" = "Номер брони";
+"car_rental.form.phone" = "Контактный телефон";
+"car_rental.form.currency" = "Валюта";
+"car_rental.form.total_cost" = "Общая стоимость";
+"car_rental.form.per_day" = "В день";
+"car_rental.form.notes" = "Заметки";
+"car_rental.form.validation.error" = "Ошибка валидации";
+"car_rental.form.validation.company_required" = "Пожалуйста, введите название компании.";
+"car_rental.form.validation.pickup_location_required" = "Пожалуйста, введите место получения.";
+"car_rental.form.validation.dropoff_location_required" = "Пожалуйста, введите место возврата.";
+"car_rental.form.validation.date_order" = "Дата возврата должна быть позже даты получения.";
+
+/* Car Rental Reminders */
+"car_rental.reminder.title" = "Добавить напоминание";
+"car_rental.reminder.when" = "Когда напомнить";
+"car_rental.reminder.day_before" = "За день до получения";
+"car_rental.reminder.two_days_before" = "За 2 дня";
+"car_rental.reminder.week_before" = "За неделю";
+"car_rental.reminder.custom" = "Другое время";
+"car_rental.reminder.date" = "Дата напоминания";
+"car_rental.reminder.save" = "Сохранить напоминание";
+"car_rental.reminder.notification.title" = "Получение автомобиля";

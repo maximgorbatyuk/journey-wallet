@@ -1,8 +1,8 @@
 import SwiftUI
 
-struct HotelDetailView: View {
+struct CarRentalDetailView: View {
 
-    let hotel: Hotel
+    let carRental: CarRental
     let journeyId: UUID
 
     @Environment(\.dismiss) private var dismiss
@@ -14,7 +14,7 @@ struct HotelDetailView: View {
     @State private var showReminderSheet: Bool = false
     @State private var copiedBookingRef: Bool = false
 
-    private let hotelsRepository = DatabaseManager.shared.hotelsRepository
+    private let carRentalsRepository = DatabaseManager.shared.carRentalsRepository
     private let remindersRepository = DatabaseManager.shared.remindersRepository
 
     var body: some View {
@@ -30,17 +30,17 @@ struct HotelDetailView: View {
                 datesCard
 
                 // Booking info card
-                if hotel.bookingReference != nil || hotel.roomType != nil {
+                if carRental.bookingReference != nil || carRental.carType != nil {
                     bookingInfoCard
                 }
 
                 // Cost card
-                if hotel.cost != nil {
+                if carRental.cost != nil {
                     costCard
                 }
 
                 // Notes card
-                if let notes = hotel.notes, !notes.isEmpty {
+                if let notes = carRental.notes, !notes.isEmpty {
                     notesCard(notes: notes)
                 }
 
@@ -50,7 +50,7 @@ struct HotelDetailView: View {
             .padding()
         }
         .background(Color(.systemGray6))
-        .navigationTitle(L("hotel.detail.title"))
+        .navigationTitle(L("car_rental.detail.title"))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
@@ -64,7 +64,7 @@ struct HotelDetailView: View {
                     Button {
                         showReminderSheet = true
                     } label: {
-                        Label(L("hotel.detail.add_reminder"), systemImage: "bell.badge.fill")
+                        Label(L("car_rental.detail.add_reminder"), systemImage: "bell.badge.fill")
                     }
 
                     Divider()
@@ -80,27 +80,27 @@ struct HotelDetailView: View {
             }
         }
         .onAppear {
-            analytics.trackScreen("hotel_detail_screen")
+            analytics.trackScreen("car_rental_detail_screen")
         }
         .sheet(isPresented: $showEditSheet) {
-            HotelFormView(
+            CarRentalFormView(
                 journeyId: journeyId,
-                mode: .edit(hotel),
+                mode: .edit(carRental),
                 onSave: { _ in
                     dismiss()
                 }
             )
         }
         .sheet(isPresented: $showReminderSheet) {
-            HotelReminderSheet(hotel: hotel, journeyId: journeyId)
+            CarRentalReminderSheet(carRental: carRental, journeyId: journeyId)
         }
-        .alert(L("hotel.detail.delete_confirm.title"), isPresented: $showDeleteConfirmation) {
+        .alert(L("car_rental.detail.delete_confirm.title"), isPresented: $showDeleteConfirmation) {
             Button(L("Cancel"), role: .cancel) {}
             Button(L("Delete"), role: .destructive) {
-                deleteHotel()
+                deleteCarRental()
             }
         } message: {
-            Text(L("hotel.detail.delete_confirm.message"))
+            Text(L("car_rental.detail.delete_confirm.message"))
         }
     }
 
@@ -108,22 +108,29 @@ struct HotelDetailView: View {
 
     private var headerSection: some View {
         VStack(spacing: 12) {
-            // Hotel icon
+            // Car icon
             ZStack {
                 Circle()
                     .fill(statusColor.opacity(0.2))
                     .frame(width: 80, height: 80)
 
-                Image(systemName: "building.2.fill")
+                Image(systemName: "car.fill")
                     .font(.system(size: 36))
                     .foregroundColor(statusColor)
             }
 
-            // Hotel name
-            Text(hotel.name)
+            // Company name
+            Text(carRental.company)
                 .font(.title2)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
+
+            // Car type
+            if let carType = carRental.carType, !carType.isEmpty {
+                Text(carType)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
 
             // Status badge
             Text(statusText)
@@ -136,7 +143,7 @@ struct HotelDetailView: View {
                 .cornerRadius(16)
 
             // Countdown
-            if hotel.isUpcoming {
+            if carRental.isUpcoming {
                 Text(countdownText)
                     .font(.headline)
                     .foregroundColor(.orange)
@@ -146,19 +153,19 @@ struct HotelDetailView: View {
     }
 
     private var statusText: String {
-        if hotel.isActive {
-            return L("hotel.status.active")
-        } else if hotel.isUpcoming {
-            return L("hotel.status.upcoming")
+        if carRental.isActive {
+            return L("car_rental.status.active")
+        } else if carRental.isUpcoming {
+            return L("car_rental.status.upcoming")
         } else {
-            return L("hotel.status.past")
+            return L("car_rental.status.past")
         }
     }
 
     private var statusColor: Color {
-        if hotel.isActive {
+        if carRental.isActive {
             return .green
-        } else if hotel.isUpcoming {
+        } else if carRental.isUpcoming {
             return .blue
         } else {
             return .gray
@@ -167,31 +174,31 @@ struct HotelDetailView: View {
 
     private var countdownText: String {
         let now = Date()
-        let components = Calendar.current.dateComponents([.day, .hour], from: now, to: hotel.checkInDate)
+        let components = Calendar.current.dateComponents([.day, .hour], from: now, to: carRental.pickupDate)
 
         if let days = components.day, days > 0 {
-            return "\(L("hotel.detail.check_in_in")) \(days) \(L("journey.days"))"
+            return "\(L("car_rental.detail.pickup_in")) \(days) \(L("journey.days"))"
         } else if let hours = components.hour, hours > 0 {
-            return "\(L("hotel.detail.check_in_in")) \(hours)h"
+            return "\(L("car_rental.detail.pickup_in")) \(hours)h"
         }
-        return L("hotel.detail.checking_in_soon")
+        return L("car_rental.detail.pickup_soon")
     }
 
     // MARK: - Main Info Card
 
     private var mainInfoCard: some View {
         VStack(spacing: 16) {
-            // Address
+            // Pickup location
             HStack(alignment: .top, spacing: 12) {
-                Image(systemName: "mappin.and.ellipse")
-                    .foregroundColor(.orange)
+                Image(systemName: "arrow.up.circle.fill")
+                    .foregroundColor(.green)
                     .frame(width: 24)
 
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(L("hotel.detail.address"))
+                    Text(L("car_rental.detail.pickup_location"))
                         .font(.caption)
                         .foregroundColor(.secondary)
-                    Text(hotel.address)
+                    Text(carRental.pickupLocation)
                         .font(.body)
                 }
 
@@ -199,40 +206,51 @@ struct HotelDetailView: View {
 
                 // Open in Maps button
                 Button {
-                    openInMaps()
+                    openInMaps(location: carRental.pickupLocation)
                 } label: {
                     Image(systemName: "map.fill")
                         .foregroundColor(.orange)
                 }
             }
 
-            // Contact phone
-            if let phone = hotel.contactPhone, !phone.isEmpty {
-                Divider()
+            Divider()
 
-                HStack(spacing: 12) {
-                    Image(systemName: "phone.fill")
-                        .foregroundColor(.orange)
-                        .frame(width: 24)
+            // Dropoff location
+            HStack(alignment: .top, spacing: 12) {
+                Image(systemName: "arrow.down.circle.fill")
+                    .foregroundColor(.red)
+                    .frame(width: 24)
 
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(L("hotel.detail.phone"))
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                        Text(phone)
-                            .font(.body)
-                    }
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(L("car_rental.detail.dropoff_location"))
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    Text(carRental.dropoffLocation)
+                        .font(.body)
+                }
 
-                    Spacer()
+                Spacer()
 
-                    // Call button
+                // Open in Maps button
+                if !carRental.isSameLocation {
                     Button {
-                        callHotel(phone)
+                        openInMaps(location: carRental.dropoffLocation)
                     } label: {
-                        Image(systemName: "phone.circle.fill")
-                            .foregroundColor(.green)
-                            .font(.title2)
+                        Image(systemName: "map.fill")
+                            .foregroundColor(.orange)
                     }
+                }
+            }
+
+            // Same location indicator
+            if carRental.isSameLocation {
+                HStack {
+                    Image(systemName: "checkmark.circle.fill")
+                        .foregroundColor(.green)
+                        .font(.caption)
+                    Text(L("car_rental.detail.same_location"))
+                        .font(.caption)
+                        .foregroundColor(.secondary)
                 }
             }
         }
@@ -246,17 +264,17 @@ struct HotelDetailView: View {
 
     private var datesCard: some View {
         VStack(spacing: 16) {
-            // Check-in
+            // Pickup date/time
             HStack(spacing: 12) {
-                Image(systemName: "arrow.right.circle.fill")
+                Image(systemName: "calendar.badge.clock")
                     .foregroundColor(.green)
                     .frame(width: 24)
 
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(L("hotel.detail.check_in"))
+                    Text(L("car_rental.detail.pickup"))
                         .font(.caption)
                         .foregroundColor(.secondary)
-                    Text(formatDate(hotel.checkInDate))
+                    Text(formatDateTime(carRental.pickupDate))
                         .font(.headline)
                 }
 
@@ -265,17 +283,17 @@ struct HotelDetailView: View {
 
             Divider()
 
-            // Check-out
+            // Dropoff date/time
             HStack(spacing: 12) {
-                Image(systemName: "arrow.left.circle.fill")
+                Image(systemName: "calendar.badge.clock")
                     .foregroundColor(.red)
                     .frame(width: 24)
 
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(L("hotel.detail.check_out"))
+                    Text(L("car_rental.detail.dropoff"))
                         .font(.caption)
                         .foregroundColor(.secondary)
-                    Text(formatDate(hotel.checkOutDate))
+                    Text(formatDateTime(carRental.dropoffDate))
                         .font(.headline)
                 }
 
@@ -286,15 +304,15 @@ struct HotelDetailView: View {
 
             // Duration
             HStack(spacing: 12) {
-                Image(systemName: "moon.fill")
+                Image(systemName: "clock.fill")
                     .foregroundColor(.orange)
                     .frame(width: 24)
 
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(L("hotel.detail.duration"))
+                    Text(L("car_rental.detail.duration"))
                         .font(.caption)
                         .foregroundColor(.secondary)
-                    Text("\(hotel.nightsCount) \(L("hotel.nights"))")
+                    Text("\(carRental.durationDays) \(L("car_rental.days"))")
                         .font(.headline)
                         .foregroundColor(.orange)
                 }
@@ -313,14 +331,14 @@ struct HotelDetailView: View {
     private var bookingInfoCard: some View {
         VStack(spacing: 16) {
             // Booking reference
-            if let ref = hotel.bookingReference, !ref.isEmpty {
+            if let ref = carRental.bookingReference, !ref.isEmpty {
                 HStack(spacing: 12) {
                     Image(systemName: "number")
                         .foregroundColor(.orange)
                         .frame(width: 24)
 
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(L("hotel.detail.booking_reference"))
+                        Text(L("car_rental.detail.booking_reference"))
                             .font(.caption)
                             .foregroundColor(.secondary)
                         Text(ref)
@@ -344,22 +362,22 @@ struct HotelDetailView: View {
                 }
             }
 
-            // Room type
-            if let roomType = hotel.roomType, !roomType.isEmpty {
-                if hotel.bookingReference != nil {
+            // Car type
+            if let carType = carRental.carType, !carType.isEmpty {
+                if carRental.bookingReference != nil {
                     Divider()
                 }
 
                 HStack(spacing: 12) {
-                    Image(systemName: "bed.double.fill")
+                    Image(systemName: "car.side.fill")
                         .foregroundColor(.orange)
                         .frame(width: 24)
 
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(L("hotel.detail.room_type"))
+                        Text(L("car_rental.detail.car_type"))
                             .font(.caption)
                             .foregroundColor(.secondary)
-                        Text(roomType)
+                        Text(carType)
                             .font(.headline)
                     }
 
@@ -378,14 +396,14 @@ struct HotelDetailView: View {
     private var costCard: some View {
         VStack(spacing: 16) {
             // Total cost
-            if let cost = hotel.cost, let currency = hotel.currency {
+            if let cost = carRental.cost, let currency = carRental.currency {
                 HStack(spacing: 12) {
                     Image(systemName: "creditcard.fill")
                         .foregroundColor(.orange)
                         .frame(width: 24)
 
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(L("hotel.detail.total_cost"))
+                        Text(L("car_rental.detail.total_cost"))
                             .font(.caption)
                             .foregroundColor(.secondary)
                         Text("\(currency.rawValue)\(cost.formatted())")
@@ -397,20 +415,20 @@ struct HotelDetailView: View {
                     Spacer()
                 }
 
-                // Cost per night
-                if let perNight = hotel.costPerNight {
+                // Cost per day
+                if let perDay = carRental.costPerDay {
                     Divider()
 
                     HStack(spacing: 12) {
-                        Image(systemName: "moon.stars")
+                        Image(systemName: "calendar")
                             .foregroundColor(.secondary)
                             .frame(width: 24)
 
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(L("hotel.detail.per_night"))
+                            Text(L("car_rental.detail.per_day"))
                                 .font(.caption)
                                 .foregroundColor(.secondary)
-                            Text("\(currency.rawValue)\(perNight.formatted())")
+                            Text("\(currency.rawValue)\(perDay.formatted())")
                                 .font(.headline)
                         }
 
@@ -432,7 +450,7 @@ struct HotelDetailView: View {
             HStack {
                 Image(systemName: "note.text")
                     .foregroundColor(.orange)
-                Text(L("hotel.detail.notes"))
+                Text(L("car_rental.detail.notes"))
                     .font(.headline)
             }
 
@@ -451,30 +469,13 @@ struct HotelDetailView: View {
 
     private var actionsSection: some View {
         VStack(spacing: 12) {
-            // Call hotel button
-            if let phone = hotel.contactPhone, !phone.isEmpty {
-                Button(action: {
-                    callHotel(phone)
-                }) {
-                    HStack {
-                        Image(systemName: "phone.fill")
-                        Text(L("hotel.detail.action.call"))
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.green)
-                    .foregroundColor(.white)
-                    .cornerRadius(12)
-                }
-            }
-
-            // Open in Maps button
+            // Open pickup location in Maps
             Button(action: {
-                openInMaps()
+                openInMaps(location: carRental.pickupLocation)
             }) {
                 HStack {
                     Image(systemName: "map.fill")
-                    Text(L("hotel.detail.action.map"))
+                    Text(L("car_rental.detail.action.map_pickup"))
                 }
                 .frame(maxWidth: .infinity)
                 .padding()
@@ -489,7 +490,7 @@ struct HotelDetailView: View {
             }) {
                 HStack {
                     Image(systemName: "bell.badge.fill")
-                    Text(L("hotel.detail.action.reminder"))
+                    Text(L("car_rental.detail.action.reminder"))
                 }
                 .frame(maxWidth: .infinity)
                 .padding()
@@ -503,59 +504,48 @@ struct HotelDetailView: View {
 
     // MARK: - Helper Methods
 
-    private func formatDate(_ date: Date) -> String {
+    private func formatDateTime(_ date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .full
-        formatter.timeStyle = .none
+        formatter.timeStyle = .short
         return formatter.string(from: date)
     }
 
-    private func callHotel(_ phone: String) {
-        let cleaned = phone.replacingOccurrences(of: " ", with: "")
-            .replacingOccurrences(of: "-", with: "")
-            .replacingOccurrences(of: "(", with: "")
-            .replacingOccurrences(of: ")", with: "")
-
-        if let url = URL(string: "tel://\(cleaned)") {
-            openURL(url)
-        }
-    }
-
-    private func openInMaps() {
-        let query = hotel.address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+    private func openInMaps(location: String) {
+        let query = location.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         if let url = URL(string: "http://maps.apple.com/?q=\(query)") {
             openURL(url)
         }
     }
 
-    private func deleteHotel() {
+    private func deleteCarRental() {
         // Delete associated reminders
         let reminders = remindersRepository?.fetchByJourneyId(journeyId: journeyId) ?? []
-        for reminder in reminders where reminder.relatedEntityId == hotel.id {
+        for reminder in reminders where reminder.relatedEntityId == carRental.id {
             _ = remindersRepository?.delete(id: reminder.id)
         }
 
-        // Delete hotel
-        _ = hotelsRepository?.delete(id: hotel.id)
+        // Delete car rental
+        _ = carRentalsRepository?.delete(id: carRental.id)
         dismiss()
     }
 }
 
-// MARK: - Hotel Reminder Sheet
+// MARK: - Car Rental Reminder Sheet
 
-struct HotelReminderSheet: View {
+struct CarRentalReminderSheet: View {
 
-    let hotel: Hotel
+    let carRental: CarRental
     let journeyId: UUID
 
     @Environment(\.dismiss) private var dismiss
 
-    @State private var selectedOption: HotelReminderOption = .dayBefore
+    @State private var selectedOption: CarRentalReminderOption = .dayBefore
     @State private var customDate: Date = Date()
 
     private let remindersRepository = DatabaseManager.shared.remindersRepository
 
-    enum HotelReminderOption: CaseIterable {
+    enum CarRentalReminderOption: CaseIterable {
         case dayBefore
         case twoDaysBefore
         case weekBefore
@@ -563,23 +553,23 @@ struct HotelReminderSheet: View {
 
         var displayName: String {
             switch self {
-            case .dayBefore: return L("hotel.reminder.day_before")
-            case .twoDaysBefore: return L("hotel.reminder.two_days_before")
-            case .weekBefore: return L("hotel.reminder.week_before")
-            case .custom: return L("hotel.reminder.custom")
+            case .dayBefore: return L("car_rental.reminder.day_before")
+            case .twoDaysBefore: return L("car_rental.reminder.two_days_before")
+            case .weekBefore: return L("car_rental.reminder.week_before")
+            case .custom: return L("car_rental.reminder.custom")
             }
         }
 
-        func reminderDate(for checkInDate: Date) -> Date {
+        func reminderDate(for pickupDate: Date) -> Date {
             switch self {
             case .dayBefore:
-                return Calendar.current.date(byAdding: .day, value: -1, to: checkInDate) ?? checkInDate
+                return Calendar.current.date(byAdding: .day, value: -1, to: pickupDate) ?? pickupDate
             case .twoDaysBefore:
-                return Calendar.current.date(byAdding: .day, value: -2, to: checkInDate) ?? checkInDate
+                return Calendar.current.date(byAdding: .day, value: -2, to: pickupDate) ?? pickupDate
             case .weekBefore:
-                return Calendar.current.date(byAdding: .day, value: -7, to: checkInDate) ?? checkInDate
+                return Calendar.current.date(byAdding: .day, value: -7, to: pickupDate) ?? pickupDate
             case .custom:
-                return checkInDate
+                return pickupDate
             }
         }
     }
@@ -587,15 +577,15 @@ struct HotelReminderSheet: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text(L("hotel.reminder.when"))) {
-                    ForEach(HotelReminderOption.allCases, id: \.self) { option in
+                Section(header: Text(L("car_rental.reminder.when"))) {
+                    ForEach(CarRentalReminderOption.allCases, id: \.self) { option in
                         HStack {
                             Text(option.displayName)
 
                             Spacer()
 
                             if option != .custom {
-                                Text(formatDate(option.reminderDate(for: hotel.checkInDate)))
+                                Text(formatDate(option.reminderDate(for: carRental.pickupDate)))
                                     .font(.caption)
                                     .foregroundColor(.secondary)
                             }
@@ -615,9 +605,9 @@ struct HotelReminderSheet: View {
                 if selectedOption == .custom {
                     Section {
                         DatePicker(
-                            L("hotel.reminder.date"),
+                            L("car_rental.reminder.date"),
                             selection: $customDate,
-                            in: ...hotel.checkInDate,
+                            in: ...carRental.pickupDate,
                             displayedComponents: [.date, .hourAndMinute]
                         )
                     }
@@ -627,7 +617,7 @@ struct HotelReminderSheet: View {
                     Button(action: saveReminder) {
                         HStack {
                             Spacer()
-                            Text(L("hotel.reminder.save"))
+                            Text(L("car_rental.reminder.save"))
                                 .fontWeight(.semibold)
                             Spacer()
                         }
@@ -635,7 +625,7 @@ struct HotelReminderSheet: View {
                     .foregroundColor(.orange)
                 }
             }
-            .navigationTitle(L("hotel.reminder.title"))
+            .navigationTitle(L("car_rental.reminder.title"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -655,21 +645,22 @@ struct HotelReminderSheet: View {
     }
 
     private func saveReminder() {
-        let reminderDate = selectedOption == .custom ? customDate : selectedOption.reminderDate(for: hotel.checkInDate)
-        let title = "\(L("hotel.reminder.notification.title")): \(hotel.name)"
+        let reminderDate = selectedOption == .custom ? customDate : selectedOption.reminderDate(for: carRental.pickupDate)
+        let title = "\(L("car_rental.reminder.notification.title")): \(carRental.company)"
 
-        // Schedule local notification
+        // Schedule local notification first to get the notificationId
         let notificationId = NotificationManager.shared.scheduleNotification(
-            title: L("hotel.reminder.notification.title"),
+            title: L("car_rental.reminder.notification.title"),
             body: title,
             on: reminderDate
         )
 
+        // Create Reminder entity with the notificationId
         let reminder = Reminder(
             journeyId: journeyId,
             title: title,
             reminderDate: reminderDate,
-            relatedEntityId: hotel.id,
+            relatedEntityId: carRental.id,
             notificationId: notificationId
         )
 

@@ -6,10 +6,11 @@ struct JourneyDetailView: View {
     @State private var showAddJourneySheet = false
     @State private var showTransportList = false
     @State private var showHotelList = false
+    @State private var showCarRentalList = false
     @ObservedObject private var analytics = AnalyticsService.shared
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(spacing: 0) {
                 if viewModel.isLoading {
                     ProgressView()
@@ -39,12 +40,6 @@ struct JourneyDetailView: View {
                     // Scrollable sections
                     ScrollView {
                         LazyVStack(spacing: 0) {
-                            // Transport Section
-                            NavigationLink(destination: TransportListView(journeyId: viewModel.selectedJourneyId ?? UUID()), isActive: $showTransportList) {
-                                EmptyView()
-                            }
-                            .hidden()
-
                             sectionContainer(
                                 header: SectionHeaderView(
                                     title: L("journey.detail.section.transport"),
@@ -82,11 +77,6 @@ struct JourneyDetailView: View {
                             )
 
                             // Hotels Section
-                            NavigationLink(destination: HotelListView(journeyId: viewModel.selectedJourneyId ?? UUID()), isActive: $showHotelList) {
-                                EmptyView()
-                            }
-                            .hidden()
-
                             sectionContainer(
                                 header: SectionHeaderView(
                                     title: L("journey.detail.section.hotels"),
@@ -130,19 +120,28 @@ struct JourneyDetailView: View {
                                     iconName: "car.fill",
                                     iconColor: .green,
                                     itemCount: viewModel.sectionCounts.carRentals,
-                                    onSeeAll: viewModel.sectionCounts.carRentals > 0 ? {
-                                        // TODO: Navigate to full car rental list
+                                    onSeeAll: viewModel.selectedJourneyId != nil ? {
+                                        showCarRentalList = true
                                     } : nil
                                 ),
                                 content: {
                                     if viewModel.upcomingCarRentals.isEmpty {
-                                        EmptySectionView(
-                                            message: L("journey.detail.car_rentals.empty"),
-                                            iconName: "car"
-                                        )
+                                        Button {
+                                            showCarRentalList = true
+                                        } label: {
+                                            EmptySectionView(
+                                                message: L("journey.detail.car_rentals.empty"),
+                                                iconName: "car"
+                                            )
+                                        }
+                                        .buttonStyle(.plain)
                                     } else {
                                         ForEach(viewModel.upcomingCarRentals) { carRental in
                                             CarRentalPreviewRow(carRental: carRental)
+                                                .contentShape(Rectangle())
+                                                .onTapGesture {
+                                                    showCarRentalList = true
+                                                }
                                             if carRental.id != viewModel.upcomingCarRentals.last?.id {
                                                 Divider().padding(.leading, 56)
                                             }
@@ -319,6 +318,15 @@ struct JourneyDetailView: View {
                         }
                     }
                 )
+            }
+            .navigationDestination(isPresented: $showTransportList) {
+                TransportListView(journeyId: viewModel.selectedJourneyId ?? UUID())
+            }
+            .navigationDestination(isPresented: $showHotelList) {
+                HotelListView(journeyId: viewModel.selectedJourneyId ?? UUID())
+            }
+            .navigationDestination(isPresented: $showCarRentalList) {
+                CarRentalListView(journeyId: viewModel.selectedJourneyId ?? UUID())
             }
         }
     }

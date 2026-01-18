@@ -12,7 +12,7 @@ enum HotelFormMode: Identifiable {
     }
 }
 
-struct HotelFormView: View {
+struct HotelFormView: SwiftUI.View {
 
     let journeyId: UUID
     let mode: HotelFormMode
@@ -70,94 +70,15 @@ struct HotelFormView: View {
         }
     }
 
-    var body: some View {
+    var body: some SwiftUI.View {
         NavigationView {
             Form {
-                // Hotel Info Section
-                Section(header: Text(L("hotel.form.section.hotel"))) {
-                    TextField(L("hotel.form.name"), text: $name)
-                        .textContentType(.organizationName)
-
-                    TextField(L("hotel.form.address"), text: $address, axis: .vertical)
-                        .textContentType(.fullStreetAddress)
-                        .lineLimit(2...4)
-                }
-
-                // Dates Section
-                Section(header: Text(L("hotel.form.section.dates"))) {
-                    DatePicker(
-                        L("hotel.form.check_in"),
-                        selection: $checkInDate,
-                        displayedComponents: [.date]
-                    )
-
-                    DatePicker(
-                        L("hotel.form.check_out"),
-                        selection: $checkOutDate,
-                        in: checkInDate.addingTimeInterval(24 * 60 * 60)...,
-                        displayedComponents: [.date]
-                    )
-
-                    // Duration display
-                    HStack {
-                        Text(L("hotel.form.nights"))
-                            .foregroundColor(.secondary)
-                        Spacer()
-                        Text("\(calculateNights()) \(L("hotel.nights"))")
-                            .foregroundColor(.orange)
-                            .fontWeight(.medium)
-                    }
-                }
-
-                // Booking Details Section
-                Section(header: Text(L("hotel.form.section.booking"))) {
-                    TextField(L("hotel.form.booking_reference"), text: $bookingReference)
-                        .textInputAutocapitalization(.characters)
-
-                    TextField(L("hotel.form.room_type"), text: $roomType)
-                }
-
-                // Contact Section
-                Section(header: Text(L("hotel.form.section.contact"))) {
-                    TextField(L("hotel.form.phone"), text: $contactPhone)
-                        .textContentType(.telephoneNumber)
-                        .keyboardType(.phonePad)
-                }
-
-                // Cost Section
-                Section(header: Text(L("hotel.form.section.cost"))) {
-                    HStack {
-                        Picker(L("hotel.form.currency"), selection: $currency) {
-                            ForEach(Currency.allCases, id: \.self) { curr in
-                                Text("\(curr.symbol) \(curr.rawValue)").tag(curr)
-                            }
-                        }
-                        .pickerStyle(.menu)
-                        .frame(width: 120)
-
-                        TextField(L("hotel.form.total_cost"), text: $cost)
-                            .keyboardType(.decimalPad)
-                    }
-
-                    // Per night calculation
-                    if let costValue = Decimal(string: cost), costValue > 0, calculateNights() > 0 {
-                        HStack {
-                            Text(L("hotel.form.per_night"))
-                                .foregroundColor(.secondary)
-                            Spacer()
-                            let perNight = costValue / Decimal(calculateNights())
-                            Text("\(currency.symbol)\(perNight.formatted())")
-                                .foregroundColor(.orange)
-                                .fontWeight(.medium)
-                        }
-                    }
-                }
-
-                // Notes Section
-                Section(header: Text(L("hotel.form.section.notes"))) {
-                    TextField(L("hotel.form.notes"), text: $notes, axis: .vertical)
-                        .lineLimit(3...6)
-                }
+                hotelInfoSection
+                datesSection
+                bookingDetailsSection
+                contactSection
+                costSection
+                notesSection
             }
             .navigationTitle(navigationTitle)
             .navigationBarTitleDisplayMode(.inline)
@@ -183,6 +104,103 @@ struct HotelFormView: View {
             } message: {
                 Text(validationMessage)
             }
+        }
+    }
+
+    // MARK: - Form Sections
+
+    private var hotelInfoSection: some View {
+        Section(header: Text(L("hotel.form.section.hotel"))) {
+            TextField(L("hotel.form.name"), text: $name)
+                .textContentType(.organizationName)
+
+            TextField(L("hotel.form.address"), text: $address, axis: .vertical)
+                .textContentType(.fullStreetAddress)
+                .lineLimit(2...4)
+        }
+    }
+
+    private var datesSection: some View {
+        Section(header: Text(L("hotel.form.section.dates"))) {
+            DatePicker(
+                L("hotel.form.check_in"),
+                selection: $checkInDate,
+                displayedComponents: [.date]
+            )
+
+            DatePicker(
+                L("hotel.form.check_out"),
+                selection: $checkOutDate,
+                in: checkInDate.addingTimeInterval(24 * 60 * 60)...,
+                displayedComponents: [.date]
+            )
+
+            HStack {
+                Text(L("hotel.form.nights"))
+                    .foregroundColor(.secondary)
+                Spacer()
+                Text("\(calculateNights()) \(L("hotel.nights"))")
+                    .foregroundColor(.orange)
+                    .fontWeight(.medium)
+            }
+        }
+    }
+
+    private var bookingDetailsSection: some View {
+        Section(header: Text(L("hotel.form.section.booking"))) {
+            TextField(L("hotel.form.booking_reference"), text: $bookingReference)
+                .textInputAutocapitalization(.characters)
+
+            TextField(L("hotel.form.room_type"), text: $roomType)
+        }
+    }
+
+    private var contactSection: some View {
+        Section(header: Text(L("hotel.form.section.contact"))) {
+            TextField(L("hotel.form.phone"), text: $contactPhone)
+                .textContentType(.telephoneNumber)
+                .keyboardType(.phonePad)
+        }
+    }
+
+    private var costSection: some View {
+        Section(header: Text(L("hotel.form.section.cost"))) {
+            HStack {
+                Picker(L("hotel.form.currency"), selection: $currency) {
+                    ForEach(Currency.allCases, id: \.self) { curr in
+                        Text("\(curr.rawValue)").tag(curr)
+                    }
+                }
+                .pickerStyle(.menu)
+                .frame(width: 120)
+
+                TextField(L("hotel.form.total_cost"), text: $cost)
+                    .keyboardType(.decimalPad)
+            }
+
+            perNightCalculationView
+        }
+    }
+
+    @ViewBuilder
+    private var perNightCalculationView: some View {
+        if let costValue = Decimal(string: cost), costValue > 0, calculateNights() > 0 {
+            let perNight = costValue / Decimal(calculateNights())
+            HStack {
+                Text(L("hotel.form.per_night"))
+                    .foregroundColor(.secondary)
+                Spacer()
+                Text("\(currency.rawValue)\(perNight.formatted())")
+                    .foregroundColor(.orange)
+                    .fontWeight(.medium)
+            }
+        }
+    }
+
+    private var notesSection: some View {
+        Section(header: Text(L("hotel.form.section.notes"))) {
+            TextField(L("hotel.form.notes"), text: $notes, axis: .vertical)
+                .lineLimit(3...6)
         }
     }
 

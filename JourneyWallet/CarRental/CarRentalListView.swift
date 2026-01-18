@@ -1,15 +1,15 @@
 import SwiftUI
 
-struct HotelListView: View {
+struct CarRentalListView: View {
 
     let journeyId: UUID
 
-    @State private var viewModel: HotelListViewModel
+    @State private var viewModel: CarRentalListViewModel
     @ObservedObject private var analytics = AnalyticsService.shared
 
     init(journeyId: UUID) {
         self.journeyId = journeyId
-        self._viewModel = State(initialValue: HotelListViewModel(journeyId: journeyId))
+        self._viewModel = State(initialValue: CarRentalListViewModel(journeyId: journeyId))
     }
 
     var body: some View {
@@ -20,7 +20,7 @@ struct HotelListView: View {
                 .padding(.vertical, 8)
 
             // Summary bar
-            if !viewModel.filteredHotels.isEmpty {
+            if !viewModel.filteredCarRentals.isEmpty {
                 summaryBar
                     .padding(.horizontal)
                     .padding(.bottom, 8)
@@ -29,54 +29,54 @@ struct HotelListView: View {
             if viewModel.isLoading {
                 ProgressView()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-            } else if viewModel.filteredHotels.isEmpty {
+            } else if viewModel.filteredCarRentals.isEmpty {
                 emptyStateView
             } else {
-                hotelList
+                carRentalList
             }
         }
-        .navigationTitle(L("hotel.list.title"))
+        .navigationTitle(L("car_rental.list.title"))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button(action: {
-                    analytics.trackEvent("add_hotel_button_clicked", properties: [
-                        "screen": "hotel_list_screen"
+                    analytics.trackEvent("add_car_rental_button_clicked", properties: [
+                        "screen": "car_rental_list_screen"
                     ])
-                    viewModel.showAddHotelSheet = true
+                    viewModel.showAddCarRentalSheet = true
                 }) {
                     Image(systemName: "plus")
                 }
             }
         }
         .onAppear {
-            analytics.trackScreen("hotel_list_screen")
+            analytics.trackScreen("car_rental_list_screen")
             viewModel.loadData()
         }
         .refreshable {
             viewModel.loadData()
         }
-        .sheet(isPresented: $viewModel.showAddHotelSheet) {
-            HotelFormView(
+        .sheet(isPresented: $viewModel.showAddCarRentalSheet) {
+            CarRentalFormView(
                 journeyId: journeyId,
                 mode: .add,
-                onSave: { hotel in
-                    viewModel.addHotel(hotel)
+                onSave: { carRental in
+                    viewModel.addCarRental(carRental)
                 }
             )
         }
-        .sheet(item: $viewModel.hotelToEdit) { hotel in
-            HotelFormView(
+        .sheet(item: $viewModel.carRentalToEdit) { carRental in
+            CarRentalFormView(
                 journeyId: journeyId,
-                mode: .edit(hotel),
-                onSave: { updatedHotel in
-                    viewModel.updateHotel(updatedHotel)
+                mode: .edit(carRental),
+                onSave: { updatedCarRental in
+                    viewModel.updateCarRental(updatedCarRental)
                 }
             )
         }
-        .sheet(item: $viewModel.hotelToView) { hotel in
+        .sheet(item: $viewModel.carRentalToView) { carRental in
             NavigationView {
-                HotelDetailView(hotel: hotel, journeyId: journeyId)
+                CarRentalDetailView(carRental: carRental, journeyId: journeyId)
             }
         }
     }
@@ -86,7 +86,7 @@ struct HotelListView: View {
     private var filterSection: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
-                ForEach(HotelFilter.allCases, id: \.self) { filter in
+                ForEach(CarRentalFilter.allCases, id: \.self) { filter in
                     FilterChip(
                         title: filter.displayName,
                         isSelected: viewModel.selectedFilter == filter
@@ -103,12 +103,12 @@ struct HotelListView: View {
 
     private var summaryBar: some View {
         HStack(spacing: 16) {
-            // Total nights
+            // Total days
             HStack(spacing: 4) {
-                Image(systemName: "moon.fill")
+                Image(systemName: "calendar")
                     .foregroundColor(.orange)
                     .font(.caption)
-                Text("\(viewModel.totalNights) \(L("hotel.nights"))")
+                Text("\(viewModel.totalDays) \(L("car_rental.days"))")
                     .font(.caption)
                     .fontWeight(.medium)
             }
@@ -135,25 +135,25 @@ struct HotelListView: View {
         .cornerRadius(8)
     }
 
-    // MARK: - Hotel List
+    // MARK: - Car Rental List
 
-    private var hotelList: some View {
+    private var carRentalList: some View {
         List {
-            ForEach(viewModel.filteredHotels) { hotel in
-                HotelListRow(hotel: hotel)
+            ForEach(viewModel.filteredCarRentals) { carRental in
+                CarRentalListRow(carRental: carRental)
                     .contentShape(Rectangle())
                     .onTapGesture {
-                        viewModel.hotelToView = hotel
+                        viewModel.carRentalToView = carRental
                     }
                     .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                         Button(role: .destructive) {
-                            viewModel.deleteHotel(hotel)
+                            viewModel.deleteCarRental(carRental)
                         } label: {
                             Label(L("Delete"), systemImage: "trash")
                         }
 
                         Button {
-                            viewModel.hotelToEdit = hotel
+                            viewModel.carRentalToEdit = carRental
                         } label: {
                             Label(L("Edit"), systemImage: "pencil")
                         }
@@ -170,24 +170,24 @@ struct HotelListView: View {
         VStack(spacing: 16) {
             Spacer()
 
-            Image(systemName: "building.2")
+            Image(systemName: "car")
                 .font(.system(size: 60))
                 .foregroundColor(.gray.opacity(0.5))
 
-            Text(L("hotel.list.empty.title"))
+            Text(L("car_rental.list.empty.title"))
                 .font(.headline)
                 .foregroundColor(.secondary)
 
-            Text(L("hotel.list.empty.message"))
+            Text(L("car_rental.list.empty.message"))
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 40)
 
             Button(action: {
-                viewModel.showAddHotelSheet = true
+                viewModel.showAddCarRentalSheet = true
             }) {
-                Label(L("hotel.list.add_first"), systemImage: "plus")
+                Label(L("car_rental.list.add_first"), systemImage: "plus")
                     .fontWeight(.semibold)
             }
             .buttonStyle(.borderedProminent)
@@ -199,28 +199,28 @@ struct HotelListView: View {
     }
 }
 
-// MARK: - Hotel List Row
+// MARK: - Car Rental List Row
 
-struct HotelListRow: View {
+struct CarRentalListRow: View {
 
-    let hotel: Hotel
+    let carRental: CarRental
 
     var body: some View {
         HStack(spacing: 12) {
-            // Hotel icon with status color
+            // Car icon with status color
             ZStack {
                 Circle()
                     .fill(statusColor.opacity(0.2))
                     .frame(width: 44, height: 44)
 
-                Image(systemName: "building.2.fill")
+                Image(systemName: "car.fill")
                     .foregroundColor(statusColor)
                     .font(.system(size: 18))
             }
 
-            // Hotel info
+            // Rental info
             VStack(alignment: .leading, spacing: 4) {
-                Text(hotel.name)
+                Text(carRental.company)
                     .font(.headline)
                     .lineLimit(1)
 
@@ -230,19 +230,30 @@ struct HotelListRow: View {
                         .font(.caption)
                         .foregroundColor(.secondary)
 
-                    // Nights count
-                    Text("(\(hotel.nightsCount) \(L("hotel.nights_short")))")
+                    // Days count
+                    Text("(\(carRental.durationDays) \(L("car_rental.days_short")))")
                         .font(.caption)
                         .foregroundColor(.orange)
                         .fontWeight(.medium)
                 }
 
-                // Address
-                if !hotel.address.isEmpty {
-                    Text(hotel.address)
-                        .font(.caption)
+                // Locations
+                HStack(spacing: 4) {
+                    Image(systemName: "location.fill")
+                        .font(.caption2)
                         .foregroundColor(.secondary)
-                        .lineLimit(1)
+
+                    if carRental.isSameLocation {
+                        Text(carRental.pickupLocation)
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                            .lineLimit(1)
+                    } else {
+                        Text("\(carRental.pickupLocation) → \(carRental.dropoffLocation)")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                            .lineLimit(1)
+                    }
                 }
             }
 
@@ -250,11 +261,19 @@ struct HotelListRow: View {
 
             // Cost and status
             VStack(alignment: .trailing, spacing: 4) {
-                if let cost = hotel.cost, let currency = hotel.currency {
+                if let cost = carRental.cost, let currency = carRental.currency {
                     Text("\(currency.rawValue)\(cost.formatted())")
                         .font(.subheadline)
                         .fontWeight(.semibold)
                         .foregroundColor(.primary)
+                }
+
+                // Car type badge
+                if let carType = carRental.carType, !carType.isEmpty {
+                    Text(carType)
+                        .font(.caption2)
+                        .foregroundColor(.secondary)
+                        .lineLimit(1)
                 }
 
                 // Status badge
@@ -272,19 +291,19 @@ struct HotelListRow: View {
     }
 
     private var statusText: String {
-        if hotel.isActive {
-            return L("hotel.status.active")
-        } else if hotel.isUpcoming {
-            return L("hotel.status.upcoming")
+        if carRental.isActive {
+            return L("car_rental.status.active")
+        } else if carRental.isUpcoming {
+            return L("car_rental.status.upcoming")
         } else {
-            return L("hotel.status.past")
+            return L("car_rental.status.past")
         }
     }
 
     private var statusColor: Color {
-        if hotel.isActive {
+        if carRental.isActive {
             return .green
-        } else if hotel.isUpcoming {
+        } else if carRental.isUpcoming {
             return .blue
         } else {
             return .gray
@@ -295,6 +314,6 @@ struct HotelListRow: View {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
         formatter.timeStyle = .none
-        return "\(formatter.string(from: hotel.checkInDate)) - \(formatter.string(from: hotel.checkOutDate))"
+        return "\(formatter.string(from: carRental.pickupDate)) - \(formatter.string(from: carRental.dropoffDate))"
     }
 }

@@ -414,3 +414,91 @@
 "hotel.reminder.date" = "Hatırlatma Tarihi";
 "hotel.reminder.save" = "Hatırlatıcıyı Kaydet";
 "hotel.reminder.notification.title" = "Otel Girişi";
+
+/* Car Rental Management */
+"car_rental.list.title" = "Araç Kiralama";
+"car_rental.list.empty.title" = "Araç kiralama yok";
+"car_rental.list.empty.message" = "Seyahatlerinizi takip etmek için araç kiralama rezervasyonlarınızı ekleyin.";
+"car_rental.list.add_first" = "Araç Kirala";
+
+/* Car Rental Filters */
+"car_rental.filter.all" = "Tümü";
+"car_rental.filter.upcoming" = "Yaklaşan";
+"car_rental.filter.active" = "Aktif";
+"car_rental.filter.past" = "Geçmiş";
+
+/* Car Rental Status */
+"car_rental.status.upcoming" = "Yaklaşan";
+"car_rental.status.active" = "Aktif";
+"car_rental.status.past" = "Geçmiş";
+
+/* Car Rental Days */
+"car_rental.days" = "gün";
+"car_rental.days_short" = "g";
+
+/* Car Rental Detail */
+"car_rental.detail.title" = "Kiralama Detayları";
+"car_rental.detail.company" = "Şirket";
+"car_rental.detail.car_type" = "Araç Tipi";
+"car_rental.detail.pickup" = "Alış";
+"car_rental.detail.dropoff" = "Teslim";
+"car_rental.detail.pickup_location" = "Alış Yeri";
+"car_rental.detail.dropoff_location" = "Teslim Yeri";
+"car_rental.detail.same_location" = "Aynı yere teslim";
+"car_rental.detail.duration" = "Süre";
+"car_rental.detail.booking_reference" = "Rezervasyon Numarası";
+"car_rental.detail.total_cost" = "Toplam Maliyet";
+"car_rental.detail.per_day" = "Günlük";
+"car_rental.detail.notes" = "Notlar";
+"car_rental.detail.pickup_in" = "Alış";
+"car_rental.detail.picking_up_soon" = "Yakında alış";
+"car_rental.detail.add_reminder" = "Hatırlatıcı Ekle";
+"car_rental.detail.delete_confirm.title" = "Kiralamayı Sil?";
+"car_rental.detail.delete_confirm.message" = "Bu işlem kiralama rezervasyonunu ve ilgili tüm hatırlatıcıları kalıcı olarak silecektir.";
+
+/* Car Rental Detail Actions */
+"car_rental.detail.action.call" = "Şirketi Ara";
+"car_rental.detail.action.pickup_map" = "Alış Yerini Haritada Göster";
+"car_rental.detail.action.dropoff_map" = "Teslim Yerini Haritada Göster";
+"car_rental.detail.action.reminder" = "Hatırlatıcı Ekle";
+
+/* Car Rental Form */
+"car_rental.form.add_title" = "Araç Kiralama Ekle";
+"car_rental.form.edit_title" = "Kiralamayı Düzenle";
+"car_rental.form.section.company" = "Şirket Bilgileri";
+"car_rental.form.section.vehicle" = "Araç";
+"car_rental.form.section.pickup" = "Alış";
+"car_rental.form.section.dropoff" = "Teslim";
+"car_rental.form.section.booking" = "Rezervasyon Detayları";
+"car_rental.form.section.cost" = "Maliyet";
+"car_rental.form.section.notes" = "Notlar";
+"car_rental.form.company" = "Kiralama Şirketi";
+"car_rental.form.car_type" = "Araç Tipi";
+"car_rental.form.pickup_date" = "Alış Tarihi";
+"car_rental.form.pickup_location" = "Alış Yeri";
+"car_rental.form.dropoff_date" = "Teslim Tarihi";
+"car_rental.form.dropoff_location" = "Teslim Yeri";
+"car_rental.form.same_location" = "Aynı yere teslim";
+"car_rental.form.days" = "Gün";
+"car_rental.form.booking_reference" = "Rezervasyon Numarası";
+"car_rental.form.phone" = "İletişim Telefonu";
+"car_rental.form.currency" = "Para Birimi";
+"car_rental.form.total_cost" = "Toplam Maliyet";
+"car_rental.form.per_day" = "Günlük";
+"car_rental.form.notes" = "Notlar";
+"car_rental.form.validation.error" = "Doğrulama Hatası";
+"car_rental.form.validation.company_required" = "Lütfen bir şirket adı girin.";
+"car_rental.form.validation.pickup_location_required" = "Lütfen bir alış yeri girin.";
+"car_rental.form.validation.dropoff_location_required" = "Lütfen bir teslim yeri girin.";
+"car_rental.form.validation.date_order" = "Teslim tarihi alış tarihinden sonra olmalıdır.";
+
+/* Car Rental Reminders */
+"car_rental.reminder.title" = "Hatırlatıcı Ekle";
+"car_rental.reminder.when" = "Ne Zaman Hatırlat";
+"car_rental.reminder.day_before" = "Alıştan bir gün önce";
+"car_rental.reminder.two_days_before" = "2 gün önce";
+"car_rental.reminder.week_before" = "Bir hafta önce";
+"car_rental.reminder.custom" = "Özel zaman";
+"car_rental.reminder.date" = "Hatırlatma Tarihi";
+"car_rental.reminder.save" = "Hatırlatıcıyı Kaydet";
+"car_rental.reminder.notification.title" = "Araç Alışı";

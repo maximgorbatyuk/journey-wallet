@@ -414,3 +414,91 @@
 "hotel.reminder.date" = "Еске салу күні";
 "hotel.reminder.save" = "Еске салуды сақтау";
 "hotel.reminder.notification.title" = "Қонақ үйге кіру";
+
+/* Car Rental Management */
+"car_rental.list.title" = "Автокөлік жалдау";
+"car_rental.list.empty.title" = "Автокөлік жалдау жоқ";
+"car_rental.list.empty.message" = "Сапарларыңызды қадағалау үшін автокөлік жалдауларын қосыңыз.";
+"car_rental.list.add_first" = "Автокөлік жалдау";
+
+/* Car Rental Filters */
+"car_rental.filter.all" = "Барлығы";
+"car_rental.filter.upcoming" = "Алдағы";
+"car_rental.filter.active" = "Белсенді";
+"car_rental.filter.past" = "Өткен";
+
+/* Car Rental Status */
+"car_rental.status.upcoming" = "Алдағы";
+"car_rental.status.active" = "Белсенді";
+"car_rental.status.past" = "Өткен";
+
+/* Car Rental Days */
+"car_rental.days" = "күн";
+"car_rental.days_short" = "к";
+
+/* Car Rental Detail */
+"car_rental.detail.title" = "Жалдау мәліметтері";
+"car_rental.detail.company" = "Компания";
+"car_rental.detail.car_type" = "Көлік түрі";
+"car_rental.detail.pickup" = "Алу";
+"car_rental.detail.dropoff" = "Қайтару";
+"car_rental.detail.pickup_location" = "Алу орны";
+"car_rental.detail.dropoff_location" = "Қайтару орны";
+"car_rental.detail.same_location" = "Сол жерге қайтару";
+"car_rental.detail.duration" = "Ұзақтығы";
+"car_rental.detail.booking_reference" = "Брондау нөмірі";
+"car_rental.detail.total_cost" = "Жалпы құны";
+"car_rental.detail.per_day" = "Күніне";
+"car_rental.detail.notes" = "Ескертпелер";
+"car_rental.detail.pickup_in" = "Алу";
+"car_rental.detail.picking_up_soon" = "Жақында алу";
+"car_rental.detail.add_reminder" = "Еске салу қосу";
+"car_rental.detail.delete_confirm.title" = "Жалдауды жою?";
+"car_rental.detail.delete_confirm.message" = "Бұл жалдау брондауын және барлық байланысты еске салуларды біржола жояды.";
+
+/* Car Rental Detail Actions */
+"car_rental.detail.action.call" = "Компанияға қоңырау шалу";
+"car_rental.detail.action.pickup_map" = "Алу орнын картадан көру";
+"car_rental.detail.action.dropoff_map" = "Қайтару орнын картадан көру";
+"car_rental.detail.action.reminder" = "Еске салу қосу";
+
+/* Car Rental Form */
+"car_rental.form.add_title" = "Автокөлік жалдау қосу";
+"car_rental.form.edit_title" = "Жалдауды өңдеу";
+"car_rental.form.section.company" = "Компания ақпараты";
+"car_rental.form.section.vehicle" = "Көлік";
+"car_rental.form.section.pickup" = "Алу";
+"car_rental.form.section.dropoff" = "Қайтару";
+"car_rental.form.section.booking" = "Брондау мәліметтері";
+"car_rental.form.section.cost" = "Құны";
+"car_rental.form.section.notes" = "Ескертпелер";
+"car_rental.form.company" = "Жалдау компаниясы";
+"car_rental.form.car_type" = "Көлік түрі";
+"car_rental.form.pickup_date" = "Алу күні";
+"car_rental.form.pickup_location" = "Алу орны";
+"car_rental.form.dropoff_date" = "Қайтару күні";
+"car_rental.form.dropoff_location" = "Қайтару орны";
+"car_rental.form.same_location" = "Сол жерге қайтару";
+"car_rental.form.days" = "Күн";
+"car_rental.form.booking_reference" = "Брондау нөмірі";
+"car_rental.form.phone" = "Байланыс телефоны";
+"car_rental.form.currency" = "Валюта";
+"car_rental.form.total_cost" = "Жалпы құны";
+"car_rental.form.per_day" = "Күніне";
+"car_rental.form.notes" = "Ескертпелер";
+"car_rental.form.validation.error" = "Тексеру қатесі";
+"car_rental.form.validation.company_required" = "Компания атауын енгізіңіз.";
+"car_rental.form.validation.pickup_location_required" = "Алу орнын енгізіңіз.";
+"car_rental.form.validation.dropoff_location_required" = "Қайтару орнын енгізіңіз.";
+"car_rental.form.validation.date_order" = "Қайтару күні алу күнінен кейін болуы керек.";
+
+/* Car Rental Reminders */
+"car_rental.reminder.title" = "Еске салу қосу";
+"car_rental.reminder.when" = "Қашан еске салу";
+"car_rental.reminder.day_before" = "Алудан бір күн бұрын";
+"car_rental.reminder.two_days_before" = "2 күн бұрын";
+"car_rental.reminder.week_before" = "Бір апта бұрын";
+"car_rental.reminder.custom" = "Өзгеше уақыт";
+"car_rental.reminder.date" = "Еске салу күні";
+"car_rental.reminder.save" = "Еске салуды сақтау";
+"car_rental.reminder.notification.title" = "Автокөлікті алу";

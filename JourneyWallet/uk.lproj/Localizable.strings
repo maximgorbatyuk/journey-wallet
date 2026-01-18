@@ -414,3 +414,91 @@
 "hotel.reminder.date" = "Дата нагадування";
 "hotel.reminder.save" = "Зберегти нагадування";
 "hotel.reminder.notification.title" = "Заїзд до готелю";
+
+/* Car Rental Management */
+"car_rental.list.title" = "Оренда авто";
+"car_rental.list.empty.title" = "Оренди авто немає";
+"car_rental.list.empty.message" = "Додайте бронювання оренди авто, щоб відстежувати ваші поїздки.";
+"car_rental.list.add_first" = "Орендувати авто";
+
+/* Car Rental Filters */
+"car_rental.filter.all" = "Всі";
+"car_rental.filter.upcoming" = "Майбутні";
+"car_rental.filter.active" = "Активні";
+"car_rental.filter.past" = "Минулі";
+
+/* Car Rental Status */
+"car_rental.status.upcoming" = "Майбутня";
+"car_rental.status.active" = "Активна";
+"car_rental.status.past" = "Минула";
+
+/* Car Rental Days */
+"car_rental.days" = "днів";
+"car_rental.days_short" = "д";
+
+/* Car Rental Detail */
+"car_rental.detail.title" = "Деталі оренди";
+"car_rental.detail.company" = "Компанія";
+"car_rental.detail.car_type" = "Тип авто";
+"car_rental.detail.pickup" = "Отримання";
+"car_rental.detail.dropoff" = "Повернення";
+"car_rental.detail.pickup_location" = "Місце отримання";
+"car_rental.detail.dropoff_location" = "Місце повернення";
+"car_rental.detail.same_location" = "Повернення в те саме місце";
+"car_rental.detail.duration" = "Тривалість";
+"car_rental.detail.booking_reference" = "Номер бронювання";
+"car_rental.detail.total_cost" = "Загальна вартість";
+"car_rental.detail.per_day" = "За день";
+"car_rental.detail.notes" = "Нотатки";
+"car_rental.detail.pickup_in" = "Отримання через";
+"car_rental.detail.picking_up_soon" = "Скоро отримання";
+"car_rental.detail.add_reminder" = "Додати нагадування";
+"car_rental.detail.delete_confirm.title" = "Видалити оренду?";
+"car_rental.detail.delete_confirm.message" = "Це назавжди видалить бронювання оренди та всі пов'язані нагадування.";
+
+/* Car Rental Detail Actions */
+"car_rental.detail.action.call" = "Зателефонувати в компанію";
+"car_rental.detail.action.pickup_map" = "Місце отримання на карті";
+"car_rental.detail.action.dropoff_map" = "Місце повернення на карті";
+"car_rental.detail.action.reminder" = "Додати нагадування";
+
+/* Car Rental Form */
+"car_rental.form.add_title" = "Додати оренду авто";
+"car_rental.form.edit_title" = "Редагувати оренду";
+"car_rental.form.section.company" = "Інформація про компанію";
+"car_rental.form.section.vehicle" = "Транспортний засіб";
+"car_rental.form.section.pickup" = "Отримання";
+"car_rental.form.section.dropoff" = "Повернення";
+"car_rental.form.section.booking" = "Деталі бронювання";
+"car_rental.form.section.cost" = "Вартість";
+"car_rental.form.section.notes" = "Нотатки";
+"car_rental.form.company" = "Компанія з оренди";
+"car_rental.form.car_type" = "Тип авто";
+"car_rental.form.pickup_date" = "Дата отримання";
+"car_rental.form.pickup_location" = "Місце отримання";
+"car_rental.form.dropoff_date" = "Дата повернення";
+"car_rental.form.dropoff_location" = "Місце повернення";
+"car_rental.form.same_location" = "Повернення в те саме місце";
+"car_rental.form.days" = "Днів";
+"car_rental.form.booking_reference" = "Номер бронювання";
+"car_rental.form.phone" = "Контактний телефон";
+"car_rental.form.currency" = "Валюта";
+"car_rental.form.total_cost" = "Загальна вартість";
+"car_rental.form.per_day" = "За день";
+"car_rental.form.notes" = "Нотатки";
+"car_rental.form.validation.error" = "Помилка валідації";
+"car_rental.form.validation.company_required" = "Будь ласка, введіть назву компанії.";
+"car_rental.form.validation.pickup_location_required" = "Будь ласка, введіть місце отримання.";
+"car_rental.form.validation.dropoff_location_required" = "Будь ласка, введіть місце повернення.";
+"car_rental.form.validation.date_order" = "Дата повернення повинна бути пізніше дати отримання.";
+
+/* Car Rental Reminders */
+"car_rental.reminder.title" = "Додати нагадування";
+"car_rental.reminder.when" = "Коли нагадати";
+"car_rental.reminder.day_before" = "За день до отримання";
+"car_rental.reminder.two_days_before" = "За 2 дні";
+"car_rental.reminder.week_before" = "За тиждень";
+"car_rental.reminder.custom" = "Інший час";
+"car_rental.reminder.date" = "Дата нагадування";
+"car_rental.reminder.save" = "Зберегти нагадування";
+"car_rental.reminder.notification.title" = "Отримання автомобіля";
