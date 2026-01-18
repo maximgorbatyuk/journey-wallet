@@ -28,6 +28,27 @@ This document outlines the implementation plan for Journey Wallet iOS app featur
 - Flight/journey reminders
 - Statistics and travel history
 
+## User stories
+
+Below are some key user stories for the app:
+
+1. As a user, I want to add a journey so that I can manage my travel plans.
+2. As a user, I want to add transports to a journey so that I can track my travel itinerary.
+3. As a user, I want to add hotels to a journey so that I can manage my accommodation.
+4. As a user, I want to add car rentals to a journey so that I can track my car rental details.
+5. As a user, I want to add documents to a journey so that I can store important travel documents.
+6. As a user, I want to add notes to a journey so that I can add additional information.
+7. As a user, I want to add places to visit to a journey so that I can plan my travel activities.
+8. As a user, I want to add reminders to a journey so that I don't forget important travel details.
+9. As a user, I want to add expenses to a journey so that I can track my travel expenses.
+10. As a user, I want to have an option to open any file (PDF, JPEG, PNG, photo) via the system share sheet, so I can add the file to a selected journey. The file should be copied to the app's Documents directory and linked to the journey. *(Implemented via Share Extension - see Phase 8, Step 8.5)*
+11. As a user, I want to view, delete, or share files (PDF, images) related to a journey within the app. *(Implemented via PDFKit for PDFs, UIImageView for images - see Phase 8, Step 8.4)*
+12. As a user, I want to quickly add any entity (transport, hotel, car rental, document, note, place, reminder, expense) to the current journey via a floating "Add new..." button, so I can efficiently manage my travel details without navigating to each section. *(Implemented via Quick Add Feature - see Phase 4, Step 4.5)*
+
+**Note:** This list is not exhaustive. Additional features may be identified during development.
+
+## Features and Views
+
 **Main tabs**
 - Tab 1: MainView
   - Stats
@@ -371,6 +392,55 @@ This document outlines the implementation plan for Journey Wallet iOS app featur
 - Shows: section title, item count, "See all" button
 - Consistent styling across all sections
 
+### Step 4.5: Quick Add Feature
+- **Goal:** Allow users to quickly add any entity type from the Journey Detail view
+- **Implementation:**
+  1. Add floating "Add new..." button (FAB) at the bottom-right of `JourneyDetailView`
+  2. Create `QuickAddSheet.swift` - modal dialog with entity type selection
+  3. Create `QuickAddEntityType` enum with cases:
+     - `transport` - Transport (flight, train, bus, etc.)
+     - `hotel` - Hotel
+     - `carRental` - Car Rental
+     - `document` - Document
+     - `note` - Note
+     - `place` - Place to Visit
+     - `reminder` - Reminder
+     - `expense` - Expense
+  4. Display options in a grid or list with icons and localized names
+  5. On selection, present the corresponding form view:
+     - Transport → `TransportFormView`
+     - Hotel → `HotelFormView`
+     - Car Rental → `CarRentalFormView`
+     - Document → `DocumentPickerView`
+     - Note → `NoteFormView`
+     - Place → `PlaceToVisitFormView`
+     - Reminder → `ReminderFormView`
+     - Expense → `ExpenseFormView`
+  6. After successful save, dismiss both sheets and refresh the view
+- **UI Design:**
+  - Orange floating action button with "+" icon
+  - Sheet with title "Add to Journey"
+  - Grid layout (2 columns) with icon + label for each option
+  - Each option uses consistent SF Symbol icons:
+    - Transport: `airplane`
+    - Hotel: `building.2.fill`
+    - Car Rental: `car.fill`
+    - Document: `doc.fill`
+    - Note: `note.text`
+    - Place: `mappin.circle.fill`
+    - Reminder: `bell.fill`
+    - Expense: `dollarsign.circle.fill`
+- **Localization keys:**
+  - `quick_add.title` = "Add to Journey"
+  - `quick_add.transport` = "Transport"
+  - `quick_add.hotel` = "Hotel"
+  - `quick_add.car_rental` = "Car Rental"
+  - `quick_add.document` = "Document"
+  - `quick_add.note` = "Note"
+  - `quick_add.place` = "Place to Visit"
+  - `quick_add.reminder` = "Reminder"
+  - `quick_add.expense` = "Expense"
+
 ---
 
 ## Phase 5: Transport Management
@@ -408,7 +478,11 @@ This document outlines the implementation plan for Journey Wallet iOS app featur
 ### Step 5.4: Transport Reminders
 - Integrate with existing `NotificationManager`
 - Add reminder options (24h, 3h, 1h before departure)
-- Store reminders in `reminders` table
+- **Important**: When creating reminders:
+  1. First, schedule the local notification via `NotificationManager.shared.scheduleNotification()` to get the `notificationId`
+  2. Then, create the `Reminder` entity with the returned `notificationId`
+  3. Finally, insert the reminder into the database
+- Store reminders in `reminders` table with `notificationId` for cancellation support
 - Type-specific notification messages (e.g., "Your flight departs in 3 hours")
 
 ---
@@ -435,6 +509,14 @@ This document outlines the implementation plan for Journey Wallet iOS app featur
 - Date pickers for check-in/check-out
 - Address field with optional map link
 
+### Step 6.4: Hotel Reminders
+- Add reminder options (day before, 2 days before, week before check-in)
+- **Important**: When creating reminders:
+  1. First, schedule the local notification via `NotificationManager.shared.scheduleNotification()` to get the `notificationId`
+  2. Then, create the `Reminder` entity with the returned `notificationId`
+  3. Finally, insert the reminder into the database
+- Store reminders in `reminders` table with `notificationId` for cancellation support
+
 ---
 
 ## Phase 7: Car Rental Management
@@ -458,6 +540,14 @@ This document outlines the implementation plan for Journey Wallet iOS app featur
 - Form fields for all rental properties
 - Location fields
 - Date/time pickers
+
+### Step 7.4: Car Rental Reminders
+- Add reminder options (day before, 2 days before, week before pickup)
+- **Important**: When creating reminders:
+  1. First, schedule the local notification via `NotificationManager.shared.scheduleNotification()` to get the `notificationId`
+  2. Then, create the `Reminder` entity with the returned `notificationId`
+  3. Finally, insert the reminder into the database
+- Store reminders in `reminders` table with `notificationId` for cancellation support
 
 ---
 
@@ -489,11 +579,37 @@ This document outlines the implementation plan for Journey Wallet iOS app featur
 
 ### Step 8.4: DocumentPreviewView
 - Create `DocumentPreviewView.swift`
-- Use `QuickLook` for PDF preview
-- Image viewer for JPEG/PNG
-- Share functionality
+- **PDF Viewing**: Use `PDFKit` (`PDFView`) for native PDF rendering with zoom, scroll, page navigation
+- **Image Viewing**: Use `UIImageView` wrapped in SwiftUI for JPEG/PNG display with pinch-to-zoom
+- **Actions**: View, delete, share to other apps via `UIActivityViewController`
+- Full-screen presentation with dismiss gesture
 
-### Step 8.5: Update Backup Service
+### Step 8.5: Share Extension (Import from System Share Sheet)
+- **Create Share Extension target** in Xcode project
+  - File > New > Target > Share Extension
+  - Name: `JourneyWalletShare`
+  - Configure for file types: PDF, JPEG, PNG, HEIC
+- **ShareViewController.swift**
+  - Extend `SLComposeServiceViewController` or use SwiftUI-based approach
+  - Receive shared file via `NSExtensionContext`
+  - Display journey picker to select target journey
+  - Copy file to App Group shared container
+  - Show success/error feedback
+- **App Group Configuration**
+  - Create App Group in Apple Developer Portal
+  - Enable App Group capability in both main app and extension
+  - Shared `UserDefaults` for passing journey selection
+  - Shared container for file transfer between extension and main app
+- **Main App Integration**
+  - On app launch, check shared container for pending files
+  - Process pending files and move to Documents directory
+  - Link files to selected journey in database
+  - Clean up shared container after processing
+- **Info.plist Configuration**
+  - Define `NSExtensionActivationRule` for supported file types
+  - Set `NSExtensionPointIdentifier` to `com.apple.share-services`
+
+### Step 8.6: Update Backup Service
 - Add document files to iCloud backup
 - Handle large file exports
 - Progress indicator for document backup
@@ -543,6 +659,7 @@ This document outlines the implementation plan for Journey Wallet iOS app featur
 - Fields: title, amount, currency, category, date, notes
 - Category picker
 - Quick amount entry
+- **Important**: ExpenseFormView should accept `defaultCurrency: Currency` as a parameter. The calling view (e.g., QuickAddSheet, BudgetView) should pass this value by fetching it from its private `userSettingsRepository` field (see Notes section for repository access pattern).
 
 ---
 
@@ -565,8 +682,12 @@ This document outlines the implementation plan for Journey Wallet iOS app featur
 
 ### Step 10.3: ReminderService
 - Create `ReminderService.swift`
-- Schedule local notifications via `NotificationManager`
-- Handle reminder completion
+- **Important**: When creating reminders:
+  1. First, schedule the local notification via `NotificationManager.shared.scheduleNotification()` to get the `notificationId`
+  2. Then, create the `Reminder` entity with the returned `notificationId`
+  3. Finally, insert the reminder into the database
+- When deleting reminders, use `notificationId` to cancel the scheduled notification
+- Handle reminder completion (mark as completed, optionally cancel notification)
 - Sync reminders with system notifications
 - Auto-create reminders for transports (optional setting)
 
@@ -645,7 +766,11 @@ This document outlines the implementation plan for Journey Wallet iOS app featur
   - Add hotel, car rental
   - Add notes, places, expenses
   - Create and manage reminders
-  - Import document
+  - Import document via in-app picker
+  - Import document via Share Extension (share from Files/Photos/Safari)
+  - View PDF documents with PDFKit
+  - View images with zoom/pan
+  - Share documents to other apps
   - Backup/restore
   - Search functionality
 
@@ -677,7 +802,7 @@ This document outlines the implementation plan for Journey Wallet iOS app featur
 | Phase 5 | Transport Management | High | High |
 | Phase 6 | Hotel Management | High | Medium |
 | Phase 7 | Car Rental Management | Medium | Medium |
-| Phase 8 | Document Management | High | High |
+| Phase 8 | Document Management & Share Extension | High | High |
 | Phase 9 | Notes, Places & Budget | Medium | High |
 | Phase 10 | Reminders & Notifications (Tab 4) | High | Medium |
 | Phase 11 | Statistics Service | Medium | Low |
@@ -696,6 +821,30 @@ This document outlines the implementation plan for Journey Wallet iOS app featur
 - Maintain orange as primary accent color
 - All async operations should use async/await
 - Add Firebase Analytics events for key actions
+- **Reminder Creation Pattern**: Always schedule notification first to get `notificationId`, then create `Reminder` entity with that ID. This ensures proper linking between database records and system notifications for cancellation support.
+- **Repository Access in Views**: When a view needs to access a repository (e.g., for fetching user settings like default currency), create a **private field** in the view to hold the repository reference, initialize it in the view's `init()` from `DatabaseManager.shared`, and then use that field in the view code. **Do NOT** call the chain `DatabaseManager.shared.someRepository?.someMethod()` directly in the view body or sheet modifiers.
+
+  ```swift
+  // ✅ Good - Private repository field
+  struct MyView: View {
+      private let userSettingsRepository: UserSettingsRepository?
+
+      init() {
+          self.userSettingsRepository = DatabaseManager.shared.userSettingsRepository
+      }
+
+      var body: some View {
+          // Use: userSettingsRepository?.fetchCurrency() ?? .usd
+      }
+  }
+
+  // ❌ Bad - Direct chain access in view
+  struct MyView: View {
+      var body: some View {
+          // Don't: DatabaseManager.shared.userSettingsRepository?.fetchCurrency() ?? .usd
+      }
+  }
+  ```
 
 ---
 

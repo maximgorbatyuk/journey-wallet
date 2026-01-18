@@ -46,9 +46,18 @@ final class BackupService: ObservableObject {
     }
     
     // MARK: - Dependencies
-    
+
     private let currentSchemaVersion: Int
     private let settingsRepository: UserSettingsRepository?
+    private let journeysRepository: JourneysRepository?
+    private let transportsRepository: TransportsRepository?
+    private let hotelsRepository: HotelsRepository?
+    private let carRentalsRepository: CarRentalsRepository?
+    private let documentsRepository: DocumentsRepository?
+    private let notesRepository: NotesRepository?
+    private let placesToVisitRepository: PlacesToVisitRepository?
+    private let remindersRepository: RemindersRepository?
+    private let expensesRepository: ExpensesRepository?
     private let databaseManager: DatabaseManager
     private let networkMonitor: NetworkMonitor
     private let logger: Logger
@@ -60,7 +69,16 @@ final class BackupService: ObservableObject {
         self.databaseManager = databaseManager
         self.networkMonitor = networkMonitor
         self.currentSchemaVersion = self.databaseManager.getDatabaseSchemaVersion()
-        self.settingsRepository = self.databaseManager.userSettingsRepository!
+        self.settingsRepository = self.databaseManager.userSettingsRepository
+        self.journeysRepository = self.databaseManager.journeysRepository
+        self.transportsRepository = self.databaseManager.transportsRepository
+        self.hotelsRepository = self.databaseManager.hotelsRepository
+        self.carRentalsRepository = self.databaseManager.carRentalsRepository
+        self.documentsRepository = self.databaseManager.documentsRepository
+        self.notesRepository = self.databaseManager.notesRepository
+        self.placesToVisitRepository = self.databaseManager.placesToVisitRepository
+        self.remindersRepository = self.databaseManager.remindersRepository
+        self.expensesRepository = self.databaseManager.expensesRepository
         self.logger = Logger(subsystem: "dev.mgorbatyuk.awesomeapplication.businesslogic", category: "BackupService")
     }
     
@@ -74,17 +92,36 @@ final class BackupService: ObservableObject {
     
     private func createExportData() async throws -> ExportData {
         let settings = try await fetchUserSettings()
-        
+
         let metadata = ExportMetadata(
             createdAt: Date(),
             appVersion: getAppVersion(),
             deviceName: getDeviceName(),
             databaseSchemaVersion: currentSchemaVersion
         )
-        
+
+        let journeys = journeysRepository?.fetchAll()
+        let transports = transportsRepository?.fetchAll()
+        let hotels = hotelsRepository?.fetchAll()
+        let carRentals = carRentalsRepository?.fetchAll()
+        let documents = documentsRepository?.fetchAll()
+        let notes = notesRepository?.fetchAll()
+        let placesToVisit = placesToVisitRepository?.fetchAll()
+        let reminders = remindersRepository?.fetchAll()
+        let expenses = expensesRepository?.fetchAll()
+
         return ExportData(
             metadata: metadata,
-            userSettings: settings
+            userSettings: settings,
+            journeys: journeys,
+            transports: transports,
+            hotels: hotels,
+            carRentals: carRentals,
+            documents: documents,
+            notes: notes,
+            placesToVisit: placesToVisit,
+            reminders: reminders,
+            expenses: expenses
         )
     }
     
@@ -228,28 +265,98 @@ final class BackupService: ObservableObject {
     }
     
     private func importExportData(_ exportData: ExportData) async throws {
-        let settings = exportData.metadata
-        
         if let currency = Currency.allCases.first(where: { $0.rawValue == exportData.userSettings.preferredCurrency }) {
-            _ = settingsRepository!.upsertCurrency(currency.rawValue)
+            _ = settingsRepository?.upsertCurrency(currency.rawValue)
         }
-        
+
         if let language = AppLanguage.allCases.first(where: { $0.rawValue == exportData.userSettings.preferredLanguage }) {
-            _ = settingsRepository!.upsertLanguage(language.rawValue)
+            _ = settingsRepository?.upsertLanguage(language.rawValue)
         }
-        
-        self.logger.info("Successfully imported user settings")
+
+        // Import journeys first (parent entities)
+        if let journeys = exportData.journeys {
+            for journey in journeys {
+                _ = journeysRepository?.insert(journey)
+            }
+            self.logger.info("Imported \(journeys.count) journeys")
+        }
+
+        // Import transports
+        if let transports = exportData.transports {
+            for transport in transports {
+                _ = transportsRepository?.insert(transport)
+            }
+            self.logger.info("Imported \(transports.count) transports")
+        }
+
+        // Import hotels
+        if let hotels = exportData.hotels {
+            for hotel in hotels {
+                _ = hotelsRepository?.insert(hotel)
+            }
+            self.logger.info("Imported \(hotels.count) hotels")
+        }
+
+        // Import car rentals
+        if let carRentals = exportData.carRentals {
+            for carRental in carRentals {
+                _ = carRentalsRepository?.insert(carRental)
+            }
+            self.logger.info("Imported \(carRentals.count) car rentals")
+        }
+
+        // Import documents (metadata only, files handled separately)
+        if let documents = exportData.documents {
+            for document in documents {
+                _ = documentsRepository?.insert(document)
+            }
+            self.logger.info("Imported \(documents.count) documents")
+        }
+
+        // Import notes
+        if let notes = exportData.notes {
+            for note in notes {
+                _ = notesRepository?.insert(note)
+            }
+            self.logger.info("Imported \(notes.count) notes")
+        }
+
+        // Import places to visit
+        if let placesToVisit = exportData.placesToVisit {
+            for place in placesToVisit {
+                _ = placesToVisitRepository?.insert(place)
+            }
+            self.logger.info("Imported \(placesToVisit.count) places to visit")
+        }
+
+        // Import reminders
+        if let reminders = exportData.reminders {
+            for reminder in reminders {
+                _ = remindersRepository?.insert(reminder)
+            }
+            self.logger.info("Imported \(reminders.count) reminders")
+        }
+
+        // Import expenses
+        if let expenses = exportData.expenses {
+            for expense in expenses {
+                _ = expensesRepository?.insert(expense)
+            }
+            self.logger.info("Imported \(expenses.count) expenses")
+        }
+
+        self.logger.info("Successfully imported all data")
     }
     
     // MARK: - Helper Methods
-    
-    private func fetchUserSettings() async throws -> ExportUserSettings {
+
+    private func fetchUserSettings() -> ExportUserSettings {
         let currency = settingsRepository!.fetchCurrency()
         let language = settingsRepository!.fetchLanguage()
         
         return ExportUserSettings(currency: currency, language: language)
     }
-    
+
     private func getAppVersion() -> String {
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
         let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "Unknown"

@@ -51,6 +51,59 @@
 "Get started" = "Бастау";
 "Start onboarding again" = "Таныстыруды қайтадан бастау";
 
+/* Onboarding Pages - Phase 12 */
+"onboarding.track_journeys" = "Сапарларды қадағалаңыз";
+"onboarding.track_journeys__subtitle" = "Барлық саяхаттарыңызды бір жерде жоспарлаңыз және ұйымдастырыңыз. Бағыттарды, күндерді және мәліметтерді қадағалаңыз.";
+"onboarding.store_bookings" = "Брондауларды және құжаттарды сақтаңыз";
+"onboarding.store_bookings__subtitle" = "Ұшақ билеттерін, қонақүй брондауларын және саяхат құжаттарын сақтаңыз. Барлығына офлайн кіріңіз.";
+"onboarding.travel_reminders" = "Саяхат еске салуларын алыңыз";
+"onboarding.travel_reminders__subtitle" = "Ешбір рейсті немесе тіркелуді жіберіп алмаңыз. Барлық маңызды саяхат оқиғалары үшін еске салулар орнатыңыз.";
+"onboarding.view_statistics" = "Саяхат статистикасын көріңіз";
+"onboarding.view_statistics__subtitle" = "Саяхат тарихыңызды бір қарағанда көріңіз. Шығындарды, барған жерлерді және т.б. қадағалаңыз.";
+
+/* Empty States - Phase 12 */
+"empty.journeys.title" = "Әзірге сапар жоқ";
+"empty.journeys.message" = "Алғашқы сапарыңызды жасау арқылы келесі шытырман оқиғаңызды жоспарлауды бастаңыз.";
+"empty.journeys.action" = "Сапар жасау";
+"empty.transports.title" = "Көлік жоқ";
+"empty.transports.message" = "Саяхат бағытыңызды қадағалау үшін рейстерді, пойыздарды немесе басқа көліктерді қосыңыз.";
+"empty.transports.action" = "Көлік қосу";
+"empty.hotels.title" = "Қонақүй жоқ";
+"empty.hotels.message" = "Барлық тұру мәліметтерін бір жерде сақтау үшін қонақүй брондауларыңызды қосыңыз.";
+"empty.hotels.action" = "Қонақүй қосу";
+"empty.car_rentals.title" = "Көлік жалдауы жоқ";
+"empty.car_rentals.message" = "Сапарыңыз кезінде оңай кіру үшін көлік жалдау мәліметтерін қосыңыз.";
+"empty.car_rentals.action" = "Көлік жалдауын қосу";
+"empty.documents.title" = "Құжат жоқ";
+"empty.documents.message" = "Билеттер, растаулар және жеке куәлік көшірмелері сияқты маңызды саяхат құжаттарын сақтаңыз.";
+"empty.documents.action" = "Құжат қосу";
+"empty.notes.title" = "Жазба жоқ";
+"empty.notes.message" = "Сапарыңыз, кеңестер немесе есте сақтау керек нәрселер туралы жазбалар қосыңыз.";
+"empty.notes.action" = "Жазба қосу";
+"empty.places.title" = "Орын жоқ";
+"empty.places.message" = "Сапарыңыз кезінде баратын орындар тізімін жасаңыз.";
+"empty.places.action" = "Орын қосу";
+"empty.expenses.title" = "Шығын жоқ";
+"empty.expenses.message" = "Шығындар қосу арқылы саяхат шығындарыңызды қадағалаңыз.";
+"empty.expenses.action" = "Шығын қосу";
+"empty.reminders.title" = "Еске салу жоқ";
+"empty.reminders.message" = "Маңызды саяхат оқиғалары мен тапсырмалар үшін еске салулар орнатыңыз.";
+"empty.reminders.action" = "Еске салу қосу";
+"empty.search.title" = "Нәтиже жоқ";
+"empty.search.message" = "Басқа іздеу сөзін қолданып көріңіз немесе емлеңізді тексеріңіз.";
+
+/* Error States - Phase 12 */
+"error.network.title" = "Байланыс жоқ";
+"error.network.message" = "Интернет байланысыңызды тексеріп, қайталап көріңіз.";
+"error.database.title" = "Деректер қоры қатесі";
+"error.database.message" = "Деректеріңізге кіру кезінде мәселе туындады. Қайталап көріңіз.";
+"error.permission.title" = "Рұқсат қажет";
+"error.permission.message" = "Жалғастыру үшін қажетті рұқсаттарды беріңіз.";
+"error.not_found.title" = "Табылмады";
+"error.not_found.message" = "Сұралған элемент табылмады.";
+"error.generic.title" = "Бірдеңе дұрыс болмады";
+"error.generic.message" = "Күтпеген қате орын алды. Қайталап көріңіз.";
+
 /* Export & Import */
 "Export & Import" = "Экспорт және импорт";
 "Export Data..." = "Деректерді экспорттау...";
@@ -112,3 +165,646 @@
 /* Automatic Backup */
 "Automatic Backup" = "Автоматты сақтау";
 "Last: " = "Соңғы: ";
+
+/* Transport Types */
+"transport.type.flight" = "Әуе рейсі";
+"transport.type.train" = "Пойыз";
+"transport.type.bus" = "Автобус";
+"transport.type.ferry" = "Паром";
+"transport.type.transfer" = "Трансфер";
+"transport.type.other" = "Басқа";
+
+/* Transport Labels */
+"transport.label.airline" = "Әуе компаниясы";
+"transport.label.train_company" = "Теміржол компаниясы";
+"transport.label.bus_company" = "Автобус компаниясы";
+"transport.label.ferry_company" = "Паром компаниясы";
+"transport.label.provider" = "Провайдер";
+"transport.label.carrier" = "Тасымалдаушы";
+"transport.label.flight_number" = "Рейс нөмірі";
+"transport.label.train_number" = "Пойыз нөмірі";
+"transport.label.route_number" = "Бағыт нөмірі";
+"transport.label.ferry_number" = "Паром нөмірі";
+"transport.label.vehicle" = "Көлік";
+"transport.label.reference" = "Сілтеме";
+"transport.label.terminal" = "Терминал";
+"transport.label.platform" = "Платформа";
+"transport.label.pier" = "Причал";
+"transport.label.pickup_point" = "Алу нүктесі";
+"transport.label.location" = "Орын";
+"transport.label.departure_airport" = "Ұшу әуежайы";
+"transport.label.departure_station" = "Жөнелу станциясы";
+"transport.label.departure_port" = "Жөнелу порты";
+"transport.label.pickup_location" = "Алу орны";
+"transport.label.from" = "Қайдан";
+"transport.label.arrival_airport" = "Келу әуежайы";
+"transport.label.arrival_station" = "Келу станциясы";
+"transport.label.arrival_port" = "Келу порты";
+"transport.label.dropoff_location" = "Түсіру орны";
+"transport.label.to" = "Қайда";
+
+/* Document Types */
+"document.type.other" = "Басқа";
+
+/* Place Categories */
+"place.category.restaurant" = "Мейрамхана";
+"place.category.attraction" = "Көрнекті орын";
+"place.category.museum" = "Мұражай";
+"place.category.shopping" = "Сауда";
+"place.category.nature" = "Табиғат";
+"place.category.entertainment" = "Ойын-сауық";
+"place.category.other" = "Басқа";
+
+/* Reminder Entity Types */
+"reminder.entity.transport" = "Көлік";
+"reminder.entity.hotel" = "Қонақ үй";
+"reminder.entity.car_rental" = "Автокөлік жалдау";
+"reminder.entity.place" = "Орын";
+"reminder.entity.custom" = "Басқа";
+
+/* Expense Categories */
+"expense.category.transport" = "Көлік";
+"expense.category.accommodation" = "Тұру";
+"expense.category.food" = "Тамақ";
+"expense.category.activities" = "Белсенділіктер";
+"expense.category.shopping" = "Сауда";
+"expense.category.other" = "Басқа";
+
+/* Tab Bar */
+"tab.home" = "Басты";
+"tab.current_journey" = "Ағымдағы";
+"tab.journeys" = "Сапарлар";
+"tab.reminders" = "Еске салулар";
+"tab.settings" = "Параметрлер";
+
+/* Main Screen (Home) */
+"main.title" = "Басты";
+"main.search.placeholder" = "Сапарлар, қонақ үйлер, көлік іздеу...";
+"main.search.results_title" = "Іздеу нәтижелері";
+"main.search.no_results" = "Нәтиже табылмады";
+"main.stats.title" = "Шолу";
+"main.stats.total_journeys" = "Барлық сапарлар";
+"main.stats.upcoming" = "Алдағы";
+"main.stats.destinations" = "Бағыттар";
+"main.active_journeys.title" = "Сіздің сапарларыңыз";
+"main.empty.title" = "Сапарлар жоқ";
+"main.empty.subtitle" = "Сапар қосу арқылы келесі саяхатыңызды жоспарлауды бастаңыз.";
+
+/* Search Result Types */
+"search.type.journey" = "Сапар";
+"search.type.transport" = "Көлік";
+"search.type.hotel" = "Қонақ үй";
+"search.type.car_rental" = "Автокөлік жалдау";
+"search.type.place" = "Орын";
+"search.type.note" = "Жазба";
+
+/* Journeys List */
+"journeys.title" = "Сапарлар";
+"journeys.empty.title" = "Сапарлар жоқ";
+"journeys.empty.subtitle" = "Алғашқы сапарыңызды құру және жоспарлауды бастау үшін + батырмасын басыңыз.";
+"journeys.empty.add_button" = "Сапар қосу";
+
+/* Journey Filters */
+"journey.filter.all" = "Барлығы";
+"journey.filter.active" = "Белсенді";
+"journey.filter.upcoming" = "Алдағы";
+"journey.filter.past" = "Өткен";
+
+/* Journey Status */
+"journey.status.active" = "Белсенді";
+"journey.status.upcoming" = "Алдағы";
+"journey.status.past" = "Өткен";
+"journey.days" = "күн";
+
+/* Journey Form */
+"journey.form.add_title" = "Жаңа сапар";
+"journey.form.edit_title" = "Сапарды өзгерту";
+"journey.form.section.basic" = "Негізгі ақпарат";
+"journey.form.section.dates" = "Күндер";
+"journey.form.section.notes" = "Жазбалар";
+"journey.form.name" = "Сапар атауы";
+"journey.form.destination" = "Бағыт";
+"journey.form.start_date" = "Басталу күні";
+"journey.form.end_date" = "Аяқталу күні";
+"journey.form.error.name_required" = "Сапар атауын енгізіңіз.";
+"journey.form.error.destination_required" = "Бағытты енгізіңіз.";
+"journey.form.error.invalid_dates" = "Аяқталу күні басталу күнінен кейін болуы керек.";
+
+/* Journey Detail View */
+"journey.detail.title" = "Сапар";
+"journey.detail.select_journey" = "Сапарды таңдаңыз";
+"journey.detail.create_new" = "Жаңа сапар құру";
+"journey.detail.see_all" = "Барлығын көру";
+"journey.detail.nights" = "түн";
+"journey.detail.days_left" = "күн қалды";
+"journey.detail.starts_in" = "Басталады";
+"journey.detail.days_ago" = "күн бұрын";
+"journey.detail.total_spent" = "Жалпы шығын";
+"journey.detail.expenses" = "Шығындар";
+
+/* Journey Detail Sections */
+"journey.detail.section.transport" = "Көлік";
+"journey.detail.section.hotels" = "Қонақ үйлер";
+"journey.detail.section.car_rentals" = "Автокөлік жалдау";
+"journey.detail.section.documents" = "Құжаттар";
+"journey.detail.section.notes" = "Жазбалар";
+"journey.detail.section.places" = "Баратын орындар";
+"journey.detail.section.reminders" = "Еске салулар";
+"journey.detail.section.budget" = "Бюджет";
+
+/* Journey Detail Empty States */
+"journey.detail.empty.title" = "Сапар таңдалмаған";
+"journey.detail.empty.subtitle" = "Саяхат мәліметтерін қадағалау үшін бірінші сапарыңызды жасаңыз.";
+"journey.detail.empty.add_button" = "Сапар құру";
+"journey.detail.transport.empty" = "Көлік брондау жоқ";
+"journey.detail.hotels.empty" = "Қонақ үй брондау жоқ";
+"journey.detail.car_rentals.empty" = "Автокөлік жалдау жоқ";
+"journey.detail.documents.empty" = "Құжаттар тіркелмеген";
+"journey.detail.documents.count" = "құжат";
+"journey.detail.notes.empty" = "Жазбалар жоқ";
+"journey.detail.places.empty" = "Баратын орындар жоқ";
+"journey.detail.reminders.empty" = "Еске салулар жоқ";
+"journey.detail.budget.empty" = "Шығындар тіркелмеген";
+
+/* Transport List */
+"transport.list.title" = "Көлік";
+"transport.list.empty.title" = "Көлік брондау жоқ";
+"transport.list.empty.subtitle" = "Ұшақтарыңызды, пойыздарыңызды, автобустарыңызды және басқа көлік брондауларын қосыңыз.";
+"transport.list.empty.add_button" = "Көлік қосу";
+
+/* Transport Filters */
+"transport.filter.all" = "Барлығы";
+"transport.filter.upcoming" = "Алдағы";
+"transport.filter.in_progress" = "Жолда";
+"transport.filter.past" = "Өткен";
+"transport.filter.all_types" = "Барлық түрлер";
+
+/* Transport Status */
+"transport.status.upcoming" = "Алдағы";
+"transport.status.in_progress" = "Жолда";
+"transport.status.completed" = "Аяқталған";
+
+/* Transport Detail */
+"transport.detail.seat" = "Орын";
+"transport.detail.booking_reference" = "Брондау нөмірі";
+"transport.detail.cost" = "Құны";
+"transport.detail.notes" = "Жазбалар";
+"transport.detail.add_reminder" = "Еске салу қосу";
+"transport.detail.departs_in" = "Шығу";
+"transport.detail.departing_soon" = "Жақында шығады";
+"transport.detail.delete_confirm.title" = "Көлікті жою?";
+"transport.detail.delete_confirm.message" = "Бұл көлік брондауы және барлық байланысты еске салулар біржола жойылады.";
+
+/* Transport Form */
+"transport.form.add_title" = "Көлік қосу";
+"transport.form.edit_title" = "Көлікті өзгерту";
+"transport.form.section.type" = "Көлік түрі";
+"transport.form.section.carrier" = "Тасымалдаушы ақпараты";
+"transport.form.section.route" = "Бағыт";
+"transport.form.section.schedule" = "Кесте";
+"transport.form.section.details" = "Мәліметтер";
+"transport.form.section.cost" = "Құны";
+"transport.form.section.notes" = "Жазбалар";
+"transport.form.type" = "Түрі";
+"transport.form.departure" = "Шығу";
+"transport.form.arrival" = "Келу";
+"transport.form.duration" = "Ұзақтығы";
+"transport.form.seat" = "Орын нөмірі";
+"transport.form.booking_reference" = "Брондау нөмірі";
+"transport.form.cost" = "Құны";
+"transport.form.error.departure_required" = "Шығу орнын енгізіңіз.";
+"transport.form.error.arrival_required" = "Келу орнын енгізіңіз.";
+"transport.form.error.invalid_times" = "Келу уақыты шығу уақытынан кейін болуы керек.";
+"transport.form.error.invalid_cost" = "Жарамды соманы енгізіңіз.";
+
+/* Transport Reminders */
+"transport.reminder.24h_before" = "24 сағат бұрын";
+"transport.reminder.3h_before" = "3 сағат бұрын";
+"transport.reminder.1h_before" = "1 сағат бұрын";
+"transport.reminder.custom" = "Өзгеше уақыт";
+"transport.reminder.when" = "Қашан еске салу";
+"transport.reminder.date" = "Еске салу күні";
+"transport.reminder.preview" = "Еске салу жіберіледі";
+"transport.reminder.notification.title" = "Көлік еске салуы";
+
+/* Hotel Management */
+"hotel.list.title" = "Қонақ үйлер";
+"hotel.list.empty.title" = "Қонақ үйлер жоқ";
+"hotel.list.empty.message" = "Тұрғылықты бақылау үшін қонақ үй брондарын қосыңыз.";
+"hotel.list.add_first" = "Қонақ үй қосу";
+
+/* Hotel Filters */
+"hotel.filter.all" = "Барлығы";
+"hotel.filter.upcoming" = "Алдағы";
+"hotel.filter.active" = "Белсенді";
+"hotel.filter.past" = "Өткен";
+
+/* Hotel Status */
+"hotel.status.upcoming" = "Алдағы";
+"hotel.status.active" = "Тұру";
+"hotel.status.past" = "Өткен";
+
+/* Hotel Nights */
+"hotel.nights" = "түн";
+"hotel.nights_short" = "т";
+
+/* Hotel Detail */
+"hotel.detail.title" = "Қонақ үй мәліметтері";
+"hotel.detail.address" = "Мекенжай";
+"hotel.detail.phone" = "Телефон";
+"hotel.detail.check_in" = "Кіру";
+"hotel.detail.check_out" = "Шығу";
+"hotel.detail.duration" = "Ұзақтығы";
+"hotel.detail.booking_reference" = "Брондау нөмірі";
+"hotel.detail.room_type" = "Бөлме түрі";
+"hotel.detail.total_cost" = "Жалпы құны";
+"hotel.detail.per_night" = "Түніне";
+"hotel.detail.notes" = "Ескертпелер";
+"hotel.detail.check_in_in" = "Кіру";
+"hotel.detail.checking_in_soon" = "Жақында кіру";
+"hotel.detail.add_reminder" = "Еске салу қосу";
+"hotel.detail.delete_confirm.title" = "Қонақ үйді жою?";
+"hotel.detail.delete_confirm.message" = "Бұл қонақ үй брондауын және барлық байланысты еске салуларды біржола жояды.";
+
+/* Hotel Detail Actions */
+"hotel.detail.action.call" = "Қонақ үйге қоңырау шалу";
+"hotel.detail.action.map" = "Картадан ашу";
+"hotel.detail.action.reminder" = "Еске салу қосу";
+
+/* Hotel Form */
+"hotel.form.add_title" = "Қонақ үй қосу";
+"hotel.form.edit_title" = "Қонақ үйді өңдеу";
+"hotel.form.section.hotel" = "Қонақ үй ақпараты";
+"hotel.form.section.dates" = "Күндер";
+"hotel.form.section.booking" = "Брондау мәліметтері";
+"hotel.form.section.contact" = "Байланыс";
+"hotel.form.section.cost" = "Құны";
+"hotel.form.section.notes" = "Ескертпелер";
+"hotel.form.name" = "Қонақ үй атауы";
+"hotel.form.address" = "Мекенжай";
+"hotel.form.check_in" = "Кіру";
+"hotel.form.check_out" = "Шығу";
+"hotel.form.nights" = "Түн";
+"hotel.form.booking_reference" = "Брондау нөмірі";
+"hotel.form.room_type" = "Бөлме түрі";
+"hotel.form.phone" = "Байланыс телефоны";
+"hotel.form.currency" = "Валюта";
+"hotel.form.total_cost" = "Жалпы құны";
+"hotel.form.per_night" = "Түніне";
+"hotel.form.notes" = "Ескертпелер";
+"hotel.form.validation.error" = "Тексеру қатесі";
+"hotel.form.validation.name_required" = "Қонақ үй атауын енгізіңіз.";
+"hotel.form.validation.address_required" = "Мекенжай енгізіңіз.";
+"hotel.form.validation.date_order" = "Шығу күні кіру күнінен кейін болуы керек.";
+
+/* Hotel Reminders */
+"hotel.reminder.title" = "Еске салу қосу";
+"hotel.reminder.when" = "Қашан еске салу";
+"hotel.reminder.day_before" = "Кіруден бір күн бұрын";
+"hotel.reminder.two_days_before" = "2 күн бұрын";
+"hotel.reminder.week_before" = "Бір апта бұрын";
+"hotel.reminder.custom" = "Өзгеше уақыт";
+"hotel.reminder.date" = "Еске салу күні";
+"hotel.reminder.save" = "Еске салуды сақтау";
+"hotel.reminder.notification.title" = "Қонақ үйге кіру";
+
+/* Car Rental Management */
+"car_rental.list.title" = "Автокөлік жалдау";
+"car_rental.list.empty.title" = "Автокөлік жалдау жоқ";
+"car_rental.list.empty.message" = "Сапарларыңызды қадағалау үшін автокөлік жалдауларын қосыңыз.";
+"car_rental.list.add_first" = "Автокөлік жалдау";
+
+/* Car Rental Filters */
+"car_rental.filter.all" = "Барлығы";
+"car_rental.filter.upcoming" = "Алдағы";
+"car_rental.filter.active" = "Белсенді";
+"car_rental.filter.past" = "Өткен";
+
+/* Car Rental Status */
+"car_rental.status.upcoming" = "Алдағы";
+"car_rental.status.active" = "Белсенді";
+"car_rental.status.past" = "Өткен";
+
+/* Car Rental Days */
+"car_rental.days" = "күн";
+"car_rental.days_short" = "к";
+
+/* Car Rental Detail */
+"car_rental.detail.title" = "Жалдау мәліметтері";
+"car_rental.detail.company" = "Компания";
+"car_rental.detail.car_type" = "Көлік түрі";
+"car_rental.detail.pickup" = "Алу";
+"car_rental.detail.dropoff" = "Қайтару";
+"car_rental.detail.pickup_location" = "Алу орны";
+"car_rental.detail.dropoff_location" = "Қайтару орны";
+"car_rental.detail.same_location" = "Сол жерге қайтару";
+"car_rental.detail.duration" = "Ұзақтығы";
+"car_rental.detail.booking_reference" = "Брондау нөмірі";
+"car_rental.detail.total_cost" = "Жалпы құны";
+"car_rental.detail.per_day" = "Күніне";
+"car_rental.detail.notes" = "Ескертпелер";
+"car_rental.detail.pickup_in" = "Алу";
+"car_rental.detail.picking_up_soon" = "Жақында алу";
+"car_rental.detail.add_reminder" = "Еске салу қосу";
+"car_rental.detail.delete_confirm.title" = "Жалдауды жою?";
+"car_rental.detail.delete_confirm.message" = "Бұл жалдау брондауын және барлық байланысты еске салуларды біржола жояды.";
+
+/* Car Rental Detail Actions */
+"car_rental.detail.action.call" = "Компанияға қоңырау шалу";
+"car_rental.detail.action.pickup_map" = "Алу орнын картадан көру";
+"car_rental.detail.action.dropoff_map" = "Қайтару орнын картадан көру";
+"car_rental.detail.action.reminder" = "Еске салу қосу";
+
+/* Car Rental Form */
+"car_rental.form.add_title" = "Автокөлік жалдау қосу";
+"car_rental.form.edit_title" = "Жалдауды өңдеу";
+"car_rental.form.section.company" = "Компания ақпараты";
+"car_rental.form.section.vehicle" = "Көлік";
+"car_rental.form.section.pickup" = "Алу";
+"car_rental.form.section.dropoff" = "Қайтару";
+"car_rental.form.section.booking" = "Брондау мәліметтері";
+"car_rental.form.section.cost" = "Құны";
+"car_rental.form.section.notes" = "Ескертпелер";
+"car_rental.form.company" = "Жалдау компаниясы";
+"car_rental.form.car_type" = "Көлік түрі";
+"car_rental.form.pickup_date" = "Алу күні";
+"car_rental.form.pickup_location" = "Алу орны";
+"car_rental.form.dropoff_date" = "Қайтару күні";
+"car_rental.form.dropoff_location" = "Қайтару орны";
+"car_rental.form.same_location" = "Сол жерге қайтару";
+"car_rental.form.days" = "Күн";
+"car_rental.form.booking_reference" = "Брондау нөмірі";
+"car_rental.form.phone" = "Байланыс телефоны";
+"car_rental.form.currency" = "Валюта";
+"car_rental.form.total_cost" = "Жалпы құны";
+"car_rental.form.per_day" = "Күніне";
+"car_rental.form.notes" = "Ескертпелер";
+"car_rental.form.validation.error" = "Тексеру қатесі";
+"car_rental.form.validation.company_required" = "Компания атауын енгізіңіз.";
+"car_rental.form.validation.pickup_location_required" = "Алу орнын енгізіңіз.";
+"car_rental.form.validation.dropoff_location_required" = "Қайтару орнын енгізіңіз.";
+"car_rental.form.validation.date_order" = "Қайтару күні алу күнінен кейін болуы керек.";
+
+/* Car Rental Reminders */
+"car_rental.reminder.title" = "Еске салу қосу";
+"car_rental.reminder.when" = "Қашан еске салу";
+"car_rental.reminder.day_before" = "Алудан бір күн бұрын";
+"car_rental.reminder.two_days_before" = "2 күн бұрын";
+"car_rental.reminder.week_before" = "Бір апта бұрын";
+"car_rental.reminder.custom" = "Өзгеше уақыт";
+"car_rental.reminder.date" = "Еске салу күні";
+"car_rental.reminder.save" = "Еске салуды сақтау";
+"car_rental.reminder.notification.title" = "Автокөлікті алу";
+
+/* Quick Add */
+"quick_add.title" = "Саяхатқа қосу";
+"quick_add.transport" = "Көлік";
+"quick_add.hotel" = "Қонақ үй";
+"quick_add.car_rental" = "Авто жалдау";
+"quick_add.document" = "Құжат";
+"quick_add.note" = "Жазба";
+"quick_add.place" = "Бару орны";
+"quick_add.reminder" = "Еске салу";
+"quick_add.expense" = "Шығын";
+"quick_add.coming_soon" = "Жақында";
+
+/* Document Management */
+"document.list.title" = "Құжаттар";
+"document.list.empty.title" = "Құжаттар жоқ";
+"document.list.empty.message" = "Паспорттарды, билеттерді және басқа құжаттарды сақтаңыз.";
+"document.list.add_first" = "Құжат қосу";
+"document.summary.files" = "файл";
+
+/* Document Filters */
+"document.filter.all" = "Барлығы";
+"document.filter.pdf" = "PDF";
+"document.filter.images" = "Суреттер";
+
+/* Document Types */
+"document.type.pdf" = "PDF";
+"document.type.jpeg" = "JPEG сурет";
+"document.type.png" = "PNG сурет";
+"document.type.heic" = "HEIC сурет";
+
+/* Document Import */
+"document.import.title" = "Құжат импорттау";
+"document.import.section.source" = "Көзін таңдау";
+"document.import.files" = "Файлдардан импорттау";
+"document.import.files.description" = "PDF, JPEG, PNG немесе HEIC файлдарын таңдау";
+"document.import.photos" = "Фотолардан импорттау";
+"document.import.photos.description" = "Фото кітапханасынан суреттер таңдау";
+"document.import.camera" = "Фото түсіру";
+"document.import.camera.description" = "Құжатты камерамен түсіру";
+"document.import.supported_formats" = "Қолдау көрсетілетін форматтар: PDF, JPEG, PNG, HEIC";
+"document.import.processing" = "Өңделуде...";
+
+/* Document Actions */
+"document.action.share" = "Бөлісу";
+"document.action.rename" = "Атын өзгерту";
+"document.action.open_in" = "Басқа қосымшада ашу";
+
+/* Document Preview */
+"document.preview.unsupported" = "Бұл файл түрін көрсету мүмкін емес";
+"document.preview.image_error" = "Суретті жүктеу мүмкін болмады";
+
+/* Document Rename */
+"document.rename.title" = "Құжат атын өзгерту";
+"document.rename.message" = "Құжаттың жаңа атын енгізіңіз";
+"document.rename.placeholder" = "Құжат аты";
+
+/* Document Delete */
+"document.delete_confirm.title" = "Құжатты жою?";
+"document.delete_confirm.message" = "Бұл құжат біржола жойылады.";
+
+/* Document Errors */
+"document.error.unknown" = "Белгісіз қате орын алды";
+"document.error.import_failed" = "Құжаттарды импорттау сәтсіз болды";
+"document.error.save_failed" = "Құжатты сақтау сәтсіз болды";
+
+/* Document Camera */
+"document.camera.default_name" = "Түсірілген фото";
+
+/* Note Management */
+"note.list.title" = "Жазбалар";
+"note.list.empty.title" = "Жазбалар жоқ";
+"note.list.empty.message" = "Саяхатыңыздың маңызды бөлшектерін есте сақтау үшін жазбалар қосыңыз.";
+"note.list.add_first" = "Жазба қосу";
+"note.summary.notes" = "жазба";
+"note.untitled" = "Атаусыз";
+
+/* Note Form */
+"note.form.add_title" = "Жаңа жазба";
+"note.form.edit_title" = "Жазбаны өңдеу";
+"note.form.section.title" = "Тақырып";
+"note.form.section.content" = "Мазмұны";
+"note.form.title_placeholder" = "Жазба тақырыбы";
+"note.form.validation.error" = "Тексеру қатесі";
+"note.form.validation.empty" = "Тақырыпты немесе мазмұнды енгізіңіз.";
+
+/* Place Management */
+"place.list.title" = "Бару орындары";
+"place.list.empty.title" = "Орындар жоқ";
+"place.list.empty.message" = "Саяхатыңыз кезінде бару керек орындарды қосыңыз.";
+"place.list.add_first" = "Орын қосу";
+"place.summary.visited" = "барылған";
+
+/* Place Filters */
+"place.filter.all" = "Барлығы";
+"place.filter.to_visit" = "Бару керек";
+"place.filter.visited" = "Барылған";
+
+/* Place Actions */
+"place.action.mark_visited" = "Барылған деп белгілеу";
+"place.action.mark_unvisited" = "Барылмаған деп белгілеу";
+
+/* Place Form */
+"place.form.add_title" = "Орын қосу";
+"place.form.edit_title" = "Орынды өңдеу";
+"place.form.section.info" = "Орын ақпараты";
+"place.form.section.category" = "Санат";
+"place.form.section.date" = "Жоспарланған күн";
+"place.form.section.notes" = "Жазбалар";
+"place.form.name" = "Орын аты";
+"place.form.address" = "Мекенжай";
+"place.form.category" = "Санат";
+"place.form.visited" = "Бұрын барылған";
+"place.form.has_planned_date" = "Жоспарланған күнді белгілеу";
+"place.form.planned_date" = "Жоспарланған күн";
+"place.form.validation.error" = "Тексеру қатесі";
+"place.form.validation.name_required" = "Орын атын енгізіңіз.";
+
+/* Budget Management */
+"budget.title" = "Бюджет";
+"budget.total_spent" = "Жалпы шығын";
+"budget.expenses" = "шығын";
+"budget.by_category" = "Санат бойынша";
+"budget.empty.title" = "Шығындар жоқ";
+"budget.empty.message" = "Бюджетіңізді басқару үшін саяхат шығындарын қадағалаңыз.";
+"budget.add_first" = "Шығын қосу";
+
+/* Expense Filters */
+"expense.filter.all" = "Барлығы";
+
+/* Expense Form */
+"expense.form.add_title" = "Шығын қосу";
+"expense.form.edit_title" = "Шығынды өңдеу";
+"expense.form.section.info" = "Шығын ақпараты";
+"expense.form.section.amount" = "Сома";
+"expense.form.section.category" = "Санат";
+"expense.form.section.date" = "Күні";
+"expense.form.section.notes" = "Жазбалар";
+"expense.form.title" = "Сипаттама";
+"expense.form.amount" = "Сома";
+"expense.form.category" = "Санат";
+"expense.form.date" = "Күні";
+"expense.form.validation.error" = "Тексеру қатесі";
+"expense.form.validation.title_required" = "Сипаттаманы енгізіңіз.";
+"expense.form.validation.amount_required" = "Жарамды соманы енгізіңіз.";
+
+/* Reminder/Notification Management - Phase 10 */
+"reminder.list.title" = "Еске салулар";
+"reminder.list.empty.title" = "Еске салулар жоқ";
+"reminder.list.empty.message" = "Саяхат жоспарларыңызды қадағалау үшін еске салулар жасаңыз.";
+"reminder.list.add_first" = "Еске салу қосу";
+"reminder.list.empty.today.title" = "Бүгінге ештеңе жоқ";
+"reminder.list.empty.today.message" = "Бүгінге жоспарланған еске салуларыңыз жоқ.";
+"reminder.list.empty.upcoming.title" = "Алдағы еске салулар жоқ";
+"reminder.list.empty.upcoming.message" = "Бәрі орындалды! Алдағы еске салулар жоқ.";
+"reminder.list.empty.overdue.title" = "Мерзімі өткен еске салулар жоқ";
+"reminder.list.empty.overdue.message" = "Керемет! Мерзімі өткен еске салуларыңыз жоқ.";
+"reminder.list.empty.completed.title" = "Аяқталған еске салулар жоқ";
+"reminder.list.empty.completed.message" = "Аяқталған еске салулар осында көрсетіледі.";
+
+/* Reminder Filters */
+"reminder.filter.all" = "Барлығы";
+"reminder.filter.today" = "Бүгін";
+"reminder.filter.upcoming" = "Алдағы";
+"reminder.filter.overdue" = "Мерзімі өткен";
+"reminder.filter.completed" = "Аяқталған";
+
+/* Reminder Groups */
+"reminder.group.overdue" = "Мерзімі өткен";
+"reminder.group.today" = "Бүгін";
+"reminder.group.tomorrow" = "Ертең";
+"reminder.group.this_week" = "Осы аптада";
+"reminder.group.later" = "Кейінірек";
+"reminder.group.completed" = "Аяқталған";
+
+/* Reminder Summary */
+"reminder.summary.pending" = "күтуде";
+"reminder.summary.overdue" = "мерзімі өткен";
+"reminder.summary.today" = "бүгін";
+
+/* Reminder Actions */
+"reminder.action.mark_complete" = "Аяқтау";
+"reminder.action.mark_incomplete" = "Болдырмау";
+
+/* Reminder Status */
+"reminder.status.completed" = "Аяқталды";
+
+/* Reminder Date Labels */
+"reminder.date.today" = "Бүгін";
+"reminder.date.tomorrow" = "Ертең";
+
+/* Reminder Unknown Journey */
+"reminder.unknown_journey" = "Белгісіз саяхат";
+
+/* Reminder Form */
+"reminder.form.add_title" = "Жаңа еске салу";
+"reminder.form.edit_title" = "Еске салуды өңдеу";
+"reminder.form.title_section" = "Тақырып";
+"reminder.form.title_placeholder" = "Нені есте сақтағыңыз келеді?";
+"reminder.form.journey_section" = "Саяхат";
+"reminder.form.journey" = "Саяхат";
+"reminder.form.select_journey" = "Саяхатты таңдаңыз";
+"reminder.form.datetime_section" = "Күні мен уақыты";
+"reminder.form.date" = "Еске салу";
+"reminder.form.related_section" = "Байланысты";
+"reminder.form.has_related_entity" = "Элементпен байланыстыру";
+"reminder.form.entity_type" = "Элемент түрі";
+"reminder.form.info_section" = "Ақпарат";
+"reminder.form.created" = "Жасалған";
+"reminder.form.status" = "Күйі";
+"reminder.form.validation_error" = "Тексеру қатесі";
+"reminder.form.error.title_required" = "Еске салу тақырыбын енгізіңіз.";
+"reminder.form.error.journey_required" = "Саяхатты таңдаңыз.";
+"reminder.form.error.date_past" = "Еске салу күні болашақта болуы керек.";
+
+/* Reminder Quick Date Buttons */
+"reminder.quick.1h" = "1 сағаттан кейін";
+"reminder.quick.3h" = "3 сағаттан кейін";
+"reminder.quick.tomorrow" = "Ертең 09:00";
+"reminder.quick.next_week" = "Келесі аптада";
+
+/* Reminder Notifications */
+"reminder.notification.title" = "Еске салу";
+
+/* Reminder Templates for Entities */
+"reminder.transport.title_format" = "%@ %@ - жүрістен %d сағат бұрын";
+"reminder.hotel.title_format" = "%@ қонақүйіне тіркелу - %d күн бұрын";
+"reminder.car_rental.title_format" = "%@ - көлік алу - %d күн бұрын";
+
+/* Statistics - Phase 11 */
+"stats.show_details" = "Толық статистиканы көрсету";
+"stats.hide_details" = "Толық статистиканы жасыру";
+"stats.travel_overview" = "Саяхат шолуы";
+"stats.journeys" = "Сапарлар";
+"stats.destinations" = "Бағыттар";
+"stats.upcoming" = "Алдағы";
+"stats.transport_breakdown" = "Көлік бөлімі";
+"stats.spending_overview" = "Шығын шолуы";
+"stats.total_spent" = "Жалпы шығын";
+"stats.expenses_count" = "Шығындар";
+"stats.by_category" = "Санат бойынша";
+"stats.journey_summary" = "Сапар қорытындысы";
+"stats.transports" = "Көліктер";
+"stats.hotels" = "Қонақүйлер";
+"stats.car_rentals" = "Көлік жалдау";
+"stats.places_visited" = "Орындар";
+"stats.reminders" = "Еске салулар";
+"stats.expenses" = "Шығындар";
+"stats.quick_insights" = "Жылдам мәліметтер";
+"stats.total_travel_days" = "Жалпы саяхат күндері";
+"stats.days" = "күн";
+"stats.longest_journey" = "Ең ұзақ сапар";
+"stats.most_visited" = "Ең көп барылған";

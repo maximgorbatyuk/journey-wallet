@@ -26,28 +26,28 @@ class OnboardingViewModel: ObservableObject {
 
         pages = [
             OnboardingPageViewModelItem(
-                icon: "battery.100percent.bolt",
-                title: L("onboarding.track_your_chargings", language: selectedLanguage),
-                description: L("onboarding.track_your_chargings__subtitle", language: selectedLanguage),
+                icon: "suitcase.fill",
+                title: L("onboarding.track_journeys", language: selectedLanguage),
+                description: L("onboarding.track_journeys__subtitle", language: selectedLanguage),
                 color: .orange
             ),
             OnboardingPageViewModelItem(
-                icon: "dollarsign.circle.fill",
-                title: L("onboarding.monitor_costs", language: selectedLanguage),
-                description: L("onboarding.monitor_costs__subtitle", language: selectedLanguage),
-                color: .green
-            ),
-            OnboardingPageViewModelItem(
-                icon: "hammer.fill",
-                title: L("onboarding.plan_maintenance", language: selectedLanguage),
-                description: L("onboarding.plan_maintenance__subtitle", language: selectedLanguage),
+                icon: "doc.text.fill",
+                title: L("onboarding.store_bookings", language: selectedLanguage),
+                description: L("onboarding.store_bookings__subtitle", language: selectedLanguage),
                 color: .blue
             ),
             OnboardingPageViewModelItem(
-                icon: "chart.line.uptrend.xyaxis",
-                title: L("onboarding.view_stats", language: selectedLanguage),
-                description: L("onboarding.view_stats__subtitle", language: selectedLanguage),
-                color: .cyan
+                icon: "bell.fill",
+                title: L("onboarding.travel_reminders", language: selectedLanguage),
+                description: L("onboarding.travel_reminders__subtitle", language: selectedLanguage),
+                color: .green
+            ),
+            OnboardingPageViewModelItem(
+                icon: "chart.bar.fill",
+                title: L("onboarding.view_statistics", language: selectedLanguage),
+                description: L("onboarding.view_statistics__subtitle", language: selectedLanguage),
+                color: .purple
             ),
         ]
         totalPages = 1 + pages.count

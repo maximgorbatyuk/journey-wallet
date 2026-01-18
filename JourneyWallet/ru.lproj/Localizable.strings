@@ -51,6 +51,59 @@
 "Get started" = "Начать";
 "Start onboarding again" = "Начать обучение заново";
 
+/* Onboarding Pages - Phase 12 */
+"onboarding.track_journeys" = "Отслеживайте путешествия";
+"onboarding.track_journeys__subtitle" = "Планируйте и организуйте все поездки в одном месте. Следите за направлениями, датами и деталями.";
+"onboarding.store_bookings" = "Храните бронирования и документы";
+"onboarding.store_bookings__subtitle" = "Сохраняйте билеты, брони отелей и документы. Доступ ко всему даже без интернета.";
+"onboarding.travel_reminders" = "Получайте напоминания";
+"onboarding.travel_reminders__subtitle" = "Не пропустите рейс или заселение. Устанавливайте напоминания для важных событий.";
+"onboarding.view_statistics" = "Смотрите статистику";
+"onboarding.view_statistics__subtitle" = "Вся история путешествий на одном экране. Отслеживайте расходы, посещённые места и многое другое.";
+
+/* Empty States - Phase 12 */
+"empty.journeys.title" = "Пока нет поездок";
+"empty.journeys.message" = "Начните планировать следующее приключение, создав первую поездку.";
+"empty.journeys.action" = "Создать поездку";
+"empty.transports.title" = "Нет транспорта";
+"empty.transports.message" = "Добавьте рейсы, поезда или другой транспорт для отслеживания маршрута.";
+"empty.transports.action" = "Добавить транспорт";
+"empty.hotels.title" = "Нет отелей";
+"empty.hotels.message" = "Добавьте бронирования отелей, чтобы все данные были в одном месте.";
+"empty.hotels.action" = "Добавить отель";
+"empty.car_rentals.title" = "Нет аренды авто";
+"empty.car_rentals.message" = "Добавьте данные об аренде автомобиля для удобного доступа в поездке.";
+"empty.car_rentals.action" = "Добавить аренду";
+"empty.documents.title" = "Нет документов";
+"empty.documents.message" = "Храните важные документы: билеты, подтверждения и копии документов.";
+"empty.documents.action" = "Добавить документ";
+"empty.notes.title" = "Нет заметок";
+"empty.notes.message" = "Добавляйте заметки о поездке, советы или важные моменты.";
+"empty.notes.action" = "Добавить заметку";
+"empty.places.title" = "Нет мест";
+"empty.places.message" = "Создайте список мест, которые хотите посетить во время путешествия.";
+"empty.places.action" = "Добавить место";
+"empty.expenses.title" = "Нет расходов";
+"empty.expenses.message" = "Отслеживайте траты в поездке, добавляя расходы.";
+"empty.expenses.action" = "Добавить расход";
+"empty.reminders.title" = "Нет напоминаний";
+"empty.reminders.message" = "Устанавливайте напоминания для важных событий и задач.";
+"empty.reminders.action" = "Добавить напоминание";
+"empty.search.title" = "Ничего не найдено";
+"empty.search.message" = "Попробуйте другой запрос или проверьте написание.";
+
+/* Error States - Phase 12 */
+"error.network.title" = "Нет соединения";
+"error.network.message" = "Проверьте подключение к интернету и попробуйте снова.";
+"error.database.title" = "Ошибка базы данных";
+"error.database.message" = "Возникла проблема при доступе к данным. Попробуйте снова.";
+"error.permission.title" = "Требуется разрешение";
+"error.permission.message" = "Пожалуйста, предоставьте необходимые разрешения для продолжения.";
+"error.not_found.title" = "Не найдено";
+"error.not_found.message" = "Запрошенный элемент не найден.";
+"error.generic.title" = "Что-то пошло не так";
+"error.generic.message" = "Произошла непредвиденная ошибка. Попробуйте снова.";
+
 /* Export & Import */
 "Export & Import" = "Экспорт и импорт";
 "Export Data..." = "Экспорт данных...";
@@ -112,3 +165,642 @@
 /* Automatic Backup */
 "Automatic Backup" = "Автоматическое резервное копирование";
 "Last: " = "Последний: ";
+
+/* Transport Types */
+"transport.type.flight" = "Авиарейс";
+"transport.type.train" = "Поезд";
+"transport.type.bus" = "Автобус";
+"transport.type.ferry" = "Паром";
+"transport.type.transfer" = "Трансфер";
+"transport.type.other" = "Другое";
+
+/* Transport Labels */
+"transport.label.airline" = "Авиакомпания";
+"transport.label.train_company" = "Ж/д компания";
+"transport.label.bus_company" = "Автобусная компания";
+"transport.label.ferry_company" = "Паромная компания";
+"transport.label.provider" = "Поставщик";
+"transport.label.carrier" = "Перевозчик";
+"transport.label.flight_number" = "Номер рейса";
+"transport.label.train_number" = "Номер поезда";
+"transport.label.route_number" = "Номер маршрута";
+"transport.label.ferry_number" = "Номер парома";
+"transport.label.vehicle" = "Транспорт";
+"transport.label.reference" = "Номер бронирования";
+"transport.label.terminal" = "Терминал";
+"transport.label.platform" = "Платформа";
+"transport.label.pier" = "Причал";
+"transport.label.pickup_point" = "Место посадки";
+"transport.label.location" = "Местоположение";
+"transport.label.departure_airport" = "Аэропорт вылета";
+"transport.label.departure_station" = "Станция отправления";
+"transport.label.departure_port" = "Порт отправления";
+"transport.label.pickup_location" = "Место посадки";
+"transport.label.from" = "Откуда";
+"transport.label.arrival_airport" = "Аэропорт прилёта";
+"transport.label.arrival_station" = "Станция прибытия";
+"transport.label.arrival_port" = "Порт прибытия";
+"transport.label.dropoff_location" = "Место высадки";
+"transport.label.to" = "Куда";
+
+/* Document Types */
+"document.type.other" = "Другое";
+
+/* Place Categories */
+"place.category.restaurant" = "Ресторан";
+"place.category.attraction" = "Достопримечательность";
+"place.category.museum" = "Музей";
+"place.category.shopping" = "Шопинг";
+"place.category.nature" = "Природа";
+"place.category.entertainment" = "Развлечения";
+"place.category.other" = "Другое";
+
+/* Reminder Entity Types */
+"reminder.entity.transport" = "Транспорт";
+"reminder.entity.hotel" = "Отель";
+"reminder.entity.car_rental" = "Аренда авто";
+"reminder.entity.place" = "Место";
+"reminder.entity.custom" = "Другое";
+
+/* Expense Categories */
+"expense.category.transport" = "Транспорт";
+"expense.category.accommodation" = "Проживание";
+"expense.category.food" = "Еда";
+"expense.category.activities" = "Развлечения";
+"expense.category.shopping" = "Покупки";
+"expense.category.other" = "Другое";
+
+/* Tab Bar */
+"tab.home" = "Главная";
+"tab.current_journey" = "Текущая";
+"tab.journeys" = "Поездки";
+"tab.reminders" = "Напоминания";
+"tab.settings" = "Настройки";
+
+/* Main Screen (Home) */
+"main.title" = "Главная";
+"main.search.placeholder" = "Поиск поездок, отелей, транспорта...";
+"main.search.results_title" = "Результаты поиска";
+"main.search.no_results" = "Ничего не найдено";
+"main.stats.title" = "Обзор";
+"main.stats.total_journeys" = "Всего поездок";
+"main.stats.upcoming" = "Предстоящие";
+"main.stats.destinations" = "Направления";
+"main.active_journeys.title" = "Ваши поездки";
+"main.empty.title" = "Поездок пока нет";
+"main.empty.subtitle" = "Начните планировать своё следующее путешествие, добавив поездку.";
+
+/* Search Result Types */
+"search.type.journey" = "Поездка";
+"search.type.transport" = "Транспорт";
+"search.type.hotel" = "Отель";
+"search.type.car_rental" = "Аренда авто";
+"search.type.place" = "Место";
+"search.type.note" = "Заметка";
+
+/* Journeys List */
+"journeys.title" = "Поездки";
+"journeys.empty.title" = "Нет поездок";
+"journeys.empty.subtitle" = "Нажмите кнопку +, чтобы создать первую поездку и начать планирование путешествия.";
+"journeys.empty.add_button" = "Добавить поездку";
+
+/* Journey Filters */
+"journey.filter.all" = "Все";
+"journey.filter.active" = "Активные";
+"journey.filter.upcoming" = "Предстоящие";
+"journey.filter.past" = "Прошедшие";
+
+/* Journey Status */
+"journey.status.active" = "Активная";
+"journey.status.upcoming" = "Предстоящая";
+"journey.status.past" = "Прошедшая";
+"journey.days" = "дней";
+
+/* Journey Form */
+"journey.form.add_title" = "Новая поездка";
+"journey.form.edit_title" = "Редактировать поездку";
+"journey.form.section.basic" = "Основная информация";
+"journey.form.section.dates" = "Даты";
+"journey.form.section.notes" = "Заметки";
+"journey.form.name" = "Название поездки";
+"journey.form.destination" = "Направление";
+"journey.form.start_date" = "Дата начала";
+"journey.form.end_date" = "Дата окончания";
+"journey.form.error.name_required" = "Пожалуйста, введите название поездки.";
+"journey.form.error.destination_required" = "Пожалуйста, введите направление.";
+"journey.form.error.invalid_dates" = "Дата окончания должна быть позже даты начала.";
+
+/* Journey Detail View */
+"journey.detail.title" = "Поездка";
+"journey.detail.select_journey" = "Выберите поездку";
+"journey.detail.create_new" = "Создать новую поездку";
+"journey.detail.see_all" = "Все";
+"journey.detail.nights" = "ночей";
+"journey.detail.days_left" = "дней осталось";
+"journey.detail.starts_in" = "Начнётся через";
+"journey.detail.days_ago" = "дней назад";
+"journey.detail.total_spent" = "Всего потрачено";
+"journey.detail.expenses" = "Расходы";
+
+/* Journey Detail Sections */
+"journey.detail.section.transport" = "Транспорт";
+"journey.detail.section.hotels" = "Отели";
+"journey.detail.section.car_rentals" = "Аренда авто";
+"journey.detail.section.documents" = "Документы";
+"journey.detail.section.notes" = "Заметки";
+"journey.detail.section.places" = "Места для посещения";
+"journey.detail.section.reminders" = "Напоминания";
+"journey.detail.section.budget" = "Бюджет";
+
+/* Journey Detail Empty States */
+"journey.detail.empty.title" = "Поездка не выбрана";
+"journey.detail.empty.subtitle" = "Создайте первую поездку, чтобы начать отслеживать детали путешествия.";
+"journey.detail.empty.add_button" = "Создать поездку";
+"journey.detail.transport.empty" = "Нет бронирований транспорта";
+"journey.detail.hotels.empty" = "Нет бронирований отелей";
+"journey.detail.car_rentals.empty" = "Нет аренды автомобилей";
+"journey.detail.documents.empty" = "Документы не прикреплены";
+"journey.detail.documents.count" = "документов";
+"journey.detail.notes.empty" = "Заметок пока нет";
+"journey.detail.places.empty" = "Мест для посещения пока нет";
+"journey.detail.reminders.empty" = "Напоминаний пока нет";
+"journey.detail.budget.empty" = "Расходы не отслеживаются";
+
+/* Transport List */
+"transport.list.title" = "Транспорт";
+"transport.list.empty.title" = "Нет бронирований транспорта";
+"transport.list.empty.subtitle" = "Добавьте ваши рейсы, поезда, автобусы и другие бронирования.";
+"transport.list.empty.add_button" = "Добавить транспорт";
+
+/* Transport Filters */
+"transport.filter.all" = "Все";
+"transport.filter.upcoming" = "Предстоящие";
+"transport.filter.in_progress" = "В пути";
+"transport.filter.past" = "Прошедшие";
+"transport.filter.all_types" = "Все виды";
+
+/* Transport Status */
+"transport.status.upcoming" = "Предстоящий";
+"transport.status.in_progress" = "В пути";
+"transport.status.completed" = "Завершён";
+
+/* Transport Detail */
+"transport.detail.seat" = "Место";
+"transport.detail.booking_reference" = "Номер бронирования";
+"transport.detail.cost" = "Стоимость";
+"transport.detail.notes" = "Заметки";
+"transport.detail.add_reminder" = "Добавить напоминание";
+"transport.detail.departs_in" = "Отправление через";
+"transport.detail.departing_soon" = "Скоро отправление";
+"transport.detail.delete_confirm.title" = "Удалить транспорт?";
+"transport.detail.delete_confirm.message" = "Это навсегда удалит это бронирование и все связанные напоминания.";
+
+/* Transport Form */
+"transport.form.add_title" = "Добавить транспорт";
+"transport.form.edit_title" = "Редактировать транспорт";
+"transport.form.section.type" = "Тип транспорта";
+"transport.form.section.carrier" = "Информация о перевозчике";
+"transport.form.section.route" = "Маршрут";
+"transport.form.section.schedule" = "Расписание";
+"transport.form.section.details" = "Детали";
+"transport.form.section.cost" = "Стоимость";
+"transport.form.section.notes" = "Заметки";
+"transport.form.type" = "Тип";
+"transport.form.departure" = "Отправление";
+"transport.form.arrival" = "Прибытие";
+"transport.form.duration" = "Длительность";
+"transport.form.seat" = "Номер места";
+"transport.form.booking_reference" = "Номер бронирования";
+"transport.form.cost" = "Стоимость";
+"transport.form.error.departure_required" = "Укажите место отправления.";
+"transport.form.error.arrival_required" = "Укажите место прибытия.";
+"transport.form.error.invalid_times" = "Время прибытия должно быть позже времени отправления.";
+"transport.form.error.invalid_cost" = "Введите корректную сумму.";
+
+/* Transport Reminders */
+"transport.reminder.24h_before" = "За 24 часа";
+"transport.reminder.3h_before" = "За 3 часа";
+"transport.reminder.1h_before" = "За 1 час";
+"transport.reminder.custom" = "Другое время";
+"transport.reminder.when" = "Когда напомнить";
+"transport.reminder.date" = "Дата напоминания";
+"transport.reminder.preview" = "Напоминание будет отправлено";
+"transport.reminder.notification.title" = "Напоминание о транспорте";
+
+/* Hotel Management */
+"hotel.list.title" = "Отели";
+"hotel.list.empty.title" = "Нет отелей";
+"hotel.list.empty.message" = "Добавьте бронирования отелей, чтобы отслеживать ваше проживание.";
+"hotel.list.add_first" = "Добавить отель";
+
+/* Hotel Filters */
+"hotel.filter.all" = "Все";
+"hotel.filter.upcoming" = "Предстоящие";
+"hotel.filter.active" = "Активные";
+"hotel.filter.past" = "Прошедшие";
+
+/* Hotel Status */
+"hotel.status.upcoming" = "Предстоит";
+"hotel.status.active" = "Проживание";
+"hotel.status.past" = "Прошло";
+
+/* Hotel Nights */
+"hotel.nights" = "ночей";
+"hotel.nights_short" = "н";
+
+/* Hotel Detail */
+"hotel.detail.title" = "Детали отеля";
+"hotel.detail.address" = "Адрес";
+"hotel.detail.phone" = "Телефон";
+"hotel.detail.check_in" = "Заезд";
+"hotel.detail.check_out" = "Выезд";
+"hotel.detail.duration" = "Продолжительность";
+"hotel.detail.booking_reference" = "Номер брони";
+"hotel.detail.room_type" = "Тип номера";
+"hotel.detail.total_cost" = "Общая стоимость";
+"hotel.detail.per_night" = "За ночь";
+"hotel.detail.notes" = "Заметки";
+"hotel.detail.check_in_in" = "Заезд через";
+"hotel.detail.checking_in_soon" = "Скоро заезд";
+"hotel.detail.add_reminder" = "Добавить напоминание";
+"hotel.detail.delete_confirm.title" = "Удалить отель?";
+"hotel.detail.delete_confirm.message" = "Это навсегда удалит бронирование отеля и все связанные напоминания.";
+
+/* Hotel Detail Actions */
+"hotel.detail.action.call" = "Позвонить в отель";
+"hotel.detail.action.map" = "Открыть на карте";
+"hotel.detail.action.reminder" = "Добавить напоминание";
+
+/* Hotel Form */
+"hotel.form.add_title" = "Добавить отель";
+"hotel.form.edit_title" = "Редактировать отель";
+"hotel.form.section.hotel" = "Информация об отеле";
+"hotel.form.section.dates" = "Даты";
+"hotel.form.section.booking" = "Детали бронирования";
+"hotel.form.section.contact" = "Контакт";
+"hotel.form.section.cost" = "Стоимость";
+"hotel.form.section.notes" = "Заметки";
+"hotel.form.name" = "Название отеля";
+"hotel.form.address" = "Адрес";
+"hotel.form.check_in" = "Заезд";
+"hotel.form.check_out" = "Выезд";
+"hotel.form.nights" = "Ночей";
+"hotel.form.booking_reference" = "Номер брони";
+"hotel.form.room_type" = "Тип номера";
+"hotel.form.phone" = "Контактный телефон";
+"hotel.form.currency" = "Валюта";
+"hotel.form.total_cost" = "Общая стоимость";
+"hotel.form.per_night" = "За ночь";
+"hotel.form.notes" = "Заметки";
+"hotel.form.validation.error" = "Ошибка валидации";
+"hotel.form.validation.name_required" = "Пожалуйста, введите название отеля.";
+"hotel.form.validation.address_required" = "Пожалуйста, введите адрес.";
+"hotel.form.validation.date_order" = "Дата выезда должна быть позже даты заезда.";
+
+/* Hotel Reminders */
+"hotel.reminder.title" = "Добавить напоминание";
+"hotel.reminder.when" = "Когда напомнить";
+"hotel.reminder.day_before" = "За день до заезда";
+"hotel.reminder.two_days_before" = "За 2 дня";
+"hotel.reminder.week_before" = "За неделю";
+"hotel.reminder.custom" = "Другое время";
+"hotel.reminder.date" = "Дата напоминания";
+"hotel.reminder.save" = "Сохранить напоминание";
+"hotel.reminder.notification.title" = "Заезд в отель";
+
+/* Car Rental Management */
+"car_rental.list.title" = "Аренда авто";
+"car_rental.list.empty.title" = "Нет аренды автомобилей";
+"car_rental.list.empty.message" = "Добавьте бронирования автомобилей, чтобы отслеживать ваши поездки.";
+"car_rental.list.add_first" = "Добавить аренду авто";
+
+/* Car Rental Filters */
+"car_rental.filter.all" = "Все";
+"car_rental.filter.upcoming" = "Предстоящие";
+"car_rental.filter.active" = "Активные";
+"car_rental.filter.past" = "Прошедшие";
+
+/* Car Rental Status */
+"car_rental.status.upcoming" = "Предстоит";
+"car_rental.status.active" = "Активная";
+"car_rental.status.past" = "Прошло";
+
+/* Car Rental Days */
+"car_rental.days" = "дней";
+"car_rental.days_short" = "д";
+
+/* Car Rental Detail */
+"car_rental.detail.title" = "Детали аренды";
+"car_rental.detail.company" = "Компания";
+"car_rental.detail.car_type" = "Тип автомобиля";
+"car_rental.detail.pickup" = "Получение";
+"car_rental.detail.dropoff" = "Возврат";
+"car_rental.detail.pickup_location" = "Место получения";
+"car_rental.detail.dropoff_location" = "Место возврата";
+"car_rental.detail.same_location" = "Возврат в том же месте";
+"car_rental.detail.duration" = "Продолжительность";
+"car_rental.detail.booking_reference" = "Номер брони";
+"car_rental.detail.total_cost" = "Общая стоимость";
+"car_rental.detail.per_day" = "В день";
+"car_rental.detail.notes" = "Заметки";
+"car_rental.detail.pickup_in" = "Получение через";
+"car_rental.detail.picking_up_soon" = "Скоро получение";
+"car_rental.detail.add_reminder" = "Добавить напоминание";
+"car_rental.detail.delete_confirm.title" = "Удалить аренду?";
+"car_rental.detail.delete_confirm.message" = "Это навсегда удалит бронирование аренды и все связанные напоминания.";
+
+/* Car Rental Detail Actions */
+"car_rental.detail.action.call" = "Позвонить в компанию";
+"car_rental.detail.action.pickup_map" = "Место получения на карте";
+"car_rental.detail.action.dropoff_map" = "Место возврата на карте";
+"car_rental.detail.action.reminder" = "Добавить напоминание";
+
+/* Car Rental Form */
+"car_rental.form.add_title" = "Добавить аренду авто";
+"car_rental.form.edit_title" = "Редактировать аренду";
+"car_rental.form.section.company" = "Информация о компании";
+"car_rental.form.section.vehicle" = "Транспортное средство";
+"car_rental.form.section.pickup" = "Получение";
+"car_rental.form.section.dropoff" = "Возврат";
+"car_rental.form.section.booking" = "Детали бронирования";
+"car_rental.form.section.cost" = "Стоимость";
+"car_rental.form.section.notes" = "Заметки";
+"car_rental.form.company" = "Компания по аренде";
+"car_rental.form.car_type" = "Тип автомобиля";
+"car_rental.form.pickup_date" = "Дата получения";
+"car_rental.form.pickup_location" = "Место получения";
+"car_rental.form.dropoff_date" = "Дата возврата";
+"car_rental.form.dropoff_location" = "Место возврата";
+"car_rental.form.same_location" = "Возврат в том же месте";
+"car_rental.form.days" = "Дней";
+"car_rental.form.booking_reference" = "Номер брони";
+"car_rental.form.phone" = "Контактный телефон";
+"car_rental.form.currency" = "Валюта";
+"car_rental.form.total_cost" = "Общая стоимость";
+"car_rental.form.per_day" = "В день";
+"car_rental.form.notes" = "Заметки";
+"car_rental.form.validation.error" = "Ошибка валидации";
+"car_rental.form.validation.company_required" = "Пожалуйста, введите название компании.";
+"car_rental.form.validation.pickup_location_required" = "Пожалуйста, введите место получения.";
+"car_rental.form.validation.dropoff_location_required" = "Пожалуйста, введите место возврата.";
+"car_rental.form.validation.date_order" = "Дата возврата должна быть позже даты получения.";
+
+/* Car Rental Reminders */
+"car_rental.reminder.title" = "Добавить напоминание";
+"car_rental.reminder.when" = "Когда напомнить";
+"car_rental.reminder.day_before" = "За день до получения";
+"car_rental.reminder.two_days_before" = "За 2 дня";
+"car_rental.reminder.week_before" = "За неделю";
+"car_rental.reminder.custom" = "Другое время";
+"car_rental.reminder.date" = "Дата напоминания";
+"car_rental.reminder.save" = "Сохранить напоминание";
+"car_rental.reminder.notification.title" = "Получение автомобиля";
+
+/* Quick Add */
+"quick_add.title" = "Добавить к поездке";
+"quick_add.transport" = "Транспорт";
+"quick_add.hotel" = "Отель";
+"quick_add.car_rental" = "Аренда авто";
+"quick_add.document" = "Документ";
+"quick_add.note" = "Заметка";
+"quick_add.place" = "Место для посещения";
+"quick_add.reminder" = "Напоминание";
+"quick_add.expense" = "Расход";
+"quick_add.coming_soon" = "Скоро будет доступно";
+
+/* Document Management */
+"document.list.title" = "Документы";
+"document.list.empty.title" = "Нет документов";
+"document.list.empty.message" = "Добавьте ваши проездные документы, билеты и подтверждения.";
+"document.list.add_first" = "Добавить документ";
+
+/* Document Filters */
+"document.filter.all" = "Все";
+"document.filter.pdf" = "PDF";
+"document.filter.images" = "Изображения";
+
+/* Document Summary */
+"document.summary.files" = "файлов";
+
+/* Document Import */
+"document.import.title" = "Добавить документ";
+"document.import.section.source" = "Выберите источник";
+"document.import.files" = "Импорт из Файлов";
+"document.import.files.description" = "Выберите PDF или изображения";
+"document.import.photos" = "Импорт из Фото";
+"document.import.photos.description" = "Выберите изображения из библиотеки";
+"document.import.camera" = "Сделать фото";
+"document.import.camera.description" = "Сфотографировать документ";
+"document.import.supported_formats" = "Поддерживаемые форматы: PDF, JPEG, PNG, HEIC";
+"document.import.processing" = "Обработка...";
+
+/* Document Preview */
+"document.preview.unsupported" = "Предпросмотр недоступен";
+"document.preview.image_error" = "Не удалось загрузить изображение";
+
+/* Document Actions */
+"document.action.share" = "Поделиться";
+"document.action.rename" = "Переименовать";
+"document.action.open_in" = "Открыть в другом приложении";
+
+/* Document Rename */
+"document.rename.title" = "Переименовать документ";
+"document.rename.message" = "Введите новое название для этого документа.";
+"document.rename.placeholder" = "Название документа";
+
+/* Document Delete */
+"document.delete_confirm.title" = "Удалить документ?";
+"document.delete_confirm.message" = "Этот документ будет удален безвозвратно.";
+
+/* Document Errors */
+"document.error.save_failed" = "Не удалось сохранить документ.";
+"document.error.import_failed" = "Не удалось импортировать документ.";
+"document.error.unknown" = "Произошла неизвестная ошибка.";
+
+/* Document Camera */
+"document.camera.default_name" = "Снятый документ";
+
+/* Note Management */
+"note.list.title" = "Заметки";
+"note.list.empty.title" = "Нет заметок";
+"note.list.empty.message" = "Добавьте заметки, чтобы запомнить важные детали вашего путешествия.";
+"note.list.add_first" = "Добавить заметку";
+"note.summary.notes" = "заметок";
+"note.untitled" = "Без названия";
+
+/* Note Form */
+"note.form.add_title" = "Новая заметка";
+"note.form.edit_title" = "Редактировать заметку";
+"note.form.section.title" = "Заголовок";
+"note.form.section.content" = "Содержание";
+"note.form.title_placeholder" = "Название заметки";
+"note.form.validation.error" = "Ошибка валидации";
+"note.form.validation.empty" = "Пожалуйста, введите заголовок или содержание.";
+
+/* Place Management */
+"place.list.title" = "Места для посещения";
+"place.list.empty.title" = "Нет мест";
+"place.list.empty.message" = "Добавьте места, которые вы хотите посетить во время путешествия.";
+"place.list.add_first" = "Добавить место";
+"place.summary.visited" = "посещено";
+
+/* Place Filters */
+"place.filter.all" = "Все";
+"place.filter.to_visit" = "К посещению";
+"place.filter.visited" = "Посещённые";
+
+/* Place Actions */
+"place.action.mark_visited" = "Отметить посещённым";
+"place.action.mark_unvisited" = "Отметить непосещённым";
+
+/* Place Form */
+"place.form.add_title" = "Добавить место";
+"place.form.edit_title" = "Редактировать место";
+"place.form.section.info" = "Информация о месте";
+"place.form.section.category" = "Категория";
+"place.form.section.date" = "Планируемая дата";
+"place.form.section.notes" = "Заметки";
+"place.form.name" = "Название места";
+"place.form.address" = "Адрес";
+"place.form.category" = "Категория";
+"place.form.visited" = "Уже посещено";
+"place.form.has_planned_date" = "Установить дату";
+"place.form.planned_date" = "Планируемая дата";
+"place.form.validation.error" = "Ошибка валидации";
+"place.form.validation.name_required" = "Пожалуйста, введите название места.";
+
+/* Budget Management */
+"budget.title" = "Бюджет";
+"budget.total_spent" = "Всего потрачено";
+"budget.expenses" = "расходов";
+"budget.by_category" = "По категориям";
+"budget.empty.title" = "Нет расходов";
+"budget.empty.message" = "Отслеживайте расходы на путешествие для управления бюджетом.";
+"budget.add_first" = "Добавить расход";
+
+/* Expense Filters */
+"expense.filter.all" = "Все";
+
+/* Expense Form */
+"expense.form.add_title" = "Добавить расход";
+"expense.form.edit_title" = "Редактировать расход";
+"expense.form.section.info" = "Информация о расходе";
+"expense.form.section.amount" = "Сумма";
+"expense.form.section.category" = "Категория";
+"expense.form.section.date" = "Дата";
+"expense.form.section.notes" = "Заметки";
+"expense.form.title" = "Описание";
+"expense.form.amount" = "Сумма";
+"expense.form.category" = "Категория";
+"expense.form.date" = "Дата";
+"expense.form.validation.error" = "Ошибка валидации";
+"expense.form.validation.title_required" = "Пожалуйста, введите описание.";
+"expense.form.validation.amount_required" = "Пожалуйста, введите корректную сумму.";
+
+/* Reminder/Notification Management - Phase 10 */
+"reminder.list.title" = "Напоминания";
+"reminder.list.empty.title" = "Нет напоминаний";
+"reminder.list.empty.message" = "Создавайте напоминания, чтобы не забыть о важных моментах путешествия.";
+"reminder.list.add_first" = "Добавить напоминание";
+"reminder.list.empty.today.title" = "Ничего на сегодня";
+"reminder.list.empty.today.message" = "У вас нет напоминаний на сегодня.";
+"reminder.list.empty.upcoming.title" = "Нет предстоящих напоминаний";
+"reminder.list.empty.upcoming.message" = "Всё выполнено! Нет предстоящих напоминаний.";
+"reminder.list.empty.overdue.title" = "Нет просроченных напоминаний";
+"reminder.list.empty.overdue.message" = "Отлично! У вас нет просроченных напоминаний.";
+"reminder.list.empty.completed.title" = "Нет завершённых напоминаний";
+"reminder.list.empty.completed.message" = "Завершённые напоминания будут отображаться здесь.";
+
+/* Reminder Filters */
+"reminder.filter.all" = "Все";
+"reminder.filter.today" = "Сегодня";
+"reminder.filter.upcoming" = "Предстоящие";
+"reminder.filter.overdue" = "Просроченные";
+"reminder.filter.completed" = "Завершённые";
+
+/* Reminder Groups */
+"reminder.group.overdue" = "Просрочено";
+"reminder.group.today" = "Сегодня";
+"reminder.group.tomorrow" = "Завтра";
+"reminder.group.this_week" = "На этой неделе";
+"reminder.group.later" = "Позже";
+"reminder.group.completed" = "Завершено";
+
+/* Reminder Summary */
+"reminder.summary.pending" = "ожидает";
+"reminder.summary.overdue" = "просрочено";
+"reminder.summary.today" = "сегодня";
+
+/* Reminder Actions */
+"reminder.action.mark_complete" = "Выполнить";
+"reminder.action.mark_incomplete" = "Отменить";
+
+/* Reminder Status */
+"reminder.status.completed" = "Завершено";
+
+/* Reminder Date Labels */
+"reminder.date.today" = "Сегодня";
+"reminder.date.tomorrow" = "Завтра";
+
+/* Reminder Unknown Journey */
+"reminder.unknown_journey" = "Неизвестное путешествие";
+
+/* Reminder Form */
+"reminder.form.add_title" = "Новое напоминание";
+"reminder.form.edit_title" = "Редактировать напоминание";
+"reminder.form.title_section" = "Заголовок";
+"reminder.form.title_placeholder" = "О чём вы хотите напомнить?";
+"reminder.form.journey_section" = "Путешествие";
+"reminder.form.journey" = "Путешествие";
+"reminder.form.select_journey" = "Выберите путешествие";
+"reminder.form.datetime_section" = "Дата и время";
+"reminder.form.date" = "Напомнить в";
+"reminder.form.related_section" = "Связано с";
+"reminder.form.has_related_entity" = "Связать с объектом";
+"reminder.form.entity_type" = "Тип объекта";
+"reminder.form.info_section" = "Информация";
+"reminder.form.created" = "Создано";
+"reminder.form.status" = "Статус";
+"reminder.form.validation_error" = "Ошибка валидации";
+"reminder.form.error.title_required" = "Пожалуйста, введите заголовок напоминания.";
+"reminder.form.error.journey_required" = "Пожалуйста, выберите путешествие.";
+"reminder.form.error.date_past" = "Дата напоминания должна быть в будущем.";
+
+/* Reminder Quick Date Buttons */
+"reminder.quick.1h" = "Через 1 час";
+"reminder.quick.3h" = "Через 3 часа";
+"reminder.quick.tomorrow" = "Завтра в 9:00";
+"reminder.quick.next_week" = "Через неделю";
+
+/* Reminder Notifications */
+"reminder.notification.title" = "Напоминание";
+
+/* Reminder Templates for Entities */
+"reminder.transport.title_format" = "%@ из %@ - за %d часов до отправления";
+"reminder.hotel.title_format" = "Заселение в %@ - за %d дней";
+"reminder.car_rental.title_format" = "Получение авто в %@ - за %d дней";
+
+/* Statistics - Phase 11 */
+"stats.show_details" = "Показать детальную статистику";
+"stats.hide_details" = "Скрыть детальную статистику";
+"stats.travel_overview" = "Обзор путешествий";
+"stats.journeys" = "Поездки";
+"stats.destinations" = "Направления";
+"stats.upcoming" = "Предстоящие";
+"stats.transport_breakdown" = "Транспорт";
+"stats.spending_overview" = "Обзор расходов";
+"stats.total_spent" = "Всего потрачено";
+"stats.expenses_count" = "Расходы";
+"stats.by_category" = "По категориям";
+"stats.journey_summary" = "Итоги поездки";
+"stats.transports" = "Транспорт";
+"stats.hotels" = "Отели";
+"stats.car_rentals" = "Аренда авто";
+"stats.places_visited" = "Места";
+"stats.reminders" = "Напоминания";
+"stats.expenses" = "Расходы";
+"stats.quick_insights" = "Быстрые факты";
+"stats.total_travel_days" = "Всего дней в пути";
+"stats.days" = "дней";
+"stats.longest_journey" = "Самая долгая поездка";
+"stats.most_visited" = "Самое популярное";

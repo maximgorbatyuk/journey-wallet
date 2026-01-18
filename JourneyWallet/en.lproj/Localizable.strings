@@ -51,6 +51,59 @@
 "Get started" = "Get started";
 "Start onboarding again" = "Start onboarding again";
 
+/* Onboarding Pages - Phase 12 */
+"onboarding.track_journeys" = "Track Your Journeys";
+"onboarding.track_journeys__subtitle" = "Plan and organize all your trips in one place. Keep track of destinations, dates, and travel details.";
+"onboarding.store_bookings" = "Store Bookings & Documents";
+"onboarding.store_bookings__subtitle" = "Save flight tickets, hotel reservations, and travel documents. Access everything offline.";
+"onboarding.travel_reminders" = "Get Travel Reminders";
+"onboarding.travel_reminders__subtitle" = "Never miss a flight or check-in. Set reminders for all your important travel events.";
+"onboarding.view_statistics" = "View Travel Statistics";
+"onboarding.view_statistics__subtitle" = "See your travel history at a glance. Track expenses, destinations visited, and more.";
+
+/* Empty States - Phase 12 */
+"empty.journeys.title" = "No Journeys Yet";
+"empty.journeys.message" = "Start planning your next adventure by creating your first journey.";
+"empty.journeys.action" = "Create Journey";
+"empty.transports.title" = "No Transports";
+"empty.transports.message" = "Add flights, trains, or other transport to track your travel itinerary.";
+"empty.transports.action" = "Add Transport";
+"empty.hotels.title" = "No Hotels";
+"empty.hotels.message" = "Add your hotel bookings to keep all accommodation details in one place.";
+"empty.hotels.action" = "Add Hotel";
+"empty.car_rentals.title" = "No Car Rentals";
+"empty.car_rentals.message" = "Add car rental details for easy access during your trip.";
+"empty.car_rentals.action" = "Add Car Rental";
+"empty.documents.title" = "No Documents";
+"empty.documents.message" = "Store important travel documents like tickets, confirmations, and ID copies.";
+"empty.documents.action" = "Add Document";
+"empty.notes.title" = "No Notes";
+"empty.notes.message" = "Add notes about your trip, tips, or things to remember.";
+"empty.notes.action" = "Add Note";
+"empty.places.title" = "No Places";
+"empty.places.message" = "Create a list of places you want to visit during your journey.";
+"empty.places.action" = "Add Place";
+"empty.expenses.title" = "No Expenses";
+"empty.expenses.message" = "Track your travel spending by adding expenses.";
+"empty.expenses.action" = "Add Expense";
+"empty.reminders.title" = "No Reminders";
+"empty.reminders.message" = "Set reminders for important travel events and tasks.";
+"empty.reminders.action" = "Add Reminder";
+"empty.search.title" = "No Results";
+"empty.search.message" = "Try a different search term or check your spelling.";
+
+/* Error States - Phase 12 */
+"error.network.title" = "No Connection";
+"error.network.message" = "Please check your internet connection and try again.";
+"error.database.title" = "Database Error";
+"error.database.message" = "There was a problem accessing your data. Please try again.";
+"error.permission.title" = "Permission Required";
+"error.permission.message" = "Please grant the necessary permissions to continue.";
+"error.not_found.title" = "Not Found";
+"error.not_found.message" = "The requested item could not be found.";
+"error.generic.title" = "Something Went Wrong";
+"error.generic.message" = "An unexpected error occurred. Please try again.";
+
 /* Export & Import */
 "Export & Import" = "Export & Import";
 "Export Data..." = "Export Data...";
@@ -112,3 +165,637 @@
 /* Automatic Backup */
 "Automatic Backup" = "Automatic Backup";
 "Last: " = "Last: ";
+
+/* Transport Types */
+"transport.type.flight" = "Flight";
+"transport.type.train" = "Train";
+"transport.type.bus" = "Bus";
+"transport.type.ferry" = "Ferry";
+"transport.type.transfer" = "Transfer";
+"transport.type.other" = "Other";
+
+/* Transport Labels */
+"transport.label.airline" = "Airline";
+"transport.label.train_company" = "Train Company";
+"transport.label.bus_company" = "Bus Company";
+"transport.label.ferry_company" = "Ferry Company";
+"transport.label.provider" = "Provider";
+"transport.label.carrier" = "Carrier";
+"transport.label.flight_number" = "Flight Number";
+"transport.label.train_number" = "Train Number";
+"transport.label.route_number" = "Route Number";
+"transport.label.ferry_number" = "Ferry Number";
+"transport.label.vehicle" = "Vehicle";
+"transport.label.reference" = "Reference";
+"transport.label.terminal" = "Terminal";
+"transport.label.platform" = "Platform";
+"transport.label.pier" = "Pier";
+"transport.label.pickup_point" = "Pickup Point";
+"transport.label.location" = "Location";
+"transport.label.departure_airport" = "Departure Airport";
+"transport.label.departure_station" = "Departure Station";
+"transport.label.departure_port" = "Departure Port";
+"transport.label.pickup_location" = "Pickup Location";
+"transport.label.from" = "From";
+"transport.label.arrival_airport" = "Arrival Airport";
+"transport.label.arrival_station" = "Arrival Station";
+"transport.label.arrival_port" = "Arrival Port";
+"transport.label.dropoff_location" = "Dropoff Location";
+"transport.label.to" = "To";
+
+/* Document Types */
+"document.type.other" = "Other";
+
+/* Place Categories */
+"place.category.restaurant" = "Restaurant";
+"place.category.attraction" = "Attraction";
+"place.category.museum" = "Museum";
+"place.category.shopping" = "Shopping";
+"place.category.nature" = "Nature";
+"place.category.entertainment" = "Entertainment";
+"place.category.other" = "Other";
+
+/* Reminder Entity Types */
+"reminder.entity.transport" = "Transport";
+"reminder.entity.hotel" = "Hotel";
+"reminder.entity.car_rental" = "Car Rental";
+"reminder.entity.place" = "Place";
+"reminder.entity.custom" = "Custom";
+
+/* Expense Categories */
+"expense.category.transport" = "Transport";
+"expense.category.accommodation" = "Accommodation";
+"expense.category.food" = "Food & Dining";
+"expense.category.activities" = "Activities";
+"expense.category.shopping" = "Shopping";
+"expense.category.other" = "Other";
+
+/* Tab Bar */
+"tab.home" = "Home";
+"tab.current_journey" = "Current";
+"tab.journeys" = "Journeys";
+"tab.reminders" = "Reminders";
+"tab.settings" = "Settings";
+
+/* Main Screen (Home) */
+"main.title" = "Home";
+"main.search.placeholder" = "Search journeys, hotels, transport...";
+"main.search.results_title" = "Search Results";
+"main.search.no_results" = "No results found";
+"main.stats.title" = "Overview";
+"main.stats.total_journeys" = "Total Journeys";
+"main.stats.upcoming" = "Upcoming";
+"main.stats.destinations" = "Destinations";
+"main.active_journeys.title" = "Your Journeys";
+"main.empty.title" = "No journeys yet";
+"main.empty.subtitle" = "Start planning your next adventure by adding a journey.";
+
+/* Search Result Types */
+"search.type.journey" = "Journey";
+"search.type.transport" = "Transport";
+"search.type.hotel" = "Hotel";
+"search.type.car_rental" = "Car Rental";
+"search.type.place" = "Place";
+"search.type.note" = "Note";
+
+/* Journeys List */
+"journeys.title" = "Journeys";
+"journeys.empty.title" = "No journeys";
+"journeys.empty.subtitle" = "Tap the + button to create your first journey and start planning your trip.";
+"journeys.empty.add_button" = "Add Journey";
+
+/* Journey Filters */
+"journey.filter.all" = "All";
+"journey.filter.active" = "Active";
+"journey.filter.upcoming" = "Upcoming";
+"journey.filter.past" = "Past";
+
+/* Journey Status */
+"journey.status.active" = "Active";
+"journey.status.upcoming" = "Upcoming";
+"journey.status.past" = "Past";
+"journey.days" = "days";
+
+/* Journey Form */
+"journey.form.add_title" = "New Journey";
+"journey.form.edit_title" = "Edit Journey";
+"journey.form.section.basic" = "Basic Info";
+"journey.form.section.dates" = "Dates";
+"journey.form.section.notes" = "Notes";
+"journey.form.name" = "Journey Name";
+"journey.form.destination" = "Destination";
+"journey.form.start_date" = "Start Date";
+"journey.form.end_date" = "End Date";
+"journey.form.error.name_required" = "Please enter a journey name.";
+"journey.form.error.destination_required" = "Please enter a destination.";
+"journey.form.error.invalid_dates" = "End date must be after start date.";
+
+/* Journey Detail View */
+"journey.detail.title" = "Journey";
+"journey.detail.select_journey" = "Select a journey";
+"journey.detail.create_new" = "Create New Journey";
+"journey.detail.see_all" = "See All";
+"journey.detail.nights" = "nights";
+"journey.detail.days_left" = "days left";
+"journey.detail.starts_in" = "Starts in";
+"journey.detail.days_ago" = "days ago";
+"journey.detail.total_spent" = "Total Spent";
+"journey.detail.expenses" = "Expenses";
+
+/* Journey Detail Sections */
+"journey.detail.section.transport" = "Transport";
+"journey.detail.section.hotels" = "Hotels";
+"journey.detail.section.car_rentals" = "Car Rentals";
+"journey.detail.section.documents" = "Documents";
+"journey.detail.section.notes" = "Notes";
+"journey.detail.section.places" = "Places to Visit";
+"journey.detail.section.reminders" = "Reminders";
+"journey.detail.section.budget" = "Budget";
+
+/* Journey Detail Empty States */
+"journey.detail.empty.title" = "No journey selected";
+"journey.detail.empty.subtitle" = "Create your first journey to start tracking your travel details.";
+"journey.detail.empty.add_button" = "Create Journey";
+"journey.detail.transport.empty" = "No transport bookings yet";
+"journey.detail.hotels.empty" = "No hotel bookings yet";
+"journey.detail.car_rentals.empty" = "No car rentals yet";
+"journey.detail.documents.empty" = "No documents attached";
+"journey.detail.documents.count" = "documents";
+"journey.detail.notes.empty" = "No notes yet";
+"journey.detail.places.empty" = "No places to visit yet";
+"journey.detail.reminders.empty" = "No reminders yet";
+"journey.detail.budget.empty" = "No expenses tracked yet";
+
+/* Transport List */
+"transport.list.title" = "Transport";
+"transport.list.empty.title" = "No transport bookings";
+"transport.list.empty.subtitle" = "Add your flights, trains, buses and other transport bookings.";
+"transport.list.empty.add_button" = "Add Transport";
+
+/* Transport Filters */
+"transport.filter.all" = "All";
+"transport.filter.upcoming" = "Upcoming";
+"transport.filter.in_progress" = "In Progress";
+"transport.filter.past" = "Past";
+"transport.filter.all_types" = "All Types";
+
+/* Transport Status */
+"transport.status.upcoming" = "Upcoming";
+"transport.status.in_progress" = "In Progress";
+"transport.status.completed" = "Completed";
+
+/* Transport Detail */
+"transport.detail.seat" = "Seat";
+"transport.detail.booking_reference" = "Booking Reference";
+"transport.detail.cost" = "Cost";
+"transport.detail.notes" = "Notes";
+"transport.detail.add_reminder" = "Add Reminder";
+"transport.detail.departs_in" = "Departs in";
+"transport.detail.departing_soon" = "Departing soon";
+"transport.detail.delete_confirm.title" = "Delete Transport?";
+"transport.detail.delete_confirm.message" = "This will permanently delete this transport booking and any associated reminders.";
+
+/* Transport Form */
+"transport.form.add_title" = "Add Transport";
+"transport.form.edit_title" = "Edit Transport";
+"transport.form.section.type" = "Transport Type";
+"transport.form.section.carrier" = "Carrier Info";
+"transport.form.section.route" = "Route";
+"transport.form.section.schedule" = "Schedule";
+"transport.form.section.details" = "Details";
+"transport.form.section.cost" = "Cost";
+"transport.form.section.notes" = "Notes";
+"transport.form.type" = "Type";
+"transport.form.departure" = "Departure";
+"transport.form.arrival" = "Arrival";
+"transport.form.duration" = "Duration";
+"transport.form.seat" = "Seat Number";
+"transport.form.booking_reference" = "Booking Reference";
+"transport.form.cost" = "Cost";
+"transport.form.error.departure_required" = "Please enter a departure location.";
+"transport.form.error.arrival_required" = "Please enter an arrival location.";
+"transport.form.error.invalid_times" = "Arrival time must be after departure time.";
+"transport.form.error.invalid_cost" = "Please enter a valid cost amount.";
+
+/* Transport Reminders */
+"transport.reminder.24h_before" = "24 hours before";
+"transport.reminder.3h_before" = "3 hours before";
+"transport.reminder.1h_before" = "1 hour before";
+"transport.reminder.custom" = "Custom time";
+"transport.reminder.when" = "When to remind";
+"transport.reminder.date" = "Reminder Date";
+"transport.reminder.preview" = "Reminder will be sent";
+"transport.reminder.notification.title" = "Transport Reminder";
+
+/* Hotel Management */
+"hotel.list.title" = "Hotels";
+"hotel.list.empty.title" = "No hotels";
+"hotel.list.empty.message" = "Add your hotel bookings to keep track of your accommodations.";
+"hotel.list.add_first" = "Add Hotel";
+
+/* Hotel Filters */
+"hotel.filter.all" = "All";
+"hotel.filter.upcoming" = "Upcoming";
+"hotel.filter.active" = "Active";
+"hotel.filter.past" = "Past";
+
+/* Hotel Status */
+"hotel.status.upcoming" = "Upcoming";
+"hotel.status.active" = "Staying";
+"hotel.status.past" = "Past";
+
+/* Hotel Nights */
+"hotel.nights" = "nights";
+"hotel.nights_short" = "n";
+
+/* Hotel Detail */
+"hotel.detail.title" = "Hotel Details";
+"hotel.detail.address" = "Address";
+"hotel.detail.phone" = "Phone";
+"hotel.detail.check_in" = "Check-in";
+"hotel.detail.check_out" = "Check-out";
+"hotel.detail.duration" = "Duration";
+"hotel.detail.booking_reference" = "Booking Reference";
+"hotel.detail.room_type" = "Room Type";
+"hotel.detail.total_cost" = "Total Cost";
+"hotel.detail.per_night" = "Per Night";
+"hotel.detail.notes" = "Notes";
+"hotel.detail.check_in_in" = "Check-in in";
+"hotel.detail.checking_in_soon" = "Checking in soon";
+"hotel.detail.add_reminder" = "Add Reminder";
+"hotel.detail.delete_confirm.title" = "Delete Hotel?";
+"hotel.detail.delete_confirm.message" = "This will permanently delete this hotel booking and any associated reminders.";
+
+/* Hotel Detail Actions */
+"hotel.detail.action.call" = "Call Hotel";
+"hotel.detail.action.map" = "Open in Maps";
+"hotel.detail.action.reminder" = "Add Reminder";
+
+/* Hotel Form */
+"hotel.form.add_title" = "Add Hotel";
+"hotel.form.edit_title" = "Edit Hotel";
+"hotel.form.section.hotel" = "Hotel Information";
+"hotel.form.section.dates" = "Dates";
+"hotel.form.section.booking" = "Booking Details";
+"hotel.form.section.contact" = "Contact";
+"hotel.form.section.cost" = "Cost";
+"hotel.form.section.notes" = "Notes";
+"hotel.form.name" = "Hotel Name";
+"hotel.form.address" = "Address";
+"hotel.form.check_in" = "Check-in";
+"hotel.form.check_out" = "Check-out";
+"hotel.form.nights" = "Nights";
+"hotel.form.booking_reference" = "Booking Reference";
+"hotel.form.room_type" = "Room Type";
+"hotel.form.phone" = "Contact Phone";
+"hotel.form.currency" = "Currency";
+"hotel.form.total_cost" = "Total Cost";
+"hotel.form.per_night" = "Per Night";
+"hotel.form.notes" = "Notes";
+"hotel.form.validation.error" = "Validation Error";
+"hotel.form.validation.name_required" = "Please enter a hotel name.";
+"hotel.form.validation.address_required" = "Please enter an address.";
+"hotel.form.validation.date_order" = "Check-out date must be after check-in date.";
+
+/* Hotel Reminders */
+"hotel.reminder.title" = "Add Reminder";
+"hotel.reminder.when" = "When to Remind";
+"hotel.reminder.day_before" = "Day before check-in";
+"hotel.reminder.two_days_before" = "2 days before";
+"hotel.reminder.week_before" = "Week before";
+"hotel.reminder.custom" = "Custom time";
+"hotel.reminder.date" = "Reminder Date";
+"hotel.reminder.save" = "Save Reminder";
+"hotel.reminder.notification.title" = "Hotel Check-in";
+
+/* Car Rental Management */
+"car_rental.list.title" = "Car Rentals";
+"car_rental.list.empty.title" = "No car rentals";
+"car_rental.list.empty.message" = "Add your car rental bookings to keep track of your vehicles.";
+"car_rental.list.add_first" = "Add Car Rental";
+
+/* Car Rental Filters */
+"car_rental.filter.all" = "All";
+"car_rental.filter.upcoming" = "Upcoming";
+"car_rental.filter.active" = "Active";
+"car_rental.filter.past" = "Past";
+
+/* Car Rental Status */
+"car_rental.status.upcoming" = "Upcoming";
+"car_rental.status.active" = "Active";
+"car_rental.status.past" = "Past";
+
+/* Car Rental Days */
+"car_rental.days" = "days";
+"car_rental.days_short" = "d";
+
+/* Car Rental Detail */
+"car_rental.detail.title" = "Car Rental Details";
+"car_rental.detail.pickup_location" = "Pickup Location";
+"car_rental.detail.dropoff_location" = "Dropoff Location";
+"car_rental.detail.same_location" = "Same pickup & dropoff location";
+"car_rental.detail.pickup" = "Pickup";
+"car_rental.detail.dropoff" = "Dropoff";
+"car_rental.detail.duration" = "Duration";
+"car_rental.detail.booking_reference" = "Booking Reference";
+"car_rental.detail.car_type" = "Car Type";
+"car_rental.detail.total_cost" = "Total Cost";
+"car_rental.detail.per_day" = "Per Day";
+"car_rental.detail.notes" = "Notes";
+"car_rental.detail.pickup_in" = "Pickup in";
+"car_rental.detail.pickup_soon" = "Pickup soon";
+"car_rental.detail.add_reminder" = "Add Reminder";
+"car_rental.detail.delete_confirm.title" = "Delete Car Rental?";
+"car_rental.detail.delete_confirm.message" = "This will permanently delete this car rental booking and any associated reminders.";
+
+/* Car Rental Detail Actions */
+"car_rental.detail.action.map_pickup" = "Open Pickup in Maps";
+"car_rental.detail.action.reminder" = "Add Reminder";
+
+/* Car Rental Form */
+"car_rental.form.add_title" = "Add Car Rental";
+"car_rental.form.edit_title" = "Edit Car Rental";
+"car_rental.form.section.company" = "Company";
+"car_rental.form.section.locations" = "Locations";
+"car_rental.form.section.dates" = "Dates";
+"car_rental.form.section.booking" = "Booking Details";
+"car_rental.form.section.cost" = "Cost";
+"car_rental.form.section.notes" = "Notes";
+"car_rental.form.company" = "Rental Company";
+"car_rental.form.car_type" = "Car Type";
+"car_rental.form.pickup_location" = "Pickup Location";
+"car_rental.form.dropoff_location" = "Dropoff Location";
+"car_rental.form.same_location" = "Return to same location";
+"car_rental.form.pickup_date" = "Pickup Date";
+"car_rental.form.dropoff_date" = "Dropoff Date";
+"car_rental.form.duration" = "Duration";
+"car_rental.form.booking_reference" = "Booking Reference";
+"car_rental.form.currency" = "Currency";
+"car_rental.form.total_cost" = "Total Cost";
+"car_rental.form.per_day" = "Per Day";
+"car_rental.form.notes" = "Notes";
+"car_rental.form.validation.error" = "Validation Error";
+"car_rental.form.validation.company_required" = "Please enter a rental company name.";
+"car_rental.form.validation.pickup_required" = "Please enter a pickup location.";
+"car_rental.form.validation.dropoff_required" = "Please enter a dropoff location.";
+"car_rental.form.validation.date_order" = "Dropoff date must be after pickup date.";
+
+/* Car Rental Reminders */
+"car_rental.reminder.title" = "Add Reminder";
+"car_rental.reminder.when" = "When to Remind";
+"car_rental.reminder.day_before" = "Day before pickup";
+"car_rental.reminder.two_days_before" = "2 days before";
+"car_rental.reminder.week_before" = "Week before";
+"car_rental.reminder.custom" = "Custom time";
+"car_rental.reminder.date" = "Reminder Date";
+"car_rental.reminder.save" = "Save Reminder";
+"car_rental.reminder.notification.title" = "Car Rental Pickup";
+
+/* Quick Add */
+"quick_add.title" = "Add to Journey";
+"quick_add.transport" = "Transport";
+"quick_add.hotel" = "Hotel";
+"quick_add.car_rental" = "Car Rental";
+"quick_add.document" = "Document";
+"quick_add.note" = "Note";
+"quick_add.place" = "Place to Visit";
+"quick_add.reminder" = "Reminder";
+"quick_add.expense" = "Expense";
+"quick_add.coming_soon" = "Coming soon";
+
+/* Document Management */
+"document.list.title" = "Documents";
+"document.list.empty.title" = "No documents";
+"document.list.empty.message" = "Add your travel documents, tickets, and confirmations.";
+"document.list.add_first" = "Add Document";
+
+/* Document Filters */
+"document.filter.all" = "All";
+"document.filter.pdf" = "PDFs";
+"document.filter.images" = "Images";
+
+/* Document Summary */
+"document.summary.files" = "files";
+
+/* Document Import */
+"document.import.title" = "Add Document";
+"document.import.section.source" = "Choose Source";
+"document.import.files" = "Import from Files";
+"document.import.files.description" = "Select PDF or image files";
+"document.import.photos" = "Import from Photos";
+"document.import.photos.description" = "Select images from your library";
+"document.import.camera" = "Take Photo";
+"document.import.camera.description" = "Capture a new document";
+"document.import.supported_formats" = "Supported formats: PDF, JPEG, PNG, HEIC";
+"document.import.processing" = "Processing...";
+
+/* Document Preview */
+"document.preview.unsupported" = "Preview not available";
+"document.preview.image_error" = "Unable to load image";
+
+/* Document Actions */
+"document.action.share" = "Share";
+"document.action.rename" = "Rename";
+"document.action.open_in" = "Open in Other App";
+
+/* Document Rename */
+"document.rename.title" = "Rename Document";
+"document.rename.message" = "Enter a new name for this document.";
+"document.rename.placeholder" = "Document name";
+
+/* Document Delete */
+"document.delete_confirm.title" = "Delete Document?";
+"document.delete_confirm.message" = "This will permanently delete this document.";
+
+/* Document Errors */
+"document.error.save_failed" = "Failed to save document.";
+"document.error.import_failed" = "Failed to import document.";
+"document.error.unknown" = "An unknown error occurred.";
+
+/* Document Camera */
+"document.camera.default_name" = "Captured Document";
+
+/* Note Management */
+"note.list.title" = "Notes";
+"note.list.empty.title" = "No notes";
+"note.list.empty.message" = "Add notes to remember important details about your journey.";
+"note.list.add_first" = "Add Note";
+"note.summary.notes" = "notes";
+"note.untitled" = "Untitled";
+
+/* Note Form */
+"note.form.add_title" = "New Note";
+"note.form.edit_title" = "Edit Note";
+"note.form.section.title" = "Title";
+"note.form.section.content" = "Content";
+"note.form.title_placeholder" = "Note title";
+"note.form.validation.error" = "Validation Error";
+"note.form.validation.empty" = "Please enter a title or content.";
+
+/* Place Management */
+"place.list.title" = "Places to Visit";
+"place.list.empty.title" = "No places";
+"place.list.empty.message" = "Add places you want to visit during your journey.";
+"place.list.add_first" = "Add Place";
+"place.summary.visited" = "visited";
+
+/* Place Filters */
+"place.filter.all" = "All";
+"place.filter.to_visit" = "To Visit";
+"place.filter.visited" = "Visited";
+
+/* Place Actions */
+"place.action.mark_visited" = "Mark Visited";
+"place.action.mark_unvisited" = "Mark Unvisited";
+
+/* Place Form */
+"place.form.add_title" = "Add Place";
+"place.form.edit_title" = "Edit Place";
+"place.form.section.info" = "Place Info";
+"place.form.section.category" = "Category";
+"place.form.section.date" = "Planned Date";
+"place.form.section.notes" = "Notes";
+"place.form.name" = "Place name";
+"place.form.address" = "Address";
+"place.form.category" = "Category";
+"place.form.visited" = "Already visited";
+"place.form.has_planned_date" = "Set planned date";
+"place.form.planned_date" = "Planned date";
+"place.form.validation.error" = "Validation Error";
+"place.form.validation.name_required" = "Please enter a place name.";
+
+/* Budget Management */
+"budget.title" = "Budget";
+"budget.total_spent" = "Total Spent";
+"budget.expenses" = "expenses";
+"budget.by_category" = "By Category";
+"budget.empty.title" = "No expenses";
+"budget.empty.message" = "Track your travel expenses to manage your budget.";
+"budget.add_first" = "Add Expense";
+
+/* Expense Filters */
+"expense.filter.all" = "All";
+
+/* Expense Form */
+"expense.form.add_title" = "Add Expense";
+"expense.form.edit_title" = "Edit Expense";
+"expense.form.section.info" = "Expense Info";
+"expense.form.section.amount" = "Amount";
+"expense.form.section.category" = "Category";
+"expense.form.section.date" = "Date";
+"expense.form.section.notes" = "Notes";
+"expense.form.title" = "Description";
+"expense.form.amount" = "Amount";
+"expense.form.category" = "Category";
+"expense.form.date" = "Date";
+"expense.form.validation.error" = "Validation Error";
+"expense.form.validation.title_required" = "Please enter a description.";
+"expense.form.validation.amount_required" = "Please enter a valid amount.";
+
+/* Reminder/Notification Management - Phase 10 */
+"reminder.list.title" = "Reminders";
+"reminder.list.empty.title" = "No reminders";
+"reminder.list.empty.message" = "Create reminders to stay on top of your travel plans.";
+"reminder.list.add_first" = "Add Reminder";
+"reminder.list.empty.today.title" = "Nothing for today";
+"reminder.list.empty.today.message" = "You have no reminders scheduled for today.";
+"reminder.list.empty.upcoming.title" = "No upcoming reminders";
+"reminder.list.empty.upcoming.message" = "All caught up! No upcoming reminders.";
+"reminder.list.empty.overdue.title" = "No overdue reminders";
+"reminder.list.empty.overdue.message" = "Great job! You have no overdue reminders.";
+"reminder.list.empty.completed.title" = "No completed reminders";
+"reminder.list.empty.completed.message" = "Completed reminders will appear here.";
+
+/* Reminder Filters */
+"reminder.filter.all" = "All";
+"reminder.filter.today" = "Today";
+"reminder.filter.upcoming" = "Upcoming";
+"reminder.filter.overdue" = "Overdue";
+"reminder.filter.completed" = "Completed";
+
+/* Reminder Groups */
+"reminder.group.overdue" = "Overdue";
+"reminder.group.today" = "Today";
+"reminder.group.tomorrow" = "Tomorrow";
+"reminder.group.this_week" = "This Week";
+"reminder.group.later" = "Later";
+"reminder.group.completed" = "Completed";
+
+/* Reminder Summary */
+"reminder.summary.pending" = "pending";
+"reminder.summary.overdue" = "overdue";
+"reminder.summary.today" = "today";
+
+/* Reminder Actions */
+"reminder.action.mark_complete" = "Complete";
+"reminder.action.mark_incomplete" = "Undo";
+
+/* Reminder Status */
+"reminder.status.completed" = "Completed";
+
+/* Reminder Date Labels */
+"reminder.date.today" = "Today";
+"reminder.date.tomorrow" = "Tomorrow";
+
+/* Reminder Unknown Journey */
+"reminder.unknown_journey" = "Unknown Journey";
+
+/* Reminder Form */
+"reminder.form.add_title" = "New Reminder";
+"reminder.form.edit_title" = "Edit Reminder";
+"reminder.form.title_section" = "Title";
+"reminder.form.title_placeholder" = "What do you want to remember?";
+"reminder.form.journey_section" = "Journey";
+"reminder.form.journey" = "Journey";
+"reminder.form.select_journey" = "Select a journey";
+"reminder.form.datetime_section" = "Date & Time";
+"reminder.form.date" = "Remind at";
+"reminder.form.related_section" = "Related To";
+"reminder.form.has_related_entity" = "Link to entity";
+"reminder.form.entity_type" = "Entity Type";
+"reminder.form.info_section" = "Information";
+"reminder.form.created" = "Created";
+"reminder.form.status" = "Status";
+"reminder.form.validation_error" = "Validation Error";
+"reminder.form.error.title_required" = "Please enter a reminder title.";
+"reminder.form.error.journey_required" = "Please select a journey.";
+"reminder.form.error.date_past" = "Reminder date must be in the future.";
+
+/* Reminder Quick Date Buttons */
+"reminder.quick.1h" = "In 1 hour";
+"reminder.quick.3h" = "In 3 hours";
+"reminder.quick.tomorrow" = "Tomorrow 9am";
+"reminder.quick.next_week" = "Next week";
+
+/* Reminder Notifications */
+"reminder.notification.title" = "Reminder";
+
+/* Reminder Templates for Entities */
+"reminder.transport.title_format" = "%@ from %@ - %d hours before departure";
+"reminder.hotel.title_format" = "Check-in at %@ - %d day(s) before";
+"reminder.car_rental.title_format" = "Pickup from %@ - %d day(s) before";
+
+/* Statistics - Phase 11 */
+"stats.show_details" = "Show detailed statistics";
+"stats.hide_details" = "Hide detailed statistics";
+"stats.travel_overview" = "Travel Overview";
+"stats.journeys" = "Journeys";
+"stats.destinations" = "Destinations";
+"stats.upcoming" = "Upcoming";
+"stats.transport_breakdown" = "Transport Breakdown";
+"stats.spending_overview" = "Spending Overview";
+"stats.total_spent" = "Total Spent";
+"stats.expenses_count" = "Expenses";
+"stats.by_category" = "By Category";
+"stats.journey_summary" = "Journey Summary";
+"stats.transports" = "Transports";
+"stats.hotels" = "Hotels";
+"stats.car_rentals" = "Car Rentals";
+"stats.places_visited" = "Places";
+"stats.reminders" = "Reminders";
+"stats.expenses" = "Expenses";
+"stats.quick_insights" = "Quick Insights";
+"stats.total_travel_days" = "Total Travel Days";
+"stats.days" = "days";
+"stats.longest_journey" = "Longest Journey";
+"stats.most_visited" = "Most Visited";

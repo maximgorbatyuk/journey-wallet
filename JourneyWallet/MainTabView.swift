@@ -17,33 +17,45 @@ struct MainTabView: SwiftUI.View {
     var body: some SwiftUI.View {
         ZStack {
             TabView(selection: $selectedTab) {
-                PlaceholderTabView(title: "Home", iconName: "house.fill")
+                // Tab 1: Home/Dashboard
+                MainView()
                     .tabItem {
-                        Label("Home", systemImage: "house.fill")
+                        Label(L("tab.home"), systemImage: "house.fill")
                     }
                     .tint(nil)
                     .tag(0)
 
-                PlaceholderTabView(title: "Feature 1", iconName: "square.grid.2x2")
+                // Tab 2: Current Journey
+                JourneyDetailView()
                     .tabItem {
-                        Label("Feature 1", systemImage: "square.grid.2x2")
+                        Label(L("tab.current_journey"), systemImage: "suitcase.fill")
                     }
                     .tint(nil)
                     .tag(1)
 
-                PlaceholderTabView(title: "Feature 2", iconName: "rectangle.stack")
+                // Tab 3: All Journeys
+                JourneysListView()
                     .tabItem {
-                        Label("Feature 2", systemImage: "rectangle.stack")
+                        Label(L("tab.journeys"), systemImage: "list.bullet.rectangle")
                     }
                     .tint(nil)
                     .tag(2)
 
-                UserSettingsView(showAppUpdateButton: showAppVersionBadge)
+                // Tab 4: Reminders
+                NotificationsView()
                     .tabItem {
-                        Label(L("Settings"), systemImage: "gear")
+                        Label(L("tab.reminders"), systemImage: "bell.fill")
                     }
                     .tint(nil)
                     .tag(3)
+
+                // Tab 5: Settings
+                UserSettingsView(showAppUpdateButton: showAppVersionBadge)
+                    .tabItem {
+                        Label(L("tab.settings"), systemImage: "gear")
+                    }
+                    .tint(nil)
+                    .tag(4)
                     .badge(showAppVersionBadge ? "New!" : nil)
             }
             .tint(Color.orange)

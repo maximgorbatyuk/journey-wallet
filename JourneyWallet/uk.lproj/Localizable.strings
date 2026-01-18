@@ -51,6 +51,59 @@
 "Get started" = "Початок";
 "Start onboarding again" = "Почати навчання зново";
 
+/* Onboarding Pages - Phase 12 */
+"onboarding.track_journeys" = "Відстежуйте подорожі";
+"onboarding.track_journeys__subtitle" = "Плануйте та організовуйте всі поїздки в одному місці. Слідкуйте за напрямками, датами та деталями.";
+"onboarding.store_bookings" = "Зберігайте бронювання та документи";
+"onboarding.store_bookings__subtitle" = "Зберігайте квитки, бронювання готелів та документи. Доступ до всього навіть без інтернету.";
+"onboarding.travel_reminders" = "Отримуйте нагадування";
+"onboarding.travel_reminders__subtitle" = "Не пропустіть рейс або заселення. Встановлюйте нагадування для важливих подій.";
+"onboarding.view_statistics" = "Переглядайте статистику";
+"onboarding.view_statistics__subtitle" = "Вся історія подорожей на одному екрані. Відстежуйте витрати, відвідані місця та багато іншого.";
+
+/* Empty States - Phase 12 */
+"empty.journeys.title" = "Поки немає поїздок";
+"empty.journeys.message" = "Почніть планувати наступну пригоду, створивши першу поїздку.";
+"empty.journeys.action" = "Створити поїздку";
+"empty.transports.title" = "Немає транспорту";
+"empty.transports.message" = "Додайте рейси, поїзди або інший транспорт для відстеження маршруту.";
+"empty.transports.action" = "Додати транспорт";
+"empty.hotels.title" = "Немає готелів";
+"empty.hotels.message" = "Додайте бронювання готелів, щоб усі дані були в одному місці.";
+"empty.hotels.action" = "Додати готель";
+"empty.car_rentals.title" = "Немає оренди авто";
+"empty.car_rentals.message" = "Додайте дані про оренду автомобіля для зручного доступу в поїздці.";
+"empty.car_rentals.action" = "Додати оренду";
+"empty.documents.title" = "Немає документів";
+"empty.documents.message" = "Зберігайте важливі документи: квитки, підтвердження та копії документів.";
+"empty.documents.action" = "Додати документ";
+"empty.notes.title" = "Немає нотаток";
+"empty.notes.message" = "Додавайте нотатки про поїздку, поради або важливі моменти.";
+"empty.notes.action" = "Додати нотатку";
+"empty.places.title" = "Немає місць";
+"empty.places.message" = "Створіть список місць, які хочете відвідати під час подорожі.";
+"empty.places.action" = "Додати місце";
+"empty.expenses.title" = "Немає витрат";
+"empty.expenses.message" = "Відстежуйте витрати в поїздці, додаючи витрати.";
+"empty.expenses.action" = "Додати витрату";
+"empty.reminders.title" = "Немає нагадувань";
+"empty.reminders.message" = "Встановлюйте нагадування для важливих подій та завдань.";
+"empty.reminders.action" = "Додати нагадування";
+"empty.search.title" = "Нічого не знайдено";
+"empty.search.message" = "Спробуйте інший запит або перевірте написання.";
+
+/* Error States - Phase 12 */
+"error.network.title" = "Немає з'єднання";
+"error.network.message" = "Перевірте підключення до інтернету та спробуйте знову.";
+"error.database.title" = "Помилка бази даних";
+"error.database.message" = "Виникла проблема при доступі до даних. Спробуйте знову.";
+"error.permission.title" = "Потрібен дозвіл";
+"error.permission.message" = "Будь ласка, надайте необхідні дозволи для продовження.";
+"error.not_found.title" = "Не знайдено";
+"error.not_found.message" = "Запитаний елемент не знайдено.";
+"error.generic.title" = "Щось пішло не так";
+"error.generic.message" = "Сталася непередбачена помилка. Спробуйте знову.";
+
 /* Export & Import */
 "Export & Import" = "Експорт та імпорт";
 "Export Data..." = "Експортувати дані...";
@@ -112,3 +165,646 @@
 /* Automatic Backup */
 "Automatic Backup" = "Автоматичне резервне копіювання";
 "Last: " = "Останній: ";
+
+/* Transport Types */
+"transport.type.flight" = "Авіарейс";
+"transport.type.train" = "Потяг";
+"transport.type.bus" = "Автобус";
+"transport.type.ferry" = "Пором";
+"transport.type.transfer" = "Трансфер";
+"transport.type.other" = "Інше";
+
+/* Transport Labels */
+"transport.label.airline" = "Авіакомпанія";
+"transport.label.train_company" = "Залізнична компанія";
+"transport.label.bus_company" = "Автобусна компанія";
+"transport.label.ferry_company" = "Поромна компанія";
+"transport.label.provider" = "Постачальник";
+"transport.label.carrier" = "Перевізник";
+"transport.label.flight_number" = "Номер рейсу";
+"transport.label.train_number" = "Номер потяга";
+"transport.label.route_number" = "Номер маршруту";
+"transport.label.ferry_number" = "Номер порому";
+"transport.label.vehicle" = "Транспорт";
+"transport.label.reference" = "Номер бронювання";
+"transport.label.terminal" = "Термінал";
+"transport.label.platform" = "Платформа";
+"transport.label.pier" = "Причал";
+"transport.label.pickup_point" = "Місце посадки";
+"transport.label.location" = "Місцезнаходження";
+"transport.label.departure_airport" = "Аеропорт вильоту";
+"transport.label.departure_station" = "Станція відправлення";
+"transport.label.departure_port" = "Порт відправлення";
+"transport.label.pickup_location" = "Місце посадки";
+"transport.label.from" = "Звідки";
+"transport.label.arrival_airport" = "Аеропорт прильоту";
+"transport.label.arrival_station" = "Станція прибуття";
+"transport.label.arrival_port" = "Порт прибуття";
+"transport.label.dropoff_location" = "Місце висадки";
+"transport.label.to" = "Куди";
+
+/* Document Types */
+"document.type.other" = "Інше";
+
+/* Place Categories */
+"place.category.restaurant" = "Ресторан";
+"place.category.attraction" = "Визначна пам'ятка";
+"place.category.museum" = "Музей";
+"place.category.shopping" = "Шопінг";
+"place.category.nature" = "Природа";
+"place.category.entertainment" = "Розваги";
+"place.category.other" = "Інше";
+
+/* Reminder Entity Types */
+"reminder.entity.transport" = "Транспорт";
+"reminder.entity.hotel" = "Готель";
+"reminder.entity.car_rental" = "Оренда авто";
+"reminder.entity.place" = "Місце";
+"reminder.entity.custom" = "Інше";
+
+/* Expense Categories */
+"expense.category.transport" = "Транспорт";
+"expense.category.accommodation" = "Проживання";
+"expense.category.food" = "Їжа";
+"expense.category.activities" = "Розваги";
+"expense.category.shopping" = "Покупки";
+"expense.category.other" = "Інше";
+
+/* Tab Bar */
+"tab.home" = "Головна";
+"tab.current_journey" = "Поточна";
+"tab.journeys" = "Подорожі";
+"tab.reminders" = "Нагадування";
+"tab.settings" = "Налаштування";
+
+/* Main Screen (Home) */
+"main.title" = "Головна";
+"main.search.placeholder" = "Пошук подорожей, готелів, транспорту...";
+"main.search.results_title" = "Результати пошуку";
+"main.search.no_results" = "Нічого не знайдено";
+"main.stats.title" = "Огляд";
+"main.stats.total_journeys" = "Всього подорожей";
+"main.stats.upcoming" = "Майбутні";
+"main.stats.destinations" = "Напрямки";
+"main.active_journeys.title" = "Ваші подорожі";
+"main.empty.title" = "Подорожей ще немає";
+"main.empty.subtitle" = "Почніть планувати свою наступну пригоду, додавши подорож.";
+
+/* Search Result Types */
+"search.type.journey" = "Подорож";
+"search.type.transport" = "Транспорт";
+"search.type.hotel" = "Готель";
+"search.type.car_rental" = "Оренда авто";
+"search.type.place" = "Місце";
+"search.type.note" = "Нотатка";
+
+/* Journeys List */
+"journeys.title" = "Подорожі";
+"journeys.empty.title" = "Немає подорожей";
+"journeys.empty.subtitle" = "Натисніть кнопку +, щоб створити першу подорож і почати планування.";
+"journeys.empty.add_button" = "Додати подорож";
+
+/* Journey Filters */
+"journey.filter.all" = "Всі";
+"journey.filter.active" = "Активні";
+"journey.filter.upcoming" = "Майбутні";
+"journey.filter.past" = "Минулі";
+
+/* Journey Status */
+"journey.status.active" = "Активна";
+"journey.status.upcoming" = "Майбутня";
+"journey.status.past" = "Минула";
+"journey.days" = "днів";
+
+/* Journey Form */
+"journey.form.add_title" = "Нова подорож";
+"journey.form.edit_title" = "Редагувати подорож";
+"journey.form.section.basic" = "Основна інформація";
+"journey.form.section.dates" = "Дати";
+"journey.form.section.notes" = "Нотатки";
+"journey.form.name" = "Назва подорожі";
+"journey.form.destination" = "Напрямок";
+"journey.form.start_date" = "Дата початку";
+"journey.form.end_date" = "Дата закінчення";
+"journey.form.error.name_required" = "Будь ласка, введіть назву подорожі.";
+"journey.form.error.destination_required" = "Будь ласка, введіть напрямок.";
+"journey.form.error.invalid_dates" = "Дата закінчення повинна бути пізніше дати початку.";
+
+/* Journey Detail View */
+"journey.detail.title" = "Подорож";
+"journey.detail.select_journey" = "Оберіть подорож";
+"journey.detail.create_new" = "Створити нову подорож";
+"journey.detail.see_all" = "Переглянути все";
+"journey.detail.nights" = "ночей";
+"journey.detail.days_left" = "днів залишилось";
+"journey.detail.starts_in" = "Починається через";
+"journey.detail.days_ago" = "днів тому";
+"journey.detail.total_spent" = "Загальні витрати";
+"journey.detail.expenses" = "Витрати";
+
+/* Journey Detail Sections */
+"journey.detail.section.transport" = "Транспорт";
+"journey.detail.section.hotels" = "Готелі";
+"journey.detail.section.car_rentals" = "Оренда авто";
+"journey.detail.section.documents" = "Документи";
+"journey.detail.section.notes" = "Нотатки";
+"journey.detail.section.places" = "Місця для відвідування";
+"journey.detail.section.reminders" = "Нагадування";
+"journey.detail.section.budget" = "Бюджет";
+
+/* Journey Detail Empty States */
+"journey.detail.empty.title" = "Подорож не обрана";
+"journey.detail.empty.subtitle" = "Створіть першу подорож, щоб почати відстежувати деталі своїх мандрівок.";
+"journey.detail.empty.add_button" = "Створити подорож";
+"journey.detail.transport.empty" = "Бронювань транспорту немає";
+"journey.detail.hotels.empty" = "Бронювань готелів немає";
+"journey.detail.car_rentals.empty" = "Оренди авто немає";
+"journey.detail.documents.empty" = "Документи не прикріплені";
+"journey.detail.documents.count" = "документів";
+"journey.detail.notes.empty" = "Нотаток поки немає";
+"journey.detail.places.empty" = "Місць для відвідування поки немає";
+"journey.detail.reminders.empty" = "Нагадувань поки немає";
+"journey.detail.budget.empty" = "Витрати ще не відстежуються";
+
+/* Transport List */
+"transport.list.title" = "Транспорт";
+"transport.list.empty.title" = "Немає бронювань транспорту";
+"transport.list.empty.subtitle" = "Додайте ваші рейси, потяги, автобуси та інші бронювання транспорту.";
+"transport.list.empty.add_button" = "Додати транспорт";
+
+/* Transport Filters */
+"transport.filter.all" = "Всі";
+"transport.filter.upcoming" = "Майбутні";
+"transport.filter.in_progress" = "В дорозі";
+"transport.filter.past" = "Минулі";
+"transport.filter.all_types" = "Всі типи";
+
+/* Transport Status */
+"transport.status.upcoming" = "Майбутній";
+"transport.status.in_progress" = "В дорозі";
+"transport.status.completed" = "Завершений";
+
+/* Transport Detail */
+"transport.detail.seat" = "Місце";
+"transport.detail.booking_reference" = "Номер бронювання";
+"transport.detail.cost" = "Вартість";
+"transport.detail.notes" = "Нотатки";
+"transport.detail.add_reminder" = "Додати нагадування";
+"transport.detail.departs_in" = "Відправлення через";
+"transport.detail.departing_soon" = "Скоро відправлення";
+"transport.detail.delete_confirm.title" = "Видалити транспорт?";
+"transport.detail.delete_confirm.message" = "Це назавжди видалить це бронювання та всі пов'язані нагадування.";
+
+/* Transport Form */
+"transport.form.add_title" = "Додати транспорт";
+"transport.form.edit_title" = "Редагувати транспорт";
+"transport.form.section.type" = "Тип транспорту";
+"transport.form.section.carrier" = "Інформація про перевізника";
+"transport.form.section.route" = "Маршрут";
+"transport.form.section.schedule" = "Розклад";
+"transport.form.section.details" = "Деталі";
+"transport.form.section.cost" = "Вартість";
+"transport.form.section.notes" = "Нотатки";
+"transport.form.type" = "Тип";
+"transport.form.departure" = "Відправлення";
+"transport.form.arrival" = "Прибуття";
+"transport.form.duration" = "Тривалість";
+"transport.form.seat" = "Номер місця";
+"transport.form.booking_reference" = "Номер бронювання";
+"transport.form.cost" = "Вартість";
+"transport.form.error.departure_required" = "Будь ласка, введіть місце відправлення.";
+"transport.form.error.arrival_required" = "Будь ласка, введіть місце прибуття.";
+"transport.form.error.invalid_times" = "Час прибуття повинен бути пізніше часу відправлення.";
+"transport.form.error.invalid_cost" = "Будь ласка, введіть коректну суму.";
+
+/* Transport Reminders */
+"transport.reminder.24h_before" = "За 24 години";
+"transport.reminder.3h_before" = "За 3 години";
+"transport.reminder.1h_before" = "За 1 годину";
+"transport.reminder.custom" = "Інший час";
+"transport.reminder.when" = "Коли нагадати";
+"transport.reminder.date" = "Дата нагадування";
+"transport.reminder.preview" = "Нагадування буде надіслано";
+"transport.reminder.notification.title" = "Нагадування про транспорт";
+
+/* Hotel Management */
+"hotel.list.title" = "Готелі";
+"hotel.list.empty.title" = "Немає готелів";
+"hotel.list.empty.message" = "Додайте бронювання готелів, щоб відстежувати ваше проживання.";
+"hotel.list.add_first" = "Додати готель";
+
+/* Hotel Filters */
+"hotel.filter.all" = "Всі";
+"hotel.filter.upcoming" = "Майбутні";
+"hotel.filter.active" = "Активні";
+"hotel.filter.past" = "Минулі";
+
+/* Hotel Status */
+"hotel.status.upcoming" = "Майбутній";
+"hotel.status.active" = "Проживання";
+"hotel.status.past" = "Минулий";
+
+/* Hotel Nights */
+"hotel.nights" = "ночей";
+"hotel.nights_short" = "н";
+
+/* Hotel Detail */
+"hotel.detail.title" = "Деталі готелю";
+"hotel.detail.address" = "Адреса";
+"hotel.detail.phone" = "Телефон";
+"hotel.detail.check_in" = "Заїзд";
+"hotel.detail.check_out" = "Виїзд";
+"hotel.detail.duration" = "Тривалість";
+"hotel.detail.booking_reference" = "Номер бронювання";
+"hotel.detail.room_type" = "Тип номера";
+"hotel.detail.total_cost" = "Загальна вартість";
+"hotel.detail.per_night" = "За ніч";
+"hotel.detail.notes" = "Нотатки";
+"hotel.detail.check_in_in" = "Заїзд через";
+"hotel.detail.checking_in_soon" = "Скоро заїзд";
+"hotel.detail.add_reminder" = "Додати нагадування";
+"hotel.detail.delete_confirm.title" = "Видалити готель?";
+"hotel.detail.delete_confirm.message" = "Це назавжди видалить бронювання готелю та всі пов'язані нагадування.";
+
+/* Hotel Detail Actions */
+"hotel.detail.action.call" = "Зателефонувати в готель";
+"hotel.detail.action.map" = "Відкрити на карті";
+"hotel.detail.action.reminder" = "Додати нагадування";
+
+/* Hotel Form */
+"hotel.form.add_title" = "Додати готель";
+"hotel.form.edit_title" = "Редагувати готель";
+"hotel.form.section.hotel" = "Інформація про готель";
+"hotel.form.section.dates" = "Дати";
+"hotel.form.section.booking" = "Деталі бронювання";
+"hotel.form.section.contact" = "Контакт";
+"hotel.form.section.cost" = "Вартість";
+"hotel.form.section.notes" = "Нотатки";
+"hotel.form.name" = "Назва готелю";
+"hotel.form.address" = "Адреса";
+"hotel.form.check_in" = "Заїзд";
+"hotel.form.check_out" = "Виїзд";
+"hotel.form.nights" = "Ночей";
+"hotel.form.booking_reference" = "Номер бронювання";
+"hotel.form.room_type" = "Тип номера";
+"hotel.form.phone" = "Контактний телефон";
+"hotel.form.currency" = "Валюта";
+"hotel.form.total_cost" = "Загальна вартість";
+"hotel.form.per_night" = "За ніч";
+"hotel.form.notes" = "Нотатки";
+"hotel.form.validation.error" = "Помилка валідації";
+"hotel.form.validation.name_required" = "Будь ласка, введіть назву готелю.";
+"hotel.form.validation.address_required" = "Будь ласка, введіть адресу.";
+"hotel.form.validation.date_order" = "Дата виїзду повинна бути пізніше дати заїзду.";
+
+/* Hotel Reminders */
+"hotel.reminder.title" = "Додати нагадування";
+"hotel.reminder.when" = "Коли нагадати";
+"hotel.reminder.day_before" = "За день до заїзду";
+"hotel.reminder.two_days_before" = "За 2 дні";
+"hotel.reminder.week_before" = "За тиждень";
+"hotel.reminder.custom" = "Інший час";
+"hotel.reminder.date" = "Дата нагадування";
+"hotel.reminder.save" = "Зберегти нагадування";
+"hotel.reminder.notification.title" = "Заїзд до готелю";
+
+/* Car Rental Management */
+"car_rental.list.title" = "Оренда авто";
+"car_rental.list.empty.title" = "Оренди авто немає";
+"car_rental.list.empty.message" = "Додайте бронювання оренди авто, щоб відстежувати ваші поїздки.";
+"car_rental.list.add_first" = "Орендувати авто";
+
+/* Car Rental Filters */
+"car_rental.filter.all" = "Всі";
+"car_rental.filter.upcoming" = "Майбутні";
+"car_rental.filter.active" = "Активні";
+"car_rental.filter.past" = "Минулі";
+
+/* Car Rental Status */
+"car_rental.status.upcoming" = "Майбутня";
+"car_rental.status.active" = "Активна";
+"car_rental.status.past" = "Минула";
+
+/* Car Rental Days */
+"car_rental.days" = "днів";
+"car_rental.days_short" = "д";
+
+/* Car Rental Detail */
+"car_rental.detail.title" = "Деталі оренди";
+"car_rental.detail.company" = "Компанія";
+"car_rental.detail.car_type" = "Тип авто";
+"car_rental.detail.pickup" = "Отримання";
+"car_rental.detail.dropoff" = "Повернення";
+"car_rental.detail.pickup_location" = "Місце отримання";
+"car_rental.detail.dropoff_location" = "Місце повернення";
+"car_rental.detail.same_location" = "Повернення в те саме місце";
+"car_rental.detail.duration" = "Тривалість";
+"car_rental.detail.booking_reference" = "Номер бронювання";
+"car_rental.detail.total_cost" = "Загальна вартість";
+"car_rental.detail.per_day" = "За день";
+"car_rental.detail.notes" = "Нотатки";
+"car_rental.detail.pickup_in" = "Отримання через";
+"car_rental.detail.picking_up_soon" = "Скоро отримання";
+"car_rental.detail.add_reminder" = "Додати нагадування";
+"car_rental.detail.delete_confirm.title" = "Видалити оренду?";
+"car_rental.detail.delete_confirm.message" = "Це назавжди видалить бронювання оренди та всі пов'язані нагадування.";
+
+/* Car Rental Detail Actions */
+"car_rental.detail.action.call" = "Зателефонувати в компанію";
+"car_rental.detail.action.pickup_map" = "Місце отримання на карті";
+"car_rental.detail.action.dropoff_map" = "Місце повернення на карті";
+"car_rental.detail.action.reminder" = "Додати нагадування";
+
+/* Car Rental Form */
+"car_rental.form.add_title" = "Додати оренду авто";
+"car_rental.form.edit_title" = "Редагувати оренду";
+"car_rental.form.section.company" = "Інформація про компанію";
+"car_rental.form.section.vehicle" = "Транспортний засіб";
+"car_rental.form.section.pickup" = "Отримання";
+"car_rental.form.section.dropoff" = "Повернення";
+"car_rental.form.section.booking" = "Деталі бронювання";
+"car_rental.form.section.cost" = "Вартість";
+"car_rental.form.section.notes" = "Нотатки";
+"car_rental.form.company" = "Компанія з оренди";
+"car_rental.form.car_type" = "Тип авто";
+"car_rental.form.pickup_date" = "Дата отримання";
+"car_rental.form.pickup_location" = "Місце отримання";
+"car_rental.form.dropoff_date" = "Дата повернення";
+"car_rental.form.dropoff_location" = "Місце повернення";
+"car_rental.form.same_location" = "Повернення в те саме місце";
+"car_rental.form.days" = "Днів";
+"car_rental.form.booking_reference" = "Номер бронювання";
+"car_rental.form.phone" = "Контактний телефон";
+"car_rental.form.currency" = "Валюта";
+"car_rental.form.total_cost" = "Загальна вартість";
+"car_rental.form.per_day" = "За день";
+"car_rental.form.notes" = "Нотатки";
+"car_rental.form.validation.error" = "Помилка валідації";
+"car_rental.form.validation.company_required" = "Будь ласка, введіть назву компанії.";
+"car_rental.form.validation.pickup_location_required" = "Будь ласка, введіть місце отримання.";
+"car_rental.form.validation.dropoff_location_required" = "Будь ласка, введіть місце повернення.";
+"car_rental.form.validation.date_order" = "Дата повернення повинна бути пізніше дати отримання.";
+
+/* Car Rental Reminders */
+"car_rental.reminder.title" = "Додати нагадування";
+"car_rental.reminder.when" = "Коли нагадати";
+"car_rental.reminder.day_before" = "За день до отримання";
+"car_rental.reminder.two_days_before" = "За 2 дні";
+"car_rental.reminder.week_before" = "За тиждень";
+"car_rental.reminder.custom" = "Інший час";
+"car_rental.reminder.date" = "Дата нагадування";
+"car_rental.reminder.save" = "Зберегти нагадування";
+"car_rental.reminder.notification.title" = "Отримання автомобіля";
+
+/* Quick Add */
+"quick_add.title" = "Додати до подорожі";
+"quick_add.transport" = "Транспорт";
+"quick_add.hotel" = "Готель";
+"quick_add.car_rental" = "Оренда авто";
+"quick_add.document" = "Документ";
+"quick_add.note" = "Нотатка";
+"quick_add.place" = "Місце для відвідування";
+"quick_add.reminder" = "Нагадування";
+"quick_add.expense" = "Витрата";
+"quick_add.coming_soon" = "Незабаром";
+
+/* Document Management */
+"document.list.title" = "Документи";
+"document.list.empty.title" = "Документів немає";
+"document.list.empty.message" = "Зберігайте паспорти, квитки та інші документи подорожі.";
+"document.list.add_first" = "Додати документ";
+"document.summary.files" = "файлів";
+
+/* Document Filters */
+"document.filter.all" = "Всі";
+"document.filter.pdf" = "PDF";
+"document.filter.images" = "Зображення";
+
+/* Document Types */
+"document.type.pdf" = "PDF";
+"document.type.jpeg" = "Зображення JPEG";
+"document.type.png" = "Зображення PNG";
+"document.type.heic" = "Зображення HEIC";
+
+/* Document Import */
+"document.import.title" = "Імпортувати документ";
+"document.import.section.source" = "Виберіть джерело";
+"document.import.files" = "Імпортувати з файлів";
+"document.import.files.description" = "Виберіть файли PDF, JPEG, PNG або HEIC";
+"document.import.photos" = "Імпортувати з фотографій";
+"document.import.photos.description" = "Виберіть зображення з бібліотеки фотографій";
+"document.import.camera" = "Зробити фото";
+"document.import.camera.description" = "Сфотографуйте документ камерою";
+"document.import.supported_formats" = "Підтримувані формати: PDF, JPEG, PNG, HEIC";
+"document.import.processing" = "Обробка...";
+
+/* Document Actions */
+"document.action.share" = "Поділитися";
+"document.action.rename" = "Перейменувати";
+"document.action.open_in" = "Відкрити в іншому додатку";
+
+/* Document Preview */
+"document.preview.unsupported" = "Цей тип файлу не може бути відображений";
+"document.preview.image_error" = "Не вдалося завантажити зображення";
+
+/* Document Rename */
+"document.rename.title" = "Перейменувати документ";
+"document.rename.message" = "Введіть нову назву для документа";
+"document.rename.placeholder" = "Назва документа";
+
+/* Document Delete */
+"document.delete_confirm.title" = "Видалити документ?";
+"document.delete_confirm.message" = "Цей документ буде видалено назавжди.";
+
+/* Document Errors */
+"document.error.unknown" = "Сталася невідома помилка";
+"document.error.import_failed" = "Не вдалося імпортувати документи";
+"document.error.save_failed" = "Не вдалося зберегти документ";
+
+/* Document Camera */
+"document.camera.default_name" = "Зроблене фото";
+
+/* Note Management */
+"note.list.title" = "Нотатки";
+"note.list.empty.title" = "Нотаток немає";
+"note.list.empty.message" = "Додайте нотатки, щоб запам'ятати важливі деталі вашої подорожі.";
+"note.list.add_first" = "Додати нотатку";
+"note.summary.notes" = "нотаток";
+"note.untitled" = "Без назви";
+
+/* Note Form */
+"note.form.add_title" = "Нова нотатка";
+"note.form.edit_title" = "Редагувати нотатку";
+"note.form.section.title" = "Заголовок";
+"note.form.section.content" = "Вміст";
+"note.form.title_placeholder" = "Назва нотатки";
+"note.form.validation.error" = "Помилка валідації";
+"note.form.validation.empty" = "Будь ласка, введіть заголовок або вміст.";
+
+/* Place Management */
+"place.list.title" = "Місця для відвідування";
+"place.list.empty.title" = "Місць немає";
+"place.list.empty.message" = "Додайте місця, які ви хочете відвідати під час подорожі.";
+"place.list.add_first" = "Додати місце";
+"place.summary.visited" = "відвідано";
+
+/* Place Filters */
+"place.filter.all" = "Всі";
+"place.filter.to_visit" = "До відвідування";
+"place.filter.visited" = "Відвідані";
+
+/* Place Actions */
+"place.action.mark_visited" = "Позначити відвіданим";
+"place.action.mark_unvisited" = "Позначити невідвіданим";
+
+/* Place Form */
+"place.form.add_title" = "Додати місце";
+"place.form.edit_title" = "Редагувати місце";
+"place.form.section.info" = "Інформація про місце";
+"place.form.section.category" = "Категорія";
+"place.form.section.date" = "Запланована дата";
+"place.form.section.notes" = "Нотатки";
+"place.form.name" = "Назва місця";
+"place.form.address" = "Адреса";
+"place.form.category" = "Категорія";
+"place.form.visited" = "Вже відвідано";
+"place.form.has_planned_date" = "Встановити дату";
+"place.form.planned_date" = "Запланована дата";
+"place.form.validation.error" = "Помилка валідації";
+"place.form.validation.name_required" = "Будь ласка, введіть назву місця.";
+
+/* Budget Management */
+"budget.title" = "Бюджет";
+"budget.total_spent" = "Всього витрачено";
+"budget.expenses" = "витрат";
+"budget.by_category" = "За категоріями";
+"budget.empty.title" = "Витрат немає";
+"budget.empty.message" = "Відстежуйте витрати на подорож для управління бюджетом.";
+"budget.add_first" = "Додати витрату";
+
+/* Expense Filters */
+"expense.filter.all" = "Всі";
+
+/* Expense Form */
+"expense.form.add_title" = "Додати витрату";
+"expense.form.edit_title" = "Редагувати витрату";
+"expense.form.section.info" = "Інформація про витрату";
+"expense.form.section.amount" = "Сума";
+"expense.form.section.category" = "Категорія";
+"expense.form.section.date" = "Дата";
+"expense.form.section.notes" = "Нотатки";
+"expense.form.title" = "Опис";
+"expense.form.amount" = "Сума";
+"expense.form.category" = "Категорія";
+"expense.form.date" = "Дата";
+"expense.form.validation.error" = "Помилка валідації";
+"expense.form.validation.title_required" = "Будь ласка, введіть опис.";
+"expense.form.validation.amount_required" = "Будь ласка, введіть коректну суму.";
+
+/* Reminder/Notification Management - Phase 10 */
+"reminder.list.title" = "Нагадування";
+"reminder.list.empty.title" = "Нагадувань немає";
+"reminder.list.empty.message" = "Створюйте нагадування, щоб не забути про важливі моменти подорожі.";
+"reminder.list.add_first" = "Додати нагадування";
+"reminder.list.empty.today.title" = "Нічого на сьогодні";
+"reminder.list.empty.today.message" = "У вас немає нагадувань на сьогодні.";
+"reminder.list.empty.upcoming.title" = "Немає майбутніх нагадувань";
+"reminder.list.empty.upcoming.message" = "Все виконано! Немає майбутніх нагадувань.";
+"reminder.list.empty.overdue.title" = "Немає прострочених нагадувань";
+"reminder.list.empty.overdue.message" = "Чудово! У вас немає прострочених нагадувань.";
+"reminder.list.empty.completed.title" = "Немає завершених нагадувань";
+"reminder.list.empty.completed.message" = "Завершені нагадування будуть відображатися тут.";
+
+/* Reminder Filters */
+"reminder.filter.all" = "Всі";
+"reminder.filter.today" = "Сьогодні";
+"reminder.filter.upcoming" = "Майбутні";
+"reminder.filter.overdue" = "Прострочені";
+"reminder.filter.completed" = "Завершені";
+
+/* Reminder Groups */
+"reminder.group.overdue" = "Прострочено";
+"reminder.group.today" = "Сьогодні";
+"reminder.group.tomorrow" = "Завтра";
+"reminder.group.this_week" = "Цього тижня";
+"reminder.group.later" = "Пізніше";
+"reminder.group.completed" = "Завершено";
+
+/* Reminder Summary */
+"reminder.summary.pending" = "очікує";
+"reminder.summary.overdue" = "прострочено";
+"reminder.summary.today" = "сьогодні";
+
+/* Reminder Actions */
+"reminder.action.mark_complete" = "Виконати";
+"reminder.action.mark_incomplete" = "Скасувати";
+
+/* Reminder Status */
+"reminder.status.completed" = "Завершено";
+
+/* Reminder Date Labels */
+"reminder.date.today" = "Сьогодні";
+"reminder.date.tomorrow" = "Завтра";
+
+/* Reminder Unknown Journey */
+"reminder.unknown_journey" = "Невідома подорож";
+
+/* Reminder Form */
+"reminder.form.add_title" = "Нове нагадування";
+"reminder.form.edit_title" = "Редагувати нагадування";
+"reminder.form.title_section" = "Заголовок";
+"reminder.form.title_placeholder" = "Про що ви хочете нагадати?";
+"reminder.form.journey_section" = "Подорож";
+"reminder.form.journey" = "Подорож";
+"reminder.form.select_journey" = "Виберіть подорож";
+"reminder.form.datetime_section" = "Дата та час";
+"reminder.form.date" = "Нагадати о";
+"reminder.form.related_section" = "Пов'язано з";
+"reminder.form.has_related_entity" = "Пов'язати з об'єктом";
+"reminder.form.entity_type" = "Тип об'єкта";
+"reminder.form.info_section" = "Інформація";
+"reminder.form.created" = "Створено";
+"reminder.form.status" = "Статус";
+"reminder.form.validation_error" = "Помилка валідації";
+"reminder.form.error.title_required" = "Будь ласка, введіть заголовок нагадування.";
+"reminder.form.error.journey_required" = "Будь ласка, виберіть подорож.";
+"reminder.form.error.date_past" = "Дата нагадування повинна бути в майбутньому.";
+
+/* Reminder Quick Date Buttons */
+"reminder.quick.1h" = "Через 1 годину";
+"reminder.quick.3h" = "Через 3 години";
+"reminder.quick.tomorrow" = "Завтра о 9:00";
+"reminder.quick.next_week" = "Через тиждень";
+
+/* Reminder Notifications */
+"reminder.notification.title" = "Нагадування";
+
+/* Reminder Templates for Entities */
+"reminder.transport.title_format" = "%@ з %@ - за %d годин до відправлення";
+"reminder.hotel.title_format" = "Заселення в %@ - за %d днів";
+"reminder.car_rental.title_format" = "Отримання авто в %@ - за %d днів";
+
+/* Statistics - Phase 11 */
+"stats.show_details" = "Показати детальну статистику";
+"stats.hide_details" = "Приховати детальну статистику";
+"stats.travel_overview" = "Огляд подорожей";
+"stats.journeys" = "Подорожі";
+"stats.destinations" = "Напрямки";
+"stats.upcoming" = "Майбутні";
+"stats.transport_breakdown" = "Транспорт";
+"stats.spending_overview" = "Огляд витрат";
+"stats.total_spent" = "Всього витрачено";
+"stats.expenses_count" = "Витрати";
+"stats.by_category" = "За категоріями";
+"stats.journey_summary" = "Підсумки подорожі";
+"stats.transports" = "Транспорт";
+"stats.hotels" = "Готелі";
+"stats.car_rentals" = "Оренда авто";
+"stats.places_visited" = "Місця";
+"stats.reminders" = "Нагадування";
+"stats.expenses" = "Витрати";
+"stats.quick_insights" = "Швидкі факти";
+"stats.total_travel_days" = "Всього днів подорожі";
+"stats.days" = "днів";
+"stats.longest_journey" = "Найдовша подорож";
+"stats.most_visited" = "Найчастіше відвідуване";
