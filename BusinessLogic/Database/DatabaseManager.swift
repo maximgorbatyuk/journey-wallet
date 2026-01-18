@@ -26,6 +26,15 @@ class DatabaseManager : DatabaseManagerProtocol {
     var migrationRepository: MigrationsRepository?
     var userSettingsRepository: UserSettingsRepository?
     var delayedNotificationsRepository: DelayedNotificationsRepository?
+    var journeysRepository: JourneysRepository?
+    var transportsRepository: TransportsRepository?
+    var hotelsRepository: HotelsRepository?
+    var carRentalsRepository: CarRentalsRepository?
+    var documentsRepository: DocumentsRepository?
+    var notesRepository: NotesRepository?
+    var placesToVisitRepository: PlacesToVisitRepository?
+    var remindersRepository: RemindersRepository?
+    var expensesRepository: ExpensesRepository?
 
     private var db: Connection?
     private let logger: Logger
@@ -51,6 +60,15 @@ class DatabaseManager : DatabaseManagerProtocol {
             self.migrationRepository = MigrationsRepository(db: dbConnection, tableName: DatabaseManager.MigrationsTableName)
             self.userSettingsRepository = UserSettingsRepository(db: dbConnection, tableName: DatabaseManager.UserSettingsTableName)
             self.delayedNotificationsRepository = DelayedNotificationsRepository(db: dbConnection, tableName: DatabaseManager.DelayedNotificationsTableName)
+            self.journeysRepository = JourneysRepository(db: dbConnection, tableName: DatabaseManager.JourneysTableName)
+            self.transportsRepository = TransportsRepository(db: dbConnection, tableName: DatabaseManager.TransportsTableName)
+            self.hotelsRepository = HotelsRepository(db: dbConnection, tableName: DatabaseManager.HotelsTableName)
+            self.carRentalsRepository = CarRentalsRepository(db: dbConnection, tableName: DatabaseManager.CarRentalsTableName)
+            self.documentsRepository = DocumentsRepository(db: dbConnection, tableName: DatabaseManager.DocumentsTableName)
+            self.notesRepository = NotesRepository(db: dbConnection, tableName: DatabaseManager.NotesTableName)
+            self.placesToVisitRepository = PlacesToVisitRepository(db: dbConnection, tableName: DatabaseManager.PlacesToVisitTableName)
+            self.remindersRepository = RemindersRepository(db: dbConnection, tableName: DatabaseManager.RemindersTableName)
+            self.expensesRepository = ExpensesRepository(db: dbConnection, tableName: DatabaseManager.ExpensesTableName)
 
             // Ensure user settings table exists
             self.userSettingsRepository?.createTable()
@@ -61,8 +79,18 @@ class DatabaseManager : DatabaseManagerProtocol {
         }
     }
 
-    func deleteAllData() -> Void {
-        // to be implemented
+    func deleteAllData() {
+        _ = expensesRepository?.deleteAll()
+        _ = remindersRepository?.deleteAll()
+        _ = placesToVisitRepository?.deleteAll()
+        _ = notesRepository?.deleteAll()
+        _ = documentsRepository?.deleteAll()
+        _ = carRentalsRepository?.deleteAll()
+        _ = hotelsRepository?.deleteAll()
+        _ = transportsRepository?.deleteAll()
+        _ = journeysRepository?.deleteAll()
+        delayedNotificationsRepository?.truncateTable()
+        logger.info("All data deleted from database")
     }
 
     func getDatabaseSchemaVersion() -> Int {
@@ -98,10 +126,6 @@ class DatabaseManager : DatabaseManagerProtocol {
             }
 
             migrationRepository!.addMigrationVersion()
-        }
-
-        func deleteAllData() -> Void {
-            delayedNotificationsRepository!.truncateTable()
         }
     }
 }
