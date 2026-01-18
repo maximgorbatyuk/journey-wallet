@@ -38,7 +38,7 @@ class DatabaseManager : DatabaseManagerProtocol {
 
     private var db: Connection?
     private let logger: Logger
-    private let latestVersion = 2
+    private let latestVersion = 3
 
     private init() {
 
@@ -120,6 +120,9 @@ class DatabaseManager : DatabaseManagerProtocol {
 
             case 2:
                 Migration_20260118_JourneyTables(db: db!).execute()
+
+            case 3:
+                Migration_20260118_TransportForWhom(db: db!).execute()
 
             default:
                 break

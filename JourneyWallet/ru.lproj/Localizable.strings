@@ -370,12 +370,18 @@
 "transport.form.arrival" = "Прибытие";
 "transport.form.duration" = "Длительность";
 "transport.form.seat" = "Номер места";
+"transport.form.seats" = "Номер(а) мест";
 "transport.form.booking_reference" = "Номер бронирования";
 "transport.form.cost" = "Стоимость";
+"transport.form.section.booking" = "Номер бронирования";
+"transport.form.section.number" = "Номер транспорта";
 "transport.form.error.departure_required" = "Укажите место отправления.";
+"transport.form.error.booking_required" = "Пожалуйста, введите номер бронирования.";
 "transport.form.error.arrival_required" = "Укажите место прибытия.";
 "transport.form.error.invalid_times" = "Время прибытия должно быть позже времени отправления.";
 "transport.form.error.invalid_cost" = "Введите корректную сумму.";
+"transport.form.section.for_whom" = "Для кого";
+"transport.form.for_whom" = "Имя пассажира(ов)";
 
 /* Transport Reminders */
 "transport.reminder.24h_before" = "За 24 часа";

@@ -370,12 +370,18 @@
 "transport.form.arrival" = "Ankunft";
 "transport.form.duration" = "Dauer";
 "transport.form.seat" = "Sitznummer";
+"transport.form.seats" = "Sitznummer(n)";
 "transport.form.booking_reference" = "Buchungsreferenz";
 "transport.form.cost" = "Kosten";
+"transport.form.section.booking" = "Buchungsreferenz";
+"transport.form.section.number" = "Transportnummer";
 "transport.form.error.departure_required" = "Bitte geben Sie einen Abfahrtsort ein.";
+"transport.form.error.booking_required" = "Bitte geben Sie eine Buchungsreferenz ein.";
 "transport.form.error.arrival_required" = "Bitte geben Sie einen Ankunftsort ein.";
 "transport.form.error.invalid_times" = "Ankunftszeit muss nach der Abfahrtszeit liegen.";
 "transport.form.error.invalid_cost" = "Bitte geben Sie einen gültigen Betrag ein.";
+"transport.form.section.for_whom" = "Für wen";
+"transport.form.for_whom" = "Passagiername(n)";
 
 /* Transport Reminders */
 "transport.reminder.24h_before" = "24 Stunden vorher";

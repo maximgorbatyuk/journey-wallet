@@ -370,12 +370,18 @@
 "transport.form.arrival" = "Келу";
 "transport.form.duration" = "Ұзақтығы";
 "transport.form.seat" = "Орын нөмірі";
+"transport.form.seats" = "Орын нөмірі/нөмірлері";
 "transport.form.booking_reference" = "Брондау нөмірі";
 "transport.form.cost" = "Құны";
+"transport.form.section.booking" = "Брондау нөмірі";
+"transport.form.section.number" = "Көлік нөмірі";
 "transport.form.error.departure_required" = "Шығу орнын енгізіңіз.";
+"transport.form.error.booking_required" = "Брондау нөмірін енгізіңіз.";
 "transport.form.error.arrival_required" = "Келу орнын енгізіңіз.";
 "transport.form.error.invalid_times" = "Келу уақыты шығу уақытынан кейін болуы керек.";
 "transport.form.error.invalid_cost" = "Жарамды соманы енгізіңіз.";
+"transport.form.section.for_whom" = "Кімге арналған";
+"transport.form.for_whom" = "Жолаушы аты/аттары";
 
 /* Transport Reminders */
 "transport.reminder.24h_before" = "24 сағат бұрын";

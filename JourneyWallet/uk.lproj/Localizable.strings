@@ -370,12 +370,18 @@
 "transport.form.arrival" = "Прибуття";
 "transport.form.duration" = "Тривалість";
 "transport.form.seat" = "Номер місця";
+"transport.form.seats" = "Номер(и) місць";
 "transport.form.booking_reference" = "Номер бронювання";
 "transport.form.cost" = "Вартість";
+"transport.form.section.booking" = "Номер бронювання";
+"transport.form.section.number" = "Номер транспорту";
 "transport.form.error.departure_required" = "Будь ласка, введіть місце відправлення.";
+"transport.form.error.booking_required" = "Будь ласка, введіть номер бронювання.";
 "transport.form.error.arrival_required" = "Будь ласка, введіть місце прибуття.";
 "transport.form.error.invalid_times" = "Час прибуття повинен бути пізніше часу відправлення.";
 "transport.form.error.invalid_cost" = "Будь ласка, введіть коректну суму.";
+"transport.form.section.for_whom" = "Для кого";
+"transport.form.for_whom" = "Ім'я пасажира(ів)";
 
 /* Transport Reminders */
 "transport.reminder.24h_before" = "За 24 години";

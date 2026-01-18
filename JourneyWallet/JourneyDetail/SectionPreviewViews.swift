@@ -37,6 +37,18 @@ struct TransportPreviewRow: View {
                 }
                 .font(.caption)
                 .foregroundColor(.secondary)
+
+                // For Whom label (only shown if not empty)
+                if let forWhom = transport.forWhom, !forWhom.isEmpty {
+                    HStack(spacing: 2) {
+                        Image(systemName: "person.fill")
+                            .font(.caption2)
+                        Text(forWhom)
+                            .lineLimit(1)
+                    }
+                    .font(.caption)
+                    .foregroundColor(.purple)
+                }
             }
 
             Spacer()

@@ -370,12 +370,15 @@
 "transport.form.arrival" = "Arrival";
 "transport.form.duration" = "Duration";
 "transport.form.seat" = "Seat Number";
+"transport.form.seats" = "Seat Number(s)";
 "transport.form.booking_reference" = "Booking Reference";
 "transport.form.cost" = "Cost";
-"transport.form.error.departure_required" = "Please enter a departure location.";
-"transport.form.error.arrival_required" = "Please enter an arrival location.";
-"transport.form.error.invalid_times" = "Arrival time must be after departure time.";
+"transport.form.section.booking" = "Booking Reference";
+"transport.form.section.number" = "Transport Number";
+"transport.form.error.booking_required" = "Please enter a booking reference.";
 "transport.form.error.invalid_cost" = "Please enter a valid cost amount.";
+"transport.form.section.for_whom" = "For Whom";
+"transport.form.for_whom" = "Passenger Name(s)";
 
 /* Transport Reminders */
 "transport.reminder.24h_before" = "24 hours before";

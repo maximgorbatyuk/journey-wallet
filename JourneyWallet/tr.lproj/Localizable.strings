@@ -370,12 +370,18 @@
 "transport.form.arrival" = "Varış";
 "transport.form.duration" = "Süre";
 "transport.form.seat" = "Koltuk Numarası";
+"transport.form.seats" = "Koltuk Numarası/Numaraları";
 "transport.form.booking_reference" = "Rezervasyon Numarası";
 "transport.form.cost" = "Maliyet";
+"transport.form.section.booking" = "Rezervasyon Numarası";
+"transport.form.section.number" = "Ulaşım Numarası";
 "transport.form.error.departure_required" = "Lütfen bir kalkış yeri girin.";
+"transport.form.error.booking_required" = "Lütfen bir rezervasyon numarası girin.";
 "transport.form.error.arrival_required" = "Lütfen bir varış yeri girin.";
 "transport.form.error.invalid_times" = "Varış zamanı kalkış zamanından sonra olmalıdır.";
 "transport.form.error.invalid_cost" = "Lütfen geçerli bir tutar girin.";
+"transport.form.section.for_whom" = "Kimin için";
+"transport.form.for_whom" = "Yolcu Adı/Adları";
 
 /* Transport Reminders */
 "transport.reminder.24h_before" = "24 saat önce";

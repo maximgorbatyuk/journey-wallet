@@ -296,9 +296,26 @@ struct TransportListRow: View {
                 .foregroundColor(.secondary)
 
                 // Date and time
-                Text(formatDateTime(transport.departureDate))
-                    .font(.caption)
-                    .foregroundColor(.secondary)
+                HStack(spacing: 4) {
+                    Text(formatDateTime(transport.departureDate))
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+
+                    // For Whom label
+                    if let forWhom = transport.forWhom, !forWhom.isEmpty {
+                        Text("•")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        HStack(spacing: 2) {
+                            Image(systemName: "person.fill")
+                                .font(.caption2)
+                            Text(forWhom)
+                                .lineLimit(1)
+                        }
+                        .font(.caption)
+                        .foregroundColor(.purple)
+                    }
+                }
             }
 
             Spacer()
