@@ -388,7 +388,7 @@ struct HotelDetailView: View {
                         Text(L("hotel.detail.total_cost"))
                             .font(.caption)
                             .foregroundColor(.secondary)
-                        Text("\(currency.symbol)\(cost.formatted())")
+                        Text("\(currency.rawValue)\(cost.formatted())")
                             .font(.title2)
                             .fontWeight(.bold)
                             .foregroundColor(.orange)
@@ -658,22 +658,22 @@ struct HotelReminderSheet: View {
         let reminderDate = selectedOption == .custom ? customDate : selectedOption.reminderDate(for: hotel.checkInDate)
         let title = "\(L("hotel.reminder.notification.title")): \(hotel.name)"
 
-        let reminder = Reminder(
-            journeyId: journeyId,
-            title: title,
-            reminderDate: reminderDate,
-            type: .accommodation,
-            relatedEntityId: hotel.id
-        )
-
-        _ = remindersRepository?.insert(reminder)
-
         // Schedule local notification
-        _ = NotificationManager.shared.scheduleNotification(
+        let notificationId = NotificationManager.shared.scheduleNotification(
             title: L("hotel.reminder.notification.title"),
             body: title,
             on: reminderDate
         )
+
+        let reminder = Reminder(
+            journeyId: journeyId,
+            title: title,
+            reminderDate: reminderDate,
+            relatedEntityId: hotel.id,
+            notificationId: notificationId
+        )
+
+        _ = remindersRepository?.insert(reminder)
 
         dismiss()
     }

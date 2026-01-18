@@ -428,7 +428,11 @@ Below are some key user stories for the app:
 ### Step 5.4: Transport Reminders
 - Integrate with existing `NotificationManager`
 - Add reminder options (24h, 3h, 1h before departure)
-- Store reminders in `reminders` table
+- **Important**: When creating reminders:
+  1. First, schedule the local notification via `NotificationManager.shared.scheduleNotification()` to get the `notificationId`
+  2. Then, create the `Reminder` entity with the returned `notificationId`
+  3. Finally, insert the reminder into the database
+- Store reminders in `reminders` table with `notificationId` for cancellation support
 - Type-specific notification messages (e.g., "Your flight departs in 3 hours")
 
 ---
@@ -455,6 +459,14 @@ Below are some key user stories for the app:
 - Date pickers for check-in/check-out
 - Address field with optional map link
 
+### Step 6.4: Hotel Reminders
+- Add reminder options (day before, 2 days before, week before check-in)
+- **Important**: When creating reminders:
+  1. First, schedule the local notification via `NotificationManager.shared.scheduleNotification()` to get the `notificationId`
+  2. Then, create the `Reminder` entity with the returned `notificationId`
+  3. Finally, insert the reminder into the database
+- Store reminders in `reminders` table with `notificationId` for cancellation support
+
 ---
 
 ## Phase 7: Car Rental Management
@@ -478,6 +490,14 @@ Below are some key user stories for the app:
 - Form fields for all rental properties
 - Location fields
 - Date/time pickers
+
+### Step 7.4: Car Rental Reminders
+- Add reminder options (day before, 2 days before, week before pickup)
+- **Important**: When creating reminders:
+  1. First, schedule the local notification via `NotificationManager.shared.scheduleNotification()` to get the `notificationId`
+  2. Then, create the `Reminder` entity with the returned `notificationId`
+  3. Finally, insert the reminder into the database
+- Store reminders in `reminders` table with `notificationId` for cancellation support
 
 ---
 
@@ -611,8 +631,12 @@ Below are some key user stories for the app:
 
 ### Step 10.3: ReminderService
 - Create `ReminderService.swift`
-- Schedule local notifications via `NotificationManager`
-- Handle reminder completion
+- **Important**: When creating reminders:
+  1. First, schedule the local notification via `NotificationManager.shared.scheduleNotification()` to get the `notificationId`
+  2. Then, create the `Reminder` entity with the returned `notificationId`
+  3. Finally, insert the reminder into the database
+- When deleting reminders, use `notificationId` to cancel the scheduled notification
+- Handle reminder completion (mark as completed, optionally cancel notification)
 - Sync reminders with system notifications
 - Auto-create reminders for transports (optional setting)
 
@@ -746,6 +770,7 @@ Below are some key user stories for the app:
 - Maintain orange as primary accent color
 - All async operations should use async/await
 - Add Firebase Analytics events for key actions
+- **Reminder Creation Pattern**: Always schedule notification first to get `notificationId`, then create `Reminder` entity with that ID. This ensures proper linking between database records and system notifications for cancellation support.
 
 ---
 

@@ -540,25 +540,25 @@ struct TransportReminderSheet: View {
 
     private func saveReminder() {
         let reminderDate = selectedOption == .custom ? customDate : selectedOption.reminderDate(for: transport.departureDate)
-
         let title = "\(transport.type.displayName): \(transport.departureLocation) → \(transport.arrivalLocation)"
 
-        let reminder = Reminder(
-            journeyId: journeyId,
-            title: title,
-            reminderDate: reminderDate,
-            relatedEntityType: .transport,
-            relatedEntityId: transport.id
-        )
-
-        _ = remindersRepository?.insert(reminder)
-
-        // Schedule local notification
-        _ = NotificationManager.shared.scheduleNotification(
+        // Schedule local notification first to get the notificationId
+        let notificationId = NotificationManager.shared.scheduleNotification(
             title: L("transport.reminder.notification.title"),
             body: title,
             on: reminderDate
         )
+
+        // Create Reminder entity with the notificationId
+        let reminder = Reminder(
+            journeyId: journeyId,
+            title: title,
+            reminderDate: reminderDate,
+            relatedEntityId: transport.id,
+            notificationId: notificationId
+        )
+
+        _ = remindersRepository?.insert(reminder)
 
         dismiss()
     }
