@@ -345,28 +345,10 @@ class UserSettingsViewModel: ObservableObject {
 
         logger.info("Generating random data for journey: \(journey.name) (ID: \(journey.id))")
 
-        // TODO: Implement random data generation
-        // Steps to implement:
-        // 1. Delete all existing data for this journey:
-        //    - Delete transports by journey ID
-        //    - Delete hotels by journey ID
-        //    - Delete car rentals by journey ID
-        //    - Delete documents by journey ID
-        //    - Delete notes by journey ID
-        //    - Delete places to visit by journey ID
-        //    - Delete reminders by journey ID
-        //    - Delete expenses by journey ID
-        //
-        // 2. Generate random data:
-        //    - Create 2-5 random transports (mix of flights, trains, buses)
-        //    - Create 1-3 random hotels
-        //    - Create 0-2 random car rentals
-        //    - Create 3-8 random notes
-        //    - Create 5-15 random places to visit
-        //    - Create 2-6 random reminders
-        //    - Create 5-20 random expenses across different categories
-        //
-        // 3. Use journey date range to generate realistic dates for bookings
+        let generator = RandomDataGenerator(db: db)
+        generator.generateRandomData(for: journey)
+
+        logger.info("Random data generation completed for journey: \(journey.name)")
     }
 }
 
