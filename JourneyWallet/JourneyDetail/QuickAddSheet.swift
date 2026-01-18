@@ -80,8 +80,12 @@ struct QuickAddSheet: View {
             )
 
         case .document:
-            // TODO: Implement DocumentPickerView in Phase 8
-            placeholderView(for: entityType)
+            DocumentPickerView(journeyId: journeyId) { success in
+                if success {
+                    onEntityAdded()
+                    dismiss()
+                }
+            }
 
         case .note:
             // TODO: Implement NoteFormView in Phase 9

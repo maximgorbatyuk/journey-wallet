@@ -514,3 +514,59 @@
 "quick_add.reminder" = "Еске салу";
 "quick_add.expense" = "Шығын";
 "quick_add.coming_soon" = "Жақында";
+
+/* Document Management */
+"document.list.title" = "Құжаттар";
+"document.list.empty.title" = "Құжаттар жоқ";
+"document.list.empty.message" = "Паспорттарды, билеттерді және басқа құжаттарды сақтаңыз.";
+"document.list.add_first" = "Құжат қосу";
+"document.summary.files" = "файл";
+
+/* Document Filters */
+"document.filter.all" = "Барлығы";
+"document.filter.pdf" = "PDF";
+"document.filter.images" = "Суреттер";
+
+/* Document Types */
+"document.type.pdf" = "PDF";
+"document.type.jpeg" = "JPEG сурет";
+"document.type.png" = "PNG сурет";
+"document.type.heic" = "HEIC сурет";
+
+/* Document Import */
+"document.import.title" = "Құжат импорттау";
+"document.import.section.source" = "Көзін таңдау";
+"document.import.files" = "Файлдардан импорттау";
+"document.import.files.description" = "PDF, JPEG, PNG немесе HEIC файлдарын таңдау";
+"document.import.photos" = "Фотолардан импорттау";
+"document.import.photos.description" = "Фото кітапханасынан суреттер таңдау";
+"document.import.camera" = "Фото түсіру";
+"document.import.camera.description" = "Құжатты камерамен түсіру";
+"document.import.supported_formats" = "Қолдау көрсетілетін форматтар: PDF, JPEG, PNG, HEIC";
+"document.import.processing" = "Өңделуде...";
+
+/* Document Actions */
+"document.action.share" = "Бөлісу";
+"document.action.rename" = "Атын өзгерту";
+"document.action.open_in" = "Басқа қосымшада ашу";
+
+/* Document Preview */
+"document.preview.unsupported" = "Бұл файл түрін көрсету мүмкін емес";
+"document.preview.image_error" = "Суретті жүктеу мүмкін болмады";
+
+/* Document Rename */
+"document.rename.title" = "Құжат атын өзгерту";
+"document.rename.message" = "Құжаттың жаңа атын енгізіңіз";
+"document.rename.placeholder" = "Құжат аты";
+
+/* Document Delete */
+"document.delete_confirm.title" = "Құжатты жою?";
+"document.delete_confirm.message" = "Бұл құжат біржола жойылады.";
+
+/* Document Errors */
+"document.error.unknown" = "Белгісіз қате орын алды";
+"document.error.import_failed" = "Құжаттарды импорттау сәтсіз болды";
+"document.error.save_failed" = "Құжатты сақтау сәтсіз болды";
+
+/* Document Camera */
+"document.camera.default_name" = "Түсірілген фото";

@@ -514,3 +514,55 @@
 "quick_add.reminder" = "Hatırlatıcı";
 "quick_add.expense" = "Harcama";
 "quick_add.coming_soon" = "Yakında";
+
+/* Document Management */
+"document.list.title" = "Belgeler";
+"document.list.empty.title" = "Belge yok";
+"document.list.empty.message" = "Seyahat belgelerinizi, biletlerinizi ve onaylarınızı ekleyin.";
+"document.list.add_first" = "Belge Ekle";
+
+/* Document Filters */
+"document.filter.all" = "Tümü";
+"document.filter.pdf" = "PDF'ler";
+"document.filter.images" = "Görseller";
+
+/* Document Summary */
+"document.summary.files" = "dosya";
+
+/* Document Import */
+"document.import.title" = "Belge Ekle";
+"document.import.section.source" = "Kaynak Seçin";
+"document.import.files" = "Dosyalardan İçe Aktar";
+"document.import.files.description" = "PDF veya görsel dosyaları seçin";
+"document.import.photos" = "Fotoğraflardan İçe Aktar";
+"document.import.photos.description" = "Kütüphanenizden görseller seçin";
+"document.import.camera" = "Fotoğraf Çek";
+"document.import.camera.description" = "Yeni bir belge çekin";
+"document.import.supported_formats" = "Desteklenen formatlar: PDF, JPEG, PNG, HEIC";
+"document.import.processing" = "İşleniyor...";
+
+/* Document Preview */
+"document.preview.unsupported" = "Önizleme mevcut değil";
+"document.preview.image_error" = "Görsel yüklenemedi";
+
+/* Document Actions */
+"document.action.share" = "Paylaş";
+"document.action.rename" = "Yeniden Adlandır";
+"document.action.open_in" = "Başka Uygulamada Aç";
+
+/* Document Rename */
+"document.rename.title" = "Belgeyi Yeniden Adlandır";
+"document.rename.message" = "Bu belge için yeni bir ad girin.";
+"document.rename.placeholder" = "Belge adı";
+
+/* Document Delete */
+"document.delete_confirm.title" = "Belge Silinsin mi?";
+"document.delete_confirm.message" = "Bu belge kalıcı olarak silinecektir.";
+
+/* Document Errors */
+"document.error.save_failed" = "Belge kaydedilemedi.";
+"document.error.import_failed" = "Belge içe aktarılamadı.";
+"document.error.unknown" = "Bilinmeyen bir hata oluştu.";
+
+/* Document Camera */
+"document.camera.default_name" = "Çekilen Belge";

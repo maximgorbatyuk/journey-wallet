@@ -514,3 +514,59 @@
 "quick_add.reminder" = "Нагадування";
 "quick_add.expense" = "Витрата";
 "quick_add.coming_soon" = "Незабаром";
+
+/* Document Management */
+"document.list.title" = "Документи";
+"document.list.empty.title" = "Документів немає";
+"document.list.empty.message" = "Зберігайте паспорти, квитки та інші документи подорожі.";
+"document.list.add_first" = "Додати документ";
+"document.summary.files" = "файлів";
+
+/* Document Filters */
+"document.filter.all" = "Всі";
+"document.filter.pdf" = "PDF";
+"document.filter.images" = "Зображення";
+
+/* Document Types */
+"document.type.pdf" = "PDF";
+"document.type.jpeg" = "Зображення JPEG";
+"document.type.png" = "Зображення PNG";
+"document.type.heic" = "Зображення HEIC";
+
+/* Document Import */
+"document.import.title" = "Імпортувати документ";
+"document.import.section.source" = "Виберіть джерело";
+"document.import.files" = "Імпортувати з файлів";
+"document.import.files.description" = "Виберіть файли PDF, JPEG, PNG або HEIC";
+"document.import.photos" = "Імпортувати з фотографій";
+"document.import.photos.description" = "Виберіть зображення з бібліотеки фотографій";
+"document.import.camera" = "Зробити фото";
+"document.import.camera.description" = "Сфотографуйте документ камерою";
+"document.import.supported_formats" = "Підтримувані формати: PDF, JPEG, PNG, HEIC";
+"document.import.processing" = "Обробка...";
+
+/* Document Actions */
+"document.action.share" = "Поділитися";
+"document.action.rename" = "Перейменувати";
+"document.action.open_in" = "Відкрити в іншому додатку";
+
+/* Document Preview */
+"document.preview.unsupported" = "Цей тип файлу не може бути відображений";
+"document.preview.image_error" = "Не вдалося завантажити зображення";
+
+/* Document Rename */
+"document.rename.title" = "Перейменувати документ";
+"document.rename.message" = "Введіть нову назву для документа";
+"document.rename.placeholder" = "Назва документа";
+
+/* Document Delete */
+"document.delete_confirm.title" = "Видалити документ?";
+"document.delete_confirm.message" = "Цей документ буде видалено назавжди.";
+
+/* Document Errors */
+"document.error.unknown" = "Сталася невідома помилка";
+"document.error.import_failed" = "Не вдалося імпортувати документи";
+"document.error.save_failed" = "Не вдалося зберегти документ";
+
+/* Document Camera */
+"document.camera.default_name" = "Зроблене фото";

@@ -509,3 +509,55 @@
 "quick_add.reminder" = "Erinnerung";
 "quick_add.expense" = "Ausgabe";
 "quick_add.coming_soon" = "Demnächst verfügbar";
+
+/* Document Management */
+"document.list.title" = "Dokumente";
+"document.list.empty.title" = "Keine Dokumente";
+"document.list.empty.message" = "Fügen Sie Ihre Reisedokumente, Tickets und Bestätigungen hinzu.";
+"document.list.add_first" = "Dokument hinzufügen";
+
+/* Document Filters */
+"document.filter.all" = "Alle";
+"document.filter.pdf" = "PDFs";
+"document.filter.images" = "Bilder";
+
+/* Document Summary */
+"document.summary.files" = "Dateien";
+
+/* Document Import */
+"document.import.title" = "Dokument hinzufügen";
+"document.import.section.source" = "Quelle auswählen";
+"document.import.files" = "Aus Dateien importieren";
+"document.import.files.description" = "PDF- oder Bilddateien auswählen";
+"document.import.photos" = "Aus Fotos importieren";
+"document.import.photos.description" = "Bilder aus Ihrer Bibliothek auswählen";
+"document.import.camera" = "Foto aufnehmen";
+"document.import.camera.description" = "Neues Dokument erfassen";
+"document.import.supported_formats" = "Unterstützte Formate: PDF, JPEG, PNG, HEIC";
+"document.import.processing" = "Wird verarbeitet...";
+
+/* Document Preview */
+"document.preview.unsupported" = "Vorschau nicht verfügbar";
+"document.preview.image_error" = "Bild konnte nicht geladen werden";
+
+/* Document Actions */
+"document.action.share" = "Teilen";
+"document.action.rename" = "Umbenennen";
+"document.action.open_in" = "In anderer App öffnen";
+
+/* Document Rename */
+"document.rename.title" = "Dokument umbenennen";
+"document.rename.message" = "Geben Sie einen neuen Namen für dieses Dokument ein.";
+"document.rename.placeholder" = "Dokumentname";
+
+/* Document Delete */
+"document.delete_confirm.title" = "Dokument löschen?";
+"document.delete_confirm.message" = "Dieses Dokument wird dauerhaft gelöscht.";
+
+/* Document Errors */
+"document.error.save_failed" = "Dokument konnte nicht gespeichert werden.";
+"document.error.import_failed" = "Dokument konnte nicht importiert werden.";
+"document.error.unknown" = "Ein unbekannter Fehler ist aufgetreten.";
+
+/* Document Camera */
+"document.camera.default_name" = "Erfasstes Dokument";

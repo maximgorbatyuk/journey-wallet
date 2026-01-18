@@ -7,6 +7,7 @@ struct JourneyDetailView: View {
     @State private var showTransportList = false
     @State private var showHotelList = false
     @State private var showCarRentalList = false
+    @State private var showDocumentList = false
     @State private var showQuickAddSheet = false
     @ObservedObject private var analytics = AnalyticsService.shared
 
@@ -159,24 +160,37 @@ struct JourneyDetailView: View {
                                     iconName: "doc.fill",
                                     iconColor: .orange,
                                     itemCount: viewModel.sectionCounts.documents,
-                                    onSeeAll: viewModel.sectionCounts.documents > 0 ? {
-                                        // TODO: Navigate to full documents list
+                                    onSeeAll: viewModel.selectedJourneyId != nil ? {
+                                        showDocumentList = true
                                     } : nil
                                 ),
                                 content: {
                                     if viewModel.sectionCounts.documents == 0 {
-                                        EmptySectionView(
-                                            message: L("journey.detail.documents.empty"),
-                                            iconName: "doc"
-                                        )
-                                    } else {
-                                        HStack {
-                                            Text("\(viewModel.sectionCounts.documents) \(L("journey.detail.documents.count"))")
-                                                .font(.subheadline)
-                                                .foregroundColor(.secondary)
-                                            Spacer()
+                                        Button {
+                                            showDocumentList = true
+                                        } label: {
+                                            EmptySectionView(
+                                                message: L("journey.detail.documents.empty"),
+                                                iconName: "doc"
+                                            )
                                         }
-                                        .padding()
+                                        .buttonStyle(.plain)
+                                    } else {
+                                        Button {
+                                            showDocumentList = true
+                                        } label: {
+                                            HStack {
+                                                Text("\(viewModel.sectionCounts.documents) \(L("journey.detail.documents.count"))")
+                                                    .font(.subheadline)
+                                                    .foregroundColor(.secondary)
+                                                Spacer()
+                                                Image(systemName: "chevron.right")
+                                                    .font(.caption)
+                                                    .foregroundColor(.secondary)
+                                            }
+                                            .padding()
+                                        }
+                                        .buttonStyle(.plain)
                                     }
                                 }
                             )
@@ -342,6 +356,9 @@ struct JourneyDetailView: View {
             }
             .navigationDestination(isPresented: $showCarRentalList) {
                 CarRentalListView(journeyId: viewModel.selectedJourneyId ?? UUID())
+            }
+            .navigationDestination(isPresented: $showDocumentList) {
+                DocumentListView(journeyId: viewModel.selectedJourneyId ?? UUID())
             }
         }
     }

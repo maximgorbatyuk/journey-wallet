@@ -514,3 +514,55 @@
 "quick_add.reminder" = "Напоминание";
 "quick_add.expense" = "Расход";
 "quick_add.coming_soon" = "Скоро будет доступно";
+
+/* Document Management */
+"document.list.title" = "Документы";
+"document.list.empty.title" = "Нет документов";
+"document.list.empty.message" = "Добавьте ваши проездные документы, билеты и подтверждения.";
+"document.list.add_first" = "Добавить документ";
+
+/* Document Filters */
+"document.filter.all" = "Все";
+"document.filter.pdf" = "PDF";
+"document.filter.images" = "Изображения";
+
+/* Document Summary */
+"document.summary.files" = "файлов";
+
+/* Document Import */
+"document.import.title" = "Добавить документ";
+"document.import.section.source" = "Выберите источник";
+"document.import.files" = "Импорт из Файлов";
+"document.import.files.description" = "Выберите PDF или изображения";
+"document.import.photos" = "Импорт из Фото";
+"document.import.photos.description" = "Выберите изображения из библиотеки";
+"document.import.camera" = "Сделать фото";
+"document.import.camera.description" = "Сфотографировать документ";
+"document.import.supported_formats" = "Поддерживаемые форматы: PDF, JPEG, PNG, HEIC";
+"document.import.processing" = "Обработка...";
+
+/* Document Preview */
+"document.preview.unsupported" = "Предпросмотр недоступен";
+"document.preview.image_error" = "Не удалось загрузить изображение";
+
+/* Document Actions */
+"document.action.share" = "Поделиться";
+"document.action.rename" = "Переименовать";
+"document.action.open_in" = "Открыть в другом приложении";
+
+/* Document Rename */
+"document.rename.title" = "Переименовать документ";
+"document.rename.message" = "Введите новое название для этого документа.";
+"document.rename.placeholder" = "Название документа";
+
+/* Document Delete */
+"document.delete_confirm.title" = "Удалить документ?";
+"document.delete_confirm.message" = "Этот документ будет удален безвозвратно.";
+
+/* Document Errors */
+"document.error.save_failed" = "Не удалось сохранить документ.";
+"document.error.import_failed" = "Не удалось импортировать документ.";
+"document.error.unknown" = "Произошла неизвестная ошибка.";
+
+/* Document Camera */
+"document.camera.default_name" = "Снятый документ";
