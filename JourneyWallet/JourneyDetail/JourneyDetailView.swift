@@ -312,7 +312,7 @@ struct JourneyDetailView: View {
                                     } : nil
                                 ),
                                 content: {
-                                    if viewModel.sectionCounts.expenses == 0 {
+                                    if viewModel.recentExpenses.isEmpty {
                                         Button {
                                             showBudgetView = true
                                         } label: {
@@ -323,16 +323,16 @@ struct JourneyDetailView: View {
                                         }
                                         .buttonStyle(.plain)
                                     } else {
-                                        Button {
-                                            showBudgetView = true
-                                        } label: {
-                                            BudgetSummaryView(
-                                                totalExpenses: viewModel.sectionCounts.totalExpenses,
-                                                expenseCount: viewModel.sectionCounts.expenses,
-                                                currency: viewModel.sectionCounts.expensesCurrency
-                                            )
+                                        ForEach(viewModel.recentExpenses) { expense in
+                                            ExpensePreviewRow(expense: expense)
+                                                .contentShape(Rectangle())
+                                                .onTapGesture {
+                                                    showBudgetView = true
+                                                }
+                                            if expense.id != viewModel.recentExpenses.last?.id {
+                                                Divider().padding(.leading, 56)
+                                            }
                                         }
-                                        .buttonStyle(.plain)
                                     }
                                 }
                             )

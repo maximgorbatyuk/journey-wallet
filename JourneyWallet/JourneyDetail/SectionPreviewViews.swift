@@ -293,6 +293,61 @@ struct ReminderPreviewRow: View {
     }
 }
 
+// MARK: - Expense Preview Row
+
+struct ExpensePreviewRow: View {
+    let expense: Expense
+
+    var body: some View {
+        HStack(spacing: 12) {
+            // Category icon
+            Image(systemName: expense.category.icon)
+                .font(.title3)
+                .foregroundColor(expense.category.color)
+                .frame(width: 32, height: 32)
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text(expense.title)
+                    .font(.subheadline)
+                    .fontWeight(.medium)
+                    .lineLimit(1)
+
+                HStack(spacing: 8) {
+                    // Category badge
+                    Text(expense.category.displayName)
+                        .font(.caption2)
+                        .foregroundColor(.secondary)
+
+                    Text("•")
+                        .font(.caption2)
+                        .foregroundColor(.secondary)
+
+                    // Date
+                    Text(formatDate(expense.date))
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+            }
+
+            Spacer()
+
+            // Amount
+            Text("\(expense.currency.rawValue)\(expense.amount.formatted())")
+                .font(.subheadline)
+                .fontWeight(.semibold)
+                .foregroundColor(.primary)
+        }
+        .padding(.horizontal)
+        .padding(.vertical, 8)
+    }
+
+    private func formatDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d"
+        return formatter.string(from: date)
+    }
+}
+
 // MARK: - Empty Section View
 
 struct EmptySectionView: View {
@@ -313,60 +368,6 @@ struct EmptySectionView: View {
             .padding(.vertical, 20)
             Spacer()
         }
-    }
-}
-
-// MARK: - Budget Summary View
-
-struct BudgetSummaryView: View {
-    let totalExpenses: Decimal
-    let expenseCount: Int
-    let currency: Currency?
-
-    var body: some View {
-        HStack(spacing: 16) {
-            // Total spending
-            VStack(alignment: .leading, spacing: 4) {
-                Text(L("journey.detail.total_spent"))
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-
-                Text(formattedAmount)
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .foregroundColor(.orange)
-            }
-
-            Spacer()
-
-            // Expense count
-            VStack(alignment: .trailing, spacing: 4) {
-                Text(L("journey.detail.expenses"))
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-
-                Text("\(expenseCount)")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .foregroundColor(.primary)
-            }
-        }
-        .padding()
-        .background(Color(.systemGray6))
-        .cornerRadius(12)
-        .padding(.horizontal)
-    }
-
-    private var formattedAmount: String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.minimumFractionDigits = 2
-        formatter.maximumFractionDigits = 2
-
-        let formattedNumber = formatter.string(from: totalExpenses as NSDecimalNumber) ?? "0.00"
-        let currencySymbol = currency?.rawValue ?? Currency.usd.rawValue
-
-        return "\(currencySymbol)\(formattedNumber)"
     }
 }
 
@@ -396,13 +397,5 @@ struct BudgetSummaryView: View {
             checkInDate: Date(),
             checkOutDate: Date().addingTimeInterval(3 * 24 * 60 * 60)
         )
-    )
-}
-
-#Preview("Budget Summary") {
-    BudgetSummaryView(
-        totalExpenses: Decimal(1250.50),
-        expenseCount: 12,
-        currency: .eur
     )
 }
