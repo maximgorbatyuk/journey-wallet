@@ -51,6 +51,59 @@
 "Get started" = "Loslegen";
 "Start onboarding again" = "Onboarding erneut starten";
 
+/* Onboarding Pages - Phase 12 */
+"onboarding.track_journeys" = "Verfolge deine Reisen";
+"onboarding.track_journeys__subtitle" = "Plane und organisiere alle deine Reisen an einem Ort. Behalte Ziele, Daten und Reisedetails im Blick.";
+"onboarding.store_bookings" = "Buchungen & Dokumente speichern";
+"onboarding.store_bookings__subtitle" = "Speichere Flugtickets, Hotelreservierungen und Reisedokumente. Greife auch offline auf alles zu.";
+"onboarding.travel_reminders" = "Reiseerinnerungen erhalten";
+"onboarding.travel_reminders__subtitle" = "Verpasse nie wieder einen Flug oder Check-in. Setze Erinnerungen für alle wichtigen Reiseereignisse.";
+"onboarding.view_statistics" = "Reisestatistiken ansehen";
+"onboarding.view_statistics__subtitle" = "Sieh deine Reisehistorie auf einen Blick. Verfolge Ausgaben, besuchte Ziele und mehr.";
+
+/* Empty States - Phase 12 */
+"empty.journeys.title" = "Noch keine Reisen";
+"empty.journeys.message" = "Beginne dein nächstes Abenteuer zu planen, indem du deine erste Reise erstellst.";
+"empty.journeys.action" = "Reise erstellen";
+"empty.transports.title" = "Keine Transporte";
+"empty.transports.message" = "Füge Flüge, Züge oder andere Transportmittel hinzu, um deine Reiseroute zu verfolgen.";
+"empty.transports.action" = "Transport hinzufügen";
+"empty.hotels.title" = "Keine Hotels";
+"empty.hotels.message" = "Füge deine Hotelbuchungen hinzu, um alle Unterkunftsdetails an einem Ort zu haben.";
+"empty.hotels.action" = "Hotel hinzufügen";
+"empty.car_rentals.title" = "Keine Mietwagen";
+"empty.car_rentals.message" = "Füge Mietwagendetails hinzu für einfachen Zugriff während deiner Reise.";
+"empty.car_rentals.action" = "Mietwagen hinzufügen";
+"empty.documents.title" = "Keine Dokumente";
+"empty.documents.message" = "Speichere wichtige Reisedokumente wie Tickets, Bestätigungen und Ausweiskopien.";
+"empty.documents.action" = "Dokument hinzufügen";
+"empty.notes.title" = "Keine Notizen";
+"empty.notes.message" = "Füge Notizen über deine Reise, Tipps oder Dinge zum Merken hinzu.";
+"empty.notes.action" = "Notiz hinzufügen";
+"empty.places.title" = "Keine Orte";
+"empty.places.message" = "Erstelle eine Liste von Orten, die du während deiner Reise besuchen möchtest.";
+"empty.places.action" = "Ort hinzufügen";
+"empty.expenses.title" = "Keine Ausgaben";
+"empty.expenses.message" = "Verfolge deine Reiseausgaben durch Hinzufügen von Ausgaben.";
+"empty.expenses.action" = "Ausgabe hinzufügen";
+"empty.reminders.title" = "Keine Erinnerungen";
+"empty.reminders.message" = "Setze Erinnerungen für wichtige Reiseereignisse und Aufgaben.";
+"empty.reminders.action" = "Erinnerung hinzufügen";
+"empty.search.title" = "Keine Ergebnisse";
+"empty.search.message" = "Versuche einen anderen Suchbegriff oder überprüfe die Schreibweise.";
+
+/* Error States - Phase 12 */
+"error.network.title" = "Keine Verbindung";
+"error.network.message" = "Bitte überprüfe deine Internetverbindung und versuche es erneut.";
+"error.database.title" = "Datenbankfehler";
+"error.database.message" = "Es gab ein Problem beim Zugriff auf deine Daten. Bitte versuche es erneut.";
+"error.permission.title" = "Berechtigung erforderlich";
+"error.permission.message" = "Bitte erteile die erforderlichen Berechtigungen, um fortzufahren.";
+"error.not_found.title" = "Nicht gefunden";
+"error.not_found.message" = "Das angeforderte Element konnte nicht gefunden werden.";
+"error.generic.title" = "Etwas ist schiefgelaufen";
+"error.generic.message" = "Ein unerwarteter Fehler ist aufgetreten. Bitte versuche es erneut.";
+
 /* Export & Import */
 "Export & Import" = "Export & Import";
 "Export Data..." = "Daten exportieren...";
@@ -721,3 +774,28 @@
 "reminder.transport.title_format" = "%@ von %@ - %d Stunden vor Abfahrt";
 "reminder.hotel.title_format" = "Check-in bei %@ - %d Tag(e) vorher";
 "reminder.car_rental.title_format" = "Abholung bei %@ - %d Tag(e) vorher";
+
+/* Statistics - Phase 11 */
+"stats.show_details" = "Detaillierte Statistiken anzeigen";
+"stats.hide_details" = "Detaillierte Statistiken ausblenden";
+"stats.travel_overview" = "Reiseübersicht";
+"stats.journeys" = "Reisen";
+"stats.destinations" = "Ziele";
+"stats.upcoming" = "Bevorstehend";
+"stats.transport_breakdown" = "Transportübersicht";
+"stats.spending_overview" = "Ausgabenübersicht";
+"stats.total_spent" = "Gesamtausgaben";
+"stats.expenses_count" = "Ausgaben";
+"stats.by_category" = "Nach Kategorie";
+"stats.journey_summary" = "Reisezusammenfassung";
+"stats.transports" = "Transporte";
+"stats.hotels" = "Hotels";
+"stats.car_rentals" = "Mietwagen";
+"stats.places_visited" = "Orte";
+"stats.reminders" = "Erinnerungen";
+"stats.expenses" = "Ausgaben";
+"stats.quick_insights" = "Schnelle Einblicke";
+"stats.total_travel_days" = "Gesamte Reisetage";
+"stats.days" = "Tage";
+"stats.longest_journey" = "Längste Reise";
+"stats.most_visited" = "Meistbesucht";

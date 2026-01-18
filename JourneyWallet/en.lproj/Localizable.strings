@@ -51,6 +51,59 @@
 "Get started" = "Get started";
 "Start onboarding again" = "Start onboarding again";
 
+/* Onboarding Pages - Phase 12 */
+"onboarding.track_journeys" = "Track Your Journeys";
+"onboarding.track_journeys__subtitle" = "Plan and organize all your trips in one place. Keep track of destinations, dates, and travel details.";
+"onboarding.store_bookings" = "Store Bookings & Documents";
+"onboarding.store_bookings__subtitle" = "Save flight tickets, hotel reservations, and travel documents. Access everything offline.";
+"onboarding.travel_reminders" = "Get Travel Reminders";
+"onboarding.travel_reminders__subtitle" = "Never miss a flight or check-in. Set reminders for all your important travel events.";
+"onboarding.view_statistics" = "View Travel Statistics";
+"onboarding.view_statistics__subtitle" = "See your travel history at a glance. Track expenses, destinations visited, and more.";
+
+/* Empty States - Phase 12 */
+"empty.journeys.title" = "No Journeys Yet";
+"empty.journeys.message" = "Start planning your next adventure by creating your first journey.";
+"empty.journeys.action" = "Create Journey";
+"empty.transports.title" = "No Transports";
+"empty.transports.message" = "Add flights, trains, or other transport to track your travel itinerary.";
+"empty.transports.action" = "Add Transport";
+"empty.hotels.title" = "No Hotels";
+"empty.hotels.message" = "Add your hotel bookings to keep all accommodation details in one place.";
+"empty.hotels.action" = "Add Hotel";
+"empty.car_rentals.title" = "No Car Rentals";
+"empty.car_rentals.message" = "Add car rental details for easy access during your trip.";
+"empty.car_rentals.action" = "Add Car Rental";
+"empty.documents.title" = "No Documents";
+"empty.documents.message" = "Store important travel documents like tickets, confirmations, and ID copies.";
+"empty.documents.action" = "Add Document";
+"empty.notes.title" = "No Notes";
+"empty.notes.message" = "Add notes about your trip, tips, or things to remember.";
+"empty.notes.action" = "Add Note";
+"empty.places.title" = "No Places";
+"empty.places.message" = "Create a list of places you want to visit during your journey.";
+"empty.places.action" = "Add Place";
+"empty.expenses.title" = "No Expenses";
+"empty.expenses.message" = "Track your travel spending by adding expenses.";
+"empty.expenses.action" = "Add Expense";
+"empty.reminders.title" = "No Reminders";
+"empty.reminders.message" = "Set reminders for important travel events and tasks.";
+"empty.reminders.action" = "Add Reminder";
+"empty.search.title" = "No Results";
+"empty.search.message" = "Try a different search term or check your spelling.";
+
+/* Error States - Phase 12 */
+"error.network.title" = "No Connection";
+"error.network.message" = "Please check your internet connection and try again.";
+"error.database.title" = "Database Error";
+"error.database.message" = "There was a problem accessing your data. Please try again.";
+"error.permission.title" = "Permission Required";
+"error.permission.message" = "Please grant the necessary permissions to continue.";
+"error.not_found.title" = "Not Found";
+"error.not_found.message" = "The requested item could not be found.";
+"error.generic.title" = "Something Went Wrong";
+"error.generic.message" = "An unexpected error occurred. Please try again.";
+
 /* Export & Import */
 "Export & Import" = "Export & Import";
 "Export Data..." = "Export Data...";
@@ -721,3 +774,28 @@
 "reminder.transport.title_format" = "%@ from %@ - %d hours before departure";
 "reminder.hotel.title_format" = "Check-in at %@ - %d day(s) before";
 "reminder.car_rental.title_format" = "Pickup from %@ - %d day(s) before";
+
+/* Statistics - Phase 11 */
+"stats.show_details" = "Show detailed statistics";
+"stats.hide_details" = "Hide detailed statistics";
+"stats.travel_overview" = "Travel Overview";
+"stats.journeys" = "Journeys";
+"stats.destinations" = "Destinations";
+"stats.upcoming" = "Upcoming";
+"stats.transport_breakdown" = "Transport Breakdown";
+"stats.spending_overview" = "Spending Overview";
+"stats.total_spent" = "Total Spent";
+"stats.expenses_count" = "Expenses";
+"stats.by_category" = "By Category";
+"stats.journey_summary" = "Journey Summary";
+"stats.transports" = "Transports";
+"stats.hotels" = "Hotels";
+"stats.car_rentals" = "Car Rentals";
+"stats.places_visited" = "Places";
+"stats.reminders" = "Reminders";
+"stats.expenses" = "Expenses";
+"stats.quick_insights" = "Quick Insights";
+"stats.total_travel_days" = "Total Travel Days";
+"stats.days" = "days";
+"stats.longest_journey" = "Longest Journey";
+"stats.most_visited" = "Most Visited";

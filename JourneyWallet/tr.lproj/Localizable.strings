@@ -51,6 +51,59 @@
 "Get started" = "Başla";
 "Start onboarding again" = "Yine başlangıç yap";
 
+/* Onboarding Pages - Phase 12 */
+"onboarding.track_journeys" = "Seyahatlerinizi Takip Edin";
+"onboarding.track_journeys__subtitle" = "Tüm gezilerinizi tek bir yerde planlayın ve düzenleyin. Destinasyonları, tarihleri ve detayları takip edin.";
+"onboarding.store_bookings" = "Rezervasyonları ve Belgeleri Saklayın";
+"onboarding.store_bookings__subtitle" = "Uçak biletlerini, otel rezervasyonlarını ve seyahat belgelerini kaydedin. Her şeye çevrimdışı erişin.";
+"onboarding.travel_reminders" = "Seyahat Hatırlatıcıları Alın";
+"onboarding.travel_reminders__subtitle" = "Hiçbir uçuşu veya check-in'i kaçırmayın. Tüm önemli seyahat etkinlikleri için hatırlatıcılar ayarlayın.";
+"onboarding.view_statistics" = "Seyahat İstatistiklerini Görüntüleyin";
+"onboarding.view_statistics__subtitle" = "Seyahat geçmişinizi bir bakışta görün. Harcamaları, ziyaret edilen yerleri ve daha fazlasını takip edin.";
+
+/* Empty States - Phase 12 */
+"empty.journeys.title" = "Henüz Seyahat Yok";
+"empty.journeys.message" = "İlk seyahatinizi oluşturarak bir sonraki maceranızı planlamaya başlayın.";
+"empty.journeys.action" = "Seyahat Oluştur";
+"empty.transports.title" = "Ulaşım Yok";
+"empty.transports.message" = "Seyahat güzergahınızı takip etmek için uçuşlar, trenler veya diğer ulaşımları ekleyin.";
+"empty.transports.action" = "Ulaşım Ekle";
+"empty.hotels.title" = "Otel Yok";
+"empty.hotels.message" = "Tüm konaklama detaylarını tek bir yerde tutmak için otel rezervasyonlarınızı ekleyin.";
+"empty.hotels.action" = "Otel Ekle";
+"empty.car_rentals.title" = "Araç Kiralama Yok";
+"empty.car_rentals.message" = "Seyahatiniz sırasında kolay erişim için araç kiralama detaylarını ekleyin.";
+"empty.car_rentals.action" = "Araç Kiralama Ekle";
+"empty.documents.title" = "Belge Yok";
+"empty.documents.message" = "Biletler, onaylar ve kimlik kopyaları gibi önemli seyahat belgelerini saklayın.";
+"empty.documents.action" = "Belge Ekle";
+"empty.notes.title" = "Not Yok";
+"empty.notes.message" = "Seyahatiniz, ipuçları veya hatırlanacak şeyler hakkında notlar ekleyin.";
+"empty.notes.action" = "Not Ekle";
+"empty.places.title" = "Yer Yok";
+"empty.places.message" = "Seyahatiniz sırasında ziyaret etmek istediğiniz yerlerin bir listesini oluşturun.";
+"empty.places.action" = "Yer Ekle";
+"empty.expenses.title" = "Gider Yok";
+"empty.expenses.message" = "Giderler ekleyerek seyahat harcamalarınızı takip edin.";
+"empty.expenses.action" = "Gider Ekle";
+"empty.reminders.title" = "Hatırlatıcı Yok";
+"empty.reminders.message" = "Önemli seyahat etkinlikleri ve görevler için hatırlatıcılar ayarlayın.";
+"empty.reminders.action" = "Hatırlatıcı Ekle";
+"empty.search.title" = "Sonuç Yok";
+"empty.search.message" = "Farklı bir arama terimi deneyin veya yazımınızı kontrol edin.";
+
+/* Error States - Phase 12 */
+"error.network.title" = "Bağlantı Yok";
+"error.network.message" = "Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.";
+"error.database.title" = "Veritabanı Hatası";
+"error.database.message" = "Verilerinize erişirken bir sorun oluştu. Lütfen tekrar deneyin.";
+"error.permission.title" = "İzin Gerekli";
+"error.permission.message" = "Devam etmek için lütfen gerekli izinleri verin.";
+"error.not_found.title" = "Bulunamadı";
+"error.not_found.message" = "İstenen öğe bulunamadı.";
+"error.generic.title" = "Bir Şeyler Yanlış Gitti";
+"error.generic.message" = "Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin.";
+
 /* Export & Import */
 "Export & Import" = "Dışa Aktar ve İçe Aktar";
 "Export Data..." = "Verileri Dışa Aktar...";
@@ -726,3 +779,28 @@
 "reminder.transport.title_format" = "%@ - %@ - kalkıştan %d saat önce";
 "reminder.hotel.title_format" = "%@ otelinde giriş - %d gün önce";
 "reminder.car_rental.title_format" = "%@ - araç teslim alımı - %d gün önce";
+
+/* Statistics - Phase 11 */
+"stats.show_details" = "Detaylı istatistikleri göster";
+"stats.hide_details" = "Detaylı istatistikleri gizle";
+"stats.travel_overview" = "Seyahat Özeti";
+"stats.journeys" = "Seyahatler";
+"stats.destinations" = "Destinasyonlar";
+"stats.upcoming" = "Yaklaşan";
+"stats.transport_breakdown" = "Ulaşım Dağılımı";
+"stats.spending_overview" = "Harcama Özeti";
+"stats.total_spent" = "Toplam Harcama";
+"stats.expenses_count" = "Giderler";
+"stats.by_category" = "Kategoriye Göre";
+"stats.journey_summary" = "Seyahat Özeti";
+"stats.transports" = "Ulaşımlar";
+"stats.hotels" = "Oteller";
+"stats.car_rentals" = "Araç Kiralamaları";
+"stats.places_visited" = "Yerler";
+"stats.reminders" = "Hatırlatıcılar";
+"stats.expenses" = "Giderler";
+"stats.quick_insights" = "Hızlı Bilgiler";
+"stats.total_travel_days" = "Toplam Seyahat Günleri";
+"stats.days" = "gün";
+"stats.longest_journey" = "En Uzun Seyahat";
+"stats.most_visited" = "En Çok Ziyaret Edilen";

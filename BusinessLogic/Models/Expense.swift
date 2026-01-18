@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 enum ExpenseCategory: String, Codable, CaseIterable, Identifiable {
     case transport
@@ -29,6 +30,17 @@ enum ExpenseCategory: String, Codable, CaseIterable, Identifiable {
         case .activities: return "ticket.fill"
         case .shopping: return "bag.fill"
         case .other: return "ellipsis.circle.fill"
+        }
+    }
+
+    var color: Color {
+        switch self {
+        case .transport: return .blue
+        case .accommodation: return .purple
+        case .food: return .orange
+        case .activities: return .green
+        case .shopping: return .pink
+        case .other: return .gray
         }
     }
 }

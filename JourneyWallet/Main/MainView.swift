@@ -19,6 +19,13 @@ struct MainView: View {
                         // Stats Cards
                         statsSection
 
+                        // Extended Stats Toggle & Section
+                        extendedStatsToggle
+
+                        if viewModel.showExtendedStats {
+                            extendedStatsSection
+                        }
+
                         // Active & Upcoming Journeys
                         activeJourneysSection
                     } else if viewModel.isSearching && viewModel.searchResults.isEmpty && !viewModel.searchQuery.isEmpty {
@@ -98,6 +105,63 @@ struct MainView: View {
                 )
             }
         }
+    }
+
+    // MARK: - Extended Stats Toggle
+
+    private var extendedStatsToggle: some View {
+        Button(action: {
+            withAnimation(.easeInOut(duration: 0.3)) {
+                viewModel.toggleExtendedStats()
+            }
+        }) {
+            HStack {
+                Image(systemName: "chart.bar.fill")
+                    .foregroundColor(.orange)
+
+                Text(viewModel.showExtendedStats ? L("stats.hide_details") : L("stats.show_details"))
+                    .font(.subheadline)
+                    .fontWeight(.medium)
+
+                Spacer()
+
+                Image(systemName: viewModel.showExtendedStats ? "chevron.up" : "chevron.down")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+            .padding()
+            .background(Color(.systemGray6))
+            .cornerRadius(10)
+        }
+        .buttonStyle(.plain)
+    }
+
+    // MARK: - Extended Stats Section
+
+    private var extendedStatsSection: some View {
+        VStack(spacing: 16) {
+            // Quick Insights
+            if let overviewStats = viewModel.overviewStats,
+               overviewStats.totalJourneys > 0 {
+                QuickInsightsCard(
+                    totalTravelDays: viewModel.totalTravelDays,
+                    longestJourney: viewModel.longestJourney,
+                    mostVisitedDestination: viewModel.mostVisitedDestination
+                )
+            }
+
+            // Extended Stats (Transport & Expenses)
+            if let overviewStats = viewModel.overviewStats,
+               let transportStats = viewModel.transportStats,
+               let expenseStats = viewModel.expenseStats {
+                ExtendedStatsSection(
+                    statistics: overviewStats,
+                    transportStats: transportStats,
+                    expenseStats: expenseStats
+                )
+            }
+        }
+        .transition(.opacity.combined(with: .move(edge: .top)))
     }
 
     // MARK: - Active Journeys Section

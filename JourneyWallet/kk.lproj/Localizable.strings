@@ -51,6 +51,59 @@
 "Get started" = "Бастау";
 "Start onboarding again" = "Таныстыруды қайтадан бастау";
 
+/* Onboarding Pages - Phase 12 */
+"onboarding.track_journeys" = "Сапарларды қадағалаңыз";
+"onboarding.track_journeys__subtitle" = "Барлық саяхаттарыңызды бір жерде жоспарлаңыз және ұйымдастырыңыз. Бағыттарды, күндерді және мәліметтерді қадағалаңыз.";
+"onboarding.store_bookings" = "Брондауларды және құжаттарды сақтаңыз";
+"onboarding.store_bookings__subtitle" = "Ұшақ билеттерін, қонақүй брондауларын және саяхат құжаттарын сақтаңыз. Барлығына офлайн кіріңіз.";
+"onboarding.travel_reminders" = "Саяхат еске салуларын алыңыз";
+"onboarding.travel_reminders__subtitle" = "Ешбір рейсті немесе тіркелуді жіберіп алмаңыз. Барлық маңызды саяхат оқиғалары үшін еске салулар орнатыңыз.";
+"onboarding.view_statistics" = "Саяхат статистикасын көріңіз";
+"onboarding.view_statistics__subtitle" = "Саяхат тарихыңызды бір қарағанда көріңіз. Шығындарды, барған жерлерді және т.б. қадағалаңыз.";
+
+/* Empty States - Phase 12 */
+"empty.journeys.title" = "Әзірге сапар жоқ";
+"empty.journeys.message" = "Алғашқы сапарыңызды жасау арқылы келесі шытырман оқиғаңызды жоспарлауды бастаңыз.";
+"empty.journeys.action" = "Сапар жасау";
+"empty.transports.title" = "Көлік жоқ";
+"empty.transports.message" = "Саяхат бағытыңызды қадағалау үшін рейстерді, пойыздарды немесе басқа көліктерді қосыңыз.";
+"empty.transports.action" = "Көлік қосу";
+"empty.hotels.title" = "Қонақүй жоқ";
+"empty.hotels.message" = "Барлық тұру мәліметтерін бір жерде сақтау үшін қонақүй брондауларыңызды қосыңыз.";
+"empty.hotels.action" = "Қонақүй қосу";
+"empty.car_rentals.title" = "Көлік жалдауы жоқ";
+"empty.car_rentals.message" = "Сапарыңыз кезінде оңай кіру үшін көлік жалдау мәліметтерін қосыңыз.";
+"empty.car_rentals.action" = "Көлік жалдауын қосу";
+"empty.documents.title" = "Құжат жоқ";
+"empty.documents.message" = "Билеттер, растаулар және жеке куәлік көшірмелері сияқты маңызды саяхат құжаттарын сақтаңыз.";
+"empty.documents.action" = "Құжат қосу";
+"empty.notes.title" = "Жазба жоқ";
+"empty.notes.message" = "Сапарыңыз, кеңестер немесе есте сақтау керек нәрселер туралы жазбалар қосыңыз.";
+"empty.notes.action" = "Жазба қосу";
+"empty.places.title" = "Орын жоқ";
+"empty.places.message" = "Сапарыңыз кезінде баратын орындар тізімін жасаңыз.";
+"empty.places.action" = "Орын қосу";
+"empty.expenses.title" = "Шығын жоқ";
+"empty.expenses.message" = "Шығындар қосу арқылы саяхат шығындарыңызды қадағалаңыз.";
+"empty.expenses.action" = "Шығын қосу";
+"empty.reminders.title" = "Еске салу жоқ";
+"empty.reminders.message" = "Маңызды саяхат оқиғалары мен тапсырмалар үшін еске салулар орнатыңыз.";
+"empty.reminders.action" = "Еске салу қосу";
+"empty.search.title" = "Нәтиже жоқ";
+"empty.search.message" = "Басқа іздеу сөзін қолданып көріңіз немесе емлеңізді тексеріңіз.";
+
+/* Error States - Phase 12 */
+"error.network.title" = "Байланыс жоқ";
+"error.network.message" = "Интернет байланысыңызды тексеріп, қайталап көріңіз.";
+"error.database.title" = "Деректер қоры қатесі";
+"error.database.message" = "Деректеріңізге кіру кезінде мәселе туындады. Қайталап көріңіз.";
+"error.permission.title" = "Рұқсат қажет";
+"error.permission.message" = "Жалғастыру үшін қажетті рұқсаттарды беріңіз.";
+"error.not_found.title" = "Табылмады";
+"error.not_found.message" = "Сұралған элемент табылмады.";
+"error.generic.title" = "Бірдеңе дұрыс болмады";
+"error.generic.message" = "Күтпеген қате орын алды. Қайталап көріңіз.";
+
 /* Export & Import */
 "Export & Import" = "Экспорт және импорт";
 "Export Data..." = "Деректерді экспорттау...";
@@ -730,3 +783,28 @@
 "reminder.transport.title_format" = "%@ %@ - жүрістен %d сағат бұрын";
 "reminder.hotel.title_format" = "%@ қонақүйіне тіркелу - %d күн бұрын";
 "reminder.car_rental.title_format" = "%@ - көлік алу - %d күн бұрын";
+
+/* Statistics - Phase 11 */
+"stats.show_details" = "Толық статистиканы көрсету";
+"stats.hide_details" = "Толық статистиканы жасыру";
+"stats.travel_overview" = "Саяхат шолуы";
+"stats.journeys" = "Сапарлар";
+"stats.destinations" = "Бағыттар";
+"stats.upcoming" = "Алдағы";
+"stats.transport_breakdown" = "Көлік бөлімі";
+"stats.spending_overview" = "Шығын шолуы";
+"stats.total_spent" = "Жалпы шығын";
+"stats.expenses_count" = "Шығындар";
+"stats.by_category" = "Санат бойынша";
+"stats.journey_summary" = "Сапар қорытындысы";
+"stats.transports" = "Көліктер";
+"stats.hotels" = "Қонақүйлер";
+"stats.car_rentals" = "Көлік жалдау";
+"stats.places_visited" = "Орындар";
+"stats.reminders" = "Еске салулар";
+"stats.expenses" = "Шығындар";
+"stats.quick_insights" = "Жылдам мәліметтер";
+"stats.total_travel_days" = "Жалпы саяхат күндері";
+"stats.days" = "күн";
+"stats.longest_journey" = "Ең ұзақ сапар";
+"stats.most_visited" = "Ең көп барылған";

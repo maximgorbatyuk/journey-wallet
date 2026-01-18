@@ -13,21 +13,33 @@ class MainViewModel {
     var isSearching: Bool = false
     var isLoading: Bool = false
 
-    // Stats
+    // Basic Stats
     var totalJourneysCount: Int = 0
     var upcomingTripsCount: Int = 0
     var totalDestinations: Int = 0
 
+    // Extended Stats
+    var overviewStats: OverviewStatistics?
+    var transportStats: TransportStatistics?
+    var expenseStats: ExpenseStatistics?
+    var totalTravelDays: Int = 0
+    var longestJourney: Journey?
+    var mostVisitedDestination: (destination: String, count: Int)?
+    var showExtendedStats: Bool = false
+
     private let journeysRepository: JourneysRepository?
     private let searchService: SearchService
+    private let statisticsService: StatisticsService
     private let logger: Logger
 
     init(
         databaseManager: DatabaseManager = .shared,
-        searchService: SearchService = .shared
+        searchService: SearchService = .shared,
+        statisticsService: StatisticsService = .shared
     ) {
         self.journeysRepository = databaseManager.journeysRepository
         self.searchService = searchService
+        self.statisticsService = statisticsService
         self.logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "-", category: "MainViewModel")
     }
 
@@ -38,7 +50,7 @@ class MainViewModel {
         activeJourneys = journeysRepository?.fetchActive() ?? []
         upcomingJourneys = journeysRepository?.fetchUpcoming() ?? []
 
-        // Calculate stats
+        // Calculate basic stats
         totalJourneysCount = journeys.count
         upcomingTripsCount = upcomingJourneys.count
 
@@ -46,8 +58,26 @@ class MainViewModel {
         let uniqueDestinations = Set(journeys.map { $0.destination.lowercased() })
         totalDestinations = uniqueDestinations.count
 
+        // Load extended statistics
+        loadExtendedStatistics()
+
         isLoading = false
         logger.info("Loaded \(self.journeys.count) journeys")
+    }
+
+    func loadExtendedStatistics() {
+        overviewStats = statisticsService.getOverviewStatistics()
+        transportStats = statisticsService.getTransportStatistics()
+        expenseStats = statisticsService.getExpenseStatistics()
+        totalTravelDays = statisticsService.getTotalTravelDays()
+        longestJourney = statisticsService.getLongestJourney()
+        mostVisitedDestination = statisticsService.getMostVisitedDestination()
+
+        logger.info("Extended statistics loaded")
+    }
+
+    func toggleExtendedStats() {
+        showExtendedStats.toggle()
     }
 
     func search() {

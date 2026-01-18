@@ -51,6 +51,59 @@
 "Get started" = "Початок";
 "Start onboarding again" = "Почати навчання зново";
 
+/* Onboarding Pages - Phase 12 */
+"onboarding.track_journeys" = "Відстежуйте подорожі";
+"onboarding.track_journeys__subtitle" = "Плануйте та організовуйте всі поїздки в одному місці. Слідкуйте за напрямками, датами та деталями.";
+"onboarding.store_bookings" = "Зберігайте бронювання та документи";
+"onboarding.store_bookings__subtitle" = "Зберігайте квитки, бронювання готелів та документи. Доступ до всього навіть без інтернету.";
+"onboarding.travel_reminders" = "Отримуйте нагадування";
+"onboarding.travel_reminders__subtitle" = "Не пропустіть рейс або заселення. Встановлюйте нагадування для важливих подій.";
+"onboarding.view_statistics" = "Переглядайте статистику";
+"onboarding.view_statistics__subtitle" = "Вся історія подорожей на одному екрані. Відстежуйте витрати, відвідані місця та багато іншого.";
+
+/* Empty States - Phase 12 */
+"empty.journeys.title" = "Поки немає поїздок";
+"empty.journeys.message" = "Почніть планувати наступну пригоду, створивши першу поїздку.";
+"empty.journeys.action" = "Створити поїздку";
+"empty.transports.title" = "Немає транспорту";
+"empty.transports.message" = "Додайте рейси, поїзди або інший транспорт для відстеження маршруту.";
+"empty.transports.action" = "Додати транспорт";
+"empty.hotels.title" = "Немає готелів";
+"empty.hotels.message" = "Додайте бронювання готелів, щоб усі дані були в одному місці.";
+"empty.hotels.action" = "Додати готель";
+"empty.car_rentals.title" = "Немає оренди авто";
+"empty.car_rentals.message" = "Додайте дані про оренду автомобіля для зручного доступу в поїздці.";
+"empty.car_rentals.action" = "Додати оренду";
+"empty.documents.title" = "Немає документів";
+"empty.documents.message" = "Зберігайте важливі документи: квитки, підтвердження та копії документів.";
+"empty.documents.action" = "Додати документ";
+"empty.notes.title" = "Немає нотаток";
+"empty.notes.message" = "Додавайте нотатки про поїздку, поради або важливі моменти.";
+"empty.notes.action" = "Додати нотатку";
+"empty.places.title" = "Немає місць";
+"empty.places.message" = "Створіть список місць, які хочете відвідати під час подорожі.";
+"empty.places.action" = "Додати місце";
+"empty.expenses.title" = "Немає витрат";
+"empty.expenses.message" = "Відстежуйте витрати в поїздці, додаючи витрати.";
+"empty.expenses.action" = "Додати витрату";
+"empty.reminders.title" = "Немає нагадувань";
+"empty.reminders.message" = "Встановлюйте нагадування для важливих подій та завдань.";
+"empty.reminders.action" = "Додати нагадування";
+"empty.search.title" = "Нічого не знайдено";
+"empty.search.message" = "Спробуйте інший запит або перевірте написання.";
+
+/* Error States - Phase 12 */
+"error.network.title" = "Немає з'єднання";
+"error.network.message" = "Перевірте підключення до інтернету та спробуйте знову.";
+"error.database.title" = "Помилка бази даних";
+"error.database.message" = "Виникла проблема при доступі до даних. Спробуйте знову.";
+"error.permission.title" = "Потрібен дозвіл";
+"error.permission.message" = "Будь ласка, надайте необхідні дозволи для продовження.";
+"error.not_found.title" = "Не знайдено";
+"error.not_found.message" = "Запитаний елемент не знайдено.";
+"error.generic.title" = "Щось пішло не так";
+"error.generic.message" = "Сталася непередбачена помилка. Спробуйте знову.";
+
 /* Export & Import */
 "Export & Import" = "Експорт та імпорт";
 "Export Data..." = "Експортувати дані...";
@@ -730,3 +783,28 @@
 "reminder.transport.title_format" = "%@ з %@ - за %d годин до відправлення";
 "reminder.hotel.title_format" = "Заселення в %@ - за %d днів";
 "reminder.car_rental.title_format" = "Отримання авто в %@ - за %d днів";
+
+/* Statistics - Phase 11 */
+"stats.show_details" = "Показати детальну статистику";
+"stats.hide_details" = "Приховати детальну статистику";
+"stats.travel_overview" = "Огляд подорожей";
+"stats.journeys" = "Подорожі";
+"stats.destinations" = "Напрямки";
+"stats.upcoming" = "Майбутні";
+"stats.transport_breakdown" = "Транспорт";
+"stats.spending_overview" = "Огляд витрат";
+"stats.total_spent" = "Всього витрачено";
+"stats.expenses_count" = "Витрати";
+"stats.by_category" = "За категоріями";
+"stats.journey_summary" = "Підсумки подорожі";
+"stats.transports" = "Транспорт";
+"stats.hotels" = "Готелі";
+"stats.car_rentals" = "Оренда авто";
+"stats.places_visited" = "Місця";
+"stats.reminders" = "Нагадування";
+"stats.expenses" = "Витрати";
+"stats.quick_insights" = "Швидкі факти";
+"stats.total_travel_days" = "Всього днів подорожі";
+"stats.days" = "днів";
+"stats.longest_journey" = "Найдовша подорож";
+"stats.most_visited" = "Найчастіше відвідуване";

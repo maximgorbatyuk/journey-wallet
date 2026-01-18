@@ -51,6 +51,59 @@
 "Get started" = "Начать";
 "Start onboarding again" = "Начать обучение заново";
 
+/* Onboarding Pages - Phase 12 */
+"onboarding.track_journeys" = "Отслеживайте путешествия";
+"onboarding.track_journeys__subtitle" = "Планируйте и организуйте все поездки в одном месте. Следите за направлениями, датами и деталями.";
+"onboarding.store_bookings" = "Храните бронирования и документы";
+"onboarding.store_bookings__subtitle" = "Сохраняйте билеты, брони отелей и документы. Доступ ко всему даже без интернета.";
+"onboarding.travel_reminders" = "Получайте напоминания";
+"onboarding.travel_reminders__subtitle" = "Не пропустите рейс или заселение. Устанавливайте напоминания для важных событий.";
+"onboarding.view_statistics" = "Смотрите статистику";
+"onboarding.view_statistics__subtitle" = "Вся история путешествий на одном экране. Отслеживайте расходы, посещённые места и многое другое.";
+
+/* Empty States - Phase 12 */
+"empty.journeys.title" = "Пока нет поездок";
+"empty.journeys.message" = "Начните планировать следующее приключение, создав первую поездку.";
+"empty.journeys.action" = "Создать поездку";
+"empty.transports.title" = "Нет транспорта";
+"empty.transports.message" = "Добавьте рейсы, поезда или другой транспорт для отслеживания маршрута.";
+"empty.transports.action" = "Добавить транспорт";
+"empty.hotels.title" = "Нет отелей";
+"empty.hotels.message" = "Добавьте бронирования отелей, чтобы все данные были в одном месте.";
+"empty.hotels.action" = "Добавить отель";
+"empty.car_rentals.title" = "Нет аренды авто";
+"empty.car_rentals.message" = "Добавьте данные об аренде автомобиля для удобного доступа в поездке.";
+"empty.car_rentals.action" = "Добавить аренду";
+"empty.documents.title" = "Нет документов";
+"empty.documents.message" = "Храните важные документы: билеты, подтверждения и копии документов.";
+"empty.documents.action" = "Добавить документ";
+"empty.notes.title" = "Нет заметок";
+"empty.notes.message" = "Добавляйте заметки о поездке, советы или важные моменты.";
+"empty.notes.action" = "Добавить заметку";
+"empty.places.title" = "Нет мест";
+"empty.places.message" = "Создайте список мест, которые хотите посетить во время путешествия.";
+"empty.places.action" = "Добавить место";
+"empty.expenses.title" = "Нет расходов";
+"empty.expenses.message" = "Отслеживайте траты в поездке, добавляя расходы.";
+"empty.expenses.action" = "Добавить расход";
+"empty.reminders.title" = "Нет напоминаний";
+"empty.reminders.message" = "Устанавливайте напоминания для важных событий и задач.";
+"empty.reminders.action" = "Добавить напоминание";
+"empty.search.title" = "Ничего не найдено";
+"empty.search.message" = "Попробуйте другой запрос или проверьте написание.";
+
+/* Error States - Phase 12 */
+"error.network.title" = "Нет соединения";
+"error.network.message" = "Проверьте подключение к интернету и попробуйте снова.";
+"error.database.title" = "Ошибка базы данных";
+"error.database.message" = "Возникла проблема при доступе к данным. Попробуйте снова.";
+"error.permission.title" = "Требуется разрешение";
+"error.permission.message" = "Пожалуйста, предоставьте необходимые разрешения для продолжения.";
+"error.not_found.title" = "Не найдено";
+"error.not_found.message" = "Запрошенный элемент не найден.";
+"error.generic.title" = "Что-то пошло не так";
+"error.generic.message" = "Произошла непредвиденная ошибка. Попробуйте снова.";
+
 /* Export & Import */
 "Export & Import" = "Экспорт и импорт";
 "Export Data..." = "Экспорт данных...";
@@ -726,3 +779,28 @@
 "reminder.transport.title_format" = "%@ из %@ - за %d часов до отправления";
 "reminder.hotel.title_format" = "Заселение в %@ - за %d дней";
 "reminder.car_rental.title_format" = "Получение авто в %@ - за %d дней";
+
+/* Statistics - Phase 11 */
+"stats.show_details" = "Показать детальную статистику";
+"stats.hide_details" = "Скрыть детальную статистику";
+"stats.travel_overview" = "Обзор путешествий";
+"stats.journeys" = "Поездки";
+"stats.destinations" = "Направления";
+"stats.upcoming" = "Предстоящие";
+"stats.transport_breakdown" = "Транспорт";
+"stats.spending_overview" = "Обзор расходов";
+"stats.total_spent" = "Всего потрачено";
+"stats.expenses_count" = "Расходы";
+"stats.by_category" = "По категориям";
+"stats.journey_summary" = "Итоги поездки";
+"stats.transports" = "Транспорт";
+"stats.hotels" = "Отели";
+"stats.car_rentals" = "Аренда авто";
+"stats.places_visited" = "Места";
+"stats.reminders" = "Напоминания";
+"stats.expenses" = "Расходы";
+"stats.quick_insights" = "Быстрые факты";
+"stats.total_travel_days" = "Всего дней в пути";
+"stats.days" = "дней";
+"stats.longest_journey" = "Самая долгая поездка";
+"stats.most_visited" = "Самое популярное";
