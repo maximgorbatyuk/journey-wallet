@@ -19,12 +19,8 @@ struct MainView: View {
                         // Stats Cards
                         statsSection
 
-                        // Extended Stats Toggle & Section
-                        extendedStatsToggle
-
-                        if viewModel.showExtendedStats {
-                            extendedStatsSection
-                        }
+                        // Extended Stats Section (always visible)
+                        extendedStatsSection
 
                         // Active & Upcoming Journeys
                         activeJourneysSection
@@ -107,35 +103,6 @@ struct MainView: View {
         }
     }
 
-    // MARK: - Extended Stats Toggle
-
-    private var extendedStatsToggle: some View {
-        Button(action: {
-            withAnimation(.easeInOut(duration: 0.3)) {
-                viewModel.toggleExtendedStats()
-            }
-        }) {
-            HStack {
-                Image(systemName: "chart.bar.fill")
-                    .foregroundColor(.orange)
-
-                Text(viewModel.showExtendedStats ? L("stats.hide_details") : L("stats.show_details"))
-                    .font(.subheadline)
-                    .fontWeight(.medium)
-
-                Spacer()
-
-                Image(systemName: viewModel.showExtendedStats ? "chevron.up" : "chevron.down")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-            }
-            .padding()
-            .background(Color(.systemGray6))
-            .cornerRadius(10)
-        }
-        .buttonStyle(.plain)
-    }
-
     // MARK: - Extended Stats Section
 
     private var extendedStatsSection: some View {
@@ -161,7 +128,6 @@ struct MainView: View {
                 )
             }
         }
-        .transition(.opacity.combined(with: .move(edge: .top)))
     }
 
     // MARK: - Active Journeys Section

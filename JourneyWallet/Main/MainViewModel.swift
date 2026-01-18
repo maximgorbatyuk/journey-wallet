@@ -25,7 +25,6 @@ class MainViewModel {
     var totalTravelDays: Int = 0
     var longestJourney: Journey?
     var mostVisitedDestination: (destination: String, count: Int)?
-    var showExtendedStats: Bool = false
 
     private let journeysRepository: JourneysRepository?
     private let searchService: SearchService
@@ -74,10 +73,6 @@ class MainViewModel {
         mostVisitedDestination = statisticsService.getMostVisitedDestination()
 
         logger.info("Extended statistics loaded")
-    }
-
-    func toggleExtendedStats() {
-        showExtendedStats.toggle()
     }
 
     func search() {

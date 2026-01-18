@@ -142,7 +142,7 @@ struct ExtendedStatsSection: View {
         formatter.numberStyle = .currency
         formatter.currencyCode = currency.rawValue.uppercased()
         formatter.maximumFractionDigits = 0
-        return formatter.string(from: amount as NSDecimalNumber) ?? "\(currency.symbol)\(amount)"
+        return formatter.string(from: amount as NSDecimalNumber) ?? "\(currency.rawValue)\(amount)"
     }
 }
 
@@ -333,7 +333,7 @@ struct JourneyStatsCard: View {
         formatter.numberStyle = .currency
         formatter.currencyCode = currency.rawValue.uppercased()
         formatter.maximumFractionDigits = 0
-        return formatter.string(from: amount as NSDecimalNumber) ?? "\(currency.symbol)\(amount)"
+        return formatter.string(from: amount as NSDecimalNumber) ?? "\(currency.rawValue)\(amount)"
     }
 }
 

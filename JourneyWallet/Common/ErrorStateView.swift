@@ -2,7 +2,7 @@ import SwiftUI
 
 // MARK: - Error State View
 
-struct ErrorStateView: View {
+struct ErrorStateView: SwiftUI.View {
     let title: String
     let message: String
     var retryTitle: String? = nil
@@ -132,11 +132,11 @@ struct TypedErrorStateView: View {
 
 // MARK: - Inline Error View
 
-struct InlineErrorView: View {
+struct InlineErrorView: SwiftUI.View {
     let message: String
     var retryAction: (() -> Void)? = nil
 
-    var body: some View {
+    var body: some SwiftUI.View {
         HStack(spacing: 12) {
             Image(systemName: "exclamationmark.circle.fill")
                 .foregroundColor(.red)
@@ -166,7 +166,7 @@ struct ErrorAlertModifier: ViewModifier {
     @Binding var error: String?
     var retryAction: (() -> Void)?
 
-    var body: some View {
+    func body(content: Content) -> some View {
         content
             .alert(L("Error"), isPresented: .constant(error != nil)) {
                 Button(L("OK")) {
@@ -179,15 +179,10 @@ struct ErrorAlertModifier: ViewModifier {
                     }
                 }
             } message: {
-                if let error = error {
-                    Text(error)
+                if let errorMessage = error {
+                    Text(errorMessage)
                 }
             }
-    }
-
-    @ViewBuilder
-    private var content: some View {
-        EmptyView()
     }
 }
 
