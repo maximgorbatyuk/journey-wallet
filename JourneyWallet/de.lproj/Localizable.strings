@@ -791,10 +791,6 @@
 "stats.destinations" = "Ziele";
 "stats.upcoming" = "Bevorstehend";
 "stats.transport_breakdown" = "Transportübersicht";
-"stats.spending_overview" = "Ausgabenübersicht";
-"stats.total_spent" = "Gesamtausgaben";
-"stats.expenses_count" = "Ausgaben";
-"stats.by_category" = "Nach Kategorie";
 "stats.journey_summary" = "Reisezusammenfassung";
 "stats.transports" = "Transporte";
 "stats.hotels" = "Hotels";

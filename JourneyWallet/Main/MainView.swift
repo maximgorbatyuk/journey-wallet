@@ -117,14 +117,12 @@ struct MainView: View {
                 )
             }
 
-            // Extended Stats (Transport & Expenses)
+            // Extended Stats (Transport Breakdown)
             if let overviewStats = viewModel.overviewStats,
-               let transportStats = viewModel.transportStats,
-               let expenseStats = viewModel.expenseStats {
+               let transportStats = viewModel.transportStats {
                 ExtendedStatsSection(
                     statistics: overviewStats,
-                    transportStats: transportStats,
-                    expenseStats: expenseStats
+                    transportStats: transportStats
                 )
             }
         }

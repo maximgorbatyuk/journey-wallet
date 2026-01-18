@@ -800,10 +800,6 @@
 "stats.destinations" = "Напрямки";
 "stats.upcoming" = "Майбутні";
 "stats.transport_breakdown" = "Транспорт";
-"stats.spending_overview" = "Огляд витрат";
-"stats.total_spent" = "Всього витрачено";
-"stats.expenses_count" = "Витрати";
-"stats.by_category" = "За категоріями";
 "stats.journey_summary" = "Підсумки подорожі";
 "stats.transports" = "Транспорт";
 "stats.hotels" = "Готелі";

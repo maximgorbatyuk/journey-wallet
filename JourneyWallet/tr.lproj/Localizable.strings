@@ -796,10 +796,6 @@
 "stats.destinations" = "Destinasyonlar";
 "stats.upcoming" = "Yaklaşan";
 "stats.transport_breakdown" = "Ulaşım Dağılımı";
-"stats.spending_overview" = "Harcama Özeti";
-"stats.total_spent" = "Toplam Harcama";
-"stats.expenses_count" = "Giderler";
-"stats.by_category" = "Kategoriye Göre";
 "stats.journey_summary" = "Seyahat Özeti";
 "stats.transports" = "Ulaşımlar";
 "stats.hotels" = "Oteller";

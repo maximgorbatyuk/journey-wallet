@@ -788,10 +788,6 @@
 "stats.destinations" = "Destinations";
 "stats.upcoming" = "Upcoming";
 "stats.transport_breakdown" = "Transport Breakdown";
-"stats.spending_overview" = "Spending Overview";
-"stats.total_spent" = "Total Spent";
-"stats.expenses_count" = "Expenses";
-"stats.by_category" = "By Category";
 "stats.journey_summary" = "Journey Summary";
 "stats.transports" = "Transports";
 "stats.hotels" = "Hotels";

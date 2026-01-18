@@ -796,10 +796,6 @@
 "stats.destinations" = "Направления";
 "stats.upcoming" = "Предстоящие";
 "stats.transport_breakdown" = "Транспорт";
-"stats.spending_overview" = "Обзор расходов";
-"stats.total_spent" = "Всего потрачено";
-"stats.expenses_count" = "Расходы";
-"stats.by_category" = "По категориям";
 "stats.journey_summary" = "Итоги поездки";
 "stats.transports" = "Транспорт";
 "stats.hotels" = "Отели";

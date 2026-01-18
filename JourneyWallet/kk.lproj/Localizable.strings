@@ -800,10 +800,6 @@
 "stats.destinations" = "Бағыттар";
 "stats.upcoming" = "Алдағы";
 "stats.transport_breakdown" = "Көлік бөлімі";
-"stats.spending_overview" = "Шығын шолуы";
-"stats.total_spent" = "Жалпы шығын";
-"stats.expenses_count" = "Шығындар";
-"stats.by_category" = "Санат бойынша";
 "stats.journey_summary" = "Сапар қорытындысы";
 "stats.transports" = "Көліктер";
 "stats.hotels" = "Қонақүйлер";
