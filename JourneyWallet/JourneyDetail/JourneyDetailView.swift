@@ -7,17 +7,19 @@ struct JourneyDetailView: View {
     @State private var showTransportList = false
     @State private var showHotelList = false
     @State private var showCarRentalList = false
+    @State private var showQuickAddSheet = false
     @ObservedObject private var analytics = AnalyticsService.shared
 
     var body: some View {
         NavigationStack {
-            VStack(spacing: 0) {
-                if viewModel.isLoading {
-                    ProgressView()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                } else if viewModel.allJourneys.isEmpty {
-                    emptyStateView
-                } else {
+            ZStack(alignment: .bottomTrailing) {
+                VStack(spacing: 0) {
+                    if viewModel.isLoading {
+                        ProgressView()
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    } else if viewModel.allJourneys.isEmpty {
+                        emptyStateView
+                    } else {
                     // Journey selector at top
                     JourneySelectorView(
                         journeys: viewModel.allJourneys,
@@ -290,14 +292,20 @@ struct JourneyDetailView: View {
                                 }
                             )
 
-                            // Bottom padding
+                            // Bottom padding for FAB
                             Spacer()
-                                .frame(height: 32)
+                                .frame(height: 100)
                         }
                     }
                 }
+                }
+                .background(Color(.systemGray6))
+
+                // Floating Action Button
+                if viewModel.selectedJourneyId != nil {
+                    floatingAddButton
+                }
             }
-            .background(Color(.systemGray6))
             .navigationTitle(L("journey.detail.title"))
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
@@ -319,6 +327,13 @@ struct JourneyDetailView: View {
                     }
                 )
             }
+            .sheet(isPresented: $showQuickAddSheet) {
+                if let journeyId = viewModel.selectedJourneyId {
+                    QuickAddSheet(journeyId: journeyId) {
+                        viewModel.refreshData()
+                    }
+                }
+            }
             .navigationDestination(isPresented: $showTransportList) {
                 TransportListView(journeyId: viewModel.selectedJourneyId ?? UUID())
             }
@@ -329,6 +344,24 @@ struct JourneyDetailView: View {
                 CarRentalListView(journeyId: viewModel.selectedJourneyId ?? UUID())
             }
         }
+    }
+
+    // MARK: - Floating Action Button
+
+    private var floatingAddButton: some View {
+        Button {
+            showQuickAddSheet = true
+        } label: {
+            Image(systemName: "plus")
+                .font(.system(size: 24, weight: .semibold))
+                .foregroundColor(.white)
+                .frame(width: 56, height: 56)
+                .background(Color.orange)
+                .clipShape(Circle())
+                .shadow(color: Color.black.opacity(0.3), radius: 4, x: 0, y: 2)
+        }
+        .padding(.trailing, 20)
+        .padding(.bottom, 20)
     }
 
     // MARK: - Empty State

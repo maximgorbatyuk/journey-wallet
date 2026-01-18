@@ -497,3 +497,15 @@
 "car_rental.reminder.date" = "Reminder Date";
 "car_rental.reminder.save" = "Save Reminder";
 "car_rental.reminder.notification.title" = "Car Rental Pickup";
+
+/* Quick Add */
+"quick_add.title" = "Add to Journey";
+"quick_add.transport" = "Transport";
+"quick_add.hotel" = "Hotel";
+"quick_add.car_rental" = "Car Rental";
+"quick_add.document" = "Document";
+"quick_add.note" = "Note";
+"quick_add.place" = "Place to Visit";
+"quick_add.reminder" = "Reminder";
+"quick_add.expense" = "Expense";
+"quick_add.coming_soon" = "Coming soon";

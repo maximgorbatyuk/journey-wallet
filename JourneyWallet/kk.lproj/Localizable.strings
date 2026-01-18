@@ -502,3 +502,15 @@
 "car_rental.reminder.date" = "Еске салу күні";
 "car_rental.reminder.save" = "Еске салуды сақтау";
 "car_rental.reminder.notification.title" = "Автокөлікті алу";
+
+/* Quick Add */
+"quick_add.title" = "Саяхатқа қосу";
+"quick_add.transport" = "Көлік";
+"quick_add.hotel" = "Қонақ үй";
+"quick_add.car_rental" = "Авто жалдау";
+"quick_add.document" = "Құжат";
+"quick_add.note" = "Жазба";
+"quick_add.place" = "Бару орны";
+"quick_add.reminder" = "Еске салу";
+"quick_add.expense" = "Шығын";
+"quick_add.coming_soon" = "Жақында";

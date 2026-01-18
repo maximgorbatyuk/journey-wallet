@@ -502,3 +502,15 @@
 "car_rental.reminder.date" = "Дата нагадування";
 "car_rental.reminder.save" = "Зберегти нагадування";
 "car_rental.reminder.notification.title" = "Отримання автомобіля";
+
+/* Quick Add */
+"quick_add.title" = "Додати до подорожі";
+"quick_add.transport" = "Транспорт";
+"quick_add.hotel" = "Готель";
+"quick_add.car_rental" = "Оренда авто";
+"quick_add.document" = "Документ";
+"quick_add.note" = "Нотатка";
+"quick_add.place" = "Місце для відвідування";
+"quick_add.reminder" = "Нагадування";
+"quick_add.expense" = "Витрата";
+"quick_add.coming_soon" = "Незабаром";

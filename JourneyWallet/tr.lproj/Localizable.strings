@@ -502,3 +502,15 @@
 "car_rental.reminder.date" = "Hatırlatma Tarihi";
 "car_rental.reminder.save" = "Hatırlatıcıyı Kaydet";
 "car_rental.reminder.notification.title" = "Araç Alışı";
+
+/* Quick Add */
+"quick_add.title" = "Seyahate Ekle";
+"quick_add.transport" = "Ulaşım";
+"quick_add.hotel" = "Otel";
+"quick_add.car_rental" = "Araç Kiralama";
+"quick_add.document" = "Belge";
+"quick_add.note" = "Not";
+"quick_add.place" = "Ziyaret Edilecek Yer";
+"quick_add.reminder" = "Hatırlatıcı";
+"quick_add.expense" = "Harcama";
+"quick_add.coming_soon" = "Yakında";

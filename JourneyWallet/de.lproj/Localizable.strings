@@ -497,3 +497,15 @@
 "car_rental.reminder.date" = "Erinnerungsdatum";
 "car_rental.reminder.save" = "Erinnerung speichern";
 "car_rental.reminder.notification.title" = "Mietwagen-Abholung";
+
+/* Quick Add */
+"quick_add.title" = "Zur Reise hinzufügen";
+"quick_add.transport" = "Transport";
+"quick_add.hotel" = "Hotel";
+"quick_add.car_rental" = "Mietwagen";
+"quick_add.document" = "Dokument";
+"quick_add.note" = "Notiz";
+"quick_add.place" = "Sehenswürdigkeit";
+"quick_add.reminder" = "Erinnerung";
+"quick_add.expense" = "Ausgabe";
+"quick_add.coming_soon" = "Demnächst verfügbar";
