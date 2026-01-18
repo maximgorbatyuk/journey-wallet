@@ -648,6 +648,7 @@
 "place.list.empty.title" = "Yer yok";
 "place.list.empty.message" = "Seyahatiniz sırasında ziyaret etmek istediğiniz yerleri ekleyin.";
 "place.list.add_first" = "Yer Ekle";
+"place.list.open_map" = "Haritayı Aç";
 "place.summary.visited" = "ziyaret edildi";
 
 /* Place Filters */
@@ -668,6 +669,7 @@
 "place.form.section.notes" = "Notlar";
 "place.form.name" = "Yer adı";
 "place.form.address" = "Adres";
+"place.form.address_hint" = "Adres girin veya Google Maps bağlantısı yapıştırın";
 "place.form.category" = "Kategori";
 "place.form.visited" = "Zaten ziyaret edildi";
 "place.form.has_planned_date" = "Planlanan tarih belirle";
@@ -810,3 +812,12 @@
 "stats.days" = "gün";
 "stats.longest_journey" = "En Uzun Seyahat";
 "stats.most_visited" = "En Çok Ziyaret Edilen";
+
+/* Developer Settings */
+"settings.developer.generate_random_data" = "Rastgele Veri Oluştur";
+"settings.developer.select_journey" = "Seyahat Seçin";
+"settings.developer.no_journeys" = "Seyahat Yok";
+"settings.developer.no_journeys_hint" = "Rastgele veri oluşturmak için önce bir seyahat oluşturun.";
+"settings.developer.random_data_confirm_title" = "Rastgele Veri Oluşturulsun mu?";
+"settings.developer.random_data_confirm_message" = "Bu seyahatin tüm mevcut verileri silinecek ve ardından rastgele ulaşım, otel, not, gider vb. eklenecektir. Emin misiniz?";
+"settings.developer.random_data_confirm_action" = "Oluştur";

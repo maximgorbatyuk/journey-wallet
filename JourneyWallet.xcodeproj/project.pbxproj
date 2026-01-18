@@ -310,7 +310,7 @@
 			baseConfigurationReferenceAnchor = 87756BD92E963D240055273C /* JourneyWallet */;
 			baseConfigurationReferenceRelativePath = Config/Debug.xcconfig;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDevelop;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = JourneyWallet/JourneyWallet.entitlements;

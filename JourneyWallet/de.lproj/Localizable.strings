@@ -643,6 +643,7 @@
 "place.list.empty.title" = "Keine Orte";
 "place.list.empty.message" = "Fügen Sie Orte hinzu, die Sie während Ihrer Reise besuchen möchten.";
 "place.list.add_first" = "Ort hinzufügen";
+"place.list.open_map" = "Karte öffnen";
 "place.summary.visited" = "besucht";
 
 /* Place Filters */
@@ -663,6 +664,7 @@
 "place.form.section.notes" = "Notizen";
 "place.form.name" = "Ortsname";
 "place.form.address" = "Adresse";
+"place.form.address_hint" = "Adresse eingeben oder Google Maps-Link einfügen";
 "place.form.category" = "Kategorie";
 "place.form.visited" = "Bereits besucht";
 "place.form.has_planned_date" = "Geplantes Datum festlegen";
@@ -805,3 +807,12 @@
 "stats.days" = "Tage";
 "stats.longest_journey" = "Längste Reise";
 "stats.most_visited" = "Meistbesucht";
+
+/* Developer Settings */
+"settings.developer.generate_random_data" = "Zufällige Daten generieren";
+"settings.developer.select_journey" = "Reise auswählen";
+"settings.developer.no_journeys" = "Keine Reisen";
+"settings.developer.no_journeys_hint" = "Erstellen Sie zuerst eine Reise, um zufällige Daten dafür zu generieren.";
+"settings.developer.random_data_confirm_title" = "Zufällige Daten generieren?";
+"settings.developer.random_data_confirm_message" = "Alle vorhandenen Daten für diese Reise werden gelöscht und dann zufällige Transporte, Hotels, Notizen, Ausgaben usw. hinzugefügt. Sind Sie sicher?";
+"settings.developer.random_data_confirm_action" = "Generieren";

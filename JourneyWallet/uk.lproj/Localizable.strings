@@ -652,6 +652,7 @@
 "place.list.empty.title" = "Місць немає";
 "place.list.empty.message" = "Додайте місця, які ви хочете відвідати під час подорожі.";
 "place.list.add_first" = "Додати місце";
+"place.list.open_map" = "Відкрити карту";
 "place.summary.visited" = "відвідано";
 
 /* Place Filters */
@@ -672,6 +673,7 @@
 "place.form.section.notes" = "Нотатки";
 "place.form.name" = "Назва місця";
 "place.form.address" = "Адреса";
+"place.form.address_hint" = "Введіть адресу або вставте посилання Google Maps";
 "place.form.category" = "Категорія";
 "place.form.visited" = "Вже відвідано";
 "place.form.has_planned_date" = "Встановити дату";
@@ -814,3 +816,12 @@
 "stats.days" = "днів";
 "stats.longest_journey" = "Найдовша подорож";
 "stats.most_visited" = "Найчастіше відвідуване";
+
+/* Developer Settings */
+"settings.developer.generate_random_data" = "Згенерувати випадкові дані";
+"settings.developer.select_journey" = "Виберіть подорож";
+"settings.developer.no_journeys" = "Немає подорожей";
+"settings.developer.no_journeys_hint" = "Спочатку створіть подорож, щоб згенерувати для неї випадкові дані.";
+"settings.developer.random_data_confirm_title" = "Згенерувати випадкові дані?";
+"settings.developer.random_data_confirm_message" = "Усі існуючі дані цієї подорожі будуть видалені, а потім буде додано випадковий транспорт, готелі, нотатки, витрати тощо. Ви впевнені?";
+"settings.developer.random_data_confirm_action" = "Згенерувати";

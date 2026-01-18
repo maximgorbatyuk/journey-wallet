@@ -648,6 +648,7 @@
 "place.list.empty.title" = "Нет мест";
 "place.list.empty.message" = "Добавьте места, которые вы хотите посетить во время путешествия.";
 "place.list.add_first" = "Добавить место";
+"place.list.open_map" = "Открыть карту";
 "place.summary.visited" = "посещено";
 
 /* Place Filters */
@@ -668,6 +669,7 @@
 "place.form.section.notes" = "Заметки";
 "place.form.name" = "Название места";
 "place.form.address" = "Адрес";
+"place.form.address_hint" = "Введите адрес или вставьте ссылку Google Maps";
 "place.form.category" = "Категория";
 "place.form.visited" = "Уже посещено";
 "place.form.has_planned_date" = "Установить дату";
@@ -810,3 +812,12 @@
 "stats.days" = "дней";
 "stats.longest_journey" = "Самая долгая поездка";
 "stats.most_visited" = "Самое популярное";
+
+/* Developer Settings */
+"settings.developer.generate_random_data" = "Сгенерировать случайные данные";
+"settings.developer.select_journey" = "Выберите поездку";
+"settings.developer.no_journeys" = "Нет поездок";
+"settings.developer.no_journeys_hint" = "Сначала создайте поездку, чтобы сгенерировать для неё случайные данные.";
+"settings.developer.random_data_confirm_title" = "Сгенерировать случайные данные?";
+"settings.developer.random_data_confirm_message" = "Все существующие данные этой поездки будут удалены, а затем будут добавлены случайный транспорт, отели, заметки, расходы и т.д. Вы уверены?";
+"settings.developer.random_data_confirm_action" = "Сгенерировать";

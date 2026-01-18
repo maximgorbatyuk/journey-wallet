@@ -283,12 +283,27 @@ struct PlaceListRow: View {
                     }
                 }
 
-                // Address
+                // Address (clickable if URL)
                 if let address = place.address, !address.isEmpty {
-                    Text(address)
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                        .lineLimit(1)
+                    if isURL(address) {
+                        Button(action: {
+                            openURL(address)
+                        }) {
+                            HStack(spacing: 4) {
+                                Image(systemName: "link")
+                                    .font(.caption2)
+                                Text(L("place.list.open_map"))
+                                    .font(.caption)
+                            }
+                            .foregroundColor(.blue)
+                        }
+                        .buttonStyle(.plain)
+                    } else {
+                        Text(address)
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                            .lineLimit(1)
+                    }
                 }
             }
 
@@ -307,6 +322,17 @@ struct PlaceListRow: View {
         formatter.dateStyle = .medium
         formatter.timeStyle = .none
         return formatter.string(from: date)
+    }
+
+    private func isURL(_ string: String) -> Bool {
+        let trimmed = string.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        return trimmed.hasPrefix("http://") || trimmed.hasPrefix("https://")
+    }
+
+    private func openURL(_ string: String) {
+        let trimmed = string.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard let url = URL(string: trimmed) else { return }
+        UIApplication.shared.open(url)
     }
 }
 

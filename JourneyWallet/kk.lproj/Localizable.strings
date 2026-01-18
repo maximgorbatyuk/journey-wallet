@@ -652,6 +652,7 @@
 "place.list.empty.title" = "Орындар жоқ";
 "place.list.empty.message" = "Саяхатыңыз кезінде бару керек орындарды қосыңыз.";
 "place.list.add_first" = "Орын қосу";
+"place.list.open_map" = "Картаны ашу";
 "place.summary.visited" = "барылған";
 
 /* Place Filters */
@@ -672,6 +673,7 @@
 "place.form.section.notes" = "Жазбалар";
 "place.form.name" = "Орын аты";
 "place.form.address" = "Мекенжай";
+"place.form.address_hint" = "Мекенжайды енгізіңіз немесе Google Maps сілтемесін қойыңыз";
 "place.form.category" = "Санат";
 "place.form.visited" = "Бұрын барылған";
 "place.form.has_planned_date" = "Жоспарланған күнді белгілеу";
@@ -814,3 +816,12 @@
 "stats.days" = "күн";
 "stats.longest_journey" = "Ең ұзақ сапар";
 "stats.most_visited" = "Ең көп барылған";
+
+/* Developer Settings */
+"settings.developer.generate_random_data" = "Кездейсоқ деректерді құру";
+"settings.developer.select_journey" = "Сапарды таңдаңыз";
+"settings.developer.no_journeys" = "Сапарлар жоқ";
+"settings.developer.no_journeys_hint" = "Алдымен кездейсоқ деректер құру үшін сапар жасаңыз.";
+"settings.developer.random_data_confirm_title" = "Кездейсоқ деректер құру керек пе?";
+"settings.developer.random_data_confirm_message" = "Осы сапардың барлық деректері жойылып, кездейсоқ көлік, қонақүйлер, жазбалар, шығындар т.б. қосылады. Сенімдісіз бе?";
+"settings.developer.random_data_confirm_action" = "Құру";

@@ -640,6 +640,7 @@
 "place.list.empty.title" = "No places";
 "place.list.empty.message" = "Add places you want to visit during your journey.";
 "place.list.add_first" = "Add Place";
+"place.list.open_map" = "Open Map";
 "place.summary.visited" = "visited";
 
 /* Place Filters */
@@ -660,6 +661,7 @@
 "place.form.section.notes" = "Notes";
 "place.form.name" = "Place name";
 "place.form.address" = "Address";
+"place.form.address_hint" = "Enter address or paste a Google Maps link";
 "place.form.category" = "Category";
 "place.form.visited" = "Already visited";
 "place.form.has_planned_date" = "Set planned date";
@@ -802,3 +804,12 @@
 "stats.days" = "days";
 "stats.longest_journey" = "Longest Journey";
 "stats.most_visited" = "Most Visited";
+
+/* Developer Settings */
+"settings.developer.generate_random_data" = "Generate Random Data";
+"settings.developer.select_journey" = "Select Journey";
+"settings.developer.no_journeys" = "No Journeys";
+"settings.developer.no_journeys_hint" = "Create a journey first to generate random data for it.";
+"settings.developer.random_data_confirm_title" = "Generate Random Data?";
+"settings.developer.random_data_confirm_message" = "All existing data for this journey will be deleted and then random transport, hotels, notes, expenses, etc. will be added. Are you sure?";
+"settings.developer.random_data_confirm_action" = "Generate";
