@@ -647,3 +647,86 @@
 "expense.form.validation.error" = "Помилка валідації";
 "expense.form.validation.title_required" = "Будь ласка, введіть опис.";
 "expense.form.validation.amount_required" = "Будь ласка, введіть коректну суму.";
+
+/* Reminder/Notification Management - Phase 10 */
+"reminder.list.title" = "Нагадування";
+"reminder.list.empty.title" = "Нагадувань немає";
+"reminder.list.empty.message" = "Створюйте нагадування, щоб не забути про важливі моменти подорожі.";
+"reminder.list.add_first" = "Додати нагадування";
+"reminder.list.empty.today.title" = "Нічого на сьогодні";
+"reminder.list.empty.today.message" = "У вас немає нагадувань на сьогодні.";
+"reminder.list.empty.upcoming.title" = "Немає майбутніх нагадувань";
+"reminder.list.empty.upcoming.message" = "Все виконано! Немає майбутніх нагадувань.";
+"reminder.list.empty.overdue.title" = "Немає прострочених нагадувань";
+"reminder.list.empty.overdue.message" = "Чудово! У вас немає прострочених нагадувань.";
+"reminder.list.empty.completed.title" = "Немає завершених нагадувань";
+"reminder.list.empty.completed.message" = "Завершені нагадування будуть відображатися тут.";
+
+/* Reminder Filters */
+"reminder.filter.all" = "Всі";
+"reminder.filter.today" = "Сьогодні";
+"reminder.filter.upcoming" = "Майбутні";
+"reminder.filter.overdue" = "Прострочені";
+"reminder.filter.completed" = "Завершені";
+
+/* Reminder Groups */
+"reminder.group.overdue" = "Прострочено";
+"reminder.group.today" = "Сьогодні";
+"reminder.group.tomorrow" = "Завтра";
+"reminder.group.this_week" = "Цього тижня";
+"reminder.group.later" = "Пізніше";
+"reminder.group.completed" = "Завершено";
+
+/* Reminder Summary */
+"reminder.summary.pending" = "очікує";
+"reminder.summary.overdue" = "прострочено";
+"reminder.summary.today" = "сьогодні";
+
+/* Reminder Actions */
+"reminder.action.mark_complete" = "Виконати";
+"reminder.action.mark_incomplete" = "Скасувати";
+
+/* Reminder Status */
+"reminder.status.completed" = "Завершено";
+
+/* Reminder Date Labels */
+"reminder.date.today" = "Сьогодні";
+"reminder.date.tomorrow" = "Завтра";
+
+/* Reminder Unknown Journey */
+"reminder.unknown_journey" = "Невідома подорож";
+
+/* Reminder Form */
+"reminder.form.add_title" = "Нове нагадування";
+"reminder.form.edit_title" = "Редагувати нагадування";
+"reminder.form.title_section" = "Заголовок";
+"reminder.form.title_placeholder" = "Про що ви хочете нагадати?";
+"reminder.form.journey_section" = "Подорож";
+"reminder.form.journey" = "Подорож";
+"reminder.form.select_journey" = "Виберіть подорож";
+"reminder.form.datetime_section" = "Дата та час";
+"reminder.form.date" = "Нагадати о";
+"reminder.form.related_section" = "Пов'язано з";
+"reminder.form.has_related_entity" = "Пов'язати з об'єктом";
+"reminder.form.entity_type" = "Тип об'єкта";
+"reminder.form.info_section" = "Інформація";
+"reminder.form.created" = "Створено";
+"reminder.form.status" = "Статус";
+"reminder.form.validation_error" = "Помилка валідації";
+"reminder.form.error.title_required" = "Будь ласка, введіть заголовок нагадування.";
+"reminder.form.error.journey_required" = "Будь ласка, виберіть подорож.";
+"reminder.form.error.date_past" = "Дата нагадування повинна бути в майбутньому.";
+
+/* Reminder Quick Date Buttons */
+"reminder.quick.1h" = "Через 1 годину";
+"reminder.quick.3h" = "Через 3 години";
+"reminder.quick.tomorrow" = "Завтра о 9:00";
+"reminder.quick.next_week" = "Через тиждень";
+
+/* Reminder Notifications */
+"reminder.notification.title" = "Нагадування";
+
+/* Reminder Templates for Entities */
+"reminder.transport.title_format" = "%@ з %@ - за %d годин до відправлення";
+"reminder.hotel.title_format" = "Заселення в %@ - за %d днів";
+"reminder.car_rental.title_format" = "Отримання авто в %@ - за %d днів";

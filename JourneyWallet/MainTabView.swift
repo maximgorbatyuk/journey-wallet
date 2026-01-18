@@ -41,8 +41,8 @@ struct MainTabView: SwiftUI.View {
                     .tint(nil)
                     .tag(2)
 
-                // Tab 4: Reminders (placeholder for Phase 10)
-                PlaceholderTabView(title: L("tab.reminders"), iconName: "bell.fill")
+                // Tab 4: Reminders
+                NotificationsView()
                     .tabItem {
                         Label(L("tab.reminders"), systemImage: "bell.fill")
                     }

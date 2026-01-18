@@ -647,3 +647,86 @@
 "expense.form.validation.error" = "Тексеру қатесі";
 "expense.form.validation.title_required" = "Сипаттаманы енгізіңіз.";
 "expense.form.validation.amount_required" = "Жарамды соманы енгізіңіз.";
+
+/* Reminder/Notification Management - Phase 10 */
+"reminder.list.title" = "Еске салулар";
+"reminder.list.empty.title" = "Еске салулар жоқ";
+"reminder.list.empty.message" = "Саяхат жоспарларыңызды қадағалау үшін еске салулар жасаңыз.";
+"reminder.list.add_first" = "Еске салу қосу";
+"reminder.list.empty.today.title" = "Бүгінге ештеңе жоқ";
+"reminder.list.empty.today.message" = "Бүгінге жоспарланған еске салуларыңыз жоқ.";
+"reminder.list.empty.upcoming.title" = "Алдағы еске салулар жоқ";
+"reminder.list.empty.upcoming.message" = "Бәрі орындалды! Алдағы еске салулар жоқ.";
+"reminder.list.empty.overdue.title" = "Мерзімі өткен еске салулар жоқ";
+"reminder.list.empty.overdue.message" = "Керемет! Мерзімі өткен еске салуларыңыз жоқ.";
+"reminder.list.empty.completed.title" = "Аяқталған еске салулар жоқ";
+"reminder.list.empty.completed.message" = "Аяқталған еске салулар осында көрсетіледі.";
+
+/* Reminder Filters */
+"reminder.filter.all" = "Барлығы";
+"reminder.filter.today" = "Бүгін";
+"reminder.filter.upcoming" = "Алдағы";
+"reminder.filter.overdue" = "Мерзімі өткен";
+"reminder.filter.completed" = "Аяқталған";
+
+/* Reminder Groups */
+"reminder.group.overdue" = "Мерзімі өткен";
+"reminder.group.today" = "Бүгін";
+"reminder.group.tomorrow" = "Ертең";
+"reminder.group.this_week" = "Осы аптада";
+"reminder.group.later" = "Кейінірек";
+"reminder.group.completed" = "Аяқталған";
+
+/* Reminder Summary */
+"reminder.summary.pending" = "күтуде";
+"reminder.summary.overdue" = "мерзімі өткен";
+"reminder.summary.today" = "бүгін";
+
+/* Reminder Actions */
+"reminder.action.mark_complete" = "Аяқтау";
+"reminder.action.mark_incomplete" = "Болдырмау";
+
+/* Reminder Status */
+"reminder.status.completed" = "Аяқталды";
+
+/* Reminder Date Labels */
+"reminder.date.today" = "Бүгін";
+"reminder.date.tomorrow" = "Ертең";
+
+/* Reminder Unknown Journey */
+"reminder.unknown_journey" = "Белгісіз саяхат";
+
+/* Reminder Form */
+"reminder.form.add_title" = "Жаңа еске салу";
+"reminder.form.edit_title" = "Еске салуды өңдеу";
+"reminder.form.title_section" = "Тақырып";
+"reminder.form.title_placeholder" = "Нені есте сақтағыңыз келеді?";
+"reminder.form.journey_section" = "Саяхат";
+"reminder.form.journey" = "Саяхат";
+"reminder.form.select_journey" = "Саяхатты таңдаңыз";
+"reminder.form.datetime_section" = "Күні мен уақыты";
+"reminder.form.date" = "Еске салу";
+"reminder.form.related_section" = "Байланысты";
+"reminder.form.has_related_entity" = "Элементпен байланыстыру";
+"reminder.form.entity_type" = "Элемент түрі";
+"reminder.form.info_section" = "Ақпарат";
+"reminder.form.created" = "Жасалған";
+"reminder.form.status" = "Күйі";
+"reminder.form.validation_error" = "Тексеру қатесі";
+"reminder.form.error.title_required" = "Еске салу тақырыбын енгізіңіз.";
+"reminder.form.error.journey_required" = "Саяхатты таңдаңыз.";
+"reminder.form.error.date_past" = "Еске салу күні болашақта болуы керек.";
+
+/* Reminder Quick Date Buttons */
+"reminder.quick.1h" = "1 сағаттан кейін";
+"reminder.quick.3h" = "3 сағаттан кейін";
+"reminder.quick.tomorrow" = "Ертең 09:00";
+"reminder.quick.next_week" = "Келесі аптада";
+
+/* Reminder Notifications */
+"reminder.notification.title" = "Еске салу";
+
+/* Reminder Templates for Entities */
+"reminder.transport.title_format" = "%@ %@ - жүрістен %d сағат бұрын";
+"reminder.hotel.title_format" = "%@ қонақүйіне тіркелу - %d күн бұрын";
+"reminder.car_rental.title_format" = "%@ - көлік алу - %d күн бұрын";

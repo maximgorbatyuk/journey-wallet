@@ -638,3 +638,86 @@
 "expense.form.validation.error" = "Validation Error";
 "expense.form.validation.title_required" = "Please enter a description.";
 "expense.form.validation.amount_required" = "Please enter a valid amount.";
+
+/* Reminder/Notification Management - Phase 10 */
+"reminder.list.title" = "Reminders";
+"reminder.list.empty.title" = "No reminders";
+"reminder.list.empty.message" = "Create reminders to stay on top of your travel plans.";
+"reminder.list.add_first" = "Add Reminder";
+"reminder.list.empty.today.title" = "Nothing for today";
+"reminder.list.empty.today.message" = "You have no reminders scheduled for today.";
+"reminder.list.empty.upcoming.title" = "No upcoming reminders";
+"reminder.list.empty.upcoming.message" = "All caught up! No upcoming reminders.";
+"reminder.list.empty.overdue.title" = "No overdue reminders";
+"reminder.list.empty.overdue.message" = "Great job! You have no overdue reminders.";
+"reminder.list.empty.completed.title" = "No completed reminders";
+"reminder.list.empty.completed.message" = "Completed reminders will appear here.";
+
+/* Reminder Filters */
+"reminder.filter.all" = "All";
+"reminder.filter.today" = "Today";
+"reminder.filter.upcoming" = "Upcoming";
+"reminder.filter.overdue" = "Overdue";
+"reminder.filter.completed" = "Completed";
+
+/* Reminder Groups */
+"reminder.group.overdue" = "Overdue";
+"reminder.group.today" = "Today";
+"reminder.group.tomorrow" = "Tomorrow";
+"reminder.group.this_week" = "This Week";
+"reminder.group.later" = "Later";
+"reminder.group.completed" = "Completed";
+
+/* Reminder Summary */
+"reminder.summary.pending" = "pending";
+"reminder.summary.overdue" = "overdue";
+"reminder.summary.today" = "today";
+
+/* Reminder Actions */
+"reminder.action.mark_complete" = "Complete";
+"reminder.action.mark_incomplete" = "Undo";
+
+/* Reminder Status */
+"reminder.status.completed" = "Completed";
+
+/* Reminder Date Labels */
+"reminder.date.today" = "Today";
+"reminder.date.tomorrow" = "Tomorrow";
+
+/* Reminder Unknown Journey */
+"reminder.unknown_journey" = "Unknown Journey";
+
+/* Reminder Form */
+"reminder.form.add_title" = "New Reminder";
+"reminder.form.edit_title" = "Edit Reminder";
+"reminder.form.title_section" = "Title";
+"reminder.form.title_placeholder" = "What do you want to remember?";
+"reminder.form.journey_section" = "Journey";
+"reminder.form.journey" = "Journey";
+"reminder.form.select_journey" = "Select a journey";
+"reminder.form.datetime_section" = "Date & Time";
+"reminder.form.date" = "Remind at";
+"reminder.form.related_section" = "Related To";
+"reminder.form.has_related_entity" = "Link to entity";
+"reminder.form.entity_type" = "Entity Type";
+"reminder.form.info_section" = "Information";
+"reminder.form.created" = "Created";
+"reminder.form.status" = "Status";
+"reminder.form.validation_error" = "Validation Error";
+"reminder.form.error.title_required" = "Please enter a reminder title.";
+"reminder.form.error.journey_required" = "Please select a journey.";
+"reminder.form.error.date_past" = "Reminder date must be in the future.";
+
+/* Reminder Quick Date Buttons */
+"reminder.quick.1h" = "In 1 hour";
+"reminder.quick.3h" = "In 3 hours";
+"reminder.quick.tomorrow" = "Tomorrow 9am";
+"reminder.quick.next_week" = "Next week";
+
+/* Reminder Notifications */
+"reminder.notification.title" = "Reminder";
+
+/* Reminder Templates for Entities */
+"reminder.transport.title_format" = "%@ from %@ - %d hours before departure";
+"reminder.hotel.title_format" = "Check-in at %@ - %d day(s) before";
+"reminder.car_rental.title_format" = "Pickup from %@ - %d day(s) before";

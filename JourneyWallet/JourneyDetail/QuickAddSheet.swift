@@ -120,8 +120,20 @@ struct QuickAddSheet: View {
             )
 
         case .reminder:
-            // TODO: Implement ReminderFormView in Phase 10
-            placeholderView(for: entityType)
+            ReminderFormView(
+                mode: .addForJourney(journeyId),
+                onSave: { reminder in
+                    ReminderService.shared.createReminder(
+                        journeyId: reminder.journeyId,
+                        title: reminder.title,
+                        reminderDate: reminder.reminderDate,
+                        relatedEntityType: reminder.relatedEntityType,
+                        relatedEntityId: reminder.relatedEntityId
+                    )
+                    onEntityAdded()
+                    dismiss()
+                }
+            )
 
         case .expense:
             ExpenseFormView(

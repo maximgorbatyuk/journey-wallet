@@ -643,3 +643,86 @@
 "expense.form.validation.error" = "Doğrulama Hatası";
 "expense.form.validation.title_required" = "Lütfen bir açıklama girin.";
 "expense.form.validation.amount_required" = "Lütfen geçerli bir tutar girin.";
+
+/* Reminder/Notification Management - Phase 10 */
+"reminder.list.title" = "Hatırlatıcılar";
+"reminder.list.empty.title" = "Hatırlatıcı yok";
+"reminder.list.empty.message" = "Seyahat planlarınızı takip etmek için hatırlatıcılar oluşturun.";
+"reminder.list.add_first" = "Hatırlatıcı Ekle";
+"reminder.list.empty.today.title" = "Bugün için bir şey yok";
+"reminder.list.empty.today.message" = "Bugün için planlanmış hatırlatıcınız yok.";
+"reminder.list.empty.upcoming.title" = "Yaklaşan hatırlatıcı yok";
+"reminder.list.empty.upcoming.message" = "Her şey tamam! Yaklaşan hatırlatıcı yok.";
+"reminder.list.empty.overdue.title" = "Gecikmiş hatırlatıcı yok";
+"reminder.list.empty.overdue.message" = "Harika! Gecikmiş hatırlatıcınız yok.";
+"reminder.list.empty.completed.title" = "Tamamlanmış hatırlatıcı yok";
+"reminder.list.empty.completed.message" = "Tamamlanmış hatırlatıcılar burada görünecek.";
+
+/* Reminder Filters */
+"reminder.filter.all" = "Tümü";
+"reminder.filter.today" = "Bugün";
+"reminder.filter.upcoming" = "Yaklaşan";
+"reminder.filter.overdue" = "Gecikmiş";
+"reminder.filter.completed" = "Tamamlanmış";
+
+/* Reminder Groups */
+"reminder.group.overdue" = "Gecikmiş";
+"reminder.group.today" = "Bugün";
+"reminder.group.tomorrow" = "Yarın";
+"reminder.group.this_week" = "Bu Hafta";
+"reminder.group.later" = "Daha Sonra";
+"reminder.group.completed" = "Tamamlanmış";
+
+/* Reminder Summary */
+"reminder.summary.pending" = "bekleyen";
+"reminder.summary.overdue" = "gecikmiş";
+"reminder.summary.today" = "bugün";
+
+/* Reminder Actions */
+"reminder.action.mark_complete" = "Tamamla";
+"reminder.action.mark_incomplete" = "Geri Al";
+
+/* Reminder Status */
+"reminder.status.completed" = "Tamamlandı";
+
+/* Reminder Date Labels */
+"reminder.date.today" = "Bugün";
+"reminder.date.tomorrow" = "Yarın";
+
+/* Reminder Unknown Journey */
+"reminder.unknown_journey" = "Bilinmeyen Seyahat";
+
+/* Reminder Form */
+"reminder.form.add_title" = "Yeni Hatırlatıcı";
+"reminder.form.edit_title" = "Hatırlatıcıyı Düzenle";
+"reminder.form.title_section" = "Başlık";
+"reminder.form.title_placeholder" = "Neyi hatırlamak istiyorsunuz?";
+"reminder.form.journey_section" = "Seyahat";
+"reminder.form.journey" = "Seyahat";
+"reminder.form.select_journey" = "Seyahat seçin";
+"reminder.form.datetime_section" = "Tarih ve Saat";
+"reminder.form.date" = "Hatırlat";
+"reminder.form.related_section" = "İlişkili";
+"reminder.form.has_related_entity" = "Öğeye bağla";
+"reminder.form.entity_type" = "Öğe Türü";
+"reminder.form.info_section" = "Bilgi";
+"reminder.form.created" = "Oluşturuldu";
+"reminder.form.status" = "Durum";
+"reminder.form.validation_error" = "Doğrulama Hatası";
+"reminder.form.error.title_required" = "Lütfen bir hatırlatıcı başlığı girin.";
+"reminder.form.error.journey_required" = "Lütfen bir seyahat seçin.";
+"reminder.form.error.date_past" = "Hatırlatıcı tarihi gelecekte olmalıdır.";
+
+/* Reminder Quick Date Buttons */
+"reminder.quick.1h" = "1 saat içinde";
+"reminder.quick.3h" = "3 saat içinde";
+"reminder.quick.tomorrow" = "Yarın 09:00";
+"reminder.quick.next_week" = "Gelecek hafta";
+
+/* Reminder Notifications */
+"reminder.notification.title" = "Hatırlatıcı";
+
+/* Reminder Templates for Entities */
+"reminder.transport.title_format" = "%@ - %@ - kalkıştan %d saat önce";
+"reminder.hotel.title_format" = "%@ otelinde giriş - %d gün önce";
+"reminder.car_rental.title_format" = "%@ - araç teslim alımı - %d gün önce";
