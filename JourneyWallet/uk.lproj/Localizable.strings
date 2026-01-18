@@ -112,3 +112,127 @@
 /* Automatic Backup */
 "Automatic Backup" = "Автоматичне резервне копіювання";
 "Last: " = "Останній: ";
+
+/* Transport Types */
+"transport.type.flight" = "Авіарейс";
+"transport.type.train" = "Потяг";
+"transport.type.bus" = "Автобус";
+"transport.type.ferry" = "Пором";
+"transport.type.transfer" = "Трансфер";
+"transport.type.other" = "Інше";
+
+/* Transport Labels */
+"transport.label.airline" = "Авіакомпанія";
+"transport.label.train_company" = "Залізнична компанія";
+"transport.label.bus_company" = "Автобусна компанія";
+"transport.label.ferry_company" = "Поромна компанія";
+"transport.label.provider" = "Постачальник";
+"transport.label.carrier" = "Перевізник";
+"transport.label.flight_number" = "Номер рейсу";
+"transport.label.train_number" = "Номер потяга";
+"transport.label.route_number" = "Номер маршруту";
+"transport.label.ferry_number" = "Номер порому";
+"transport.label.vehicle" = "Транспорт";
+"transport.label.reference" = "Номер бронювання";
+"transport.label.terminal" = "Термінал";
+"transport.label.platform" = "Платформа";
+"transport.label.pier" = "Причал";
+"transport.label.pickup_point" = "Місце посадки";
+"transport.label.location" = "Місцезнаходження";
+"transport.label.departure_airport" = "Аеропорт вильоту";
+"transport.label.departure_station" = "Станція відправлення";
+"transport.label.departure_port" = "Порт відправлення";
+"transport.label.pickup_location" = "Місце посадки";
+"transport.label.from" = "Звідки";
+"transport.label.arrival_airport" = "Аеропорт прильоту";
+"transport.label.arrival_station" = "Станція прибуття";
+"transport.label.arrival_port" = "Порт прибуття";
+"transport.label.dropoff_location" = "Місце висадки";
+"transport.label.to" = "Куди";
+
+/* Document Types */
+"document.type.other" = "Інше";
+
+/* Place Categories */
+"place.category.restaurant" = "Ресторан";
+"place.category.attraction" = "Визначна пам'ятка";
+"place.category.museum" = "Музей";
+"place.category.shopping" = "Шопінг";
+"place.category.nature" = "Природа";
+"place.category.entertainment" = "Розваги";
+"place.category.other" = "Інше";
+
+/* Reminder Entity Types */
+"reminder.entity.transport" = "Транспорт";
+"reminder.entity.hotel" = "Готель";
+"reminder.entity.car_rental" = "Оренда авто";
+"reminder.entity.place" = "Місце";
+"reminder.entity.custom" = "Інше";
+
+/* Expense Categories */
+"expense.category.transport" = "Транспорт";
+"expense.category.accommodation" = "Проживання";
+"expense.category.food" = "Їжа";
+"expense.category.activities" = "Розваги";
+"expense.category.shopping" = "Покупки";
+"expense.category.other" = "Інше";
+
+/* Tab Bar */
+"tab.home" = "Головна";
+"tab.current_journey" = "Поточна";
+"tab.journeys" = "Подорожі";
+"tab.reminders" = "Нагадування";
+"tab.settings" = "Налаштування";
+
+/* Main Screen (Home) */
+"main.title" = "Головна";
+"main.search.placeholder" = "Пошук подорожей, готелів, транспорту...";
+"main.search.results_title" = "Результати пошуку";
+"main.search.no_results" = "Нічого не знайдено";
+"main.stats.title" = "Огляд";
+"main.stats.total_journeys" = "Всього подорожей";
+"main.stats.upcoming" = "Майбутні";
+"main.stats.destinations" = "Напрямки";
+"main.active_journeys.title" = "Ваші подорожі";
+"main.empty.title" = "Подорожей ще немає";
+"main.empty.subtitle" = "Почніть планувати свою наступну пригоду, додавши подорож.";
+
+/* Search Result Types */
+"search.type.journey" = "Подорож";
+"search.type.transport" = "Транспорт";
+"search.type.hotel" = "Готель";
+"search.type.car_rental" = "Оренда авто";
+"search.type.place" = "Місце";
+"search.type.note" = "Нотатка";
+
+/* Journeys List */
+"journeys.title" = "Подорожі";
+"journeys.empty.title" = "Немає подорожей";
+"journeys.empty.subtitle" = "Натисніть кнопку +, щоб створити першу подорож і почати планування.";
+"journeys.empty.add_button" = "Додати подорож";
+
+/* Journey Filters */
+"journey.filter.all" = "Всі";
+"journey.filter.active" = "Активні";
+"journey.filter.upcoming" = "Майбутні";
+"journey.filter.past" = "Минулі";
+
+/* Journey Status */
+"journey.status.active" = "Активна";
+"journey.status.upcoming" = "Майбутня";
+"journey.status.past" = "Минула";
+"journey.days" = "днів";
+
+/* Journey Form */
+"journey.form.add_title" = "Нова подорож";
+"journey.form.edit_title" = "Редагувати подорож";
+"journey.form.section.basic" = "Основна інформація";
+"journey.form.section.dates" = "Дати";
+"journey.form.section.notes" = "Нотатки";
+"journey.form.name" = "Назва подорожі";
+"journey.form.destination" = "Напрямок";
+"journey.form.start_date" = "Дата початку";
+"journey.form.end_date" = "Дата закінчення";
+"journey.form.error.name_required" = "Будь ласка, введіть назву подорожі.";
+"journey.form.error.destination_required" = "Будь ласка, введіть напрямок.";
+"journey.form.error.invalid_dates" = "Дата закінчення повинна бути пізніше дати початку.";

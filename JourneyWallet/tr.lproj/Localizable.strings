@@ -112,3 +112,127 @@
 /* Automatic Backup */
 "Automatic Backup" = "Otomatik Yedekleme";
 "Last: " = "Son: ";
+
+/* Transport Types */
+"transport.type.flight" = "Uçuş";
+"transport.type.train" = "Tren";
+"transport.type.bus" = "Otobüs";
+"transport.type.ferry" = "Feribot";
+"transport.type.transfer" = "Transfer";
+"transport.type.other" = "Diğer";
+
+/* Transport Labels */
+"transport.label.airline" = "Havayolu";
+"transport.label.train_company" = "Tren Şirketi";
+"transport.label.bus_company" = "Otobüs Şirketi";
+"transport.label.ferry_company" = "Feribot Şirketi";
+"transport.label.provider" = "Sağlayıcı";
+"transport.label.carrier" = "Taşıyıcı";
+"transport.label.flight_number" = "Uçuş Numarası";
+"transport.label.train_number" = "Tren Numarası";
+"transport.label.route_number" = "Rota Numarası";
+"transport.label.ferry_number" = "Feribot Numarası";
+"transport.label.vehicle" = "Araç";
+"transport.label.reference" = "Referans";
+"transport.label.terminal" = "Terminal";
+"transport.label.platform" = "Peron";
+"transport.label.pier" = "İskele";
+"transport.label.pickup_point" = "Alış Noktası";
+"transport.label.location" = "Konum";
+"transport.label.departure_airport" = "Kalkış Havaalanı";
+"transport.label.departure_station" = "Kalkış İstasyonu";
+"transport.label.departure_port" = "Kalkış Limanı";
+"transport.label.pickup_location" = "Alış Yeri";
+"transport.label.from" = "Nereden";
+"transport.label.arrival_airport" = "Varış Havaalanı";
+"transport.label.arrival_station" = "Varış İstasyonu";
+"transport.label.arrival_port" = "Varış Limanı";
+"transport.label.dropoff_location" = "Bırakış Yeri";
+"transport.label.to" = "Nereye";
+
+/* Document Types */
+"document.type.other" = "Diğer";
+
+/* Place Categories */
+"place.category.restaurant" = "Restoran";
+"place.category.attraction" = "Turistik Yer";
+"place.category.museum" = "Müze";
+"place.category.shopping" = "Alışveriş";
+"place.category.nature" = "Doğa";
+"place.category.entertainment" = "Eğlence";
+"place.category.other" = "Diğer";
+
+/* Reminder Entity Types */
+"reminder.entity.transport" = "Ulaşım";
+"reminder.entity.hotel" = "Otel";
+"reminder.entity.car_rental" = "Araç Kiralama";
+"reminder.entity.place" = "Yer";
+"reminder.entity.custom" = "Özel";
+
+/* Expense Categories */
+"expense.category.transport" = "Ulaşım";
+"expense.category.accommodation" = "Konaklama";
+"expense.category.food" = "Yiyecek ve İçecek";
+"expense.category.activities" = "Aktiviteler";
+"expense.category.shopping" = "Alışveriş";
+"expense.category.other" = "Diğer";
+
+/* Tab Bar */
+"tab.home" = "Ana Sayfa";
+"tab.current_journey" = "Mevcut";
+"tab.journeys" = "Seyahatler";
+"tab.reminders" = "Hatırlatıcılar";
+"tab.settings" = "Ayarlar";
+
+/* Main Screen (Home) */
+"main.title" = "Ana Sayfa";
+"main.search.placeholder" = "Seyahat, otel, ulaşım ara...";
+"main.search.results_title" = "Arama Sonuçları";
+"main.search.no_results" = "Sonuç bulunamadı";
+"main.stats.title" = "Genel Bakış";
+"main.stats.total_journeys" = "Toplam Seyahat";
+"main.stats.upcoming" = "Yaklaşan";
+"main.stats.destinations" = "Hedefler";
+"main.active_journeys.title" = "Seyahatleriniz";
+"main.empty.title" = "Henüz seyahat yok";
+"main.empty.subtitle" = "Bir seyahat ekleyerek bir sonraki maceranızı planlamaya başlayın.";
+
+/* Search Result Types */
+"search.type.journey" = "Seyahat";
+"search.type.transport" = "Ulaşım";
+"search.type.hotel" = "Otel";
+"search.type.car_rental" = "Araç Kiralama";
+"search.type.place" = "Yer";
+"search.type.note" = "Not";
+
+/* Journeys List */
+"journeys.title" = "Seyahatler";
+"journeys.empty.title" = "Seyahat yok";
+"journeys.empty.subtitle" = "İlk seyahatinizi oluşturmak ve planlamaya başlamak için + düğmesine dokunun.";
+"journeys.empty.add_button" = "Seyahat Ekle";
+
+/* Journey Filters */
+"journey.filter.all" = "Tümü";
+"journey.filter.active" = "Aktif";
+"journey.filter.upcoming" = "Yaklaşan";
+"journey.filter.past" = "Geçmiş";
+
+/* Journey Status */
+"journey.status.active" = "Aktif";
+"journey.status.upcoming" = "Yaklaşan";
+"journey.status.past" = "Geçmiş";
+"journey.days" = "gün";
+
+/* Journey Form */
+"journey.form.add_title" = "Yeni Seyahat";
+"journey.form.edit_title" = "Seyahati Düzenle";
+"journey.form.section.basic" = "Temel Bilgiler";
+"journey.form.section.dates" = "Tarihler";
+"journey.form.section.notes" = "Notlar";
+"journey.form.name" = "Seyahat Adı";
+"journey.form.destination" = "Hedef";
+"journey.form.start_date" = "Başlangıç Tarihi";
+"journey.form.end_date" = "Bitiş Tarihi";
+"journey.form.error.name_required" = "Lütfen bir seyahat adı girin.";
+"journey.form.error.destination_required" = "Lütfen bir hedef girin.";
+"journey.form.error.invalid_dates" = "Bitiş tarihi başlangıç tarihinden sonra olmalıdır.";

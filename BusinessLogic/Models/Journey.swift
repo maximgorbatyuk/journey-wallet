@@ -1,6 +1,6 @@
 import Foundation
 
-struct Journey: Codable, Identifiable, Equatable {
+struct Journey: Codable, Identifiable, Equatable, Hashable {
     let id: UUID
     var name: String
     var destination: String

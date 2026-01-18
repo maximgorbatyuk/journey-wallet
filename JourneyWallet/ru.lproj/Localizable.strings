@@ -112,3 +112,127 @@
 /* Automatic Backup */
 "Automatic Backup" = "Автоматическое резервное копирование";
 "Last: " = "Последний: ";
+
+/* Transport Types */
+"transport.type.flight" = "Авиарейс";
+"transport.type.train" = "Поезд";
+"transport.type.bus" = "Автобус";
+"transport.type.ferry" = "Паром";
+"transport.type.transfer" = "Трансфер";
+"transport.type.other" = "Другое";
+
+/* Transport Labels */
+"transport.label.airline" = "Авиакомпания";
+"transport.label.train_company" = "Ж/д компания";
+"transport.label.bus_company" = "Автобусная компания";
+"transport.label.ferry_company" = "Паромная компания";
+"transport.label.provider" = "Поставщик";
+"transport.label.carrier" = "Перевозчик";
+"transport.label.flight_number" = "Номер рейса";
+"transport.label.train_number" = "Номер поезда";
+"transport.label.route_number" = "Номер маршрута";
+"transport.label.ferry_number" = "Номер парома";
+"transport.label.vehicle" = "Транспорт";
+"transport.label.reference" = "Номер бронирования";
+"transport.label.terminal" = "Терминал";
+"transport.label.platform" = "Платформа";
+"transport.label.pier" = "Причал";
+"transport.label.pickup_point" = "Место посадки";
+"transport.label.location" = "Местоположение";
+"transport.label.departure_airport" = "Аэропорт вылета";
+"transport.label.departure_station" = "Станция отправления";
+"transport.label.departure_port" = "Порт отправления";
+"transport.label.pickup_location" = "Место посадки";
+"transport.label.from" = "Откуда";
+"transport.label.arrival_airport" = "Аэропорт прилёта";
+"transport.label.arrival_station" = "Станция прибытия";
+"transport.label.arrival_port" = "Порт прибытия";
+"transport.label.dropoff_location" = "Место высадки";
+"transport.label.to" = "Куда";
+
+/* Document Types */
+"document.type.other" = "Другое";
+
+/* Place Categories */
+"place.category.restaurant" = "Ресторан";
+"place.category.attraction" = "Достопримечательность";
+"place.category.museum" = "Музей";
+"place.category.shopping" = "Шопинг";
+"place.category.nature" = "Природа";
+"place.category.entertainment" = "Развлечения";
+"place.category.other" = "Другое";
+
+/* Reminder Entity Types */
+"reminder.entity.transport" = "Транспорт";
+"reminder.entity.hotel" = "Отель";
+"reminder.entity.car_rental" = "Аренда авто";
+"reminder.entity.place" = "Место";
+"reminder.entity.custom" = "Другое";
+
+/* Expense Categories */
+"expense.category.transport" = "Транспорт";
+"expense.category.accommodation" = "Проживание";
+"expense.category.food" = "Еда";
+"expense.category.activities" = "Развлечения";
+"expense.category.shopping" = "Покупки";
+"expense.category.other" = "Другое";
+
+/* Tab Bar */
+"tab.home" = "Главная";
+"tab.current_journey" = "Текущая";
+"tab.journeys" = "Поездки";
+"tab.reminders" = "Напоминания";
+"tab.settings" = "Настройки";
+
+/* Main Screen (Home) */
+"main.title" = "Главная";
+"main.search.placeholder" = "Поиск поездок, отелей, транспорта...";
+"main.search.results_title" = "Результаты поиска";
+"main.search.no_results" = "Ничего не найдено";
+"main.stats.title" = "Обзор";
+"main.stats.total_journeys" = "Всего поездок";
+"main.stats.upcoming" = "Предстоящие";
+"main.stats.destinations" = "Направления";
+"main.active_journeys.title" = "Ваши поездки";
+"main.empty.title" = "Поездок пока нет";
+"main.empty.subtitle" = "Начните планировать своё следующее путешествие, добавив поездку.";
+
+/* Search Result Types */
+"search.type.journey" = "Поездка";
+"search.type.transport" = "Транспорт";
+"search.type.hotel" = "Отель";
+"search.type.car_rental" = "Аренда авто";
+"search.type.place" = "Место";
+"search.type.note" = "Заметка";
+
+/* Journeys List */
+"journeys.title" = "Поездки";
+"journeys.empty.title" = "Нет поездок";
+"journeys.empty.subtitle" = "Нажмите кнопку +, чтобы создать первую поездку и начать планирование путешествия.";
+"journeys.empty.add_button" = "Добавить поездку";
+
+/* Journey Filters */
+"journey.filter.all" = "Все";
+"journey.filter.active" = "Активные";
+"journey.filter.upcoming" = "Предстоящие";
+"journey.filter.past" = "Прошедшие";
+
+/* Journey Status */
+"journey.status.active" = "Активная";
+"journey.status.upcoming" = "Предстоящая";
+"journey.status.past" = "Прошедшая";
+"journey.days" = "дней";
+
+/* Journey Form */
+"journey.form.add_title" = "Новая поездка";
+"journey.form.edit_title" = "Редактировать поездку";
+"journey.form.section.basic" = "Основная информация";
+"journey.form.section.dates" = "Даты";
+"journey.form.section.notes" = "Заметки";
+"journey.form.name" = "Название поездки";
+"journey.form.destination" = "Направление";
+"journey.form.start_date" = "Дата начала";
+"journey.form.end_date" = "Дата окончания";
+"journey.form.error.name_required" = "Пожалуйста, введите название поездки.";
+"journey.form.error.destination_required" = "Пожалуйста, введите направление.";
+"journey.form.error.invalid_dates" = "Дата окончания должна быть позже даты начала.";

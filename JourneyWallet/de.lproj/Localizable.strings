@@ -112,3 +112,127 @@
 /* Automatic Backup */
 "Automatic Backup" = "Automatische Sicherung";
 "Last: " = "Zuletzt: ";
+
+/* Transport Types */
+"transport.type.flight" = "Flug";
+"transport.type.train" = "Zug";
+"transport.type.bus" = "Bus";
+"transport.type.ferry" = "Fähre";
+"transport.type.transfer" = "Transfer";
+"transport.type.other" = "Sonstiges";
+
+/* Transport Labels */
+"transport.label.airline" = "Fluggesellschaft";
+"transport.label.train_company" = "Bahngesellschaft";
+"transport.label.bus_company" = "Busunternehmen";
+"transport.label.ferry_company" = "Fährunternehmen";
+"transport.label.provider" = "Anbieter";
+"transport.label.carrier" = "Beförderer";
+"transport.label.flight_number" = "Flugnummer";
+"transport.label.train_number" = "Zugnummer";
+"transport.label.route_number" = "Routennummer";
+"transport.label.ferry_number" = "Fährnummer";
+"transport.label.vehicle" = "Fahrzeug";
+"transport.label.reference" = "Referenz";
+"transport.label.terminal" = "Terminal";
+"transport.label.platform" = "Gleis";
+"transport.label.pier" = "Pier";
+"transport.label.pickup_point" = "Abholpunkt";
+"transport.label.location" = "Ort";
+"transport.label.departure_airport" = "Abflughafen";
+"transport.label.departure_station" = "Abfahrtsbahnhof";
+"transport.label.departure_port" = "Abfahrtshafen";
+"transport.label.pickup_location" = "Abholort";
+"transport.label.from" = "Von";
+"transport.label.arrival_airport" = "Ankunftsflughafen";
+"transport.label.arrival_station" = "Ankunftsbahnhof";
+"transport.label.arrival_port" = "Ankunftshafen";
+"transport.label.dropoff_location" = "Abgabeort";
+"transport.label.to" = "Nach";
+
+/* Document Types */
+"document.type.other" = "Sonstiges";
+
+/* Place Categories */
+"place.category.restaurant" = "Restaurant";
+"place.category.attraction" = "Sehenswürdigkeit";
+"place.category.museum" = "Museum";
+"place.category.shopping" = "Einkaufen";
+"place.category.nature" = "Natur";
+"place.category.entertainment" = "Unterhaltung";
+"place.category.other" = "Sonstiges";
+
+/* Reminder Entity Types */
+"reminder.entity.transport" = "Transport";
+"reminder.entity.hotel" = "Hotel";
+"reminder.entity.car_rental" = "Mietwagen";
+"reminder.entity.place" = "Ort";
+"reminder.entity.custom" = "Benutzerdefiniert";
+
+/* Expense Categories */
+"expense.category.transport" = "Transport";
+"expense.category.accommodation" = "Unterkunft";
+"expense.category.food" = "Essen & Trinken";
+"expense.category.activities" = "Aktivitäten";
+"expense.category.shopping" = "Einkaufen";
+"expense.category.other" = "Sonstiges";
+
+/* Tab Bar */
+"tab.home" = "Start";
+"tab.current_journey" = "Aktuell";
+"tab.journeys" = "Reisen";
+"tab.reminders" = "Erinnerungen";
+"tab.settings" = "Einstellungen";
+
+/* Main Screen (Home) */
+"main.title" = "Start";
+"main.search.placeholder" = "Reisen, Hotels, Transport suchen...";
+"main.search.results_title" = "Suchergebnisse";
+"main.search.no_results" = "Keine Ergebnisse gefunden";
+"main.stats.title" = "Übersicht";
+"main.stats.total_journeys" = "Reisen gesamt";
+"main.stats.upcoming" = "Bevorstehend";
+"main.stats.destinations" = "Reiseziele";
+"main.active_journeys.title" = "Ihre Reisen";
+"main.empty.title" = "Noch keine Reisen";
+"main.empty.subtitle" = "Beginnen Sie mit der Planung Ihres nächsten Abenteuers, indem Sie eine Reise hinzufügen.";
+
+/* Search Result Types */
+"search.type.journey" = "Reise";
+"search.type.transport" = "Transport";
+"search.type.hotel" = "Hotel";
+"search.type.car_rental" = "Mietwagen";
+"search.type.place" = "Ort";
+"search.type.note" = "Notiz";
+
+/* Journeys List */
+"journeys.title" = "Reisen";
+"journeys.empty.title" = "Keine Reisen";
+"journeys.empty.subtitle" = "Tippen Sie auf +, um Ihre erste Reise zu erstellen und mit der Planung zu beginnen.";
+"journeys.empty.add_button" = "Reise hinzufügen";
+
+/* Journey Filters */
+"journey.filter.all" = "Alle";
+"journey.filter.active" = "Aktiv";
+"journey.filter.upcoming" = "Bevorstehend";
+"journey.filter.past" = "Vergangen";
+
+/* Journey Status */
+"journey.status.active" = "Aktiv";
+"journey.status.upcoming" = "Bevorstehend";
+"journey.status.past" = "Vergangen";
+"journey.days" = "Tage";
+
+/* Journey Form */
+"journey.form.add_title" = "Neue Reise";
+"journey.form.edit_title" = "Reise bearbeiten";
+"journey.form.section.basic" = "Grundinformationen";
+"journey.form.section.dates" = "Daten";
+"journey.form.section.notes" = "Notizen";
+"journey.form.name" = "Reisename";
+"journey.form.destination" = "Reiseziel";
+"journey.form.start_date" = "Startdatum";
+"journey.form.end_date" = "Enddatum";
+"journey.form.error.name_required" = "Bitte geben Sie einen Reisenamen ein.";
+"journey.form.error.destination_required" = "Bitte geben Sie ein Reiseziel ein.";
+"journey.form.error.invalid_dates" = "Das Enddatum muss nach dem Startdatum liegen.";

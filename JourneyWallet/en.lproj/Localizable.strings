@@ -176,3 +176,63 @@
 "expense.category.activities" = "Activities";
 "expense.category.shopping" = "Shopping";
 "expense.category.other" = "Other";
+
+/* Tab Bar */
+"tab.home" = "Home";
+"tab.current_journey" = "Current";
+"tab.journeys" = "Journeys";
+"tab.reminders" = "Reminders";
+"tab.settings" = "Settings";
+
+/* Main Screen (Home) */
+"main.title" = "Home";
+"main.search.placeholder" = "Search journeys, hotels, transport...";
+"main.search.results_title" = "Search Results";
+"main.search.no_results" = "No results found";
+"main.stats.title" = "Overview";
+"main.stats.total_journeys" = "Total Journeys";
+"main.stats.upcoming" = "Upcoming";
+"main.stats.destinations" = "Destinations";
+"main.active_journeys.title" = "Your Journeys";
+"main.empty.title" = "No journeys yet";
+"main.empty.subtitle" = "Start planning your next adventure by adding a journey.";
+
+/* Search Result Types */
+"search.type.journey" = "Journey";
+"search.type.transport" = "Transport";
+"search.type.hotel" = "Hotel";
+"search.type.car_rental" = "Car Rental";
+"search.type.place" = "Place";
+"search.type.note" = "Note";
+
+/* Journeys List */
+"journeys.title" = "Journeys";
+"journeys.empty.title" = "No journeys";
+"journeys.empty.subtitle" = "Tap the + button to create your first journey and start planning your trip.";
+"journeys.empty.add_button" = "Add Journey";
+
+/* Journey Filters */
+"journey.filter.all" = "All";
+"journey.filter.active" = "Active";
+"journey.filter.upcoming" = "Upcoming";
+"journey.filter.past" = "Past";
+
+/* Journey Status */
+"journey.status.active" = "Active";
+"journey.status.upcoming" = "Upcoming";
+"journey.status.past" = "Past";
+"journey.days" = "days";
+
+/* Journey Form */
+"journey.form.add_title" = "New Journey";
+"journey.form.edit_title" = "Edit Journey";
+"journey.form.section.basic" = "Basic Info";
+"journey.form.section.dates" = "Dates";
+"journey.form.section.notes" = "Notes";
+"journey.form.name" = "Journey Name";
+"journey.form.destination" = "Destination";
+"journey.form.start_date" = "Start Date";
+"journey.form.end_date" = "End Date";
+"journey.form.error.name_required" = "Please enter a journey name.";
+"journey.form.error.destination_required" = "Please enter a destination.";
+"journey.form.error.invalid_dates" = "End date must be after start date.";
