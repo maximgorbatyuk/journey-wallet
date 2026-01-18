@@ -9,8 +9,6 @@ struct ExtendedStatsSection: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            // Travel Overview
-            travelOverviewCard
 
             // Transport Breakdown
             if transportStats.totalTransports > 0 {
@@ -22,40 +20,6 @@ struct ExtendedStatsSection: View {
                 spendingOverviewCard
             }
         }
-    }
-
-    private var travelOverviewCard: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Label(L("stats.travel_overview"), systemImage: "globe")
-                .font(.headline)
-                .foregroundColor(.primary)
-
-            HStack(spacing: 16) {
-                MiniStatItem(
-                    value: "\(statistics.totalJourneys)",
-                    label: L("stats.journeys"),
-                    icon: "suitcase.fill",
-                    color: .orange
-                )
-
-                MiniStatItem(
-                    value: "\(statistics.uniqueDestinations)",
-                    label: L("stats.destinations"),
-                    icon: "mappin.circle.fill",
-                    color: .green
-                )
-
-                MiniStatItem(
-                    value: "\(statistics.upcomingJourneys)",
-                    label: L("stats.upcoming"),
-                    icon: "calendar",
-                    color: .blue
-                )
-            }
-        }
-        .padding()
-        .background(Color(.systemGray6))
-        .cornerRadius(12)
     }
 
     private var transportBreakdownCard: some View {
