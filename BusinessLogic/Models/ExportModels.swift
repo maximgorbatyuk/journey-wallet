@@ -3,6 +3,41 @@ import Foundation
 struct ExportData: Codable {
     let metadata: ExportMetadata
     let userSettings: ExportUserSettings
+    let journeys: [Journey]?
+    let transports: [Transport]?
+    let hotels: [Hotel]?
+    let carRentals: [CarRental]?
+    let documents: [Document]?
+    let notes: [Note]?
+    let placesToVisit: [PlaceToVisit]?
+    let reminders: [Reminder]?
+    let expenses: [Expense]?
+
+    init(
+        metadata: ExportMetadata,
+        userSettings: ExportUserSettings,
+        journeys: [Journey]? = nil,
+        transports: [Transport]? = nil,
+        hotels: [Hotel]? = nil,
+        carRentals: [CarRental]? = nil,
+        documents: [Document]? = nil,
+        notes: [Note]? = nil,
+        placesToVisit: [PlaceToVisit]? = nil,
+        reminders: [Reminder]? = nil,
+        expenses: [Expense]? = nil
+    ) {
+        self.metadata = metadata
+        self.userSettings = userSettings
+        self.journeys = journeys
+        self.transports = transports
+        self.hotels = hotels
+        self.carRentals = carRentals
+        self.documents = documents
+        self.notes = notes
+        self.placesToVisit = placesToVisit
+        self.reminders = reminders
+        self.expenses = expenses
+    }
 }
 
 struct ExportMetadata: Codable {

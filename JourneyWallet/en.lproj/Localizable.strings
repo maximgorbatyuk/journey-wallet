@@ -112,3 +112,67 @@
 /* Automatic Backup */
 "Automatic Backup" = "Automatic Backup";
 "Last: " = "Last: ";
+
+/* Transport Types */
+"transport.type.flight" = "Flight";
+"transport.type.train" = "Train";
+"transport.type.bus" = "Bus";
+"transport.type.ferry" = "Ferry";
+"transport.type.transfer" = "Transfer";
+"transport.type.other" = "Other";
+
+/* Transport Labels */
+"transport.label.airline" = "Airline";
+"transport.label.train_company" = "Train Company";
+"transport.label.bus_company" = "Bus Company";
+"transport.label.ferry_company" = "Ferry Company";
+"transport.label.provider" = "Provider";
+"transport.label.carrier" = "Carrier";
+"transport.label.flight_number" = "Flight Number";
+"transport.label.train_number" = "Train Number";
+"transport.label.route_number" = "Route Number";
+"transport.label.ferry_number" = "Ferry Number";
+"transport.label.vehicle" = "Vehicle";
+"transport.label.reference" = "Reference";
+"transport.label.terminal" = "Terminal";
+"transport.label.platform" = "Platform";
+"transport.label.pier" = "Pier";
+"transport.label.pickup_point" = "Pickup Point";
+"transport.label.location" = "Location";
+"transport.label.departure_airport" = "Departure Airport";
+"transport.label.departure_station" = "Departure Station";
+"transport.label.departure_port" = "Departure Port";
+"transport.label.pickup_location" = "Pickup Location";
+"transport.label.from" = "From";
+"transport.label.arrival_airport" = "Arrival Airport";
+"transport.label.arrival_station" = "Arrival Station";
+"transport.label.arrival_port" = "Arrival Port";
+"transport.label.dropoff_location" = "Dropoff Location";
+"transport.label.to" = "To";
+
+/* Document Types */
+"document.type.other" = "Other";
+
+/* Place Categories */
+"place.category.restaurant" = "Restaurant";
+"place.category.attraction" = "Attraction";
+"place.category.museum" = "Museum";
+"place.category.shopping" = "Shopping";
+"place.category.nature" = "Nature";
+"place.category.entertainment" = "Entertainment";
+"place.category.other" = "Other";
+
+/* Reminder Entity Types */
+"reminder.entity.transport" = "Transport";
+"reminder.entity.hotel" = "Hotel";
+"reminder.entity.car_rental" = "Car Rental";
+"reminder.entity.place" = "Place";
+"reminder.entity.custom" = "Custom";
+
+/* Expense Categories */
+"expense.category.transport" = "Transport";
+"expense.category.accommodation" = "Accommodation";
+"expense.category.food" = "Food & Dining";
+"expense.category.activities" = "Activities";
+"expense.category.shopping" = "Shopping";
+"expense.category.other" = "Other";
