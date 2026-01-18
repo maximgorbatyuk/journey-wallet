@@ -43,6 +43,7 @@ Below are some key user stories for the app:
 9. As a user, I want to add expenses to a journey so that I can track my travel expenses.
 10. As a user, I want to have an option to open any file (PDF, JPEG, PNG, photo) via the system share sheet, so I can add the file to a selected journey. The file should be copied to the app's Documents directory and linked to the journey. *(Implemented via Share Extension - see Phase 8, Step 8.5)*
 11. As a user, I want to view, delete, or share files (PDF, images) related to a journey within the app. *(Implemented via PDFKit for PDFs, UIImageView for images - see Phase 8, Step 8.4)*
+12. As a user, I want to quickly add any entity (transport, hotel, car rental, document, note, place, reminder, expense) to the current journey via a floating "Add new..." button, so I can efficiently manage my travel details without navigating to each section. *(Implemented via Quick Add Feature - see Phase 4, Step 4.5)*
 
 **Note:** This list is not exhaustive. Additional features may be identified during development.
 
@@ -390,6 +391,55 @@ Below are some key user stories for the app:
 - Create reusable `SectionHeaderView.swift`
 - Shows: section title, item count, "See all" button
 - Consistent styling across all sections
+
+### Step 4.5: Quick Add Feature
+- **Goal:** Allow users to quickly add any entity type from the Journey Detail view
+- **Implementation:**
+  1. Add floating "Add new..." button (FAB) at the bottom-right of `JourneyDetailView`
+  2. Create `QuickAddSheet.swift` - modal dialog with entity type selection
+  3. Create `QuickAddEntityType` enum with cases:
+     - `transport` - Transport (flight, train, bus, etc.)
+     - `hotel` - Hotel
+     - `carRental` - Car Rental
+     - `document` - Document
+     - `note` - Note
+     - `place` - Place to Visit
+     - `reminder` - Reminder
+     - `expense` - Expense
+  4. Display options in a grid or list with icons and localized names
+  5. On selection, present the corresponding form view:
+     - Transport → `TransportFormView`
+     - Hotel → `HotelFormView`
+     - Car Rental → `CarRentalFormView`
+     - Document → `DocumentPickerView`
+     - Note → `NoteFormView`
+     - Place → `PlaceToVisitFormView`
+     - Reminder → `ReminderFormView`
+     - Expense → `ExpenseFormView`
+  6. After successful save, dismiss both sheets and refresh the view
+- **UI Design:**
+  - Orange floating action button with "+" icon
+  - Sheet with title "Add to Journey"
+  - Grid layout (2 columns) with icon + label for each option
+  - Each option uses consistent SF Symbol icons:
+    - Transport: `airplane`
+    - Hotel: `building.2.fill`
+    - Car Rental: `car.fill`
+    - Document: `doc.fill`
+    - Note: `note.text`
+    - Place: `mappin.circle.fill`
+    - Reminder: `bell.fill`
+    - Expense: `dollarsign.circle.fill`
+- **Localization keys:**
+  - `quick_add.title` = "Add to Journey"
+  - `quick_add.transport` = "Transport"
+  - `quick_add.hotel` = "Hotel"
+  - `quick_add.car_rental` = "Car Rental"
+  - `quick_add.document` = "Document"
+  - `quick_add.note` = "Note"
+  - `quick_add.place` = "Place to Visit"
+  - `quick_add.reminder` = "Reminder"
+  - `quick_add.expense` = "Expense"
 
 ---
 
