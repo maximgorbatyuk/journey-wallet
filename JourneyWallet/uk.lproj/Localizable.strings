@@ -570,3 +570,80 @@
 
 /* Document Camera */
 "document.camera.default_name" = "Зроблене фото";
+
+/* Note Management */
+"note.list.title" = "Нотатки";
+"note.list.empty.title" = "Нотаток немає";
+"note.list.empty.message" = "Додайте нотатки, щоб запам'ятати важливі деталі вашої подорожі.";
+"note.list.add_first" = "Додати нотатку";
+"note.summary.notes" = "нотаток";
+"note.untitled" = "Без назви";
+
+/* Note Form */
+"note.form.add_title" = "Нова нотатка";
+"note.form.edit_title" = "Редагувати нотатку";
+"note.form.section.title" = "Заголовок";
+"note.form.section.content" = "Вміст";
+"note.form.title_placeholder" = "Назва нотатки";
+"note.form.validation.error" = "Помилка валідації";
+"note.form.validation.empty" = "Будь ласка, введіть заголовок або вміст.";
+
+/* Place Management */
+"place.list.title" = "Місця для відвідування";
+"place.list.empty.title" = "Місць немає";
+"place.list.empty.message" = "Додайте місця, які ви хочете відвідати під час подорожі.";
+"place.list.add_first" = "Додати місце";
+"place.summary.visited" = "відвідано";
+
+/* Place Filters */
+"place.filter.all" = "Всі";
+"place.filter.to_visit" = "До відвідування";
+"place.filter.visited" = "Відвідані";
+
+/* Place Actions */
+"place.action.mark_visited" = "Позначити відвіданим";
+"place.action.mark_unvisited" = "Позначити невідвіданим";
+
+/* Place Form */
+"place.form.add_title" = "Додати місце";
+"place.form.edit_title" = "Редагувати місце";
+"place.form.section.info" = "Інформація про місце";
+"place.form.section.category" = "Категорія";
+"place.form.section.date" = "Запланована дата";
+"place.form.section.notes" = "Нотатки";
+"place.form.name" = "Назва місця";
+"place.form.address" = "Адреса";
+"place.form.category" = "Категорія";
+"place.form.visited" = "Вже відвідано";
+"place.form.has_planned_date" = "Встановити дату";
+"place.form.planned_date" = "Запланована дата";
+"place.form.validation.error" = "Помилка валідації";
+"place.form.validation.name_required" = "Будь ласка, введіть назву місця.";
+
+/* Budget Management */
+"budget.title" = "Бюджет";
+"budget.total_spent" = "Всього витрачено";
+"budget.expenses" = "витрат";
+"budget.by_category" = "За категоріями";
+"budget.empty.title" = "Витрат немає";
+"budget.empty.message" = "Відстежуйте витрати на подорож для управління бюджетом.";
+"budget.add_first" = "Додати витрату";
+
+/* Expense Filters */
+"expense.filter.all" = "Всі";
+
+/* Expense Form */
+"expense.form.add_title" = "Додати витрату";
+"expense.form.edit_title" = "Редагувати витрату";
+"expense.form.section.info" = "Інформація про витрату";
+"expense.form.section.amount" = "Сума";
+"expense.form.section.category" = "Категорія";
+"expense.form.section.date" = "Дата";
+"expense.form.section.notes" = "Нотатки";
+"expense.form.title" = "Опис";
+"expense.form.amount" = "Сума";
+"expense.form.category" = "Категорія";
+"expense.form.date" = "Дата";
+"expense.form.validation.error" = "Помилка валідації";
+"expense.form.validation.title_required" = "Будь ласка, введіть опис.";
+"expense.form.validation.amount_required" = "Будь ласка, введіть коректну суму.";

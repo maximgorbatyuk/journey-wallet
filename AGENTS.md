@@ -275,6 +275,42 @@ protocol DatabaseServiceProtocol {
 }
 ```
 
+### Repository Access in Views
+
+When a SwiftUI view needs to access a repository (e.g., for fetching user settings), **create a private field** in the view to hold the repository reference. Initialize it from `DatabaseManager.shared` in the view's `init()`. Do NOT call the chain directly in view code.
+
+```swift
+// ✅ Correct - Private repository field
+struct BudgetView: View {
+    let journeyId: UUID
+    private let userSettingsRepository: UserSettingsRepository?
+
+    init(journeyId: UUID) {
+        self.journeyId = journeyId
+        self.userSettingsRepository = DatabaseManager.shared.userSettingsRepository
+    }
+
+    var body: some View {
+        // Use the private field
+        let currency = userSettingsRepository?.fetchCurrency() ?? .usd
+        // ...
+    }
+}
+
+// ❌ Wrong - Direct chain access in view code
+struct BudgetView: View {
+    var body: some View {
+        // Don't do this:
+        let currency = DatabaseManager.shared.userSettingsRepository?.fetchCurrency() ?? .usd
+    }
+}
+```
+
+This pattern:
+- Keeps code cleaner and more readable
+- Makes dependencies explicit and easier to test
+- Avoids repeated long chain calls throughout the view
+
 ### Navigation
 Use `NavigationStack` with type-safe navigation:
 ```swift
@@ -312,6 +348,8 @@ final class SessionsViewModel {
 6. **Don't use `Timer`** — use `Task.sleep` or `.task` modifier
 7. **Don't hardcode App Store ID** — use constants file
 8. **Don't commit API keys** — use xcconfig or environment variables
+9. **Don't call `DatabaseManager.shared.someRepository?.method()` chains directly in view code** — use a private repository field initialized in `init()` instead (see "Repository Access in Views" pattern above)
+10. **Don't use non-existent static fields** — repositories don't have `.shared` static fields; always access them via `DatabaseManager.shared.repositoryName`
 
 ---
 

@@ -566,3 +566,80 @@
 
 /* Document Camera */
 "document.camera.default_name" = "Çekilen Belge";
+
+/* Note Management */
+"note.list.title" = "Notlar";
+"note.list.empty.title" = "Not yok";
+"note.list.empty.message" = "Seyahatinizin önemli detaylarını hatırlamak için notlar ekleyin.";
+"note.list.add_first" = "Not Ekle";
+"note.summary.notes" = "not";
+"note.untitled" = "Başlıksız";
+
+/* Note Form */
+"note.form.add_title" = "Yeni Not";
+"note.form.edit_title" = "Notu Düzenle";
+"note.form.section.title" = "Başlık";
+"note.form.section.content" = "İçerik";
+"note.form.title_placeholder" = "Not başlığı";
+"note.form.validation.error" = "Doğrulama Hatası";
+"note.form.validation.empty" = "Lütfen bir başlık veya içerik girin.";
+
+/* Place Management */
+"place.list.title" = "Gezilecek Yerler";
+"place.list.empty.title" = "Yer yok";
+"place.list.empty.message" = "Seyahatiniz sırasında ziyaret etmek istediğiniz yerleri ekleyin.";
+"place.list.add_first" = "Yer Ekle";
+"place.summary.visited" = "ziyaret edildi";
+
+/* Place Filters */
+"place.filter.all" = "Tümü";
+"place.filter.to_visit" = "Ziyaret Edilecek";
+"place.filter.visited" = "Ziyaret Edildi";
+
+/* Place Actions */
+"place.action.mark_visited" = "Ziyaret Edildi Olarak İşaretle";
+"place.action.mark_unvisited" = "Ziyaret Edilmedi Olarak İşaretle";
+
+/* Place Form */
+"place.form.add_title" = "Yer Ekle";
+"place.form.edit_title" = "Yeri Düzenle";
+"place.form.section.info" = "Yer Bilgisi";
+"place.form.section.category" = "Kategori";
+"place.form.section.date" = "Planlanan Tarih";
+"place.form.section.notes" = "Notlar";
+"place.form.name" = "Yer adı";
+"place.form.address" = "Adres";
+"place.form.category" = "Kategori";
+"place.form.visited" = "Zaten ziyaret edildi";
+"place.form.has_planned_date" = "Planlanan tarih belirle";
+"place.form.planned_date" = "Planlanan tarih";
+"place.form.validation.error" = "Doğrulama Hatası";
+"place.form.validation.name_required" = "Lütfen bir yer adı girin.";
+
+/* Budget Management */
+"budget.title" = "Bütçe";
+"budget.total_spent" = "Toplam Harcama";
+"budget.expenses" = "harcama";
+"budget.by_category" = "Kategoriye Göre";
+"budget.empty.title" = "Harcama yok";
+"budget.empty.message" = "Bütçenizi yönetmek için seyahat harcamalarınızı takip edin.";
+"budget.add_first" = "Harcama Ekle";
+
+/* Expense Filters */
+"expense.filter.all" = "Tümü";
+
+/* Expense Form */
+"expense.form.add_title" = "Harcama Ekle";
+"expense.form.edit_title" = "Harcamayı Düzenle";
+"expense.form.section.info" = "Harcama Bilgisi";
+"expense.form.section.amount" = "Tutar";
+"expense.form.section.category" = "Kategori";
+"expense.form.section.date" = "Tarih";
+"expense.form.section.notes" = "Notlar";
+"expense.form.title" = "Açıklama";
+"expense.form.amount" = "Tutar";
+"expense.form.category" = "Kategori";
+"expense.form.date" = "Tarih";
+"expense.form.validation.error" = "Doğrulama Hatası";
+"expense.form.validation.title_required" = "Lütfen bir açıklama girin.";
+"expense.form.validation.amount_required" = "Lütfen geçerli bir tutar girin.";

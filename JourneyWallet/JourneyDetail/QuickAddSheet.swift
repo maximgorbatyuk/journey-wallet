@@ -8,10 +8,18 @@ struct QuickAddSheet: View {
     @Environment(\.dismiss) private var dismiss
     @State private var selectedEntityType: QuickAddEntityType?
 
+    private let userSettingsRepository: UserSettingsRepository?
+
     private let columns = [
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
+
+    init(journeyId: UUID, onEntityAdded: @escaping () -> Void) {
+        self.journeyId = journeyId
+        self.onEntityAdded = onEntityAdded
+        self.userSettingsRepository = DatabaseManager.shared.userSettingsRepository
+    }
 
     var body: some View {
         NavigationView {
@@ -88,20 +96,45 @@ struct QuickAddSheet: View {
             }
 
         case .note:
-            // TODO: Implement NoteFormView in Phase 9
-            placeholderView(for: entityType)
+            NoteFormView(
+                journeyId: journeyId,
+                mode: .add,
+                onSave: { note in
+                    if DatabaseManager.shared.notesRepository?.insert(note) == true {
+                        onEntityAdded()
+                        dismiss()
+                    }
+                }
+            )
 
         case .place:
-            // TODO: Implement PlaceToVisitFormView in Phase 9
-            placeholderView(for: entityType)
+            PlaceFormView(
+                journeyId: journeyId,
+                mode: .add,
+                onSave: { place in
+                    if DatabaseManager.shared.placesToVisitRepository?.insert(place) == true {
+                        onEntityAdded()
+                        dismiss()
+                    }
+                }
+            )
 
         case .reminder:
             // TODO: Implement ReminderFormView in Phase 10
             placeholderView(for: entityType)
 
         case .expense:
-            // TODO: Implement ExpenseFormView in Phase 9
-            placeholderView(for: entityType)
+            ExpenseFormView(
+                journeyId: journeyId,
+                mode: .add,
+                defaultCurrency: userSettingsRepository?.fetchCurrency() ?? .usd,
+                onSave: { expense in
+                    if DatabaseManager.shared.expensesRepository?.insert(expense) == true {
+                        onEntityAdded()
+                        dismiss()
+                    }
+                }
+            )
         }
     }
 

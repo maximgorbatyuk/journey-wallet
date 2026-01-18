@@ -566,3 +566,80 @@
 
 /* Document Camera */
 "document.camera.default_name" = "Снятый документ";
+
+/* Note Management */
+"note.list.title" = "Заметки";
+"note.list.empty.title" = "Нет заметок";
+"note.list.empty.message" = "Добавьте заметки, чтобы запомнить важные детали вашего путешествия.";
+"note.list.add_first" = "Добавить заметку";
+"note.summary.notes" = "заметок";
+"note.untitled" = "Без названия";
+
+/* Note Form */
+"note.form.add_title" = "Новая заметка";
+"note.form.edit_title" = "Редактировать заметку";
+"note.form.section.title" = "Заголовок";
+"note.form.section.content" = "Содержание";
+"note.form.title_placeholder" = "Название заметки";
+"note.form.validation.error" = "Ошибка валидации";
+"note.form.validation.empty" = "Пожалуйста, введите заголовок или содержание.";
+
+/* Place Management */
+"place.list.title" = "Места для посещения";
+"place.list.empty.title" = "Нет мест";
+"place.list.empty.message" = "Добавьте места, которые вы хотите посетить во время путешествия.";
+"place.list.add_first" = "Добавить место";
+"place.summary.visited" = "посещено";
+
+/* Place Filters */
+"place.filter.all" = "Все";
+"place.filter.to_visit" = "К посещению";
+"place.filter.visited" = "Посещённые";
+
+/* Place Actions */
+"place.action.mark_visited" = "Отметить посещённым";
+"place.action.mark_unvisited" = "Отметить непосещённым";
+
+/* Place Form */
+"place.form.add_title" = "Добавить место";
+"place.form.edit_title" = "Редактировать место";
+"place.form.section.info" = "Информация о месте";
+"place.form.section.category" = "Категория";
+"place.form.section.date" = "Планируемая дата";
+"place.form.section.notes" = "Заметки";
+"place.form.name" = "Название места";
+"place.form.address" = "Адрес";
+"place.form.category" = "Категория";
+"place.form.visited" = "Уже посещено";
+"place.form.has_planned_date" = "Установить дату";
+"place.form.planned_date" = "Планируемая дата";
+"place.form.validation.error" = "Ошибка валидации";
+"place.form.validation.name_required" = "Пожалуйста, введите название места.";
+
+/* Budget Management */
+"budget.title" = "Бюджет";
+"budget.total_spent" = "Всего потрачено";
+"budget.expenses" = "расходов";
+"budget.by_category" = "По категориям";
+"budget.empty.title" = "Нет расходов";
+"budget.empty.message" = "Отслеживайте расходы на путешествие для управления бюджетом.";
+"budget.add_first" = "Добавить расход";
+
+/* Expense Filters */
+"expense.filter.all" = "Все";
+
+/* Expense Form */
+"expense.form.add_title" = "Добавить расход";
+"expense.form.edit_title" = "Редактировать расход";
+"expense.form.section.info" = "Информация о расходе";
+"expense.form.section.amount" = "Сумма";
+"expense.form.section.category" = "Категория";
+"expense.form.section.date" = "Дата";
+"expense.form.section.notes" = "Заметки";
+"expense.form.title" = "Описание";
+"expense.form.amount" = "Сумма";
+"expense.form.category" = "Категория";
+"expense.form.date" = "Дата";
+"expense.form.validation.error" = "Ошибка валидации";
+"expense.form.validation.title_required" = "Пожалуйста, введите описание.";
+"expense.form.validation.amount_required" = "Пожалуйста, введите корректную сумму.";

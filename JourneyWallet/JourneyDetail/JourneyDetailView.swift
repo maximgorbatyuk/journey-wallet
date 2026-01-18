@@ -8,6 +8,9 @@ struct JourneyDetailView: View {
     @State private var showHotelList = false
     @State private var showCarRentalList = false
     @State private var showDocumentList = false
+    @State private var showNoteList = false
+    @State private var showPlaceList = false
+    @State private var showBudgetView = false
     @State private var showQuickAddSheet = false
     @ObservedObject private var analytics = AnalyticsService.shared
 
@@ -202,19 +205,28 @@ struct JourneyDetailView: View {
                                     iconName: "note.text",
                                     iconColor: .yellow,
                                     itemCount: viewModel.sectionCounts.notes,
-                                    onSeeAll: viewModel.sectionCounts.notes > 0 ? {
-                                        // TODO: Navigate to full notes list
+                                    onSeeAll: viewModel.selectedJourneyId != nil ? {
+                                        showNoteList = true
                                     } : nil
                                 ),
                                 content: {
                                     if viewModel.recentNotes.isEmpty {
-                                        EmptySectionView(
-                                            message: L("journey.detail.notes.empty"),
-                                            iconName: "note.text"
-                                        )
+                                        Button {
+                                            showNoteList = true
+                                        } label: {
+                                            EmptySectionView(
+                                                message: L("journey.detail.notes.empty"),
+                                                iconName: "note.text"
+                                            )
+                                        }
+                                        .buttonStyle(.plain)
                                     } else {
                                         ForEach(viewModel.recentNotes) { note in
                                             NotePreviewRow(note: note)
+                                                .contentShape(Rectangle())
+                                                .onTapGesture {
+                                                    showNoteList = true
+                                                }
                                             if note.id != viewModel.recentNotes.last?.id {
                                                 Divider().padding(.leading, 56)
                                             }
@@ -230,19 +242,28 @@ struct JourneyDetailView: View {
                                     iconName: "mappin.circle.fill",
                                     iconColor: .red,
                                     itemCount: viewModel.sectionCounts.places,
-                                    onSeeAll: viewModel.sectionCounts.places > 0 ? {
-                                        // TODO: Navigate to full places list
+                                    onSeeAll: viewModel.selectedJourneyId != nil ? {
+                                        showPlaceList = true
                                     } : nil
                                 ),
                                 content: {
                                     if viewModel.upcomingPlaces.isEmpty {
-                                        EmptySectionView(
-                                            message: L("journey.detail.places.empty"),
-                                            iconName: "mappin"
-                                        )
+                                        Button {
+                                            showPlaceList = true
+                                        } label: {
+                                            EmptySectionView(
+                                                message: L("journey.detail.places.empty"),
+                                                iconName: "mappin"
+                                            )
+                                        }
+                                        .buttonStyle(.plain)
                                     } else {
                                         ForEach(viewModel.upcomingPlaces) { place in
                                             PlacePreviewRow(place: place)
+                                                .contentShape(Rectangle())
+                                                .onTapGesture {
+                                                    showPlaceList = true
+                                                }
                                             if place.id != viewModel.upcomingPlaces.last?.id {
                                                 Divider().padding(.leading, 56)
                                             }
@@ -286,22 +307,32 @@ struct JourneyDetailView: View {
                                     iconName: "dollarsign.circle.fill",
                                     iconColor: .green,
                                     itemCount: viewModel.sectionCounts.expenses,
-                                    onSeeAll: viewModel.sectionCounts.expenses > 0 ? {
-                                        // TODO: Navigate to full budget view
+                                    onSeeAll: viewModel.selectedJourneyId != nil ? {
+                                        showBudgetView = true
                                     } : nil
                                 ),
                                 content: {
                                     if viewModel.sectionCounts.expenses == 0 {
-                                        EmptySectionView(
-                                            message: L("journey.detail.budget.empty"),
-                                            iconName: "dollarsign.circle"
-                                        )
+                                        Button {
+                                            showBudgetView = true
+                                        } label: {
+                                            EmptySectionView(
+                                                message: L("journey.detail.budget.empty"),
+                                                iconName: "dollarsign.circle"
+                                            )
+                                        }
+                                        .buttonStyle(.plain)
                                     } else {
-                                        BudgetSummaryView(
-                                            totalExpenses: viewModel.sectionCounts.totalExpenses,
-                                            expenseCount: viewModel.sectionCounts.expenses,
-                                            currency: viewModel.sectionCounts.expensesCurrency
-                                        )
+                                        Button {
+                                            showBudgetView = true
+                                        } label: {
+                                            BudgetSummaryView(
+                                                totalExpenses: viewModel.sectionCounts.totalExpenses,
+                                                expenseCount: viewModel.sectionCounts.expenses,
+                                                currency: viewModel.sectionCounts.expensesCurrency
+                                            )
+                                        }
+                                        .buttonStyle(.plain)
                                     }
                                 }
                             )
@@ -359,6 +390,15 @@ struct JourneyDetailView: View {
             }
             .navigationDestination(isPresented: $showDocumentList) {
                 DocumentListView(journeyId: viewModel.selectedJourneyId ?? UUID())
+            }
+            .navigationDestination(isPresented: $showNoteList) {
+                NoteListView(journeyId: viewModel.selectedJourneyId ?? UUID())
+            }
+            .navigationDestination(isPresented: $showPlaceList) {
+                PlaceListView(journeyId: viewModel.selectedJourneyId ?? UUID())
+            }
+            .navigationDestination(isPresented: $showBudgetView) {
+                BudgetView(journeyId: viewModel.selectedJourneyId ?? UUID())
             }
         }
     }

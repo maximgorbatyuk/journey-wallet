@@ -58,8 +58,25 @@ Text(L("key.name"))  // Not Text("Hardcoded string")
 
 **Database Access:** Repositories handle data operations via `DatabaseManager.shared`:
 ```swift
+// In ViewModels or Services - direct access is OK
 DatabaseManager.shared.userSettingsRepository?.fetchSettings()
+
+// In SwiftUI Views - use private repository field pattern
+struct MyView: View {
+    private let userSettingsRepository: UserSettingsRepository?
+
+    init() {
+        self.userSettingsRepository = DatabaseManager.shared.userSettingsRepository
+    }
+
+    var body: some View {
+        // Use the field, not the chain:
+        let currency = userSettingsRepository?.fetchCurrency() ?? .usd
+    }
+}
 ```
+
+**Important:** Never use non-existent static fields like `UserSettingsRepository.shared` — repositories don't have `.shared` accessors. Always get them from `DatabaseManager.shared`.
 
 **Analytics:** Use `AnalyticsService.shared.trackEvent()` for tracking. Firebase is only configured in Release builds.
 

@@ -659,6 +659,7 @@ Below are some key user stories for the app:
 - Fields: title, amount, currency, category, date, notes
 - Category picker
 - Quick amount entry
+- **Important**: ExpenseFormView should accept `defaultCurrency: Currency` as a parameter. The calling view (e.g., QuickAddSheet, BudgetView) should pass this value by fetching it from its private `userSettingsRepository` field (see Notes section for repository access pattern).
 
 ---
 
@@ -821,6 +822,29 @@ Below are some key user stories for the app:
 - All async operations should use async/await
 - Add Firebase Analytics events for key actions
 - **Reminder Creation Pattern**: Always schedule notification first to get `notificationId`, then create `Reminder` entity with that ID. This ensures proper linking between database records and system notifications for cancellation support.
+- **Repository Access in Views**: When a view needs to access a repository (e.g., for fetching user settings like default currency), create a **private field** in the view to hold the repository reference, initialize it in the view's `init()` from `DatabaseManager.shared`, and then use that field in the view code. **Do NOT** call the chain `DatabaseManager.shared.someRepository?.someMethod()` directly in the view body or sheet modifiers.
+
+  ```swift
+  // ✅ Good - Private repository field
+  struct MyView: View {
+      private let userSettingsRepository: UserSettingsRepository?
+
+      init() {
+          self.userSettingsRepository = DatabaseManager.shared.userSettingsRepository
+      }
+
+      var body: some View {
+          // Use: userSettingsRepository?.fetchCurrency() ?? .usd
+      }
+  }
+
+  // ❌ Bad - Direct chain access in view
+  struct MyView: View {
+      var body: some View {
+          // Don't: DatabaseManager.shared.userSettingsRepository?.fetchCurrency() ?? .usd
+      }
+  }
+  ```
 
 ---
 

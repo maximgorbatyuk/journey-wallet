@@ -561,3 +561,80 @@
 
 /* Document Camera */
 "document.camera.default_name" = "Erfasstes Dokument";
+
+/* Note Management */
+"note.list.title" = "Notizen";
+"note.list.empty.title" = "Keine Notizen";
+"note.list.empty.message" = "Fügen Sie Notizen hinzu, um wichtige Details Ihrer Reise zu speichern.";
+"note.list.add_first" = "Notiz hinzufügen";
+"note.summary.notes" = "Notizen";
+"note.untitled" = "Unbenannt";
+
+/* Note Form */
+"note.form.add_title" = "Neue Notiz";
+"note.form.edit_title" = "Notiz bearbeiten";
+"note.form.section.title" = "Titel";
+"note.form.section.content" = "Inhalt";
+"note.form.title_placeholder" = "Notiz-Titel";
+"note.form.validation.error" = "Validierungsfehler";
+"note.form.validation.empty" = "Bitte geben Sie einen Titel oder Inhalt ein.";
+
+/* Place Management */
+"place.list.title" = "Sehenswürdigkeiten";
+"place.list.empty.title" = "Keine Orte";
+"place.list.empty.message" = "Fügen Sie Orte hinzu, die Sie während Ihrer Reise besuchen möchten.";
+"place.list.add_first" = "Ort hinzufügen";
+"place.summary.visited" = "besucht";
+
+/* Place Filters */
+"place.filter.all" = "Alle";
+"place.filter.to_visit" = "Zu besuchen";
+"place.filter.visited" = "Besucht";
+
+/* Place Actions */
+"place.action.mark_visited" = "Als besucht markieren";
+"place.action.mark_unvisited" = "Als nicht besucht markieren";
+
+/* Place Form */
+"place.form.add_title" = "Ort hinzufügen";
+"place.form.edit_title" = "Ort bearbeiten";
+"place.form.section.info" = "Ortsinformationen";
+"place.form.section.category" = "Kategorie";
+"place.form.section.date" = "Geplantes Datum";
+"place.form.section.notes" = "Notizen";
+"place.form.name" = "Ortsname";
+"place.form.address" = "Adresse";
+"place.form.category" = "Kategorie";
+"place.form.visited" = "Bereits besucht";
+"place.form.has_planned_date" = "Geplantes Datum festlegen";
+"place.form.planned_date" = "Geplantes Datum";
+"place.form.validation.error" = "Validierungsfehler";
+"place.form.validation.name_required" = "Bitte geben Sie einen Ortsnamen ein.";
+
+/* Budget Management */
+"budget.title" = "Budget";
+"budget.total_spent" = "Gesamtausgaben";
+"budget.expenses" = "Ausgaben";
+"budget.by_category" = "Nach Kategorie";
+"budget.empty.title" = "Keine Ausgaben";
+"budget.empty.message" = "Verfolgen Sie Ihre Reiseausgaben, um Ihr Budget zu verwalten.";
+"budget.add_first" = "Ausgabe hinzufügen";
+
+/* Expense Filters */
+"expense.filter.all" = "Alle";
+
+/* Expense Form */
+"expense.form.add_title" = "Ausgabe hinzufügen";
+"expense.form.edit_title" = "Ausgabe bearbeiten";
+"expense.form.section.info" = "Ausgabeninformationen";
+"expense.form.section.amount" = "Betrag";
+"expense.form.section.category" = "Kategorie";
+"expense.form.section.date" = "Datum";
+"expense.form.section.notes" = "Notizen";
+"expense.form.title" = "Beschreibung";
+"expense.form.amount" = "Betrag";
+"expense.form.category" = "Kategorie";
+"expense.form.date" = "Datum";
+"expense.form.validation.error" = "Validierungsfehler";
+"expense.form.validation.title_required" = "Bitte geben Sie eine Beschreibung ein.";
+"expense.form.validation.amount_required" = "Bitte geben Sie einen gültigen Betrag ein.";

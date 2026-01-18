@@ -561,3 +561,80 @@
 
 /* Document Camera */
 "document.camera.default_name" = "Captured Document";
+
+/* Note Management */
+"note.list.title" = "Notes";
+"note.list.empty.title" = "No notes";
+"note.list.empty.message" = "Add notes to remember important details about your journey.";
+"note.list.add_first" = "Add Note";
+"note.summary.notes" = "notes";
+"note.untitled" = "Untitled";
+
+/* Note Form */
+"note.form.add_title" = "New Note";
+"note.form.edit_title" = "Edit Note";
+"note.form.section.title" = "Title";
+"note.form.section.content" = "Content";
+"note.form.title_placeholder" = "Note title";
+"note.form.validation.error" = "Validation Error";
+"note.form.validation.empty" = "Please enter a title or content.";
+
+/* Place Management */
+"place.list.title" = "Places to Visit";
+"place.list.empty.title" = "No places";
+"place.list.empty.message" = "Add places you want to visit during your journey.";
+"place.list.add_first" = "Add Place";
+"place.summary.visited" = "visited";
+
+/* Place Filters */
+"place.filter.all" = "All";
+"place.filter.to_visit" = "To Visit";
+"place.filter.visited" = "Visited";
+
+/* Place Actions */
+"place.action.mark_visited" = "Mark Visited";
+"place.action.mark_unvisited" = "Mark Unvisited";
+
+/* Place Form */
+"place.form.add_title" = "Add Place";
+"place.form.edit_title" = "Edit Place";
+"place.form.section.info" = "Place Info";
+"place.form.section.category" = "Category";
+"place.form.section.date" = "Planned Date";
+"place.form.section.notes" = "Notes";
+"place.form.name" = "Place name";
+"place.form.address" = "Address";
+"place.form.category" = "Category";
+"place.form.visited" = "Already visited";
+"place.form.has_planned_date" = "Set planned date";
+"place.form.planned_date" = "Planned date";
+"place.form.validation.error" = "Validation Error";
+"place.form.validation.name_required" = "Please enter a place name.";
+
+/* Budget Management */
+"budget.title" = "Budget";
+"budget.total_spent" = "Total Spent";
+"budget.expenses" = "expenses";
+"budget.by_category" = "By Category";
+"budget.empty.title" = "No expenses";
+"budget.empty.message" = "Track your travel expenses to manage your budget.";
+"budget.add_first" = "Add Expense";
+
+/* Expense Filters */
+"expense.filter.all" = "All";
+
+/* Expense Form */
+"expense.form.add_title" = "Add Expense";
+"expense.form.edit_title" = "Edit Expense";
+"expense.form.section.info" = "Expense Info";
+"expense.form.section.amount" = "Amount";
+"expense.form.section.category" = "Category";
+"expense.form.section.date" = "Date";
+"expense.form.section.notes" = "Notes";
+"expense.form.title" = "Description";
+"expense.form.amount" = "Amount";
+"expense.form.category" = "Category";
+"expense.form.date" = "Date";
+"expense.form.validation.error" = "Validation Error";
+"expense.form.validation.title_required" = "Please enter a description.";
+"expense.form.validation.amount_required" = "Please enter a valid amount.";

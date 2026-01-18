@@ -570,3 +570,80 @@
 
 /* Document Camera */
 "document.camera.default_name" = "Түсірілген фото";
+
+/* Note Management */
+"note.list.title" = "Жазбалар";
+"note.list.empty.title" = "Жазбалар жоқ";
+"note.list.empty.message" = "Саяхатыңыздың маңызды бөлшектерін есте сақтау үшін жазбалар қосыңыз.";
+"note.list.add_first" = "Жазба қосу";
+"note.summary.notes" = "жазба";
+"note.untitled" = "Атаусыз";
+
+/* Note Form */
+"note.form.add_title" = "Жаңа жазба";
+"note.form.edit_title" = "Жазбаны өңдеу";
+"note.form.section.title" = "Тақырып";
+"note.form.section.content" = "Мазмұны";
+"note.form.title_placeholder" = "Жазба тақырыбы";
+"note.form.validation.error" = "Тексеру қатесі";
+"note.form.validation.empty" = "Тақырыпты немесе мазмұнды енгізіңіз.";
+
+/* Place Management */
+"place.list.title" = "Бару орындары";
+"place.list.empty.title" = "Орындар жоқ";
+"place.list.empty.message" = "Саяхатыңыз кезінде бару керек орындарды қосыңыз.";
+"place.list.add_first" = "Орын қосу";
+"place.summary.visited" = "барылған";
+
+/* Place Filters */
+"place.filter.all" = "Барлығы";
+"place.filter.to_visit" = "Бару керек";
+"place.filter.visited" = "Барылған";
+
+/* Place Actions */
+"place.action.mark_visited" = "Барылған деп белгілеу";
+"place.action.mark_unvisited" = "Барылмаған деп белгілеу";
+
+/* Place Form */
+"place.form.add_title" = "Орын қосу";
+"place.form.edit_title" = "Орынды өңдеу";
+"place.form.section.info" = "Орын ақпараты";
+"place.form.section.category" = "Санат";
+"place.form.section.date" = "Жоспарланған күн";
+"place.form.section.notes" = "Жазбалар";
+"place.form.name" = "Орын аты";
+"place.form.address" = "Мекенжай";
+"place.form.category" = "Санат";
+"place.form.visited" = "Бұрын барылған";
+"place.form.has_planned_date" = "Жоспарланған күнді белгілеу";
+"place.form.planned_date" = "Жоспарланған күн";
+"place.form.validation.error" = "Тексеру қатесі";
+"place.form.validation.name_required" = "Орын атын енгізіңіз.";
+
+/* Budget Management */
+"budget.title" = "Бюджет";
+"budget.total_spent" = "Жалпы шығын";
+"budget.expenses" = "шығын";
+"budget.by_category" = "Санат бойынша";
+"budget.empty.title" = "Шығындар жоқ";
+"budget.empty.message" = "Бюджетіңізді басқару үшін саяхат шығындарын қадағалаңыз.";
+"budget.add_first" = "Шығын қосу";
+
+/* Expense Filters */
+"expense.filter.all" = "Барлығы";
+
+/* Expense Form */
+"expense.form.add_title" = "Шығын қосу";
+"expense.form.edit_title" = "Шығынды өңдеу";
+"expense.form.section.info" = "Шығын ақпараты";
+"expense.form.section.amount" = "Сома";
+"expense.form.section.category" = "Санат";
+"expense.form.section.date" = "Күні";
+"expense.form.section.notes" = "Жазбалар";
+"expense.form.title" = "Сипаттама";
+"expense.form.amount" = "Сома";
+"expense.form.category" = "Санат";
+"expense.form.date" = "Күні";
+"expense.form.validation.error" = "Тексеру қатесі";
+"expense.form.validation.title_required" = "Сипаттаманы енгізіңіз.";
+"expense.form.validation.amount_required" = "Жарамды соманы енгізіңіз.";
