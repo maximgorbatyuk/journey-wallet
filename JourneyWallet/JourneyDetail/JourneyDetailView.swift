@@ -1,0 +1,423 @@
+import SwiftUI
+
+struct JourneyDetailView: View {
+
+    @State private var viewModel = JourneyDetailViewModel()
+    @State private var showAddJourneySheet = false
+    @ObservedObject private var analytics = AnalyticsService.shared
+
+    var body: some View {
+        NavigationView {
+            VStack(spacing: 0) {
+                if viewModel.isLoading {
+                    ProgressView()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                } else if viewModel.allJourneys.isEmpty {
+                    emptyStateView
+                } else {
+                    // Journey selector at top
+                    JourneySelectorView(
+                        journeys: viewModel.allJourneys,
+                        selectedJourneyId: viewModel.selectedJourneyId,
+                        onSelect: { id in
+                            viewModel.selectJourney(id: id)
+                        },
+                        onCreateNew: {
+                            showAddJourneySheet = true
+                        }
+                    )
+                    .padding(.horizontal)
+                    .padding(.top, 8)
+
+                    // Journey info header
+                    if let journey = viewModel.selectedJourney {
+                        journeyInfoHeader(journey: journey)
+                    }
+
+                    // Scrollable sections
+                    ScrollView {
+                        LazyVStack(spacing: 0) {
+                            // Transport Section
+                            sectionContainer(
+                                header: SectionHeaderView(
+                                    title: L("journey.detail.section.transport"),
+                                    iconName: "airplane",
+                                    iconColor: .blue,
+                                    itemCount: viewModel.sectionCounts.transports,
+                                    onSeeAll: viewModel.sectionCounts.transports > 0 ? {
+                                        // TODO: Navigate to full transport list
+                                    } : nil
+                                ),
+                                content: {
+                                    if viewModel.upcomingTransports.isEmpty {
+                                        EmptySectionView(
+                                            message: L("journey.detail.transport.empty"),
+                                            iconName: "airplane"
+                                        )
+                                    } else {
+                                        ForEach(viewModel.upcomingTransports) { transport in
+                                            TransportPreviewRow(transport: transport)
+                                            if transport.id != viewModel.upcomingTransports.last?.id {
+                                                Divider().padding(.leading, 56)
+                                            }
+                                        }
+                                    }
+                                }
+                            )
+
+                            // Hotels Section
+                            sectionContainer(
+                                header: SectionHeaderView(
+                                    title: L("journey.detail.section.hotels"),
+                                    iconName: "building.2.fill",
+                                    iconColor: .purple,
+                                    itemCount: viewModel.sectionCounts.hotels,
+                                    onSeeAll: viewModel.sectionCounts.hotels > 0 ? {
+                                        // TODO: Navigate to full hotel list
+                                    } : nil
+                                ),
+                                content: {
+                                    if viewModel.upcomingHotels.isEmpty {
+                                        EmptySectionView(
+                                            message: L("journey.detail.hotels.empty"),
+                                            iconName: "building.2"
+                                        )
+                                    } else {
+                                        ForEach(viewModel.upcomingHotels) { hotel in
+                                            HotelPreviewRow(hotel: hotel)
+                                            if hotel.id != viewModel.upcomingHotels.last?.id {
+                                                Divider().padding(.leading, 56)
+                                            }
+                                        }
+                                    }
+                                }
+                            )
+
+                            // Car Rentals Section
+                            sectionContainer(
+                                header: SectionHeaderView(
+                                    title: L("journey.detail.section.car_rentals"),
+                                    iconName: "car.fill",
+                                    iconColor: .green,
+                                    itemCount: viewModel.sectionCounts.carRentals,
+                                    onSeeAll: viewModel.sectionCounts.carRentals > 0 ? {
+                                        // TODO: Navigate to full car rental list
+                                    } : nil
+                                ),
+                                content: {
+                                    if viewModel.upcomingCarRentals.isEmpty {
+                                        EmptySectionView(
+                                            message: L("journey.detail.car_rentals.empty"),
+                                            iconName: "car"
+                                        )
+                                    } else {
+                                        ForEach(viewModel.upcomingCarRentals) { carRental in
+                                            CarRentalPreviewRow(carRental: carRental)
+                                            if carRental.id != viewModel.upcomingCarRentals.last?.id {
+                                                Divider().padding(.leading, 56)
+                                            }
+                                        }
+                                    }
+                                }
+                            )
+
+                            // Documents Section
+                            sectionContainer(
+                                header: SectionHeaderView(
+                                    title: L("journey.detail.section.documents"),
+                                    iconName: "doc.fill",
+                                    iconColor: .orange,
+                                    itemCount: viewModel.sectionCounts.documents,
+                                    onSeeAll: viewModel.sectionCounts.documents > 0 ? {
+                                        // TODO: Navigate to full documents list
+                                    } : nil
+                                ),
+                                content: {
+                                    if viewModel.sectionCounts.documents == 0 {
+                                        EmptySectionView(
+                                            message: L("journey.detail.documents.empty"),
+                                            iconName: "doc"
+                                        )
+                                    } else {
+                                        HStack {
+                                            Text("\(viewModel.sectionCounts.documents) \(L("journey.detail.documents.count"))")
+                                                .font(.subheadline)
+                                                .foregroundColor(.secondary)
+                                            Spacer()
+                                        }
+                                        .padding()
+                                    }
+                                }
+                            )
+
+                            // Notes Section
+                            sectionContainer(
+                                header: SectionHeaderView(
+                                    title: L("journey.detail.section.notes"),
+                                    iconName: "note.text",
+                                    iconColor: .yellow,
+                                    itemCount: viewModel.sectionCounts.notes,
+                                    onSeeAll: viewModel.sectionCounts.notes > 0 ? {
+                                        // TODO: Navigate to full notes list
+                                    } : nil
+                                ),
+                                content: {
+                                    if viewModel.recentNotes.isEmpty {
+                                        EmptySectionView(
+                                            message: L("journey.detail.notes.empty"),
+                                            iconName: "note.text"
+                                        )
+                                    } else {
+                                        ForEach(viewModel.recentNotes) { note in
+                                            NotePreviewRow(note: note)
+                                            if note.id != viewModel.recentNotes.last?.id {
+                                                Divider().padding(.leading, 56)
+                                            }
+                                        }
+                                    }
+                                }
+                            )
+
+                            // Places to Visit Section
+                            sectionContainer(
+                                header: SectionHeaderView(
+                                    title: L("journey.detail.section.places"),
+                                    iconName: "mappin.circle.fill",
+                                    iconColor: .red,
+                                    itemCount: viewModel.sectionCounts.places,
+                                    onSeeAll: viewModel.sectionCounts.places > 0 ? {
+                                        // TODO: Navigate to full places list
+                                    } : nil
+                                ),
+                                content: {
+                                    if viewModel.upcomingPlaces.isEmpty {
+                                        EmptySectionView(
+                                            message: L("journey.detail.places.empty"),
+                                            iconName: "mappin"
+                                        )
+                                    } else {
+                                        ForEach(viewModel.upcomingPlaces) { place in
+                                            PlacePreviewRow(place: place)
+                                            if place.id != viewModel.upcomingPlaces.last?.id {
+                                                Divider().padding(.leading, 56)
+                                            }
+                                        }
+                                    }
+                                }
+                            )
+
+                            // Reminders Section
+                            sectionContainer(
+                                header: SectionHeaderView(
+                                    title: L("journey.detail.section.reminders"),
+                                    iconName: "bell.fill",
+                                    iconColor: .red,
+                                    itemCount: viewModel.sectionCounts.reminders,
+                                    onSeeAll: viewModel.sectionCounts.reminders > 0 ? {
+                                        // TODO: Navigate to full reminders list
+                                    } : nil
+                                ),
+                                content: {
+                                    if viewModel.upcomingReminders.isEmpty {
+                                        EmptySectionView(
+                                            message: L("journey.detail.reminders.empty"),
+                                            iconName: "bell"
+                                        )
+                                    } else {
+                                        ForEach(viewModel.upcomingReminders) { reminder in
+                                            ReminderPreviewRow(reminder: reminder)
+                                            if reminder.id != viewModel.upcomingReminders.last?.id {
+                                                Divider().padding(.leading, 56)
+                                            }
+                                        }
+                                    }
+                                }
+                            )
+
+                            // Budget Section
+                            sectionContainer(
+                                header: SectionHeaderView(
+                                    title: L("journey.detail.section.budget"),
+                                    iconName: "dollarsign.circle.fill",
+                                    iconColor: .green,
+                                    itemCount: viewModel.sectionCounts.expenses,
+                                    onSeeAll: viewModel.sectionCounts.expenses > 0 ? {
+                                        // TODO: Navigate to full budget view
+                                    } : nil
+                                ),
+                                content: {
+                                    if viewModel.sectionCounts.expenses == 0 {
+                                        EmptySectionView(
+                                            message: L("journey.detail.budget.empty"),
+                                            iconName: "dollarsign.circle"
+                                        )
+                                    } else {
+                                        BudgetSummaryView(
+                                            totalExpenses: viewModel.sectionCounts.totalExpenses,
+                                            expenseCount: viewModel.sectionCounts.expenses,
+                                            currency: viewModel.sectionCounts.expensesCurrency
+                                        )
+                                    }
+                                }
+                            )
+
+                            // Bottom padding
+                            Spacer()
+                                .frame(height: 32)
+                        }
+                    }
+                }
+            }
+            .background(Color(.systemGray6))
+            .navigationTitle(L("journey.detail.title"))
+            .navigationBarTitleDisplayMode(.inline)
+            .onAppear {
+                analytics.trackScreen("journey_detail_screen")
+                viewModel.loadInitialData()
+            }
+            .refreshable {
+                viewModel.refreshData()
+            }
+            .sheet(isPresented: $showAddJourneySheet) {
+                JourneyFormView(
+                    mode: .add,
+                    onSave: { journey in
+                        // Add journey and select it
+                        if DatabaseManager.shared.journeysRepository?.insert(journey) == true {
+                            viewModel.refreshData()
+                            viewModel.selectJourney(id: journey.id)
+                        }
+                    }
+                )
+            }
+        }
+    }
+
+    // MARK: - Empty State
+
+    private var emptyStateView: some View {
+        VStack(spacing: 20) {
+            Image(systemName: "suitcase")
+                .font(.system(size: 60))
+                .foregroundColor(.gray)
+
+            Text(L("journey.detail.empty.title"))
+                .font(.title2)
+                .fontWeight(.semibold)
+                .foregroundColor(.gray)
+
+            Text(L("journey.detail.empty.subtitle"))
+                .font(.body)
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 40)
+
+            Button(action: {
+                showAddJourneySheet = true
+            }) {
+                HStack {
+                    Image(systemName: "plus")
+                    Text(L("journey.detail.empty.add_button"))
+                }
+                .padding(.horizontal, 24)
+                .padding(.vertical, 12)
+                .background(Color.orange)
+                .foregroundColor(.white)
+                .cornerRadius(10)
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+
+    // MARK: - Journey Info Header
+
+    private func journeyInfoHeader(journey: Journey) -> some View {
+        HStack(spacing: 16) {
+            // Status badge
+            Text(journeyStatusText(journey))
+                .font(.caption)
+                .fontWeight(.semibold)
+                .foregroundColor(.white)
+                .padding(.horizontal, 12)
+                .padding(.vertical, 4)
+                .background(journeyStatusColor(journey))
+                .cornerRadius(12)
+
+            // Duration
+            HStack(spacing: 4) {
+                Image(systemName: "calendar")
+                    .font(.caption)
+                Text("\(journey.durationDays) \(L("journey.days"))")
+                    .font(.caption)
+            }
+            .foregroundColor(.secondary)
+
+            Spacer()
+
+            // Days until/since
+            Text(daysUntilText(journey))
+                .font(.caption)
+                .foregroundColor(.secondary)
+        }
+        .padding(.horizontal)
+        .padding(.vertical, 8)
+    }
+
+    private func journeyStatusText(_ journey: Journey) -> String {
+        if journey.isActive {
+            return L("journey.status.active")
+        } else if journey.isUpcoming {
+            return L("journey.status.upcoming")
+        } else {
+            return L("journey.status.past")
+        }
+    }
+
+    private func journeyStatusColor(_ journey: Journey) -> Color {
+        if journey.isActive {
+            return .green
+        } else if journey.isUpcoming {
+            return .blue
+        } else {
+            return .gray
+        }
+    }
+
+    private func daysUntilText(_ journey: Journey) -> String {
+        let now = Date()
+        let calendar = Calendar.current
+
+        if journey.isActive {
+            let daysLeft = calendar.dateComponents([.day], from: now, to: journey.endDate).day ?? 0
+            return "\(daysLeft) \(L("journey.detail.days_left"))"
+        } else if journey.isUpcoming {
+            let daysUntil = calendar.dateComponents([.day], from: now, to: journey.startDate).day ?? 0
+            return "\(L("journey.detail.starts_in")) \(daysUntil) \(L("journey.days"))"
+        } else {
+            let daysSince = calendar.dateComponents([.day], from: journey.endDate, to: now).day ?? 0
+            return "\(daysSince) \(L("journey.detail.days_ago"))"
+        }
+    }
+
+    // MARK: - Section Container
+
+    @ViewBuilder
+    private func sectionContainer<Content: View>(
+        header: SectionHeaderView,
+        @ViewBuilder content: () -> Content
+    ) -> some View {
+        VStack(spacing: 0) {
+            header
+            Divider()
+            content()
+        }
+        .background(Color(.systemBackground))
+        .cornerRadius(12)
+        .padding(.horizontal)
+        .padding(.top, 12)
+    }
+}
+
+#Preview {
+    JourneyDetailView()
+}

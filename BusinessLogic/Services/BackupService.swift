@@ -349,14 +349,14 @@ final class BackupService: ObservableObject {
     }
     
     // MARK: - Helper Methods
-    
-    private func fetchUserSettings() async throws -> ExportUserSettings {
+
+    private func fetchUserSettings() -> ExportUserSettings {
         let currency = settingsRepository!.fetchCurrency()
         let language = settingsRepository!.fetchLanguage()
         
         return ExportUserSettings(currency: currency, language: language)
     }
-    
+
     private func getAppVersion() -> String {
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
         let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "Unknown"

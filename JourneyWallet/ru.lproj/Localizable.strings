@@ -236,3 +236,39 @@
 "journey.form.error.name_required" = "Пожалуйста, введите название поездки.";
 "journey.form.error.destination_required" = "Пожалуйста, введите направление.";
 "journey.form.error.invalid_dates" = "Дата окончания должна быть позже даты начала.";
+
+/* Journey Detail View */
+"journey.detail.title" = "Поездка";
+"journey.detail.select_journey" = "Выберите поездку";
+"journey.detail.create_new" = "Создать новую поездку";
+"journey.detail.see_all" = "Все";
+"journey.detail.nights" = "ночей";
+"journey.detail.days_left" = "дней осталось";
+"journey.detail.starts_in" = "Начнётся через";
+"journey.detail.days_ago" = "дней назад";
+"journey.detail.total_spent" = "Всего потрачено";
+"journey.detail.expenses" = "Расходы";
+
+/* Journey Detail Sections */
+"journey.detail.section.transport" = "Транспорт";
+"journey.detail.section.hotels" = "Отели";
+"journey.detail.section.car_rentals" = "Аренда авто";
+"journey.detail.section.documents" = "Документы";
+"journey.detail.section.notes" = "Заметки";
+"journey.detail.section.places" = "Места для посещения";
+"journey.detail.section.reminders" = "Напоминания";
+"journey.detail.section.budget" = "Бюджет";
+
+/* Journey Detail Empty States */
+"journey.detail.empty.title" = "Поездка не выбрана";
+"journey.detail.empty.subtitle" = "Создайте первую поездку, чтобы начать отслеживать детали путешествия.";
+"journey.detail.empty.add_button" = "Создать поездку";
+"journey.detail.transport.empty" = "Нет бронирований транспорта";
+"journey.detail.hotels.empty" = "Нет бронирований отелей";
+"journey.detail.car_rentals.empty" = "Нет аренды автомобилей";
+"journey.detail.documents.empty" = "Документы не прикреплены";
+"journey.detail.documents.count" = "документов";
+"journey.detail.notes.empty" = "Заметок пока нет";
+"journey.detail.places.empty" = "Мест для посещения пока нет";
+"journey.detail.reminders.empty" = "Напоминаний пока нет";
+"journey.detail.budget.empty" = "Расходы не отслеживаются";

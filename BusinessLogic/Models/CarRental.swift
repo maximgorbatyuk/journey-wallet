@@ -52,6 +52,8 @@ struct CarRental: Codable, Identifiable, Equatable {
         Calendar.current.dateComponents([.day], from: pickupDate, to: dropoffDate).day ?? 0
     }
 
+    var durationDays: Int { max(1, rentalDays) }
+
     var isUpcoming: Bool {
         pickupDate > Date()
     }

@@ -25,8 +25,8 @@ struct MainTabView: SwiftUI.View {
                     .tint(nil)
                     .tag(0)
 
-                // Tab 2: Current Journey (placeholder for Phase 4)
-                PlaceholderTabView(title: L("tab.current_journey"), iconName: "suitcase.fill")
+                // Tab 2: Current Journey
+                JourneyDetailView()
                     .tabItem {
                         Label(L("tab.current_journey"), systemImage: "suitcase.fill")
                     }

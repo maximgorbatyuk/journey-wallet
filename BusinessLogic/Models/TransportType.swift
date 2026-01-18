@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 enum TransportType: String, Codable, CaseIterable, Identifiable {
     case flight
@@ -29,6 +30,19 @@ enum TransportType: String, Codable, CaseIterable, Identifiable {
         case .ferry: return "ferry.fill"
         case .transfer: return "car.fill"
         case .other: return "arrow.triangle.swap"
+        }
+    }
+
+    var iconName: String { icon }
+
+    var color: Color {
+        switch self {
+        case .flight: return .blue
+        case .train: return .orange
+        case .bus: return .green
+        case .ferry: return .cyan
+        case .transfer: return .purple
+        case .other: return .gray
         }
     }
 

@@ -236,3 +236,39 @@
 "journey.form.error.name_required" = "Lütfen bir seyahat adı girin.";
 "journey.form.error.destination_required" = "Lütfen bir hedef girin.";
 "journey.form.error.invalid_dates" = "Bitiş tarihi başlangıç tarihinden sonra olmalıdır.";
+
+/* Journey Detail View */
+"journey.detail.title" = "Seyahat";
+"journey.detail.select_journey" = "Seyahat seçin";
+"journey.detail.create_new" = "Yeni Seyahat Oluştur";
+"journey.detail.see_all" = "Tümünü Gör";
+"journey.detail.nights" = "gece";
+"journey.detail.days_left" = "gün kaldı";
+"journey.detail.starts_in" = "Başlıyor";
+"journey.detail.days_ago" = "gün önce";
+"journey.detail.total_spent" = "Toplam Harcama";
+"journey.detail.expenses" = "Harcamalar";
+
+/* Journey Detail Sections */
+"journey.detail.section.transport" = "Ulaşım";
+"journey.detail.section.hotels" = "Oteller";
+"journey.detail.section.car_rentals" = "Araç Kiralama";
+"journey.detail.section.documents" = "Belgeler";
+"journey.detail.section.notes" = "Notlar";
+"journey.detail.section.places" = "Gezilecek Yerler";
+"journey.detail.section.reminders" = "Hatırlatmalar";
+"journey.detail.section.budget" = "Bütçe";
+
+/* Journey Detail Empty States */
+"journey.detail.empty.title" = "Seyahat seçilmedi";
+"journey.detail.empty.subtitle" = "Seyahat detaylarınızı takip etmeye başlamak için ilk seyahatinizi oluşturun.";
+"journey.detail.empty.add_button" = "Seyahat Oluştur";
+"journey.detail.transport.empty" = "Henüz ulaşım rezervasyonu yok";
+"journey.detail.hotels.empty" = "Henüz otel rezervasyonu yok";
+"journey.detail.car_rentals.empty" = "Henüz araç kiralama yok";
+"journey.detail.documents.empty" = "Belge eklenmedi";
+"journey.detail.documents.count" = "belge";
+"journey.detail.notes.empty" = "Henüz not yok";
+"journey.detail.places.empty" = "Henüz gezilecek yer yok";
+"journey.detail.reminders.empty" = "Henüz hatırlatma yok";
+"journey.detail.budget.empty" = "Henüz harcama kaydedilmedi";

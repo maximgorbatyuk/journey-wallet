@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 enum PlaceCategory: String, Codable, CaseIterable, Identifiable {
     case restaurant
@@ -32,6 +33,20 @@ enum PlaceCategory: String, Codable, CaseIterable, Identifiable {
         case .nature: return "leaf.fill"
         case .entertainment: return "theatermasks.fill"
         case .other: return "mappin"
+        }
+    }
+
+    var iconName: String { icon }
+
+    var color: Color {
+        switch self {
+        case .restaurant: return .orange
+        case .attraction: return .yellow
+        case .museum: return .brown
+        case .shopping: return .pink
+        case .nature: return .green
+        case .entertainment: return .purple
+        case .other: return .gray
         }
     }
 }

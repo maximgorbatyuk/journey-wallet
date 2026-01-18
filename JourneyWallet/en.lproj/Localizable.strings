@@ -236,3 +236,39 @@
 "journey.form.error.name_required" = "Please enter a journey name.";
 "journey.form.error.destination_required" = "Please enter a destination.";
 "journey.form.error.invalid_dates" = "End date must be after start date.";
+
+/* Journey Detail View */
+"journey.detail.title" = "Journey";
+"journey.detail.select_journey" = "Select a journey";
+"journey.detail.create_new" = "Create New Journey";
+"journey.detail.see_all" = "See All";
+"journey.detail.nights" = "nights";
+"journey.detail.days_left" = "days left";
+"journey.detail.starts_in" = "Starts in";
+"journey.detail.days_ago" = "days ago";
+"journey.detail.total_spent" = "Total Spent";
+"journey.detail.expenses" = "Expenses";
+
+/* Journey Detail Sections */
+"journey.detail.section.transport" = "Transport";
+"journey.detail.section.hotels" = "Hotels";
+"journey.detail.section.car_rentals" = "Car Rentals";
+"journey.detail.section.documents" = "Documents";
+"journey.detail.section.notes" = "Notes";
+"journey.detail.section.places" = "Places to Visit";
+"journey.detail.section.reminders" = "Reminders";
+"journey.detail.section.budget" = "Budget";
+
+/* Journey Detail Empty States */
+"journey.detail.empty.title" = "No journey selected";
+"journey.detail.empty.subtitle" = "Create your first journey to start tracking your travel details.";
+"journey.detail.empty.add_button" = "Create Journey";
+"journey.detail.transport.empty" = "No transport bookings yet";
+"journey.detail.hotels.empty" = "No hotel bookings yet";
+"journey.detail.car_rentals.empty" = "No car rentals yet";
+"journey.detail.documents.empty" = "No documents attached";
+"journey.detail.documents.count" = "documents";
+"journey.detail.notes.empty" = "No notes yet";
+"journey.detail.places.empty" = "No places to visit yet";
+"journey.detail.reminders.empty" = "No reminders yet";
+"journey.detail.budget.empty" = "No expenses tracked yet";

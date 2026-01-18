@@ -236,3 +236,39 @@
 "journey.form.error.name_required" = "Будь ласка, введіть назву подорожі.";
 "journey.form.error.destination_required" = "Будь ласка, введіть напрямок.";
 "journey.form.error.invalid_dates" = "Дата закінчення повинна бути пізніше дати початку.";
+
+/* Journey Detail View */
+"journey.detail.title" = "Подорож";
+"journey.detail.select_journey" = "Оберіть подорож";
+"journey.detail.create_new" = "Створити нову подорож";
+"journey.detail.see_all" = "Переглянути все";
+"journey.detail.nights" = "ночей";
+"journey.detail.days_left" = "днів залишилось";
+"journey.detail.starts_in" = "Починається через";
+"journey.detail.days_ago" = "днів тому";
+"journey.detail.total_spent" = "Загальні витрати";
+"journey.detail.expenses" = "Витрати";
+
+/* Journey Detail Sections */
+"journey.detail.section.transport" = "Транспорт";
+"journey.detail.section.hotels" = "Готелі";
+"journey.detail.section.car_rentals" = "Оренда авто";
+"journey.detail.section.documents" = "Документи";
+"journey.detail.section.notes" = "Нотатки";
+"journey.detail.section.places" = "Місця для відвідування";
+"journey.detail.section.reminders" = "Нагадування";
+"journey.detail.section.budget" = "Бюджет";
+
+/* Journey Detail Empty States */
+"journey.detail.empty.title" = "Подорож не обрана";
+"journey.detail.empty.subtitle" = "Створіть першу подорож, щоб почати відстежувати деталі своїх мандрівок.";
+"journey.detail.empty.add_button" = "Створити подорож";
+"journey.detail.transport.empty" = "Бронювань транспорту немає";
+"journey.detail.hotels.empty" = "Бронювань готелів немає";
+"journey.detail.car_rentals.empty" = "Оренди авто немає";
+"journey.detail.documents.empty" = "Документи не прикріплені";
+"journey.detail.documents.count" = "документів";
+"journey.detail.notes.empty" = "Нотаток поки немає";
+"journey.detail.places.empty" = "Місць для відвідування поки немає";
+"journey.detail.reminders.empty" = "Нагадувань поки немає";
+"journey.detail.budget.empty" = "Витрати ще не відстежуються";

@@ -236,3 +236,39 @@
 "journey.form.error.name_required" = "Сапар атауын енгізіңіз.";
 "journey.form.error.destination_required" = "Бағытты енгізіңіз.";
 "journey.form.error.invalid_dates" = "Аяқталу күні басталу күнінен кейін болуы керек.";
+
+/* Journey Detail View */
+"journey.detail.title" = "Сапар";
+"journey.detail.select_journey" = "Сапарды таңдаңыз";
+"journey.detail.create_new" = "Жаңа сапар құру";
+"journey.detail.see_all" = "Барлығын көру";
+"journey.detail.nights" = "түн";
+"journey.detail.days_left" = "күн қалды";
+"journey.detail.starts_in" = "Басталады";
+"journey.detail.days_ago" = "күн бұрын";
+"journey.detail.total_spent" = "Жалпы шығын";
+"journey.detail.expenses" = "Шығындар";
+
+/* Journey Detail Sections */
+"journey.detail.section.transport" = "Көлік";
+"journey.detail.section.hotels" = "Қонақ үйлер";
+"journey.detail.section.car_rentals" = "Автокөлік жалдау";
+"journey.detail.section.documents" = "Құжаттар";
+"journey.detail.section.notes" = "Жазбалар";
+"journey.detail.section.places" = "Баратын орындар";
+"journey.detail.section.reminders" = "Еске салулар";
+"journey.detail.section.budget" = "Бюджет";
+
+/* Journey Detail Empty States */
+"journey.detail.empty.title" = "Сапар таңдалмаған";
+"journey.detail.empty.subtitle" = "Саяхат мәліметтерін қадағалау үшін бірінші сапарыңызды жасаңыз.";
+"journey.detail.empty.add_button" = "Сапар құру";
+"journey.detail.transport.empty" = "Көлік брондау жоқ";
+"journey.detail.hotels.empty" = "Қонақ үй брондау жоқ";
+"journey.detail.car_rentals.empty" = "Автокөлік жалдау жоқ";
+"journey.detail.documents.empty" = "Құжаттар тіркелмеген";
+"journey.detail.documents.count" = "құжат";
+"journey.detail.notes.empty" = "Жазбалар жоқ";
+"journey.detail.places.empty" = "Баратын орындар жоқ";
+"journey.detail.reminders.empty" = "Еске салулар жоқ";
+"journey.detail.budget.empty" = "Шығындар тіркелмеген";

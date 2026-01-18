@@ -236,3 +236,39 @@
 "journey.form.error.name_required" = "Bitte geben Sie einen Reisenamen ein.";
 "journey.form.error.destination_required" = "Bitte geben Sie ein Reiseziel ein.";
 "journey.form.error.invalid_dates" = "Das Enddatum muss nach dem Startdatum liegen.";
+
+/* Journey Detail View */
+"journey.detail.title" = "Reise";
+"journey.detail.select_journey" = "Reise auswählen";
+"journey.detail.create_new" = "Neue Reise erstellen";
+"journey.detail.see_all" = "Alle anzeigen";
+"journey.detail.nights" = "Nächte";
+"journey.detail.days_left" = "Tage übrig";
+"journey.detail.starts_in" = "Beginnt in";
+"journey.detail.days_ago" = "Tage her";
+"journey.detail.total_spent" = "Gesamtausgaben";
+"journey.detail.expenses" = "Ausgaben";
+
+/* Journey Detail Sections */
+"journey.detail.section.transport" = "Transport";
+"journey.detail.section.hotels" = "Hotels";
+"journey.detail.section.car_rentals" = "Mietwagen";
+"journey.detail.section.documents" = "Dokumente";
+"journey.detail.section.notes" = "Notizen";
+"journey.detail.section.places" = "Sehenswürdigkeiten";
+"journey.detail.section.reminders" = "Erinnerungen";
+"journey.detail.section.budget" = "Budget";
+
+/* Journey Detail Empty States */
+"journey.detail.empty.title" = "Keine Reise ausgewählt";
+"journey.detail.empty.subtitle" = "Erstellen Sie Ihre erste Reise, um Ihre Reisedetails zu verfolgen.";
+"journey.detail.empty.add_button" = "Reise erstellen";
+"journey.detail.transport.empty" = "Keine Transportbuchungen";
+"journey.detail.hotels.empty" = "Keine Hotelbuchungen";
+"journey.detail.car_rentals.empty" = "Keine Mietwagen";
+"journey.detail.documents.empty" = "Keine Dokumente angehängt";
+"journey.detail.documents.count" = "Dokumente";
+"journey.detail.notes.empty" = "Noch keine Notizen";
+"journey.detail.places.empty" = "Noch keine Sehenswürdigkeiten";
+"journey.detail.reminders.empty" = "Noch keine Erinnerungen";
+"journey.detail.budget.empty" = "Noch keine Ausgaben erfasst";
