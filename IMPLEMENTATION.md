@@ -309,9 +309,15 @@ Below are some key user stories for the app:
 - Create `MainView.swift`
 - Sections:
   - **Stats cards**: Total journeys, upcoming trips, countries visited
-  - **Search bar**: Search across all journeys, transports, hotels, places
+  - **Search bar**: Search across all journeys, transports, hotels, documents, places
+    - Uses `@FocusState` to track TextField focus
+    - Clear button dismisses keyboard (`isSearchFieldFocused = false`)
   - **Active journeys**: List of current/upcoming journeys with quick access
+    - Journey cards are tappable and navigate to `JourneyDetailView(initialJourneyId:)`
 - Create `MainViewModel.swift`
+  - Contains entity lookup methods for search result navigation:
+    - `getJourney(by:)`, `getTransport(by:)`, `getHotel(by:)`
+    - `getCarRental(by:)`, `getPlace(by:)`, `getNote(by:)`, `getDocument(by:)`
 
 ### Step 3.3: SearchService
 - Create `SearchService.swift`
@@ -319,9 +325,25 @@ Below are some key user stories for the app:
   - Journey names and destinations
   - Transport carriers and locations
   - Hotel names and addresses
+  - Car rental companies and locations
   - Places to visit
   - Notes content
-- Return unified search results
+  - **Documents** (by document name, file name, and notes)
+- Return unified `SearchResult` with:
+  - `id: UUID` - Entity ID
+  - `type: SearchResultType` - Type enum (journey, transport, hotel, carRental, place, note, document)
+  - `title: String` - Display title
+  - `subtitle: String?` - Secondary info
+  - `journeyId: UUID?` - Parent journey ID
+  - `journeyName: String?` - Parent journey name for context
+- **Search Result Navigation**: Tapping on a search result navigates to the appropriate detail view:
+  - Journey → `JourneyDetailView(initialJourneyId:)`
+  - Transport → `TransportDetailView(transport:journeyId:)`
+  - Hotel → `HotelDetailView(hotel:journeyId:)`
+  - Car Rental → `CarRentalDetailView(carRental:journeyId:)`
+  - Place → `PlaceFormView` in edit mode
+  - Note → `NoteFormView` in edit mode
+  - Document → `DocumentListView(journeyId:initialDocumentToOpen:)` - navigates to journey's document list and auto-opens the document
 
 ### Step 3.4: JourneysListView (Tab 3 - All Journeys)
 - Create `JourneysListView.swift`
@@ -358,6 +380,9 @@ Below are some key user stories for the app:
 
 ### Step 4.1: JourneyDetailView Structure
 - Create `JourneyDetailView.swift`
+- **Initial Journey Support**: Accepts optional `initialJourneyId: UUID?` parameter
+  - When provided, automatically selects the specified journey on view load
+  - Used by search navigation and MainView journey cards
 - **Journey selector** at top: Picker/dropdown to switch between journeys
 - **Scrollable sections** below:
   - Transport section
@@ -570,6 +595,9 @@ Below are some key user stories for the app:
 - Show file type icons
 - Show file size
 - Swipe to delete
+- **Initial Document Support**: Accepts optional `initialDocumentToOpen: Document?` parameter
+  - When provided, automatically opens the document preview after view loads (with 0.3s delay)
+  - Used by search navigation to open specific documents from search results
 
 ### Step 8.3: DocumentPickerView
 - Create `DocumentPickerView.swift`

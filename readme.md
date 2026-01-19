@@ -4,18 +4,74 @@
 
 Keep your journey in one place.
 
-Journey Wallet is an iOS app that allows users to keep all journey details, bookings, receipts, docs, and more on one place.
+Journey Wallet is an iOS app that allows users to manage travel plans, bookings, documents, and expenses. The app provides a comprehensive solution for organizing all aspects of your journeys - from flights and hotels to car rentals and travel documents.
 
 ## Features
 
-- Flight details
-- Hotel details
-- Car rental details
-- Booking details
-- Keep docs, tickets, receipts, and other journey-related documents (PDF, JPEG, PNG, etc.)
-- Flight reminders
-- iCloud backups
-- Offline mode
+### Journey Management
+- Create and manage multiple journeys with destinations and date ranges
+- Quick journey selector for easy switching between trips
+- Journey cards with status indicators (active, upcoming, past)
+
+### Transport Tracking
+- Support for multiple transport types: flights, trains, buses, ferries, transfers
+- Track carrier, booking reference, seat numbers, terminals/platforms
+- Departure and arrival details with countdown timers
+
+### Accommodation
+- Hotel booking management with check-in/check-out dates
+- Room type, booking reference, and contact information
+- Address storage for easy navigation
+
+### Car Rentals
+- Pickup and dropoff location tracking
+- Rental company and car type details
+- Booking reference management
+
+### Document Storage
+- Store travel documents (PDF, JPEG, PNG, HEIC)
+- Custom document naming
+- In-app PDF viewer and image viewer with zoom
+- Share documents to other apps
+- Import documents via Share Extension from any app
+
+### Notes & Places
+- Add notes to journeys for additional information
+- Track places to visit with categories (restaurant, attraction, museum, etc.)
+- Mark places as visited
+
+### Budget & Expenses
+- Track travel expenses by category (transport, accommodation, food, activities, shopping)
+- Multi-currency support (11 currencies)
+- Budget overview with spending breakdown
+
+### Reminders & Notifications
+- Set reminders for transports, hotels, and car rentals
+- Custom reminders with flexible scheduling
+- Local notifications integration
+
+### Search
+- Global search across all journeys and entities
+- Search by journey name, destination, transport details, hotel names, documents, notes, and places
+- Quick navigation to search results
+
+### Statistics
+- Travel statistics dashboard
+- Total journeys, destinations visited, travel days
+- Transport breakdown and expense analysis
+
+### Data Management
+- iCloud backup with automatic daily backups
+- Export/Import functionality (JSON format)
+- Offline mode support
+
+### Localization
+- 6 languages supported: English, German, Russian, Turkish, Kazakh, Ukrainian
+
+### Additional Features
+- Quick Add button for fast entity creation
+- Dark Mode support
+- Firebase Analytics integration
 
 ## App Store screenshot resolutions
 
