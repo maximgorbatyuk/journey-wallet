@@ -64,20 +64,22 @@ class DocumentListViewModel {
 
     // MARK: - CRUD Operations
 
-    func addDocument(from url: URL, name: String? = nil) -> Bool {
+    func addDocument(from url: URL, name: String? = nil, filePath: String? = nil) -> Bool {
         guard let result = documentService.saveDocument(from: url, journeyId: journeyId) else {
             errorMessage = L("document.error.save_failed")
             return false
         }
 
         let documentType = documentService.getDocumentType(from: url)
-        let documentName = name ?? (url.deletingPathExtension().lastPathComponent)
+        // Name is now optional - pass nil or empty string means no custom name
+        let documentName: String? = (name?.isEmpty == false) ? name : nil
 
         let document = Document(
             journeyId: journeyId,
             name: documentName,
             fileType: documentType,
             fileName: result.fileName,
+            filePath: filePath,
             fileSize: result.fileSize
         )
 
@@ -104,7 +106,7 @@ class DocumentListViewModel {
         return false
     }
 
-    func updateDocumentName(_ document: Document, newName: String) -> Bool {
+    func updateDocumentName(_ document: Document, newName: String?) -> Bool {
         var updatedDocument = document
         updatedDocument.name = newName
 

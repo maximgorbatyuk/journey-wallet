@@ -626,6 +626,17 @@
 /* Document Camera */
 "document.camera.default_name" = "Снятый документ";
 
+/* Document Name Entry */
+"document.name_entry.title" = "Название документа";
+"document.name_entry.file_info" = "Информация о файле";
+"document.name_entry.name_section" = "Название (необязательно)";
+"document.name_entry.name_section_required" = "Название (обязательно)";
+"document.name_entry.name_placeholder" = "Введите название документа";
+"document.name_entry.name_hint" = "Оставьте пустым, чтобы использовать имя файла.";
+"document.name_entry.name_required_hint" = "Название обязательно для фото и снимков камеры.";
+"document.source.photo_library" = "Фототека";
+"document.source.camera" = "Снимок камеры";
+
 /* Note Management */
 "note.list.title" = "Заметки";
 "note.list.empty.title" = "Нет заметок";

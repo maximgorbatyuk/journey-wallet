@@ -7,9 +7,10 @@ class DocumentsRepository {
 
     private let idColumn = Expression<String>("id")
     private let journeyIdColumn = Expression<String>("journey_id")
-    private let nameColumn = Expression<String>("name")
+    private let nameColumn = Expression<String?>("name")
     private let fileTypeColumn = Expression<String>("file_type")
     private let fileNameColumn = Expression<String>("file_name")
+    private let filePathColumn = Expression<String?>("file_path")
     private let fileSizeColumn = Expression<Int64>("file_size")
     private let notesColumn = Expression<String?>("notes")
     private let createdAtColumn = Expression<Date>("created_at")
@@ -93,6 +94,7 @@ class DocumentsRepository {
                 nameColumn <- document.name,
                 fileTypeColumn <- document.fileType.rawValue,
                 fileNameColumn <- document.fileName,
+                filePathColumn <- document.filePath,
                 fileSizeColumn <- document.fileSize,
                 notesColumn <- document.notes,
                 createdAtColumn <- document.createdAt
@@ -114,6 +116,7 @@ class DocumentsRepository {
                 nameColumn <- document.name,
                 fileTypeColumn <- document.fileType.rawValue,
                 fileNameColumn <- document.fileName,
+                filePathColumn <- document.filePath,
                 fileSizeColumn <- document.fileSize,
                 notesColumn <- document.notes
             ))
@@ -211,6 +214,7 @@ class DocumentsRepository {
             name: row[nameColumn],
             fileType: fileType,
             fileName: row[fileNameColumn],
+            filePath: row[filePathColumn],
             fileSize: row[fileSizeColumn],
             notes: row[notesColumn],
             createdAt: row[createdAtColumn]

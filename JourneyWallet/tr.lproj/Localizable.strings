@@ -626,6 +626,17 @@
 /* Document Camera */
 "document.camera.default_name" = "Çekilen Belge";
 
+/* Document Name Entry */
+"document.name_entry.title" = "Belge Adı";
+"document.name_entry.file_info" = "Dosya Bilgisi";
+"document.name_entry.name_section" = "Ad (İsteğe Bağlı)";
+"document.name_entry.name_section_required" = "Ad (Zorunlu)";
+"document.name_entry.name_placeholder" = "Bu belge için bir ad girin";
+"document.name_entry.name_hint" = "Dosya adını kullanmak için boş bırakın.";
+"document.name_entry.name_required_hint" = "Fotoğraflar ve kamera çekimleri için ad zorunludur.";
+"document.source.photo_library" = "Fotoğraf Kitaplığı";
+"document.source.camera" = "Kamera Çekimi";
+
 /* Note Management */
 "note.list.title" = "Notlar";
 "note.list.empty.title" = "Not yok";

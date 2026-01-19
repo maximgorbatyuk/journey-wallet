@@ -61,9 +61,10 @@ enum DocumentType: String, Codable, CaseIterable, Identifiable {
 struct Document: Codable, Identifiable, Equatable {
     let id: UUID
     let journeyId: UUID
-    var name: String
+    var name: String?
     var fileType: DocumentType
     var fileName: String
+    var filePath: String?
     var fileSize: Int64
     var notes: String?
     let createdAt: Date
@@ -71,9 +72,10 @@ struct Document: Codable, Identifiable, Equatable {
     init(
         id: UUID = UUID(),
         journeyId: UUID,
-        name: String,
+        name: String? = nil,
         fileType: DocumentType,
         fileName: String,
+        filePath: String? = nil,
         fileSize: Int64,
         notes: String? = nil,
         createdAt: Date = Date()
@@ -83,9 +85,18 @@ struct Document: Codable, Identifiable, Equatable {
         self.name = name
         self.fileType = fileType
         self.fileName = fileName
+        self.filePath = filePath
         self.fileSize = fileSize
         self.notes = notes
         self.createdAt = createdAt
+    }
+
+    /// Display name - returns custom name if set, otherwise fileName
+    var displayName: String {
+        if let name = name, !name.isEmpty {
+            return name
+        }
+        return fileName
     }
 
     var formattedFileSize: String {

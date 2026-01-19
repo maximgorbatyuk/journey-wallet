@@ -38,7 +38,7 @@ class DatabaseManager : DatabaseManagerProtocol {
 
     private var db: Connection?
     private let logger: Logger
-    private let latestVersion = 3
+    private let latestVersion = 4
 
     private init() {
 
@@ -123,6 +123,9 @@ class DatabaseManager : DatabaseManagerProtocol {
 
             case 3:
                 Migration_20260118_TransportForWhom(db: db!).execute()
+
+            case 4:
+                Migration_20260119_DocumentFilePath(db: db!).execute()
 
             default:
                 break

@@ -621,6 +621,17 @@
 /* Document Camera */
 "document.camera.default_name" = "Erfasstes Dokument";
 
+/* Document Name Entry */
+"document.name_entry.title" = "Dokumentname";
+"document.name_entry.file_info" = "Dateiinformationen";
+"document.name_entry.name_section" = "Name (Optional)";
+"document.name_entry.name_section_required" = "Name (Erforderlich)";
+"document.name_entry.name_placeholder" = "Geben Sie einen Namen ein";
+"document.name_entry.name_hint" = "Leer lassen, um den Dateinamen zu verwenden.";
+"document.name_entry.name_required_hint" = "Ein Name ist für Fotos und Kameraaufnahmen erforderlich.";
+"document.source.photo_library" = "Fotobibliothek";
+"document.source.camera" = "Kameraaufnahme";
+
 /* Note Management */
 "note.list.title" = "Notizen";
 "note.list.empty.title" = "Keine Notizen";

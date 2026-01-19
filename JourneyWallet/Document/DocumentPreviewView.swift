@@ -18,6 +18,14 @@ struct DocumentPreviewView: View {
         DocumentService.shared.getDocumentURL(fileName: document.fileName, journeyId: journeyId)
     }
 
+    /// Check if document has a custom name set
+    private var hasCustomName: Bool {
+        if let name = document.name, !name.isEmpty {
+            return true
+        }
+        return false
+    }
+
     var body: some View {
         NavigationView {
             Group {
@@ -29,9 +37,23 @@ struct DocumentPreviewView: View {
                     unsupportedView
                 }
             }
-            .navigationTitle(document.name)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                ToolbarItem(placement: .principal) {
+                    VStack(spacing: 2) {
+                        Text(document.displayName)
+                            .font(.headline)
+                            .lineLimit(1)
+
+                        if hasCustomName {
+                            Text(document.fileName)
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                                .lineLimit(1)
+                        }
+                    }
+                }
+
                 ToolbarItem(placement: .cancellationAction) {
                     Button(L("Close")) {
                         dismiss()
@@ -47,7 +69,7 @@ struct DocumentPreviewView: View {
                         }
 
                         Button {
-                            newName = document.name
+                            newName = document.name ?? ""
                             showRenameSheet = true
                         } label: {
                             Label(L("document.action.rename"), systemImage: "pencil")
@@ -126,10 +148,10 @@ struct DocumentPreviewView: View {
     }
 
     private func renameDocument() {
-        guard !newName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
-
+        let trimmedName = newName.trimmingCharacters(in: .whitespacesAndNewlines)
+        // Allow setting a name even if empty (will use filename as display)
         let viewModel = DocumentListViewModel(journeyId: journeyId)
-        _ = viewModel.updateDocumentName(document, newName: newName.trimmingCharacters(in: .whitespacesAndNewlines))
+        _ = viewModel.updateDocumentName(document, newName: trimmedName.isEmpty ? nil : trimmedName)
     }
 }
 

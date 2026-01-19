@@ -630,6 +630,17 @@
 /* Document Camera */
 "document.camera.default_name" = "Зроблене фото";
 
+/* Document Name Entry */
+"document.name_entry.title" = "Назва документа";
+"document.name_entry.file_info" = "Інформація про файл";
+"document.name_entry.name_section" = "Назва (необов'язково)";
+"document.name_entry.name_section_required" = "Назва (обов'язково)";
+"document.name_entry.name_placeholder" = "Введіть назву документа";
+"document.name_entry.name_hint" = "Залиште порожнім, щоб використати ім'я файлу.";
+"document.name_entry.name_required_hint" = "Назва обов'язкова для фото та знімків камери.";
+"document.source.photo_library" = "Фототека";
+"document.source.camera" = "Знімок камери";
+
 /* Note Management */
 "note.list.title" = "Нотатки";
 "note.list.empty.title" = "Нотаток немає";

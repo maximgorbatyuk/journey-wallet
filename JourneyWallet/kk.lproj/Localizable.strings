@@ -630,6 +630,17 @@
 /* Document Camera */
 "document.camera.default_name" = "Түсірілген фото";
 
+/* Document Name Entry */
+"document.name_entry.title" = "Құжат аты";
+"document.name_entry.file_info" = "Файл мәліметтері";
+"document.name_entry.name_section" = "Атау (міндетті емес)";
+"document.name_entry.name_section_required" = "Атау (міндетті)";
+"document.name_entry.name_placeholder" = "Құжат атын енгізіңіз";
+"document.name_entry.name_hint" = "Файл атын пайдалану үшін бос қалдырыңыз.";
+"document.name_entry.name_required_hint" = "Фото және камера түсірілімдері үшін атау міндетті.";
+"document.source.photo_library" = "Фото кітапхана";
+"document.source.camera" = "Камера түсірілімі";
+
 /* Note Management */
 "note.list.title" = "Жазбалар";
 "note.list.empty.title" = "Жазбалар жоқ";

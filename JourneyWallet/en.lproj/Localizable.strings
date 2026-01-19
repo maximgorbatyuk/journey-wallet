@@ -618,6 +618,17 @@
 /* Document Camera */
 "document.camera.default_name" = "Captured Document";
 
+/* Document Name Entry */
+"document.name_entry.title" = "Document Name";
+"document.name_entry.file_info" = "File Information";
+"document.name_entry.name_section" = "Name (Optional)";
+"document.name_entry.name_section_required" = "Name (Required)";
+"document.name_entry.name_placeholder" = "Enter a name for this document";
+"document.name_entry.name_hint" = "Leave empty to use the filename.";
+"document.name_entry.name_required_hint" = "A name is required for photos and camera captures.";
+"document.source.photo_library" = "Photo Library";
+"document.source.camera" = "Camera Capture";
+
 /* Note Management */
 "note.list.title" = "Notes";
 "note.list.empty.title" = "No notes";
