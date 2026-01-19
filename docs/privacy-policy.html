@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Journey Wallet</title>
+  <meta name="theme-color" content="#daf5f0" />
+
+  <meta name="description"
+    content="Privacy Policy for Journey Wallet iOS app - Learn how we protect your travel data and privacy.">
+  <meta name="author" content="Maxim Gorbatyuk">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" href="./assets/app_icon.png?v=20260115" />
+
+  <link rel="stylesheet" href="./brutalism-style.css?v=20260115" />
+
+  <style>
+    .privacy-page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+    }
+
+    .privacy-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .privacy-header .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+    }
+
+    .privacy-header h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 24px;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .last-updated {
+      display: inline-block;
+      padding: 8px 16px;
+      background: var(--bg-alt);
+      border: 2px solid var(--stroke);
+      border-radius: 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.85rem;
+      margin-bottom: 24px;
+    }
+
+    .privacy-content {
+      padding: 32px;
+      border: 2px solid var(--stroke);
+      border-radius: 16px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .privacy-content h2 {
+      margin: 32px 0 16px;
+      font-size: 1.4rem;
+      padding-bottom: 8px;
+      border-bottom: 2px dashed rgba(17, 17, 17, 0.2);
+    }
+
+    .privacy-content h2:first-child {
+      margin-top: 0;
+    }
+
+    .privacy-content h3 {
+      margin: 24px 0 12px;
+      font-size: 1.1rem;
+      color: var(--ink);
+    }
+
+    .privacy-content p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .privacy-content ul {
+      margin: 0 0 16px;
+      padding-left: 24px;
+    }
+
+    .privacy-content li {
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .privacy-content li strong {
+      color: var(--ink);
+    }
+
+    .privacy-content a {
+      color: var(--call-to-action);
+      text-decoration: underline;
+    }
+
+    .privacy-content a:hover {
+      color: var(--warn);
+    }
+
+    .highlight-box {
+      padding: 16px 20px;
+      background: rgba(114, 155, 226, 0.15);
+      border-radius: 12px;
+      border-left: 4px solid var(--shock);
+      margin: 16px 0;
+    }
+
+    .highlight-box p {
+      margin: 0;
+    }
+
+    .contact-box {
+      padding: 20px;
+      background: var(--bg-alt);
+      border-radius: 12px;
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      margin: 16px 0;
+    }
+
+    .contact-box p {
+      margin: 0 0 8px;
+    }
+
+    .contact-box p:last-child {
+      margin: 0;
+    }
+
+    .toc {
+      padding: 20px;
+      background: var(--bg-alt);
+      border-radius: 12px;
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      margin-bottom: 24px;
+    }
+
+    .toc h3 {
+      margin: 0 0 12px;
+      font-size: 1rem;
+    }
+
+    .toc ul {
+      margin: 0;
+      padding-left: 20px;
+      columns: 2;
+      column-gap: 24px;
+    }
+
+    .toc li {
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+    }
+
+    .toc a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .toc a:hover {
+      text-decoration: underline;
+      color: var(--call-to-action);
+    }
+
+    @media (max-width: 600px) {
+      .toc ul {
+        columns: 1;
+      }
+
+      .privacy-content {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="privacy-page">
+    <a href="./index.html" class="back-link">&larr; Back to Home</a>
+
+    <div class="privacy-header">
+      <img class="logo" src="./assets/app_icon.png?v=20260115" alt="Journey Wallet logo" />
+      <h1>Privacy Policy</h1>
+    </div>
+
+    <div class="last-updated">Last Updated: January 19, 2026</div>
+
+    <div class="privacy-content">
+      <nav class="toc">
+        <h3>Table of Contents</h3>
+        <ul>
+          <li><a href="#introduction">Introduction</a></li>
+          <li><a href="#information-collect">Information We Collect</a></li>
+          <li><a href="#how-we-use">How We Use Your Information</a></li>
+          <li><a href="#data-storage">Data Storage</a></li>
+          <li><a href="#icloud-backup">iCloud Backup</a></li>
+          <li><a href="#export-import">Export and Import</a></li>
+          <li><a href="#location-services">Location Services</a></li>
+          <li><a href="#analytics">Analytics</a></li>
+          <li><a href="#notifications">Notifications</a></li>
+          <li><a href="#data-sharing">Data Sharing</a></li>
+          <li><a href="#data-security">Data Security</a></li>
+          <li><a href="#your-rights">Your Rights and Choices</a></li>
+          <li><a href="#languages">Supported Languages</a></li>
+          <li><a href="#children">Children's Privacy</a></li>
+          <li><a href="#changes">Changes to Policy</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <h2 id="introduction">Introduction</h2>
+      <p>Journey Wallet ("we", "our", or "the app") is committed to protecting your privacy. This Privacy Policy
+        explains how we collect, use, and safeguard your information when you use our iOS application.</p>
+
+      <h2 id="information-collect">Information We Collect</h2>
+
+      <h3>Information You Provide</h3>
+      <p>When you use Journey Wallet, you may provide the following information:</p>
+      <ul>
+        <li><strong>Journey Records:</strong> Journey names, destinations, dates, and notes</li>
+        <li><strong>Transport Details:</strong> Flight, train, bus, ferry, and transfer bookings including carriers,
+          booking references, seat numbers, departure/arrival locations and times</li>
+        <li><strong>Accommodation Details:</strong> Hotel names, addresses, check-in/check-out dates, room types,
+          booking references, and contact information</li>
+        <li><strong>Car Rental Details:</strong> Rental company, car type, pickup/dropoff locations and times, booking
+          references</li>
+        <li><strong>Documents:</strong> Travel documents you upload (PDF, JPEG, PNG, HEIC files) including tickets,
+          visas, and other travel-related files</li>
+        <li><strong>Notes:</strong> Personal notes and additional information you add to your journeys</li>
+        <li><strong>Places to Visit:</strong> Place names, addresses, categories, and visit status</li>
+        <li><strong>Reminders:</strong> Reminder titles, dates, and associated entities</li>
+        <li><strong>Expense Records:</strong> Date, amount, currency, category, and description of travel expenses</li>
+        <li><strong>Custom Data:</strong> Any other personal information you choose to add to your records</li>
+      </ul>
+
+      <h3>Automatically Collected Information</h3>
+      <ul>
+        <li><strong>Usage Data:</strong> Information about how you use the app, including features accessed and app
+          performance data</li>
+        <li><strong>Device Information:</strong> Device type, operating system version, and app version</li>
+      </ul>
+
+      <h2 id="how-we-use">How We Use Your Information</h2>
+      <p>We use the collected information to:</p>
+      <ul>
+        <li>Provide core app functionality for managing your travel plans, bookings, and documents</li>
+        <li>Generate statistics about your travel history (total journeys, destinations visited, travel days)</li>
+        <li>Calculate budget summaries and expense breakdowns by category</li>
+        <li>Send local notifications for reminders you create</li>
+        <li>Improve app performance and user experience</li>
+      </ul>
+
+      <h2 id="data-storage">Data Storage</h2>
+      <div class="highlight-box">
+        <p>All your personal data (journeys, transports, hotels, car rentals, documents, notes, places, reminders,
+          expenses) is stored locally on your device. We do not transfer your personal data to external servers.</p>
+      </div>
+      <p>Document files (PDFs, images) you upload are stored in the app's local Documents directory on your device.</p>
+
+      <h2 id="icloud-backup">iCloud Backup</h2>
+      <p>Journey Wallet offers iCloud backup functionality to help you safeguard your data and sync it across your Apple
+        devices. When you enable iCloud backup in the app:</p>
+      <ul>
+        <li>Your journeys, transports, hotels, car rentals, documents, notes, places, reminders, and expenses are backed
+          up to your personal iCloud account</li>
+        <li>Document files are included in the backup</li>
+        <li>Backups are encrypted by Apple and protected by your Apple ID</li>
+        <li>Data is accessible only through your iCloud account</li>
+        <li>Backup and sync is subject to <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple's Privacy
+            Policy</a></li>
+      </ul>
+      <p>You can enable or disable iCloud backup at any time in the app settings. If disabled, all data remains stored
+        locally on your device only.</p>
+
+      <h2 id="export-import">Export and Import</h2>
+      <p>Journey Wallet allows you to export your data in JSON format and import data from JSON files. When you export:
+      </p>
+      <ul>
+        <li>All journey data and related entities are included in the export file</li>
+        <li>The export file is saved to a location you choose</li>
+        <li>You control who has access to the exported file</li>
+      </ul>
+
+      <h2 id="location-services">Location Services</h2>
+      <p>Journey Wallet does not use location services.</p>
+
+      <h2 id="analytics">Analytics</h2>
+      <p>We use Firebase Analytics to collect anonymous usage data to help us understand how the app is used and improve
+        the user experience. This includes:</p>
+      <ul>
+        <li><strong>App usage patterns:</strong> Which features are used, screen views, and user interactions</li>
+        <li><strong>Device information:</strong> Device type, operating system version, and app version</li>
+        <li><strong>Performance data:</strong> App launch times, crashes, and errors</li>
+      </ul>
+      <p>Analytics data is:</p>
+      <ul>
+        <li>Anonymous and does not include your personal travel data, booking information, documents, or expense records
+        </li>
+        <li>Processed by Google/Firebase in accordance with <a href="https://policies.google.com/privacy"
+            target="_blank">Google's Privacy Policy</a></li>
+        <li>Used solely to improve app functionality and user experience</li>
+      </ul>
+      <p>You can limit ad tracking and analytics collection through your device's privacy settings (Settings > Privacy &
+        Security > Tracking).</p>
+
+      <h2 id="notifications">Notifications</h2>
+      <p>Journey Wallet uses local notifications for reminders you create. These notifications:</p>
+      <ul>
+        <li>Are processed entirely on your device</li>
+        <li>Do not transmit any data to external servers</li>
+        <li>Can be disabled through iOS Settings or within the app</li>
+      </ul>
+
+      <h2 id="data-sharing">Data Sharing and Third Parties</h2>
+      <div class="highlight-box">
+        <p>We do not sell, trade, or transfer your personal information to third parties. Your personal data (journeys,
+          bookings, documents, expenses, etc.) remains on your device and in your personal iCloud account (if enabled).
+        </p>
+      </div>
+      <p>We share anonymous usage data with Firebase Analytics as described above to improve the app.</p>
+
+      <h2 id="data-security">Data Security</h2>
+      <p>We implement appropriate technical measures to protect your data:</p>
+      <ul>
+        <li>All data is stored locally on your device using iOS secure storage mechanisms</li>
+        <li>Document files are stored in the app's sandboxed Documents directory</li>
+        <li>No data transmission to external servers</li>
+        <li>Data is protected by your device's built-in security features</li>
+      </ul>
+
+      <h2 id="your-rights">Your Rights and Choices</h2>
+      <p>You have the right to:</p>
+      <ul>
+        <li><strong>Access Your Data:</strong> All your data is accessible within the app</li>
+        <li><strong>Delete Your Data:</strong> You can delete individual records or all data through the app settings
+        </li>
+        <li><strong>Export Your Data:</strong> You can export all your journey data in JSON format from the app</li>
+        <li><strong>Control Backups:</strong> You can enable or disable iCloud backup at any time</li>
+      </ul>
+
+      <h2 id="languages">Supported Languages</h2>
+      <p>Journey Wallet is available in 6 languages: English, German, Russian, Turkish, Kazakh, and Ukrainian. Your
+        language preference is determined by your device settings.</p>
+
+      <h2 id="children">Children's Privacy</h2>
+      <p>Journey Wallet is not intended for use by children under the age of 13. We do not knowingly collect personal
+        information from children under 13.</p>
+
+      <h2 id="changes">Changes to This Privacy Policy</h2>
+      <p>We may update this Privacy Policy from time to time. We will notify you of any changes by:</p>
+      <ul>
+        <li>Posting the new Privacy Policy in the app</li>
+        <li>Updating the "Last Updated" date at the top of this policy</li>
+      </ul>
+      <p>Your continued use of the app after changes are posted constitutes acceptance of the updated policy.</p>
+
+      <h2>Data Retention</h2>
+      <p>Data is retained on your device until you manually delete it. We do not have access to your data and therefore
+        do not control retention periods.</p>
+
+      <h2>International Users</h2>
+      <p>Since all data is stored locally on your device, no cross-border data transfers occur. Your data remains in
+        your physical possession.</p>
+
+      <h2 id="contact">Contact Us</h2>
+      <p>If you have questions about this Privacy Policy or our privacy practices, please contact us at:</p>
+      <div class="contact-box">
+        <p><strong>Email:</strong> <a
+            href="mailto:maximgorbatyuk191093@gmail.com">maximgorbatyuk191093@gmail.com</a></p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/maximgorbatyuk/journey-wallet"
+            target="_blank">github.com/maximgorbatyuk/journey-wallet</a></p>
+      </div>
+
+      <h2>Consent</h2>
+      <p>By using Journey Wallet, you consent to this Privacy Policy and agree to its terms.</p>
+    </div>
+
+    <section class="footer">
+      <div>
+        <span>Journey Wallet</span>
+        <span>&middot;</span>
+        <a href="./index.html">Home</a>
+        <span>&middot;</span>
+        <a href="https://apps.apple.com/app/id6757918975" target="_blank">App Store</a>
+        <span>&middot;</span>
+        <a href="https://github.com/maximgorbatyuk/journey-wallet" target="_blank">GitHub</a>
+        <span>&middot;</span>
+        <a href="./test-cases.html">Test Cases</a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year">2026</span> Maxim Gorbatyuk. Open source project under MIT License.</p>
+      </div>
+    </section>
+  </main>
+</body>
+<script>
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
+
+</html>
