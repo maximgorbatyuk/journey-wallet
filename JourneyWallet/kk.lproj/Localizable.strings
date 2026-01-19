@@ -257,6 +257,7 @@
 "search.type.car_rental" = "Автокөлік жалдау";
 "search.type.place" = "Орын";
 "search.type.note" = "Жазба";
+"search.type.document" = "Құжат";
 
 /* Journeys List */
 "journeys.title" = "Сапарлар";

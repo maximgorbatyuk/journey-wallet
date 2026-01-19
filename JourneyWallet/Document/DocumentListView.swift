@@ -3,16 +3,19 @@ import SwiftUI
 struct DocumentListView: View {
 
     let journeyId: UUID
+    private let initialDocumentToOpen: Document?
 
     @State private var viewModel: DocumentListViewModel
     @State private var showDocumentPicker = false
     @State private var selectedDocument: Document?
     @State private var showDeleteConfirmation = false
     @State private var documentToDelete: Document?
+    @State private var hasOpenedInitialDocument = false
     @ObservedObject private var analytics = AnalyticsService.shared
 
-    init(journeyId: UUID) {
+    init(journeyId: UUID, initialDocumentToOpen: Document? = nil) {
         self.journeyId = journeyId
+        self.initialDocumentToOpen = initialDocumentToOpen
         _viewModel = State(initialValue: DocumentListViewModel(journeyId: journeyId))
     }
 
@@ -53,6 +56,14 @@ struct DocumentListView: View {
         .onAppear {
             analytics.trackScreen("document_list_screen")
             viewModel.loadDocuments()
+
+            // Open initial document if provided
+            if let document = initialDocumentToOpen, !hasOpenedInitialDocument {
+                hasOpenedInitialDocument = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    selectedDocument = document
+                }
+            }
         }
         .refreshable {
             viewModel.refreshDocuments()

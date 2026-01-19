@@ -230,6 +230,17 @@ struct MainView: View {
                 }
                 .buttonStyle(.plain)
             }
+        case .document:
+            if let document = viewModel.getDocument(by: result.id),
+               let journeyId = result.journeyId {
+                NavigationLink(destination: DocumentListView(
+                    journeyId: journeyId,
+                    initialDocumentToOpen: document
+                )) {
+                    SearchResultRow(result: result)
+                }
+                .buttonStyle(.plain)
+            }
         }
     }
 

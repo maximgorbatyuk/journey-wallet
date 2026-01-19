@@ -32,6 +32,7 @@ class MainViewModel {
     private let carRentalsRepository: CarRentalsRepository?
     private let placesToVisitRepository: PlacesToVisitRepository?
     private let notesRepository: NotesRepository?
+    private let documentsRepository: DocumentsRepository?
     private let searchService: SearchService
     private let statisticsService: StatisticsService
     private let logger: Logger
@@ -47,6 +48,7 @@ class MainViewModel {
         self.carRentalsRepository = databaseManager.carRentalsRepository
         self.placesToVisitRepository = databaseManager.placesToVisitRepository
         self.notesRepository = databaseManager.notesRepository
+        self.documentsRepository = databaseManager.documentsRepository
         self.searchService = searchService
         self.statisticsService = statisticsService
         self.logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "-", category: "MainViewModel")
@@ -133,5 +135,9 @@ class MainViewModel {
 
     func getNote(by id: UUID) -> Note? {
         notesRepository?.fetchById(id: id)
+    }
+
+    func getDocument(by id: UUID) -> Document? {
+        documentsRepository?.fetchById(id: id)
     }
 }

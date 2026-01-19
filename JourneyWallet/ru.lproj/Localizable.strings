@@ -257,6 +257,7 @@
 "search.type.car_rental" = "Аренда авто";
 "search.type.place" = "Место";
 "search.type.note" = "Заметка";
+"search.type.document" = "Документ";
 
 /* Journeys List */
 "journeys.title" = "Поездки";

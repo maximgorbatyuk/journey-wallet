@@ -257,6 +257,7 @@
 "search.type.car_rental" = "Car Rental";
 "search.type.place" = "Place";
 "search.type.note" = "Note";
+"search.type.document" = "Document";
 
 /* Journeys List */
 "journeys.title" = "Journeys";

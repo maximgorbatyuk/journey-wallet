@@ -257,6 +257,7 @@
 "search.type.car_rental" = "Araç Kiralama";
 "search.type.place" = "Yer";
 "search.type.note" = "Not";
+"search.type.document" = "Belge";
 
 /* Journeys List */
 "journeys.title" = "Seyahatler";

@@ -257,6 +257,7 @@
 "search.type.car_rental" = "Mietwagen";
 "search.type.place" = "Ort";
 "search.type.note" = "Notiz";
+"search.type.document" = "Dokument";
 
 /* Journeys List */
 "journeys.title" = "Reisen";
