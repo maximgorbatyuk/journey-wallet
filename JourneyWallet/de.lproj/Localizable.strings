@@ -257,6 +257,7 @@
 "search.type.car_rental" = "Mietwagen";
 "search.type.place" = "Ort";
 "search.type.note" = "Notiz";
+"search.type.document" = "Dokument";
 
 /* Journeys List */
 "journeys.title" = "Reisen";
@@ -370,12 +371,18 @@
 "transport.form.arrival" = "Ankunft";
 "transport.form.duration" = "Dauer";
 "transport.form.seat" = "Sitznummer";
+"transport.form.seats" = "Sitznummer(n)";
 "transport.form.booking_reference" = "Buchungsreferenz";
 "transport.form.cost" = "Kosten";
+"transport.form.section.booking" = "Buchungsreferenz";
+"transport.form.section.number" = "Transportnummer";
 "transport.form.error.departure_required" = "Bitte geben Sie einen Abfahrtsort ein.";
+"transport.form.error.booking_required" = "Bitte geben Sie eine Buchungsreferenz ein.";
 "transport.form.error.arrival_required" = "Bitte geben Sie einen Ankunftsort ein.";
 "transport.form.error.invalid_times" = "Ankunftszeit muss nach der Abfahrtszeit liegen.";
 "transport.form.error.invalid_cost" = "Bitte geben Sie einen gültigen Betrag ein.";
+"transport.form.section.for_whom" = "Für wen";
+"transport.form.for_whom" = "Passagiername(n)";
 
 /* Transport Reminders */
 "transport.reminder.24h_before" = "24 Stunden vorher";
@@ -515,14 +522,12 @@
 /* Car Rental Form */
 "car_rental.form.add_title" = "Mietwagen hinzufügen";
 "car_rental.form.edit_title" = "Mietwagen bearbeiten";
-"car_rental.form.section.company" = "Unternehmen";
+"car_rental.form.section.basic_info" = "Grundinfo";
 "car_rental.form.section.locations" = "Standorte";
 "car_rental.form.section.dates" = "Daten";
-"car_rental.form.section.booking" = "Buchungsdetails";
-"car_rental.form.section.cost" = "Kosten";
 "car_rental.form.section.notes" = "Notizen";
+"car_rental.form.car" = "Fahrzeuginfo eingeben: Name, Modell, etc";
 "car_rental.form.company" = "Autovermietung";
-"car_rental.form.car_type" = "Fahrzeugtyp";
 "car_rental.form.pickup_location" = "Abholort";
 "car_rental.form.dropoff_location" = "Rückgabeort";
 "car_rental.form.same_location" = "Rückgabe am gleichen Ort";
@@ -535,9 +540,7 @@
 "car_rental.form.per_day" = "Pro Tag";
 "car_rental.form.notes" = "Notizen";
 "car_rental.form.validation.error" = "Validierungsfehler";
-"car_rental.form.validation.company_required" = "Bitte geben Sie einen Autovermietungsnamen ein.";
-"car_rental.form.validation.pickup_required" = "Bitte geben Sie einen Abholort ein.";
-"car_rental.form.validation.dropoff_required" = "Bitte geben Sie einen Rückgabeort ein.";
+"car_rental.form.validation.car_required" = "Bitte geben Sie Fahrzeuginformationen ein.";
 "car_rental.form.validation.date_order" = "Das Rückgabedatum muss nach dem Abholdatum liegen.";
 
 /* Car Rental Reminders */
@@ -615,6 +618,17 @@
 /* Document Camera */
 "document.camera.default_name" = "Erfasstes Dokument";
 
+/* Document Name Entry */
+"document.name_entry.title" = "Dokumentname";
+"document.name_entry.file_info" = "Dateiinformationen";
+"document.name_entry.name_section" = "Name (Optional)";
+"document.name_entry.name_section_required" = "Name (Erforderlich)";
+"document.name_entry.name_placeholder" = "Geben Sie einen Namen ein";
+"document.name_entry.name_hint" = "Leer lassen, um den Dateinamen zu verwenden.";
+"document.name_entry.name_required_hint" = "Ein Name ist für Fotos und Kameraaufnahmen erforderlich.";
+"document.source.photo_library" = "Fotobibliothek";
+"document.source.camera" = "Kameraaufnahme";
+
 /* Note Management */
 "note.list.title" = "Notizen";
 "note.list.empty.title" = "Keine Notizen";
@@ -637,6 +651,7 @@
 "place.list.empty.title" = "Keine Orte";
 "place.list.empty.message" = "Fügen Sie Orte hinzu, die Sie während Ihrer Reise besuchen möchten.";
 "place.list.add_first" = "Ort hinzufügen";
+"place.list.open_map" = "Karte öffnen";
 "place.summary.visited" = "besucht";
 
 /* Place Filters */
@@ -657,6 +672,7 @@
 "place.form.section.notes" = "Notizen";
 "place.form.name" = "Ortsname";
 "place.form.address" = "Adresse";
+"place.form.address_hint" = "Adresse eingeben oder Google Maps-Link einfügen";
 "place.form.category" = "Kategorie";
 "place.form.visited" = "Bereits besucht";
 "place.form.has_planned_date" = "Geplantes Datum festlegen";
@@ -783,10 +799,6 @@
 "stats.destinations" = "Ziele";
 "stats.upcoming" = "Bevorstehend";
 "stats.transport_breakdown" = "Transportübersicht";
-"stats.spending_overview" = "Ausgabenübersicht";
-"stats.total_spent" = "Gesamtausgaben";
-"stats.expenses_count" = "Ausgaben";
-"stats.by_category" = "Nach Kategorie";
 "stats.journey_summary" = "Reisezusammenfassung";
 "stats.transports" = "Transporte";
 "stats.hotels" = "Hotels";
@@ -799,3 +811,12 @@
 "stats.days" = "Tage";
 "stats.longest_journey" = "Längste Reise";
 "stats.most_visited" = "Meistbesucht";
+
+/* Developer Settings */
+"settings.developer.generate_random_data" = "Zufällige Daten generieren";
+"settings.developer.select_journey" = "Reise auswählen";
+"settings.developer.no_journeys" = "Keine Reisen";
+"settings.developer.no_journeys_hint" = "Erstellen Sie zuerst eine Reise, um zufällige Daten dafür zu generieren.";
+"settings.developer.random_data_confirm_title" = "Zufällige Daten generieren?";
+"settings.developer.random_data_confirm_message" = "Alle vorhandenen Daten für diese Reise werden gelöscht und dann zufällige Transporte, Hotels, Notizen, Ausgaben usw. hinzugefügt. Sind Sie sicher?";
+"settings.developer.random_data_confirm_action" = "Generieren";

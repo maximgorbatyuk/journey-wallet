@@ -9,7 +9,7 @@ struct AboutAppSubView: SwiftUICore.View {
     var body: some SwiftUICore.View {
         NavigationView {
             ZStack {
-                
+
                 Image("BackgroundImage")
                     .resizable()
                     .scaledToFill()
@@ -19,16 +19,16 @@ struct AboutAppSubView: SwiftUICore.View {
 
                 ScrollView {
                     VStack(alignment: .leading) {
-                        Text(L("Track your electric vehicle charging costs and discover your true cost per kilometer."))
+                        Text(L("Keep your journey in one place."))
                             .padding(.bottom)
 
-                        Text(L("Log charging sessions, analyze expenses, and optimize your EV charging strategy with detailed insights and automatic calculations."))
+                        Text(L("Journey Wallet is an iOS app that allows users to keep all journey details, bookings, receipts, docs, and more on one place."))
                             .padding(.bottom)
 
                         Text(L("If you have any questions or suggestions, feel free to create an issue on Github:"))
 
                         if let url = URL(string: getGithubLink()) {
-                            Link(L("ev-charging-tracker"), destination: url)
+                            Link(L("journey-wallet"), destination: url)
                         } else {
                             Text(getGithubLink())
                                 .foregroundColor(.blue)
@@ -61,7 +61,7 @@ struct AboutAppSubView: SwiftUICore.View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
             }
-            .navigationTitle(L("EV Charge Tracker"))
+            .navigationTitle(L("Journey Wallet"))
             .navigationBarTitleDisplayMode(.automatic)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {

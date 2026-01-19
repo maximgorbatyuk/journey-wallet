@@ -23,17 +23,18 @@ struct TransportFormView: View {
 
     // Form state
     @State private var transportType: TransportType = .flight
-    @State private var carrier: String = ""
+    @State private var bookingReference: String = ""
     @State private var transportNumber: String = ""
     @State private var departureLocation: String = ""
     @State private var arrivalLocation: String = ""
     @State private var departureDate: Date = Date()
     @State private var arrivalDate: Date = Date().addingTimeInterval(2 * 60 * 60)
-    @State private var bookingReference: String = ""
-    @State private var seatNumber: String = ""
-    @State private var platform: String = ""
     @State private var cost: String = ""
     @State private var currency: Currency = .usd
+    @State private var seatNumber: String = ""
+    @State private var platform: String = ""
+    @State private var carrier: String = ""
+    @State private var forWhom: String = ""
     @State private var notes: String = ""
 
     @State private var showValidationError: Bool = false
@@ -56,17 +57,18 @@ struct TransportFormView: View {
         // Initialize state from existing transport if editing
         if case .edit(let transport) = mode {
             _transportType = State(initialValue: transport.type)
-            _carrier = State(initialValue: transport.carrier ?? "")
+            _bookingReference = State(initialValue: transport.bookingReference ?? "")
             _transportNumber = State(initialValue: transport.transportNumber ?? "")
             _departureLocation = State(initialValue: transport.departureLocation)
             _arrivalLocation = State(initialValue: transport.arrivalLocation)
             _departureDate = State(initialValue: transport.departureDate)
             _arrivalDate = State(initialValue: transport.arrivalDate)
-            _bookingReference = State(initialValue: transport.bookingReference ?? "")
-            _seatNumber = State(initialValue: transport.seatNumber ?? "")
-            _platform = State(initialValue: transport.platform ?? "")
             _cost = State(initialValue: transport.cost?.description ?? "")
             _currency = State(initialValue: transport.currency ?? .usd)
+            _seatNumber = State(initialValue: transport.seatNumber ?? "")
+            _platform = State(initialValue: transport.platform ?? "")
+            _carrier = State(initialValue: transport.carrier ?? "")
+            _forWhom = State(initialValue: transport.forWhom ?? "")
             _notes = State(initialValue: transport.notes ?? "")
         } else {
             // Set default currency from user settings
@@ -79,7 +81,7 @@ struct TransportFormView: View {
     var body: some View {
         NavigationView {
             Form {
-                // Transport Type Section
+                // Type Section (required)
                 Section(header: Text(L("transport.form.section.type"))) {
                     Picker(L("transport.form.type"), selection: $transportType) {
                         ForEach(TransportType.allCases, id: \.self) { type in
@@ -94,14 +96,19 @@ struct TransportFormView: View {
                     .pickerStyle(.navigationLink)
                 }
 
-                // Carrier Section (dynamic labels based on type)
-                Section(header: Text(L("transport.form.section.carrier"))) {
-                    TextField(transportType.carrierLabel, text: $carrier)
-
-                    TextField(transportType.numberLabel, text: $transportNumber)
+                // Booking Reference Section (required)
+                Section(header: Text(L("transport.form.section.booking"))) {
+                    TextField(L("transport.form.booking_reference"), text: $bookingReference)
+                        .autocapitalization(.allCharacters)
                 }
 
-                // Route Section
+                // Flight/Transport Number Section (optional)
+                Section(header: Text(L("transport.form.section.number"))) {
+                    TextField(transportType.numberLabel, text: $transportNumber)
+                        .autocapitalization(.allCharacters)
+                }
+
+                // Route Section (optional)
                 Section(header: Text(L("transport.form.section.route"))) {
                     TextField(transportType.departureLabel, text: $departureLocation)
                         .textContentType(.addressCity)
@@ -110,7 +117,7 @@ struct TransportFormView: View {
                         .textContentType(.addressCity)
                 }
 
-                // Date/Time Section
+                // Date/Time Section (optional)
                 Section(header: Text(L("transport.form.section.schedule"))) {
                     DatePicker(
                         L("transport.form.departure"),
@@ -121,31 +128,23 @@ struct TransportFormView: View {
                     DatePicker(
                         L("transport.form.arrival"),
                         selection: $arrivalDate,
-                        in: departureDate...,
                         displayedComponents: [.date, .hourAndMinute]
                     )
 
-                    // Duration display
-                    HStack {
-                        Text(L("transport.form.duration"))
-                            .foregroundColor(.secondary)
-                        Spacer()
-                        Text(calculateDuration())
-                            .foregroundColor(.orange)
-                            .fontWeight(.medium)
+                    // Duration display (only if arrival is after departure)
+                    if arrivalDate > departureDate {
+                        HStack {
+                            Text(L("transport.form.duration"))
+                                .foregroundColor(.secondary)
+                            Spacer()
+                            Text(calculateDuration())
+                                .foregroundColor(.orange)
+                                .fontWeight(.medium)
+                        }
                     }
                 }
 
-                // Details Section
-                Section(header: Text(L("transport.form.section.details"))) {
-                    TextField(transportType.platformLabel, text: $platform)
-
-                    TextField(L("transport.form.seat"), text: $seatNumber)
-
-                    TextField(L("transport.form.booking_reference"), text: $bookingReference)
-                }
-
-                // Cost Section
+                // Cost Section (optional)
                 Section(header: Text(L("transport.form.section.cost"))) {
                     HStack {
                         TextField(L("transport.form.cost"), text: $cost)
@@ -161,7 +160,22 @@ struct TransportFormView: View {
                     }
                 }
 
-                // Notes Section
+                // Additional Details Section (optional)
+                Section(header: Text(L("transport.form.section.details"))) {
+                    TextField(L("transport.form.seats"), text: $seatNumber)
+
+                    TextField(transportType.platformLabel, text: $platform)
+
+                    TextField(transportType.carrierLabel, text: $carrier)
+                }
+
+                // For Whom Section (optional)
+                Section(header: Text(L("transport.form.section.for_whom"))) {
+                    TextField(L("transport.form.for_whom"), text: $forWhom)
+                        .textContentType(.name)
+                }
+
+                // Notes Section (optional)
                 Section(header: Text(L("transport.form.section.notes"))) {
                     TextEditor(text: $notes)
                         .frame(minHeight: 80)
@@ -198,20 +212,9 @@ struct TransportFormView: View {
     // MARK: - Validation
 
     private func validateForm() -> Bool {
-        if departureLocation.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            validationMessage = L("transport.form.error.departure_required")
-            showValidationError = true
-            return false
-        }
-
-        if arrivalLocation.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            validationMessage = L("transport.form.error.arrival_required")
-            showValidationError = true
-            return false
-        }
-
-        if arrivalDate <= departureDate {
-            validationMessage = L("transport.form.error.invalid_times")
+        // Only booking reference is required
+        if bookingReference.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            validationMessage = L("transport.form.error.booking_required")
             showValidationError = true
             return false
         }
@@ -235,6 +238,10 @@ struct TransportFormView: View {
 
         let parsedCost = cost.isEmpty ? nil : Decimal(string: cost)
 
+        // Use default values for required model fields if not provided
+        let finalDepartureLocation = departureLocation.trimmingCharacters(in: .whitespacesAndNewlines)
+        let finalArrivalLocation = arrivalLocation.trimmingCharacters(in: .whitespacesAndNewlines)
+
         let transport: Transport
 
         if case .edit(let existingTransport) = mode {
@@ -244,16 +251,17 @@ struct TransportFormView: View {
                 type: transportType,
                 carrier: carrier.isEmpty ? nil : carrier,
                 transportNumber: transportNumber.isEmpty ? nil : transportNumber,
-                departureLocation: departureLocation.trimmingCharacters(in: .whitespacesAndNewlines),
-                arrivalLocation: arrivalLocation.trimmingCharacters(in: .whitespacesAndNewlines),
+                departureLocation: finalDepartureLocation.isEmpty ? "-" : finalDepartureLocation,
+                arrivalLocation: finalArrivalLocation.isEmpty ? "-" : finalArrivalLocation,
                 departureDate: departureDate,
                 arrivalDate: arrivalDate,
-                bookingReference: bookingReference.isEmpty ? nil : bookingReference,
+                bookingReference: bookingReference.trimmingCharacters(in: .whitespacesAndNewlines),
                 seatNumber: seatNumber.isEmpty ? nil : seatNumber,
                 platform: platform.isEmpty ? nil : platform,
                 cost: parsedCost,
                 currency: parsedCost != nil ? currency : nil,
                 notes: notes.isEmpty ? nil : notes,
+                forWhom: forWhom.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? nil : forWhom.trimmingCharacters(in: .whitespacesAndNewlines),
                 createdAt: existingTransport.createdAt,
                 updatedAt: Date()
             )
@@ -263,16 +271,17 @@ struct TransportFormView: View {
                 type: transportType,
                 carrier: carrier.isEmpty ? nil : carrier,
                 transportNumber: transportNumber.isEmpty ? nil : transportNumber,
-                departureLocation: departureLocation.trimmingCharacters(in: .whitespacesAndNewlines),
-                arrivalLocation: arrivalLocation.trimmingCharacters(in: .whitespacesAndNewlines),
+                departureLocation: finalDepartureLocation.isEmpty ? "-" : finalDepartureLocation,
+                arrivalLocation: finalArrivalLocation.isEmpty ? "-" : finalArrivalLocation,
                 departureDate: departureDate,
                 arrivalDate: arrivalDate,
-                bookingReference: bookingReference.isEmpty ? nil : bookingReference,
+                bookingReference: bookingReference.trimmingCharacters(in: .whitespacesAndNewlines),
                 seatNumber: seatNumber.isEmpty ? nil : seatNumber,
                 platform: platform.isEmpty ? nil : platform,
                 cost: parsedCost,
                 currency: parsedCost != nil ? currency : nil,
-                notes: notes.isEmpty ? nil : notes
+                notes: notes.isEmpty ? nil : notes,
+                forWhom: forWhom.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? nil : forWhom.trimmingCharacters(in: .whitespacesAndNewlines)
             )
         }
 
@@ -312,7 +321,8 @@ struct TransportFormView: View {
             departureLocation: "Dubai",
             arrivalLocation: "Paris",
             departureDate: Date(),
-            arrivalDate: Date().addingTimeInterval(6 * 60 * 60)
+            arrivalDate: Date().addingTimeInterval(6 * 60 * 60),
+            bookingReference: "ABC123"
         ))
     ) { _ in }
 }

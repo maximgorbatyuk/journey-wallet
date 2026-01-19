@@ -2,6 +2,16 @@ import SwiftUI
 import UniformTypeIdentifiers
 import PhotosUI
 
+/// Represents a file pending name entry before saving
+struct PendingDocument: Identifiable {
+    let id = UUID()
+    let tempURL: URL
+    let originalPath: String
+    let fileName: String
+    let fileSize: Int64
+    let nameRequired: Bool
+}
+
 struct DocumentPickerView: View {
 
     let journeyId: UUID
@@ -15,6 +25,9 @@ struct DocumentPickerView: View {
     @State private var isProcessing = false
     @State private var errorMessage: String?
     @State private var showError = false
+    @State private var pendingDocuments: [PendingDocument] = []
+    @State private var currentPendingIndex: Int = 0
+    @State private var showNameEntry = false
     @ObservedObject private var analytics = AnalyticsService.shared
 
     var body: some View {
@@ -134,6 +147,23 @@ struct DocumentPickerView: View {
             } message: {
                 Text(errorMessage ?? L("document.error.unknown"))
             }
+            .sheet(isPresented: $showNameEntry) {
+                if currentPendingIndex < pendingDocuments.count {
+                    let pending = pendingDocuments[currentPendingIndex]
+                    DocumentNameEntryView(
+                        fileName: pending.fileName,
+                        filePath: pending.originalPath,
+                        fileSize: pending.fileSize,
+                        nameRequired: pending.nameRequired,
+                        onSave: { name in
+                            saveCurrentPendingDocument(withName: name)
+                        },
+                        onCancel: {
+                            cancelPendingDocuments()
+                        }
+                    )
+                }
+            }
             .onAppear {
                 analytics.trackScreen("document_picker_screen")
             }
@@ -158,13 +188,38 @@ struct DocumentPickerView: View {
         isProcessing = true
 
         Task {
-            var successCount = 0
+            var pending: [PendingDocument] = []
 
             for url in urls {
+                // Start accessing the security-scoped resource
+                let accessing = url.startAccessingSecurityScopedResource()
+                defer {
+                    if accessing {
+                        url.stopAccessingSecurityScopedResource()
+                    }
+                }
+
                 if DocumentService.shared.isSupportedFileType(url) {
-                    let viewModel = DocumentListViewModel(journeyId: journeyId)
-                    if viewModel.addDocument(from: url) {
-                        successCount += 1
+                    // Get file info
+                    let fileName = url.lastPathComponent
+                    let originalPath = url.deletingLastPathComponent().path
+                    let fileSize = (try? FileManager.default.attributesOfItem(atPath: url.path)[.size] as? Int64) ?? 0
+
+                    // Copy to temp location for later processing
+                    let tempFileName = "\(UUID().uuidString)_\(fileName)"
+                    let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent(tempFileName)
+
+                    do {
+                        try FileManager.default.copyItem(at: url, to: tempURL)
+                        pending.append(PendingDocument(
+                            tempURL: tempURL,
+                            originalPath: originalPath,
+                            fileName: fileName,
+                            fileSize: fileSize,
+                            nameRequired: false
+                        ))
+                    } catch {
+                        print("Failed to copy file to temp: \(error)")
                     }
                 }
             }
@@ -172,16 +227,56 @@ struct DocumentPickerView: View {
             await MainActor.run {
                 isProcessing = false
 
-                if successCount > 0 {
-                    analytics.trackEvent("documents_imported", properties: ["count": successCount])
-                    onComplete(true)
-                    dismiss()
-                } else {
+                if pending.isEmpty {
                     errorMessage = L("document.error.import_failed")
                     showError = true
+                } else {
+                    pendingDocuments = pending
+                    currentPendingIndex = 0
+                    showNameEntry = true
                 }
             }
         }
+    }
+
+    // MARK: - Pending Document Handling
+
+    private func saveCurrentPendingDocument(withName name: String?) {
+        guard currentPendingIndex < pendingDocuments.count else { return }
+
+        let pending = pendingDocuments[currentPendingIndex]
+        let viewModel = DocumentListViewModel(journeyId: journeyId)
+
+        // Save with optional name and file path
+        _ = viewModel.addDocument(from: pending.tempURL, name: name, filePath: pending.originalPath)
+
+        // Clean up temp file
+        try? FileManager.default.removeItem(at: pending.tempURL)
+
+        // Move to next pending document or finish
+        currentPendingIndex += 1
+
+        if currentPendingIndex < pendingDocuments.count {
+            // Show name entry for next document
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                showNameEntry = true
+            }
+        } else {
+            // All documents processed
+            analytics.trackEvent("documents_imported", properties: ["count": pendingDocuments.count])
+            pendingDocuments = []
+            onComplete(true)
+            dismiss()
+        }
+    }
+
+    private func cancelPendingDocuments() {
+        // Clean up all temp files
+        for pending in pendingDocuments {
+            try? FileManager.default.removeItem(at: pending.tempURL)
+        }
+        pendingDocuments = []
+        currentPendingIndex = 0
     }
 
     // MARK: - Photo Selection Handling
@@ -193,7 +288,7 @@ struct DocumentPickerView: View {
         selectedPhotoItems = []
 
         Task {
-            var successCount = 0
+            var pending: [PendingDocument] = []
 
             for item in items {
                 if let data = try? await item.loadTransferable(type: Data.self) {
@@ -203,11 +298,14 @@ struct DocumentPickerView: View {
 
                     do {
                         try data.write(to: tempURL)
-                        let viewModel = DocumentListViewModel(journeyId: journeyId)
-                        if viewModel.addDocument(from: tempURL) {
-                            successCount += 1
-                        }
-                        try? FileManager.default.removeItem(at: tempURL)
+                        let fileSize = Int64(data.count)
+                        pending.append(PendingDocument(
+                            tempURL: tempURL,
+                            originalPath: L("document.source.photo_library"),
+                            fileName: fileName,
+                            fileSize: fileSize,
+                            nameRequired: true
+                        ))
                     } catch {
                         print("Failed to process photo: \(error)")
                     }
@@ -217,13 +315,13 @@ struct DocumentPickerView: View {
             await MainActor.run {
                 isProcessing = false
 
-                if successCount > 0 {
-                    analytics.trackEvent("photos_imported", properties: ["count": successCount])
-                    onComplete(true)
-                    dismiss()
-                } else {
+                if pending.isEmpty {
                     errorMessage = L("document.error.import_failed")
                     showError = true
+                } else {
+                    pendingDocuments = pending
+                    currentPendingIndex = 0
+                    showNameEntry = true
                 }
             }
         }
@@ -245,21 +343,20 @@ struct DocumentPickerView: View {
 
             do {
                 try data.write(to: tempURL)
-                let viewModel = DocumentListViewModel(journeyId: journeyId)
-                let success = viewModel.addDocument(from: tempURL, name: L("document.camera.default_name"))
-                try? FileManager.default.removeItem(at: tempURL)
+                let fileSize = Int64(data.count)
 
                 await MainActor.run {
                     isProcessing = false
 
-                    if success {
-                        analytics.trackEvent("photo_captured")
-                        onComplete(true)
-                        dismiss()
-                    } else {
-                        errorMessage = L("document.error.save_failed")
-                        showError = true
-                    }
+                    pendingDocuments = [PendingDocument(
+                        tempURL: tempURL,
+                        originalPath: L("document.source.camera"),
+                        fileName: fileName,
+                        fileSize: fileSize,
+                        nameRequired: true
+                    )]
+                    currentPendingIndex = 0
+                    showNameEntry = true
                 }
             } catch {
                 await MainActor.run {

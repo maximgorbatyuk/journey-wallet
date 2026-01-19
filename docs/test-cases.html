@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Cases - Journey Wallet</title>
+  <meta name="theme-color" content="#daf5f0" />
+
+  <meta name="description" content="Comprehensive test cases for Journey Wallet iOS app - covering all features and functionality.">
+  <meta name="author" content="Maxim Gorbatyuk">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" href="./assets/app_icon.png?v=20260115" />
+
+  <link rel="stylesheet" href="./brutalism-style.css?v=20260115" />
+
+  <style>
+    .test-cases-page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+    }
+
+    .test-cases-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .test-cases-header .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+    }
+
+    .test-cases-header h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 24px;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .toc {
+      padding: 24px;
+      border: 2px solid var(--stroke);
+      border-radius: 16px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      margin-bottom: 32px;
+    }
+
+    .toc h2 {
+      margin: 0 0 16px;
+      font-size: 1.3rem;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 8px;
+    }
+
+    .toc a {
+      color: var(--ink);
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: var(--bg-alt);
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      font-size: 0.9rem;
+      transition: background 0.2s ease;
+    }
+
+    .toc a:hover {
+      background: var(--accent);
+    }
+
+    .test-section {
+      margin-bottom: 32px;
+      padding: 24px;
+      border: 2px solid var(--stroke);
+      border-radius: 16px;
+      background: var(--card);
+      box-shadow: 6px 6px 0 var(--stroke);
+    }
+
+    .test-section h2 {
+      margin: 0 0 20px;
+      font-size: 1.4rem;
+      padding-bottom: 12px;
+      border-bottom: 2px dashed rgba(17, 17, 17, 0.2);
+    }
+
+    .test-case {
+      margin-bottom: 24px;
+      padding: 16px;
+      background: var(--bg-alt);
+      border-radius: 12px;
+      border: 1px solid rgba(17, 17, 17, 0.1);
+    }
+
+    .test-case:last-child {
+      margin-bottom: 0;
+    }
+
+    .test-case h3 {
+      margin: 0 0 12px;
+      font-size: 1.05rem;
+      color: var(--ink);
+    }
+
+    .test-case-id {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.85rem;
+      color: var(--call-to-action);
+      margin-right: 8px;
+    }
+
+    .test-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+
+    .test-meta strong {
+      color: var(--ink);
+    }
+
+    .test-steps {
+      margin: 12px 0;
+      padding-left: 20px;
+    }
+
+    .test-steps li {
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .expected-result {
+      padding: 12px;
+      background: rgba(114, 155, 226, 0.15);
+      border-radius: 8px;
+      border-left: 4px solid var(--shock);
+    }
+
+    .expected-result strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--ink);
+      font-size: 0.85rem;
+    }
+
+    .expected-result ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .expected-result li {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+
+    .checklist {
+      padding: 20px;
+      background: var(--bg-alt);
+      border-radius: 12px;
+      border: 1px solid rgba(17, 17, 17, 0.1);
+    }
+
+    .checklist h3 {
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+    }
+
+    .checklist ul {
+      margin: 0;
+      padding-left: 24px;
+    }
+
+    .checklist li {
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .stat-badge {
+      padding: 12px 20px;
+      border: 2px solid var(--stroke);
+      border-radius: 12px;
+      background: var(--card);
+      box-shadow: 4px 4px 0 var(--stroke);
+      text-align: center;
+    }
+
+    .stat-badge .number {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--call-to-action);
+    }
+
+    .stat-badge .label {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+  <main class="test-cases-page">
+    <a href="./index.html" class="back-link">&larr; Back to Home</a>
+
+    <div class="test-cases-header">
+      <img class="logo" src="./assets/app_icon.png?v=20260115" alt="Journey Wallet logo" />
+      <h1>Test Cases</h1>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-badge">
+        <span class="number">100+</span>
+        <span class="label">Test Cases</span>
+      </div>
+      <div class="stat-badge">
+        <span class="number">15</span>
+        <span class="label">Categories</span>
+      </div>
+      <div class="stat-badge">
+        <span class="number">6</span>
+        <span class="label">Languages</span>
+      </div>
+    </div>
+
+    <nav class="toc">
+      <h2>Table of Contents</h2>
+      <div class="toc-grid">
+        <a href="#journey-management">1. Journey Management</a>
+        <a href="#transport-management">2. Transport Management</a>
+        <a href="#hotel-management">3. Hotel Management</a>
+        <a href="#car-rental-management">4. Car Rental Management</a>
+        <a href="#document-management">5. Document Management</a>
+        <a href="#notes-management">6. Notes Management</a>
+        <a href="#places-to-visit">7. Places to Visit</a>
+        <a href="#budget-expenses">8. Budget & Expenses</a>
+        <a href="#reminders-notifications">9. Reminders & Notifications</a>
+        <a href="#search-functionality">10. Search Functionality</a>
+        <a href="#statistics">11. Statistics</a>
+        <a href="#data-management">12. Data Management</a>
+        <a href="#navigation-ui">13. Navigation & UI</a>
+        <a href="#localization">14. Localization</a>
+        <a href="#accessibility">15. Accessibility</a>
+      </div>
+    </nav>
+
+    <!-- 1. Journey Management -->
+    <section id="journey-management" class="test-section">
+      <h2>1. Journey Management</h2>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-1.1</span>Create New Journey</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> App is installed and onboarding is completed</span>
+        </div>
+        <ol class="test-steps">
+          <li>Navigate to Journeys List (Tab 3)</li>
+          <li>Tap "+" button</li>
+          <li>Enter journey name: "Paris Vacation 2026"</li>
+          <li>Enter destination: "Paris, France"</li>
+          <li>Select start date: Tomorrow</li>
+          <li>Select end date: 7 days from tomorrow</li>
+          <li>Add notes: "Summer trip to Paris"</li>
+          <li>Tap "Save"</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Journey is created and appears in the list</li>
+            <li>Journey shows correct name, destination, and dates</li>
+            <li>Journey status shows as "Upcoming"</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-1.2</span>Create Journey - Validation</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> App is on Journey Form screen</span>
+        </div>
+        <ol class="test-steps">
+          <li>Leave journey name empty</li>
+          <li>Tap "Save"</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Form shows validation error</li>
+            <li>Journey is not created</li>
+            <li>Name field is highlighted</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-1.3</span>Edit Journey</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> At least one journey exists</span>
+        </div>
+        <ol class="test-steps">
+          <li>Navigate to Journeys List</li>
+          <li>Tap on an existing journey</li>
+          <li>Tap "Edit" button</li>
+          <li>Change destination to "Lyon, France"</li>
+          <li>Tap "Save"</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Journey is updated with new destination</li>
+            <li>Changes are reflected in the list</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-1.4</span>Delete Journey</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> At least one journey exists</span>
+        </div>
+        <ol class="test-steps">
+          <li>Navigate to Journeys List</li>
+          <li>Swipe left on a journey</li>
+          <li>Tap "Delete"</li>
+          <li>Confirm deletion</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Journey is removed from the list</li>
+            <li>All related entities are deleted</li>
+            <li>Related reminders and notifications are cancelled</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-1.5</span>Filter Journeys by Status</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> Multiple journeys exist with different statuses</span>
+        </div>
+        <ol class="test-steps">
+          <li>Navigate to Journeys List</li>
+          <li>Tap "Upcoming" filter</li>
+          <li>Tap "Active" filter</li>
+          <li>Tap "Past" filter</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Each filter shows only journeys matching the selected status</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Transport Management -->
+    <section id="transport-management" class="test-section">
+      <h2>2. Transport Management</h2>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-2.1</span>Add Flight</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> A journey exists and is selected</span>
+        </div>
+        <ol class="test-steps">
+          <li>Navigate to Journey Detail (Tab 2)</li>
+          <li>Tap Quick Add button (+)</li>
+          <li>Select "Transport"</li>
+          <li>Select type: "Flight"</li>
+          <li>Enter airline: "Air France"</li>
+          <li>Enter flight number: "AF1234"</li>
+          <li>Enter departure/arrival locations</li>
+          <li>Select dates and times</li>
+          <li>Enter terminal and booking reference</li>
+          <li>Tap "Save"</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Flight is added to the journey</li>
+            <li>Flight appears in Transport section</li>
+            <li>Correct icon (airplane) is displayed</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-2.2</span>Add Train</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> A journey exists</span>
+        </div>
+        <ol class="test-steps">
+          <li>Add transport with type "Train"</li>
+          <li>Enter train company and number</li>
+          <li>Enter departure/arrival stations</li>
+          <li>Enter platform information</li>
+          <li>Tap "Save"</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Train is added with correct platform label</li>
+            <li>Train icon is displayed</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-2.3</span>Transport Detail View</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> A transport exists</span>
+        </div>
+        <ol class="test-steps">
+          <li>Navigate to Transport List</li>
+          <li>Tap on a transport item</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Detail view shows all transport information</li>
+            <li>Countdown to departure is displayed (if upcoming)</li>
+            <li>Copy booking reference action works</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Hotel Management -->
+    <section id="hotel-management" class="test-section">
+      <h2>3. Hotel Management</h2>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-3.1</span>Add Hotel</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> A journey exists</span>
+        </div>
+        <ol class="test-steps">
+          <li>Tap Quick Add button</li>
+          <li>Select "Hotel"</li>
+          <li>Enter name and address</li>
+          <li>Select check-in/check-out dates</li>
+          <li>Enter room type and booking reference</li>
+          <li>Tap "Save"</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Hotel is added to the journey</li>
+            <li>Hotel appears in Hotels section</li>
+            <li>Nights count is calculated correctly</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-3.2</span>Hotel Detail View</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> A hotel exists</span>
+        </div>
+        <ol class="test-steps">
+          <li>Navigate to Hotels List</li>
+          <li>Tap on a hotel</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>All hotel details are displayed</li>
+            <li>Nights count is shown</li>
+            <li>Call hotel action works (if phone provided)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Car Rental Management -->
+    <section id="car-rental-management" class="test-section">
+      <h2>4. Car Rental Management</h2>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-4.1</span>Add Car Rental</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> A journey exists</span>
+        </div>
+        <ol class="test-steps">
+          <li>Tap Quick Add button</li>
+          <li>Select "Car Rental"</li>
+          <li>Enter car type (required)</li>
+          <li>Enter pickup/dropoff locations (optional)</li>
+          <li>Select dates and times</li>
+          <li>Tap "Save"</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Car rental is added to the journey</li>
+            <li>Only car type field is required</li>
+            <li>Rental duration is calculated correctly</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-4.2</span>Car Rental with Different Locations</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> A journey exists</span>
+        </div>
+        <ol class="test-steps">
+          <li>Add car rental with different pickup and dropoff locations</li>
+          <li>Tap "Save"</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Both locations are saved and displayed correctly</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Document Management -->
+    <section id="document-management" class="test-section">
+      <h2>5. Document Management</h2>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-5.1</span>Add PDF Document</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> A journey exists</span>
+        </div>
+        <ol class="test-steps">
+          <li>Tap Quick Add button</li>
+          <li>Select "Document"</li>
+          <li>Select a PDF file from device</li>
+          <li>Enter custom name</li>
+          <li>Tap "Save"</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>PDF is saved to the journey</li>
+            <li>Document appears in Documents list</li>
+            <li>PDF icon is displayed</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-5.2</span>View PDF Document</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> A PDF document exists</span>
+        </div>
+        <ol class="test-steps">
+          <li>Navigate to Documents List</li>
+          <li>Tap on the PDF document</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>PDF opens in preview view</li>
+            <li>Zoom and scroll work</li>
+            <li>Page navigation works (if multi-page)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-5.3</span>Import via Share Extension</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> App is installed, Share Extension is enabled</span>
+        </div>
+        <ol class="test-steps">
+          <li>Open Files app or Photos</li>
+          <li>Select a document/image</li>
+          <li>Tap Share</li>
+          <li>Select "Journey Wallet"</li>
+          <li>Select target journey</li>
+          <li>Confirm</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>File is imported to selected journey</li>
+            <li>Document appears in journey's document list</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-5.4</span>Document Search Navigation</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> A document exists</span>
+        </div>
+        <ol class="test-steps">
+          <li>Go to MainView (Tab 1)</li>
+          <li>Search for the document name</li>
+          <li>Tap on the document in search results</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Navigate to journey's document list</li>
+            <li>Document preview opens automatically</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Notes Management -->
+    <section id="notes-management" class="test-section">
+      <h2>6. Notes Management</h2>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-6.1</span>Add Note</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> A journey exists</span>
+        </div>
+        <ol class="test-steps">
+          <li>Tap Quick Add button</li>
+          <li>Select "Note"</li>
+          <li>Enter title and content</li>
+          <li>Tap "Save"</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Note is added to the journey</li>
+            <li>Note appears in Notes list</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Places to Visit -->
+    <section id="places-to-visit" class="test-section">
+      <h2>7. Places to Visit</h2>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-7.1</span>Add Place to Visit</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> A journey exists</span>
+        </div>
+        <ol class="test-steps">
+          <li>Tap Quick Add button</li>
+          <li>Select "Place to Visit"</li>
+          <li>Enter name and address</li>
+          <li>Select category (Attraction, Restaurant, etc.)</li>
+          <li>Tap "Save"</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Place is added to the journey</li>
+            <li>Place appears in Places to Visit list</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-7.2</span>Mark Place as Visited</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> A place exists and is not visited</span>
+        </div>
+        <ol class="test-steps">
+          <li>Navigate to Places List</li>
+          <li>Tap checkbox on a place</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Place is marked as visited</li>
+            <li>Visual indicator shows visited status</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Budget & Expenses -->
+    <section id="budget-expenses" class="test-section">
+      <h2>8. Budget & Expenses</h2>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-8.1</span>Add Expense</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> A journey exists</span>
+        </div>
+        <ol class="test-steps">
+          <li>Tap Quick Add button</li>
+          <li>Select "Expense"</li>
+          <li>Enter title and amount</li>
+          <li>Select currency and category</li>
+          <li>Tap "Save"</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Expense is added to the journey</li>
+            <li>Expense appears in Budget view</li>
+            <li>Total spending is updated</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-8.2</span>Multi-Currency Expenses</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> A journey exists</span>
+        </div>
+        <ol class="test-steps">
+          <li>Add expense in EUR</li>
+          <li>Add expense in USD</li>
+          <li>Add expense in GBP</li>
+          <li>View Budget</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>All expenses are displayed</li>
+            <li>Currency is shown for each expense</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Reminders & Notifications -->
+    <section id="reminders-notifications" class="test-section">
+      <h2>9. Reminders & Notifications</h2>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-9.1</span>Create Reminder for Transport</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> A transport exists</span>
+        </div>
+        <ol class="test-steps">
+          <li>Open transport detail view</li>
+          <li>Tap "Add Reminder"</li>
+          <li>Select "3 hours before"</li>
+          <li>Tap "Save"</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Reminder is created</li>
+            <li>Local notification is scheduled</li>
+            <li>Reminder appears in Notifications tab</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-9.2</span>Reminder Notification Received</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> A reminder is set for a specific time</span>
+        </div>
+        <ol class="test-steps">
+          <li>Create reminder for 1 minute in the future</li>
+          <li>Wait for notification</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Push notification appears at scheduled time</li>
+            <li>Notification contains correct title and journey info</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Search Functionality -->
+    <section id="search-functionality" class="test-section">
+      <h2>10. Search Functionality</h2>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-10.1</span>Search Journey by Name</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> Journeys exist</span>
+        </div>
+        <ol class="test-steps">
+          <li>Navigate to MainView</li>
+          <li>Tap search bar</li>
+          <li>Type journey name</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Matching journeys appear in results</li>
+            <li>Results show journey icon and type label</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-10.2</span>Search Result Navigation</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> Various entities exist</span>
+        </div>
+        <ol class="test-steps">
+          <li>Search for an entity</li>
+          <li>Tap on the result</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Journey &rarr; JourneyDetailView</li>
+            <li>Transport &rarr; TransportDetailView</li>
+            <li>Hotel &rarr; HotelDetailView</li>
+            <li>Document &rarr; DocumentListView (auto-opens document)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-10.3</span>Clear Search</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> Search results are displayed</span>
+        </div>
+        <ol class="test-steps">
+          <li>Tap clear button (X) in search bar</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Search query is cleared</li>
+            <li>Results are cleared</li>
+            <li>Keyboard is dismissed</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. Statistics -->
+    <section id="statistics" class="test-section">
+      <h2>11. Statistics</h2>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-11.1</span>View Statistics on MainView</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> Multiple journeys with data exist</span>
+        </div>
+        <ol class="test-steps">
+          <li>Navigate to MainView (Tab 1)</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Total journeys count is correct</li>
+            <li>Upcoming trips count is correct</li>
+            <li>Destinations visited is correct</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. Data Management -->
+    <section id="data-management" class="test-section">
+      <h2>12. Data Management</h2>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-12.1</span>iCloud Backup - Manual</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> iCloud is signed in</span>
+        </div>
+        <ol class="test-steps">
+          <li>Navigate to Settings</li>
+          <li>Tap "Backup Now"</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Backup is created</li>
+            <li>Success message is shown</li>
+            <li>Backup timestamp is updated</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-12.2</span>Export Data (JSON)</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> Data exists in app</span>
+        </div>
+        <ol class="test-steps">
+          <li>Navigate to Settings</li>
+          <li>Tap "Export Data"</li>
+          <li>Select export location</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>JSON file is exported</li>
+            <li>File contains all journeys and related data</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13. Navigation & UI -->
+    <section id="navigation-ui" class="test-section">
+      <h2>13. Navigation & UI</h2>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-13.1</span>Tab Navigation</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> App is running</span>
+        </div>
+        <ol class="test-steps">
+          <li>Tap each tab in order</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Tab 1: MainView (Dashboard)</li>
+            <li>Tab 2: JourneyDetailView</li>
+            <li>Tab 3: JourneysListView</li>
+            <li>Tab 4: NotificationsView</li>
+            <li>Tab 5: SettingsView</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-13.2</span>Journey Card Navigation from MainView</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> Active/upcoming journeys exist</span>
+        </div>
+        <ol class="test-steps">
+          <li>Navigate to MainView</li>
+          <li>Tap on a journey card</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Navigate to JourneyDetailView</li>
+            <li>Tapped journey is selected</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-13.3</span>Dark Mode</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> Device is in Dark Mode</span>
+        </div>
+        <ol class="test-steps">
+          <li>Open app</li>
+          <li>Navigate through all screens</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>All screens display correctly in Dark Mode</li>
+            <li>Colors and contrast are appropriate</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14. Localization -->
+    <section id="localization" class="test-section">
+      <h2>14. Localization</h2>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-14.1</span>Language Support</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> Device language is set to supported language</span>
+        </div>
+        <ol class="test-steps">
+          <li>Set device language to each supported language</li>
+          <li>Navigate through all screens</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>English - All UI text in English</li>
+            <li>German - All UI text in German</li>
+            <li>Russian - All UI text in Russian</li>
+            <li>Turkish - All UI text in Turkish</li>
+            <li>Kazakh - All UI text in Kazakh</li>
+            <li>Ukrainian - All UI text in Ukrainian</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 15. Accessibility -->
+    <section id="accessibility" class="test-section">
+      <h2>15. Accessibility</h2>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-15.1</span>VoiceOver Navigation</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> VoiceOver is enabled</span>
+        </div>
+        <ol class="test-steps">
+          <li>Navigate through app using VoiceOver</li>
+          <li>Interact with buttons and forms</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>All elements are accessible</li>
+            <li>Labels are read correctly</li>
+            <li>Actions can be performed</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="test-case">
+        <h3><span class="test-case-id">TC-15.2</span>Dynamic Type</h3>
+        <div class="test-meta">
+          <span><strong>Preconditions:</strong> Accessibility text size is modified</span>
+        </div>
+        <ol class="test-steps">
+          <li>Set text size to largest</li>
+          <li>Navigate through screens</li>
+          <li>Set text size to smallest</li>
+          <li>Navigate through screens</li>
+        </ol>
+        <div class="expected-result">
+          <strong>Expected Result:</strong>
+          <ul>
+            <li>Text scales appropriately</li>
+            <li>UI remains usable</li>
+            <li>No text is cut off</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Regression Checklist -->
+    <section class="test-section">
+      <h2>Regression Test Checklist</h2>
+      <div class="checklist">
+        <h3>After each release, verify:</h3>
+        <ul>
+          <li>All journey CRUD operations work</li>
+          <li>All transport types can be added</li>
+          <li>Hotels can be added and edited</li>
+          <li>Car rentals work correctly</li>
+          <li>Documents can be imported and viewed</li>
+          <li>Notes can be created and edited</li>
+          <li>Places can be added and marked as visited</li>
+          <li>Expenses calculate correctly</li>
+          <li>Reminders trigger notifications</li>
+          <li>Search returns correct results</li>
+          <li>Search navigation works for all entity types</li>
+          <li>Backup and restore work</li>
+          <li>All 6 languages display correctly</li>
+          <li>Dark mode works</li>
+          <li>VoiceOver is functional</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="footer">
+      <div>
+        <span>Journey Wallet</span>
+        <span>&middot;</span>
+        <a href="./index.html">Home</a>
+        <span>&middot;</span>
+        <a href="https://apps.apple.com/app/id6757918975" target="_blank">App Store</a>
+        <span>&middot;</span>
+        <a href="https://github.com/maximgorbatyuk/journey-wallet" target="_blank">GitHub</a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year">2026</span> Maxim Gorbatyuk. Open source project under MIT License.</p>
+      </div>
+    </section>
+  </main>
+</body>
+<script>
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
+
+</html>

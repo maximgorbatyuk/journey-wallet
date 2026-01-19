@@ -34,6 +34,7 @@ class JourneyDetailViewModel {
     var recentNotes: [Note] = []
     var upcomingPlaces: [PlaceToVisit] = []
     var upcomingReminders: [Reminder] = []
+    var recentExpenses: [Expense] = []
 
     // MARK: - Repositories
 
@@ -145,10 +146,13 @@ class JourneyDetailViewModel {
         sectionCounts.reminders = remindersRepository?.countByJourneyId(journeyId: journeyId) ?? 0
         sectionCounts.expenses = expensesRepository?.countByJourneyId(journeyId: journeyId) ?? 0
 
-        // Calculate total expenses
+        // Calculate total expenses and get recent ones
         let expenses = expensesRepository?.fetchByJourneyId(journeyId: journeyId) ?? []
         sectionCounts.totalExpenses = expenses.reduce(Decimal(0)) { $0 + $1.amount }
         sectionCounts.expensesCurrency = expenses.first?.currency ?? userSettingsRepository?.fetchCurrency()
+
+        // Get 3 most recent expenses (sorted by date descending)
+        recentExpenses = Array(expenses.sorted { $0.date > $1.date }.prefix(3))
 
         // Load preview items (first 3 of each)
         let allTransports = transportsRepository?.fetchByJourneyId(journeyId: journeyId) ?? []
@@ -179,5 +183,6 @@ class JourneyDetailViewModel {
         recentNotes = []
         upcomingPlaces = []
         upcomingReminders = []
+        recentExpenses = []
     }
 }

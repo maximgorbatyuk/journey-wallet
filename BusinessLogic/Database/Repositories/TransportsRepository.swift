@@ -20,6 +20,7 @@ class TransportsRepository {
     private let costColumn = Expression<String?>("cost")
     private let currencyColumn = Expression<String?>("currency")
     private let notesColumn = Expression<String?>("notes")
+    private let forWhomColumn = Expression<String?>("for_whom")
     private let createdAtColumn = Expression<Date>("created_at")
     private let updatedAtColumn = Expression<Date>("updated_at")
 
@@ -130,6 +131,7 @@ class TransportsRepository {
                 costColumn <- transport.cost?.description,
                 currencyColumn <- transport.currency?.rawValue,
                 notesColumn <- transport.notes,
+                forWhomColumn <- transport.forWhom,
                 createdAtColumn <- transport.createdAt,
                 updatedAtColumn <- transport.updatedAt
             )
@@ -160,6 +162,7 @@ class TransportsRepository {
                 costColumn <- transport.cost?.description,
                 currencyColumn <- transport.currency?.rawValue,
                 notesColumn <- transport.notes,
+                forWhomColumn <- transport.forWhom,
                 updatedAtColumn <- Date()
             ))
             logger.info("Updated transport: \(transport.id)")
@@ -258,6 +261,7 @@ class TransportsRepository {
             cost: cost,
             currency: currency,
             notes: row[notesColumn],
+            forWhom: row[forWhomColumn],
             createdAt: row[createdAtColumn],
             updatedAt: row[updatedAtColumn]
         )

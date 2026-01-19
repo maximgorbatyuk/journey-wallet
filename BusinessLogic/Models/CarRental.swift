@@ -3,13 +3,13 @@ import Foundation
 struct CarRental: Codable, Identifiable, Equatable {
     let id: UUID
     let journeyId: UUID
-    var company: String
-    var pickupLocation: String
-    var dropoffLocation: String
+    var company: String?
+    var pickupLocation: String?
+    var dropoffLocation: String?
     var pickupDate: Date
     var dropoffDate: Date
     var bookingReference: String?
-    var carType: String?
+    var carType: String
     var cost: Decimal?
     var currency: Currency?
     var notes: String?
@@ -19,13 +19,13 @@ struct CarRental: Codable, Identifiable, Equatable {
     init(
         id: UUID = UUID(),
         journeyId: UUID,
-        company: String,
-        pickupLocation: String,
-        dropoffLocation: String,
+        company: String? = nil,
+        pickupLocation: String? = nil,
+        dropoffLocation: String? = nil,
         pickupDate: Date,
         dropoffDate: Date,
         bookingReference: String? = nil,
-        carType: String? = nil,
+        carType: String,
         cost: Decimal? = nil,
         currency: Currency? = nil,
         notes: String? = nil,
@@ -78,6 +78,18 @@ struct CarRental: Codable, Identifiable, Equatable {
     }
 
     var isSameLocation: Bool {
-        pickupLocation == dropoffLocation
+        guard let pickup = pickupLocation, let dropoff = dropoffLocation else {
+            return pickupLocation == nil && dropoffLocation == nil
+        }
+        return pickup == dropoff
+    }
+
+    var displayName: String {
+        var displayName = carType
+        if (company?.isEmpty == false) {
+            displayName = "\(carType) (\(company!))"
+        }
+
+        return displayName
     }
 }

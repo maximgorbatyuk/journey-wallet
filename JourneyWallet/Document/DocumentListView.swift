@@ -3,16 +3,19 @@ import SwiftUI
 struct DocumentListView: View {
 
     let journeyId: UUID
+    private let initialDocumentToOpen: Document?
 
     @State private var viewModel: DocumentListViewModel
     @State private var showDocumentPicker = false
     @State private var selectedDocument: Document?
     @State private var showDeleteConfirmation = false
     @State private var documentToDelete: Document?
+    @State private var hasOpenedInitialDocument = false
     @ObservedObject private var analytics = AnalyticsService.shared
 
-    init(journeyId: UUID) {
+    init(journeyId: UUID, initialDocumentToOpen: Document? = nil) {
         self.journeyId = journeyId
+        self.initialDocumentToOpen = initialDocumentToOpen
         _viewModel = State(initialValue: DocumentListViewModel(journeyId: journeyId))
     }
 
@@ -53,6 +56,14 @@ struct DocumentListView: View {
         .onAppear {
             analytics.trackScreen("document_list_screen")
             viewModel.loadDocuments()
+
+            // Open initial document if provided
+            if let document = initialDocumentToOpen, !hasOpenedInitialDocument {
+                hasOpenedInitialDocument = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    selectedDocument = document
+                }
+            }
         }
         .refreshable {
             viewModel.refreshDocuments()
@@ -181,6 +192,14 @@ struct DocumentListRow: View {
 
     let document: Document
 
+    /// Check if document has a custom name set
+    private var hasCustomName: Bool {
+        if let name = document.name, !name.isEmpty {
+            return true
+        }
+        return false
+    }
+
     var body: some View {
         HStack(spacing: 12) {
             // File type icon
@@ -196,23 +215,44 @@ struct DocumentListRow: View {
 
             // Document info
             VStack(alignment: .leading, spacing: 4) {
-                Text(document.name)
-                    .font(.body)
-                    .fontWeight(.medium)
-                    .lineLimit(1)
+                if hasCustomName {
+                    // Show custom name as primary, filename as secondary
+                    Text(document.name!)
+                        .font(.body)
+                        .fontWeight(.medium)
+                        .lineLimit(1)
 
-                HStack(spacing: 8) {
-                    Text(document.fileType.displayName)
+                    Text(document.fileName)
                         .font(.caption)
                         .foregroundColor(.secondary)
+                        .lineLimit(1)
+                } else {
+                    // Show filename as primary, filepath as secondary (if available)
+                    Text(document.fileName)
+                        .font(.body)
+                        .fontWeight(.medium)
+                        .lineLimit(1)
 
-                    Text("•")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
+                    if let filePath = document.filePath, !filePath.isEmpty {
+                        Text(filePath)
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                            .lineLimit(1)
+                    } else {
+                        HStack(spacing: 8) {
+                            Text(document.fileType.displayName)
+                                .font(.caption)
+                                .foregroundColor(.secondary)
 
-                    Text(document.formattedFileSize)
-                        .font(.caption)
-                        .foregroundColor(.secondary)
+                            Text("•")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+
+                            Text(document.formattedFileSize)
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                    }
                 }
             }
 

@@ -21,6 +21,7 @@ enum SearchResultType: String, CaseIterable {
     case carRental
     case place
     case note
+    case document
 
     var icon: String {
         switch self {
@@ -30,6 +31,7 @@ enum SearchResultType: String, CaseIterable {
         case .carRental: return "car.fill"
         case .place: return "mappin"
         case .note: return "note.text"
+        case .document: return "doc.fill"
         }
     }
 
@@ -41,6 +43,7 @@ enum SearchResultType: String, CaseIterable {
         case .carRental: return L("search.type.car_rental")
         case .place: return L("search.type.place")
         case .note: return L("search.type.note")
+        case .document: return L("search.type.document")
         }
     }
 }
@@ -54,6 +57,7 @@ class SearchService {
     private let carRentalsRepository: CarRentalsRepository?
     private let placesToVisitRepository: PlacesToVisitRepository?
     private let notesRepository: NotesRepository?
+    private let documentsRepository: DocumentsRepository?
     private let logger: Logger
 
     init(databaseManager: DatabaseManager = .shared) {
@@ -63,6 +67,7 @@ class SearchService {
         self.carRentalsRepository = databaseManager.carRentalsRepository
         self.placesToVisitRepository = databaseManager.placesToVisitRepository
         self.notesRepository = databaseManager.notesRepository
+        self.documentsRepository = databaseManager.documentsRepository
         self.logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "-", category: "SearchService")
     }
 
@@ -95,6 +100,9 @@ class SearchService {
 
         // Search notes
         results.append(contentsOf: searchNotes(query: lowercasedQuery, journeyNameMap: journeyNameMap))
+
+        // Search documents
+        results.append(contentsOf: searchDocuments(query: lowercasedQuery, journeyNameMap: journeyNameMap))
 
         return results
     }
@@ -162,16 +170,16 @@ class SearchService {
         let rentals = carRentalsRepository?.fetchAll() ?? []
 
         return rentals.filter { rental in
-            rental.company.lowercased().contains(query) ||
-            rental.pickupLocation.lowercased().contains(query) ||
-            rental.dropoffLocation.lowercased().contains(query) ||
-            (rental.bookingReference?.lowercased().contains(query) ?? false) ||
-            (rental.carType?.lowercased().contains(query) ?? false)
+            (rental.company != nil && rental.company!.lowercased().contains(query)) ||
+            (rental.pickupLocation != nil && rental.pickupLocation!.lowercased().contains(query)) ||
+            (rental.dropoffLocation != nil && rental.dropoffLocation!.lowercased().contains(query)) ||
+            (rental.bookingReference != nil && rental.bookingReference!.lowercased().contains(query)) ||
+            (rental.carType.lowercased().contains(query))
         }.map { rental in
             SearchResult(
                 id: rental.id,
                 type: .carRental,
-                title: rental.company,
+                title: rental.displayName,
                 subtitle: rental.pickupLocation,
                 journeyId: rental.journeyId,
                 journeyName: journeyNameMap[rental.journeyId]
@@ -212,6 +220,25 @@ class SearchService {
                 subtitle: note.contentPreview,
                 journeyId: note.journeyId,
                 journeyName: journeyNameMap[note.journeyId]
+            )
+        }
+    }
+
+    private func searchDocuments(query: String, journeyNameMap: [UUID: String]) -> [SearchResult] {
+        let documents = documentsRepository?.fetchAll() ?? []
+
+        return documents.filter { document in
+            document.displayName.lowercased().contains(query) ||
+            document.fileName.lowercased().contains(query) ||
+            (document.notes?.lowercased().contains(query) ?? false)
+        }.map { document in
+            SearchResult(
+                id: document.id,
+                type: .document,
+                title: document.displayName,
+                subtitle: document.fileType.displayName,
+                journeyId: document.journeyId,
+                journeyName: journeyNameMap[document.journeyId]
             )
         }
     }

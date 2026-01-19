@@ -16,6 +16,7 @@ struct Transport: Codable, Identifiable, Equatable {
     var cost: Decimal?
     var currency: Currency?
     var notes: String?
+    var forWhom: String?
     let createdAt: Date
     var updatedAt: Date
 
@@ -35,6 +36,7 @@ struct Transport: Codable, Identifiable, Equatable {
         cost: Decimal? = nil,
         currency: Currency? = nil,
         notes: String? = nil,
+        forWhom: String? = nil,
         createdAt: Date = Date(),
         updatedAt: Date = Date()
     ) {
@@ -53,6 +55,7 @@ struct Transport: Codable, Identifiable, Equatable {
         self.cost = cost
         self.currency = currency
         self.notes = notes
+        self.forWhom = forWhom
         self.createdAt = createdAt
         self.updatedAt = updatedAt
     }

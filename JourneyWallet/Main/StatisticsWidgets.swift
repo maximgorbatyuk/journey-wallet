@@ -5,7 +5,6 @@ import SwiftUI
 struct ExtendedStatsSection: View {
     let statistics: OverviewStatistics
     let transportStats: TransportStatistics
-    let expenseStats: ExpenseStatistics
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -13,11 +12,6 @@ struct ExtendedStatsSection: View {
             // Transport Breakdown
             if transportStats.totalTransports > 0 {
                 transportBreakdownCard
-            }
-
-            // Spending Overview
-            if expenseStats.totalExpenses > 0 {
-                spendingOverviewCard
             }
         }
     }
@@ -46,68 +40,6 @@ struct ExtendedStatsSection: View {
         .cornerRadius(12)
     }
 
-    private var spendingOverviewCard: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Label(L("stats.spending_overview"), systemImage: "creditcard.fill")
-                .font(.headline)
-                .foregroundColor(.primary)
-
-            HStack {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(L("stats.total_spent"))
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-
-                    Text(formatAmount(expenseStats.totalAmount, currency: expenseStats.primaryCurrency))
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .foregroundColor(.orange)
-                }
-
-                Spacer()
-
-                VStack(alignment: .trailing, spacing: 4) {
-                    Text(L("stats.expenses_count"))
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-
-                    Text("\(expenseStats.totalExpenses)")
-                        .font(.title3)
-                        .fontWeight(.semibold)
-                }
-            }
-
-            if !expenseStats.categoryBreakdown.isEmpty {
-                Divider()
-
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(L("stats.by_category"))
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-
-                    ForEach(expenseStats.categoryBreakdown.prefix(3), id: \.category) { item in
-                        ExpenseCategoryRow(
-                            category: item.category,
-                            amount: item.amount,
-                            currency: expenseStats.primaryCurrency,
-                            total: expenseStats.totalAmount
-                        )
-                    }
-                }
-            }
-        }
-        .padding()
-        .background(Color(.systemGray6))
-        .cornerRadius(12)
-    }
-
-    private func formatAmount(_ amount: Decimal, currency: Currency) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.currencyCode = currency.rawValue.uppercased()
-        formatter.maximumFractionDigits = 0
-        return formatter.string(from: amount as NSDecimalNumber) ?? "\(currency.rawValue)\(amount)"
-    }
 }
 
 // MARK: - Mini Stat Item
@@ -145,13 +77,15 @@ struct TransportStatItem: View {
 
     var body: some View {
         VStack(spacing: 4) {
-            Image(systemName: type.icon)
-                .font(.title3)
-                .foregroundColor(type.color)
+            HStack(spacing: 4) {
+                Image(systemName: type.icon)
+                    .font(.title3)
+                    .foregroundColor(type.color)
 
-            Text("\(count)")
-                .font(.headline)
-                .fontWeight(.semibold)
+                Text("\(count)")
+                    .font(.headline)
+                    .fontWeight(.semibold)
+            }
 
             Text(type.displayName)
                 .font(.caption2)
@@ -162,52 +96,6 @@ struct TransportStatItem: View {
         .padding(.vertical, 8)
         .background(type.color.opacity(0.1))
         .cornerRadius(8)
-    }
-}
-
-// MARK: - Expense Category Row
-
-struct ExpenseCategoryRow: View {
-    let category: ExpenseCategory
-    let amount: Decimal
-    let currency: Currency
-    let total: Decimal
-
-    private var percentage: Double {
-        guard total > 0 else { return 0 }
-        return Double(truncating: (amount / total * 100) as NSDecimalNumber)
-    }
-
-    var body: some View {
-        HStack(spacing: 8) {
-            Image(systemName: category.icon)
-                .font(.caption)
-                .foregroundColor(category.color)
-                .frame(width: 20)
-
-            Text(category.displayName)
-                .font(.caption)
-                .foregroundColor(.primary)
-
-            Spacer()
-
-            Text(formatAmount(amount))
-                .font(.caption)
-                .fontWeight(.medium)
-
-            Text(String(format: "%.0f%%", percentage))
-                .font(.caption2)
-                .foregroundColor(.secondary)
-                .frame(width: 35, alignment: .trailing)
-        }
-    }
-
-    private func formatAmount(_ amount: Decimal) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.currencyCode = currency.rawValue.uppercased()
-        formatter.maximumFractionDigits = 0
-        return formatter.string(from: amount as NSDecimalNumber) ?? "\(amount)"
     }
 }
 
@@ -270,34 +158,10 @@ struct JourneyStatsCard: View {
                 )
             }
 
-            if stats.totalSpent > 0 {
-                Divider()
-
-                HStack {
-                    Text(L("stats.total_spent"))
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-
-                    Spacer()
-
-                    Text(formatAmount(stats.totalSpent, currency: stats.spentCurrency))
-                        .font(.headline)
-                        .fontWeight(.bold)
-                        .foregroundColor(.orange)
-                }
-            }
         }
         .padding()
         .background(Color(.systemGray6))
         .cornerRadius(12)
-    }
-
-    private func formatAmount(_ amount: Decimal, currency: Currency) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.currencyCode = currency.rawValue.uppercased()
-        formatter.maximumFractionDigits = 0
-        return formatter.string(from: amount as NSDecimalNumber) ?? "\(currency.rawValue)\(amount)"
     }
 }
 
@@ -432,13 +296,6 @@ struct InsightRow: View {
                     ferries: 1,
                     transfers: 1,
                     other: 0
-                ),
-                expenseStats: ExpenseStatistics(
-                    totalExpenses: 45,
-                    totalAmount: 2500,
-                    primaryCurrency: .usd,
-                    totalByCurrency: [.usd: 2500],
-                    totalByCategory: [.transport: 800, .accommodation: 1000, .food: 400, .activities: 300]
                 )
             )
 

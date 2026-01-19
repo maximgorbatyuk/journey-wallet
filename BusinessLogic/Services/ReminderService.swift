@@ -295,8 +295,8 @@ class ReminderService {
         }
 
         let title = String(format: L("reminder.car_rental.title_format"),
-                          carRental.company,
-                          daysBeforePickup)
+                           carRental.displayName,
+                           daysBeforePickup)
 
         return createReminder(
             journeyId: carRental.journeyId,

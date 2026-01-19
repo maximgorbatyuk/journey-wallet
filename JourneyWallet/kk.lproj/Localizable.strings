@@ -257,6 +257,7 @@
 "search.type.car_rental" = "Автокөлік жалдау";
 "search.type.place" = "Орын";
 "search.type.note" = "Жазба";
+"search.type.document" = "Құжат";
 
 /* Journeys List */
 "journeys.title" = "Сапарлар";
@@ -370,12 +371,18 @@
 "transport.form.arrival" = "Келу";
 "transport.form.duration" = "Ұзақтығы";
 "transport.form.seat" = "Орын нөмірі";
+"transport.form.seats" = "Орын нөмірі/нөмірлері";
 "transport.form.booking_reference" = "Брондау нөмірі";
 "transport.form.cost" = "Құны";
+"transport.form.section.booking" = "Брондау нөмірі";
+"transport.form.section.number" = "Көлік нөмірі";
 "transport.form.error.departure_required" = "Шығу орнын енгізіңіз.";
+"transport.form.error.booking_required" = "Брондау нөмірін енгізіңіз.";
 "transport.form.error.arrival_required" = "Келу орнын енгізіңіз.";
 "transport.form.error.invalid_times" = "Келу уақыты шығу уақытынан кейін болуы керек.";
 "transport.form.error.invalid_cost" = "Жарамды соманы енгізіңіз.";
+"transport.form.section.for_whom" = "Кімге арналған";
+"transport.form.for_whom" = "Жолаушы аты/аттары";
 
 /* Transport Reminders */
 "transport.reminder.24h_before" = "24 сағат бұрын";
@@ -518,31 +525,25 @@
 /* Car Rental Form */
 "car_rental.form.add_title" = "Автокөлік жалдау қосу";
 "car_rental.form.edit_title" = "Жалдауды өңдеу";
-"car_rental.form.section.company" = "Компания ақпараты";
-"car_rental.form.section.vehicle" = "Көлік";
-"car_rental.form.section.pickup" = "Алу";
-"car_rental.form.section.dropoff" = "Қайтару";
-"car_rental.form.section.booking" = "Брондау мәліметтері";
-"car_rental.form.section.cost" = "Құны";
+"car_rental.form.section.basic_info" = "Негізгі ақпарат";
+"car_rental.form.section.locations" = "Орындар";
+"car_rental.form.section.dates" = "Күндер";
 "car_rental.form.section.notes" = "Ескертпелер";
+"car_rental.form.car" = "Көлік ақпаратын енгізіңіз: аты, моделі, т.б.";
 "car_rental.form.company" = "Жалдау компаниясы";
-"car_rental.form.car_type" = "Көлік түрі";
 "car_rental.form.pickup_date" = "Алу күні";
 "car_rental.form.pickup_location" = "Алу орны";
 "car_rental.form.dropoff_date" = "Қайтару күні";
 "car_rental.form.dropoff_location" = "Қайтару орны";
 "car_rental.form.same_location" = "Сол жерге қайтару";
-"car_rental.form.days" = "Күн";
+"car_rental.form.duration" = "Ұзақтығы";
 "car_rental.form.booking_reference" = "Брондау нөмірі";
-"car_rental.form.phone" = "Байланыс телефоны";
 "car_rental.form.currency" = "Валюта";
 "car_rental.form.total_cost" = "Жалпы құны";
 "car_rental.form.per_day" = "Күніне";
 "car_rental.form.notes" = "Ескертпелер";
 "car_rental.form.validation.error" = "Тексеру қатесі";
-"car_rental.form.validation.company_required" = "Компания атауын енгізіңіз.";
-"car_rental.form.validation.pickup_location_required" = "Алу орнын енгізіңіз.";
-"car_rental.form.validation.dropoff_location_required" = "Қайтару орнын енгізіңіз.";
+"car_rental.form.validation.car_required" = "Көлік туралы ақпаратты енгізіңіз.";
 "car_rental.form.validation.date_order" = "Қайтару күні алу күнінен кейін болуы керек.";
 
 /* Car Rental Reminders */
@@ -624,6 +625,17 @@
 /* Document Camera */
 "document.camera.default_name" = "Түсірілген фото";
 
+/* Document Name Entry */
+"document.name_entry.title" = "Құжат аты";
+"document.name_entry.file_info" = "Файл мәліметтері";
+"document.name_entry.name_section" = "Атау (міндетті емес)";
+"document.name_entry.name_section_required" = "Атау (міндетті)";
+"document.name_entry.name_placeholder" = "Құжат атын енгізіңіз";
+"document.name_entry.name_hint" = "Файл атын пайдалану үшін бос қалдырыңыз.";
+"document.name_entry.name_required_hint" = "Фото және камера түсірілімдері үшін атау міндетті.";
+"document.source.photo_library" = "Фото кітапхана";
+"document.source.camera" = "Камера түсірілімі";
+
 /* Note Management */
 "note.list.title" = "Жазбалар";
 "note.list.empty.title" = "Жазбалар жоқ";
@@ -646,6 +658,7 @@
 "place.list.empty.title" = "Орындар жоқ";
 "place.list.empty.message" = "Саяхатыңыз кезінде бару керек орындарды қосыңыз.";
 "place.list.add_first" = "Орын қосу";
+"place.list.open_map" = "Картаны ашу";
 "place.summary.visited" = "барылған";
 
 /* Place Filters */
@@ -666,6 +679,7 @@
 "place.form.section.notes" = "Жазбалар";
 "place.form.name" = "Орын аты";
 "place.form.address" = "Мекенжай";
+"place.form.address_hint" = "Мекенжайды енгізіңіз немесе Google Maps сілтемесін қойыңыз";
 "place.form.category" = "Санат";
 "place.form.visited" = "Бұрын барылған";
 "place.form.has_planned_date" = "Жоспарланған күнді белгілеу";
@@ -792,10 +806,6 @@
 "stats.destinations" = "Бағыттар";
 "stats.upcoming" = "Алдағы";
 "stats.transport_breakdown" = "Көлік бөлімі";
-"stats.spending_overview" = "Шығын шолуы";
-"stats.total_spent" = "Жалпы шығын";
-"stats.expenses_count" = "Шығындар";
-"stats.by_category" = "Санат бойынша";
 "stats.journey_summary" = "Сапар қорытындысы";
 "stats.transports" = "Көліктер";
 "stats.hotels" = "Қонақүйлер";
@@ -808,3 +818,12 @@
 "stats.days" = "күн";
 "stats.longest_journey" = "Ең ұзақ сапар";
 "stats.most_visited" = "Ең көп барылған";
+
+/* Developer Settings */
+"settings.developer.generate_random_data" = "Кездейсоқ деректерді құру";
+"settings.developer.select_journey" = "Сапарды таңдаңыз";
+"settings.developer.no_journeys" = "Сапарлар жоқ";
+"settings.developer.no_journeys_hint" = "Алдымен кездейсоқ деректер құру үшін сапар жасаңыз.";
+"settings.developer.random_data_confirm_title" = "Кездейсоқ деректер құру керек пе?";
+"settings.developer.random_data_confirm_message" = "Осы сапардың барлық деректері жойылып, кездейсоқ көлік, қонақүйлер, жазбалар, шығындар т.б. қосылады. Сенімдісіз бе?";
+"settings.developer.random_data_confirm_action" = "Құру";

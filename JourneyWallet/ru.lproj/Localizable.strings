@@ -257,6 +257,7 @@
 "search.type.car_rental" = "Аренда авто";
 "search.type.place" = "Место";
 "search.type.note" = "Заметка";
+"search.type.document" = "Документ";
 
 /* Journeys List */
 "journeys.title" = "Поездки";
@@ -370,12 +371,18 @@
 "transport.form.arrival" = "Прибытие";
 "transport.form.duration" = "Длительность";
 "transport.form.seat" = "Номер места";
+"transport.form.seats" = "Номер(а) мест";
 "transport.form.booking_reference" = "Номер бронирования";
 "transport.form.cost" = "Стоимость";
+"transport.form.section.booking" = "Номер бронирования";
+"transport.form.section.number" = "Номер транспорта";
 "transport.form.error.departure_required" = "Укажите место отправления.";
+"transport.form.error.booking_required" = "Пожалуйста, введите номер бронирования.";
 "transport.form.error.arrival_required" = "Укажите место прибытия.";
 "transport.form.error.invalid_times" = "Время прибытия должно быть позже времени отправления.";
 "transport.form.error.invalid_cost" = "Введите корректную сумму.";
+"transport.form.section.for_whom" = "Для кого";
+"transport.form.for_whom" = "Имя пассажира(ов)";
 
 /* Transport Reminders */
 "transport.reminder.24h_before" = "За 24 часа";
@@ -518,31 +525,25 @@
 /* Car Rental Form */
 "car_rental.form.add_title" = "Добавить аренду авто";
 "car_rental.form.edit_title" = "Редактировать аренду";
-"car_rental.form.section.company" = "Информация о компании";
-"car_rental.form.section.vehicle" = "Транспортное средство";
-"car_rental.form.section.pickup" = "Получение";
-"car_rental.form.section.dropoff" = "Возврат";
-"car_rental.form.section.booking" = "Детали бронирования";
-"car_rental.form.section.cost" = "Стоимость";
+"car_rental.form.section.basic_info" = "Основная информация";
+"car_rental.form.section.locations" = "Местоположение";
+"car_rental.form.section.dates" = "Даты";
 "car_rental.form.section.notes" = "Заметки";
+"car_rental.form.car" = "Введите информацию об авто: название, модель и т.д.";
 "car_rental.form.company" = "Компания по аренде";
-"car_rental.form.car_type" = "Тип автомобиля";
 "car_rental.form.pickup_date" = "Дата получения";
 "car_rental.form.pickup_location" = "Место получения";
 "car_rental.form.dropoff_date" = "Дата возврата";
 "car_rental.form.dropoff_location" = "Место возврата";
 "car_rental.form.same_location" = "Возврат в том же месте";
-"car_rental.form.days" = "Дней";
+"car_rental.form.duration" = "Длительность";
 "car_rental.form.booking_reference" = "Номер брони";
-"car_rental.form.phone" = "Контактный телефон";
 "car_rental.form.currency" = "Валюта";
 "car_rental.form.total_cost" = "Общая стоимость";
 "car_rental.form.per_day" = "В день";
 "car_rental.form.notes" = "Заметки";
 "car_rental.form.validation.error" = "Ошибка валидации";
-"car_rental.form.validation.company_required" = "Пожалуйста, введите название компании.";
-"car_rental.form.validation.pickup_location_required" = "Пожалуйста, введите место получения.";
-"car_rental.form.validation.dropoff_location_required" = "Пожалуйста, введите место возврата.";
+"car_rental.form.validation.car_required" = "Пожалуйста, введите информацию об автомобиле.";
 "car_rental.form.validation.date_order" = "Дата возврата должна быть позже даты получения.";
 
 /* Car Rental Reminders */
@@ -620,6 +621,17 @@
 /* Document Camera */
 "document.camera.default_name" = "Снятый документ";
 
+/* Document Name Entry */
+"document.name_entry.title" = "Название документа";
+"document.name_entry.file_info" = "Информация о файле";
+"document.name_entry.name_section" = "Название (необязательно)";
+"document.name_entry.name_section_required" = "Название (обязательно)";
+"document.name_entry.name_placeholder" = "Введите название документа";
+"document.name_entry.name_hint" = "Оставьте пустым, чтобы использовать имя файла.";
+"document.name_entry.name_required_hint" = "Название обязательно для фото и снимков камеры.";
+"document.source.photo_library" = "Фототека";
+"document.source.camera" = "Снимок камеры";
+
 /* Note Management */
 "note.list.title" = "Заметки";
 "note.list.empty.title" = "Нет заметок";
@@ -642,6 +654,7 @@
 "place.list.empty.title" = "Нет мест";
 "place.list.empty.message" = "Добавьте места, которые вы хотите посетить во время путешествия.";
 "place.list.add_first" = "Добавить место";
+"place.list.open_map" = "Открыть карту";
 "place.summary.visited" = "посещено";
 
 /* Place Filters */
@@ -662,6 +675,7 @@
 "place.form.section.notes" = "Заметки";
 "place.form.name" = "Название места";
 "place.form.address" = "Адрес";
+"place.form.address_hint" = "Введите адрес или вставьте ссылку Google Maps";
 "place.form.category" = "Категория";
 "place.form.visited" = "Уже посещено";
 "place.form.has_planned_date" = "Установить дату";
@@ -788,10 +802,6 @@
 "stats.destinations" = "Направления";
 "stats.upcoming" = "Предстоящие";
 "stats.transport_breakdown" = "Транспорт";
-"stats.spending_overview" = "Обзор расходов";
-"stats.total_spent" = "Всего потрачено";
-"stats.expenses_count" = "Расходы";
-"stats.by_category" = "По категориям";
 "stats.journey_summary" = "Итоги поездки";
 "stats.transports" = "Транспорт";
 "stats.hotels" = "Отели";
@@ -804,3 +814,12 @@
 "stats.days" = "дней";
 "stats.longest_journey" = "Самая долгая поездка";
 "stats.most_visited" = "Самое популярное";
+
+/* Developer Settings */
+"settings.developer.generate_random_data" = "Сгенерировать случайные данные";
+"settings.developer.select_journey" = "Выберите поездку";
+"settings.developer.no_journeys" = "Нет поездок";
+"settings.developer.no_journeys_hint" = "Сначала создайте поездку, чтобы сгенерировать для неё случайные данные.";
+"settings.developer.random_data_confirm_title" = "Сгенерировать случайные данные?";
+"settings.developer.random_data_confirm_message" = "Все существующие данные этой поездки будут удалены, а затем будут добавлены случайный транспорт, отели, заметки, расходы и т.д. Вы уверены?";
+"settings.developer.random_data_confirm_action" = "Сгенерировать";

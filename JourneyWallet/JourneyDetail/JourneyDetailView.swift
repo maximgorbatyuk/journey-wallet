@@ -14,6 +14,12 @@ struct JourneyDetailView: View {
     @State private var showQuickAddSheet = false
     @ObservedObject private var analytics = AnalyticsService.shared
 
+    private let initialJourneyId: UUID?
+
+    init(initialJourneyId: UUID? = nil) {
+        self.initialJourneyId = initialJourneyId
+    }
+
     var body: some View {
         NavigationStack {
             ZStack(alignment: .bottomTrailing) {
@@ -312,7 +318,7 @@ struct JourneyDetailView: View {
                                     } : nil
                                 ),
                                 content: {
-                                    if viewModel.sectionCounts.expenses == 0 {
+                                    if viewModel.recentExpenses.isEmpty {
                                         Button {
                                             showBudgetView = true
                                         } label: {
@@ -323,16 +329,16 @@ struct JourneyDetailView: View {
                                         }
                                         .buttonStyle(.plain)
                                     } else {
-                                        Button {
-                                            showBudgetView = true
-                                        } label: {
-                                            BudgetSummaryView(
-                                                totalExpenses: viewModel.sectionCounts.totalExpenses,
-                                                expenseCount: viewModel.sectionCounts.expenses,
-                                                currency: viewModel.sectionCounts.expensesCurrency
-                                            )
+                                        ForEach(viewModel.recentExpenses) { expense in
+                                            ExpensePreviewRow(expense: expense)
+                                                .contentShape(Rectangle())
+                                                .onTapGesture {
+                                                    showBudgetView = true
+                                                }
+                                            if expense.id != viewModel.recentExpenses.last?.id {
+                                                Divider().padding(.leading, 56)
+                                            }
                                         }
-                                        .buttonStyle(.plain)
                                     }
                                 }
                             )
@@ -356,6 +362,9 @@ struct JourneyDetailView: View {
             .onAppear {
                 analytics.trackScreen("journey_detail_screen")
                 viewModel.loadInitialData()
+                if let journeyId = initialJourneyId {
+                    viewModel.selectJourney(id: journeyId)
+                }
             }
             .refreshable {
                 viewModel.refreshData()

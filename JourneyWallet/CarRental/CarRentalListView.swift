@@ -220,7 +220,7 @@ struct CarRentalListRow: View {
 
             // Rental info
             VStack(alignment: .leading, spacing: 4) {
-                Text(carRental.company)
+                Text(carRental.displayName)
                     .font(.headline)
                     .lineLimit(1)
 
@@ -238,23 +238,27 @@ struct CarRentalListRow: View {
                 }
 
                 // Locations
-                HStack(spacing: 4) {
-                    Image(systemName: "location.fill")
-                        .font(.caption2)
-                        .foregroundColor(.secondary)
+                if let pickupLocation = carRental.pickupLocation {
+                    HStack(spacing: 4) {
+                        Image(systemName: "location.fill")
+                            .font(.caption2)
+                            .foregroundColor(.secondary)
 
-                    if carRental.isSameLocation {
-                        Text(carRental.pickupLocation)
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                            .lineLimit(1)
-                    } else {
-                        Text("\(carRental.pickupLocation) → \(carRental.dropoffLocation)")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                            .lineLimit(1)
+                        if carRental.isSameLocation {
+                            Text(pickupLocation)
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                                .lineLimit(1)
+                        } else {
+                            Text("\(pickupLocation) → \(carRental.dropoffLocation ?? "N/A")")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                                .lineLimit(1)
+                        }
                     }
                 }
+                
+                
             }
 
             Spacer()
@@ -269,12 +273,10 @@ struct CarRentalListRow: View {
                 }
 
                 // Car type badge
-                if let carType = carRental.carType, !carType.isEmpty {
-                    Text(carType)
-                        .font(.caption2)
-                        .foregroundColor(.secondary)
-                        .lineLimit(1)
-                }
+                Text(carRental.carType)
+                    .font(.caption2)
+                    .foregroundColor(.secondary)
+                    .lineLimit(1)
 
                 // Status badge
                 Text(statusText)

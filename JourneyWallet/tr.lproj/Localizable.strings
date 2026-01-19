@@ -257,6 +257,7 @@
 "search.type.car_rental" = "Araç Kiralama";
 "search.type.place" = "Yer";
 "search.type.note" = "Not";
+"search.type.document" = "Belge";
 
 /* Journeys List */
 "journeys.title" = "Seyahatler";
@@ -370,12 +371,18 @@
 "transport.form.arrival" = "Varış";
 "transport.form.duration" = "Süre";
 "transport.form.seat" = "Koltuk Numarası";
+"transport.form.seats" = "Koltuk Numarası/Numaraları";
 "transport.form.booking_reference" = "Rezervasyon Numarası";
 "transport.form.cost" = "Maliyet";
+"transport.form.section.booking" = "Rezervasyon Numarası";
+"transport.form.section.number" = "Ulaşım Numarası";
 "transport.form.error.departure_required" = "Lütfen bir kalkış yeri girin.";
+"transport.form.error.booking_required" = "Lütfen bir rezervasyon numarası girin.";
 "transport.form.error.arrival_required" = "Lütfen bir varış yeri girin.";
 "transport.form.error.invalid_times" = "Varış zamanı kalkış zamanından sonra olmalıdır.";
 "transport.form.error.invalid_cost" = "Lütfen geçerli bir tutar girin.";
+"transport.form.section.for_whom" = "Kimin için";
+"transport.form.for_whom" = "Yolcu Adı/Adları";
 
 /* Transport Reminders */
 "transport.reminder.24h_before" = "24 saat önce";
@@ -518,31 +525,25 @@
 /* Car Rental Form */
 "car_rental.form.add_title" = "Araç Kiralama Ekle";
 "car_rental.form.edit_title" = "Kiralamayı Düzenle";
-"car_rental.form.section.company" = "Şirket Bilgileri";
-"car_rental.form.section.vehicle" = "Araç";
-"car_rental.form.section.pickup" = "Alış";
-"car_rental.form.section.dropoff" = "Teslim";
-"car_rental.form.section.booking" = "Rezervasyon Detayları";
-"car_rental.form.section.cost" = "Maliyet";
+"car_rental.form.section.basic_info" = "Temel Bilgiler";
+"car_rental.form.section.locations" = "Konumlar";
+"car_rental.form.section.dates" = "Tarihler";
 "car_rental.form.section.notes" = "Notlar";
+"car_rental.form.car" = "Araç bilgisi girin: ad, model vb";
 "car_rental.form.company" = "Kiralama Şirketi";
-"car_rental.form.car_type" = "Araç Tipi";
 "car_rental.form.pickup_date" = "Alış Tarihi";
 "car_rental.form.pickup_location" = "Alış Yeri";
 "car_rental.form.dropoff_date" = "Teslim Tarihi";
 "car_rental.form.dropoff_location" = "Teslim Yeri";
 "car_rental.form.same_location" = "Aynı yere teslim";
-"car_rental.form.days" = "Gün";
+"car_rental.form.duration" = "Süre";
 "car_rental.form.booking_reference" = "Rezervasyon Numarası";
-"car_rental.form.phone" = "İletişim Telefonu";
 "car_rental.form.currency" = "Para Birimi";
 "car_rental.form.total_cost" = "Toplam Maliyet";
 "car_rental.form.per_day" = "Günlük";
 "car_rental.form.notes" = "Notlar";
 "car_rental.form.validation.error" = "Doğrulama Hatası";
-"car_rental.form.validation.company_required" = "Lütfen bir şirket adı girin.";
-"car_rental.form.validation.pickup_location_required" = "Lütfen bir alış yeri girin.";
-"car_rental.form.validation.dropoff_location_required" = "Lütfen bir teslim yeri girin.";
+"car_rental.form.validation.car_required" = "Lütfen araç bilgisini girin.";
 "car_rental.form.validation.date_order" = "Teslim tarihi alış tarihinden sonra olmalıdır.";
 
 /* Car Rental Reminders */
@@ -620,6 +621,17 @@
 /* Document Camera */
 "document.camera.default_name" = "Çekilen Belge";
 
+/* Document Name Entry */
+"document.name_entry.title" = "Belge Adı";
+"document.name_entry.file_info" = "Dosya Bilgisi";
+"document.name_entry.name_section" = "Ad (İsteğe Bağlı)";
+"document.name_entry.name_section_required" = "Ad (Zorunlu)";
+"document.name_entry.name_placeholder" = "Bu belge için bir ad girin";
+"document.name_entry.name_hint" = "Dosya adını kullanmak için boş bırakın.";
+"document.name_entry.name_required_hint" = "Fotoğraflar ve kamera çekimleri için ad zorunludur.";
+"document.source.photo_library" = "Fotoğraf Kitaplığı";
+"document.source.camera" = "Kamera Çekimi";
+
 /* Note Management */
 "note.list.title" = "Notlar";
 "note.list.empty.title" = "Not yok";
@@ -642,6 +654,7 @@
 "place.list.empty.title" = "Yer yok";
 "place.list.empty.message" = "Seyahatiniz sırasında ziyaret etmek istediğiniz yerleri ekleyin.";
 "place.list.add_first" = "Yer Ekle";
+"place.list.open_map" = "Haritayı Aç";
 "place.summary.visited" = "ziyaret edildi";
 
 /* Place Filters */
@@ -662,6 +675,7 @@
 "place.form.section.notes" = "Notlar";
 "place.form.name" = "Yer adı";
 "place.form.address" = "Adres";
+"place.form.address_hint" = "Adres girin veya Google Maps bağlantısı yapıştırın";
 "place.form.category" = "Kategori";
 "place.form.visited" = "Zaten ziyaret edildi";
 "place.form.has_planned_date" = "Planlanan tarih belirle";
@@ -788,10 +802,6 @@
 "stats.destinations" = "Destinasyonlar";
 "stats.upcoming" = "Yaklaşan";
 "stats.transport_breakdown" = "Ulaşım Dağılımı";
-"stats.spending_overview" = "Harcama Özeti";
-"stats.total_spent" = "Toplam Harcama";
-"stats.expenses_count" = "Giderler";
-"stats.by_category" = "Kategoriye Göre";
 "stats.journey_summary" = "Seyahat Özeti";
 "stats.transports" = "Ulaşımlar";
 "stats.hotels" = "Oteller";
@@ -804,3 +814,12 @@
 "stats.days" = "gün";
 "stats.longest_journey" = "En Uzun Seyahat";
 "stats.most_visited" = "En Çok Ziyaret Edilen";
+
+/* Developer Settings */
+"settings.developer.generate_random_data" = "Rastgele Veri Oluştur";
+"settings.developer.select_journey" = "Seyahat Seçin";
+"settings.developer.no_journeys" = "Seyahat Yok";
+"settings.developer.no_journeys_hint" = "Rastgele veri oluşturmak için önce bir seyahat oluşturun.";
+"settings.developer.random_data_confirm_title" = "Rastgele Veri Oluşturulsun mu?";
+"settings.developer.random_data_confirm_message" = "Bu seyahatin tüm mevcut verileri silinecek ve ardından rastgele ulaşım, otel, not, gider vb. eklenecektir. Emin misiniz?";
+"settings.developer.random_data_confirm_action" = "Oluştur";

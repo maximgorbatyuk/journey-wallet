@@ -334,6 +334,22 @@ class UserSettingsViewModel: ObservableObject {
         isAutomaticBackupEnabled = backgroundTaskManager.isAutomaticBackupEnabled
         lastAutomaticBackupDate = backgroundTaskManager.lastAutomaticBackupDate
     }
+
+    // MARK: - Random Data Generation (Developer Only)
+
+    func generateRandomDataForJourney(_ journey: Journey) {
+        guard isDevelopmentMode() else {
+            logger.warning("Attempt to generate random data in non-development mode. Operation aborted.")
+            return
+        }
+
+        logger.info("Generating random data for journey: \(journey.name) (ID: \(journey.id))")
+
+        let generator = RandomDataGenerator(db: db)
+        generator.generateRandomData(for: journey)
+
+        logger.info("Random data generation completed for journey: \(journey.name)")
+    }
 }
 
 // MARK: - Import Preview Data

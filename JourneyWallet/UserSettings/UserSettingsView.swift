@@ -20,6 +20,11 @@ struct UserSettingsView: SwiftUICore.View {
     @State private var exportFileURL: URL?
     @State private var showImportFilePicker = false
 
+    // Random data generation
+    @State private var showJourneyPickerForRandomData = false
+    @State private var selectedJourneyForRandomData: Journey?
+    @State private var showRandomDataConfirmation = false
+
     @ObservedObject private var analytics = AnalyticsService.shared
     @ObservedObject private var notificationsManager = NotificationManager.shared
     @ObservedObject private var environment = EnvironmentService.shared
@@ -532,6 +537,22 @@ struct UserSettingsView: SwiftUICore.View {
                             Text("Delete all data")
                         }
                         .buttonStyle(.plain)
+
+                        Button(action: {
+                            analytics.trackEvent("generate_random_data_button_clicked", properties: [
+                                "screen": "user_settings_screen",
+                                "button_name": "generate_random_data"
+                            ])
+                            showJourneyPickerForRandomData = true
+                        }) {
+                            HStack {
+                                Image(systemName: "dice.fill")
+                                    .foregroundColor(.purple)
+                                Text(L("settings.developer.generate_random_data"))
+                                    .foregroundColor(.primary)
+                            }
+                        }
+                        .buttonStyle(.plain)
                     }
                 }
             }
@@ -629,6 +650,31 @@ struct UserSettingsView: SwiftUICore.View {
                     Text(buildImportPreviewMessage(preview))
                 }
             }
+            .sheet(isPresented: $showJourneyPickerForRandomData) {
+                JourneyPickerForRandomDataView(
+                    onSelect: { journey in
+                        selectedJourneyForRandomData = journey
+                        showJourneyPickerForRandomData = false
+                        showRandomDataConfirmation = true
+                    },
+                    onCancel: {
+                        showJourneyPickerForRandomData = false
+                    }
+                )
+            }
+            .alert(L("settings.developer.random_data_confirm_title"), isPresented: $showRandomDataConfirmation) {
+                Button(L("Cancel"), role: .cancel) {
+                    selectedJourneyForRandomData = nil
+                }
+                Button(L("settings.developer.random_data_confirm_action"), role: .destructive) {
+                    if let journey = selectedJourneyForRandomData {
+                        viewModel.generateRandomDataForJourney(journey)
+                        selectedJourneyForRandomData = nil
+                    }
+                }
+            } message: {
+                Text(L("settings.developer.random_data_confirm_message"))
+            }
         }
     }
 
@@ -670,6 +716,93 @@ struct UserSettingsView: SwiftUICore.View {
         if let settingsUrl = URL(string: UIApplication.openSettingsURLString) {
             UIApplication.shared.open(settingsUrl)
         }
+    }
+}
+
+// MARK: - Journey Picker for Random Data
+
+struct JourneyPickerForRandomDataView: View {
+    let onSelect: (Journey) -> Void
+    let onCancel: () -> Void
+
+    @State private var journeys: [Journey] = []
+    @State private var isLoading = true
+
+    private let journeysRepository = DatabaseManager.shared.journeysRepository
+
+    var body: some View {
+        NavigationView {
+            Group {
+                if isLoading {
+                    ProgressView()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                } else if journeys.isEmpty {
+                    VStack(spacing: 16) {
+                        Image(systemName: "suitcase")
+                            .font(.system(size: 48))
+                            .foregroundColor(.gray)
+                        Text(L("settings.developer.no_journeys"))
+                            .font(.headline)
+                            .foregroundColor(.secondary)
+                        Text(L("settings.developer.no_journeys_hint"))
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal, 32)
+                    }
+                } else {
+                    List(journeys) { journey in
+                        Button(action: {
+                            onSelect(journey)
+                        }) {
+                            HStack {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(journey.name)
+                                        .font(.headline)
+                                        .foregroundColor(.primary)
+                                    Text(journey.destination)
+                                        .font(.subheadline)
+                                        .foregroundColor(.secondary)
+                                    Text(formatDateRange(journey.startDate, journey.endDate))
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                }
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
+                            .padding(.vertical, 4)
+                        }
+                    }
+                    .listStyle(.insetGrouped)
+                }
+            }
+            .navigationTitle(L("settings.developer.select_journey"))
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button(L("Cancel")) {
+                        onCancel()
+                    }
+                }
+            }
+            .onAppear {
+                loadJourneys()
+            }
+        }
+    }
+
+    private func loadJourneys() {
+        isLoading = true
+        journeys = journeysRepository?.fetchAll() ?? []
+        isLoading = false
+    }
+
+    private func formatDateRange(_ start: Date, _ end: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, yyyy"
+        return "\(formatter.string(from: start)) - \(formatter.string(from: end))"
     }
 }
 

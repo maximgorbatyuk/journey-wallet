@@ -27,6 +27,12 @@ class MainViewModel {
     var mostVisitedDestination: (destination: String, count: Int)?
 
     private let journeysRepository: JourneysRepository?
+    private let transportsRepository: TransportsRepository?
+    private let hotelsRepository: HotelsRepository?
+    private let carRentalsRepository: CarRentalsRepository?
+    private let placesToVisitRepository: PlacesToVisitRepository?
+    private let notesRepository: NotesRepository?
+    private let documentsRepository: DocumentsRepository?
     private let searchService: SearchService
     private let statisticsService: StatisticsService
     private let logger: Logger
@@ -37,6 +43,12 @@ class MainViewModel {
         statisticsService: StatisticsService = .shared
     ) {
         self.journeysRepository = databaseManager.journeysRepository
+        self.transportsRepository = databaseManager.transportsRepository
+        self.hotelsRepository = databaseManager.hotelsRepository
+        self.carRentalsRepository = databaseManager.carRentalsRepository
+        self.placesToVisitRepository = databaseManager.placesToVisitRepository
+        self.notesRepository = databaseManager.notesRepository
+        self.documentsRepository = databaseManager.documentsRepository
         self.searchService = searchService
         self.statisticsService = statisticsService
         self.logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "-", category: "MainViewModel")
@@ -97,5 +109,35 @@ class MainViewModel {
         var combined = activeJourneys
         combined.append(contentsOf: upcomingJourneys.prefix(5))
         return Array(Set(combined)).sorted { $0.startDate < $1.startDate }
+    }
+
+    // MARK: - Entity Lookups for Search Results
+
+    func getJourney(by id: UUID) -> Journey? {
+        journeysRepository?.fetchById(id: id)
+    }
+
+    func getTransport(by id: UUID) -> Transport? {
+        transportsRepository?.fetchById(id: id)
+    }
+
+    func getHotel(by id: UUID) -> Hotel? {
+        hotelsRepository?.fetchById(id: id)
+    }
+
+    func getCarRental(by id: UUID) -> CarRental? {
+        carRentalsRepository?.fetchById(id: id)
+    }
+
+    func getPlace(by id: UUID) -> PlaceToVisit? {
+        placesToVisitRepository?.fetchById(id: id)
+    }
+
+    func getNote(by id: UUID) -> Note? {
+        notesRepository?.fetchById(id: id)
+    }
+
+    func getDocument(by id: UUID) -> Document? {
+        documentsRepository?.fetchById(id: id)
     }
 }

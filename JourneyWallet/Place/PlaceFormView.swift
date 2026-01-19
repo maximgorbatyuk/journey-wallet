@@ -79,10 +79,43 @@ struct PlaceFormView: View {
         Section {
             TextField(L("place.form.name"), text: $name)
 
-            TextField(L("place.form.address"), text: $address)
+            VStack(alignment: .leading, spacing: 4) {
+                HStack {
+                    TextField(L("place.form.address"), text: $address)
+                        .textContentType(.fullStreetAddress)
+                        .keyboardType(.default)
+                        .autocapitalization(.none)
+
+                    // Show link icon if address is a URL
+                    if isAddressURL {
+                        Button(action: openAddressURL) {
+                            Image(systemName: "arrow.up.right.square")
+                                .foregroundColor(.blue)
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+
+                Text(L("place.form.address_hint"))
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
         } header: {
             Text(L("place.form.section.info"))
         }
+    }
+
+    // MARK: - URL Helpers
+
+    private var isAddressURL: Bool {
+        let trimmed = address.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        return trimmed.hasPrefix("http://") || trimmed.hasPrefix("https://")
+    }
+
+    private func openAddressURL() {
+        let trimmed = address.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard let url = URL(string: trimmed) else { return }
+        UIApplication.shared.open(url)
     }
 
     private var categorySection: some View {

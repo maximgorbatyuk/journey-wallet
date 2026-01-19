@@ -2,8 +2,7 @@ import SwiftUI
 
 struct HotelDetailView: View {
 
-    let hotel: Hotel
-    let journeyId: UUID
+    @State private var viewModel: HotelDetailViewModel
 
     @Environment(\.dismiss) private var dismiss
     @Environment(\.openURL) private var openURL
@@ -14,8 +13,9 @@ struct HotelDetailView: View {
     @State private var showReminderSheet: Bool = false
     @State private var copiedBookingRef: Bool = false
 
-    private let hotelsRepository = DatabaseManager.shared.hotelsRepository
-    private let remindersRepository = DatabaseManager.shared.remindersRepository
+    init(hotel: Hotel, journeyId: UUID) {
+        _viewModel = State(initialValue: HotelDetailViewModel(hotel: hotel, journeyId: journeyId))
+    }
 
     var body: some View {
         ScrollView {
@@ -30,17 +30,17 @@ struct HotelDetailView: View {
                 datesCard
 
                 // Booking info card
-                if hotel.bookingReference != nil || hotel.roomType != nil {
+                if viewModel.hotel.bookingReference != nil || viewModel.hotel.roomType != nil {
                     bookingInfoCard
                 }
 
                 // Cost card
-                if hotel.cost != nil {
+                if viewModel.hotel.cost != nil {
                     costCard
                 }
 
                 // Notes card
-                if let notes = hotel.notes, !notes.isEmpty {
+                if let notes = viewModel.hotel.notes, !notes.isEmpty {
                     notesCard(notes: notes)
                 }
 
@@ -84,20 +84,22 @@ struct HotelDetailView: View {
         }
         .sheet(isPresented: $showEditSheet) {
             HotelFormView(
-                journeyId: journeyId,
-                mode: .edit(hotel),
-                onSave: { _ in
-                    dismiss()
+                journeyId: viewModel.journeyId,
+                mode: .edit(viewModel.hotel),
+                onSave: { updatedHotel in
+                    viewModel.updateHotel(updatedHotel)
                 }
             )
         }
         .sheet(isPresented: $showReminderSheet) {
-            HotelReminderSheet(hotel: hotel, journeyId: journeyId)
+            HotelReminderSheet(viewModel: viewModel)
         }
         .alert(L("hotel.detail.delete_confirm.title"), isPresented: $showDeleteConfirmation) {
             Button(L("Cancel"), role: .cancel) {}
             Button(L("Delete"), role: .destructive) {
-                deleteHotel()
+                if viewModel.deleteHotel() {
+                    dismiss()
+                }
             }
         } message: {
             Text(L("hotel.detail.delete_confirm.message"))
@@ -120,7 +122,7 @@ struct HotelDetailView: View {
             }
 
             // Hotel name
-            Text(hotel.name)
+            Text(viewModel.hotel.name)
                 .font(.title2)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
@@ -136,7 +138,7 @@ struct HotelDetailView: View {
                 .cornerRadius(16)
 
             // Countdown
-            if hotel.isUpcoming {
+            if viewModel.hotel.isUpcoming {
                 Text(countdownText)
                     .font(.headline)
                     .foregroundColor(.orange)
@@ -146,9 +148,9 @@ struct HotelDetailView: View {
     }
 
     private var statusText: String {
-        if hotel.isActive {
+        if viewModel.hotel.isActive {
             return L("hotel.status.active")
-        } else if hotel.isUpcoming {
+        } else if viewModel.hotel.isUpcoming {
             return L("hotel.status.upcoming")
         } else {
             return L("hotel.status.past")
@@ -156,9 +158,9 @@ struct HotelDetailView: View {
     }
 
     private var statusColor: Color {
-        if hotel.isActive {
+        if viewModel.hotel.isActive {
             return .green
-        } else if hotel.isUpcoming {
+        } else if viewModel.hotel.isUpcoming {
             return .blue
         } else {
             return .gray
@@ -167,7 +169,7 @@ struct HotelDetailView: View {
 
     private var countdownText: String {
         let now = Date()
-        let components = Calendar.current.dateComponents([.day, .hour], from: now, to: hotel.checkInDate)
+        let components = Calendar.current.dateComponents([.day, .hour], from: now, to: viewModel.hotel.checkInDate)
 
         if let days = components.day, days > 0 {
             return "\(L("hotel.detail.check_in_in")) \(days) \(L("journey.days"))"
@@ -191,7 +193,7 @@ struct HotelDetailView: View {
                     Text(L("hotel.detail.address"))
                         .font(.caption)
                         .foregroundColor(.secondary)
-                    Text(hotel.address)
+                    Text(viewModel.hotel.address)
                         .font(.body)
                 }
 
@@ -207,7 +209,7 @@ struct HotelDetailView: View {
             }
 
             // Contact phone
-            if let phone = hotel.contactPhone, !phone.isEmpty {
+            if let phone = viewModel.hotel.contactPhone, !phone.isEmpty {
                 Divider()
 
                 HStack(spacing: 12) {
@@ -256,7 +258,7 @@ struct HotelDetailView: View {
                     Text(L("hotel.detail.check_in"))
                         .font(.caption)
                         .foregroundColor(.secondary)
-                    Text(formatDate(hotel.checkInDate))
+                    Text(formatDate(viewModel.hotel.checkInDate))
                         .font(.headline)
                 }
 
@@ -275,7 +277,7 @@ struct HotelDetailView: View {
                     Text(L("hotel.detail.check_out"))
                         .font(.caption)
                         .foregroundColor(.secondary)
-                    Text(formatDate(hotel.checkOutDate))
+                    Text(formatDate(viewModel.hotel.checkOutDate))
                         .font(.headline)
                 }
 
@@ -294,7 +296,7 @@ struct HotelDetailView: View {
                     Text(L("hotel.detail.duration"))
                         .font(.caption)
                         .foregroundColor(.secondary)
-                    Text("\(hotel.nightsCount) \(L("hotel.nights"))")
+                    Text("\(viewModel.hotel.nightsCount) \(L("hotel.nights"))")
                         .font(.headline)
                         .foregroundColor(.orange)
                 }
@@ -313,7 +315,7 @@ struct HotelDetailView: View {
     private var bookingInfoCard: some View {
         VStack(spacing: 16) {
             // Booking reference
-            if let ref = hotel.bookingReference, !ref.isEmpty {
+            if let ref = viewModel.hotel.bookingReference, !ref.isEmpty {
                 HStack(spacing: 12) {
                     Image(systemName: "number")
                         .foregroundColor(.orange)
@@ -345,8 +347,8 @@ struct HotelDetailView: View {
             }
 
             // Room type
-            if let roomType = hotel.roomType, !roomType.isEmpty {
-                if hotel.bookingReference != nil {
+            if let roomType = viewModel.hotel.roomType, !roomType.isEmpty {
+                if viewModel.hotel.bookingReference != nil {
                     Divider()
                 }
 
@@ -378,7 +380,7 @@ struct HotelDetailView: View {
     private var costCard: some View {
         VStack(spacing: 16) {
             // Total cost
-            if let cost = hotel.cost, let currency = hotel.currency {
+            if let cost = viewModel.hotel.cost, let currency = viewModel.hotel.currency {
                 HStack(spacing: 12) {
                     Image(systemName: "creditcard.fill")
                         .foregroundColor(.orange)
@@ -398,7 +400,7 @@ struct HotelDetailView: View {
                 }
 
                 // Cost per night
-                if let perNight = hotel.costPerNight {
+                if let perNight = viewModel.hotel.costPerNight {
                     Divider()
 
                     HStack(spacing: 12) {
@@ -452,7 +454,7 @@ struct HotelDetailView: View {
     private var actionsSection: some View {
         VStack(spacing: 12) {
             // Call hotel button
-            if let phone = hotel.contactPhone, !phone.isEmpty {
+            if let phone = viewModel.hotel.contactPhone, !phone.isEmpty {
                 Button(action: {
                     callHotel(phone)
                 }) {
@@ -522,22 +524,10 @@ struct HotelDetailView: View {
     }
 
     private func openInMaps() {
-        let query = hotel.address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let query = viewModel.hotel.address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         if let url = URL(string: "http://maps.apple.com/?q=\(query)") {
             openURL(url)
         }
-    }
-
-    private func deleteHotel() {
-        // Delete associated reminders
-        let reminders = remindersRepository?.fetchByJourneyId(journeyId: journeyId) ?? []
-        for reminder in reminders where reminder.relatedEntityId == hotel.id {
-            _ = remindersRepository?.delete(id: reminder.id)
-        }
-
-        // Delete hotel
-        _ = hotelsRepository?.delete(id: hotel.id)
-        dismiss()
     }
 }
 
@@ -545,15 +535,12 @@ struct HotelDetailView: View {
 
 struct HotelReminderSheet: View {
 
-    let hotel: Hotel
-    let journeyId: UUID
+    let viewModel: HotelDetailViewModel
 
     @Environment(\.dismiss) private var dismiss
 
     @State private var selectedOption: HotelReminderOption = .dayBefore
     @State private var customDate: Date = Date()
-
-    private let remindersRepository = DatabaseManager.shared.remindersRepository
 
     enum HotelReminderOption: CaseIterable {
         case dayBefore
@@ -595,7 +582,7 @@ struct HotelReminderSheet: View {
                             Spacer()
 
                             if option != .custom {
-                                Text(formatDate(option.reminderDate(for: hotel.checkInDate)))
+                                Text(formatDate(option.reminderDate(for: viewModel.hotel.checkInDate)))
                                     .font(.caption)
                                     .foregroundColor(.secondary)
                             }
@@ -617,7 +604,7 @@ struct HotelReminderSheet: View {
                         DatePicker(
                             L("hotel.reminder.date"),
                             selection: $customDate,
-                            in: ...hotel.checkInDate,
+                            in: ...viewModel.hotel.checkInDate,
                             displayedComponents: [.date, .hourAndMinute]
                         )
                     }
@@ -655,26 +642,10 @@ struct HotelReminderSheet: View {
     }
 
     private func saveReminder() {
-        let reminderDate = selectedOption == .custom ? customDate : selectedOption.reminderDate(for: hotel.checkInDate)
-        let title = "\(L("hotel.reminder.notification.title")): \(hotel.name)"
+        let reminderDate = selectedOption == .custom ? customDate : selectedOption.reminderDate(for: viewModel.hotel.checkInDate)
+        let title = "\(L("hotel.reminder.notification.title")): \(viewModel.hotel.name)"
 
-        // Schedule local notification
-        let notificationId = NotificationManager.shared.scheduleNotification(
-            title: L("hotel.reminder.notification.title"),
-            body: title,
-            on: reminderDate
-        )
-
-        let reminder = Reminder(
-            journeyId: journeyId,
-            title: title,
-            reminderDate: reminderDate,
-            relatedEntityId: hotel.id,
-            notificationId: notificationId
-        )
-
-        _ = remindersRepository?.insert(reminder)
-
+        viewModel.saveReminder(date: reminderDate, title: title)
         dismiss()
     }
 }

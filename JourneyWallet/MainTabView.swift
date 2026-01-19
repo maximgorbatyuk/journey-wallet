@@ -33,18 +33,18 @@ struct MainTabView: SwiftUI.View {
                     .tint(nil)
                     .tag(1)
 
-                // Tab 3: All Journeys
-                JourneysListView()
+                // Tab 3: Reminders
+                NotificationsView()
                     .tabItem {
-                        Label(L("tab.journeys"), systemImage: "list.bullet.rectangle")
+                        Label(L("tab.reminders"), systemImage: "bell.fill")
                     }
                     .tint(nil)
                     .tag(2)
 
-                // Tab 4: Reminders
-                NotificationsView()
+                // Tab 4: All Journeys
+                JourneysListView()
                     .tabItem {
-                        Label(L("tab.reminders"), systemImage: "bell.fill")
+                        Label(L("tab.journeys"), systemImage: "list.bullet.rectangle")
                     }
                     .tint(nil)
                     .tag(3)
