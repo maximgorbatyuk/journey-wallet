@@ -2,8 +2,7 @@ import SwiftUI
 
 struct CarRentalDetailView: View {
 
-    let carRental: CarRental
-    let journeyId: UUID
+    @State private var viewModel: CarRentalDetailViewModel
 
     @Environment(\.dismiss) private var dismiss
     @Environment(\.openURL) private var openURL
@@ -14,8 +13,9 @@ struct CarRentalDetailView: View {
     @State private var showReminderSheet: Bool = false
     @State private var copiedBookingRef: Bool = false
 
-    private let carRentalsRepository = DatabaseManager.shared.carRentalsRepository
-    private let remindersRepository = DatabaseManager.shared.remindersRepository
+    init(carRental: CarRental, journeyId: UUID) {
+        _viewModel = State(initialValue: CarRentalDetailViewModel(carRental: carRental, journeyId: journeyId))
+    }
 
     var body: some View {
         ScrollView {
@@ -24,23 +24,25 @@ struct CarRentalDetailView: View {
                 headerSection
 
                 // Main info card
-                mainInfoCard
+                if viewModel.carRental.pickupLocation?.isEmpty == false || viewModel.carRental.dropoffLocation?.isEmpty == false {
+                    mainInfoCard
+                }
 
                 // Dates card
                 datesCard
 
                 // Booking info card
-                if carRental.bookingReference != nil || carRental.carType != nil {
+                if viewModel.carRental.bookingReference != nil || !viewModel.carRental.carType.isEmpty {
                     bookingInfoCard
                 }
 
                 // Cost card
-                if carRental.cost != nil {
+                if viewModel.carRental.cost != nil {
                     costCard
                 }
 
                 // Notes card
-                if let notes = carRental.notes, !notes.isEmpty {
+                if let notes = viewModel.carRental.notes, !notes.isEmpty {
                     notesCard(notes: notes)
                 }
 
@@ -84,20 +86,22 @@ struct CarRentalDetailView: View {
         }
         .sheet(isPresented: $showEditSheet) {
             CarRentalFormView(
-                journeyId: journeyId,
-                mode: .edit(carRental),
-                onSave: { _ in
-                    dismiss()
+                journeyId: viewModel.journeyId,
+                mode: .edit(viewModel.carRental),
+                onSave: { updatedCarRental in
+                    viewModel.updateCarRental(updatedCarRental)
                 }
             )
         }
         .sheet(isPresented: $showReminderSheet) {
-            CarRentalReminderSheet(carRental: carRental, journeyId: journeyId)
+            CarRentalReminderSheet(viewModel: viewModel)
         }
         .alert(L("car_rental.detail.delete_confirm.title"), isPresented: $showDeleteConfirmation) {
             Button(L("Cancel"), role: .cancel) {}
             Button(L("Delete"), role: .destructive) {
-                deleteCarRental()
+                if viewModel.deleteCarRental() {
+                    dismiss()
+                }
             }
         } message: {
             Text(L("car_rental.detail.delete_confirm.message"))
@@ -119,17 +123,17 @@ struct CarRentalDetailView: View {
                     .foregroundColor(statusColor)
             }
 
-            // Company name
-            Text(carRental.company)
+            // Car type
+            Text(viewModel.carRental.displayName)
                 .font(.title2)
                 .fontWeight(.bold)
-                .multilineTextAlignment(.center)
 
-            // Car type
-            if let carType = carRental.carType, !carType.isEmpty {
-                Text(carType)
+            // Company name
+            if let company = viewModel.carRental.company, !company.isEmpty {
+                Text(company)
                     .font(.subheadline)
                     .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
             }
 
             // Status badge
@@ -143,7 +147,7 @@ struct CarRentalDetailView: View {
                 .cornerRadius(16)
 
             // Countdown
-            if carRental.isUpcoming {
+            if viewModel.carRental.isUpcoming {
                 Text(countdownText)
                     .font(.headline)
                     .foregroundColor(.orange)
@@ -153,9 +157,9 @@ struct CarRentalDetailView: View {
     }
 
     private var statusText: String {
-        if carRental.isActive {
+        if viewModel.carRental.isActive {
             return L("car_rental.status.active")
-        } else if carRental.isUpcoming {
+        } else if viewModel.carRental.isUpcoming {
             return L("car_rental.status.upcoming")
         } else {
             return L("car_rental.status.past")
@@ -163,9 +167,9 @@ struct CarRentalDetailView: View {
     }
 
     private var statusColor: Color {
-        if carRental.isActive {
+        if viewModel.carRental.isActive {
             return .green
-        } else if carRental.isUpcoming {
+        } else if viewModel.carRental.isUpcoming {
             return .blue
         } else {
             return .gray
@@ -174,7 +178,7 @@ struct CarRentalDetailView: View {
 
     private var countdownText: String {
         let now = Date()
-        let components = Calendar.current.dateComponents([.day, .hour], from: now, to: carRental.pickupDate)
+        let components = Calendar.current.dateComponents([.day, .hour], from: now, to: viewModel.carRental.pickupDate)
 
         if let days = components.day, days > 0 {
             return "\(L("car_rental.detail.pickup_in")) \(days) \(L("journey.days"))"
@@ -189,61 +193,66 @@ struct CarRentalDetailView: View {
     private var mainInfoCard: some View {
         VStack(spacing: 16) {
             // Pickup location
-            HStack(alignment: .top, spacing: 12) {
-                Image(systemName: "arrow.up.circle.fill")
-                    .foregroundColor(.green)
-                    .frame(width: 24)
 
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(L("car_rental.detail.pickup_location"))
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                    Text(carRental.pickupLocation)
-                        .font(.body)
-                }
+            if let pickupLocation = viewModel.carRental.pickupLocation, !pickupLocation.isEmpty {
+                HStack(alignment: .top, spacing: 12) {
+                    Image(systemName: "arrow.up.circle.fill")
+                        .foregroundColor(.green)
+                        .frame(width: 24)
 
-                Spacer()
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(L("car_rental.detail.pickup_location"))
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        Text(pickupLocation)
+                            .font(.body)
+                    }
 
-                // Open in Maps button
-                Button {
-                    openInMaps(location: carRental.pickupLocation)
-                } label: {
-                    Image(systemName: "map.fill")
-                        .foregroundColor(.orange)
-                }
-            }
+                    Spacer()
 
-            Divider()
-
-            // Dropoff location
-            HStack(alignment: .top, spacing: 12) {
-                Image(systemName: "arrow.down.circle.fill")
-                    .foregroundColor(.red)
-                    .frame(width: 24)
-
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(L("car_rental.detail.dropoff_location"))
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                    Text(carRental.dropoffLocation)
-                        .font(.body)
-                }
-
-                Spacer()
-
-                // Open in Maps button
-                if !carRental.isSameLocation {
+                    // Open in Maps button
                     Button {
-                        openInMaps(location: carRental.dropoffLocation)
+                        openInMaps(location: pickupLocation)
                     } label: {
                         Image(systemName: "map.fill")
                             .foregroundColor(.orange)
                     }
                 }
+
+                Divider()
+            }
+
+            // Dropoff location
+            if let dropoffLocation = viewModel.carRental.dropoffLocation, !dropoffLocation.isEmpty {
+                HStack(alignment: .top, spacing: 12) {
+                    Image(systemName: "arrow.down.circle.fill")
+                        .foregroundColor(.red)
+                        .frame(width: 24)
+
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(L("car_rental.detail.dropoff_location"))
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        Text(dropoffLocation)
+                            .font(.body)
+                    }
+
+                    Spacer()
+
+                    // Open in Maps button
+                    if !viewModel.carRental.isSameLocation {
+                        Button {
+                            openInMaps(location: dropoffLocation)
+                        } label: {
+                            Image(systemName: "map.fill")
+                                .foregroundColor(.orange)
+                        }
+                    }
+                }
             }
 
             // Same location indicator
-            if carRental.isSameLocation {
+            if viewModel.carRental.isSameLocation {
                 HStack {
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundColor(.green)
@@ -274,7 +283,7 @@ struct CarRentalDetailView: View {
                     Text(L("car_rental.detail.pickup"))
                         .font(.caption)
                         .foregroundColor(.secondary)
-                    Text(formatDateTime(carRental.pickupDate))
+                    Text(formatDateTime(viewModel.carRental.pickupDate))
                         .font(.headline)
                 }
 
@@ -293,7 +302,7 @@ struct CarRentalDetailView: View {
                     Text(L("car_rental.detail.dropoff"))
                         .font(.caption)
                         .foregroundColor(.secondary)
-                    Text(formatDateTime(carRental.dropoffDate))
+                    Text(formatDateTime(viewModel.carRental.dropoffDate))
                         .font(.headline)
                 }
 
@@ -312,7 +321,7 @@ struct CarRentalDetailView: View {
                     Text(L("car_rental.detail.duration"))
                         .font(.caption)
                         .foregroundColor(.secondary)
-                    Text("\(carRental.durationDays) \(L("car_rental.days"))")
+                    Text("\(viewModel.carRental.durationDays) \(L("car_rental.days"))")
                         .font(.headline)
                         .foregroundColor(.orange)
                 }
@@ -331,7 +340,7 @@ struct CarRentalDetailView: View {
     private var bookingInfoCard: some View {
         VStack(spacing: 16) {
             // Booking reference
-            if let ref = carRental.bookingReference, !ref.isEmpty {
+            if let ref = viewModel.carRental.bookingReference, !ref.isEmpty {
                 HStack(spacing: 12) {
                     Image(systemName: "number")
                         .foregroundColor(.orange)
@@ -363,8 +372,8 @@ struct CarRentalDetailView: View {
             }
 
             // Car type
-            if let carType = carRental.carType, !carType.isEmpty {
-                if carRental.bookingReference != nil {
+            if !viewModel.carRental.carType.isEmpty {
+                if viewModel.carRental.bookingReference != nil {
                     Divider()
                 }
 
@@ -377,7 +386,7 @@ struct CarRentalDetailView: View {
                         Text(L("car_rental.detail.car_type"))
                             .font(.caption)
                             .foregroundColor(.secondary)
-                        Text(carType)
+                        Text(viewModel.carRental.carType)
                             .font(.headline)
                     }
 
@@ -396,7 +405,7 @@ struct CarRentalDetailView: View {
     private var costCard: some View {
         VStack(spacing: 16) {
             // Total cost
-            if let cost = carRental.cost, let currency = carRental.currency {
+            if let cost = viewModel.carRental.cost, let currency = viewModel.carRental.currency {
                 HStack(spacing: 12) {
                     Image(systemName: "creditcard.fill")
                         .foregroundColor(.orange)
@@ -416,7 +425,7 @@ struct CarRentalDetailView: View {
                 }
 
                 // Cost per day
-                if let perDay = carRental.costPerDay {
+                if let perDay = viewModel.carRental.costPerDay {
                     Divider()
 
                     HStack(spacing: 12) {
@@ -469,19 +478,22 @@ struct CarRentalDetailView: View {
 
     private var actionsSection: some View {
         VStack(spacing: 12) {
-            // Open pickup location in Maps
-            Button(action: {
-                openInMaps(location: carRental.pickupLocation)
-            }) {
-                HStack {
-                    Image(systemName: "map.fill")
-                    Text(L("car_rental.detail.action.map_pickup"))
+
+            if let pickupLocation = viewModel.carRental.pickupLocation, !pickupLocation.isEmpty {
+                // Open pickup location in Maps
+                Button(action: {
+                    openInMaps(location: pickupLocation)
+                }) {
+                    HStack {
+                        Image(systemName: "map.fill")
+                        Text(L("car_rental.detail.action.map_pickup"))
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(12)
                 }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .cornerRadius(12)
             }
 
             // Add reminder button
@@ -517,33 +529,18 @@ struct CarRentalDetailView: View {
             openURL(url)
         }
     }
-
-    private func deleteCarRental() {
-        // Delete associated reminders
-        let reminders = remindersRepository?.fetchByJourneyId(journeyId: journeyId) ?? []
-        for reminder in reminders where reminder.relatedEntityId == carRental.id {
-            _ = remindersRepository?.delete(id: reminder.id)
-        }
-
-        // Delete car rental
-        _ = carRentalsRepository?.delete(id: carRental.id)
-        dismiss()
-    }
 }
 
 // MARK: - Car Rental Reminder Sheet
 
 struct CarRentalReminderSheet: View {
 
-    let carRental: CarRental
-    let journeyId: UUID
+    let viewModel: CarRentalDetailViewModel
 
     @Environment(\.dismiss) private var dismiss
 
     @State private var selectedOption: CarRentalReminderOption = .dayBefore
     @State private var customDate: Date = Date()
-
-    private let remindersRepository = DatabaseManager.shared.remindersRepository
 
     enum CarRentalReminderOption: CaseIterable {
         case dayBefore
@@ -585,7 +582,7 @@ struct CarRentalReminderSheet: View {
                             Spacer()
 
                             if option != .custom {
-                                Text(formatDate(option.reminderDate(for: carRental.pickupDate)))
+                                Text(formatDate(option.reminderDate(for: viewModel.carRental.pickupDate)))
                                     .font(.caption)
                                     .foregroundColor(.secondary)
                             }
@@ -607,7 +604,7 @@ struct CarRentalReminderSheet: View {
                         DatePicker(
                             L("car_rental.reminder.date"),
                             selection: $customDate,
-                            in: ...carRental.pickupDate,
+                            in: ...viewModel.carRental.pickupDate,
                             displayedComponents: [.date, .hourAndMinute]
                         )
                     }
@@ -645,27 +642,10 @@ struct CarRentalReminderSheet: View {
     }
 
     private func saveReminder() {
-        let reminderDate = selectedOption == .custom ? customDate : selectedOption.reminderDate(for: carRental.pickupDate)
-        let title = "\(L("car_rental.reminder.notification.title")): \(carRental.company)"
+        let reminderDate = selectedOption == .custom ? customDate : selectedOption.reminderDate(for: viewModel.carRental.pickupDate)
+        let title = "\(L("car_rental.reminder.notification.title")): \(viewModel.carRental.displayName)"
 
-        // Schedule local notification first to get the notificationId
-        let notificationId = NotificationManager.shared.scheduleNotification(
-            title: L("car_rental.reminder.notification.title"),
-            body: title,
-            on: reminderDate
-        )
-
-        // Create Reminder entity with the notificationId
-        let reminder = Reminder(
-            journeyId: journeyId,
-            title: title,
-            reminderDate: reminderDate,
-            relatedEntityId: carRental.id,
-            notificationId: notificationId
-        )
-
-        _ = remindersRepository?.insert(reminder)
-
+        viewModel.saveReminder(date: reminderDate, title: title)
         dismiss()
     }
 }

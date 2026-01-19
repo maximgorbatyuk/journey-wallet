@@ -524,31 +524,25 @@
 /* Car Rental Form */
 "car_rental.form.add_title" = "Добавить аренду авто";
 "car_rental.form.edit_title" = "Редактировать аренду";
-"car_rental.form.section.company" = "Информация о компании";
-"car_rental.form.section.vehicle" = "Транспортное средство";
-"car_rental.form.section.pickup" = "Получение";
-"car_rental.form.section.dropoff" = "Возврат";
-"car_rental.form.section.booking" = "Детали бронирования";
-"car_rental.form.section.cost" = "Стоимость";
+"car_rental.form.section.basic_info" = "Основная информация";
+"car_rental.form.section.locations" = "Местоположение";
+"car_rental.form.section.dates" = "Даты";
 "car_rental.form.section.notes" = "Заметки";
+"car_rental.form.car" = "Введите информацию об авто: название, модель и т.д.";
 "car_rental.form.company" = "Компания по аренде";
-"car_rental.form.car_type" = "Тип автомобиля";
 "car_rental.form.pickup_date" = "Дата получения";
 "car_rental.form.pickup_location" = "Место получения";
 "car_rental.form.dropoff_date" = "Дата возврата";
 "car_rental.form.dropoff_location" = "Место возврата";
 "car_rental.form.same_location" = "Возврат в том же месте";
-"car_rental.form.days" = "Дней";
+"car_rental.form.duration" = "Длительность";
 "car_rental.form.booking_reference" = "Номер брони";
-"car_rental.form.phone" = "Контактный телефон";
 "car_rental.form.currency" = "Валюта";
 "car_rental.form.total_cost" = "Общая стоимость";
 "car_rental.form.per_day" = "В день";
 "car_rental.form.notes" = "Заметки";
 "car_rental.form.validation.error" = "Ошибка валидации";
-"car_rental.form.validation.company_required" = "Пожалуйста, введите название компании.";
-"car_rental.form.validation.pickup_location_required" = "Пожалуйста, введите место получения.";
-"car_rental.form.validation.dropoff_location_required" = "Пожалуйста, введите место возврата.";
+"car_rental.form.validation.car_required" = "Пожалуйста, введите информацию об автомобиле.";
 "car_rental.form.validation.date_order" = "Дата возврата должна быть позже даты получения.";
 
 /* Car Rental Reminders */

@@ -7,13 +7,13 @@ class CarRentalsRepository {
 
     private let idColumn = Expression<String>("id")
     private let journeyIdColumn = Expression<String>("journey_id")
-    private let companyColumn = Expression<String>("company")
-    private let pickupLocationColumn = Expression<String>("pickup_location")
-    private let dropoffLocationColumn = Expression<String>("dropoff_location")
+    private let companyColumn = Expression<String?>("company")
+    private let pickupLocationColumn = Expression<String?>("pickup_location")
+    private let dropoffLocationColumn = Expression<String?>("dropoff_location")
     private let pickupDateColumn = Expression<Date>("pickup_date")
     private let dropoffDateColumn = Expression<Date>("dropoff_date")
     private let bookingReferenceColumn = Expression<String?>("booking_reference")
-    private let carTypeColumn = Expression<String?>("car_type")
+    private let carTypeColumn = Expression<String>("car_type")
     private let costColumn = Expression<String?>("cost")
     private let currencyColumn = Expression<String?>("currency")
     private let notesColumn = Expression<String?>("notes")
@@ -233,6 +233,9 @@ class CarRentalsRepository {
             currency = Currency(rawValue: currencyString)
         }
 
+        // Handle carType - required field, use empty string as fallback for old data
+        let carType = row[carTypeColumn]
+
         return CarRental(
             id: id,
             journeyId: journeyId,
@@ -242,7 +245,7 @@ class CarRentalsRepository {
             pickupDate: row[pickupDateColumn],
             dropoffDate: row[dropoffDateColumn],
             bookingReference: row[bookingReferenceColumn],
-            carType: row[carTypeColumn],
+            carType: carType,
             cost: cost,
             currency: currency,
             notes: row[notesColumn],

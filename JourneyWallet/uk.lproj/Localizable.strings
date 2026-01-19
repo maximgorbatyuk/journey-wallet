@@ -524,31 +524,25 @@
 /* Car Rental Form */
 "car_rental.form.add_title" = "Додати оренду авто";
 "car_rental.form.edit_title" = "Редагувати оренду";
-"car_rental.form.section.company" = "Інформація про компанію";
-"car_rental.form.section.vehicle" = "Транспортний засіб";
-"car_rental.form.section.pickup" = "Отримання";
-"car_rental.form.section.dropoff" = "Повернення";
-"car_rental.form.section.booking" = "Деталі бронювання";
-"car_rental.form.section.cost" = "Вартість";
+"car_rental.form.section.basic_info" = "Основна інформація";
+"car_rental.form.section.locations" = "Місця";
+"car_rental.form.section.dates" = "Дати";
 "car_rental.form.section.notes" = "Нотатки";
+"car_rental.form.car" = "Введіть інформацію про авто: назва, модель тощо";
 "car_rental.form.company" = "Компанія з оренди";
-"car_rental.form.car_type" = "Тип авто";
 "car_rental.form.pickup_date" = "Дата отримання";
 "car_rental.form.pickup_location" = "Місце отримання";
 "car_rental.form.dropoff_date" = "Дата повернення";
 "car_rental.form.dropoff_location" = "Місце повернення";
 "car_rental.form.same_location" = "Повернення в те саме місце";
-"car_rental.form.days" = "Днів";
+"car_rental.form.duration" = "Тривалість";
 "car_rental.form.booking_reference" = "Номер бронювання";
-"car_rental.form.phone" = "Контактний телефон";
 "car_rental.form.currency" = "Валюта";
 "car_rental.form.total_cost" = "Загальна вартість";
 "car_rental.form.per_day" = "За день";
 "car_rental.form.notes" = "Нотатки";
 "car_rental.form.validation.error" = "Помилка валідації";
-"car_rental.form.validation.company_required" = "Будь ласка, введіть назву компанії.";
-"car_rental.form.validation.pickup_location_required" = "Будь ласка, введіть місце отримання.";
-"car_rental.form.validation.dropoff_location_required" = "Будь ласка, введіть місце повернення.";
+"car_rental.form.validation.car_required" = "Будь ласка, введіть інформацію про автомобіль.";
 "car_rental.form.validation.date_order" = "Дата повернення повинна бути пізніше дати отримання.";
 
 /* Car Rental Reminders */

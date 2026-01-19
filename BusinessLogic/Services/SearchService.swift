@@ -162,16 +162,16 @@ class SearchService {
         let rentals = carRentalsRepository?.fetchAll() ?? []
 
         return rentals.filter { rental in
-            rental.company.lowercased().contains(query) ||
-            rental.pickupLocation.lowercased().contains(query) ||
-            rental.dropoffLocation.lowercased().contains(query) ||
-            (rental.bookingReference?.lowercased().contains(query) ?? false) ||
-            (rental.carType?.lowercased().contains(query) ?? false)
+            (rental.company != nil && rental.company!.lowercased().contains(query)) ||
+            (rental.pickupLocation != nil && rental.pickupLocation!.lowercased().contains(query)) ||
+            (rental.dropoffLocation != nil && rental.dropoffLocation!.lowercased().contains(query)) ||
+            (rental.bookingReference != nil && rental.bookingReference!.lowercased().contains(query)) ||
+            (rental.carType.lowercased().contains(query))
         }.map { rental in
             SearchResult(
                 id: rental.id,
                 type: .carRental,
-                title: rental.company,
+                title: rental.displayName,
                 subtitle: rental.pickupLocation,
                 journeyId: rental.journeyId,
                 journeyName: journeyNameMap[rental.journeyId]

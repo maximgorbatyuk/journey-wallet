@@ -142,12 +142,12 @@ struct CarRentalPreviewRow: View {
                 .frame(width: 32, height: 32)
 
             VStack(alignment: .leading, spacing: 4) {
-                Text(carRental.company)
+                Text(carRental.carType)
                     .font(.subheadline)
                     .fontWeight(.medium)
 
-                if let carType = carRental.carType {
-                    Text(carType)
+                if let company = carRental.company {
+                    Text(company)
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }

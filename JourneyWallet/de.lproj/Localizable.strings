@@ -521,14 +521,12 @@
 /* Car Rental Form */
 "car_rental.form.add_title" = "Mietwagen hinzufügen";
 "car_rental.form.edit_title" = "Mietwagen bearbeiten";
-"car_rental.form.section.company" = "Unternehmen";
+"car_rental.form.section.basic_info" = "Grundinfo";
 "car_rental.form.section.locations" = "Standorte";
 "car_rental.form.section.dates" = "Daten";
-"car_rental.form.section.booking" = "Buchungsdetails";
-"car_rental.form.section.cost" = "Kosten";
 "car_rental.form.section.notes" = "Notizen";
+"car_rental.form.car" = "Fahrzeuginfo eingeben: Name, Modell, etc";
 "car_rental.form.company" = "Autovermietung";
-"car_rental.form.car_type" = "Fahrzeugtyp";
 "car_rental.form.pickup_location" = "Abholort";
 "car_rental.form.dropoff_location" = "Rückgabeort";
 "car_rental.form.same_location" = "Rückgabe am gleichen Ort";
@@ -541,9 +539,7 @@
 "car_rental.form.per_day" = "Pro Tag";
 "car_rental.form.notes" = "Notizen";
 "car_rental.form.validation.error" = "Validierungsfehler";
-"car_rental.form.validation.company_required" = "Bitte geben Sie einen Autovermietungsnamen ein.";
-"car_rental.form.validation.pickup_required" = "Bitte geben Sie einen Abholort ein.";
-"car_rental.form.validation.dropoff_required" = "Bitte geben Sie einen Rückgabeort ein.";
+"car_rental.form.validation.car_required" = "Bitte geben Sie Fahrzeuginformationen ein.";
 "car_rental.form.validation.date_order" = "Das Rückgabedatum muss nach dem Abholdatum liegen.";
 
 /* Car Rental Reminders */

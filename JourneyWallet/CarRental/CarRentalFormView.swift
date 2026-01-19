@@ -53,14 +53,14 @@ struct CarRentalFormView: View {
 
         // Initialize state from existing car rental if editing
         if case .edit(let carRental) = mode {
-            _company = State(initialValue: carRental.company)
-            _pickupLocation = State(initialValue: carRental.pickupLocation)
-            _dropoffLocation = State(initialValue: carRental.dropoffLocation)
+            _company = State(initialValue: carRental.company ?? "")
+            _pickupLocation = State(initialValue: carRental.pickupLocation ?? "")
+            _dropoffLocation = State(initialValue: carRental.dropoffLocation ?? "")
             _sameLocation = State(initialValue: carRental.isSameLocation)
             _pickupDate = State(initialValue: carRental.pickupDate)
             _dropoffDate = State(initialValue: carRental.dropoffDate)
             _bookingReference = State(initialValue: carRental.bookingReference ?? "")
-            _carType = State(initialValue: carRental.carType ?? "")
+            _carType = State(initialValue: carRental.carType)
             _cost = State(initialValue: carRental.cost?.description ?? "")
             _currency = State(initialValue: carRental.currency ?? .usd)
             _notes = State(initialValue: carRental.notes ?? "")
@@ -75,25 +75,40 @@ struct CarRentalFormView: View {
     var body: some View {
         NavigationView {
             Form {
-                // Company Section
-                Section(header: Text(L("car_rental.form.section.company"))) {
+                // Basic Info Section (Car, Booking, Company, Cost)
+                Section(header: Text(L("car_rental.form.section.basic_info"))) {
+                    TextField(L("car_rental.form.car"), text: $carType)
+
+                    TextField(L("car_rental.form.booking_reference"), text: $bookingReference)
+                        .textInputAutocapitalization(.characters)
+
                     TextField(L("car_rental.form.company"), text: $company)
                         .textContentType(.organizationName)
 
-                    TextField(L("car_rental.form.car_type"), text: $carType)
-                }
+                    HStack {
+                        Picker(L("car_rental.form.currency"), selection: $currency) {
+                            ForEach(Currency.allCases, id: \.self) { curr in
+                                Text("\(curr.rawValue)").tag(curr)
+                            }
+                        }
+                        .pickerStyle(.menu)
+                        .frame(width: 120)
 
-                // Location Section
-                Section(header: Text(L("car_rental.form.section.locations"))) {
-                    TextField(L("car_rental.form.pickup_location"), text: $pickupLocation)
-                        .textContentType(.fullStreetAddress)
+                        TextField(L("car_rental.form.total_cost"), text: $cost)
+                            .keyboardType(.decimalPad)
+                    }
 
-                    Toggle(L("car_rental.form.same_location"), isOn: $sameLocation)
-                        .tint(.orange)
-
-                    if !sameLocation {
-                        TextField(L("car_rental.form.dropoff_location"), text: $dropoffLocation)
-                            .textContentType(.fullStreetAddress)
+                    // Per day calculation
+                    if let costValue = Decimal(string: cost), costValue > 0, calculateDays() > 0 {
+                        HStack {
+                            Text(L("car_rental.form.per_day"))
+                                .foregroundColor(.secondary)
+                            Spacer()
+                            let perDay = costValue / Decimal(calculateDays())
+                            Text("\(currency.rawValue)\(perDay.formatted())")
+                                .foregroundColor(.orange)
+                                .fontWeight(.medium)
+                        }
                     }
                 }
 
@@ -123,38 +138,17 @@ struct CarRentalFormView: View {
                     }
                 }
 
-                // Booking Details Section
-                Section(header: Text(L("car_rental.form.section.booking"))) {
-                    TextField(L("car_rental.form.booking_reference"), text: $bookingReference)
-                        .textInputAutocapitalization(.characters)
-                }
+                // Location Section
+                Section(header: Text(L("car_rental.form.section.locations"))) {
+                    TextField(L("car_rental.form.pickup_location"), text: $pickupLocation)
+                        .textContentType(.fullStreetAddress)
 
-                // Cost Section
-                Section(header: Text(L("car_rental.form.section.cost"))) {
-                    HStack {
-                        Picker(L("car_rental.form.currency"), selection: $currency) {
-                            ForEach(Currency.allCases, id: \.self) { curr in
-                                Text("\(curr.rawValue)").tag(curr)
-                            }
-                        }
-                        .pickerStyle(.menu)
-                        .frame(width: 120)
+                    Toggle(L("car_rental.form.same_location"), isOn: $sameLocation)
+                        .tint(.orange)
 
-                        TextField(L("car_rental.form.total_cost"), text: $cost)
-                            .keyboardType(.decimalPad)
-                    }
-
-                    // Per day calculation
-                    if let costValue = Decimal(string: cost), costValue > 0, calculateDays() > 0 {
-                        HStack {
-                            Text(L("car_rental.form.per_day"))
-                                .foregroundColor(.secondary)
-                            Spacer()
-                            let perDay = costValue / Decimal(calculateDays())
-                            Text("\(currency.rawValue)\(perDay.formatted())")
-                                .foregroundColor(.orange)
-                                .fontWeight(.medium)
-                        }
+                    if !sameLocation {
+                        TextField(L("car_rental.form.dropoff_location"), text: $dropoffLocation)
+                            .textContentType(.fullStreetAddress)
                     }
                 }
 
@@ -199,20 +193,9 @@ struct CarRentalFormView: View {
     }
 
     private func validateForm() -> Bool {
-        if company.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            validationMessage = L("car_rental.form.validation.company_required")
-            showValidationError = true
-            return false
-        }
-
-        if pickupLocation.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            validationMessage = L("car_rental.form.validation.pickup_required")
-            showValidationError = true
-            return false
-        }
-
-        if !sameLocation && dropoffLocation.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            validationMessage = L("car_rental.form.validation.dropoff_required")
+        // Only Car field is required
+        if carType.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            validationMessage = L("car_rental.form.validation.car_required")
             showValidationError = true
             return false
         }
@@ -234,20 +217,24 @@ struct CarRentalFormView: View {
             costDecimal = parsed
         }
 
-        let finalDropoffLocation = sameLocation ? pickupLocation : dropoffLocation
+        // Handle optional fields
+        let trimmedCompany = company.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmedPickupLocation = pickupLocation.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmedDropoffLocation = dropoffLocation.trimmingCharacters(in: .whitespacesAndNewlines)
+        let finalDropoffLocation = sameLocation ? trimmedPickupLocation : trimmedDropoffLocation
 
         let carRental: CarRental
         if case .edit(let existingCarRental) = mode {
             carRental = CarRental(
                 id: existingCarRental.id,
                 journeyId: journeyId,
-                company: company.trimmingCharacters(in: .whitespacesAndNewlines),
-                pickupLocation: pickupLocation.trimmingCharacters(in: .whitespacesAndNewlines),
-                dropoffLocation: finalDropoffLocation.trimmingCharacters(in: .whitespacesAndNewlines),
+                company: trimmedCompany.isEmpty ? nil : trimmedCompany,
+                pickupLocation: trimmedPickupLocation.isEmpty ? nil : trimmedPickupLocation,
+                dropoffLocation: finalDropoffLocation.isEmpty ? nil : finalDropoffLocation,
                 pickupDate: pickupDate,
                 dropoffDate: dropoffDate,
                 bookingReference: bookingReference.isEmpty ? nil : bookingReference,
-                carType: carType.isEmpty ? nil : carType,
+                carType: carType.trimmingCharacters(in: .whitespacesAndNewlines),
                 cost: costDecimal,
                 currency: costDecimal != nil ? currency : nil,
                 notes: notes.isEmpty ? nil : notes,
@@ -257,13 +244,13 @@ struct CarRentalFormView: View {
         } else {
             carRental = CarRental(
                 journeyId: journeyId,
-                company: company.trimmingCharacters(in: .whitespacesAndNewlines),
-                pickupLocation: pickupLocation.trimmingCharacters(in: .whitespacesAndNewlines),
-                dropoffLocation: finalDropoffLocation.trimmingCharacters(in: .whitespacesAndNewlines),
+                company: trimmedCompany.isEmpty ? nil : trimmedCompany,
+                pickupLocation: trimmedPickupLocation.isEmpty ? nil : trimmedPickupLocation,
+                dropoffLocation: finalDropoffLocation.isEmpty ? nil : finalDropoffLocation,
                 pickupDate: pickupDate,
                 dropoffDate: dropoffDate,
                 bookingReference: bookingReference.isEmpty ? nil : bookingReference,
-                carType: carType.isEmpty ? nil : carType,
+                carType: carType.trimmingCharacters(in: .whitespacesAndNewlines),
                 cost: costDecimal,
                 currency: costDecimal != nil ? currency : nil,
                 notes: notes.isEmpty ? nil : notes

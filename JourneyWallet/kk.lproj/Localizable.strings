@@ -524,31 +524,25 @@
 /* Car Rental Form */
 "car_rental.form.add_title" = "Автокөлік жалдау қосу";
 "car_rental.form.edit_title" = "Жалдауды өңдеу";
-"car_rental.form.section.company" = "Компания ақпараты";
-"car_rental.form.section.vehicle" = "Көлік";
-"car_rental.form.section.pickup" = "Алу";
-"car_rental.form.section.dropoff" = "Қайтару";
-"car_rental.form.section.booking" = "Брондау мәліметтері";
-"car_rental.form.section.cost" = "Құны";
+"car_rental.form.section.basic_info" = "Негізгі ақпарат";
+"car_rental.form.section.locations" = "Орындар";
+"car_rental.form.section.dates" = "Күндер";
 "car_rental.form.section.notes" = "Ескертпелер";
+"car_rental.form.car" = "Көлік ақпаратын енгізіңіз: аты, моделі, т.б.";
 "car_rental.form.company" = "Жалдау компаниясы";
-"car_rental.form.car_type" = "Көлік түрі";
 "car_rental.form.pickup_date" = "Алу күні";
 "car_rental.form.pickup_location" = "Алу орны";
 "car_rental.form.dropoff_date" = "Қайтару күні";
 "car_rental.form.dropoff_location" = "Қайтару орны";
 "car_rental.form.same_location" = "Сол жерге қайтару";
-"car_rental.form.days" = "Күн";
+"car_rental.form.duration" = "Ұзақтығы";
 "car_rental.form.booking_reference" = "Брондау нөмірі";
-"car_rental.form.phone" = "Байланыс телефоны";
 "car_rental.form.currency" = "Валюта";
 "car_rental.form.total_cost" = "Жалпы құны";
 "car_rental.form.per_day" = "Күніне";
 "car_rental.form.notes" = "Ескертпелер";
 "car_rental.form.validation.error" = "Тексеру қатесі";
-"car_rental.form.validation.company_required" = "Компания атауын енгізіңіз.";
-"car_rental.form.validation.pickup_location_required" = "Алу орнын енгізіңіз.";
-"car_rental.form.validation.dropoff_location_required" = "Қайтару орнын енгізіңіз.";
+"car_rental.form.validation.car_required" = "Көлік туралы ақпаратты енгізіңіз.";
 "car_rental.form.validation.date_order" = "Қайтару күні алу күнінен кейін болуы керек.";
 
 /* Car Rental Reminders */

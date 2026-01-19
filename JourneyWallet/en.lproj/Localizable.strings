@@ -518,14 +518,12 @@
 /* Car Rental Form */
 "car_rental.form.add_title" = "Add Car Rental";
 "car_rental.form.edit_title" = "Edit Car Rental";
-"car_rental.form.section.company" = "Company";
+"car_rental.form.section.basic_info" = "Basic Info";
 "car_rental.form.section.locations" = "Locations";
 "car_rental.form.section.dates" = "Dates";
-"car_rental.form.section.booking" = "Booking Details";
-"car_rental.form.section.cost" = "Cost";
 "car_rental.form.section.notes" = "Notes";
+"car_rental.form.car" = "Type any car info: name, model, etc";
 "car_rental.form.company" = "Rental Company";
-"car_rental.form.car_type" = "Car Type";
 "car_rental.form.pickup_location" = "Pickup Location";
 "car_rental.form.dropoff_location" = "Dropoff Location";
 "car_rental.form.same_location" = "Return to same location";
@@ -538,9 +536,7 @@
 "car_rental.form.per_day" = "Per Day";
 "car_rental.form.notes" = "Notes";
 "car_rental.form.validation.error" = "Validation Error";
-"car_rental.form.validation.company_required" = "Please enter a rental company name.";
-"car_rental.form.validation.pickup_required" = "Please enter a pickup location.";
-"car_rental.form.validation.dropoff_required" = "Please enter a dropoff location.";
+"car_rental.form.validation.car_required" = "Please enter car information.";
 "car_rental.form.validation.date_order" = "Dropoff date must be after pickup date.";
 
 /* Car Rental Reminders */

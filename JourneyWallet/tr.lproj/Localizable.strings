@@ -524,31 +524,25 @@
 /* Car Rental Form */
 "car_rental.form.add_title" = "Araç Kiralama Ekle";
 "car_rental.form.edit_title" = "Kiralamayı Düzenle";
-"car_rental.form.section.company" = "Şirket Bilgileri";
-"car_rental.form.section.vehicle" = "Araç";
-"car_rental.form.section.pickup" = "Alış";
-"car_rental.form.section.dropoff" = "Teslim";
-"car_rental.form.section.booking" = "Rezervasyon Detayları";
-"car_rental.form.section.cost" = "Maliyet";
+"car_rental.form.section.basic_info" = "Temel Bilgiler";
+"car_rental.form.section.locations" = "Konumlar";
+"car_rental.form.section.dates" = "Tarihler";
 "car_rental.form.section.notes" = "Notlar";
+"car_rental.form.car" = "Araç bilgisi girin: ad, model vb";
 "car_rental.form.company" = "Kiralama Şirketi";
-"car_rental.form.car_type" = "Araç Tipi";
 "car_rental.form.pickup_date" = "Alış Tarihi";
 "car_rental.form.pickup_location" = "Alış Yeri";
 "car_rental.form.dropoff_date" = "Teslim Tarihi";
 "car_rental.form.dropoff_location" = "Teslim Yeri";
 "car_rental.form.same_location" = "Aynı yere teslim";
-"car_rental.form.days" = "Gün";
+"car_rental.form.duration" = "Süre";
 "car_rental.form.booking_reference" = "Rezervasyon Numarası";
-"car_rental.form.phone" = "İletişim Telefonu";
 "car_rental.form.currency" = "Para Birimi";
 "car_rental.form.total_cost" = "Toplam Maliyet";
 "car_rental.form.per_day" = "Günlük";
 "car_rental.form.notes" = "Notlar";
 "car_rental.form.validation.error" = "Doğrulama Hatası";
-"car_rental.form.validation.company_required" = "Lütfen bir şirket adı girin.";
-"car_rental.form.validation.pickup_location_required" = "Lütfen bir alış yeri girin.";
-"car_rental.form.validation.dropoff_location_required" = "Lütfen bir teslim yeri girin.";
+"car_rental.form.validation.car_required" = "Lütfen araç bilgisini girin.";
 "car_rental.form.validation.date_order" = "Teslim tarihi alış tarihinden sonra olmalıdır.";
 
 /* Car Rental Reminders */
