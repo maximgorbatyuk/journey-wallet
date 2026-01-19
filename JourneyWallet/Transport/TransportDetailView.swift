@@ -2,8 +2,7 @@ import SwiftUI
 
 struct TransportDetailView: View {
 
-    let transport: Transport
-    let journeyId: UUID
+    @State private var viewModel: TransportDetailViewModel
 
     @Environment(\.dismiss) private var dismiss
     @ObservedObject private var analytics = AnalyticsService.shared
@@ -13,8 +12,9 @@ struct TransportDetailView: View {
     @State private var showReminderSheet: Bool = false
     @State private var copiedBookingRef: Bool = false
 
-    private let transportsRepository = DatabaseManager.shared.transportsRepository
-    private let remindersRepository = DatabaseManager.shared.remindersRepository
+    init(transport: Transport, journeyId: UUID) {
+        _viewModel = State(initialValue: TransportDetailViewModel(transport: transport, journeyId: journeyId))
+    }
 
     var body: some View {
         ScrollView {
@@ -34,12 +34,12 @@ struct TransportDetailView: View {
                 }
 
                 // Cost card
-                if transport.cost != nil {
+                if viewModel.transport.cost != nil {
                     costCard
                 }
 
                 // Notes card
-                if let notes = transport.notes, !notes.isEmpty {
+                if let notes = viewModel.transport.notes, !notes.isEmpty {
                     notesCard(notes: notes)
                 }
 
@@ -49,7 +49,7 @@ struct TransportDetailView: View {
             .padding()
         }
         .background(Color(.systemGray6))
-        .navigationTitle(transport.type.displayName)
+        .navigationTitle(viewModel.transport.type.displayName)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
@@ -83,20 +83,22 @@ struct TransportDetailView: View {
         }
         .sheet(isPresented: $showEditSheet) {
             TransportFormView(
-                journeyId: journeyId,
-                mode: .edit(transport),
-                onSave: { _ in
-                    dismiss()
+                journeyId: viewModel.journeyId,
+                mode: .edit(viewModel.transport),
+                onSave: { updatedTransport in
+                    viewModel.updateTransport(updatedTransport)
                 }
             )
         }
         .sheet(isPresented: $showReminderSheet) {
-            TransportReminderSheet(transport: transport, journeyId: journeyId)
+            TransportReminderSheet(viewModel: viewModel)
         }
         .alert(L("transport.detail.delete_confirm.title"), isPresented: $showDeleteConfirmation) {
             Button(L("Cancel"), role: .cancel) {}
             Button(L("Delete"), role: .destructive) {
-                deleteTransport()
+                if viewModel.deleteTransport() {
+                    dismiss()
+                }
             }
         } message: {
             Text(L("transport.detail.delete_confirm.message"))
@@ -110,12 +112,12 @@ struct TransportDetailView: View {
             // Type icon
             ZStack {
                 Circle()
-                    .fill(transport.type.color.opacity(0.2))
+                    .fill(viewModel.transport.type.color.opacity(0.2))
                     .frame(width: 80, height: 80)
 
-                Image(systemName: transport.type.iconName)
+                Image(systemName: viewModel.transport.type.iconName)
                     .font(.system(size: 36))
-                    .foregroundColor(transport.type.color)
+                    .foregroundColor(viewModel.transport.type.color)
             }
 
             // Status badge
@@ -129,7 +131,7 @@ struct TransportDetailView: View {
                 .cornerRadius(16)
 
             // Countdown
-            if transport.isUpcoming {
+            if viewModel.transport.isUpcoming {
                 Text(countdownText)
                     .font(.headline)
                     .foregroundColor(.orange)
@@ -139,9 +141,9 @@ struct TransportDetailView: View {
     }
 
     private var statusText: String {
-        if transport.isInProgress {
+        if viewModel.transport.isInProgress {
             return L("transport.status.in_progress")
-        } else if transport.isUpcoming {
+        } else if viewModel.transport.isUpcoming {
             return L("transport.status.upcoming")
         } else {
             return L("transport.status.completed")
@@ -149,9 +151,9 @@ struct TransportDetailView: View {
     }
 
     private var statusColor: Color {
-        if transport.isInProgress {
+        if viewModel.transport.isInProgress {
             return .green
-        } else if transport.isUpcoming {
+        } else if viewModel.transport.isUpcoming {
             return .blue
         } else {
             return .gray
@@ -160,7 +162,7 @@ struct TransportDetailView: View {
 
     private var countdownText: String {
         let now = Date()
-        let components = Calendar.current.dateComponents([.day, .hour, .minute], from: now, to: transport.departureDate)
+        let components = Calendar.current.dateComponents([.day, .hour, .minute], from: now, to: viewModel.transport.departureDate)
 
         if let days = components.day, days > 0 {
             return "\(L("transport.detail.departs_in")) \(days) \(L("journey.days"))"
@@ -177,23 +179,23 @@ struct TransportDetailView: View {
     private var mainInfoCard: some View {
         VStack(spacing: 16) {
             // Carrier and number
-            if transport.carrier != nil || transport.transportNumber != nil {
+            if viewModel.transport.carrier != nil || viewModel.transport.transportNumber != nil {
                 HStack {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(transport.type.carrierLabel)
+                        Text(viewModel.transport.type.carrierLabel)
                             .font(.caption)
                             .foregroundColor(.secondary)
-                        Text(transport.carrier ?? "-")
+                        Text(viewModel.transport.carrier ?? "-")
                             .font(.headline)
                     }
 
                     Spacer()
 
                     VStack(alignment: .trailing, spacing: 4) {
-                        Text(transport.type.numberLabel)
+                        Text(viewModel.transport.type.numberLabel)
                             .font(.caption)
                             .foregroundColor(.secondary)
-                        Text(transport.transportNumber ?? "-")
+                        Text(viewModel.transport.transportNumber ?? "-")
                             .font(.headline)
                     }
                 }
@@ -205,13 +207,13 @@ struct TransportDetailView: View {
             HStack(alignment: .center, spacing: 16) {
                 // Departure
                 VStack(spacing: 4) {
-                    Text(formatTime(transport.departureDate))
+                    Text(formatTime(viewModel.transport.departureDate))
                         .font(.title2)
                         .fontWeight(.bold)
-                    Text(formatDate(transport.departureDate))
+                    Text(formatDate(viewModel.transport.departureDate))
                         .font(.caption)
                         .foregroundColor(.secondary)
-                    Text(transport.departureLocation)
+                    Text(viewModel.transport.departureLocation)
                         .font(.subheadline)
                         .multilineTextAlignment(.center)
                         .lineLimit(2)
@@ -223,20 +225,20 @@ struct TransportDetailView: View {
                     Image(systemName: "arrow.right")
                         .font(.title3)
                         .foregroundColor(.orange)
-                    Text(transport.durationFormatted)
+                    Text(viewModel.transport.durationFormatted)
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }
 
                 // Arrival
                 VStack(spacing: 4) {
-                    Text(formatTime(transport.arrivalDate))
+                    Text(formatTime(viewModel.transport.arrivalDate))
                         .font(.title2)
                         .fontWeight(.bold)
-                    Text(formatDate(transport.arrivalDate))
+                    Text(formatDate(viewModel.transport.arrivalDate))
                         .font(.caption)
                         .foregroundColor(.secondary)
-                    Text(transport.arrivalLocation)
+                    Text(viewModel.transport.arrivalLocation)
                         .font(.subheadline)
                         .multilineTextAlignment(.center)
                         .lineLimit(2)
@@ -253,16 +255,16 @@ struct TransportDetailView: View {
 
     private var detailsCard: some View {
         VStack(spacing: 0) {
-            if let platform = transport.platform {
+            if let platform = viewModel.transport.platform {
                 DetailRow(
-                    label: transport.type.platformLabel,
+                    label: viewModel.transport.type.platformLabel,
                     value: platform,
                     iconName: "signpost.right.fill"
                 )
                 Divider().padding(.leading, 44)
             }
 
-            if let seat = transport.seatNumber {
+            if let seat = viewModel.transport.seatNumber {
                 DetailRow(
                     label: L("transport.detail.seat"),
                     value: seat,
@@ -276,14 +278,14 @@ struct TransportDetailView: View {
     }
 
     private var hasBookingInfo: Bool {
-        transport.bookingReference != nil
+        viewModel.transport.bookingReference != nil
     }
 
     // MARK: - Booking Info Card
 
     private var bookingInfoCard: some View {
         VStack(spacing: 0) {
-            if let bookingRef = transport.bookingReference {
+            if let bookingRef = viewModel.transport.bookingReference {
                 HStack {
                     VStack(alignment: .leading, spacing: 4) {
                         Text(L("transport.detail.booking_reference"))
@@ -323,7 +325,7 @@ struct TransportDetailView: View {
                 Text(L("transport.detail.cost"))
                     .font(.caption)
                     .foregroundColor(.secondary)
-                Text(transport.formattedCost ?? "-")
+                Text(viewModel.transport.formattedCost ?? "-")
                     .font(.title2)
                     .fontWeight(.bold)
                     .foregroundColor(.orange)
@@ -393,11 +395,6 @@ struct TransportDetailView: View {
         formatter.dateFormat = "MMM d"
         return formatter.string(from: date)
     }
-
-    private func deleteTransport() {
-        _ = transportsRepository?.delete(id: transport.id)
-        dismiss()
-    }
 }
 
 // MARK: - Detail Row
@@ -431,15 +428,13 @@ struct DetailRow: View {
 // MARK: - Transport Reminder Sheet
 
 struct TransportReminderSheet: View {
-    let transport: Transport
-    let journeyId: UUID
+
+    let viewModel: TransportDetailViewModel
 
     @Environment(\.dismiss) private var dismiss
 
     @State private var selectedOption: ReminderOption = .oneHourBefore
     @State private var customDate: Date = Date()
-
-    private let remindersRepository = DatabaseManager.shared.remindersRepository
 
     enum ReminderOption: String, CaseIterable {
         case twentyFourHoursBefore
@@ -496,7 +491,7 @@ struct TransportReminderSheet: View {
                         DatePicker(
                             L("transport.reminder.date"),
                             selection: $customDate,
-                            in: Date()...transport.departureDate,
+                            in: Date()...viewModel.transport.departureDate,
                             displayedComponents: [.date, .hourAndMinute]
                         )
                     }
@@ -532,34 +527,17 @@ struct TransportReminderSheet: View {
     }
 
     private func formatReminderDate() -> String {
-        let date = selectedOption == .custom ? customDate : selectedOption.reminderDate(for: transport.departureDate)
+        let date = selectedOption == .custom ? customDate : selectedOption.reminderDate(for: viewModel.transport.departureDate)
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d, HH:mm"
         return formatter.string(from: date)
     }
 
     private func saveReminder() {
-        let reminderDate = selectedOption == .custom ? customDate : selectedOption.reminderDate(for: transport.departureDate)
-        let title = "\(transport.type.displayName): \(transport.departureLocation) → \(transport.arrivalLocation)"
+        let reminderDate = selectedOption == .custom ? customDate : selectedOption.reminderDate(for: viewModel.transport.departureDate)
+        let title = "\(viewModel.transport.type.displayName): \(viewModel.transport.departureLocation) → \(viewModel.transport.arrivalLocation)"
 
-        // Schedule local notification first to get the notificationId
-        let notificationId = NotificationManager.shared.scheduleNotification(
-            title: L("transport.reminder.notification.title"),
-            body: title,
-            on: reminderDate
-        )
-
-        // Create Reminder entity with the notificationId
-        let reminder = Reminder(
-            journeyId: journeyId,
-            title: title,
-            reminderDate: reminderDate,
-            relatedEntityId: transport.id,
-            notificationId: notificationId
-        )
-
-        _ = remindersRepository?.insert(reminder)
-
+        viewModel.saveReminder(date: reminderDate, title: title)
         dismiss()
     }
 }

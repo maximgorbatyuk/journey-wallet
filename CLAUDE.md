@@ -82,6 +82,57 @@ struct MyView: View {
 
 **ViewModels:** Use `@Observable` pattern with dependency injection for testability.
 
+**Detail View Pattern:** Detail views (e.g., `CarRentalDetailView`, `TransportDetailView`, `HotelDetailView`) must follow the MVVM pattern with corresponding ViewModels:
+
+```swift
+// ViewModel handles all database operations
+@MainActor
+@Observable
+class EntityDetailViewModel {
+    var entity: Entity
+    let journeyId: UUID
+
+    private let entityRepository: EntityRepository?
+    private let remindersRepository: RemindersRepository?
+    private let logger: Logger
+
+    init(entity: Entity, journeyId: UUID, databaseManager: DatabaseManager = .shared) {
+        self.entity = entity
+        self.journeyId = journeyId
+        self.entityRepository = databaseManager.entityRepository
+        self.remindersRepository = databaseManager.remindersRepository
+        self.logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "-", category: "EntityDetailViewModel")
+    }
+
+    func updateEntity(_ updated: Entity) { ... }
+    func deleteEntity() -> Bool { ... }  // Also deletes associated reminders
+    func saveReminder(date: Date, title: String) { ... }
+}
+
+// View only handles UI presentation
+struct EntityDetailView: View {
+    @State private var viewModel: EntityDetailViewModel
+
+    init(entity: Entity, journeyId: UUID) {
+        _viewModel = State(initialValue: EntityDetailViewModel(entity: entity, journeyId: journeyId))
+    }
+
+    var body: some View {
+        // Access data via viewModel.entity
+        // Call viewModel methods for actions
+    }
+}
+
+// Reminder sheets receive the parent ViewModel
+struct EntityReminderSheet: View {
+    let viewModel: EntityDetailViewModel
+
+    // Use viewModel.saveReminder() for creating reminders
+}
+```
+
+**Important:** Views should NEVER directly access repositories. All database operations must go through ViewModels.
+
 ## Localization
 
 Supported languages: English (en), Russian (ru), Kazakh (kk), Turkish (tr), German (de), Ukrainian (uk)
