@@ -77,13 +77,15 @@ struct TransportStatItem: View {
 
     var body: some View {
         VStack(spacing: 4) {
-            Image(systemName: type.icon)
-                .font(.title3)
-                .foregroundColor(type.color)
+            HStack(spacing: 4) {
+                Image(systemName: type.icon)
+                    .font(.title3)
+                    .foregroundColor(type.color)
 
-            Text("\(count)")
-                .font(.headline)
-                .fontWeight(.semibold)
+                Text("\(count)")
+                    .font(.headline)
+                    .fontWeight(.semibold)
+            }
 
             Text(type.displayName)
                 .font(.caption2)

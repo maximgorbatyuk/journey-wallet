@@ -4,6 +4,7 @@ struct MainView: View {
 
     @State private var viewModel = MainViewModel()
     @ObservedObject private var analytics = AnalyticsService.shared
+    @FocusState private var isSearchFieldFocused: Bool
 
     var body: some View {
         NavigationView {
@@ -52,6 +53,7 @@ struct MainView: View {
             TextField(L("main.search.placeholder"), text: $viewModel.searchQuery)
                 .textFieldStyle(.plain)
                 .autocorrectionDisabled()
+                .focused($isSearchFieldFocused)
                 .onChange(of: viewModel.searchQuery) { _, _ in
                     viewModel.search()
                 }
@@ -59,6 +61,7 @@ struct MainView: View {
             if !viewModel.searchQuery.isEmpty {
                 Button(action: {
                     viewModel.clearSearch()
+                    isSearchFieldFocused = false
                 }) {
                     Image(systemName: "xmark.circle.fill")
                         .foregroundColor(.secondary)
@@ -146,7 +149,10 @@ struct MainView: View {
                 emptyJourneysView
             } else {
                 ForEach(activeAndUpcoming) { journey in
-                    JourneyCardView(journey: journey)
+                    NavigationLink(destination: JourneyDetailView(initialJourneyId: journey.id)) {
+                        JourneyCardView(journey: journey)
+                    }
+                    .buttonStyle(.plain)
                 }
             }
         }
@@ -161,7 +167,68 @@ struct MainView: View {
                 .foregroundColor(.secondary)
 
             ForEach(viewModel.searchResults) { result in
-                SearchResultRow(result: result)
+                searchResultNavigationLink(for: result)
+            }
+        }
+    }
+
+    @ViewBuilder
+    private func searchResultNavigationLink(for result: SearchResult) -> some View {
+        switch result.type {
+        case .journey:
+            if viewModel.getJourney(by: result.id) != nil {
+                NavigationLink(destination: JourneyDetailView(initialJourneyId: result.id)) {
+                    SearchResultRow(result: result)
+                }
+                .buttonStyle(.plain)
+            }
+        case .transport:
+            if let transport = viewModel.getTransport(by: result.id),
+               let journeyId = result.journeyId {
+                NavigationLink(destination: TransportDetailView(transport: transport, journeyId: journeyId)) {
+                    SearchResultRow(result: result)
+                }
+                .buttonStyle(.plain)
+            }
+        case .hotel:
+            if let hotel = viewModel.getHotel(by: result.id),
+               let journeyId = result.journeyId {
+                NavigationLink(destination: HotelDetailView(hotel: hotel, journeyId: journeyId)) {
+                    SearchResultRow(result: result)
+                }
+                .buttonStyle(.plain)
+            }
+        case .carRental:
+            if let carRental = viewModel.getCarRental(by: result.id),
+               let journeyId = result.journeyId {
+                NavigationLink(destination: CarRentalDetailView(carRental: carRental, journeyId: journeyId)) {
+                    SearchResultRow(result: result)
+                }
+                .buttonStyle(.plain)
+            }
+        case .place:
+            if let place = viewModel.getPlace(by: result.id),
+               let journeyId = result.journeyId {
+                NavigationLink(destination: PlaceFormView(
+                    journeyId: journeyId,
+                    mode: .edit(place),
+                    onSave: { _ in }
+                )) {
+                    SearchResultRow(result: result)
+                }
+                .buttonStyle(.plain)
+            }
+        case .note:
+            if let note = viewModel.getNote(by: result.id),
+               let journeyId = result.journeyId {
+                NavigationLink(destination: NoteFormView(
+                    journeyId: journeyId,
+                    mode: .edit(note),
+                    onSave: { _ in }
+                )) {
+                    SearchResultRow(result: result)
+                }
+                .buttonStyle(.plain)
             }
         }
     }
@@ -212,13 +279,16 @@ struct StatCardView: View {
 
     var body: some View {
         VStack(spacing: 8) {
-            Image(systemName: icon)
-                .font(.title2)
-                .foregroundColor(color)
 
-            Text(value)
-                .font(.title2)
-                .fontWeight(.bold)
+            HStack(spacing: 8) {
+                Image(systemName: icon)
+                    .font(.title2)
+                    .foregroundColor(color)
+
+                Text(value)
+                    .font(.title2)
+                    .fontWeight(.bold)
+            }
 
             Text(title)
                 .font(.caption)

@@ -14,6 +14,12 @@ struct JourneyDetailView: View {
     @State private var showQuickAddSheet = false
     @ObservedObject private var analytics = AnalyticsService.shared
 
+    private let initialJourneyId: UUID?
+
+    init(initialJourneyId: UUID? = nil) {
+        self.initialJourneyId = initialJourneyId
+    }
+
     var body: some View {
         NavigationStack {
             ZStack(alignment: .bottomTrailing) {
@@ -356,6 +362,9 @@ struct JourneyDetailView: View {
             .onAppear {
                 analytics.trackScreen("journey_detail_screen")
                 viewModel.loadInitialData()
+                if let journeyId = initialJourneyId {
+                    viewModel.selectJourney(id: journeyId)
+                }
             }
             .refreshable {
                 viewModel.refreshData()
