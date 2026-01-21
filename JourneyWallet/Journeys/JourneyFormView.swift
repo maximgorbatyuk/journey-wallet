@@ -24,6 +24,7 @@ struct JourneyFormView: View {
     @State private var startDate: Date = Date()
     @State private var endDate: Date = Date().addingTimeInterval(7 * 24 * 60 * 60)
     @State private var notes: String = ""
+    @State private var isOneDayAdventure: Bool = false
 
     @State private var showValidationError: Bool = false
     @State private var validationMessage: String = ""
@@ -47,6 +48,7 @@ struct JourneyFormView: View {
             _startDate = State(initialValue: journey.startDate)
             _endDate = State(initialValue: journey.endDate)
             _notes = State(initialValue: journey.notes ?? "")
+            _isOneDayAdventure = State(initialValue: Calendar.current.isDate(journey.startDate, inSameDayAs: journey.endDate))
         }
     }
 
@@ -68,12 +70,16 @@ struct JourneyFormView: View {
                         displayedComponents: .date
                     )
 
-                    DatePicker(
-                        L("journey.form.end_date"),
-                        selection: $endDate,
-                        in: startDate...,
-                        displayedComponents: .date
-                    )
+                    Toggle(L("journey.form.one_day_adventure"), isOn: $isOneDayAdventure)
+
+                    if !isOneDayAdventure {
+                        DatePicker(
+                            L("journey.form.end_date"),
+                            selection: $endDate,
+                            in: startDate...,
+                            displayedComponents: .date
+                        )
+                    }
                 }
 
                 Section(header: Text(L("journey.form.section.notes"))) {
@@ -116,12 +122,6 @@ struct JourneyFormView: View {
             return false
         }
 
-        if destination.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            validationMessage = L("journey.form.error.destination_required")
-            showValidationError = true
-            return false
-        }
-
         if endDate < startDate {
             validationMessage = L("journey.form.error.invalid_dates")
             showValidationError = true
@@ -135,6 +135,7 @@ struct JourneyFormView: View {
         guard validateForm() else { return }
 
         let journey: Journey
+        let finalEndDate = isOneDayAdventure ? startDate : endDate
 
         if case .edit(let existingJourney) = mode {
             journey = Journey(
@@ -142,7 +143,7 @@ struct JourneyFormView: View {
                 name: name.trimmingCharacters(in: .whitespacesAndNewlines),
                 destination: destination.trimmingCharacters(in: .whitespacesAndNewlines),
                 startDate: startDate,
-                endDate: endDate,
+                endDate: finalEndDate,
                 notes: notes.isEmpty ? nil : notes,
                 createdAt: existingJourney.createdAt,
                 updatedAt: Date()
@@ -152,7 +153,7 @@ struct JourneyFormView: View {
                 name: name.trimmingCharacters(in: .whitespacesAndNewlines),
                 destination: destination.trimmingCharacters(in: .whitespacesAndNewlines),
                 startDate: startDate,
-                endDate: endDate,
+                endDate: finalEndDate,
                 notes: notes.isEmpty ? nil : notes
             )
         }

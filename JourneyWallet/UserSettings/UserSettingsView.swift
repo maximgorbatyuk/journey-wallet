@@ -778,9 +778,11 @@ struct JourneyPickerForRandomDataView: View {
                                     Text(journey.name)
                                         .font(.headline)
                                         .foregroundColor(.primary)
-                                    Text(journey.destination)
-                                        .font(.subheadline)
-                                        .foregroundColor(.secondary)
+                                    if !journey.destination.isEmpty {
+                                        Text(journey.destination)
+                                            .font(.subheadline)
+                                            .foregroundColor(.secondary)
+                                    }
                                     Text(formatDateRange(journey.startDate, journey.endDate))
                                         .font(.caption)
                                         .foregroundColor(.secondary)

@@ -287,8 +287,8 @@
 "journey.form.destination" = "Бағыт";
 "journey.form.start_date" = "Басталу күні";
 "journey.form.end_date" = "Аяқталу күні";
+"journey.form.one_day_adventure" = "Бір күндік саяхат";
 "journey.form.error.name_required" = "Сапар атауын енгізіңіз.";
-"journey.form.error.destination_required" = "Бағытты енгізіңіз.";
 "journey.form.error.invalid_dates" = "Аяқталу күні басталу күнінен кейін болуы керек.";
 
 /* Journey Detail View */
@@ -369,7 +369,6 @@
 "transport.form.type" = "Түрі";
 "transport.form.departure" = "Шығу";
 "transport.form.arrival" = "Келу";
-"transport.form.duration" = "Ұзақтығы";
 "transport.form.seat" = "Орын нөмірі";
 "transport.form.seats" = "Орын нөмірі/нөмірлері";
 "transport.form.booking_reference" = "Брондау нөмірі";

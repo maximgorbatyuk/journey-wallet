@@ -287,8 +287,8 @@
 "journey.form.destination" = "Направление";
 "journey.form.start_date" = "Дата начала";
 "journey.form.end_date" = "Дата окончания";
+"journey.form.one_day_adventure" = "Однодневное приключение";
 "journey.form.error.name_required" = "Пожалуйста, введите название поездки.";
-"journey.form.error.destination_required" = "Пожалуйста, введите направление.";
 "journey.form.error.invalid_dates" = "Дата окончания должна быть позже даты начала.";
 
 /* Journey Detail View */
@@ -369,7 +369,6 @@
 "transport.form.type" = "Тип";
 "transport.form.departure" = "Отправление";
 "transport.form.arrival" = "Прибытие";
-"transport.form.duration" = "Длительность";
 "transport.form.seat" = "Номер места";
 "transport.form.seats" = "Номер(а) мест";
 "transport.form.booking_reference" = "Номер бронирования";

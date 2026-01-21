@@ -287,8 +287,8 @@
 "journey.form.destination" = "Hedef";
 "journey.form.start_date" = "Başlangıç Tarihi";
 "journey.form.end_date" = "Bitiş Tarihi";
+"journey.form.one_day_adventure" = "Günübirlik macera";
 "journey.form.error.name_required" = "Lütfen bir seyahat adı girin.";
-"journey.form.error.destination_required" = "Lütfen bir hedef girin.";
 "journey.form.error.invalid_dates" = "Bitiş tarihi başlangıç tarihinden sonra olmalıdır.";
 
 /* Journey Detail View */
@@ -369,7 +369,6 @@
 "transport.form.type" = "Tip";
 "transport.form.departure" = "Kalkış";
 "transport.form.arrival" = "Varış";
-"transport.form.duration" = "Süre";
 "transport.form.seat" = "Koltuk Numarası";
 "transport.form.seats" = "Koltuk Numarası/Numaraları";
 "transport.form.booking_reference" = "Rezervasyon Numarası";

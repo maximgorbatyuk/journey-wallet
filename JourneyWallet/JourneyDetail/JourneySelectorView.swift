@@ -28,15 +28,17 @@ struct JourneySelectorView: View {
                                 .foregroundColor(.primary)
 
                             HStack(spacing: 8) {
-                                HStack(spacing: 4) {
-                                    Image(systemName: "mappin")
-                                        .font(.caption)
-                                    Text(journey.destination)
+                                if !journey.destination.isEmpty {
+                                    HStack(spacing: 4) {
+                                        Image(systemName: "mappin")
+                                            .font(.caption)
+                                        Text(journey.destination)
+                                            .font(.caption)
+                                    }
+
+                                    Text("•")
                                         .font(.caption)
                                 }
-
-                                Text("•")
-                                    .font(.caption)
 
                                 Text(formatDateRange(journey: journey))
                                     .font(.caption)
@@ -160,8 +162,10 @@ struct JourneySelectorRow: View {
                         .foregroundColor(.primary)
 
                     HStack(spacing: 4) {
-                        Text(journey.destination)
-                        Text("•")
+                        if !journey.destination.isEmpty {
+                            Text(journey.destination)
+                            Text("•")
+                        }
                         Text(statusText)
                             .foregroundColor(statusColor)
                     }

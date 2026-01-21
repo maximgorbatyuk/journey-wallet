@@ -287,8 +287,8 @@
 "journey.form.destination" = "Destination";
 "journey.form.start_date" = "Start Date";
 "journey.form.end_date" = "End Date";
+"journey.form.one_day_adventure" = "One-day adventure";
 "journey.form.error.name_required" = "Please enter a journey name.";
-"journey.form.error.destination_required" = "Please enter a destination.";
 "journey.form.error.invalid_dates" = "End date must be after start date.";
 
 /* Journey Detail View */
@@ -369,7 +369,6 @@
 "transport.form.type" = "Type";
 "transport.form.departure" = "Departure";
 "transport.form.arrival" = "Arrival";
-"transport.form.duration" = "Duration";
 "transport.form.seat" = "Seat Number";
 "transport.form.seats" = "Seat Number(s)";
 "transport.form.booking_reference" = "Booking Reference";
