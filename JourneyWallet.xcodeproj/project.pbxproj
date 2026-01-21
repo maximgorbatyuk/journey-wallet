@@ -320,7 +320,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JourneyWallet/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Journey Wallet";
+				INFOPLIST_KEY_CFBundleDisplayName = "Journey Wallet (Dev)";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -332,8 +332,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2026.1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mgorbatyuk.JourneyWallet;
+				MARKETING_VERSION = 2026.1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.mgorbatyuk.JourneyWallet.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)-Dev";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -368,7 +368,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2026.1.1;
+				MARKETING_VERSION = 2026.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.mgorbatyuk.JourneyWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
