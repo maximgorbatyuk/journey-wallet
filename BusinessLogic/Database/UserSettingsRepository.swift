@@ -115,4 +115,18 @@ class UserSettingsRepository {
     func fetchUserId() -> String? {
         return fetchValue(for: "user_id")
     }
+
+    /// Fetches all key-value pairs from the user_settings table
+    /// - Returns: Array of tuples containing (id, key, value)
+    func fetchAll() -> [(id: Int64, key: String, value: String)] {
+        var results: [(id: Int64, key: String, value: String)] = []
+        do {
+            for row in try db.prepare(table) {
+                results.append((id: row[id], key: row[keyColumn], value: row[valueColumn]))
+            }
+        } catch {
+            logger.error("Failed to fetch all user settings: \(error)")
+        }
+        return results
+    }
 }

@@ -130,18 +130,6 @@ struct TransportFormView: View {
                         selection: $arrivalDate,
                         displayedComponents: [.date, .hourAndMinute]
                     )
-
-                    // Duration display (only if arrival is after departure)
-                    if arrivalDate > departureDate {
-                        HStack {
-                            Text(L("transport.form.duration"))
-                                .foregroundColor(.secondary)
-                            Spacer()
-                            Text(calculateDuration())
-                                .foregroundColor(.orange)
-                                .fontWeight(.medium)
-                        }
-                    }
                 }
 
                 // Cost Section (optional)
@@ -287,19 +275,6 @@ struct TransportFormView: View {
 
         onSave(transport)
         dismiss()
-    }
-
-    // MARK: - Helpers
-
-    private func calculateDuration() -> String {
-        let duration = arrivalDate.timeIntervalSince(departureDate)
-        let hours = Int(duration) / 3600
-        let minutes = (Int(duration) % 3600) / 60
-
-        if hours > 0 {
-            return "\(hours)h \(minutes)m"
-        }
-        return "\(minutes)m"
     }
 }
 

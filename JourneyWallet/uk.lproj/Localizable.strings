@@ -287,8 +287,8 @@
 "journey.form.destination" = "Напрямок";
 "journey.form.start_date" = "Дата початку";
 "journey.form.end_date" = "Дата закінчення";
+"journey.form.one_day_adventure" = "Одноденна пригода";
 "journey.form.error.name_required" = "Будь ласка, введіть назву подорожі.";
-"journey.form.error.destination_required" = "Будь ласка, введіть напрямок.";
 "journey.form.error.invalid_dates" = "Дата закінчення повинна бути пізніше дати початку.";
 
 /* Journey Detail View */
@@ -369,7 +369,6 @@
 "transport.form.type" = "Тип";
 "transport.form.departure" = "Відправлення";
 "transport.form.arrival" = "Прибуття";
-"transport.form.duration" = "Тривалість";
 "transport.form.seat" = "Номер місця";
 "transport.form.seats" = "Номер(и) місць";
 "transport.form.booking_reference" = "Номер бронювання";
