@@ -46,6 +46,12 @@
 "Rate the app" = "Қосымшаны бағалаңыз";
 "Contact developer via Telegram" = "Telegram арқылы дамушушымен байланысыңыз";
 
+/* Color Scheme */
+"settings.color_scheme" = "Безендіру";
+"settings.color_scheme.system" = "Жүйелік";
+"settings.color_scheme.light" = "Ашық";
+"settings.color_scheme.dark" = "Қараңғы";
+
 /* Onboarding */
 "Welcome to" = "Қош келдіңіз";
 "Get started" = "Бастау";

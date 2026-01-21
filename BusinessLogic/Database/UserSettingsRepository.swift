@@ -95,7 +95,26 @@ class UserSettingsRepository {
     func upsertLanguage(_ languageValue: String) -> Bool {
         return upsertValue(key: "language", value: languageValue)
     }
-    
+
+    // MARK: - Color Scheme
+
+    func fetchColorSchemeAsString() -> String? {
+        return fetchValue(for: "color_scheme")
+    }
+
+    func fetchColorScheme() -> AppColorScheme {
+        if let schemeString = fetchColorSchemeAsString(),
+           let scheme = AppColorScheme(rawValue: schemeString) {
+            return scheme
+        }
+        return .system
+    }
+
+    @discardableResult
+    func upsertColorScheme(_ scheme: AppColorScheme) -> Bool {
+        return upsertValue(key: "color_scheme", value: scheme.rawValue)
+    }
+
     /// Fetches the user_id from the database. If no user_id exists, generates a new UUID and stores it.
     /// - Returns: The user_id string (either existing or newly generated)
     func fetchOrGenerateUserId() -> String {

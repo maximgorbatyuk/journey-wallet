@@ -46,6 +46,12 @@
 "Rate the app" = "App bewerten";
 "Contact developer via Telegram" = "Entwickler über Telegram kontaktieren";
 
+/* Color Scheme */
+"settings.color_scheme" = "Erscheinungsbild";
+"settings.color_scheme.system" = "System";
+"settings.color_scheme.light" = "Hell";
+"settings.color_scheme.dark" = "Dunkel";
+
 /* Onboarding */
 "Welcome to" = "Willkommen bei";
 "Get started" = "Loslegen";

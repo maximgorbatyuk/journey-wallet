@@ -46,6 +46,12 @@
 "Rate the app" = "Uygulamayı değerlendir";
 "Contact developer via Telegram" = "Geliştirici ile Telegram üzerinden iletişime geç";
 
+/* Color Scheme */
+"settings.color_scheme" = "Görünüm";
+"settings.color_scheme.system" = "Sistem";
+"settings.color_scheme.light" = "Açık";
+"settings.color_scheme.dark" = "Koyu";
+
 /* Onboarding */
 "Welcome to" = "Hoş geldiniz";
 "Get started" = "Başla";

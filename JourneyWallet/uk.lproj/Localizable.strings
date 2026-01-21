@@ -46,6 +46,12 @@
 "Rate the app" = "Оцініть додаток";
 "Contact developer via Telegram" = "Зв'язатись з розробником через Telegram";
 
+/* Color Scheme */
+"settings.color_scheme" = "Зовнішній вигляд";
+"settings.color_scheme.system" = "Системне";
+"settings.color_scheme.light" = "Світле";
+"settings.color_scheme.dark" = "Темне";
+
 /* Onboarding */
 "Welcome to" = "Ласкаво просимо до";
 "Get started" = "Початок";

@@ -9,6 +9,7 @@ struct JourneyWalletApp: App {
     @UIApplicationDelegateAdaptor(ForegroundNotificationDelegate.self) var appDelegate
     @AppStorage(UserSettingsViewModel.onboardingCompletedKey) private var isOnboardingComplete = false
 
+    @ObservedObject private var colorSchemeManager = ColorSchemeManager.shared
     private var analytics = AnalyticsService.shared
 
     var body: some Scene {
@@ -36,12 +37,14 @@ struct JourneyWalletApp: App {
                 .onAppear {
                     analytics.trackEvent("app_opened")
                 }
+                .preferredColorScheme(colorSchemeManager.preferredColorScheme)
 
             } else {
                 MainTabView()
                     .onAppear {
                         analytics.trackEvent("app_opened")
                     }
+                    .preferredColorScheme(colorSchemeManager.preferredColorScheme)
             }
         }
     }
