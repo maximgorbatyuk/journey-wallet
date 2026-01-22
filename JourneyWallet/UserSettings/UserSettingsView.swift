@@ -586,6 +586,18 @@ struct UserSettingsView: SwiftUICore.View {
                             }
                         }
                         .buttonStyle(.plain)
+
+                        Button(action: {
+                            DatabaseMigrationHelper.resetMigrationFlag()
+                        }) {
+                            HStack {
+                                Image(systemName: "arrow.triangle.2.circlepath")
+                                    .foregroundColor(.orange)
+                                Text("Reset App Group Migration Flag")
+                                    .foregroundColor(.primary)
+                            }
+                        }
+                        .buttonStyle(.plain)
                     }
                 }
             }
