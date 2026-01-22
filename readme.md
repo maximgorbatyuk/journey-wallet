@@ -95,7 +95,8 @@ Source: https://stackoverflow.com/a/10239376
 ## Docs
 
 - Development: [changelog.md](changelog.md)
-- Release notes for App Store: [appstore_releases](appstore_releases)
+- Release notes for App Store: [appstore_releases](appstore/appstore_releases.md)
+- App Store page content: [appstore_page](appstore/appstore_page.md)
 - Privacy policy: [privacy-policy.md](privacy-policy.md)
 
 ## Development references
