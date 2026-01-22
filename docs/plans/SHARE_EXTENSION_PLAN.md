@@ -143,13 +143,16 @@ func getDocumentsDirectory() -> URL {
 
 ---
 
-## Phase 2: Create Share Extension Targets (Manual Xcode Setup Required)
+## Phase 2: Create Share Extension Target ✅ DONE
 
-We need **two** Share Extension targets to match the main app configurations:
-- `ShareExtension` - for Production app
-- `ShareExtensionDev` - for Development app
+**Final approach:** Single `ShareExtension` target with xcconfig-based configuration.
 
-Each extension must be embedded in its respective app and use the matching App Group.
+Instead of two separate targets, we use one target with dynamic configuration:
+- Bundle ID: `$(SHARE_EXTENSION_BUNDLE_ID)` from xcconfig
+- App Group: `$(APP_GROUP_IDENTIFIER)` from xcconfig
+- Entitlements: Different files for Debug/Release
+
+This ensures proper Xcode Cloud compatibility and simpler maintenance.
 
 ### 2.1 Add Share Extension Target (Production)
 - [ ] In Xcode: File → New → Target

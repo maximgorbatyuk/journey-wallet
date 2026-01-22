@@ -8,12 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		874BB5002EA265B6004AFFD5 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 874BB4FF2EA265B2004AFFD5 /* readme.md */; };
-		8774966A2F22869A001F6CAD /* ShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877496652F22869A001F6CAD /* ShareViewModel.swift */; };
-		8774966B2F22869A001F6CAD /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877496632F22869A001F6CAD /* ShareView.swift */; };
-		8774966C2F22869A001F6CAD /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877496642F22869A001F6CAD /* ShareViewController.swift */; };
-		8774966D2F22869A001F6CAD /* ShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877496652F22869A001F6CAD /* ShareViewModel.swift */; };
-		8774966E2F22869A001F6CAD /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877496632F22869A001F6CAD /* ShareView.swift */; };
-		8774966F2F22869A001F6CAD /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877496642F22869A001F6CAD /* ShareViewController.swift */; };
 		877496E22F2289D9001F6CAD /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 877496E12F2289D9001F6CAD /* SQLite */; };
 		877499BA2F229159001F6CAD /* ShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8774963D2F228481001F6CAD /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		87756C032E963DBC0055273C /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 87756C022E963DBC0055273C /* SQLite */; };
@@ -55,9 +49,6 @@
 /* Begin PBXFileReference section */
 		874BB4FF2EA265B2004AFFD5 /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		8774963D2F228481001F6CAD /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		877496632F22869A001F6CAD /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
-		877496642F22869A001F6CAD /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
-		877496652F22869A001F6CAD /* ShareViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewModel.swift; sourceTree = "<group>"; };
 		87756BD72E963D240055273C /* JourneyWallet-Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JourneyWallet-Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87D58E512EA5035A00F4454C /* privacy-policy.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "privacy-policy.md"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,16 +123,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		877496662F22869A001F6CAD /* ShareExtensionShared */ = {
-			isa = PBXGroup;
-			children = (
-				877496632F22869A001F6CAD /* ShareView.swift */,
-				877496642F22869A001F6CAD /* ShareViewController.swift */,
-				877496652F22869A001F6CAD /* ShareViewModel.swift */,
-			);
-			path = ShareExtensionShared;
-			sourceTree = "<group>";
-		};
 		877496DE2F2289D2001F6CAD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,7 +133,6 @@
 		87756BCE2E963D230055273C = {
 			isa = PBXGroup;
 			children = (
-				877496662F22869A001F6CAD /* ShareExtensionShared */,
 				877499342F228D47001F6CAD /* BusinessLogic */,
 				87D58E512EA5035A00F4454C /* privacy-policy.md */,
 				874BB4FF2EA265B2004AFFD5 /* readme.md */,
@@ -299,9 +279,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8774966A2F22869A001F6CAD /* ShareViewModel.swift in Sources */,
-				8774966B2F22869A001F6CAD /* ShareView.swift in Sources */,
-				8774966C2F22869A001F6CAD /* ShareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,9 +286,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8774966D2F22869A001F6CAD /* ShareViewModel.swift in Sources */,
-				8774966E2F22869A001F6CAD /* ShareView.swift in Sources */,
-				8774966F2F22869A001F6CAD /* ShareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
