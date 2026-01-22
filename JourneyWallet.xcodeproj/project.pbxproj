@@ -71,6 +71,13 @@
 			);
 			target = 8774963C2F228481001F6CAD /* ShareExtension */;
 		};
+		877499C52F2293F7001F6CAD /* Exceptions for "JourneyWallet" folder in "ShareExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"/Localized: Localizable.strings",
+			);
+			target = 8774963C2F228481001F6CAD /* ShareExtension */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -96,6 +103,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				87411A602EA140CB008F69EE /* Exceptions for "JourneyWallet" folder in "JourneyWallet" target */,
+				877499C52F2293F7001F6CAD /* Exceptions for "JourneyWallet" folder in "ShareExtension" target */,
 			);
 			path = JourneyWallet;
 			sourceTree = "<group>";
