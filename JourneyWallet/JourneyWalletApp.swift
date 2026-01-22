@@ -55,8 +55,8 @@ final class ForegroundNotificationDelegate: NSObject, UIApplicationDelegate, UNU
   static let shared = ForegroundNotificationDelegate()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        // Migrate database to App Group container (one-time, must happen before DatabaseManager access)
-        DatabaseMigrationHelper.migrateToAppGroupIfNeeded()
+        // Note: Database migration is handled in DatabaseManager.init() to ensure it runs
+        // before any database access (which may happen before this method is called)
 
         // Set the delegate
         UNUserNotificationCenter.current().delegate = self

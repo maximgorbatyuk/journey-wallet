@@ -44,6 +44,11 @@ class DatabaseManager : DatabaseManagerProtocol {
 
         self.logger = Logger(subsystem: "dev.mgorbatyuk.journeywallet.database", category: "DatabaseManager")
 
+        // IMPORTANT: Migrate database BEFORE opening connection.
+        // This must happen here because DatabaseManager.shared may be accessed
+        // before UIApplicationDelegate.didFinishLaunchingWithOptions (e.g., by ColorSchemeManager)
+        DatabaseMigrationHelper.migrateToAppGroupIfNeeded()
+
         do {
             // Use App Group shared container for database (enables Share Extension access)
             let dbURL = AppGroupContainer.databaseURL
