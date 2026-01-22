@@ -1,5 +1,5 @@
-import Foundation
 import BackgroundTasks
+import Foundation
 import os.log
 
 /// Manages background task scheduling for automatic iCloud backups

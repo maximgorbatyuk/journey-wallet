@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		874BB5002EA265B6004AFFD5 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 874BB4FF2EA265B2004AFFD5 /* readme.md */; };
-		877496472F228481001F6CAD /* ShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8774963D2F228481001F6CAD /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		8774965B2F2284DD001F6CAD /* ShareExtensionDev.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 877496512F2284DD001F6CAD /* ShareExtensionDev.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		877496672F22869A001F6CAD /* ShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877496652F22869A001F6CAD /* ShareViewModel.swift */; };
 		877496682F22869A001F6CAD /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877496632F22869A001F6CAD /* ShareView.swift */; };
 		877496692F22869A001F6CAD /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877496642F22869A001F6CAD /* ShareViewController.swift */; };
@@ -21,20 +19,21 @@
 		8774966F2F22869A001F6CAD /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877496642F22869A001F6CAD /* ShareViewController.swift */; };
 		877496E02F2289D2001F6CAD /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 877496DF2F2289D2001F6CAD /* SQLite */; };
 		877496E22F2289D9001F6CAD /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 877496E12F2289D9001F6CAD /* SQLite */; };
+		877499B02F228E71001F6CAD /* ShareExtensionDev.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 877496512F2284DD001F6CAD /* ShareExtensionDev.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		87756C032E963DBC0055273C /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 87756C022E963DBC0055273C /* SQLite */; };
 		87D58E522EA5036100F4454C /* privacy-policy.md in Resources */ = {isa = PBXBuildFile; fileRef = 87D58E512EA5035A00F4454C /* privacy-policy.md */; };
 		87DD139B2EBB7949005982AB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 87DD139A2EBB7949005982AB /* FirebaseAnalytics */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		877496452F228481001F6CAD /* PBXContainerItemProxy */ = {
+		877499B12F228E71001F6CAD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 87756BCF2E963D230055273C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8774963C2F228481001F6CAD;
-			remoteInfo = ShareExtension;
+			remoteGlobalIDString = 877496502F2284DD001F6CAD;
+			remoteInfo = ShareExtensionDev;
 		};
-		877496592F2284DD001F6CAD /* PBXContainerItemProxy */ = {
+		877499B42F228E8A001F6CAD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 87756BCF2E963D230055273C /* Project object */;
 			proxyType = 1;
@@ -44,14 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		877496482F228481001F6CAD /* Embed Foundation Extensions */ = {
+		877499B32F228E71001F6CAD /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				8774965B2F2284DD001F6CAD /* ShareExtensionDev.appex in Embed Foundation Extensions */,
-				877496472F228481001F6CAD /* ShareExtension.appex in Embed Foundation Extensions */,
+				877499B02F228E71001F6CAD /* ShareExtensionDev.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,11 +95,6 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		87171B3F2ED9B1240084F6D7 /* BusinessLogic */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = BusinessLogic;
-			sourceTree = "<group>";
-		};
 		8774963E2F228481001F6CAD /* ShareExtension */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -116,6 +109,11 @@
 				8774965F2F2284DD001F6CAD /* Exceptions for "ShareExtensionDev" folder in "ShareExtensionDev" target */,
 			);
 			path = ShareExtensionDev;
+			sourceTree = "<group>";
+		};
+		877499342F228D47001F6CAD /* BusinessLogic */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = BusinessLogic;
 			sourceTree = "<group>";
 		};
 		87756BD92E963D240055273C /* JourneyWallet */ = {
@@ -178,7 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				877496662F22869A001F6CAD /* ShareExtensionShared */,
-				87171B3F2ED9B1240084F6D7 /* BusinessLogic */,
+				877499342F228D47001F6CAD /* BusinessLogic */,
 				87D58E512EA5035A00F4454C /* privacy-policy.md */,
 				874BB4FF2EA265B2004AFFD5 /* readme.md */,
 				87756BD92E963D240055273C /* JourneyWallet */,
@@ -215,8 +213,8 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				87171B3F2ED9B1240084F6D7 /* BusinessLogic */,
 				8774963E2F228481001F6CAD /* ShareExtension */,
+				877499342F228D47001F6CAD /* BusinessLogic */,
 			);
 			name = ShareExtension;
 			packageProductDependencies = (
@@ -239,8 +237,8 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				87171B3F2ED9B1240084F6D7 /* BusinessLogic */,
 				877496522F2284DD001F6CAD /* ShareExtensionDev */,
+				877499342F228D47001F6CAD /* BusinessLogic */,
 			);
 			name = ShareExtensionDev;
 			packageProductDependencies = (
@@ -257,16 +255,16 @@
 				87756BD32E963D240055273C /* Sources */,
 				87756BD42E963D240055273C /* Frameworks */,
 				87756BD52E963D240055273C /* Resources */,
-				877496482F228481001F6CAD /* Embed Foundation Extensions */,
+				877499B32F228E71001F6CAD /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				877496462F228481001F6CAD /* PBXTargetDependency */,
-				8774965A2F2284DD001F6CAD /* PBXTargetDependency */,
+				877499B22F228E71001F6CAD /* PBXTargetDependency */,
+				877499B52F228E8A001F6CAD /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				87171B3F2ED9B1240084F6D7 /* BusinessLogic */,
+				877499342F228D47001F6CAD /* BusinessLogic */,
 				87756BD92E963D240055273C /* JourneyWallet */,
 			);
 			name = JourneyWallet;
@@ -389,15 +387,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		877496462F228481001F6CAD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8774963C2F228481001F6CAD /* ShareExtension */;
-			targetProxy = 877496452F228481001F6CAD /* PBXContainerItemProxy */;
-		};
-		8774965A2F2284DD001F6CAD /* PBXTargetDependency */ = {
+		877499B22F228E71001F6CAD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 877496502F2284DD001F6CAD /* ShareExtensionDev */;
-			targetProxy = 877496592F2284DD001F6CAD /* PBXContainerItemProxy */;
+			targetProxy = 877499B12F228E71001F6CAD /* PBXContainerItemProxy */;
+		};
+		877499B52F228E8A001F6CAD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 877496502F2284DD001F6CAD /* ShareExtensionDev */;
+			targetProxy = 877499B42F228E8A001F6CAD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

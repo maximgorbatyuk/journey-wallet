@@ -1,6 +1,6 @@
-import UserNotifications
 import Foundation
 import os
+import UserNotifications
 
 protocol NotificationManagerProtocol {
     func scheduleNotification(title: String, body: String, on date: Date) -> String
