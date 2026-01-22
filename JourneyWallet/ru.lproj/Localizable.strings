@@ -57,6 +57,7 @@
 "share.file_section" = "Файл";
 "share.journey_section" = "Выберите путешествие";
 "share.document_name" = "Название документа";
+"share.document_name_placeholder" = "Введите название документа";
 "share.no_journeys" = "Путешествия не найдены";
 "share.no_journeys_hint" = "Сначала создайте путешествие в приложении";
 "share.saving" = "Сохранение...";

@@ -57,6 +57,7 @@
 "share.file_section" = "Файл";
 "share.journey_section" = "Виберіть подорож";
 "share.document_name" = "Назва документа";
+"share.document_name_placeholder" = "Введіть назву документа";
 "share.no_journeys" = "Подорожі не знайдено";
 "share.no_journeys_hint" = "Спочатку створіть подорож у додатку";
 "share.saving" = "Збереження...";

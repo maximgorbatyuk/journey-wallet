@@ -52,19 +52,26 @@ struct ShareView: View {
     private var filesSection: some View {
         Section(header: Text(L("share.file_section"))) {
             ForEach(viewModel.files.indices, id: \.self) { index in
-                HStack(spacing: 12) {
-                    fileIcon(for: viewModel.files[index].fileExtension)
-
-                    VStack(alignment: .leading, spacing: 4) {
-                        TextField(L("share.document_name"), text: $viewModel.files[index].displayName)
-                            .font(.body)
+                VStack(alignment: .leading, spacing: 12) {
+                    // Original file info (not editable)
+                    HStack(spacing: 12) {
+                        fileIcon(for: viewModel.files[index].fileExtension)
 
                         Text(viewModel.files[index].originalName)
+                            .font(.body)
+                    }
+
+                    // Optional custom name input
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(L("share.document_name") + " (" + L("Optional") + ")")
                             .font(.caption)
                             .foregroundColor(.secondary)
+
+                        TextField(L("share.document_name_placeholder"), text: $viewModel.files[index].customName)
+                            .textFieldStyle(.roundedBorder)
                     }
                 }
-                .padding(.vertical, 4)
+                .padding(.vertical, 8)
             }
         }
     }

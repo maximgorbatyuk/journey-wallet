@@ -57,6 +57,7 @@
 "share.file_section" = "Dosya";
 "share.journey_section" = "Seyahat Seçin";
 "share.document_name" = "Belge adı";
+"share.document_name_placeholder" = "Belge adını girin";
 "share.no_journeys" = "Seyahat bulunamadı";
 "share.no_journeys_hint" = "Önce uygulamada bir seyahat oluşturun";
 "share.saving" = "Kaydediliyor...";

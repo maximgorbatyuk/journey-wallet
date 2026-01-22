@@ -57,6 +57,7 @@
 "share.file_section" = "Файл";
 "share.journey_section" = "Сапарды таңдаңыз";
 "share.document_name" = "Құжат атауы";
+"share.document_name_placeholder" = "Құжат атауын енгізіңіз";
 "share.no_journeys" = "Сапарлар табылмады";
 "share.no_journeys_hint" = "Алдымен қосымшада сапар жасаңыз";
 "share.saving" = "Сақталуда...";

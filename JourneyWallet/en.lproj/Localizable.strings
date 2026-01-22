@@ -57,6 +57,7 @@
 "share.file_section" = "File";
 "share.journey_section" = "Select Journey";
 "share.document_name" = "Document name";
+"share.document_name_placeholder" = "Enter document name";
 "share.no_journeys" = "No journeys found";
 "share.no_journeys_hint" = "Create a journey in the app first";
 "share.saving" = "Saving...";

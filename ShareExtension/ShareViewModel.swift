@@ -2,20 +2,20 @@ import Foundation
 import Combine
 import os
 
-/// Represents a file to be shared, with editable display name.
+/// Represents a file to be shared, with optional custom name.
 class ShareFileItem: ObservableObject, Identifiable {
     let id = UUID()
     let url: URL
     let originalName: String
     let fileExtension: String
-    @Published var displayName: String
+    @Published var customName: String  // Optional custom display name (empty = use filename)
 
     init(url: URL) {
         self.url = url
         self.originalName = url.lastPathComponent
         self.fileExtension = url.pathExtension
-        // Default display name is filename without extension
-        self.displayName = url.deletingPathExtension().lastPathComponent
+        // Custom name starts empty - user can optionally fill it
+        self.customName = ""
     }
 }
 
@@ -123,10 +123,15 @@ class ShareViewModel: ObservableObject {
                     let docType = DocumentType.fromExtension(file.fileExtension)
 
                     // Create database record
+                    // name is optional - only set if user provided a custom name
+                    let customName: String? = file.customName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+                        ? nil
+                        : file.customName.trimmingCharacters(in: .whitespacesAndNewlines)
+
                     let document = Document(
                         id: UUID(),
                         journeyId: journeyId,
-                        name: file.displayName.isEmpty ? file.originalName : file.displayName,
+                        name: customName,
                         fileType: docType,
                         fileName: result.fileName,
                         filePath: nil,
@@ -140,7 +145,7 @@ class ShareViewModel: ObservableObject {
                         logger.error("Failed to insert document record for: \(file.originalName)")
                         allSucceeded = false
                     } else {
-                        logger.info("Saved document: \(file.displayName) to journey: \(journeyId)")
+                        logger.info("Saved document: \(file.originalName) to journey: \(journeyId)")
                     }
 
                     // Clean up temp file

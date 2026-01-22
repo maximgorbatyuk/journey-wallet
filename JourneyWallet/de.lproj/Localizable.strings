@@ -57,6 +57,7 @@
 "share.file_section" = "Datei";
 "share.journey_section" = "Reise auswählen";
 "share.document_name" = "Dokumentname";
+"share.document_name_placeholder" = "Dokumentname eingeben";
 "share.no_journeys" = "Keine Reisen gefunden";
 "share.no_journeys_hint" = "Erstelle zuerst eine Reise in der App";
 "share.saving" = "Speichern...";
