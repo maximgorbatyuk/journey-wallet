@@ -143,7 +143,7 @@ func getDocumentsDirectory() -> URL {
 
 ---
 
-## Phase 2: Create Share Extension Targets
+## Phase 2: Create Share Extension Targets (Manual Xcode Setup Required)
 
 We need **two** Share Extension targets to match the main app configurations:
 - `ShareExtension` - for Production app
@@ -160,6 +160,11 @@ Each extension must be embedded in its respective app and use the matching App G
 - [ ] Embed in: JourneyWallet (Production scheme)
 - [ ] Enable App Groups capability
 - [ ] Select: `group.dev.mgorbatyuk.journeywallet`
+- [ ] Delete auto-generated ShareViewController.swift (we'll use shared code)
+- [ ] Delete MainInterface.storyboard (we use SwiftUI)
+- [ ] Add `ShareExtensionShared/*.swift` files to target
+- [ ] Add `BusinessLogic` folder to target (for models, repositories, services)
+- [ ] Add `AppGroupIdentifier` to extension's Info.plist
 
 ### 2.2 Add Share Extension Target (Development)
 - [ ] In Xcode: File → New → Target
@@ -170,22 +175,20 @@ Each extension must be embedded in its respective app and use the matching App G
 - [ ] Embed in: JourneyWallet (Debug scheme)
 - [ ] Enable App Groups capability
 - [ ] Select: `group.dev.mgorbatyuk.journeywallet.dev`
+- [ ] Delete auto-generated ShareViewController.swift (we'll use shared code)
+- [ ] Delete MainInterface.storyboard (we use SwiftUI)
+- [ ] Add `ShareExtensionShared/*.swift` files to target
+- [ ] Add `BusinessLogic` folder to target (for models, repositories, services)
+- [ ] Add `AppGroupIdentifier` to extension's Info.plist
 
-### 2.3 Share Code Between Extensions
+### 2.3 Share Code Between Extensions ✅ DONE
 
-To avoid duplicating code, create a shared framework or use file references:
+Shared code files created in `ShareExtensionShared/`:
+- `ShareViewController.swift` - Entry point, extracts files from Share sheet
+- `ShareView.swift` - SwiftUI interface
+- `ShareViewModel.swift` - Business logic, saves documents
 
-**Option A: Shared Files (Simpler)**
-1. Create shared Swift files in a common folder (e.g., `ShareExtensionShared/`)
-2. Add files to both extension targets' "Compile Sources"
-3. Use `#if DEBUG` for App Group identifier
-
-**Option B: Shared Framework (Cleaner but more setup)**
-1. Create a new Framework target: `ShareExtensionKit`
-2. Move shared code (ShareView, ShareViewModel) to framework
-3. Link framework to both extension targets
-
-**Recommended: Option A** for simplicity. The code difference is minimal (just App Group ID).
+These files should be added to **both** extension targets' "Compile Sources".
 
 ### 2.4 Configure Build Schemes
 
@@ -260,7 +263,9 @@ ShareExtensionDev/                 # Development extension
 
 ---
 
-## Phase 3: Share Extension UI
+## Phase 3: Share Extension UI ✅ DONE
+
+Code files created in `ShareExtensionShared/` folder. These need to be added to the Share Extension targets in Xcode (Phase 2.1 and 2.2).
 
 ### 3.1 ShareViewController.swift
 
@@ -803,9 +808,9 @@ Share Extensions have ~120MB memory limit. For large files:
 
 ---
 
-## Phase 6: Localization
+## Phase 6: Localization ✅ DONE
 
-Add keys to all 6 language files:
+Localization keys added to all 6 language files (en, ru, de, kk, tr, uk):
 
 ```
 /* Share Extension */
@@ -826,12 +831,12 @@ Add keys to all 6 language files:
 
 ## Implementation Order
 
-1. **Phase 1** - App Group setup and database migration (most critical, foundational)
-2. **Phase 2** - Create Share Extension target in Xcode
-3. **Phase 3** - Build the UI
-4. **Phase 4** - Implement data handling
+1. **Phase 1** - App Group setup and database migration ✅ DONE
+2. **Phase 2** - Create Share Extension target in Xcode (Manual Xcode setup required - see 2.1 and 2.2)
+3. **Phase 3** - Build the UI ✅ DONE (code created, needs to be added to targets)
+4. **Phase 4** - Implement data handling (verify after Xcode setup)
 5. **Phase 5** - Testing
-6. **Phase 6** - Localization
+6. **Phase 6** - Localization ✅ DONE
 
 ---
 

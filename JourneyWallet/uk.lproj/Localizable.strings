@@ -52,6 +52,19 @@
 "settings.color_scheme.light" = "Світле";
 "settings.color_scheme.dark" = "Темне";
 
+/* Share Extension */
+"share.title" = "Зберегти в Journey Wallet";
+"share.file_section" = "Файл";
+"share.journey_section" = "Виберіть подорож";
+"share.document_name" = "Назва документа";
+"share.no_journeys" = "Подорожі не знайдено";
+"share.no_journeys_hint" = "Спочатку створіть подорож у додатку";
+"share.saving" = "Збереження...";
+"share.error.database" = "Не вдалося отримати доступ до бази даних";
+"share.error.no_journey" = "Будь ласка, виберіть подорож";
+"share.error.save_failed" = "Не вдалося зберегти документ";
+"Active" = "Активна";
+
 /* Onboarding */
 "Welcome to" = "Ласкаво просимо до";
 "Get started" = "Початок";

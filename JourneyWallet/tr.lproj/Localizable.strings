@@ -52,6 +52,19 @@
 "settings.color_scheme.light" = "Açık";
 "settings.color_scheme.dark" = "Koyu";
 
+/* Share Extension */
+"share.title" = "Journey Wallet'a Kaydet";
+"share.file_section" = "Dosya";
+"share.journey_section" = "Seyahat Seçin";
+"share.document_name" = "Belge adı";
+"share.no_journeys" = "Seyahat bulunamadı";
+"share.no_journeys_hint" = "Önce uygulamada bir seyahat oluşturun";
+"share.saving" = "Kaydediliyor...";
+"share.error.database" = "Veritabanına erişilemedi";
+"share.error.no_journey" = "Lütfen bir seyahat seçin";
+"share.error.save_failed" = "Belge kaydedilemedi";
+"Active" = "Aktif";
+
 /* Onboarding */
 "Welcome to" = "Hoş geldiniz";
 "Get started" = "Başla";

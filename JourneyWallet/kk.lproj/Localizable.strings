@@ -52,6 +52,19 @@
 "settings.color_scheme.light" = "Ашық";
 "settings.color_scheme.dark" = "Қараңғы";
 
+/* Share Extension */
+"share.title" = "Journey Wallet-ке сақтау";
+"share.file_section" = "Файл";
+"share.journey_section" = "Сапарды таңдаңыз";
+"share.document_name" = "Құжат атауы";
+"share.no_journeys" = "Сапарлар табылмады";
+"share.no_journeys_hint" = "Алдымен қосымшада сапар жасаңыз";
+"share.saving" = "Сақталуда...";
+"share.error.database" = "Дерекқорға қол жеткізу мүмкін болмады";
+"share.error.no_journey" = "Сапарды таңдаңыз";
+"share.error.save_failed" = "Құжатты сақтау мүмкін болмады";
+"Active" = "Белсенді";
+
 /* Onboarding */
 "Welcome to" = "Қош келдіңіз";
 "Get started" = "Бастау";
