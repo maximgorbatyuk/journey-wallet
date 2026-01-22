@@ -41,110 +41,105 @@ This setup ensures:
 
 ---
 
-## Phase 1: App Group Setup
+## Phase 1: App Group Setup ✅ DONE
 
-### 1.1 Create App Groups in Apple Developer Portal
-- [ ] Log into Apple Developer Portal
-- [ ] Go to Certificates, Identifiers & Profiles → Identifiers
-- [ ] Create **two** App Group identifiers:
+### 1.1 Create App Groups in Apple Developer Portal ✅ DONE
+- [x] Log into Apple Developer Portal
+- [x] Go to Certificates, Identifiers & Profiles → Identifiers
+- [x] Create **two** App Group identifiers:
   - **Production**: `group.dev.mgorbatyuk.journeywallet`
   - **Development**: `group.dev.mgorbatyuk.journeywallet.dev`
 
-### 1.2 Enable App Groups Capability for Main App
-- [ ] Open Xcode project settings
-- [ ] Select main app target → Signing & Capabilities
-- [ ] Add "App Groups" capability
-- [ ] Select **both** App Groups (Xcode will use the correct one based on build config)
+### 1.2 Enable App Groups Capability for Main App ✅ DONE
+- [x] Open Xcode project settings
+- [x] Select main app target → Signing & Capabilities
+- [x] Add "App Groups" capability
+- [x] Select **both** App Groups
 
-### 1.3 Configure App Group Selection by Build Configuration
+### 1.3 Configure App Group Selection by Build Configuration ✅ DONE
 
-**Option A: Using Build Settings (Recommended)**
+Using xcconfig files with Info.plist reference:
 
-Add a user-defined build setting in Xcode:
+**File: `JourneyWallet/Config/Base.xcconfig`**
+```
+APP_GROUP_IDENTIFIER = group.dev.mgorbatyuk.journeywallet
+```
 
-1. Select project → Build Settings → Add User-Defined Setting
-2. Name: `APP_GROUP_IDENTIFIER`
-3. Values:
-   - Debug: `group.dev.mgorbatyuk.journeywallet.dev`
-   - Release: `group.dev.mgorbatyuk.journeywallet`
+**File: `JourneyWallet/Config/Debug.xcconfig`**
+```
+#include "Base.xcconfig"
+APP_GROUP_IDENTIFIER = group.dev.mgorbatyuk.journeywallet.dev
+```
 
-Then reference in code via Info.plist:
+**File: `JourneyWallet/Config/Release.xcconfig`**
+```
+#include "Base.xcconfig"
+APP_GROUP_IDENTIFIER = group.dev.mgorbatyuk.journeywallet
+```
 
-**File: `Info.plist`** (add new key)
+**File: `JourneyWallet/Info.plist`**
 ```xml
 <key>AppGroupIdentifier</key>
 <string>$(APP_GROUP_IDENTIFIER)</string>
 ```
 
-**Option B: Using Compiler Flags**
+This approach is cleaner than `#if DEBUG` because:
+- Works with any number of build configurations
+- Configuration is centralized in xcconfig files
+- Share Extension can use the same Info.plist pattern
 
-The code can use `#if DEBUG` to select the appropriate App Group:
+### 1.4 Migrate Database to Shared Container ✅ DONE
 
-```swift
-enum AppGroupContainer {
-    static var identifier: String {
-        #if DEBUG
-        return "group.dev.mgorbatyuk.journeywallet.dev"
-        #else
-        return "group.dev.mgorbatyuk.journeywallet"
-        #endif
-    }
-}
-```
+**Files created/modified:**
 
-**Note:** Option B is simpler but Option A is more flexible if you have additional build configurations.
+1. **`BusinessLogic/Helpers/AppGroupContainer.swift`** - Helper to access shared container
+   - Reads App Group identifier from Info.plist
+   - Provides URLs for database and documents in shared container
+   - Includes legacy paths for migration
 
-### 1.3 Migrate Database to Shared Container
+2. **`BusinessLogic/Database/DatabaseMigrationHelper.swift`** - One-time migration
+   - Copies database from old location to App Group container
+   - Copies SQLite journal files (WAL mode)
+   - Cleans up old files after successful migration
+   - Uses UserDefaults flag to ensure migration runs only once
 
-**File: `BusinessLogic/Database/DatabaseManager.swift`**
+3. **`BusinessLogic/Database/DatabaseManager.swift`** - Updated to use shared container
+   ```swift
+   let dbURL = AppGroupContainer.databaseURL
+   let dbPath = dbURL.path
+   ```
 
-Current database path uses app's default container. Need to change to shared container:
+4. **`JourneyWallet/JourneyWalletApp.swift`** - Calls migration on launch
+   ```swift
+   func application(...) -> Bool {
+       DatabaseMigrationHelper.migrateToAppGroupIfNeeded()
+       // ... rest of setup
+   }
+   ```
 
-```swift
-// Before
-let dbPath = FileManager.default
-    .urls(for: .documentDirectory, in: .userDomainMask)
-    .first!
-    .appendingPathComponent("journey_wallet.sqlite3")
+**Migration runs automatically on first launch after update.**
 
-// After
-static let appGroupIdentifier = "group.dev.mgorbatyuk.journeywallet"
-
-var dbPath: URL {
-    guard let containerURL = FileManager.default
-        .containerURL(forSecurityApplicationGroupIdentifier: Self.appGroupIdentifier) else {
-        fatalError("App Group container not found")
-    }
-    return containerURL.appendingPathComponent("journey_wallet.sqlite3")
-}
-```
-
-**Migration Strategy:**
-1. Check if old database exists in app container
-2. If yes, copy to shared container
-3. Delete old database after successful copy
-4. Always use shared container path going forward
-
-### 1.4 Migrate Document Storage to Shared Container
+### 1.5 Migrate Document Storage to Shared Container ✅ DONE
 
 **File: `BusinessLogic/Services/DocumentService.swift`**
 
+Updated `getDocumentsDirectory()` to use shared container:
+
 ```swift
 // Before
-let documentsPath = FileManager.default
-    .urls(for: .documentDirectory, in: .userDomainMask)
-    .first!
-    .appendingPathComponent("JourneyDocuments")
+func getDocumentsDirectory() -> URL {
+    let paths = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+    let documentsDirectory = paths[0].appendingPathComponent("JourneyDocuments", isDirectory: true)
+    // ...
+}
 
 // After
-var documentsPath: URL {
-    guard let containerURL = FileManager.default
-        .containerURL(forSecurityApplicationGroupIdentifier: DatabaseManager.appGroupIdentifier) else {
-        fatalError("App Group container not found")
-    }
-    return containerURL.appendingPathComponent("JourneyDocuments")
+func getDocumentsDirectory() -> URL {
+    return AppGroupContainer.documentsURL
 }
 ```
+
+**Note:** Document migration is handled by `DatabaseMigrationHelper.migrateDocuments()` (created in Phase 1.4).
 
 ---
 
@@ -601,7 +596,7 @@ class ShareViewModel: ObservableObject {
 
 **File: `BusinessLogic/Helpers/AppGroupContainer.swift`**
 
-This helper automatically selects the correct App Group based on build configuration.
+This helper reads the App Group identifier from Info.plist (set via xcconfig).
 
 ```swift
 import Foundation
@@ -610,13 +605,13 @@ import os
 enum AppGroupContainer {
     private static let logger = Logger(subsystem: "AppGroupContainer", category: "Storage")
 
-    /// App Group identifier - differs between Debug and Release builds
+    /// App Group identifier - read from Info.plist (configured via xcconfig)
     static var identifier: String {
-        #if DEBUG
-        return "group.dev.mgorbatyuk.journeywallet.dev"
-        #else
-        return "group.dev.mgorbatyuk.journeywallet"
-        #endif
+        guard let identifier = Bundle.main.object(forInfoDictionaryKey: "AppGroupIdentifier") as? String else {
+            logger.error("AppGroupIdentifier not found in Info.plist")
+            fatalError("AppGroupIdentifier not found in Info.plist. Check xcconfig setup.")
+        }
+        return identifier
     }
 
     /// Shared container URL for the App Group
@@ -643,14 +638,18 @@ enum AppGroupContainer {
 
     /// Check if App Group is properly configured
     static var isConfigured: Bool {
-        FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: identifier) != nil
+        guard let identifier = Bundle.main.object(forInfoDictionaryKey: "AppGroupIdentifier") as? String else {
+            return false
+        }
+        return FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: identifier) != nil
     }
 }
 ```
 
-**Important:** Both the main app and Share Extension must use this same helper, so it needs to be:
-- In the `BusinessLogic` framework/module, OR
-- Added to both main app and extension targets' compile sources
+**Important:**
+- Both the main app and Share Extension must have `AppGroupIdentifier` in their Info.plist
+- The Share Extension needs its own xcconfig files or Info.plist entry pointing to the same App Group
+- The `BusinessLogic` module should be linked to both targets
 
 ### 4.2 Database Migration
 

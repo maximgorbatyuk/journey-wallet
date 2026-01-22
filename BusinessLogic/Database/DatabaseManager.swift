@@ -45,11 +45,9 @@ class DatabaseManager : DatabaseManagerProtocol {
         self.logger = Logger(subsystem: "dev.mgorbatyuk.journeywallet.database", category: "DatabaseManager")
 
         do {
-            let path = NSSearchPathForDirectoriesInDomains(
-                .documentDirectory, .userDomainMask, true
-            ).first!
-
-            let dbPath = "\(path)/journey_wallet.sqlite3"
+            // Use App Group shared container for database (enables Share Extension access)
+            let dbURL = AppGroupContainer.databaseURL
+            let dbPath = dbURL.path
             logger.debug("Database path: \(dbPath)")
 
             self.db = try Connection(dbPath)

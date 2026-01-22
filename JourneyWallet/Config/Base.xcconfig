@@ -3,3 +3,5 @@ DEVELOPER_TELEGRAM_LINK = t.me/maximgorbatyuk
 APP_STORE_ID = 6757918975
 DEVELOPER_NAME = Maxim Gorbatyuk
 BUILD_ENVIRONMENT = release
+APP_GROUP_IDENTIFIER = group.dev.mgorbatyuk.journeywallet
+

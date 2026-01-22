@@ -1,3 +1,4 @@
 #include "Base.xcconfig"
 
 BUILD_ENVIRONMENT = dev
+APP_GROUP_IDENTIFIER = group.dev.mgorbatyuk.journeywallet.dev

@@ -12,22 +12,11 @@ class DocumentService {
 
     // MARK: - Directory Management
 
-    /// Returns the documents directory for storing journey documents
+    /// Returns the documents directory for storing journey documents (in App Group shared container)
     func getDocumentsDirectory() -> URL {
-        let paths = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentsDirectory = paths[0].appendingPathComponent("JourneyDocuments", isDirectory: true)
-
-        // Create directory if it doesn't exist
-        if !fileManager.fileExists(atPath: documentsDirectory.path) {
-            do {
-                try fileManager.createDirectory(at: documentsDirectory, withIntermediateDirectories: true)
-                logger.info("Created JourneyDocuments directory")
-            } catch {
-                logger.error("Failed to create JourneyDocuments directory: \(error)")
-            }
-        }
-
-        return documentsDirectory
+        // Use App Group shared container (enables Share Extension access)
+        // AppGroupContainer.documentsURL creates the directory if needed
+        return AppGroupContainer.documentsURL
     }
 
     /// Returns the directory for a specific journey's documents
