@@ -8,48 +8,44 @@
 
 /* Begin PBXBuildFile section */
 		874BB5002EA265B6004AFFD5 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 874BB4FF2EA265B2004AFFD5 /* readme.md */; };
-		877496672F22869A001F6CAD /* ShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877496652F22869A001F6CAD /* ShareViewModel.swift */; };
-		877496682F22869A001F6CAD /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877496632F22869A001F6CAD /* ShareView.swift */; };
-		877496692F22869A001F6CAD /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877496642F22869A001F6CAD /* ShareViewController.swift */; };
 		8774966A2F22869A001F6CAD /* ShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877496652F22869A001F6CAD /* ShareViewModel.swift */; };
 		8774966B2F22869A001F6CAD /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877496632F22869A001F6CAD /* ShareView.swift */; };
 		8774966C2F22869A001F6CAD /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877496642F22869A001F6CAD /* ShareViewController.swift */; };
 		8774966D2F22869A001F6CAD /* ShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877496652F22869A001F6CAD /* ShareViewModel.swift */; };
 		8774966E2F22869A001F6CAD /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877496632F22869A001F6CAD /* ShareView.swift */; };
 		8774966F2F22869A001F6CAD /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877496642F22869A001F6CAD /* ShareViewController.swift */; };
-		877496E02F2289D2001F6CAD /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 877496DF2F2289D2001F6CAD /* SQLite */; };
 		877496E22F2289D9001F6CAD /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 877496E12F2289D9001F6CAD /* SQLite */; };
-		877499B02F228E71001F6CAD /* ShareExtensionDev.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 877496512F2284DD001F6CAD /* ShareExtensionDev.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		877499BA2F229159001F6CAD /* ShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8774963D2F228481001F6CAD /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		87756C032E963DBC0055273C /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 87756C022E963DBC0055273C /* SQLite */; };
 		87D58E522EA5036100F4454C /* privacy-policy.md in Resources */ = {isa = PBXBuildFile; fileRef = 87D58E512EA5035A00F4454C /* privacy-policy.md */; };
 		87DD139B2EBB7949005982AB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 87DD139A2EBB7949005982AB /* FirebaseAnalytics */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		877499B12F228E71001F6CAD /* PBXContainerItemProxy */ = {
+		877499B62F228F88001F6CAD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 87756BCF2E963D230055273C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 877496502F2284DD001F6CAD;
-			remoteInfo = ShareExtensionDev;
+			remoteGlobalIDString = 8774963C2F228481001F6CAD;
+			remoteInfo = ShareExtension;
 		};
-		877499B42F228E8A001F6CAD /* PBXContainerItemProxy */ = {
+		877499BB2F229159001F6CAD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 87756BCF2E963D230055273C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 877496502F2284DD001F6CAD;
-			remoteInfo = ShareExtensionDev;
+			remoteGlobalIDString = 8774963C2F228481001F6CAD;
+			remoteInfo = ShareExtension;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		877499B32F228E71001F6CAD /* Embed Foundation Extensions */ = {
+		877499BD2F229159001F6CAD /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				877499B02F228E71001F6CAD /* ShareExtensionDev.appex in Embed Foundation Extensions */,
+				877499BA2F229159001F6CAD /* ShareExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,7 +55,6 @@
 /* Begin PBXFileReference section */
 		874BB4FF2EA265B2004AFFD5 /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		8774963D2F228481001F6CAD /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		877496512F2284DD001F6CAD /* ShareExtensionDev.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtensionDev.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		877496632F22869A001F6CAD /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		877496642F22869A001F6CAD /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		877496652F22869A001F6CAD /* ShareViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewModel.swift; sourceTree = "<group>"; };
@@ -85,13 +80,6 @@
 			);
 			target = 8774963C2F228481001F6CAD /* ShareExtension */;
 		};
-		8774965F2F2284DD001F6CAD /* Exceptions for "ShareExtensionDev" folder in "ShareExtensionDev" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 877496502F2284DD001F6CAD /* ShareExtensionDev */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -105,9 +93,6 @@
 		};
 		877496522F2284DD001F6CAD /* ShareExtensionDev */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				8774965F2F2284DD001F6CAD /* Exceptions for "ShareExtensionDev" folder in "ShareExtensionDev" target */,
-			);
 			path = ShareExtensionDev;
 			sourceTree = "<group>";
 		};
@@ -132,14 +117,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				877496E22F2289D9001F6CAD /* SQLite in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8774964E2F2284DD001F6CAD /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				877496E02F2289D2001F6CAD /* SQLite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,7 +169,6 @@
 			children = (
 				87756BD72E963D240055273C /* JourneyWallet-Dev.app */,
 				8774963D2F228481001F6CAD /* ShareExtension.appex */,
-				877496512F2284DD001F6CAD /* ShareExtensionDev.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -224,30 +200,6 @@
 			productReference = 8774963D2F228481001F6CAD /* ShareExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		877496502F2284DD001F6CAD /* ShareExtensionDev */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8774965C2F2284DD001F6CAD /* Build configuration list for PBXNativeTarget "ShareExtensionDev" */;
-			buildPhases = (
-				8774964D2F2284DD001F6CAD /* Sources */,
-				8774964E2F2284DD001F6CAD /* Frameworks */,
-				8774964F2F2284DD001F6CAD /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				877496522F2284DD001F6CAD /* ShareExtensionDev */,
-				877499342F228D47001F6CAD /* BusinessLogic */,
-			);
-			name = ShareExtensionDev;
-			packageProductDependencies = (
-				877496DF2F2289D2001F6CAD /* SQLite */,
-			);
-			productName = ShareExtensionDev;
-			productReference = 877496512F2284DD001F6CAD /* ShareExtensionDev.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		87756BD62E963D240055273C /* JourneyWallet */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 87756BF82E963D250055273C /* Build configuration list for PBXNativeTarget "JourneyWallet" */;
@@ -255,13 +207,13 @@
 				87756BD32E963D240055273C /* Sources */,
 				87756BD42E963D240055273C /* Frameworks */,
 				87756BD52E963D240055273C /* Resources */,
-				877499B32F228E71001F6CAD /* Embed Foundation Extensions */,
+				877499BD2F229159001F6CAD /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				877499B22F228E71001F6CAD /* PBXTargetDependency */,
-				877499B52F228E8A001F6CAD /* PBXTargetDependency */,
+				877499B72F228F88001F6CAD /* PBXTargetDependency */,
+				877499BC2F229159001F6CAD /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				877499342F228D47001F6CAD /* BusinessLogic */,
@@ -287,9 +239,6 @@
 				LastUpgradeCheck = 2620;
 				TargetAttributes = {
 					8774963C2F228481001F6CAD = {
-						CreatedOnToolsVersion = 26.2;
-					};
-					877496502F2284DD001F6CAD = {
 						CreatedOnToolsVersion = 26.2;
 					};
 					87756BD62E963D240055273C = {
@@ -322,20 +271,12 @@
 			targets = (
 				87756BD62E963D240055273C /* JourneyWallet */,
 				8774963C2F228481001F6CAD /* ShareExtension */,
-				877496502F2284DD001F6CAD /* ShareExtensionDev */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8774963B2F228481001F6CAD /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8774964F2F2284DD001F6CAD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -364,16 +305,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8774964D2F2284DD001F6CAD /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				877496672F22869A001F6CAD /* ShareViewModel.swift in Sources */,
-				877496682F22869A001F6CAD /* ShareView.swift in Sources */,
-				877496692F22869A001F6CAD /* ShareViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		87756BD32E963D240055273C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -387,23 +318,25 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		877499B22F228E71001F6CAD /* PBXTargetDependency */ = {
+		877499B72F228F88001F6CAD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 877496502F2284DD001F6CAD /* ShareExtensionDev */;
-			targetProxy = 877499B12F228E71001F6CAD /* PBXContainerItemProxy */;
+			target = 8774963C2F228481001F6CAD /* ShareExtension */;
+			targetProxy = 877499B62F228F88001F6CAD /* PBXContainerItemProxy */;
 		};
-		877499B52F228E8A001F6CAD /* PBXTargetDependency */ = {
+		877499BC2F229159001F6CAD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 877496502F2284DD001F6CAD /* ShareExtensionDev */;
-			targetProxy = 877499B42F228E8A001F6CAD /* PBXContainerItemProxy */;
+			target = 8774963C2F228481001F6CAD /* ShareExtension */;
+			targetProxy = 877499BB2F229159001F6CAD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		877496492F228481001F6CAD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 87756BD92E963D240055273C /* JourneyWallet */;
+			baseConfigurationReferenceRelativePath = Config/Debug.xcconfig;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtensionDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EKKL63HDHJ;
@@ -418,7 +351,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mgorbatyuk.JourneyWallet.ShareExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(SHARE_EXTENSION_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -432,6 +365,8 @@
 		};
 		8774964A2F228481001F6CAD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 87756BD92E963D240055273C /* JourneyWallet */;
+			baseConfigurationReferenceRelativePath = Config/Release.xcconfig;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -448,67 +383,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mgorbatyuk.JourneyWallet.ShareExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		8774965D2F2284DD001F6CAD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = ShareExtensionDev/ShareExtensionDevDebug.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EKKL63HDHJ;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ShareExtensionDev/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ShareExtensionDev;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mgorbatyuk.JourneyWallet.dev.ShareExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		8774965E2F2284DD001F6CAD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = ShareExtensionDev/ShareExtensionDev.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EKKL63HDHJ;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ShareExtensionDev/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ShareExtensionDev;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mgorbatyuk.JourneyWallet.dev.ShareExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(SHARE_EXTENSION_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -735,15 +610,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8774965C2F2284DD001F6CAD /* Build configuration list for PBXNativeTarget "ShareExtensionDev" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8774965D2F2284DD001F6CAD /* Debug */,
-				8774965E2F2284DD001F6CAD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		87756BD22E963D230055273C /* Build configuration list for PBXProject "JourneyWallet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -784,11 +650,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		877496DF2F2289D2001F6CAD /* SQLite */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 87756C012E963D5F0055273C /* XCRemoteSwiftPackageReference "SQLite" */;
-			productName = SQLite;
-		};
 		877496E12F2289D9001F6CAD /* SQLite */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 87756C012E963D5F0055273C /* XCRemoteSwiftPackageReference "SQLite" */;
