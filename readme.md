@@ -12,6 +12,7 @@ Journey Wallet is an iOS app that allows users to manage travel plans, bookings,
 - Create and manage multiple journeys with destinations and date ranges
 - Quick journey selector for easy switching between trips
 - Journey cards with status indicators (active, upcoming, past)
+- Tap on any journey to view detailed statistics
 
 ### Transport Tracking
 - Support for multiple transport types: flights, trains, buses, ferries, transfers
@@ -28,16 +29,24 @@ Journey Wallet is an iOS app that allows users to manage travel plans, bookings,
 - Rental company and car type details
 - Booking reference management
 
+### Share Extension
+- Share files directly from any app (Mail, Files, Safari, etc.)
+- Share text and URLs from Safari, Mail, Notes, and more
+- Smart content detection suggests entity type (Transport, Hotel, Car Rental, Note, Place)
+- Automatic booking reference extraction from shared text
+- Share up to 10 files at once
+
 ### Document Storage
 - Store travel documents (PDF, JPEG, PNG, HEIC)
 - Custom document naming
 - In-app PDF viewer and image viewer with zoom
 - Share documents to other apps
-- Import documents via Share Extension from any app
 
 ### Notes & Places
 - Add notes to journeys for additional information
 - Track places to visit with categories (restaurant, attraction, museum, etc.)
+- URL field for storing website links, Instagram posts, booking pages
+- Copy buttons for addresses and URLs - paste directly into Uber or Maps
 - Mark places as visited
 
 ### Budget & Expenses
@@ -59,6 +68,7 @@ Journey Wallet is an iOS app that allows users to manage travel plans, bookings,
 - Travel statistics dashboard
 - Total journeys, destinations visited, travel days
 - Transport breakdown and expense analysis
+- Journey Stats: tap any journey to see counts for flights, trains, hotels, car rentals, documents, places, and notes
 
 ### Data Management
 - iCloud backup with automatic daily backups
@@ -69,8 +79,9 @@ Journey Wallet is an iOS app that allows users to manage travel plans, bookings,
 - 6 languages supported: English, German, Russian, Turkish, Kazakh, Ukrainian
 
 ### Additional Features
-- Quick Add button for fast entity creation
-- Dark Mode support
+- Quick Add floating button on Journey Details and Journeys list screens
+- Color Scheme: Dark, Light, or System appearance mode
+- Smart transport form with journey-aware default dates
 - Firebase Analytics integration
 
 ## App Store screenshot resolutions
