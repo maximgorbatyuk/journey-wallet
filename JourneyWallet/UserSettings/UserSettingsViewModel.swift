@@ -9,6 +9,7 @@ class UserSettingsViewModel: ObservableObject {
 
     @Published var defaultCurrency: Currency
     @Published var selectedLanguage: AppLanguage
+    @Published var selectedColorScheme: AppColorScheme
     @Published var isExporting: Bool = false
     @Published var isImporting: Bool = false
     @Published var exportError: String?
@@ -56,6 +57,7 @@ class UserSettingsViewModel: ObservableObject {
 
         self.defaultCurrency = userSettingsRepository?.fetchCurrency() ?? .kzt
         self.selectedLanguage = userSettingsRepository?.fetchLanguage() ?? .en
+        self.selectedColorScheme = userSettingsRepository?.fetchColorScheme() ?? .system
 
         // Sync automatic backup state from BackgroundTaskManager
         self.isAutomaticBackupEnabled = backgroundTaskManager.isAutomaticBackupEnabled
@@ -107,7 +109,22 @@ class UserSettingsViewModel: ObservableObject {
         catch {
             logger.error("Failed to set language to \(language.rawValue): \(error.localizedDescription)")
         }
-        
+
+    }
+
+    // Save selected color scheme
+    func saveColorScheme(_ scheme: AppColorScheme) -> Void {
+        DispatchQueue.main.async {
+            self.selectedColorScheme = scheme
+        }
+
+        // Update runtime color scheme manager so UI can react immediately
+        do {
+            try ColorSchemeManager.shared.setScheme(scheme)
+        }
+        catch {
+            logger.error("Failed to set color scheme to \(scheme.rawValue): \(error.localizedDescription)")
+        }
     }
 
     func isSpecialDeveloperModeEnabled() -> Bool {

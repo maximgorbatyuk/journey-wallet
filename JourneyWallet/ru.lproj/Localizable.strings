@@ -46,6 +46,26 @@
 "Rate the app" = "Оцените приложение";
 "Contact developer via Telegram" = "Связаться с разработчиком через Telegram";
 
+/* Color Scheme */
+"settings.color_scheme" = "Оформление";
+"settings.color_scheme.system" = "Системное";
+"settings.color_scheme.light" = "Светлое";
+"settings.color_scheme.dark" = "Тёмное";
+
+/* Share Extension */
+"share.title" = "Сохранить в Journey Wallet";
+"share.file_section" = "Файл";
+"share.journey_section" = "Выберите путешествие";
+"share.document_name" = "Название документа";
+"share.document_name_placeholder" = "Введите название документа";
+"share.no_journeys" = "Путешествия не найдены";
+"share.no_journeys_hint" = "Сначала создайте путешествие в приложении";
+"share.saving" = "Сохранение...";
+"share.error.database" = "Не удалось получить доступ к базе данных";
+"share.error.no_journey" = "Пожалуйста, выберите путешествие";
+"share.error.save_failed" = "Не удалось сохранить документ";
+"Active" = "Активно";
+
 /* Onboarding */
 "Welcome to" = "Добро пожаловать в";
 "Get started" = "Начать";

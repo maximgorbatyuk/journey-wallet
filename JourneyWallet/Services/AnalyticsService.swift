@@ -1,5 +1,5 @@
-import Foundation
 import FirebaseAnalytics
+import Foundation
 import os
 
 class AnalyticsService: ObservableObject {

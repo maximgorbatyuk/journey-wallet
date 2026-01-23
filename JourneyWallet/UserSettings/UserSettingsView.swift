@@ -154,7 +154,25 @@ struct UserSettingsView: SwiftUICore.View {
                         .font(.caption)
                         .foregroundColor(.secondary)
                     }
+
+                    HStack {
+                        Picker(L("settings.color_scheme"), selection: $viewModel.selectedColorScheme) {
+                            ForEach(AppColorScheme.allCases, id: \.self) { scheme in
+                                Label(scheme.displayName, systemImage: scheme.icon).tag(scheme)
+                            }
+                        }
+                        .pickerStyle(MenuPickerStyle())
+                        .onChange(of: viewModel.selectedColorScheme) { _, newScheme in
+                            analytics.trackEvent("color_scheme_select_button_clicked", properties: [
+                                "screen": "user_settings_screen",
+                                "button_name": "color_scheme_picker",
+                                "new_scheme": newScheme.rawValue
+                            ])
+
+                            viewModel.saveColorScheme(newScheme)
+                        }
                     }
+                }
 
                 Section(header: Text(L("iCloud Backup"))) {
                     let iCloudAvailable = viewModel.isiCloudAvailable()
@@ -564,6 +582,18 @@ struct UserSettingsView: SwiftUICore.View {
                                 Image(systemName: "tablecells")
                                     .foregroundColor(.blue)
                                 Text("View user_settings table")
+                                    .foregroundColor(.primary)
+                            }
+                        }
+                        .buttonStyle(.plain)
+
+                        Button(action: {
+                            DatabaseMigrationHelper.resetMigrationFlag()
+                        }) {
+                            HStack {
+                                Image(systemName: "arrow.triangle.2.circlepath")
+                                    .foregroundColor(.orange)
+                                Text("Reset App Group Migration Flag")
                                     .foregroundColor(.primary)
                             }
                         }

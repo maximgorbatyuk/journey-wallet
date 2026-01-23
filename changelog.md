@@ -1,5 +1,63 @@
 # Changelog
 
+# 2026.1.2 (2026-01-22)
+
+## New Features
+
+### Share Extension
+- Share files directly from other apps (Mail, Files, Safari, etc.) to Journey Wallet
+- Select which journey to add the document to from the Share sheet
+- Optionally set a custom display name for the document
+- Supports PDFs and images (JPEG, PNG, HEIC)
+- Share up to 10 files at once
+
+### Color Scheme Selector
+- Choose between Dark, Light, or System appearance mode
+- System mode follows device settings automatically
+- Preference saved to database and persists across sessions
+- Available in Settings → Base Settings
+
+## Improvements
+
+### User Settings
+- Added color scheme picker with icons for each mode
+- Improved journey picker UI - hides empty destination text
+- Developer mode: Added "View user_settings table" for debugging
+- Developer mode: Added "Reset App Group Migration Flag" button for testing
+
+### Data Migration
+- Database automatically migrates to shared App Group container on first launch
+- Documents folder migrates to shared container
+- Enables seamless data access between main app and Share Extension
+- Migration runs once and is tracked to prevent re-running
+
+### Localization
+- Added translations for Share Extension UI in all 6 languages (EN, RU, DE, UK, TR, KK)
+- Added color scheme labels in all languages
+
+## Technical
+
+### Share Extension Architecture
+- Single ShareExtension target with xcconfig-based configuration
+- Dynamic bundle ID and App Group based on build configuration (Debug/Release)
+- Separate entitlements files for Debug and Release builds
+- Extension shares database and documents with main app via App Group
+
+### New Files
+- `ShareExtension/` - Share Extension target files
+- `BusinessLogic/Helpers/AppGroupContainer.swift` - Shared container access helper
+- `BusinessLogic/Database/DatabaseMigrationHelper.swift` - One-time migration utility
+- `JourneyWallet/Services/ColorSchemeManager.swift` - Color scheme persistence
+- `docs/plans/SHARE_EXTENSION_PLAN.md` - Share Extension documentation
+
+### Configuration
+- Added `APP_GROUP_IDENTIFIER` to xcconfig files
+- Added `SHARE_EXTENSION_BUNDLE_ID` to xcconfig files
+- Added `AppGroupIdentifier` to Info.plist
+- Added App Groups entitlements to main app
+
+---
+
 # 2026.1.1 (2026-01-19)
 
 ## New Features
