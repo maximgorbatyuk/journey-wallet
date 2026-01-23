@@ -3,38 +3,32 @@ import SwiftUI
 struct JourneysListView: View {
 
     @State private var viewModel = JourneysListViewModel()
+    @State private var selectedJourneyForStats: Journey?
     @ObservedObject private var analytics = AnalyticsService.shared
 
     var body: some View {
         NavigationView {
-            VStack(spacing: 0) {
-                // Filter Buttons
-                filterSection
-                    .padding(.horizontal)
-                    .padding(.vertical, 8)
+            ZStack(alignment: .bottomTrailing) {
+                VStack(spacing: 0) {
+                    // Filter Buttons
+                    filterSection
+                        .padding(.horizontal)
+                        .padding(.vertical, 8)
 
-                if viewModel.isLoading {
-                    ProgressView()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                } else if viewModel.filteredJourneys.isEmpty {
-                    emptyStateView
-                } else {
-                    journeysList
-                }
-            }
-            .navigationTitle(L("journeys.title"))
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    Button(action: {
-                        analytics.trackEvent("add_journey_button_clicked", properties: [
-                            "screen": "journeys_list_screen"
-                        ])
-                        viewModel.showAddJourneySheet = true
-                    }) {
-                        Image(systemName: "plus")
+                    if viewModel.isLoading {
+                        ProgressView()
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    } else if viewModel.filteredJourneys.isEmpty {
+                        emptyStateView
+                    } else {
+                        journeysList
                     }
                 }
+
+                // Floating Action Button
+                floatingAddButton
             }
+            .navigationTitle(L("journeys.title"))
             .onAppear {
                 analytics.trackScreen("journeys_list_screen")
                 viewModel.loadJourneys()
@@ -57,6 +51,9 @@ struct JourneysListView: View {
                         viewModel.updateJourney(updatedJourney)
                     }
                 )
+            }
+            .sheet(item: $selectedJourneyForStats) { journey in
+                JourneyStatsView(journey: journey)
             }
         }
     }
@@ -87,7 +84,10 @@ struct JourneysListView: View {
                 JourneyListRow(journey: journey)
                     .contentShape(Rectangle())
                     .onTapGesture {
-                        // Will navigate to detail view in Phase 4
+                        analytics.trackEvent("journey_stats_opened", properties: [
+                            "journey_id": journey.id.uuidString
+                        ])
+                        selectedJourneyForStats = journey
                     }
                     .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                         Button(role: .destructive) {
@@ -104,8 +104,34 @@ struct JourneysListView: View {
                         .tint(.blue)
                     }
             }
+
+            // Bottom padding for FAB
+            Color.clear
+                .frame(height: 80)
+                .listRowSeparator(.hidden)
         }
         .listStyle(.plain)
+    }
+
+    // MARK: - Floating Action Button
+
+    private var floatingAddButton: some View {
+        Button {
+            analytics.trackEvent("add_journey_fab_clicked", properties: [
+                "screen": "journeys_list_screen"
+            ])
+            viewModel.showAddJourneySheet = true
+        } label: {
+            Image(systemName: "plus")
+                .font(.system(size: 24, weight: .semibold))
+                .foregroundColor(.white)
+                .frame(width: 56, height: 56)
+                .background(Color.orange)
+                .clipShape(Circle())
+                .shadow(color: Color.black.opacity(0.3), radius: 4, x: 0, y: 2)
+        }
+        .padding(.trailing, 20)
+        .padding(.bottom, 20)
     }
 
     // MARK: - Empty State

@@ -122,7 +122,7 @@ struct JourneyFormView: View {
             return false
         }
 
-        if endDate < startDate {
+        if !isOneDayAdventure && endDate < startDate {
             validationMessage = L("journey.form.error.invalid_dates")
             showValidationError = true
             return false

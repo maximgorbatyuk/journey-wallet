@@ -64,6 +64,25 @@
 "share.error.database" = "Datenbankzugriff fehlgeschlagen";
 "share.error.no_journey" = "Bitte wähle eine Reise";
 "share.error.save_failed" = "Dokument konnte nicht gespeichert werden";
+
+/* Share Extension - Entity Types */
+"share.entity_type.title" = "Speichern als";
+"share.entity_type.transport" = "Transport";
+"share.entity_type.hotel" = "Hotel";
+"share.entity_type.car_rental" = "Mietwagen";
+"share.entity_type.note" = "Notiz";
+"share.entity_type.place" = "Ort";
+
+/* Share Extension - Content & Form */
+"share.content_preview" = "Geteilter Inhalt";
+"share.form.details" = "Details";
+"share.form.title" = "Titel";
+"share.form.title_placeholder" = "Titel eingeben";
+"share.form.booking_ref" = "Buchungsreferenz";
+"share.form.booking_ref_placeholder" = "z.B. ABC123";
+"share.form.notes" = "Notizen";
+"share.place.url_hint" = "Der Link wird im URL-Feld gespeichert";
+
 "Active" = "Aktiv";
 
 /* Onboarding */
@@ -296,6 +315,17 @@
 "journey.status.upcoming" = "Bevorstehend";
 "journey.status.past" = "Vergangen";
 "journey.days" = "Tage";
+
+/* Journey Stats */
+"journey.stats.title" = "Reisestatistik";
+"journey.stats.flights" = "Flüge";
+"journey.stats.trains" = "Züge";
+"journey.stats.other_transport" = "Andere";
+"journey.stats.hotels" = "Hotels";
+"journey.stats.car_rentals" = "Mietwagen";
+"journey.stats.documents" = "Dokumente";
+"journey.stats.places" = "Orte";
+"journey.stats.notes" = "Notizen";
 
 /* Journey Form */
 "journey.form.add_title" = "Neue Reise";
@@ -692,6 +722,9 @@
 "place.form.name" = "Ortsname";
 "place.form.address" = "Adresse";
 "place.form.address_hint" = "Adresse eingeben oder Google Maps-Link einfügen";
+"place.form.section.url" = "URL";
+"place.form.url" = "Website oder Link";
+"place.form.url_hint" = "Instagram-Post, Website, Buchungsseite usw.";
 "place.form.category" = "Kategorie";
 "place.form.visited" = "Bereits besucht";
 "place.form.has_planned_date" = "Geplantes Datum festlegen";
@@ -839,3 +872,7 @@
 "settings.developer.random_data_confirm_title" = "Zufällige Daten generieren?";
 "settings.developer.random_data_confirm_message" = "Alle vorhandenen Daten für diese Reise werden gelöscht und dann zufällige Transporte, Hotels, Notizen, Ausgaben usw. hinzugefügt. Sind Sie sicher?";
 "settings.developer.random_data_confirm_action" = "Generieren";
+"settings.developer.reset_migration" = "App Group Migrationsflag zurücksetzen";
+"settings.developer.reset_migration_title" = "Migrationsflag zurücksetzen?";
+"settings.developer.reset_migration_warning" = "Warnung: Diese Aktion kann zu Datenverlust führen. Die App wird beim nächsten Start versuchen, die Daten erneut zu migrieren, was vorhandene Daten überschreiben könnte. Nur zu Testzwecken verwenden.";
+"settings.developer.reset_migration_confirm" = "Zurücksetzen";

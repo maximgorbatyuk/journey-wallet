@@ -64,6 +64,25 @@
 "share.error.database" = "Не вдалося отримати доступ до бази даних";
 "share.error.no_journey" = "Будь ласка, виберіть подорож";
 "share.error.save_failed" = "Не вдалося зберегти документ";
+
+/* Share Extension - Entity Types */
+"share.entity_type.title" = "Зберегти як";
+"share.entity_type.transport" = "Транспорт";
+"share.entity_type.hotel" = "Готель";
+"share.entity_type.car_rental" = "Оренда авто";
+"share.entity_type.note" = "Нотатка";
+"share.entity_type.place" = "Місце";
+
+/* Share Extension - Content & Form */
+"share.content_preview" = "Вміст";
+"share.form.details" = "Деталі";
+"share.form.title" = "Назва";
+"share.form.title_placeholder" = "Введіть назву";
+"share.form.booking_ref" = "Номер бронювання";
+"share.form.booking_ref_placeholder" = "напр. ABC123";
+"share.form.notes" = "Нотатки";
+"share.place.url_hint" = "Посилання буде збережено у полі URL";
+
 "Active" = "Активна";
 
 /* Onboarding */
@@ -296,6 +315,17 @@
 "journey.status.upcoming" = "Майбутня";
 "journey.status.past" = "Минула";
 "journey.days" = "днів";
+
+/* Journey Stats */
+"journey.stats.title" = "Статистика";
+"journey.stats.flights" = "Перельоти";
+"journey.stats.trains" = "Потяги";
+"journey.stats.other_transport" = "Інше";
+"journey.stats.hotels" = "Готелі";
+"journey.stats.car_rentals" = "Оренда авто";
+"journey.stats.documents" = "Документи";
+"journey.stats.places" = "Місця";
+"journey.stats.notes" = "Нотатки";
 
 /* Journey Form */
 "journey.form.add_title" = "Нова подорож";
@@ -699,6 +729,9 @@
 "place.form.name" = "Назва місця";
 "place.form.address" = "Адреса";
 "place.form.address_hint" = "Введіть адресу або вставте посилання Google Maps";
+"place.form.section.url" = "Посилання";
+"place.form.url" = "Веб-сайт або посилання";
+"place.form.url_hint" = "Пост в Instagram, веб-сайт, сторінка бронювання тощо";
 "place.form.category" = "Категорія";
 "place.form.visited" = "Вже відвідано";
 "place.form.has_planned_date" = "Встановити дату";
@@ -846,3 +879,7 @@
 "settings.developer.random_data_confirm_title" = "Згенерувати випадкові дані?";
 "settings.developer.random_data_confirm_message" = "Усі існуючі дані цієї подорожі будуть видалені, а потім буде додано випадковий транспорт, готелі, нотатки, витрати тощо. Ви впевнені?";
 "settings.developer.random_data_confirm_action" = "Згенерувати";
+"settings.developer.reset_migration" = "Скинути прапор міграції App Group";
+"settings.developer.reset_migration_title" = "Скинути прапор міграції?";
+"settings.developer.reset_migration_warning" = "Увага: Ця дія може призвести до втрати даних. Застосунок спробує виконати міграцію даних при наступному запуску, що може перезаписати існуючі дані. Використовуйте лише для тестування.";
+"settings.developer.reset_migration_confirm" = "Скинути";

@@ -12,6 +12,7 @@ class PlacesToVisitRepository {
     private let categoryColumn = Expression<String>("category")
     private let isVisitedColumn = Expression<Bool>("is_visited")
     private let plannedDateColumn = Expression<Date?>("planned_date")
+    private let urlColumn = Expression<String?>("url")
     private let notesColumn = Expression<String?>("notes")
     private let createdAtColumn = Expression<Date>("created_at")
 
@@ -132,6 +133,7 @@ class PlacesToVisitRepository {
                 categoryColumn <- place.category.rawValue,
                 isVisitedColumn <- place.isVisited,
                 plannedDateColumn <- place.plannedDate,
+                urlColumn <- place.url,
                 notesColumn <- place.notes,
                 createdAtColumn <- place.createdAt
             )
@@ -154,6 +156,7 @@ class PlacesToVisitRepository {
                 categoryColumn <- place.category.rawValue,
                 isVisitedColumn <- place.isVisited,
                 plannedDateColumn <- place.plannedDate,
+                urlColumn <- place.url,
                 notesColumn <- place.notes
             ))
             logger.info("Updated place: \(place.id)")
@@ -263,6 +266,7 @@ class PlacesToVisitRepository {
             category: category,
             isVisited: row[isVisitedColumn],
             plannedDate: row[plannedDateColumn],
+            url: row[urlColumn],
             notes: row[notesColumn],
             createdAt: row[createdAtColumn]
         )

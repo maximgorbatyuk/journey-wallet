@@ -11,19 +11,51 @@
 - Supports PDFs and images (JPEG, PNG, HEIC)
 - Share up to 10 files at once
 
+### Share Text & Links
+- Share text and URLs from any app (Safari, Mail, Notes, etc.)
+- Choose what type of entity to create: Transport, Hotel, Car Rental, Note, or Place to Visit
+- Smart content detection suggests entity type based on keywords (flight, hotel, rental, etc.)
+- Automatic booking reference extraction from shared text
+- Pre-fills title and notes from shared content
+- Shared URLs saved to dedicated URL field for Place to Visit entities
+
+### Place to Visit URL Field
+- New URL field for storing website links, Instagram posts, booking pages, etc.
+- Clickable link icon opens URL in browser when valid
+- Separate from address field for better organization
+
 ### Color Scheme Selector
 - Choose between Dark, Light, or System appearance mode
 - System mode follows device settings automatically
 - Preference saved to database and persists across sessions
 - Available in Settings → Base Settings
 
+### Journey Stats
+- Tap on any journey in the Journeys list to view statistics
+- Shows counts for: Flights, Trains, Other transports, Hotels, Car Rentals, Documents, Places, Notes
+- Beautiful grid layout with colored icons
+- Displays journey name, destination, and date range
+
 ## Improvements
+
+### Journeys List
+- Added floating "Add" button for quick journey creation
+- Tap on journey row to view journey statistics
+
+### Place to Visit
+- Copy button for URL field with visual feedback (accent color animation)
+- Copy button for Address field - easily copy to paste into Uber or taxi apps
+- URL displayed in place list with copy functionality
+
+### Transport Form
+- Default departure date now set to journey start date instead of current date
+- Makes it easier to add transports for future trips
 
 ### User Settings
 - Added color scheme picker with icons for each mode
 - Improved journey picker UI - hides empty destination text
 - Developer mode: Added "View user_settings table" for debugging
-- Developer mode: Added "Reset App Group Migration Flag" button for testing
+- Developer mode: Added "Reset App Group Migration Flag" button with confirmation dialog
 
 ### Data Migration
 - Database automatically migrates to shared App Group container on first launch
@@ -34,6 +66,9 @@
 ### Localization
 - Added translations for Share Extension UI in all 6 languages (EN, RU, DE, UK, TR, KK)
 - Added color scheme labels in all languages
+- Added entity type labels for text/link sharing (Transport, Hotel, Car Rental, Note, Place)
+- Added form labels for shared content (title, booking reference, notes)
+- Added Place URL field labels in all languages
 
 ## Technical
 
@@ -45,10 +80,20 @@
 
 ### New Files
 - `ShareExtension/` - Share Extension target files
+- `ShareExtension/Models/SharedContentType.swift` - Content type enum (files, text, URL)
+- `ShareExtension/Models/ShareEntityType.swift` - Entity type enum with ContentAnalyzer
 - `BusinessLogic/Helpers/AppGroupContainer.swift` - Shared container access helper
 - `BusinessLogic/Database/DatabaseMigrationHelper.swift` - One-time migration utility
+- `BusinessLogic/Database/Migrations/Migration_20260123_PlaceUrlField.swift` - Add URL field to places
+- `BusinessLogic/Components/CopyButton.swift` - Reusable clipboard button with visual feedback
 - `JourneyWallet/Services/ColorSchemeManager.swift` - Color scheme persistence
+- `JourneyWallet/Journeys/JourneyStatsView.swift` - Journey statistics modal view
+- `JourneyWallet/Journeys/JourneyStatsViewModel.swift` - Journey statistics view model
 - `docs/plans/SHARE_EXTENSION_PLAN.md` - Share Extension documentation
+- `docs/plans/SHARE_TEXT_EXTENSION_PLAN.md` - Text/Link sharing documentation
+
+### Database
+- Migration 6: Added `url` column to `places_to_visit` table
 
 ### Configuration
 - Added `APP_GROUP_IDENTIFIER` to xcconfig files

@@ -38,7 +38,7 @@ class DatabaseManager : DatabaseManagerProtocol {
 
     private var db: Connection?
     private let logger: Logger
-    private let latestVersion = 5
+    private let latestVersion = 6
 
     private init() {
 
@@ -132,6 +132,9 @@ class DatabaseManager : DatabaseManagerProtocol {
 
             case 5:
                 Migration_20260119_CarRentalOptionalFields(db: db!).execute()
+
+            case 6:
+                Migration_20260123_PlaceUrlField(db: db!).execute()
 
             default:
                 break

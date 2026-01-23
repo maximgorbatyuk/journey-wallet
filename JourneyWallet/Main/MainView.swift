@@ -119,15 +119,6 @@ struct MainView: View {
                     mostVisitedDestination: viewModel.mostVisitedDestination
                 )
             }
-
-            // Extended Stats (Transport Breakdown)
-            if let overviewStats = viewModel.overviewStats,
-               let transportStats = viewModel.transportStats {
-                ExtendedStatsSection(
-                    statistics: overviewStats,
-                    transportStats: transportStats
-                )
-            }
         }
     }
 

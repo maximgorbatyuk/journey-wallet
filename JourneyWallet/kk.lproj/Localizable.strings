@@ -64,6 +64,25 @@
 "share.error.database" = "Дерекқорға қол жеткізу мүмкін болмады";
 "share.error.no_journey" = "Сапарды таңдаңыз";
 "share.error.save_failed" = "Құжатты сақтау мүмкін болмады";
+
+/* Share Extension - Entity Types */
+"share.entity_type.title" = "Басқаша сақтау";
+"share.entity_type.transport" = "Көлік";
+"share.entity_type.hotel" = "Қонақүй";
+"share.entity_type.car_rental" = "Көлік жалдау";
+"share.entity_type.note" = "Жазба";
+"share.entity_type.place" = "Орын";
+
+/* Share Extension - Content & Form */
+"share.content_preview" = "Мазмұн";
+"share.form.details" = "Мәліметтер";
+"share.form.title" = "Тақырып";
+"share.form.title_placeholder" = "Тақырыпты енгізіңіз";
+"share.form.booking_ref" = "Брондау нөмірі";
+"share.form.booking_ref_placeholder" = "мыс. ABC123";
+"share.form.notes" = "Жазбалар";
+"share.place.url_hint" = "Сілтеме URL өрісіне сақталады";
+
 "Active" = "Белсенді";
 
 /* Onboarding */
@@ -296,6 +315,17 @@
 "journey.status.upcoming" = "Алдағы";
 "journey.status.past" = "Өткен";
 "journey.days" = "күн";
+
+/* Journey Stats */
+"journey.stats.title" = "Сапар статистикасы";
+"journey.stats.flights" = "Ұшулар";
+"journey.stats.trains" = "Пойыздар";
+"journey.stats.other_transport" = "Басқа";
+"journey.stats.hotels" = "Қонақүйлер";
+"journey.stats.car_rentals" = "Көлік жалдау";
+"journey.stats.documents" = "Құжаттар";
+"journey.stats.places" = "Орындар";
+"journey.stats.notes" = "Жазбалар";
 
 /* Journey Form */
 "journey.form.add_title" = "Жаңа сапар";
@@ -699,6 +729,9 @@
 "place.form.name" = "Орын аты";
 "place.form.address" = "Мекенжай";
 "place.form.address_hint" = "Мекенжайды енгізіңіз немесе Google Maps сілтемесін қойыңыз";
+"place.form.section.url" = "Сілтеме";
+"place.form.url" = "Веб-сайт немесе сілтеме";
+"place.form.url_hint" = "Instagram посты, веб-сайт, брондау беті және т.б.";
 "place.form.category" = "Санат";
 "place.form.visited" = "Бұрын барылған";
 "place.form.has_planned_date" = "Жоспарланған күнді белгілеу";
@@ -846,3 +879,7 @@
 "settings.developer.random_data_confirm_title" = "Кездейсоқ деректер құру керек пе?";
 "settings.developer.random_data_confirm_message" = "Осы сапардың барлық деректері жойылып, кездейсоқ көлік, қонақүйлер, жазбалар, шығындар т.б. қосылады. Сенімдісіз бе?";
 "settings.developer.random_data_confirm_action" = "Құру";
+"settings.developer.reset_migration" = "App Group көшіру жалаушасын қалпына келтіру";
+"settings.developer.reset_migration_title" = "Көшіру жалаушасын қалпына келтіру керек пе?";
+"settings.developer.reset_migration_warning" = "Ескерту: Бұл әрекет деректердің жоғалуына әкелуі мүмкін. Қолданба келесі іске қосылғанда деректерді қайта көшіруге тырысады, бұл бар деректерді қайта жазуы мүмкін. Тек тестілеу үшін қолданыңыз.";
+"settings.developer.reset_migration_confirm" = "Қалпына келтіру";
