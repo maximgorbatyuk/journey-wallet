@@ -38,10 +38,6 @@ struct PlaceFormView: View {
     @State private var showValidationError: Bool = false
     @State private var validationMessage: String = ""
 
-    // Copy button states
-    @State private var addressCopied: Bool = false
-    @State private var urlCopied: Bool = false
-
     var body: some View {
         NavigationView {
             Form {
@@ -94,15 +90,7 @@ struct PlaceFormView: View {
 
                     // Copy button for address
                     if !address.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                        Button(action: { copyAddressToClipboard() }) {
-                            Image(systemName: "doc.on.doc")
-                                .foregroundColor(addressCopied ? .white : .secondary)
-                                .padding(6)
-                                .background(addressCopied ? Color.accentColor : Color.clear)
-                                .cornerRadius(6)
-                        }
-                        .buttonStyle(.plain)
-                        .animation(.easeInOut(duration: 0.2), value: addressCopied)
+                        CopyButton(text: address)
                     }
 
                     // Show link icon if address is a URL
@@ -138,15 +126,7 @@ struct PlaceFormView: View {
 
                     // Copy button for URL
                     if !urlString.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                        Button(action: { copyUrlToClipboard() }) {
-                            Image(systemName: "doc.on.doc")
-                                .foregroundColor(urlCopied ? .white : .secondary)
-                                .padding(6)
-                                .background(urlCopied ? Color.accentColor : Color.clear)
-                                .cornerRadius(6)
-                        }
-                        .buttonStyle(.plain)
-                        .animation(.easeInOut(duration: 0.2), value: urlCopied)
+                        CopyButton(text: urlString)
                     }
 
                     if isUrlValid {
@@ -189,22 +169,6 @@ struct PlaceFormView: View {
         let trimmed = address.trimmingCharacters(in: .whitespacesAndNewlines)
         guard let url = URL(string: trimmed) else { return }
         UIApplication.shared.open(url)
-    }
-
-    private func copyAddressToClipboard() {
-        UIPasteboard.general.string = address
-        addressCopied = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            addressCopied = false
-        }
-    }
-
-    private func copyUrlToClipboard() {
-        UIPasteboard.general.string = urlString
-        urlCopied = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            urlCopied = false
-        }
     }
 
     private var categorySection: some View {

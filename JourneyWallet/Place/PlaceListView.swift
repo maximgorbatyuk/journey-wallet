@@ -300,14 +300,7 @@ struct PlaceListRow: View {
                         }
                         .buttonStyle(.plain)
 
-                        Button(action: {
-                            copyToClipboard(url)
-                        }) {
-                            Image(systemName: "doc.on.doc")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                        }
-                        .buttonStyle(.plain)
+                        CopyButton(text: url, iconSize: 12, padding: 4, cornerRadius: 4)
                     }
                 }
 
@@ -370,10 +363,6 @@ struct PlaceListRow: View {
     private func urlDisplayText(_ urlString: String) -> String {
         guard let url = URL(string: urlString) else { return urlString }
         return url.host ?? urlString
-    }
-
-    private func copyToClipboard(_ string: String) {
-        UIPasteboard.general.string = string
     }
 }
 
