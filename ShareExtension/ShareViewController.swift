@@ -3,18 +3,18 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 /// Entry point for the Share Extension.
-/// Handles extracting shared files and presenting the SwiftUI interface.
+/// Handles extracting shared content (files, text, URLs) and presenting the SwiftUI interface.
 class ShareViewController: UIViewController {
 
-    private var fileURLs: [URL] = []
+    private var extractedContent: SharedContentType?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        extractSharedFiles()
+        extractSharedContent()
     }
 
-    private func extractSharedFiles() {
+    private func extractSharedContent() {
         guard let extensionContext = extensionContext,
               let inputItems = extensionContext.inputItems as? [NSExtensionItem] else {
             close(withError: "No items to share")
@@ -22,26 +22,61 @@ class ShareViewController: UIViewController {
         }
 
         let group = DispatchGroup()
-        var extractedURLs: [URL] = []
+
+        var extractedURLs: [URL] = []      // File URLs
+        var extractedText: String?          // Plain text
+        var extractedWebURL: URL?           // Web URL
+        var extractedWebTitle: String?      // Web page title
 
         for item in inputItems {
             guard let attachments = item.attachments else { continue }
 
+            // Try to get attributed content text (for URL sharing with title)
+            if let attributedText = item.attributedContentText {
+                extractedWebTitle = attributedText.string
+            }
+
             for provider in attachments {
-                // Try to load as file data
-                let supportedTypes = [
+
+                // 1. Try to extract URL first
+                if provider.hasItemConformingToTypeIdentifier(UTType.url.identifier) {
+                    group.enter()
+                    provider.loadItem(forTypeIdentifier: UTType.url.identifier, options: nil) { item, error in
+                        defer { group.leave() }
+                        if let url = item as? URL {
+                            DispatchQueue.main.async {
+                                extractedWebURL = url
+                            }
+                        }
+                    }
+                }
+
+                // 2. Try to extract plain text
+                if provider.hasItemConformingToTypeIdentifier(UTType.plainText.identifier) {
+                    group.enter()
+                    provider.loadItem(forTypeIdentifier: UTType.plainText.identifier, options: nil) { item, error in
+                        defer { group.leave() }
+                        if let text = item as? String {
+                            DispatchQueue.main.async {
+                                extractedText = text
+                            }
+                        }
+                    }
+                }
+
+                // 3. Try to extract files (PDFs, images)
+                let fileTypes = [
                     UTType.pdf.identifier,
                     UTType.image.identifier,
                     UTType.jpeg.identifier,
                     UTType.png.identifier,
-                    UTType.heic.identifier,
-                    UTType.data.identifier
+                    UTType.heic.identifier
                 ]
 
-                for typeIdentifier in supportedTypes {
+                for typeIdentifier in fileTypes {
                     if provider.hasItemConformingToTypeIdentifier(typeIdentifier) {
                         group.enter()
-                        provider.loadFileRepresentation(forTypeIdentifier: typeIdentifier) { [weak self] url, error in
+                        provider.loadFileRepresentation(forTypeIdentifier: typeIdentifier) { url, error in
                             defer { group.leave() }
 
                             guard let url = url else { return }
@@ -68,19 +103,35 @@ class ShareViewController: UIViewController {
         group.notify(queue: .main) { [weak self] in
             guard let self = self else { return }
 
-            if extractedURLs.isEmpty {
-                self.close(withError: "No supported files found")
+            // Determine content type based on what was extracted
+            let contentType: SharedContentType
+
+            if !extractedURLs.isEmpty {
+                // Files take priority
+                contentType = .files(extractedURLs)
+            } else if let webURL = extractedWebURL {
+                // Web URL
+                if let text = extractedText, !text.isEmpty, text != webURL.absoluteString {
+                    contentType = .urlWithText(webURL, text)
+                } else {
+                    contentType = .url(webURL, title: extractedWebTitle)
+                }
+            } else if let text = extractedText, !text.isEmpty {
+                // Plain text
+                contentType = .text(text)
+            } else {
+                self.close(withError: "No supported content found")
                 return
             }
 
-            self.fileURLs = extractedURLs
-            self.presentShareUI()
+            self.extractedContent = contentType
+            self.presentShareUI(with: contentType)
         }
     }
 
-    private func presentShareUI() {
+    private func presentShareUI(with contentType: SharedContentType) {
         let viewModel = ShareViewModel(
-            fileURLs: fileURLs,
+            contentType: contentType,
             onComplete: { [weak self] success in
                 if success {
                     self?.extensionContext?.completeRequest(returningItems: nil)
@@ -125,8 +176,10 @@ class ShareViewController: UIViewController {
     }
 
     private func cleanupTempFiles() {
-        for url in fileURLs {
-            try? FileManager.default.removeItem(at: url)
+        if case .files(let urls) = extractedContent {
+            for url in urls {
+                try? FileManager.default.removeItem(at: url)
+            }
         }
     }
 }

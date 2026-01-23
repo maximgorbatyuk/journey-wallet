@@ -11,6 +11,19 @@
 - Supports PDFs and images (JPEG, PNG, HEIC)
 - Share up to 10 files at once
 
+### Share Text & Links
+- Share text and URLs from any app (Safari, Mail, Notes, etc.)
+- Choose what type of entity to create: Transport, Hotel, Car Rental, Note, or Place to Visit
+- Smart content detection suggests entity type based on keywords (flight, hotel, rental, etc.)
+- Automatic booking reference extraction from shared text
+- Pre-fills title and notes from shared content
+- Shared URLs saved to dedicated URL field for Place to Visit entities
+
+### Place to Visit URL Field
+- New URL field for storing website links, Instagram posts, booking pages, etc.
+- Clickable link icon opens URL in browser when valid
+- Separate from address field for better organization
+
 ### Color Scheme Selector
 - Choose between Dark, Light, or System appearance mode
 - System mode follows device settings automatically
@@ -34,6 +47,9 @@
 ### Localization
 - Added translations for Share Extension UI in all 6 languages (EN, RU, DE, UK, TR, KK)
 - Added color scheme labels in all languages
+- Added entity type labels for text/link sharing (Transport, Hotel, Car Rental, Note, Place)
+- Added form labels for shared content (title, booking reference, notes)
+- Added Place URL field labels in all languages
 
 ## Technical
 
@@ -45,10 +61,17 @@
 
 ### New Files
 - `ShareExtension/` - Share Extension target files
+- `ShareExtension/Models/SharedContentType.swift` - Content type enum (files, text, URL)
+- `ShareExtension/Models/ShareEntityType.swift` - Entity type enum with ContentAnalyzer
 - `BusinessLogic/Helpers/AppGroupContainer.swift` - Shared container access helper
 - `BusinessLogic/Database/DatabaseMigrationHelper.swift` - One-time migration utility
+- `BusinessLogic/Database/Migrations/Migration_20260123_PlaceUrlField.swift` - Add URL field to places
 - `JourneyWallet/Services/ColorSchemeManager.swift` - Color scheme persistence
 - `docs/plans/SHARE_EXTENSION_PLAN.md` - Share Extension documentation
+- `docs/plans/SHARE_TEXT_EXTENSION_PLAN.md` - Text/Link sharing documentation
+
+### Database
+- Migration 6: Added `url` column to `places_to_visit` table
 
 ### Configuration
 - Added `APP_GROUP_IDENTIFIER` to xcconfig files

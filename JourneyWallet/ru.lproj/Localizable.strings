@@ -64,6 +64,25 @@
 "share.error.database" = "Не удалось получить доступ к базе данных";
 "share.error.no_journey" = "Пожалуйста, выберите путешествие";
 "share.error.save_failed" = "Не удалось сохранить документ";
+
+/* Share Extension - Entity Types */
+"share.entity_type.title" = "Сохранить как";
+"share.entity_type.transport" = "Транспорт";
+"share.entity_type.hotel" = "Отель";
+"share.entity_type.car_rental" = "Аренда авто";
+"share.entity_type.note" = "Заметка";
+"share.entity_type.place" = "Место";
+
+/* Share Extension - Content & Form */
+"share.content_preview" = "Содержимое";
+"share.form.details" = "Детали";
+"share.form.title" = "Название";
+"share.form.title_placeholder" = "Введите название";
+"share.form.booking_ref" = "Номер брони";
+"share.form.booking_ref_placeholder" = "напр. ABC123";
+"share.form.notes" = "Заметки";
+"share.place.url_hint" = "Ссылка будет сохранена в поле URL";
+
 "Active" = "Активно";
 
 /* Onboarding */
@@ -695,6 +714,9 @@
 "place.form.name" = "Название места";
 "place.form.address" = "Адрес";
 "place.form.address_hint" = "Введите адрес или вставьте ссылку Google Maps";
+"place.form.section.url" = "Ссылка";
+"place.form.url" = "Сайт или ссылка";
+"place.form.url_hint" = "Пост в Instagram, сайт, страница бронирования и т.д.";
 "place.form.category" = "Категория";
 "place.form.visited" = "Уже посещено";
 "place.form.has_planned_date" = "Установить дату";

@@ -64,6 +64,25 @@
 "share.error.database" = "Не вдалося отримати доступ до бази даних";
 "share.error.no_journey" = "Будь ласка, виберіть подорож";
 "share.error.save_failed" = "Не вдалося зберегти документ";
+
+/* Share Extension - Entity Types */
+"share.entity_type.title" = "Зберегти як";
+"share.entity_type.transport" = "Транспорт";
+"share.entity_type.hotel" = "Готель";
+"share.entity_type.car_rental" = "Оренда авто";
+"share.entity_type.note" = "Нотатка";
+"share.entity_type.place" = "Місце";
+
+/* Share Extension - Content & Form */
+"share.content_preview" = "Вміст";
+"share.form.details" = "Деталі";
+"share.form.title" = "Назва";
+"share.form.title_placeholder" = "Введіть назву";
+"share.form.booking_ref" = "Номер бронювання";
+"share.form.booking_ref_placeholder" = "напр. ABC123";
+"share.form.notes" = "Нотатки";
+"share.place.url_hint" = "Посилання буде збережено у полі URL";
+
 "Active" = "Активна";
 
 /* Onboarding */
@@ -699,6 +718,9 @@
 "place.form.name" = "Назва місця";
 "place.form.address" = "Адреса";
 "place.form.address_hint" = "Введіть адресу або вставте посилання Google Maps";
+"place.form.section.url" = "Посилання";
+"place.form.url" = "Веб-сайт або посилання";
+"place.form.url_hint" = "Пост в Instagram, веб-сайт, сторінка бронювання тощо";
 "place.form.category" = "Категорія";
 "place.form.visited" = "Вже відвідано";
 "place.form.has_planned_date" = "Встановити дату";

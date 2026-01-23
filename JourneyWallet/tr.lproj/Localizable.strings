@@ -64,6 +64,25 @@
 "share.error.database" = "Veritabanına erişilemedi";
 "share.error.no_journey" = "Lütfen bir seyahat seçin";
 "share.error.save_failed" = "Belge kaydedilemedi";
+
+/* Share Extension - Entity Types */
+"share.entity_type.title" = "Farklı kaydet";
+"share.entity_type.transport" = "Ulaşım";
+"share.entity_type.hotel" = "Otel";
+"share.entity_type.car_rental" = "Araç Kiralama";
+"share.entity_type.note" = "Not";
+"share.entity_type.place" = "Yer";
+
+/* Share Extension - Content & Form */
+"share.content_preview" = "Paylaşılan İçerik";
+"share.form.details" = "Detaylar";
+"share.form.title" = "Başlık";
+"share.form.title_placeholder" = "Başlık girin";
+"share.form.booking_ref" = "Rezervasyon Numarası";
+"share.form.booking_ref_placeholder" = "örn. ABC123";
+"share.form.notes" = "Notlar";
+"share.place.url_hint" = "Link URL alanına kaydedilecek";
+
 "Active" = "Aktif";
 
 /* Onboarding */
@@ -695,6 +714,9 @@
 "place.form.name" = "Yer adı";
 "place.form.address" = "Adres";
 "place.form.address_hint" = "Adres girin veya Google Maps bağlantısı yapıştırın";
+"place.form.section.url" = "URL";
+"place.form.url" = "Web sitesi veya Link";
+"place.form.url_hint" = "Instagram gönderisi, web sitesi, rezervasyon sayfası vb.";
 "place.form.category" = "Kategori";
 "place.form.visited" = "Zaten ziyaret edildi";
 "place.form.has_planned_date" = "Planlanan tarih belirle";

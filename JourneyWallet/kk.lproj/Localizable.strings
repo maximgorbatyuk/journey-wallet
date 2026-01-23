@@ -64,6 +64,25 @@
 "share.error.database" = "Дерекқорға қол жеткізу мүмкін болмады";
 "share.error.no_journey" = "Сапарды таңдаңыз";
 "share.error.save_failed" = "Құжатты сақтау мүмкін болмады";
+
+/* Share Extension - Entity Types */
+"share.entity_type.title" = "Басқаша сақтау";
+"share.entity_type.transport" = "Көлік";
+"share.entity_type.hotel" = "Қонақүй";
+"share.entity_type.car_rental" = "Көлік жалдау";
+"share.entity_type.note" = "Жазба";
+"share.entity_type.place" = "Орын";
+
+/* Share Extension - Content & Form */
+"share.content_preview" = "Мазмұн";
+"share.form.details" = "Мәліметтер";
+"share.form.title" = "Тақырып";
+"share.form.title_placeholder" = "Тақырыпты енгізіңіз";
+"share.form.booking_ref" = "Брондау нөмірі";
+"share.form.booking_ref_placeholder" = "мыс. ABC123";
+"share.form.notes" = "Жазбалар";
+"share.place.url_hint" = "Сілтеме URL өрісіне сақталады";
+
 "Active" = "Белсенді";
 
 /* Onboarding */
@@ -699,6 +718,9 @@
 "place.form.name" = "Орын аты";
 "place.form.address" = "Мекенжай";
 "place.form.address_hint" = "Мекенжайды енгізіңіз немесе Google Maps сілтемесін қойыңыз";
+"place.form.section.url" = "Сілтеме";
+"place.form.url" = "Веб-сайт немесе сілтеме";
+"place.form.url_hint" = "Instagram посты, веб-сайт, брондау беті және т.б.";
 "place.form.category" = "Санат";
 "place.form.visited" = "Бұрын барылған";
 "place.form.has_planned_date" = "Жоспарланған күнді белгілеу";

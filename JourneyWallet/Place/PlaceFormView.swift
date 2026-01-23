@@ -30,6 +30,7 @@ struct PlaceFormView: View {
     @State private var category: PlaceCategory = .other
     @State private var hasPlannedDate: Bool = false
     @State private var plannedDate: Date = Date()
+    @State private var urlString: String = ""
     @State private var notes: String = ""
     @State private var isVisited: Bool = false
 
@@ -41,6 +42,7 @@ struct PlaceFormView: View {
         NavigationView {
             Form {
                 placeInfoSection
+                urlSection
                 categorySection
                 dateSection
                 notesSection
@@ -105,7 +107,48 @@ struct PlaceFormView: View {
         }
     }
 
+    // MARK: - URL Section
+
+    private var urlSection: some View {
+        Section {
+            VStack(alignment: .leading, spacing: 4) {
+                HStack {
+                    TextField(L("place.form.url"), text: $urlString)
+                        .keyboardType(.URL)
+                        .textContentType(.URL)
+                        .autocapitalization(.none)
+                        .autocorrectionDisabled()
+
+                    if isUrlValid {
+                        Button(action: openUrl) {
+                            Image(systemName: "arrow.up.right.square")
+                                .foregroundColor(.blue)
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+
+                Text(L("place.form.url_hint"))
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+        } header: {
+            Text(L("place.form.section.url"))
+        }
+    }
+
     // MARK: - URL Helpers
+
+    private var isUrlValid: Bool {
+        let trimmed = urlString.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        return trimmed.hasPrefix("http://") || trimmed.hasPrefix("https://")
+    }
+
+    private func openUrl() {
+        let trimmed = urlString.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard let url = URL(string: trimmed) else { return }
+        UIApplication.shared.open(url)
+    }
 
     private var isAddressURL: Bool {
         let trimmed = address.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
@@ -168,6 +211,7 @@ struct PlaceFormView: View {
             address = place.address ?? ""
             category = place.category
             isVisited = place.isVisited
+            urlString = place.url ?? ""
             notes = place.notes ?? ""
 
             if let date = place.plannedDate {
@@ -189,6 +233,8 @@ struct PlaceFormView: View {
 
         let place: PlaceToVisit
 
+        let trimmedUrl = urlString.trimmingCharacters(in: .whitespacesAndNewlines)
+
         if let existingPlace = mode.existingPlace {
             // Update existing place
             place = PlaceToVisit(
@@ -199,6 +245,7 @@ struct PlaceFormView: View {
                 category: category,
                 isVisited: isVisited,
                 plannedDate: hasPlannedDate ? plannedDate : nil,
+                url: trimmedUrl.isEmpty ? nil : trimmedUrl,
                 notes: notes.isEmpty ? nil : notes,
                 createdAt: existingPlace.createdAt
             )
@@ -212,6 +259,7 @@ struct PlaceFormView: View {
                 category: category,
                 isVisited: false,
                 plannedDate: hasPlannedDate ? plannedDate : nil,
+                url: trimmedUrl.isEmpty ? nil : trimmedUrl,
                 notes: notes.isEmpty ? nil : notes
             )
             analytics.trackEvent("place_created", properties: [
