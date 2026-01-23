@@ -283,6 +283,27 @@ struct PlaceListRow: View {
                     }
                 }
 
+                // URL field (separate from address)
+                if let url = place.url, !url.isEmpty {
+                    HStack(spacing: 8) {
+                        Button(action: {
+                            openURL(url)
+                        }) {
+                            HStack(spacing: 4) {
+                                Image(systemName: "link")
+                                    .font(.caption2)
+                                Text(urlDisplayText(url))
+                                    .font(.caption)
+                                    .lineLimit(1)
+                            }
+                            .foregroundColor(.blue)
+                        }
+                        .buttonStyle(.plain)
+
+                        CopyButton(text: url, iconSize: 12, padding: 4, cornerRadius: 4)
+                    }
+                }
+
                 // Address (clickable if URL)
                 if let address = place.address, !address.isEmpty {
                     if isURL(address) {
@@ -290,7 +311,7 @@ struct PlaceListRow: View {
                             openURL(address)
                         }) {
                             HStack(spacing: 4) {
-                                Image(systemName: "link")
+                                Image(systemName: "map")
                                     .font(.caption2)
                                 Text(L("place.list.open_map"))
                                     .font(.caption)
@@ -299,10 +320,14 @@ struct PlaceListRow: View {
                         }
                         .buttonStyle(.plain)
                     } else {
-                        Text(address)
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                            .lineLimit(1)
+                        HStack(spacing: 4) {
+                            Image(systemName: "mappin")
+                                .font(.caption2)
+                            Text(address)
+                                .font(.caption)
+                                .lineLimit(1)
+                        }
+                        .foregroundColor(.secondary)
                     }
                 }
             }
@@ -333,6 +358,11 @@ struct PlaceListRow: View {
         let trimmed = string.trimmingCharacters(in: .whitespacesAndNewlines)
         guard let url = URL(string: trimmed) else { return }
         UIApplication.shared.open(url)
+    }
+
+    private func urlDisplayText(_ urlString: String) -> String {
+        guard let url = URL(string: urlString) else { return urlString }
+        return url.host ?? urlString
     }
 }
 

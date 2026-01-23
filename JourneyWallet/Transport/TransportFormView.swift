@@ -75,6 +75,12 @@ struct TransportFormView: View {
             if let userCurrency = DatabaseManager.shared.userSettingsRepository?.fetchCurrency() {
                 _currency = State(initialValue: userCurrency)
             }
+
+            // Set default departure date to journey start date
+            if let journey = DatabaseManager.shared.journeysRepository?.fetchById(id: journeyId) {
+                _departureDate = State(initialValue: journey.startDate)
+                _arrivalDate = State(initialValue: journey.startDate.addingTimeInterval(2 * 60 * 60))
+            }
         }
     }
 

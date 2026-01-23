@@ -59,6 +59,7 @@ struct PlaceToVisit: Codable, Identifiable, Equatable {
     var category: PlaceCategory
     var isVisited: Bool
     var plannedDate: Date?
+    var url: String?
     var notes: String?
     let createdAt: Date
 
@@ -70,6 +71,7 @@ struct PlaceToVisit: Codable, Identifiable, Equatable {
         category: PlaceCategory = .other,
         isVisited: Bool = false,
         plannedDate: Date? = nil,
+        url: String? = nil,
         notes: String? = nil,
         createdAt: Date = Date()
     ) {
@@ -80,6 +82,7 @@ struct PlaceToVisit: Codable, Identifiable, Equatable {
         self.category = category
         self.isVisited = isVisited
         self.plannedDate = plannedDate
+        self.url = url
         self.notes = notes
         self.createdAt = createdAt
     }

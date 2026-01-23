@@ -208,7 +208,8 @@ class RandomDataGenerator {
                 arrivalDate: arrivalDate,
                 bookingReference: generateBookingReference(),
                 seatNumber: "\(Int.random(in: 1...99))",
-                platform: isTravel ? "Platform \(Int.random(in: 1...15))" : "Gate \(Int.random(in: 1...10))"
+                platform: isTravel ? "Platform \(Int.random(in: 1...15))" : "Gate \(Int.random(in: 1...10))",
+                notes: "Randomly generated transport \(i + 1)"
             )
 
             transports.append(transport)
@@ -508,7 +509,7 @@ class RandomDataGenerator {
             let days = max(1, rental.rentalDays)
             let expense = Expense(
                 journeyId: journey.id,
-                title: "\(rental.company) - \(rental.carType ?? "Car") (\(days) days)",
+                title: "\(rental.company) - \(rental.carType) (\(days) days)",
                 amount: Decimal(Int.random(in: 40...120) * days),
                 currency: currencies.randomElement()!,
                 category: .transport,

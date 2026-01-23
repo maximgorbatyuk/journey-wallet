@@ -22,6 +22,12 @@ Stop juggling between emails, screenshots, and booking apps. Journey Wallet lets
 
 KEY FEATURES
 
+◆ Share Extension
+Share files and links directly from any app! Receive a flight ticket in Mail? Save it to your journey in one tap. Share booking confirmations from Safari, save Instagram places, or forward hotel emails — all without leaving the app you're in.
+
+◆ Journey Stats
+Tap on any journey to see beautiful statistics: flights, trains, hotels, car rentals, documents, places to visit, and notes — all at a glance with colorful icons.
+
 ◆ Transport Tracking
 Add flights, trains, buses, ferries, and transfers. Keep booking references, seat numbers, terminals, and departure times at your fingertips.
 
@@ -34,14 +40,17 @@ Track pickup and drop-off locations, booking references, and rental costs for al
 ◆ Document Storage
 Save tickets, boarding passes, visas, travel insurance, and receipts. Supports PDF, JPEG, and PNG files. Access everything offline.
 
-◆ Trip Planning
-Create notes for each journey. Save places you want to visit with categories like restaurants, attractions, museums, and more. Mark them as visited as you explore.
+◆ Places to Visit
+Save places you want to visit with URLs, addresses, and categories. Copy addresses directly to Uber or Maps with one tap. Mark places as visited as you explore.
 
 ◆ Budget Tracking
 Log expenses by category — transport, accommodation, food, activities, shopping. See your spending breakdown at a glance.
 
 ◆ Smart Reminders
 Set reminders for flights, check-ins, car pickups, and custom events. Get notified before important moments.
+
+◆ Dark Mode
+Choose your preferred appearance: Dark, Light, or System. Your preference syncs across sessions.
 
 ◆ iCloud Backup
 Your data is automatically backed up to iCloud. Restore anytime, even on a new device.

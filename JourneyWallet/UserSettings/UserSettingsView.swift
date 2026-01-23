@@ -28,6 +28,9 @@ struct UserSettingsView: SwiftUICore.View {
     // User settings table viewer
     @State private var showUserSettingsTableContent = false
 
+    // Reset migration confirmation
+    @State private var showResetMigrationConfirmation = false
+
     @ObservedObject private var analytics = AnalyticsService.shared
     @ObservedObject private var notificationsManager = NotificationManager.shared
     @ObservedObject private var environment = EnvironmentService.shared
@@ -588,16 +591,28 @@ struct UserSettingsView: SwiftUICore.View {
                         .buttonStyle(.plain)
 
                         Button(action: {
-                            DatabaseMigrationHelper.resetMigrationFlag()
+                            showResetMigrationConfirmation = true
                         }) {
                             HStack {
                                 Image(systemName: "arrow.triangle.2.circlepath")
                                     .foregroundColor(.orange)
-                                Text("Reset App Group Migration Flag")
+                                Text(L("settings.developer.reset_migration"))
                                     .foregroundColor(.primary)
                             }
                         }
                         .buttonStyle(.plain)
+                        .confirmationDialog(
+                            L("settings.developer.reset_migration_title"),
+                            isPresented: $showResetMigrationConfirmation,
+                            titleVisibility: .visible
+                        ) {
+                            Button(L("settings.developer.reset_migration_confirm"), role: .destructive) {
+                                DatabaseMigrationHelper.resetMigrationFlag()
+                            }
+                            Button(L("Cancel"), role: .cancel) {}
+                        } message: {
+                            Text(L("settings.developer.reset_migration_warning"))
+                        }
                     }
                 }
             }

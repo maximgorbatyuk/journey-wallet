@@ -1,7 +1,7 @@
 import SwiftUI
 
 /// SwiftUI view for the Share Extension interface.
-/// Allows user to select a journey and customize the document name before saving.
+/// Handles both file sharing and text/URL sharing flows.
 struct ShareView: View {
     @ObservedObject var viewModel: ShareViewModel
 
@@ -39,7 +39,14 @@ struct ShareView: View {
             ProgressView()
         } else {
             Form {
-                filesSection
+                if viewModel.isFileBased {
+                    filesSection
+                } else {
+                    contentPreviewSection
+                    entityTypeSection
+                    entityFormSection
+                }
+
                 journeySection
 
                 if let error = viewModel.errorMessage {
@@ -48,6 +55,8 @@ struct ShareView: View {
             }
         }
     }
+
+    // MARK: - File Sharing
 
     private var filesSection: some View {
         Section(header: Text(L("share.file_section"))) {
@@ -75,6 +84,108 @@ struct ShareView: View {
             }
         }
     }
+
+    // MARK: - Text/URL Sharing
+
+    private var contentPreviewSection: some View {
+        Section(header: Text(L("share.content_preview"))) {
+            VStack(alignment: .leading, spacing: 8) {
+                if let url = viewModel.sharedURL {
+                    HStack {
+                        Image(systemName: "link")
+                            .foregroundColor(.blue)
+                        Text(url.host ?? url.absoluteString)
+                            .font(.subheadline)
+                            .foregroundColor(.blue)
+                            .lineLimit(1)
+                    }
+                }
+
+                Text(viewModel.sharedText)
+                    .font(.body)
+                    .foregroundColor(.primary)
+                    .lineLimit(5)
+            }
+            .padding(.vertical, 4)
+        }
+    }
+
+    private var entityTypeSection: some View {
+        Section(header: Text(L("share.entity_type.title"))) {
+            LazyVGrid(columns: [
+                GridItem(.flexible()),
+                GridItem(.flexible()),
+                GridItem(.flexible())
+            ], spacing: 12) {
+                ForEach(ShareEntityType.allCases) { entityType in
+                    EntityTypeButton(
+                        entityType: entityType,
+                        isSelected: viewModel.selectedEntityType == entityType
+                    ) {
+                        viewModel.selectedEntityType = entityType
+                    }
+                }
+            }
+            .padding(.vertical, 8)
+        }
+    }
+
+    private var entityFormSection: some View {
+        Section(header: Text(L("share.form.details"))) {
+            // URL hint for Place entity type
+            if viewModel.selectedEntityType == .place && viewModel.sharedURL != nil {
+                HStack(spacing: 8) {
+                    Image(systemName: "info.circle.fill")
+                        .foregroundColor(.blue)
+                    Text(L("share.place.url_hint"))
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+                .padding(.vertical, 4)
+            }
+
+            // Title field
+            VStack(alignment: .leading, spacing: 4) {
+                Text(L("share.form.title"))
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+
+                TextField(L("share.form.title_placeholder"), text: $viewModel.entityTitle)
+                    .textFieldStyle(.roundedBorder)
+            }
+            .padding(.vertical, 4)
+
+            // Booking reference (for transport, hotel, car rental)
+            if [.transport, .hotel, .carRental].contains(viewModel.selectedEntityType) {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(L("share.form.booking_ref"))
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+
+                    TextField(L("share.form.booking_ref_placeholder"), text: $viewModel.bookingReference)
+                        .textFieldStyle(.roundedBorder)
+                }
+                .padding(.vertical, 4)
+            }
+
+            // Notes field
+            VStack(alignment: .leading, spacing: 4) {
+                Text(L("share.form.notes"))
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+
+                TextEditor(text: $viewModel.entityNotes)
+                    .frame(minHeight: 80)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.secondary.opacity(0.3), lineWidth: 1)
+                    )
+            }
+            .padding(.vertical, 4)
+        }
+    }
+
+    // MARK: - Journey Section
 
     private var journeySection: some View {
         Section(header: Text(L("share.journey_section"))) {
@@ -139,6 +250,8 @@ struct ShareView: View {
         }
     }
 
+    // MARK: - Error & Saving
+
     private func errorSection(_ message: String) -> some View {
         Section {
             HStack {
@@ -168,6 +281,8 @@ struct ShareView: View {
         }
     }
 
+    // MARK: - Helpers
+
     private func fileIcon(for extension: String) -> some View {
         let iconName: String
         let color: Color
@@ -188,5 +303,34 @@ struct ShareView: View {
             .font(.title2)
             .foregroundColor(color)
             .frame(width: 32)
+    }
+}
+
+// MARK: - Entity Type Button
+
+struct EntityTypeButton: View {
+    let entityType: ShareEntityType
+    let isSelected: Bool
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            VStack(spacing: 6) {
+                Image(systemName: entityType.icon)
+                    .font(.system(size: 24))
+                    .foregroundColor(isSelected ? .white : .primary)
+
+                Text(entityType.title)
+                    .font(.caption)
+                    .foregroundColor(isSelected ? .white : .primary)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 12)
+            .background(isSelected ? Color.blue : Color.secondary.opacity(0.1))
+            .cornerRadius(10)
+        }
+        .buttonStyle(.plain)
     }
 }

@@ -64,6 +64,25 @@
 "share.error.database" = "Could not access database";
 "share.error.no_journey" = "Please select a journey";
 "share.error.save_failed" = "Failed to save document";
+
+/* Share Extension - Entity Types */
+"share.entity_type.title" = "Save as";
+"share.entity_type.transport" = "Transport";
+"share.entity_type.hotel" = "Hotel";
+"share.entity_type.car_rental" = "Car Rental";
+"share.entity_type.note" = "Note";
+"share.entity_type.place" = "Place";
+
+/* Share Extension - Content & Form */
+"share.content_preview" = "Shared Content";
+"share.form.details" = "Details";
+"share.form.title" = "Title";
+"share.form.title_placeholder" = "Enter title";
+"share.form.booking_ref" = "Booking Reference";
+"share.form.booking_ref_placeholder" = "e.g. ABC123";
+"share.form.notes" = "Notes";
+"share.place.url_hint" = "The link will be saved to the URL field";
+
 "Active" = "Active";
 
 /* Onboarding */
@@ -296,6 +315,17 @@
 "journey.status.upcoming" = "Upcoming";
 "journey.status.past" = "Past";
 "journey.days" = "days";
+
+/* Journey Stats */
+"journey.stats.title" = "Journey Stats";
+"journey.stats.flights" = "Flights";
+"journey.stats.trains" = "Trains";
+"journey.stats.other_transport" = "Other";
+"journey.stats.hotels" = "Hotels";
+"journey.stats.car_rentals" = "Car Rentals";
+"journey.stats.documents" = "Documents";
+"journey.stats.places" = "Places";
+"journey.stats.notes" = "Notes";
 
 /* Journey Form */
 "journey.form.add_title" = "New Journey";
@@ -689,6 +719,9 @@
 "place.form.name" = "Place name";
 "place.form.address" = "Address";
 "place.form.address_hint" = "Enter address or paste a Google Maps link";
+"place.form.section.url" = "URL";
+"place.form.url" = "Website or Link";
+"place.form.url_hint" = "Instagram post, website, booking page, etc.";
 "place.form.category" = "Category";
 "place.form.visited" = "Already visited";
 "place.form.has_planned_date" = "Set planned date";
@@ -836,3 +869,7 @@
 "settings.developer.random_data_confirm_title" = "Generate Random Data?";
 "settings.developer.random_data_confirm_message" = "All existing data for this journey will be deleted and then random transport, hotels, notes, expenses, etc. will be added. Are you sure?";
 "settings.developer.random_data_confirm_action" = "Generate";
+"settings.developer.reset_migration" = "Reset App Group Migration Flag";
+"settings.developer.reset_migration_title" = "Reset Migration Flag?";
+"settings.developer.reset_migration_warning" = "Warning: This action may cause data loss. The app will attempt to migrate data again on next launch, which could overwrite existing data. Only use this for testing purposes.";
+"settings.developer.reset_migration_confirm" = "Reset Flag";
