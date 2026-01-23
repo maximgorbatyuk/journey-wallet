@@ -875,3 +875,7 @@
 "settings.developer.random_data_confirm_title" = "Сгенерировать случайные данные?";
 "settings.developer.random_data_confirm_message" = "Все существующие данные этой поездки будут удалены, а затем будут добавлены случайный транспорт, отели, заметки, расходы и т.д. Вы уверены?";
 "settings.developer.random_data_confirm_action" = "Сгенерировать";
+"settings.developer.reset_migration" = "Сбросить флаг миграции App Group";
+"settings.developer.reset_migration_title" = "Сбросить флаг миграции?";
+"settings.developer.reset_migration_warning" = "Внимание: Это действие может привести к потере данных. Приложение попытается выполнить миграцию данных при следующем запуске, что может перезаписать существующие данные. Используйте только для тестирования.";
+"settings.developer.reset_migration_confirm" = "Сбросить";

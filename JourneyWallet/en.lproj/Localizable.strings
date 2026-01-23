@@ -869,3 +869,7 @@
 "settings.developer.random_data_confirm_title" = "Generate Random Data?";
 "settings.developer.random_data_confirm_message" = "All existing data for this journey will be deleted and then random transport, hotels, notes, expenses, etc. will be added. Are you sure?";
 "settings.developer.random_data_confirm_action" = "Generate";
+"settings.developer.reset_migration" = "Reset App Group Migration Flag";
+"settings.developer.reset_migration_title" = "Reset Migration Flag?";
+"settings.developer.reset_migration_warning" = "Warning: This action may cause data loss. The app will attempt to migrate data again on next launch, which could overwrite existing data. Only use this for testing purposes.";
+"settings.developer.reset_migration_confirm" = "Reset Flag";

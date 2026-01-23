@@ -875,3 +875,7 @@
 "settings.developer.random_data_confirm_title" = "Rastgele Veri Oluşturulsun mu?";
 "settings.developer.random_data_confirm_message" = "Bu seyahatin tüm mevcut verileri silinecek ve ardından rastgele ulaşım, otel, not, gider vb. eklenecektir. Emin misiniz?";
 "settings.developer.random_data_confirm_action" = "Oluştur";
+"settings.developer.reset_migration" = "App Group Geçiş Bayrağını Sıfırla";
+"settings.developer.reset_migration_title" = "Geçiş Bayrağı Sıfırlansın mı?";
+"settings.developer.reset_migration_warning" = "Uyarı: Bu işlem veri kaybına neden olabilir. Uygulama bir sonraki açılışta verileri tekrar taşımaya çalışacak ve bu mevcut verilerin üzerine yazabilir. Sadece test amaçlı kullanın.";
+"settings.developer.reset_migration_confirm" = "Sıfırla";

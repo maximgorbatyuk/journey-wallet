@@ -30,13 +30,32 @@
 - Preference saved to database and persists across sessions
 - Available in Settings → Base Settings
 
+### Journey Stats
+- Tap on any journey in the Journeys list to view statistics
+- Shows counts for: Flights, Trains, Other transports, Hotels, Car Rentals, Documents, Places, Notes
+- Beautiful grid layout with colored icons
+- Displays journey name, destination, and date range
+
 ## Improvements
+
+### Journeys List
+- Added floating "Add" button for quick journey creation
+- Tap on journey row to view journey statistics
+
+### Place to Visit
+- Copy button for URL field with visual feedback (accent color animation)
+- Copy button for Address field - easily copy to paste into Uber or taxi apps
+- URL displayed in place list with copy functionality
+
+### Transport Form
+- Default departure date now set to journey start date instead of current date
+- Makes it easier to add transports for future trips
 
 ### User Settings
 - Added color scheme picker with icons for each mode
 - Improved journey picker UI - hides empty destination text
 - Developer mode: Added "View user_settings table" for debugging
-- Developer mode: Added "Reset App Group Migration Flag" button for testing
+- Developer mode: Added "Reset App Group Migration Flag" button with confirmation dialog
 
 ### Data Migration
 - Database automatically migrates to shared App Group container on first launch
@@ -66,7 +85,10 @@
 - `BusinessLogic/Helpers/AppGroupContainer.swift` - Shared container access helper
 - `BusinessLogic/Database/DatabaseMigrationHelper.swift` - One-time migration utility
 - `BusinessLogic/Database/Migrations/Migration_20260123_PlaceUrlField.swift` - Add URL field to places
+- `BusinessLogic/Components/CopyButton.swift` - Reusable clipboard button with visual feedback
 - `JourneyWallet/Services/ColorSchemeManager.swift` - Color scheme persistence
+- `JourneyWallet/Journeys/JourneyStatsView.swift` - Journey statistics modal view
+- `JourneyWallet/Journeys/JourneyStatsViewModel.swift` - Journey statistics view model
 - `docs/plans/SHARE_EXTENSION_PLAN.md` - Share Extension documentation
 - `docs/plans/SHARE_TEXT_EXTENSION_PLAN.md` - Text/Link sharing documentation
 

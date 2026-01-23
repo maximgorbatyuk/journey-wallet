@@ -872,3 +872,7 @@
 "settings.developer.random_data_confirm_title" = "Zufällige Daten generieren?";
 "settings.developer.random_data_confirm_message" = "Alle vorhandenen Daten für diese Reise werden gelöscht und dann zufällige Transporte, Hotels, Notizen, Ausgaben usw. hinzugefügt. Sind Sie sicher?";
 "settings.developer.random_data_confirm_action" = "Generieren";
+"settings.developer.reset_migration" = "App Group Migrationsflag zurücksetzen";
+"settings.developer.reset_migration_title" = "Migrationsflag zurücksetzen?";
+"settings.developer.reset_migration_warning" = "Warnung: Diese Aktion kann zu Datenverlust führen. Die App wird beim nächsten Start versuchen, die Daten erneut zu migrieren, was vorhandene Daten überschreiben könnte. Nur zu Testzwecken verwenden.";
+"settings.developer.reset_migration_confirm" = "Zurücksetzen";

@@ -879,3 +879,7 @@
 "settings.developer.random_data_confirm_title" = "Згенерувати випадкові дані?";
 "settings.developer.random_data_confirm_message" = "Усі існуючі дані цієї подорожі будуть видалені, а потім буде додано випадковий транспорт, готелі, нотатки, витрати тощо. Ви впевнені?";
 "settings.developer.random_data_confirm_action" = "Згенерувати";
+"settings.developer.reset_migration" = "Скинути прапор міграції App Group";
+"settings.developer.reset_migration_title" = "Скинути прапор міграції?";
+"settings.developer.reset_migration_warning" = "Увага: Ця дія може призвести до втрати даних. Застосунок спробує виконати міграцію даних при наступному запуску, що може перезаписати існуючі дані. Використовуйте лише для тестування.";
+"settings.developer.reset_migration_confirm" = "Скинути";

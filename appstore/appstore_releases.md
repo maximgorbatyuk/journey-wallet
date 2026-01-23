@@ -13,10 +13,14 @@ Share booking confirmations, links, or any text from Safari, Mail, or Notes. Cho
 **Dark Mode Support**
 Choose your preferred appearance: Dark, Light, or System. Your preference is saved and synced across sessions.
 
+**Journey Stats**
+Tap on any journey to see detailed statistics: flights, trains, hotels, car rentals, documents, places to visit, and notes - all at a glance with beautiful icons.
+
 **Improvements**
+- Quick add button on Journeys screen
+- Copy buttons for addresses and URLs - paste directly into Uber or Maps
+- Smarter transport form with journey-aware default dates
 - Enhanced settings screen
-- Better journey picker UI
-- Localization improvements
 
 ---
 
@@ -31,10 +35,14 @@ Choose your preferred appearance: Dark, Light, or System. Your preference is sav
 **Поддержка тёмной темы**
 Выберите предпочтительный внешний вид: Тёмный, Светлый или Системный. Ваш выбор сохраняется между сеансами.
 
+**Статистика путешествия**
+Нажмите на любое путешествие, чтобы увидеть подробную статистику: перелёты, поезда, отели, аренда авто, документы, места для посещения и заметки — всё наглядно с красивыми иконками.
+
 **Улучшения**
+- Кнопка быстрого добавления на экране путешествий
+- Кнопки копирования для адресов и ссылок — вставляйте прямо в Uber или Карты
+- Умная форма транспорта с датами по умолчанию из путешествия
 - Улучшенный экран настроек
-- Улучшенный интерфейс выбора путешествия
-- Улучшения локализации
 
 ---
 
@@ -49,10 +57,14 @@ Safari, Пошта немесе Жазбалардан брондау раста
 **Қараңғы режим қолдауы**
 Қалаған көріністі таңдаңыз: Қараңғы, Жарық немесе Жүйелік. Сіздің таңдауыңыз сеанстар арасында сақталады.
 
+**Сапар статистикасы**
+Толық статистиканы көру үшін кез келген сапарды түртіңіз: ұшулар, пойыздар, қонақүйлер, көлік жалдау, құжаттар, бару орындары және жазбалар — барлығы әдемі белгішелермен көрсетіледі.
+
 **Жақсартулар**
+- Сапарлар экранында жылдам қосу түймесі
+- Мекенжайлар мен сілтемелер үшін көшіру түймелері — Uber немесе Карталарға тікелей қойыңыз
+- Сапар күндерімен ақылды көлік формасы
 - Жақсартылған параметрлер экраны
-- Жақсартылған саяхат таңдау интерфейсі
-- Локализация жақсартулары
 
 ---
 
@@ -67,10 +79,14 @@ Safari, Mail veya Notlar'dan rezervasyon onaylarını, linkleri veya herhangi bi
 **Karanlık Mod Desteği**
 Tercih ettiğiniz görünümü seçin: Karanlık, Aydınlık veya Sistem. Tercihiniz oturumlar arasında kaydedilir.
 
+**Seyahat İstatistikleri**
+Detaylı istatistikleri görmek için herhangi bir seyahate dokunun: uçuşlar, trenler, oteller, araç kiralama, belgeler, ziyaret edilecek yerler ve notlar — hepsi güzel simgelerle bir bakışta.
+
 **İyileştirmeler**
+- Seyahatler ekranında hızlı ekleme düğmesi
+- Adresler ve URL'ler için kopyalama düğmeleri — Uber veya Haritalar'a doğrudan yapıştırın
+- Seyahat tarihlerine göre akıllı ulaşım formu
 - Geliştirilmiş ayarlar ekranı
-- Daha iyi seyahat seçici arayüzü
-- Yerelleştirme iyileştirmeleri
 
 ---
 
@@ -85,10 +101,14 @@ Teilen Sie Buchungsbestätigungen, Links oder beliebigen Text aus Safari, Mail o
 **Dunkelmodus-Unterstützung**
 Wählen Sie Ihr bevorzugtes Erscheinungsbild: Dunkel, Hell oder System. Ihre Einstellung wird sitzungsübergreifend gespeichert.
 
+**Reisestatistik**
+Tippen Sie auf eine Reise, um detaillierte Statistiken zu sehen: Flüge, Züge, Hotels, Mietwagen, Dokumente, Orte und Notizen — alles auf einen Blick mit schönen Symbolen.
+
 **Verbesserungen**
+- Schnell-Hinzufügen-Button auf dem Reisen-Bildschirm
+- Kopieren-Buttons für Adressen und URLs — direkt in Uber oder Karten einfügen
+- Intelligentes Transportformular mit reisebezogenen Standarddaten
 - Verbesserte Einstellungen
-- Bessere Reiseauswahl-Oberfläche
-- Lokalisierungsverbesserungen
 
 ---
 
@@ -103,7 +123,11 @@ Wählen Sie Ihr bevorzugtes Erscheinungsbild: Dunkel, Hell oder System. Ihre Ein
 **Підтримка темної теми**
 Оберіть бажаний зовнішній вигляд: Темний, Світлий або Системний. Ваш вибір зберігається між сеансами.
 
+**Статистика подорожі**
+Натисніть на будь-яку подорож, щоб переглянути детальну статистику: перельоти, потяги, готелі, оренда авто, документи, місця для відвідування та нотатки — все наочно з гарними іконками.
+
 **Покращення**
+- Кнопка швидкого додавання на екрані подорожей
+- Кнопки копіювання для адрес та посилань — вставляйте прямо в Uber або Карти
+- Розумна форма транспорту з датами за замовчуванням з подорожі
 - Покращений екран налаштувань
-- Покращений інтерфейс вибору подорожі
-- Покращення локалізації
