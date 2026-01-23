@@ -346,14 +346,16 @@ struct JourneyCardView: View {
                     Text(journey.name)
                         .font(.headline)
 
-                    HStack {
-                        Image(systemName: "mappin")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
+                    if !journey.destination.isEmpty {
+                        HStack {
+                            Image(systemName: "mappin")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
 
-                        Text(journey.destination)
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
+                            Text(journey.destination)
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
                     }
                 }
 

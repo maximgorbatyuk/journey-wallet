@@ -171,13 +171,15 @@ struct JourneyListRow: View {
                 Text(journey.name)
                     .font(.headline)
 
-                HStack(spacing: 4) {
-                    Image(systemName: "mappin")
-                        .font(.caption)
-                    Text(journey.destination)
-                        .font(.subheadline)
+                if !journey.destination.isEmpty {
+                    HStack(spacing: 4) {
+                        Image(systemName: "mappin")
+                            .font(.caption)
+                        Text(journey.destination)
+                            .font(.subheadline)
+                    }
+                    .foregroundColor(.secondary)
                 }
-                .foregroundColor(.secondary)
 
                 HStack(spacing: 4) {
                     Image(systemName: "calendar")

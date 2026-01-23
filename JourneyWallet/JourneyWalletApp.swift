@@ -9,6 +9,7 @@ struct JourneyWalletApp: App {
     @UIApplicationDelegateAdaptor(ForegroundNotificationDelegate.self) var appDelegate
     @AppStorage(UserSettingsViewModel.onboardingCompletedKey) private var isOnboardingComplete = false
 
+    @ObservedObject private var colorSchemeManager = ColorSchemeManager.shared
     private var analytics = AnalyticsService.shared
 
     var body: some Scene {
@@ -36,12 +37,14 @@ struct JourneyWalletApp: App {
                 .onAppear {
                     analytics.trackEvent("app_opened")
                 }
+                .preferredColorScheme(colorSchemeManager.preferredColorScheme)
 
             } else {
                 MainTabView()
                     .onAppear {
                         analytics.trackEvent("app_opened")
                     }
+                    .preferredColorScheme(colorSchemeManager.preferredColorScheme)
             }
         }
     }
@@ -52,6 +55,9 @@ final class ForegroundNotificationDelegate: NSObject, UIApplicationDelegate, UNU
   static let shared = ForegroundNotificationDelegate()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        // Note: Database migration is handled in DatabaseManager.init() to ensure it runs
+        // before any database access (which may happen before this method is called)
+
         // Set the delegate
         UNUserNotificationCenter.current().delegate = self
 

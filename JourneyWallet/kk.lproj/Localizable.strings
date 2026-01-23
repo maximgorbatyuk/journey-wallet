@@ -46,6 +46,26 @@
 "Rate the app" = "Қосымшаны бағалаңыз";
 "Contact developer via Telegram" = "Telegram арқылы дамушушымен байланысыңыз";
 
+/* Color Scheme */
+"settings.color_scheme" = "Безендіру";
+"settings.color_scheme.system" = "Жүйелік";
+"settings.color_scheme.light" = "Ашық";
+"settings.color_scheme.dark" = "Қараңғы";
+
+/* Share Extension */
+"share.title" = "Journey Wallet-ке сақтау";
+"share.file_section" = "Файл";
+"share.journey_section" = "Сапарды таңдаңыз";
+"share.document_name" = "Құжат атауы";
+"share.document_name_placeholder" = "Құжат атауын енгізіңіз";
+"share.no_journeys" = "Сапарлар табылмады";
+"share.no_journeys_hint" = "Алдымен қосымшада сапар жасаңыз";
+"share.saving" = "Сақталуда...";
+"share.error.database" = "Дерекқорға қол жеткізу мүмкін болмады";
+"share.error.no_journey" = "Сапарды таңдаңыз";
+"share.error.save_failed" = "Құжатты сақтау мүмкін болмады";
+"Active" = "Белсенді";
+
 /* Onboarding */
 "Welcome to" = "Қош келдіңіз";
 "Get started" = "Бастау";
@@ -287,8 +307,8 @@
 "journey.form.destination" = "Бағыт";
 "journey.form.start_date" = "Басталу күні";
 "journey.form.end_date" = "Аяқталу күні";
+"journey.form.one_day_adventure" = "Бір күндік саяхат";
 "journey.form.error.name_required" = "Сапар атауын енгізіңіз.";
-"journey.form.error.destination_required" = "Бағытты енгізіңіз.";
 "journey.form.error.invalid_dates" = "Аяқталу күні басталу күнінен кейін болуы керек.";
 
 /* Journey Detail View */
@@ -369,7 +389,6 @@
 "transport.form.type" = "Түрі";
 "transport.form.departure" = "Шығу";
 "transport.form.arrival" = "Келу";
-"transport.form.duration" = "Ұзақтығы";
 "transport.form.seat" = "Орын нөмірі";
 "transport.form.seats" = "Орын нөмірі/нөмірлері";
 "transport.form.booking_reference" = "Брондау нөмірі";

@@ -46,6 +46,26 @@
 "Rate the app" = "Оцініть додаток";
 "Contact developer via Telegram" = "Зв'язатись з розробником через Telegram";
 
+/* Color Scheme */
+"settings.color_scheme" = "Зовнішній вигляд";
+"settings.color_scheme.system" = "Системне";
+"settings.color_scheme.light" = "Світле";
+"settings.color_scheme.dark" = "Темне";
+
+/* Share Extension */
+"share.title" = "Зберегти в Journey Wallet";
+"share.file_section" = "Файл";
+"share.journey_section" = "Виберіть подорож";
+"share.document_name" = "Назва документа";
+"share.document_name_placeholder" = "Введіть назву документа";
+"share.no_journeys" = "Подорожі не знайдено";
+"share.no_journeys_hint" = "Спочатку створіть подорож у додатку";
+"share.saving" = "Збереження...";
+"share.error.database" = "Не вдалося отримати доступ до бази даних";
+"share.error.no_journey" = "Будь ласка, виберіть подорож";
+"share.error.save_failed" = "Не вдалося зберегти документ";
+"Active" = "Активна";
+
 /* Onboarding */
 "Welcome to" = "Ласкаво просимо до";
 "Get started" = "Початок";
@@ -287,8 +307,8 @@
 "journey.form.destination" = "Напрямок";
 "journey.form.start_date" = "Дата початку";
 "journey.form.end_date" = "Дата закінчення";
+"journey.form.one_day_adventure" = "Одноденна пригода";
 "journey.form.error.name_required" = "Будь ласка, введіть назву подорожі.";
-"journey.form.error.destination_required" = "Будь ласка, введіть напрямок.";
 "journey.form.error.invalid_dates" = "Дата закінчення повинна бути пізніше дати початку.";
 
 /* Journey Detail View */
@@ -369,7 +389,6 @@
 "transport.form.type" = "Тип";
 "transport.form.departure" = "Відправлення";
 "transport.form.arrival" = "Прибуття";
-"transport.form.duration" = "Тривалість";
 "transport.form.seat" = "Номер місця";
 "transport.form.seats" = "Номер(и) місць";
 "transport.form.booking_reference" = "Номер бронювання";

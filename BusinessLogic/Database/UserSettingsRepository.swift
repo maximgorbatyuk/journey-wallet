@@ -95,7 +95,26 @@ class UserSettingsRepository {
     func upsertLanguage(_ languageValue: String) -> Bool {
         return upsertValue(key: "language", value: languageValue)
     }
-    
+
+    // MARK: - Color Scheme
+
+    func fetchColorSchemeAsString() -> String? {
+        return fetchValue(for: "color_scheme")
+    }
+
+    func fetchColorScheme() -> AppColorScheme {
+        if let schemeString = fetchColorSchemeAsString(),
+           let scheme = AppColorScheme(rawValue: schemeString) {
+            return scheme
+        }
+        return .system
+    }
+
+    @discardableResult
+    func upsertColorScheme(_ scheme: AppColorScheme) -> Bool {
+        return upsertValue(key: "color_scheme", value: scheme.rawValue)
+    }
+
     /// Fetches the user_id from the database. If no user_id exists, generates a new UUID and stores it.
     /// - Returns: The user_id string (either existing or newly generated)
     func fetchOrGenerateUserId() -> String {
@@ -114,5 +133,19 @@ class UserSettingsRepository {
     /// - Returns: The user_id string or nil if it doesn't exist
     func fetchUserId() -> String? {
         return fetchValue(for: "user_id")
+    }
+
+    /// Fetches all key-value pairs from the user_settings table
+    /// - Returns: Array of tuples containing (id, key, value)
+    func fetchAll() -> [(id: Int64, key: String, value: String)] {
+        var results: [(id: Int64, key: String, value: String)] = []
+        do {
+            for row in try db.prepare(table) {
+                results.append((id: row[id], key: row[keyColumn], value: row[valueColumn]))
+            }
+        } catch {
+            logger.error("Failed to fetch all user settings: \(error)")
+        }
+        return results
     }
 }

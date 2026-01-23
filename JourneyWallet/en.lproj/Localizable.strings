@@ -46,6 +46,26 @@
 "Rate the app" = "Rate the app";
 "Contact developer via Telegram" = "Contact developer via Telegram";
 
+/* Color Scheme */
+"settings.color_scheme" = "Appearance";
+"settings.color_scheme.system" = "System";
+"settings.color_scheme.light" = "Light";
+"settings.color_scheme.dark" = "Dark";
+
+/* Share Extension */
+"share.title" = "Save to Journey Wallet";
+"share.file_section" = "File";
+"share.journey_section" = "Select Journey";
+"share.document_name" = "Document name";
+"share.document_name_placeholder" = "Enter document name";
+"share.no_journeys" = "No journeys found";
+"share.no_journeys_hint" = "Create a journey in the app first";
+"share.saving" = "Saving...";
+"share.error.database" = "Could not access database";
+"share.error.no_journey" = "Please select a journey";
+"share.error.save_failed" = "Failed to save document";
+"Active" = "Active";
+
 /* Onboarding */
 "Welcome to" = "Welcome to";
 "Get started" = "Get started";
@@ -287,8 +307,8 @@
 "journey.form.destination" = "Destination";
 "journey.form.start_date" = "Start Date";
 "journey.form.end_date" = "End Date";
+"journey.form.one_day_adventure" = "One-day adventure";
 "journey.form.error.name_required" = "Please enter a journey name.";
-"journey.form.error.destination_required" = "Please enter a destination.";
 "journey.form.error.invalid_dates" = "End date must be after start date.";
 
 /* Journey Detail View */
@@ -369,7 +389,6 @@
 "transport.form.type" = "Type";
 "transport.form.departure" = "Departure";
 "transport.form.arrival" = "Arrival";
-"transport.form.duration" = "Duration";
 "transport.form.seat" = "Seat Number";
 "transport.form.seats" = "Seat Number(s)";
 "transport.form.booking_reference" = "Booking Reference";

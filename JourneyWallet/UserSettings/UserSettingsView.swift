@@ -25,6 +25,9 @@ struct UserSettingsView: SwiftUICore.View {
     @State private var selectedJourneyForRandomData: Journey?
     @State private var showRandomDataConfirmation = false
 
+    // User settings table viewer
+    @State private var showUserSettingsTableContent = false
+
     @ObservedObject private var analytics = AnalyticsService.shared
     @ObservedObject private var notificationsManager = NotificationManager.shared
     @ObservedObject private var environment = EnvironmentService.shared
@@ -151,7 +154,25 @@ struct UserSettingsView: SwiftUICore.View {
                         .font(.caption)
                         .foregroundColor(.secondary)
                     }
+
+                    HStack {
+                        Picker(L("settings.color_scheme"), selection: $viewModel.selectedColorScheme) {
+                            ForEach(AppColorScheme.allCases, id: \.self) { scheme in
+                                Label(scheme.displayName, systemImage: scheme.icon).tag(scheme)
+                            }
+                        }
+                        .pickerStyle(MenuPickerStyle())
+                        .onChange(of: viewModel.selectedColorScheme) { _, newScheme in
+                            analytics.trackEvent("color_scheme_select_button_clicked", properties: [
+                                "screen": "user_settings_screen",
+                                "button_name": "color_scheme_picker",
+                                "new_scheme": newScheme.rawValue
+                            ])
+
+                            viewModel.saveColorScheme(newScheme)
+                        }
                     }
+                }
 
                 Section(header: Text(L("iCloud Backup"))) {
                     let iCloudAvailable = viewModel.isiCloudAvailable()
@@ -553,6 +574,30 @@ struct UserSettingsView: SwiftUICore.View {
                             }
                         }
                         .buttonStyle(.plain)
+
+                        Button(action: {
+                            showUserSettingsTableContent = true
+                        }) {
+                            HStack {
+                                Image(systemName: "tablecells")
+                                    .foregroundColor(.blue)
+                                Text("View user_settings table")
+                                    .foregroundColor(.primary)
+                            }
+                        }
+                        .buttonStyle(.plain)
+
+                        Button(action: {
+                            DatabaseMigrationHelper.resetMigrationFlag()
+                        }) {
+                            HStack {
+                                Image(systemName: "arrow.triangle.2.circlepath")
+                                    .foregroundColor(.orange)
+                                Text("Reset App Group Migration Flag")
+                                    .foregroundColor(.primary)
+                            }
+                        }
+                        .buttonStyle(.plain)
                     }
                 }
             }
@@ -675,6 +720,9 @@ struct UserSettingsView: SwiftUICore.View {
             } message: {
                 Text(L("settings.developer.random_data_confirm_message"))
             }
+            .sheet(isPresented: $showUserSettingsTableContent) {
+                UserSettingsTableContentView()
+            }
         }
     }
 
@@ -760,9 +808,11 @@ struct JourneyPickerForRandomDataView: View {
                                     Text(journey.name)
                                         .font(.headline)
                                         .foregroundColor(.primary)
-                                    Text(journey.destination)
-                                        .font(.subheadline)
-                                        .foregroundColor(.secondary)
+                                    if !journey.destination.isEmpty {
+                                        Text(journey.destination)
+                                            .font(.subheadline)
+                                            .foregroundColor(.secondary)
+                                    }
                                     Text(formatDateRange(journey.startDate, journey.endDate))
                                         .font(.caption)
                                         .foregroundColor(.secondary)
@@ -803,6 +853,91 @@ struct JourneyPickerForRandomDataView: View {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d, yyyy"
         return "\(formatter.string(from: start)) - \(formatter.string(from: end))"
+    }
+}
+
+// MARK: - User Settings Table Content View
+
+struct UserSettingsTableContentView: View {
+    @Environment(\.dismiss) private var dismiss
+
+    @State private var settings: [(id: Int64, key: String, value: String)] = []
+    @State private var isLoading = true
+
+    private let userSettingsRepository = DatabaseManager.shared.userSettingsRepository
+
+    var body: some View {
+        NavigationView {
+            Group {
+                if isLoading {
+                    ProgressView()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                } else if settings.isEmpty {
+                    VStack(spacing: 16) {
+                        Image(systemName: "tablecells")
+                            .font(.system(size: 48))
+                            .foregroundColor(.gray)
+                        Text("No settings found")
+                            .font(.headline)
+                            .foregroundColor(.secondary)
+                    }
+                } else {
+                    List {
+                        ForEach(settings, id: \.id) { setting in
+                            VStack(alignment: .leading, spacing: 4) {
+                                HStack {
+                                    Text("id:")
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                    Text("\(setting.id)")
+                                        .font(.caption)
+                                        .fontWeight(.medium)
+                                }
+
+                                HStack {
+                                    Text("key:")
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                    Text(setting.key)
+                                        .font(.subheadline)
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(.blue)
+                                }
+
+                                HStack(alignment: .top) {
+                                    Text("value:")
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                    Text(setting.value)
+                                        .font(.subheadline)
+                                        .textSelection(.enabled)
+                                }
+                            }
+                            .padding(.vertical, 4)
+                        }
+                    }
+                    .listStyle(.insetGrouped)
+                }
+            }
+            .navigationTitle("user_settings table")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Done") {
+                        dismiss()
+                    }
+                }
+            }
+            .onAppear {
+                loadSettings()
+            }
+        }
+    }
+
+    private func loadSettings() {
+        isLoading = true
+        settings = userSettingsRepository?.fetchAll() ?? []
+        isLoading = false
     }
 }
 

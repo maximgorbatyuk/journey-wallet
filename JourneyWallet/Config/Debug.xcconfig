@@ -1,3 +1,5 @@
 #include "Base.xcconfig"
 
 BUILD_ENVIRONMENT = dev
+APP_GROUP_IDENTIFIER = group.dev.mgorbatyuk.journeywallet.dev
+SHARE_EXTENSION_BUNDLE_ID = dev.mgorbatyuk.JourneyWallet.dev.ShareExtension

@@ -44,12 +44,15 @@ class DatabaseManager : DatabaseManagerProtocol {
 
         self.logger = Logger(subsystem: "dev.mgorbatyuk.journeywallet.database", category: "DatabaseManager")
 
-        do {
-            let path = NSSearchPathForDirectoriesInDomains(
-                .documentDirectory, .userDomainMask, true
-            ).first!
+        // IMPORTANT: Migrate database BEFORE opening connection.
+        // This must happen here because DatabaseManager.shared may be accessed
+        // before UIApplicationDelegate.didFinishLaunchingWithOptions (e.g., by ColorSchemeManager)
+        DatabaseMigrationHelper.migrateToAppGroupIfNeeded()
 
-            let dbPath = "\(path)/journey_wallet.sqlite3"
+        do {
+            // Use App Group shared container for database (enables Share Extension access)
+            let dbURL = AppGroupContainer.databaseURL
+            let dbPath = dbURL.path
             logger.debug("Database path: \(dbPath)")
 
             self.db = try Connection(dbPath)

@@ -46,6 +46,26 @@
 "Rate the app" = "App bewerten";
 "Contact developer via Telegram" = "Entwickler über Telegram kontaktieren";
 
+/* Color Scheme */
+"settings.color_scheme" = "Erscheinungsbild";
+"settings.color_scheme.system" = "System";
+"settings.color_scheme.light" = "Hell";
+"settings.color_scheme.dark" = "Dunkel";
+
+/* Share Extension */
+"share.title" = "In Journey Wallet speichern";
+"share.file_section" = "Datei";
+"share.journey_section" = "Reise auswählen";
+"share.document_name" = "Dokumentname";
+"share.document_name_placeholder" = "Dokumentname eingeben";
+"share.no_journeys" = "Keine Reisen gefunden";
+"share.no_journeys_hint" = "Erstelle zuerst eine Reise in der App";
+"share.saving" = "Speichern...";
+"share.error.database" = "Datenbankzugriff fehlgeschlagen";
+"share.error.no_journey" = "Bitte wähle eine Reise";
+"share.error.save_failed" = "Dokument konnte nicht gespeichert werden";
+"Active" = "Aktiv";
+
 /* Onboarding */
 "Welcome to" = "Willkommen bei";
 "Get started" = "Loslegen";
@@ -287,8 +307,8 @@
 "journey.form.destination" = "Reiseziel";
 "journey.form.start_date" = "Startdatum";
 "journey.form.end_date" = "Enddatum";
+"journey.form.one_day_adventure" = "Tagesausflug";
 "journey.form.error.name_required" = "Bitte geben Sie einen Reisenamen ein.";
-"journey.form.error.destination_required" = "Bitte geben Sie ein Reiseziel ein.";
 "journey.form.error.invalid_dates" = "Das Enddatum muss nach dem Startdatum liegen.";
 
 /* Journey Detail View */
@@ -369,7 +389,6 @@
 "transport.form.type" = "Typ";
 "transport.form.departure" = "Abfahrt";
 "transport.form.arrival" = "Ankunft";
-"transport.form.duration" = "Dauer";
 "transport.form.seat" = "Sitznummer";
 "transport.form.seats" = "Sitznummer(n)";
 "transport.form.booking_reference" = "Buchungsreferenz";
