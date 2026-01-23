@@ -316,6 +316,17 @@
 "journey.status.past" = "Өткен";
 "journey.days" = "күн";
 
+/* Journey Stats */
+"journey.stats.title" = "Сапар статистикасы";
+"journey.stats.flights" = "Ұшулар";
+"journey.stats.trains" = "Пойыздар";
+"journey.stats.other_transport" = "Басқа";
+"journey.stats.hotels" = "Қонақүйлер";
+"journey.stats.car_rentals" = "Көлік жалдау";
+"journey.stats.documents" = "Құжаттар";
+"journey.stats.places" = "Орындар";
+"journey.stats.notes" = "Жазбалар";
+
 /* Journey Form */
 "journey.form.add_title" = "Жаңа сапар";
 "journey.form.edit_title" = "Сапарды өзгерту";

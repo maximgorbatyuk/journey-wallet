@@ -316,6 +316,17 @@
 "journey.status.past" = "Vergangen";
 "journey.days" = "Tage";
 
+/* Journey Stats */
+"journey.stats.title" = "Reisestatistik";
+"journey.stats.flights" = "Flüge";
+"journey.stats.trains" = "Züge";
+"journey.stats.other_transport" = "Andere";
+"journey.stats.hotels" = "Hotels";
+"journey.stats.car_rentals" = "Mietwagen";
+"journey.stats.documents" = "Dokumente";
+"journey.stats.places" = "Orte";
+"journey.stats.notes" = "Notizen";
+
 /* Journey Form */
 "journey.form.add_title" = "Neue Reise";
 "journey.form.edit_title" = "Reise bearbeiten";

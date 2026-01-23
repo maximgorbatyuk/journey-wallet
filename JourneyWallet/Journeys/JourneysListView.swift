@@ -3,6 +3,7 @@ import SwiftUI
 struct JourneysListView: View {
 
     @State private var viewModel = JourneysListViewModel()
+    @State private var selectedJourneyForStats: Journey?
     @ObservedObject private var analytics = AnalyticsService.shared
 
     var body: some View {
@@ -51,6 +52,9 @@ struct JourneysListView: View {
                     }
                 )
             }
+            .sheet(item: $selectedJourneyForStats) { journey in
+                JourneyStatsView(journey: journey)
+            }
         }
     }
 
@@ -80,7 +84,10 @@ struct JourneysListView: View {
                 JourneyListRow(journey: journey)
                     .contentShape(Rectangle())
                     .onTapGesture {
-                        // Will navigate to detail view in Phase 4
+                        analytics.trackEvent("journey_stats_opened", properties: [
+                            "journey_id": journey.id.uuidString
+                        ])
+                        selectedJourneyForStats = journey
                     }
                     .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                         Button(role: .destructive) {

@@ -316,6 +316,17 @@
 "journey.status.past" = "Past";
 "journey.days" = "days";
 
+/* Journey Stats */
+"journey.stats.title" = "Journey Stats";
+"journey.stats.flights" = "Flights";
+"journey.stats.trains" = "Trains";
+"journey.stats.other_transport" = "Other";
+"journey.stats.hotels" = "Hotels";
+"journey.stats.car_rentals" = "Car Rentals";
+"journey.stats.documents" = "Documents";
+"journey.stats.places" = "Places";
+"journey.stats.notes" = "Notes";
+
 /* Journey Form */
 "journey.form.add_title" = "New Journey";
 "journey.form.edit_title" = "Edit Journey";

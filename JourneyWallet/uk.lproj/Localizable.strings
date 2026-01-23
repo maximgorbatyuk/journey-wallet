@@ -316,6 +316,17 @@
 "journey.status.past" = "Минула";
 "journey.days" = "днів";
 
+/* Journey Stats */
+"journey.stats.title" = "Статистика";
+"journey.stats.flights" = "Перельоти";
+"journey.stats.trains" = "Потяги";
+"journey.stats.other_transport" = "Інше";
+"journey.stats.hotels" = "Готелі";
+"journey.stats.car_rentals" = "Оренда авто";
+"journey.stats.documents" = "Документи";
+"journey.stats.places" = "Місця";
+"journey.stats.notes" = "Нотатки";
+
 /* Journey Form */
 "journey.form.add_title" = "Нова подорож";
 "journey.form.edit_title" = "Редагувати подорож";

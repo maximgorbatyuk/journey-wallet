@@ -316,6 +316,17 @@
 "journey.status.past" = "Прошедшая";
 "journey.days" = "дней";
 
+/* Journey Stats */
+"journey.stats.title" = "Статистика";
+"journey.stats.flights" = "Перелёты";
+"journey.stats.trains" = "Поезда";
+"journey.stats.other_transport" = "Другое";
+"journey.stats.hotels" = "Отели";
+"journey.stats.car_rentals" = "Аренда авто";
+"journey.stats.documents" = "Документы";
+"journey.stats.places" = "Места";
+"journey.stats.notes" = "Заметки";
+
 /* Journey Form */
 "journey.form.add_title" = "Новая поездка";
 "journey.form.edit_title" = "Редактировать поездку";

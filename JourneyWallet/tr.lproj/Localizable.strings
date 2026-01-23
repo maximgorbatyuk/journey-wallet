@@ -316,6 +316,17 @@
 "journey.status.past" = "Geçmiş";
 "journey.days" = "gün";
 
+/* Journey Stats */
+"journey.stats.title" = "Seyahat İstatistikleri";
+"journey.stats.flights" = "Uçuşlar";
+"journey.stats.trains" = "Trenler";
+"journey.stats.other_transport" = "Diğer";
+"journey.stats.hotels" = "Oteller";
+"journey.stats.car_rentals" = "Araç Kiralama";
+"journey.stats.documents" = "Belgeler";
+"journey.stats.places" = "Yerler";
+"journey.stats.notes" = "Notlar";
+
 /* Journey Form */
 "journey.form.add_title" = "Yeni Seyahat";
 "journey.form.edit_title" = "Seyahati Düzenle";
