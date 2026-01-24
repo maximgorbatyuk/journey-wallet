@@ -20,6 +20,8 @@ class DatabaseManager : DatabaseManagerProtocol {
     static let PlacesToVisitTableName = "places_to_visit"
     static let RemindersTableName = "reminders"
     static let ExpensesTableName = "expenses"
+    static let ChecklistsTableName = "checklists"
+    static let ChecklistItemsTableName = "checklist_items"
 
     static let shared = DatabaseManager()
 
@@ -35,10 +37,12 @@ class DatabaseManager : DatabaseManagerProtocol {
     var placesToVisitRepository: PlacesToVisitRepository?
     var remindersRepository: RemindersRepository?
     var expensesRepository: ExpensesRepository?
+    var checklistsRepository: ChecklistsRepository?
+    var checklistItemsRepository: ChecklistItemsRepository?
 
     private var db: Connection?
     private let logger: Logger
-    private let latestVersion = 6
+    private let latestVersion = 7
 
     private init() {
 
@@ -72,6 +76,12 @@ class DatabaseManager : DatabaseManagerProtocol {
             self.placesToVisitRepository = PlacesToVisitRepository(db: dbConnection, tableName: DatabaseManager.PlacesToVisitTableName)
             self.remindersRepository = RemindersRepository(db: dbConnection, tableName: DatabaseManager.RemindersTableName)
             self.expensesRepository = ExpensesRepository(db: dbConnection, tableName: DatabaseManager.ExpensesTableName)
+            self.checklistsRepository = ChecklistsRepository(db: dbConnection, tableName: DatabaseManager.ChecklistsTableName)
+            self.checklistItemsRepository = ChecklistItemsRepository(
+                db: dbConnection,
+                tableName: DatabaseManager.ChecklistItemsTableName,
+                checklistsTableName: DatabaseManager.ChecklistsTableName
+            )
 
             // Ensure user settings table exists
             self.userSettingsRepository?.createTable()
@@ -83,6 +93,8 @@ class DatabaseManager : DatabaseManagerProtocol {
     }
 
     func deleteAllData() {
+        _ = checklistItemsRepository?.deleteAll()
+        _ = checklistsRepository?.deleteAll()
         _ = expensesRepository?.deleteAll()
         _ = remindersRepository?.deleteAll()
         _ = placesToVisitRepository?.deleteAll()
@@ -135,6 +147,9 @@ class DatabaseManager : DatabaseManagerProtocol {
 
             case 6:
                 Migration_20260123_PlaceUrlField(db: db!).execute()
+
+            case 7:
+                Migration_20260124_Checklists(db: db!).execute()
 
             default:
                 break

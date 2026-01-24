@@ -873,3 +873,45 @@
 "settings.developer.reset_migration_title" = "Reset Migration Flag?";
 "settings.developer.reset_migration_warning" = "Warning: This action may cause data loss. The app will attempt to migrate data again on next launch, which could overwrite existing data. Only use this for testing purposes.";
 "settings.developer.reset_migration_confirm" = "Reset Flag";
+
+/* Common */
+"common.cancel" = "Cancel";
+"common.save" = "Save";
+"common.delete" = "Delete";
+"common.edit" = "Edit";
+
+/* Checklists */
+"checklists.title" = "Checklists";
+"checklists.add" = "New Checklist";
+"checklists.edit" = "Edit Checklist";
+"checklists.empty" = "No checklists";
+"checklists.empty.description" = "Create checklists to track your tasks";
+"checklists.name" = "Checklist name";
+"checklists.name.placeholder" = "e.g., Packing, Documents";
+"checklists.delete.confirm" = "Delete this checklist and all its items?";
+"checklists.progress" = "%d of %d";
+
+/* Checklist Items */
+"checklist.items.title" = "Items";
+"checklist.items.add" = "Add Item";
+"checklist.items.edit" = "Edit Item";
+"checklist.items.empty" = "No items";
+"checklist.items.empty.description" = "Add items to this checklist";
+"checklist.items.progress" = "%d of %d completed";
+"checklist.items.filter.all" = "All";
+"checklist.items.filter.pending" = "Pending";
+"checklist.items.filter.completed" = "Completed";
+"checklist.items.name" = "Item name";
+"checklist.items.name.placeholder" = "Enter item name";
+"checklist.items.delete.confirm" = "Delete this item?";
+
+/* Move Completed Items */
+"checklist.items.move_completed" = "Move completed to end";
+"checklist.items.move_completed.title" = "Move Completed Items";
+"checklist.items.move_completed.message" = "All checked items will be moved to the end of the list. This action cannot be undone.";
+"checklist.items.move_completed.cancel" = "Cancel";
+"checklist.items.move_completed.confirm" = "Move";
+
+/* Journey Detail - Checklists Section */
+"journey.detail.section.checklists" = "Checklists";
+"journey.detail.checklists.empty" = "No checklists yet";

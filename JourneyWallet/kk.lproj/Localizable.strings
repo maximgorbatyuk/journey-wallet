@@ -883,3 +883,39 @@
 "settings.developer.reset_migration_title" = "Көшіру жалаушасын қалпына келтіру керек пе?";
 "settings.developer.reset_migration_warning" = "Ескерту: Бұл әрекет деректердің жоғалуына әкелуі мүмкін. Қолданба келесі іске қосылғанда деректерді қайта көшіруге тырысады, бұл бар деректерді қайта жазуы мүмкін. Тек тестілеу үшін қолданыңыз.";
 "settings.developer.reset_migration_confirm" = "Қалпына келтіру";
+
+/* Checklists */
+"checklists.title" = "Тексеру тізімдері";
+"checklists.add" = "Жаңа тексеру тізімі";
+"checklists.edit" = "Тексеру тізімін өңдеу";
+"checklists.empty" = "Тексеру тізімдері жоқ";
+"checklists.empty.description" = "Тапсырмаларды бақылау үшін тексеру тізімдерін жасаңыз";
+"checklists.name" = "Тексеру тізімінің атауы";
+"checklists.name.placeholder" = "мысалы, Заттар, Құжаттар";
+"checklists.delete.confirm" = "Бұл тексеру тізімі мен оның барлық пункттерін жою керек пе?";
+"checklists.progress" = "%d / %d";
+
+/* Checklist Items */
+"checklist.items.title" = "Пункттер";
+"checklist.items.add" = "Пункт қосу";
+"checklist.items.edit" = "Пунктті өңдеу";
+"checklist.items.empty" = "Пункттер жоқ";
+"checklist.items.empty.description" = "Осы тексеру тізіміне пункттер қосыңыз";
+"checklist.items.progress" = "%d / %d орындалды";
+"checklist.items.filter.all" = "Барлығы";
+"checklist.items.filter.pending" = "Күтуде";
+"checklist.items.filter.completed" = "Орындалған";
+"checklist.items.name" = "Пункт атауы";
+"checklist.items.name.placeholder" = "Пункт атауын енгізіңіз";
+"checklist.items.delete.confirm" = "Бұл пунктті жою керек пе?";
+
+/* Checklist Actions */
+"checklist.items.move_completed" = "Орындалғандарды соңына жылжыту";
+"checklist.items.move_completed.title" = "Орындалған пункттерді жылжыту";
+"checklist.items.move_completed.message" = "Барлық белгіленген пункттер тізімнің соңына жылжытылады. Бұл әрекетті қайтару мүмкін емес.";
+"checklist.items.move_completed.cancel" = "Бас тарту";
+"checklist.items.move_completed.confirm" = "Жылжыту";
+
+/* Journey Detail - Checklists */
+"journey.detail.section.checklists" = "Тексеру тізімдері";
+"journey.detail.checklists.empty" = "Тексеру тізімдері жоқ";

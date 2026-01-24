@@ -879,3 +879,39 @@
 "settings.developer.reset_migration_title" = "Сбросить флаг миграции?";
 "settings.developer.reset_migration_warning" = "Внимание: Это действие может привести к потере данных. Приложение попытается выполнить миграцию данных при следующем запуске, что может перезаписать существующие данные. Используйте только для тестирования.";
 "settings.developer.reset_migration_confirm" = "Сбросить";
+
+/* Checklists */
+"checklists.title" = "Чек-листы";
+"checklists.add" = "Новый чек-лист";
+"checklists.edit" = "Редактировать чек-лист";
+"checklists.empty" = "Нет чек-листов";
+"checklists.empty.description" = "Создайте чек-листы для отслеживания задач";
+"checklists.name" = "Название чек-листа";
+"checklists.name.placeholder" = "например, Вещи, Документы";
+"checklists.delete.confirm" = "Удалить этот чек-лист и все его пункты?";
+"checklists.progress" = "%d из %d";
+
+/* Checklist Items */
+"checklist.items.title" = "Пункты";
+"checklist.items.add" = "Добавить пункт";
+"checklist.items.edit" = "Редактировать пункт";
+"checklist.items.empty" = "Нет пунктов";
+"checklist.items.empty.description" = "Добавьте пункты в этот чек-лист";
+"checklist.items.progress" = "%d из %d выполнено";
+"checklist.items.filter.all" = "Все";
+"checklist.items.filter.pending" = "Ожидают";
+"checklist.items.filter.completed" = "Выполнены";
+"checklist.items.name" = "Название пункта";
+"checklist.items.name.placeholder" = "Введите название пункта";
+"checklist.items.delete.confirm" = "Удалить этот пункт?";
+
+/* Checklist Actions */
+"checklist.items.move_completed" = "Переместить выполненные вниз";
+"checklist.items.move_completed.title" = "Переместить выполненные пункты";
+"checklist.items.move_completed.message" = "Все отмеченные пункты будут перемещены в конец списка. Это действие нельзя отменить.";
+"checklist.items.move_completed.cancel" = "Отмена";
+"checklist.items.move_completed.confirm" = "Переместить";
+
+/* Journey Detail - Checklists */
+"journey.detail.section.checklists" = "Чек-листы";
+"journey.detail.checklists.empty" = "Нет чек-листов";
