@@ -616,6 +616,7 @@
 "quick_add.place" = "Місце для відвідування";
 "quick_add.reminder" = "Нагадування";
 "quick_add.expense" = "Витрата";
+"quick_add.checklist" = "Чек-лист";
 "quick_add.coming_soon" = "Незабаром";
 
 /* Document Management */
@@ -883,3 +884,48 @@
 "settings.developer.reset_migration_title" = "Скинути прапор міграції?";
 "settings.developer.reset_migration_warning" = "Увага: Ця дія може призвести до втрати даних. Застосунок спробує виконати міграцію даних при наступному запуску, що може перезаписати існуючі дані. Використовуйте лише для тестування.";
 "settings.developer.reset_migration_confirm" = "Скинути";
+
+/* Common */
+"common.cancel" = "Скасувати";
+"common.save" = "Зберегти";
+"common.delete" = "Видалити";
+"common.edit" = "Редагувати";
+"common.today" = "Сьогодні";
+"common.yesterday" = "Вчора";
+"common.days_ago" = "%d дн. тому";
+
+/* Checklists */
+"checklists.title" = "Чек-листи";
+"checklists.add" = "Новий чек-лист";
+"checklists.edit" = "Редагувати чек-лист";
+"checklists.empty" = "Немає чек-листів";
+"checklists.empty.description" = "Створіть чек-листи для відстеження завдань";
+"checklists.name" = "Назва чек-листа";
+"checklists.name.placeholder" = "наприклад, Речі, Документи";
+"checklists.delete.confirm" = "Видалити цей чек-лист та всі його пункти?";
+"checklists.progress" = "%d з %d";
+
+/* Checklist Items */
+"checklist.items.title" = "Пункти";
+"checklist.items.add" = "Додати пункт";
+"checklist.items.edit" = "Редагувати пункт";
+"checklist.items.empty" = "Немає пунктів";
+"checklist.items.empty.description" = "Додайте пункти до цього чек-листа";
+"checklist.items.progress" = "%d з %d виконано";
+"checklist.items.filter.all" = "Усі";
+"checklist.items.filter.pending" = "Очікують";
+"checklist.items.filter.completed" = "Виконані";
+"checklist.items.name" = "Назва пункту";
+"checklist.items.name.placeholder" = "Введіть назву пункту";
+"checklist.items.delete.confirm" = "Видалити цей пункт?";
+
+/* Checklist Actions */
+"checklist.items.move_completed" = "Перемістити виконані вниз";
+"checklist.items.move_completed.title" = "Перемістити виконані пункти";
+"checklist.items.move_completed.message" = "Усі позначені пункти будуть переміщені в кінець списку. Цю дію неможливо скасувати.";
+"checklist.items.move_completed.cancel" = "Скасувати";
+"checklist.items.move_completed.confirm" = "Перемістити";
+
+/* Journey Detail - Checklists */
+"journey.detail.section.checklists" = "Чек-листи";
+"journey.detail.checklists.empty" = "Немає чек-листів";

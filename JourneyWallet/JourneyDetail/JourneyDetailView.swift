@@ -4,6 +4,7 @@ struct JourneyDetailView: View {
 
     @State private var viewModel = JourneyDetailViewModel()
     @State private var showAddJourneySheet = false
+    @State private var showChecklistsList = false
     @State private var showTransportList = false
     @State private var showHotelList = false
     @State private var showCarRentalList = false
@@ -52,6 +53,50 @@ struct JourneyDetailView: View {
                     // Scrollable sections
                     ScrollView {
                         LazyVStack(spacing: 0) {
+                            // Checklists Section (FIRST)
+                            sectionContainer(
+                                header: SectionHeaderView(
+                                    title: L("journey.detail.section.checklists"),
+                                    iconName: "checklist",
+                                    iconColor: .teal,
+                                    itemCount: viewModel.sectionCounts.checklists,
+                                    badgeText: viewModel.sectionCounts.checklistsTotal > 0
+                                        ? "\(viewModel.sectionCounts.checklistsChecked)/\(viewModel.sectionCounts.checklistsTotal)"
+                                        : nil,
+                                    onSeeAll: viewModel.selectedJourneyId != nil ? {
+                                        showChecklistsList = true
+                                    } : nil
+                                ),
+                                content: {
+                                    if viewModel.previewChecklists.isEmpty {
+                                        Button {
+                                            showChecklistsList = true
+                                        } label: {
+                                            EmptySectionView(
+                                                message: L("journey.detail.checklists.empty"),
+                                                iconName: "checklist"
+                                            )
+                                        }
+                                        .buttonStyle(.plain)
+                                    } else {
+                                        ForEach(viewModel.previewChecklists) { checklist in
+                                            ChecklistPreviewRow(
+                                                checklist: checklist,
+                                                progress: viewModel.checklistProgress[checklist.id] ?? (checked: 0, total: 0)
+                                            )
+                                            .contentShape(Rectangle())
+                                            .onTapGesture {
+                                                showChecklistsList = true
+                                            }
+                                            if checklist.id != viewModel.previewChecklists.last?.id {
+                                                Divider().padding(.leading, 56)
+                                            }
+                                        }
+                                    }
+                                }
+                            )
+
+                            // Transport Section
                             sectionContainer(
                                 header: SectionHeaderView(
                                     title: L("journey.detail.section.transport"),
@@ -387,6 +432,9 @@ struct JourneyDetailView: View {
                         viewModel.refreshData()
                     }
                 }
+            }
+            .navigationDestination(isPresented: $showChecklistsList) {
+                ChecklistsListView(journeyId: viewModel.selectedJourneyId ?? UUID())
             }
             .navigationDestination(isPresented: $showTransportList) {
                 TransportListView(journeyId: viewModel.selectedJourneyId ?? UUID())

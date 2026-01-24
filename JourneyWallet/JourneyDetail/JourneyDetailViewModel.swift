@@ -3,6 +3,9 @@ import os
 
 /// Summary counts for all journey sections
 struct JourneySectionCounts {
+    var checklists: Int = 0
+    var checklistsChecked: Int = 0
+    var checklistsTotal: Int = 0
     var transports: Int = 0
     var hotels: Int = 0
     var carRentals: Int = 0
@@ -28,6 +31,8 @@ class JourneyDetailViewModel {
     var isLoading: Bool = false
 
     // Preview data for sections (limited items)
+    var previewChecklists: [Checklist] = []
+    var checklistProgress: [UUID: (checked: Int, total: Int)] = [:]
     var upcomingTransports: [Transport] = []
     var upcomingHotels: [Hotel] = []
     var upcomingCarRentals: [CarRental] = []
@@ -39,6 +44,8 @@ class JourneyDetailViewModel {
     // MARK: - Repositories
 
     private let journeysRepository: JourneysRepository?
+    private let checklistsRepository: ChecklistsRepository?
+    private let checklistItemsRepository: ChecklistItemsRepository?
     private let transportsRepository: TransportsRepository?
     private let hotelsRepository: HotelsRepository?
     private let carRentalsRepository: CarRentalsRepository?
@@ -59,6 +66,8 @@ class JourneyDetailViewModel {
 
     init(databaseManager: DatabaseManager = .shared) {
         self.journeysRepository = databaseManager.journeysRepository
+        self.checklistsRepository = databaseManager.checklistsRepository
+        self.checklistItemsRepository = databaseManager.checklistItemsRepository
         self.transportsRepository = databaseManager.transportsRepository
         self.hotelsRepository = databaseManager.hotelsRepository
         self.carRentalsRepository = databaseManager.carRentalsRepository
@@ -137,6 +146,9 @@ class JourneyDetailViewModel {
         }
 
         // Load counts
+        sectionCounts.checklists = checklistsRepository?.countByJourneyId(journeyId: journeyId) ?? 0
+        sectionCounts.checklistsChecked = checklistItemsRepository?.countCheckedByJourneyId(journeyId: journeyId) ?? 0
+        sectionCounts.checklistsTotal = checklistItemsRepository?.countTotalByJourneyId(journeyId: journeyId) ?? 0
         sectionCounts.transports = transportsRepository?.countByJourneyId(journeyId: journeyId) ?? 0
         sectionCounts.hotels = hotelsRepository?.countByJourneyId(journeyId: journeyId) ?? 0
         sectionCounts.carRentals = carRentalsRepository?.countByJourneyId(journeyId: journeyId) ?? 0
@@ -153,6 +165,16 @@ class JourneyDetailViewModel {
 
         // Get 3 most recent expenses (sorted by date descending)
         recentExpenses = Array(expenses.sorted { $0.date > $1.date }.prefix(3))
+
+        // Load preview checklists (first 3) with progress
+        let allChecklists = checklistsRepository?.fetchByJourneyId(journeyId: journeyId) ?? []
+        previewChecklists = Array(allChecklists.prefix(3))
+        checklistProgress = [:]
+        for checklist in previewChecklists {
+            let total = checklistItemsRepository?.countByChecklistId(checklistId: checklist.id) ?? 0
+            let checked = checklistItemsRepository?.countCheckedByChecklistId(checklistId: checklist.id) ?? 0
+            checklistProgress[checklist.id] = (checked: checked, total: total)
+        }
 
         // Load preview items (first 3 of each)
         let allTransports = transportsRepository?.fetchByJourneyId(journeyId: journeyId) ?? []
@@ -177,6 +199,8 @@ class JourneyDetailViewModel {
 
     private func resetSectionData() {
         sectionCounts = JourneySectionCounts()
+        previewChecklists = []
+        checklistProgress = [:]
         upcomingTransports = []
         upcomingHotels = []
         upcomingCarRentals = []

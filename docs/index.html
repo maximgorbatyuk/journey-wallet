@@ -101,16 +101,35 @@
         <div class="carousel-container">
           <div class="carousel-slides">
             <div class="carousel-slide">
-              <img class="carousel-image" src="./assets/carousel_1.PNG?v=20260115" alt="App screenshot 1" />
+              <img class="carousel-image" src="./assets/home_screen.PNG?v=20260115" alt="App screenshot 1" />
             </div>
             <div class="carousel-slide">
-              <img class="carousel-image" src="./assets/carousel_2.PNG?v=20260115" alt="App screenshot 2" />
+              <img class="carousel-image" src="./assets/transport.PNG?v=20260115" alt="App screenshot 2"
+                id="transport-screen" />
             </div>
             <div class="carousel-slide">
-              <img class="carousel-image" src="./assets/carousel_3.PNG?v=20260115" alt="App screenshot 3" />
+              <img class="carousel-image" src="./assets/hotels.PNG?v=20260115" alt="App screenshot 3"
+                id="hotels-screen" />
             </div>
             <div class="carousel-slide">
-              <img class="carousel-image" src="./assets/carousel_4.PNG?v=20260115" alt="App screenshot 4" />
+              <img class="carousel-image" src="./assets/documents.PNG?v=20260115" alt="App screenshot 4"
+                id="documents-screen" />
+            </div>
+            <div class="carousel-slide">
+              <img class="carousel-image" src="./assets/budget.PNG?v=20260115" alt="App screenshot 5"
+                id="budget-screen" />
+            </div>
+            <div class="carousel-slide">
+              <img class="carousel-image" src="./assets/places_to_visit.PNG?v=20260115" alt="App screenshot 6"
+                id="places-to-visit-screen" />
+            </div>
+            <div class="carousel-slide">
+              <img class="carousel-image" src="./assets/reminders.PNG?v=20260115" alt="App screenshot 7"
+                id="reminders-screen" />
+            </div>
+            <div class="carousel-slide">
+              <img class="carousel-image" src="./assets/search.PNG?v=20260115" alt="App screenshot 8"
+                id="search-screen" />
             </div>
           </div>
         </div>
@@ -122,67 +141,69 @@
       </div>
 
       <div class="showcase-features">
-        <article class="card" style="animation-delay: 0.05s">
-          <h3>Transport Tracking</h3>
+        <article class="card" style="animation-delay: 0.05s" id="transport-feature">
+          <h3 class="card-title-link" data-screen="transport-screen">Transport Tracking</h3>
           <p>
             Track all your transport bookings: flights, trains, buses, ferries, and transfers.
             Store carrier info, booking references, seat numbers, and departure details with countdown timers.
           </p>
         </article>
 
-        <article class="card" style="animation-delay: 0.1s">
-          <h3>Hotels & Car Rentals</h3>
+        <article class="card" style="animation-delay: 0.1s" id="hotels-feature">
+          <h3 class="card-title-link" data-screen="hotels-screen">Hotels & Car Rentals</h3>
           <p>
             Manage hotel bookings with check-in/check-out dates, room types, and contact info.
             Track car rentals with pickup/dropoff locations and booking references.
           </p>
         </article>
 
-        <article class="card" style="animation-delay: 0.15s">
+        <article class="card" style="animation-delay: 0.15s" id="share-extension-feature">
           <h3>Share Extension</h3>
           <p>
-            Share files and links directly from any app! Save flight tickets from Mail, booking confirmations from Safari,
+            Share files and links directly from any app! Save flight tickets from Mail, booking confirmations from
+            Safari,
             or Instagram places in one tap. Smart detection suggests the right entity type automatically.
           </p>
         </article>
 
-        <article class="card" style="animation-delay: 0.2s">
-          <h3>Document Storage</h3>
+        <article class="card" style="animation-delay: 0.2s" id="documents-feature">
+          <h3 class="card-title-link" data-screen="documents-screen">Document Storage</h3>
           <p>
             Store travel documents (PDF, JPEG, PNG, HEIC) with custom naming.
-            In-app PDF viewer, image viewer with zoom, and easy sharing to other apps.
+            In-app PDF viewer, image viewer with zoom, and easy sharing to other apps. Offline!
           </p>
         </article>
 
-        <article class="card" style="animation-delay: 0.25s">
-          <h3>Budget & Expenses</h3>
+        <article class="card" style="animation-delay: 0.25s" id="budget-feature">
+          <h3 class="card-title-link" data-screen="budget-screen">Budget & Expenses</h3>
           <p>
             Track travel expenses by category: transport, accommodation, food, activities, shopping.
             Multi-currency support with 11 currencies and spending breakdown.
           </p>
         </article>
 
-        <article class="card" style="animation-delay: 0.3s">
-          <h3>Notes & Places</h3>
+        <article class="card" style="animation-delay: 0.3s" id="places-to-visit-feature">
+          <h3 class="card-title-link" data-screen="places-to-visit-screen">Notes & Places</h3>
           <p>
-            Save places to visit with URLs, addresses, and categories. Copy addresses directly to Uber or Maps with one tap.
+            Save places to visit with URLs, addresses, and categories. Copy addresses directly to Uber or Maps with one
+            tap.
             Add notes to journeys and mark places as visited while exploring.
           </p>
         </article>
 
-        <article class="card" style="animation-delay: 0.35s">
-          <h3>Reminders & Search</h3>
+        <article class="card" style="animation-delay: 0.35s" id="reminders-feature">
+          <h3 class="card-title-link" data-screen="reminders-screen">Reminders</h3>
           <p>
             Set reminders for transports, hotels, and car rentals with local notifications.
-            Global search across all journeys, documents, notes, and bookings with quick navigation.
+            You will never forget about smth important for you!
           </p>
         </article>
 
-        <article class="card" style="animation-delay: 0.4s">
-          <h3>Journey Stats</h3>
+        <article class="card" style="animation-delay: 0.4s" id="search-feature">
+          <h3 class="card-title-link" data-screen="search-screen">Search</h3>
           <p>
-            Tap any journey to see beautiful statistics: flights, trains, hotels, car rentals, documents, places, and notes.
-            Choose Dark, Light, or System appearance mode.
+            Global search across all journeys, documents, notes,
+            and bookings with quick navigation. Nothing will be hidden from you!
           </p>
         </article>
       </div>
@@ -219,11 +240,16 @@
         <span>·</span>
         <a href="https://github.com/maximgorbatyuk/journey-wallet" target="_blank">GitHub</a>
         <span>·</span>
+        <a href="https://github.com/maximgorbatyuk/journey-wallet/blob/main/changelog.md" target="_blank">Changelog</a>
+        <span>·</span>
         <a href="https://github.com/maximgorbatyuk/journey-wallet/issues" target="_blank">Feedback</a>
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; <span id="current-year">2026</span> Maxim Gorbatyuk. Open source project under MIT License.</p>
+        <p>&copy; <span id="current-year">2026</span> <a
+            href="https://mgorbatyuk.dev?utm_source=journey-wallet&utm_medium=referral&utm_campaign=footer"
+            target="_blank">Maxim
+            Gorbatyuk</a>. Open source project under MIT License.</p>
       </div>
     </section>
   </main>
@@ -239,9 +265,19 @@
     const dotsContainer = document.querySelector('.carousel-dots');
     const prevBtn = document.querySelector('.carousel-btn-prev');
     const nextBtn = document.querySelector('.carousel-btn-next');
+    const carousel = document.querySelector('.carousel');
 
     let currentIndex = 0;
     const totalSlides = slides.length;
+
+    // Build screen ID to slide index mapping
+    const screenToIndex = {};
+    slides.forEach((slide, index) => {
+      const img = slide.querySelector('img[id]');
+      if (img && img.id) {
+        screenToIndex[img.id] = index;
+      }
+    });
 
     // Create dots
     slides.forEach((_, index) => {
@@ -267,6 +303,16 @@
       updateCarousel();
     }
 
+    function goToSlideWithHighlight(index) {
+      goToSlide(index);
+      // Add highlight animation
+      const slide = slides[index];
+      slide.classList.remove('highlight');
+      // Trigger reflow to restart animation
+      void slide.offsetWidth;
+      slide.classList.add('highlight');
+    }
+
     function nextSlide() {
       currentIndex = (currentIndex + 1) % totalSlides;
       updateCarousel();
@@ -279,6 +325,17 @@
 
     prevBtn.addEventListener('click', prevSlide);
     nextBtn.addEventListener('click', nextSlide);
+
+    // Feature title click handlers
+    document.querySelectorAll('.card-title-link[data-screen]').forEach(title => {
+      title.addEventListener('click', () => {
+        const screenId = title.dataset.screen;
+        const slideIndex = screenToIndex[screenId];
+        if (slideIndex !== undefined) {
+          goToSlideWithHighlight(slideIndex);
+        }
+      });
+    });
   })();
 </script>
 
