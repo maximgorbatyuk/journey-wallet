@@ -877,6 +877,15 @@
 "settings.developer.reset_migration_warning" = "Warnung: Diese Aktion kann zu Datenverlust führen. Die App wird beim nächsten Start versuchen, die Daten erneut zu migrieren, was vorhandene Daten überschreiben könnte. Nur zu Testzwecken verwenden.";
 "settings.developer.reset_migration_confirm" = "Zurücksetzen";
 
+/* Common */
+"common.cancel" = "Abbrechen";
+"common.save" = "Speichern";
+"common.delete" = "Löschen";
+"common.edit" = "Bearbeiten";
+"common.today" = "Heute";
+"common.yesterday" = "Gestern";
+"common.days_ago" = "Vor %d Tagen";
+
 /* Checklists */
 "checklists.title" = "Checklisten";
 "checklists.add" = "Neue Checkliste";

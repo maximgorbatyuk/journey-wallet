@@ -31,8 +31,32 @@ struct ChecklistRow: View {
                     .foregroundStyle(.secondary)
                     .frame(minWidth: 40, alignment: .trailing)
             }
+
+            // Last modified caption
+            Text(lastModifiedText)
+                .font(.caption2)
+                .foregroundStyle(.tertiary)
         }
         .padding(.vertical, 4)
+    }
+
+    private var lastModifiedText: String {
+        let calendar = Calendar.current
+        let now = Date()
+        let components = calendar.dateComponents([.day], from: checklist.updatedAt, to: now)
+        let days = components.day ?? 0
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from: checklist.updatedAt)
+
+        if days == 0 {
+            return L("common.today") + " (\(dateString))"
+        } else if days == 1 {
+            return L("common.yesterday") + " (\(dateString))"
+        } else {
+            return String(format: L("common.days_ago"), days) + " (\(dateString))"
+        }
     }
 
     private var progressPercentage: Double {

@@ -884,6 +884,15 @@
 "settings.developer.reset_migration_warning" = "Ескерту: Бұл әрекет деректердің жоғалуына әкелуі мүмкін. Қолданба келесі іске қосылғанда деректерді қайта көшіруге тырысады, бұл бар деректерді қайта жазуы мүмкін. Тек тестілеу үшін қолданыңыз.";
 "settings.developer.reset_migration_confirm" = "Қалпына келтіру";
 
+/* Common */
+"common.cancel" = "Бас тарту";
+"common.save" = "Сақтау";
+"common.delete" = "Жою";
+"common.edit" = "Өңдеу";
+"common.today" = "Бүгін";
+"common.yesterday" = "Кеше";
+"common.days_ago" = "%d күн бұрын";
+
 /* Checklists */
 "checklists.title" = "Тексеру тізімдері";
 "checklists.add" = "Жаңа тексеру тізімі";

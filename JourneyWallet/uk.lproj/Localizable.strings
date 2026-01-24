@@ -884,6 +884,15 @@
 "settings.developer.reset_migration_warning" = "Увага: Ця дія може призвести до втрати даних. Застосунок спробує виконати міграцію даних при наступному запуску, що може перезаписати існуючі дані. Використовуйте лише для тестування.";
 "settings.developer.reset_migration_confirm" = "Скинути";
 
+/* Common */
+"common.cancel" = "Скасувати";
+"common.save" = "Зберегти";
+"common.delete" = "Видалити";
+"common.edit" = "Редагувати";
+"common.today" = "Сьогодні";
+"common.yesterday" = "Вчора";
+"common.days_ago" = "%d дн. тому";
+
 /* Checklists */
 "checklists.title" = "Чек-листи";
 "checklists.add" = "Новий чек-лист";

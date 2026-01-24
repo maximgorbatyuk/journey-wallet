@@ -879,6 +879,9 @@
 "common.save" = "Save";
 "common.delete" = "Delete";
 "common.edit" = "Edit";
+"common.today" = "Today";
+"common.yesterday" = "Yesterday";
+"common.days_ago" = "%d days ago";
 
 /* Checklists */
 "checklists.title" = "Checklists";

@@ -880,6 +880,15 @@
 "settings.developer.reset_migration_warning" = "Uyarı: Bu işlem veri kaybına neden olabilir. Uygulama bir sonraki açılışta verileri tekrar taşımaya çalışacak ve bu mevcut verilerin üzerine yazabilir. Sadece test amaçlı kullanın.";
 "settings.developer.reset_migration_confirm" = "Sıfırla";
 
+/* Common */
+"common.cancel" = "İptal";
+"common.save" = "Kaydet";
+"common.delete" = "Sil";
+"common.edit" = "Düzenle";
+"common.today" = "Bugün";
+"common.yesterday" = "Dün";
+"common.days_ago" = "%d gün önce";
+
 /* Checklists */
 "checklists.title" = "Kontrol Listeleri";
 "checklists.add" = "Yeni Kontrol Listesi";

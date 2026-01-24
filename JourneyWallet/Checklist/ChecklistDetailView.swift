@@ -13,30 +13,35 @@ struct ChecklistDetailView: View {
     }
 
     var body: some View {
-        VStack(spacing: 0) {
-            // Filter section
-            filterSection
-                .padding(.horizontal)
-                .padding(.vertical, 8)
-
-            // Progress bar
-            if !viewModel.items.isEmpty {
-                progressSection
+        ZStack(alignment: .bottomTrailing) {
+            VStack(spacing: 0) {
+                // Filter section
+                filterSection
                     .padding(.horizontal)
-                    .padding(.bottom, 8)
+                    .padding(.vertical, 8)
+
+                // Progress bar
+                if !viewModel.items.isEmpty {
+                    progressSection
+                        .padding(.horizontal)
+                        .padding(.bottom, 8)
+                }
+
+                // Content
+                if viewModel.isLoading {
+                    ProgressView()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                } else if viewModel.items.isEmpty {
+                    emptyStateView
+                } else if viewModel.filteredItems.isEmpty {
+                    noMatchingItemsView
+                } else {
+                    itemsList
+                }
             }
 
-            // Content
-            if viewModel.isLoading {
-                ProgressView()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-            } else if viewModel.items.isEmpty {
-                emptyStateView
-            } else if viewModel.filteredItems.isEmpty {
-                noMatchingItemsView
-            } else {
-                itemsList
-            }
+            // Floating Add Button
+            floatingAddButton
         }
         .navigationTitle(viewModel.checklist.name)
         .toolbar {
@@ -208,8 +213,31 @@ struct ChecklistDetailView: View {
                 }
                 viewModel.moveItem(from: IndexSet(integer: sourceIndex), to: offset)
             }
+
+            // Bottom padding for FAB
+            Color.clear
+                .frame(height: 80)
+                .listRowSeparator(.hidden)
         }
         .listStyle(.plain)
+    }
+
+    // MARK: - Floating Action Button
+
+    private var floatingAddButton: some View {
+        Button {
+            viewModel.showAddItemSheet = true
+        } label: {
+            Image(systemName: "plus")
+                .font(.system(size: 24, weight: .semibold))
+                .foregroundColor(.white)
+                .frame(width: 56, height: 56)
+                .background(Color.teal)
+                .clipShape(Circle())
+                .shadow(color: Color.black.opacity(0.3), radius: 4, x: 0, y: 2)
+        }
+        .padding(.trailing, 20)
+        .padding(.bottom, 20)
     }
 }
 
