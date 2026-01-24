@@ -605,6 +605,7 @@
 "quick_add.transport" = "Transport";
 "quick_add.hotel" = "Hotel";
 "quick_add.car_rental" = "Car Rental";
+"quick_add.checklist" = "Checklist";
 "quick_add.document" = "Document";
 "quick_add.note" = "Note";
 "quick_add.place" = "Place to Visit";

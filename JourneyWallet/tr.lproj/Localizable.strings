@@ -616,6 +616,7 @@
 "quick_add.place" = "Ziyaret Edilecek Yer";
 "quick_add.reminder" = "Hatırlatıcı";
 "quick_add.expense" = "Harcama";
+"quick_add.checklist" = "Kontrol Listesi";
 "quick_add.coming_soon" = "Yakında";
 
 /* Document Management */

@@ -616,6 +616,7 @@
 "quick_add.place" = "Бару орны";
 "quick_add.reminder" = "Еске салу";
 "quick_add.expense" = "Шығын";
+"quick_add.checklist" = "Тексеру тізімі";
 "quick_add.coming_soon" = "Жақында";
 
 /* Document Management */

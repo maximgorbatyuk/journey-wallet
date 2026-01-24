@@ -611,6 +611,7 @@
 "quick_add.transport" = "Транспорт";
 "quick_add.hotel" = "Отель";
 "quick_add.car_rental" = "Аренда авто";
+"quick_add.checklist" = "Чек-лист";
 "quick_add.document" = "Документ";
 "quick_add.note" = "Заметка";
 "quick_add.place" = "Место для посещения";

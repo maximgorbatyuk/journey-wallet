@@ -608,6 +608,7 @@
 "quick_add.transport" = "Transport";
 "quick_add.hotel" = "Hotel";
 "quick_add.car_rental" = "Mietwagen";
+"quick_add.checklist" = "Checkliste";
 "quick_add.document" = "Dokument";
 "quick_add.note" = "Notiz";
 "quick_add.place" = "Sehenswürdigkeit";

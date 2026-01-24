@@ -4,6 +4,7 @@ enum QuickAddEntityType: String, CaseIterable, Identifiable {
     case transport
     case hotel
     case carRental
+    case checklist
     case document
     case note
     case place
@@ -17,6 +18,7 @@ enum QuickAddEntityType: String, CaseIterable, Identifiable {
         case .transport: return L("quick_add.transport")
         case .hotel: return L("quick_add.hotel")
         case .carRental: return L("quick_add.car_rental")
+        case .checklist: return L("quick_add.checklist")
         case .document: return L("quick_add.document")
         case .note: return L("quick_add.note")
         case .place: return L("quick_add.place")
@@ -30,6 +32,7 @@ enum QuickAddEntityType: String, CaseIterable, Identifiable {
         case .transport: return "airplane"
         case .hotel: return "building.2.fill"
         case .carRental: return "car.fill"
+        case .checklist: return "checklist"
         case .document: return "doc.fill"
         case .note: return "note.text"
         case .place: return "mappin.circle.fill"
@@ -43,6 +46,7 @@ enum QuickAddEntityType: String, CaseIterable, Identifiable {
         case .transport: return .blue
         case .hotel: return .purple
         case .carRental: return .green
+        case .checklist: return .teal
         case .document: return .orange
         case .note: return .yellow
         case .place: return .red

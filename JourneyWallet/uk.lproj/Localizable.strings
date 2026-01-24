@@ -616,6 +616,7 @@
 "quick_add.place" = "Місце для відвідування";
 "quick_add.reminder" = "Нагадування";
 "quick_add.expense" = "Витрата";
+"quick_add.checklist" = "Чек-лист";
 "quick_add.coming_soon" = "Незабаром";
 
 /* Document Management */
