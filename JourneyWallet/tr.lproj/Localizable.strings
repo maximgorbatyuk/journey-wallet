@@ -616,6 +616,7 @@
 "quick_add.place" = "Ziyaret Edilecek Yer";
 "quick_add.reminder" = "Hatırlatıcı";
 "quick_add.expense" = "Harcama";
+"quick_add.checklist" = "Kontrol Listesi";
 "quick_add.coming_soon" = "Yakında";
 
 /* Document Management */
@@ -879,3 +880,48 @@
 "settings.developer.reset_migration_title" = "Geçiş Bayrağı Sıfırlansın mı?";
 "settings.developer.reset_migration_warning" = "Uyarı: Bu işlem veri kaybına neden olabilir. Uygulama bir sonraki açılışta verileri tekrar taşımaya çalışacak ve bu mevcut verilerin üzerine yazabilir. Sadece test amaçlı kullanın.";
 "settings.developer.reset_migration_confirm" = "Sıfırla";
+
+/* Common */
+"common.cancel" = "İptal";
+"common.save" = "Kaydet";
+"common.delete" = "Sil";
+"common.edit" = "Düzenle";
+"common.today" = "Bugün";
+"common.yesterday" = "Dün";
+"common.days_ago" = "%d gün önce";
+
+/* Checklists */
+"checklists.title" = "Kontrol Listeleri";
+"checklists.add" = "Yeni Kontrol Listesi";
+"checklists.edit" = "Kontrol Listesini Düzenle";
+"checklists.empty" = "Kontrol listesi yok";
+"checklists.empty.description" = "Görevlerinizi takip etmek için kontrol listeleri oluşturun";
+"checklists.name" = "Kontrol listesi adı";
+"checklists.name.placeholder" = "örn. Bavul, Belgeler";
+"checklists.delete.confirm" = "Bu kontrol listesi ve tüm öğeleri silinsin mi?";
+"checklists.progress" = "%d / %d";
+
+/* Checklist Items */
+"checklist.items.title" = "Öğeler";
+"checklist.items.add" = "Öğe Ekle";
+"checklist.items.edit" = "Öğeyi Düzenle";
+"checklist.items.empty" = "Öğe yok";
+"checklist.items.empty.description" = "Bu kontrol listesine öğe ekleyin";
+"checklist.items.progress" = "%d / %d tamamlandı";
+"checklist.items.filter.all" = "Tümü";
+"checklist.items.filter.pending" = "Bekleyen";
+"checklist.items.filter.completed" = "Tamamlanan";
+"checklist.items.name" = "Öğe adı";
+"checklist.items.name.placeholder" = "Öğe adını girin";
+"checklist.items.delete.confirm" = "Bu öğe silinsin mi?";
+
+/* Checklist Actions */
+"checklist.items.move_completed" = "Tamamlananları sona taşı";
+"checklist.items.move_completed.title" = "Tamamlanan Öğeleri Taşı";
+"checklist.items.move_completed.message" = "İşaretli tüm öğeler listenin sonuna taşınacak. Bu işlem geri alınamaz.";
+"checklist.items.move_completed.cancel" = "İptal";
+"checklist.items.move_completed.confirm" = "Taşı";
+
+/* Journey Detail - Checklists */
+"journey.detail.section.checklists" = "Kontrol Listeleri";
+"journey.detail.checklists.empty" = "Henüz kontrol listesi yok";

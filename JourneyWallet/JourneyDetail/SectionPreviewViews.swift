@@ -348,6 +348,68 @@ struct ExpensePreviewRow: View {
     }
 }
 
+// MARK: - Checklist Preview Row
+
+struct ChecklistPreviewRow: View {
+    let checklist: Checklist
+    let progress: (checked: Int, total: Int)
+
+    var body: some View {
+        HStack(spacing: 12) {
+            // Icon
+            Image(systemName: "checklist")
+                .font(.title3)
+                .foregroundColor(.teal)
+                .frame(width: 32, height: 32)
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text(checklist.name)
+                    .font(.subheadline)
+                    .fontWeight(.medium)
+                    .lineLimit(1)
+
+                // Progress
+                HStack(spacing: 8) {
+                    ProgressView(value: progressPercentage)
+                        .tint(progressColor)
+                        .frame(width: 60)
+
+                    Text("\(progress.checked)/\(progress.total)")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+            }
+
+            Spacer()
+
+            // Percentage
+            Text("\(Int(progressPercentage * 100))%")
+                .font(.caption)
+                .fontWeight(.medium)
+                .foregroundColor(progressColor)
+        }
+        .padding(.horizontal)
+        .padding(.vertical, 8)
+    }
+
+    private var progressPercentage: Double {
+        guard progress.total > 0 else { return 0 }
+        return Double(progress.checked) / Double(progress.total)
+    }
+
+    private var progressColor: Color {
+        if progress.total == 0 {
+            return .gray
+        } else if progress.checked == progress.total {
+            return .green
+        } else if progressPercentage > 0.5 {
+            return .blue
+        } else {
+            return .orange
+        }
+    }
+}
+
 // MARK: - Empty Section View
 
 struct EmptySectionView: View {

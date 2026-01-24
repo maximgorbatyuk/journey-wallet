@@ -6,6 +6,7 @@ struct SectionHeaderView: View {
     let iconName: String
     let iconColor: Color
     let itemCount: Int
+    let badgeText: String?
     let onSeeAll: (() -> Void)?
 
     init(
@@ -13,12 +14,14 @@ struct SectionHeaderView: View {
         iconName: String,
         iconColor: Color = .orange,
         itemCount: Int = 0,
+        badgeText: String? = nil,
         onSeeAll: (() -> Void)? = nil
     ) {
         self.title = title
         self.iconName = iconName
         self.iconColor = iconColor
         self.itemCount = itemCount
+        self.badgeText = badgeText
         self.onSeeAll = onSeeAll
     }
 
@@ -34,8 +37,17 @@ struct SectionHeaderView: View {
                     .font(.headline)
                     .foregroundColor(.primary)
 
-                // Item count badge
-                if itemCount > 0 {
+                // Item count badge or custom badge text
+                if let badgeText = badgeText {
+                    Text(badgeText)
+                        .font(.caption)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 2)
+                        .background(iconColor)
+                        .clipShape(Capsule())
+                } else if itemCount > 0 {
                     Text("\(itemCount)")
                         .font(.caption)
                         .fontWeight(.semibold)
@@ -50,7 +62,7 @@ struct SectionHeaderView: View {
             Spacer()
 
             // See all button
-            if let onSeeAll = onSeeAll, itemCount > 0 {
+            if let onSeeAll = onSeeAll, (itemCount > 0 || badgeText != nil) {
                 Button(action: onSeeAll) {
                     HStack(spacing: 4) {
                         Text(L("journey.detail.see_all"))

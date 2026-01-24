@@ -87,6 +87,20 @@ struct QuickAddSheet: View {
                 }
             )
 
+        case .checklist:
+            ChecklistFormView { name in
+                let sortingOrder = DatabaseManager.shared.checklistsRepository?.getNextSortingOrder(journeyId: journeyId) ?? 0
+                let checklist = Checklist(
+                    journeyId: journeyId,
+                    name: name,
+                    sortingOrder: sortingOrder
+                )
+                if DatabaseManager.shared.checklistsRepository?.insert(checklist) == true {
+                    onEntityAdded()
+                    dismiss()
+                }
+            }
+
         case .document:
             DocumentPickerView(journeyId: journeyId) { success in
                 if success {

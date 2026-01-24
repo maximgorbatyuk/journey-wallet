@@ -608,6 +608,7 @@
 "quick_add.transport" = "Transport";
 "quick_add.hotel" = "Hotel";
 "quick_add.car_rental" = "Mietwagen";
+"quick_add.checklist" = "Checkliste";
 "quick_add.document" = "Dokument";
 "quick_add.note" = "Notiz";
 "quick_add.place" = "Sehenswürdigkeit";
@@ -876,3 +877,48 @@
 "settings.developer.reset_migration_title" = "Migrationsflag zurücksetzen?";
 "settings.developer.reset_migration_warning" = "Warnung: Diese Aktion kann zu Datenverlust führen. Die App wird beim nächsten Start versuchen, die Daten erneut zu migrieren, was vorhandene Daten überschreiben könnte. Nur zu Testzwecken verwenden.";
 "settings.developer.reset_migration_confirm" = "Zurücksetzen";
+
+/* Common */
+"common.cancel" = "Abbrechen";
+"common.save" = "Speichern";
+"common.delete" = "Löschen";
+"common.edit" = "Bearbeiten";
+"common.today" = "Heute";
+"common.yesterday" = "Gestern";
+"common.days_ago" = "Vor %d Tagen";
+
+/* Checklists */
+"checklists.title" = "Checklisten";
+"checklists.add" = "Neue Checkliste";
+"checklists.edit" = "Checkliste bearbeiten";
+"checklists.empty" = "Keine Checklisten";
+"checklists.empty.description" = "Erstellen Sie Checklisten zur Aufgabenverfolgung";
+"checklists.name" = "Checklisten-Name";
+"checklists.name.placeholder" = "z.B. Packliste, Dokumente";
+"checklists.delete.confirm" = "Diese Checkliste und alle Einträge löschen?";
+"checklists.progress" = "%d von %d";
+
+/* Checklist Items */
+"checklist.items.title" = "Einträge";
+"checklist.items.add" = "Eintrag hinzufügen";
+"checklist.items.edit" = "Eintrag bearbeiten";
+"checklist.items.empty" = "Keine Einträge";
+"checklist.items.empty.description" = "Fügen Sie Einträge zu dieser Checkliste hinzu";
+"checklist.items.progress" = "%d von %d erledigt";
+"checklist.items.filter.all" = "Alle";
+"checklist.items.filter.pending" = "Ausstehend";
+"checklist.items.filter.completed" = "Erledigt";
+"checklist.items.name" = "Eintragsname";
+"checklist.items.name.placeholder" = "Eintragsname eingeben";
+"checklist.items.delete.confirm" = "Diesen Eintrag löschen?";
+
+/* Checklist Actions */
+"checklist.items.move_completed" = "Erledigte nach unten";
+"checklist.items.move_completed.title" = "Erledigte Einträge verschieben";
+"checklist.items.move_completed.message" = "Alle markierten Einträge werden ans Ende der Liste verschoben. Diese Aktion kann nicht rückgängig gemacht werden.";
+"checklist.items.move_completed.cancel" = "Abbrechen";
+"checklist.items.move_completed.confirm" = "Verschieben";
+
+/* Journey Detail - Checklists */
+"journey.detail.section.checklists" = "Checklisten";
+"journey.detail.checklists.empty" = "Noch keine Checklisten";

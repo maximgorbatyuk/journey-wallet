@@ -56,6 +56,13 @@ class RandomDataGenerator {
         let expenses = generateExpenses(for: journey, flights: flights, transfers: transfers, groundTransport: groundTransport, hotels: hotels, carRentals: carRentals)
         expenses.forEach { _ = db.expensesRepository?.insert($0) }
 
+        // Generate checklists with items (3 checklists, 5-8 items each, 40% checked)
+        let checklistData = generateChecklists(for: journey)
+        for (checklist, items) in checklistData {
+            _ = db.checklistsRepository?.insert(checklist)
+            items.forEach { _ = db.checklistItemsRepository?.insert($0) }
+        }
+
         logger.info("Random data generation completed for journey: \(journey.name)")
     }
 
@@ -73,6 +80,8 @@ class RandomDataGenerator {
         _ = db.remindersRepository?.deleteByJourneyId(journeyId: journeyId)
         _ = db.expensesRepository?.deleteByJourneyId(journeyId: journeyId)
         _ = db.documentsRepository?.deleteByJourneyId(journeyId: journeyId)
+        _ = db.checklistItemsRepository?.deleteByJourneyId(journeyId: journeyId)
+        _ = db.checklistsRepository?.deleteByJourneyId(journeyId: journeyId)
 
         logger.debug("Existing data deleted for journey: \(journeyId)")
     }
@@ -519,6 +528,52 @@ class RandomDataGenerator {
         }
 
         return expenses
+    }
+
+    // MARK: - Checklists Generation
+
+    private func generateChecklists(for journey: Journey) -> [(checklist: Checklist, items: [ChecklistItem])] {
+        var result: [(checklist: Checklist, items: [ChecklistItem])] = []
+
+        let checklistNames = [
+            ("Packing List", ["Passport", "Tickets", "Clothes", "Toiletries", "Phone charger", "Camera", "Sunglasses", "Travel adapter"]),
+            ("Documents", ["ID copy", "Insurance", "Hotel reservation", "Flight tickets", "Driver's license", "Credit cards"]),
+            ("Before Departure", ["Water plants", "Stop mail", "Inform bank", "Set alarm", "Pack snacks", "Check weather"]),
+            ("To Buy", ["Sunscreen", "Snacks", "Travel pillow", "Hand sanitizer", "Adapters", "New earbuds", "Travel wallet"])
+        ]
+
+        // Generate 3 random checklists
+        let selectedChecklists = checklistNames.shuffled().prefix(3)
+
+        for (index, (name, items)) in selectedChecklists.enumerated() {
+            let checklist = Checklist(
+                journeyId: journey.id,
+                name: name,
+                sortingOrder: index
+            )
+
+            // Generate 5-8 items
+            let itemCount = Int.random(in: 5...8)
+            let selectedItems = items.shuffled().prefix(itemCount)
+
+            var checklistItems: [ChecklistItem] = []
+            for (itemIndex, itemName) in selectedItems.enumerated() {
+                // 40% of items should be checked
+                let isChecked = Double.random(in: 0...1) < 0.4
+
+                let item = ChecklistItem(
+                    checklistId: checklist.id,
+                    name: itemName,
+                    isChecked: isChecked,
+                    sortingOrder: itemIndex
+                )
+                checklistItems.append(item)
+            }
+
+            result.append((checklist: checklist, items: checklistItems))
+        }
+
+        return result
     }
 
     // MARK: - Helpers
