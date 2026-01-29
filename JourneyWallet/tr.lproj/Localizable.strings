@@ -763,6 +763,7 @@
 "place.detail.delete_confirm.title" = "Yer silinsin mi?";
 "place.detail.delete_confirm.message" = "Bu yer kalıcı olarak silinecek.";
 "place.detail.action.map" = "Haritada Aç";
+"place.detail.action.open_address_link" = "Harita Bağlantısını Aç";
 "place.detail.action.open_link" = "Bağlantıyı Aç";
 
 /* Place Status */

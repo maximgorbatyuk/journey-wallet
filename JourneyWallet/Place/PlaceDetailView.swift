@@ -212,14 +212,30 @@ struct PlaceDetailView: View {
                         Text(L("place.detail.address"))
                             .font(.caption)
                             .foregroundColor(.secondary)
-                        Text(address)
-                            .font(.body)
+                        if isURL(address) {
+                            // Clickable URL (e.g., Google Maps link)
+                            Text(urlDisplayText(address))
+                                .font(.body)
+                                .foregroundColor(.blue)
+                                .lineLimit(1)
+                        } else {
+                            Text(address)
+                                .font(.body)
+                        }
                     }
 
                     Spacer()
 
-                    // Open in Maps button
-                    if !isURL(address) {
+                    if isURL(address) {
+                        // Open URL button for Google Maps links
+                        Button {
+                            openURLString(address)
+                        } label: {
+                            Image(systemName: "arrow.up.right.square")
+                                .foregroundColor(.blue)
+                        }
+                    } else {
+                        // Open in Apple Maps button
                         Button {
                             openInMaps(address)
                         } label: {
@@ -350,20 +366,38 @@ struct PlaceDetailView: View {
                 .cornerRadius(12)
             }
 
-            // Open in Maps button (if address exists and is not URL)
-            if let address = viewModel.place.address, !address.isEmpty, !isURL(address) {
-                Button(action: {
-                    openInMaps(address)
-                }) {
-                    HStack {
-                        Image(systemName: "map.fill")
-                        Text(L("place.detail.action.map"))
+            // Address action button
+            if let address = viewModel.place.address, !address.isEmpty {
+                if isURL(address) {
+                    // Open address URL button (e.g., Google Maps link)
+                    Button(action: {
+                        openURLString(address)
+                    }) {
+                        HStack {
+                            Image(systemName: "map.fill")
+                            Text(L("place.detail.action.open_address_link"))
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(12)
                     }
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(12)
+                } else {
+                    // Open in Apple Maps button
+                    Button(action: {
+                        openInMaps(address)
+                    }) {
+                        HStack {
+                            Image(systemName: "map.fill")
+                            Text(L("place.detail.action.map"))
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(12)
+                    }
                 }
             }
 

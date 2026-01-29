@@ -757,6 +757,7 @@
 "place.detail.delete_confirm.title" = "Delete Place?";
 "place.detail.delete_confirm.message" = "This will permanently delete this place.";
 "place.detail.action.map" = "Open in Maps";
+"place.detail.action.open_address_link" = "Open Map Link";
 "place.detail.action.open_link" = "Open Link";
 
 /* Place Status */

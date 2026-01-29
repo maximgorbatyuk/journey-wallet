@@ -764,12 +764,13 @@
 "place.detail.planned_date" = "Запланована дата";
 "place.detail.url" = "Посилання";
 "place.detail.notes" = "Нотатки";
-"place.detail.open_maps" = "Відкрити на карті";
-"place.detail.open_link" = "Відкрити посилання";
-"place.detail.copy_link" = "Скопіювати посилання";
-"place.detail.link_copied" = "Посилання скопійовано";
 "place.detail.delete_confirm.title" = "Видалити місце?";
 "place.detail.delete_confirm.message" = "Це назавжди видалить це місце.";
+"place.detail.action.map" = "Відкрити на карті";
+"place.detail.action.open_address_link" = "Відкрити посилання на карту";
+"place.detail.action.open_link" = "Відкрити посилання";
+"place.detail.copy_link" = "Скопіювати посилання";
+"place.detail.link_copied" = "Посилання скопійовано";
 
 /* Budget Management */
 "budget.title" = "Бюджет";

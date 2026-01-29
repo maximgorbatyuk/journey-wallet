@@ -760,6 +760,7 @@
 "place.detail.delete_confirm.title" = "Ort löschen?";
 "place.detail.delete_confirm.message" = "Dieser Ort wird dauerhaft gelöscht.";
 "place.detail.action.map" = "In Karten öffnen";
+"place.detail.action.open_address_link" = "Kartenlink öffnen";
 "place.detail.action.open_link" = "Link öffnen";
 
 /* Place Status */

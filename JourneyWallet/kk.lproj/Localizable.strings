@@ -767,6 +767,7 @@
 "place.detail.delete_confirm.title" = "Орынды жою керек пе?";
 "place.detail.delete_confirm.message" = "Бұл орын біржола жойылады.";
 "place.detail.action.map" = "Картада ашу";
+"place.detail.action.open_address_link" = "Карта сілтемесін ашу";
 "place.detail.action.open_link" = "Сілтемені ашу";
 
 /* Place Status */

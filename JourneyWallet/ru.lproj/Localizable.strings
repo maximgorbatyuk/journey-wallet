@@ -763,6 +763,7 @@
 "place.detail.delete_confirm.title" = "Удалить место?";
 "place.detail.delete_confirm.message" = "Это место будет удалено безвозвратно.";
 "place.detail.action.map" = "Открыть в Картах";
+"place.detail.action.open_address_link" = "Открыть ссылку на карту";
 "place.detail.action.open_link" = "Открыть ссылку";
 
 /* Place Status */
