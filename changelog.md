@@ -1,5 +1,31 @@
 # Changelog
 
+# 2026.1.3 (2026-01-29)
+
+## New Features
+
+### Place Detail View
+- Added dedicated detail view for places to visit
+- View all place information including name, address, URL, notes, and associated journey
+- Open place location directly in Apple Maps
+
+### Move to Journey
+- Move any item to a different journey with a single tap
+- Supported items: expenses, notes, places, documents, checklists, hotels, transports, and car rentals
+- Easily reorganize your travel data across journeys
+
+## Improvements
+
+- Refactored Share Extension for better performance and maintainability
+- Updated website with Share Extension screenshot
+- Added documentation for upcoming features (Spotlight Search, Share Place)
+
+## Localization
+
+- All new features fully localized in: English, German, Russian, Turkish, Kazakh, Ukrainian
+
+---
+
 # 2026.1.2 (2026-01-22)
 
 ## New Features

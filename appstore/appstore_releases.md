@@ -1,5 +1,55 @@
 # App Store Releases
 
+## 2026.1.3
+
+### English
+
+- Place Detail View: tap any place to see details and open in Apple Maps
+- Move any item between journeys with one tap
+- Bug fixes and performance improvements
+
+---
+
+### Russian
+
+- Детальный просмотр мест: нажмите на место для посещения деталей и открытия в Картах
+- Перемещение любого элемента между путешествиями одним нажатием
+- Исправления ошибок и улучшения производительности
+
+---
+
+### Kazakh
+
+- Орынның толық көрінісі: орынды түртіп мәліметтерді көріңіз және Карталарда ашыңыз
+- Кез келген элементті бір түртумен басқа сапарға жылжытыңыз
+- Қателерді түзету және өнімділік жақсартулары
+
+---
+
+### Turkish
+
+- Yer Detay Görünümü: yere dokunarak detayları görün ve Haritalar'da açın
+- Herhangi bir öğeyi tek dokunuşla başka seyahate taşıyın
+- Hata düzeltmeleri ve performans iyileştirmeleri
+
+---
+
+### German
+
+- Ortsdetailansicht: Ort antippen für Details und in Karten öffnen
+- Elemente mit einem Tippen zwischen Reisen verschieben
+- Fehlerbehebungen und Leistungsverbesserungen
+
+---
+
+### Ukrainian
+
+- Детальний перегляд місць: натисніть на місце для деталей та відкриття в Картах
+- Переміщення будь-якого елемента між подорожами одним дотиком
+- Виправлення помилок та покращення продуктивності
+
+---
+
 ## 2026.1.2
 
 ### English
