@@ -753,6 +753,22 @@
 "place.form.validation.error" = "Doğrulama Hatası";
 "place.form.validation.name_required" = "Lütfen bir yer adı girin.";
 
+/* Place Detail */
+"place.detail.title" = "Yer Detayları";
+"place.detail.category" = "Kategori";
+"place.detail.address" = "Adres";
+"place.detail.planned_date" = "Planlanan Tarih";
+"place.detail.url" = "Bağlantı";
+"place.detail.notes" = "Notlar";
+"place.detail.delete_confirm.title" = "Yer silinsin mi?";
+"place.detail.delete_confirm.message" = "Bu yer kalıcı olarak silinecek.";
+"place.detail.action.map" = "Haritada Aç";
+"place.detail.action.open_link" = "Bağlantıyı Aç";
+
+/* Place Status */
+"place.status.visited" = "Ziyaret Edildi";
+"place.status.not_visited" = "Ziyaret Edilecek";
+
 /* Budget Management */
 "budget.title" = "Bütçe";
 "budget.total_spent" = "Toplam Harcama";

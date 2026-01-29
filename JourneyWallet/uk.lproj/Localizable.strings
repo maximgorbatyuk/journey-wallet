@@ -757,6 +757,20 @@
 "place.form.validation.error" = "Помилка валідації";
 "place.form.validation.name_required" = "Будь ласка, введіть назву місця.";
 
+/* Place Detail */
+"place.detail.title" = "Деталі місця";
+"place.detail.category" = "Категорія";
+"place.detail.address" = "Адреса";
+"place.detail.planned_date" = "Запланована дата";
+"place.detail.url" = "Посилання";
+"place.detail.notes" = "Нотатки";
+"place.detail.open_maps" = "Відкрити на карті";
+"place.detail.open_link" = "Відкрити посилання";
+"place.detail.copy_link" = "Скопіювати посилання";
+"place.detail.link_copied" = "Посилання скопійовано";
+"place.detail.delete_confirm.title" = "Видалити місце?";
+"place.detail.delete_confirm.message" = "Це назавжди видалить це місце.";
+
 /* Budget Management */
 "budget.title" = "Бюджет";
 "budget.total_spent" = "Всього витрачено";

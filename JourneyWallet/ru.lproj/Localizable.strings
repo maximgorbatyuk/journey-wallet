@@ -753,6 +753,22 @@
 "place.form.validation.error" = "Ошибка валидации";
 "place.form.validation.name_required" = "Пожалуйста, введите название места.";
 
+/* Place Detail */
+"place.detail.title" = "Детали места";
+"place.detail.category" = "Категория";
+"place.detail.address" = "Адрес";
+"place.detail.planned_date" = "Запланированная дата";
+"place.detail.url" = "Ссылка";
+"place.detail.notes" = "Заметки";
+"place.detail.delete_confirm.title" = "Удалить место?";
+"place.detail.delete_confirm.message" = "Это место будет удалено безвозвратно.";
+"place.detail.action.map" = "Открыть в Картах";
+"place.detail.action.open_link" = "Открыть ссылку";
+
+/* Place Status */
+"place.status.visited" = "Посещено";
+"place.status.not_visited" = "К посещению";
+
 /* Budget Management */
 "budget.title" = "Бюджет";
 "budget.total_spent" = "Всего потрачено";

@@ -747,6 +747,22 @@
 "place.form.validation.error" = "Validation Error";
 "place.form.validation.name_required" = "Please enter a place name.";
 
+/* Place Detail */
+"place.detail.title" = "Place Details";
+"place.detail.category" = "Category";
+"place.detail.address" = "Address";
+"place.detail.planned_date" = "Planned Date";
+"place.detail.url" = "Link";
+"place.detail.notes" = "Notes";
+"place.detail.delete_confirm.title" = "Delete Place?";
+"place.detail.delete_confirm.message" = "This will permanently delete this place.";
+"place.detail.action.map" = "Open in Maps";
+"place.detail.action.open_link" = "Open Link";
+
+/* Place Status */
+"place.status.visited" = "Visited";
+"place.status.not_visited" = "To Visit";
+
 /* Budget Management */
 "budget.title" = "Budget";
 "budget.total_spent" = "Total Spent";
