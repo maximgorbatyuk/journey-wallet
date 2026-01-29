@@ -27,6 +27,23 @@
 "Retry" = "Қайтала";
 "OK" = "ОК";
 
+/* Move to Journey */
+"common.move_to_journey" = "Сапарға жылжыту";
+"move_to_journey.title" = "Сапарға жылжыту";
+"move_to_journey.select_journey" = "Мақсатты сапарды таңдаңыз";
+"move_to_journey.move" = "Жылжыту";
+"move_to_journey.no_other_journeys" = "Басқа сапарлар жоқ";
+
+/* Entity Names */
+"hotel.entity_name" = "Қонақүй";
+"transport.entity_name" = "Көлік";
+"car_rental.entity_name" = "Көлік жалдау";
+"checklist.entity_name" = "Тексеру тізімі";
+"place.entity_name" = "Орын";
+"note.entity_name" = "Жазба";
+"expense.entity_name" = "Шығын";
+"document.entity_name" = "Құжат";
+
 /* Menu */
 "Stats" = "Статистика";
 "Settings" = "Параметрлер";

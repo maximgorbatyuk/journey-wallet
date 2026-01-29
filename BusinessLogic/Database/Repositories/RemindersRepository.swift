@@ -252,6 +252,21 @@ class RemindersRepository {
         }
     }
 
+    func updateJourneyId(id: UUID, newJourneyId: UUID) -> Bool {
+        let record = table.filter(idColumn == id.uuidString)
+
+        do {
+            try db.run(record.update(
+                journeyIdColumn <- newJourneyId.uuidString
+            ))
+            logger.info("Moved reminder \(id) to journey \(newJourneyId)")
+            return true
+        } catch {
+            logger.error("Failed to move reminder: \(error)")
+            return false
+        }
+    }
+
     func deleteByRelatedEntity(type: ReminderEntityType, entityId: UUID) -> Bool {
         let records = table.filter(
             relatedEntityTypeColumn == type.rawValue && relatedEntityIdColumn == entityId.uuidString

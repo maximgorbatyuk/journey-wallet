@@ -71,6 +71,9 @@ struct PlaceListView: View {
                 mode: .edit(place),
                 onSave: { updatedPlace in
                     viewModel.updatePlace(updatedPlace)
+                },
+                onMove: { newJourneyId in
+                    viewModel.moveToJourney(place: place, newJourneyId: newJourneyId)
                 }
             )
         }

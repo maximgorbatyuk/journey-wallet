@@ -11,6 +11,7 @@ struct CarRentalDetailView: View {
     @State private var showEditSheet: Bool = false
     @State private var showDeleteConfirmation: Bool = false
     @State private var showReminderSheet: Bool = false
+    @State private var showMoveSheet: Bool = false
     @State private var copiedBookingRef: Bool = false
 
     init(carRental: CarRental, journeyId: UUID) {
@@ -69,6 +70,12 @@ struct CarRentalDetailView: View {
                         Label(L("car_rental.detail.add_reminder"), systemImage: "bell.badge.fill")
                     }
 
+                    Button {
+                        showMoveSheet = true
+                    } label: {
+                        Label(L("common.move_to_journey"), systemImage: "folder")
+                    }
+
                     Divider()
 
                     Button(role: .destructive) {
@@ -95,6 +102,17 @@ struct CarRentalDetailView: View {
         }
         .sheet(isPresented: $showReminderSheet) {
             CarRentalReminderSheet(viewModel: viewModel)
+        }
+        .sheet(isPresented: $showMoveSheet) {
+            MoveToJourneySheet(
+                currentJourneyId: viewModel.journeyId,
+                entityName: L("car_rental.entity_name"),
+                onMove: { newJourneyId in
+                    if viewModel.moveToJourney(newJourneyId) {
+                        dismiss()
+                    }
+                }
+            )
         }
         .alert(L("car_rental.detail.delete_confirm.title"), isPresented: $showDeleteConfirmation) {
             Button(L("Cancel"), role: .cancel) {}

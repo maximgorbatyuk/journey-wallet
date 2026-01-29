@@ -27,6 +27,23 @@
 "Retry" = "Tekrar dene";
 "OK" = "Tamam";
 
+/* Move to Journey */
+"common.move_to_journey" = "Seyahate Taşı";
+"move_to_journey.title" = "Seyahate Taşı";
+"move_to_journey.select_journey" = "Hedef seyahati seçin";
+"move_to_journey.move" = "Taşı";
+"move_to_journey.no_other_journeys" = "Başka seyahat yok";
+
+/* Entity Names */
+"hotel.entity_name" = "Otel";
+"transport.entity_name" = "Ulaşım";
+"car_rental.entity_name" = "Araç Kiralama";
+"checklist.entity_name" = "Kontrol Listesi";
+"place.entity_name" = "Yer";
+"note.entity_name" = "Not";
+"expense.entity_name" = "Harcama";
+"document.entity_name" = "Belge";
+
 /* Menu */
 "Stats" = "İstatistikler";
 "Settings" = "Ayarlar";

@@ -199,6 +199,22 @@ class TransportsRepository {
         }
     }
 
+    func updateJourneyId(id: UUID, newJourneyId: UUID) -> Bool {
+        let record = table.filter(idColumn == id.uuidString)
+
+        do {
+            try db.run(record.update(
+                journeyIdColumn <- newJourneyId.uuidString,
+                updatedAtColumn <- Date()
+            ))
+            logger.info("Moved transport \(id) to journey \(newJourneyId)")
+            return true
+        } catch {
+            logger.error("Failed to move transport: \(error)")
+            return false
+        }
+    }
+
     func deleteAll() -> Bool {
         do {
             try db.run(table.delete())

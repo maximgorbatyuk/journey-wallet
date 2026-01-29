@@ -10,6 +10,8 @@ struct DocumentListView: View {
     @State private var selectedDocument: Document?
     @State private var showDeleteConfirmation = false
     @State private var documentToDelete: Document?
+    @State private var showMoveSheet = false
+    @State private var documentToMove: Document?
     @State private var hasOpenedInitialDocument = false
     @ObservedObject private var analytics = AnalyticsService.shared
 
@@ -87,6 +89,17 @@ struct DocumentListView: View {
             }
         } message: {
             Text(L("document.delete_confirm.message"))
+        }
+        .sheet(isPresented: $showMoveSheet) {
+            if let document = documentToMove {
+                MoveToJourneySheet(
+                    currentJourneyId: journeyId,
+                    entityName: L("document.entity_name"),
+                    onMove: { newJourneyId in
+                        _ = viewModel.moveToJourney(document: document, newJourneyId: newJourneyId)
+                    }
+                )
+            }
         }
     }
 
@@ -179,6 +192,14 @@ struct DocumentListView: View {
                         } label: {
                             Label(L("Delete"), systemImage: "trash")
                         }
+
+                        Button {
+                            documentToMove = document
+                            showMoveSheet = true
+                        } label: {
+                            Label(L("common.move_to_journey"), systemImage: "folder")
+                        }
+                        .tint(.orange)
                     }
             }
         }

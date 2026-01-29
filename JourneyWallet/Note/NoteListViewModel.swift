@@ -57,6 +57,16 @@ class NoteListViewModel {
         }
     }
 
+    func moveToJourney(note: Note, newJourneyId: UUID) -> Bool {
+        if notesRepository?.updateJourneyId(id: note.id, newJourneyId: newJourneyId) == true {
+            logger.info("Moved note \(note.id) to journey \(newJourneyId)")
+            loadData()
+            return true
+        }
+        logger.error("Failed to move note \(note.id) to journey \(newJourneyId)")
+        return false
+    }
+
     // MARK: - Computed Properties
 
     var totalCount: Int {

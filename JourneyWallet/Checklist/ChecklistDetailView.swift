@@ -5,6 +5,7 @@ struct ChecklistDetailView: View {
 
     @Environment(\.dismiss) private var dismiss
     @State private var viewModel: ChecklistDetailViewModel
+    @State private var showMoveSheet: Bool = false
     @ObservedObject private var analytics = AnalyticsService.shared
 
     init(checklist: Checklist, journeyId: UUID) {
@@ -61,6 +62,12 @@ struct ChecklistDetailView: View {
                         Label(L("checklist.items.move_completed"), systemImage: "arrow.down.to.line")
                     }
                     .disabled(!viewModel.hasCheckedItems)
+
+                    Button {
+                        showMoveSheet = true
+                    } label: {
+                        Label(L("common.move_to_journey"), systemImage: "folder")
+                    }
                 } label: {
                     Image(systemName: "ellipsis.circle")
                 }
@@ -86,6 +93,17 @@ struct ChecklistDetailView: View {
                 viewModel.updateItem(updated)
                 analytics.trackEvent("checklist_item_edited", properties: ["item_id": item.id.uuidString])
             }
+        }
+        .sheet(isPresented: $showMoveSheet) {
+            MoveToJourneySheet(
+                currentJourneyId: journeyId,
+                entityName: L("checklist.entity_name"),
+                onMove: { newJourneyId in
+                    if viewModel.moveToJourney(newJourneyId) {
+                        dismiss()
+                    }
+                }
+            )
         }
         .alert(
             L("checklist.items.move_completed.title"),

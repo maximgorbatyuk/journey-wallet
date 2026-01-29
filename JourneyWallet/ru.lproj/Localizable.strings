@@ -27,6 +27,23 @@
 "Retry" = "Повторить";
 "OK" = "ОК";
 
+/* Move to Journey */
+"common.move_to_journey" = "Переместить в поездку";
+"move_to_journey.title" = "Переместить в поездку";
+"move_to_journey.select_journey" = "Выберите поездку назначения";
+"move_to_journey.move" = "Переместить";
+"move_to_journey.no_other_journeys" = "Нет других поездок";
+
+/* Entity Names */
+"hotel.entity_name" = "Отель";
+"transport.entity_name" = "Транспорт";
+"car_rental.entity_name" = "Аренда авто";
+"checklist.entity_name" = "Чек-лист";
+"place.entity_name" = "Место";
+"note.entity_name" = "Заметка";
+"expense.entity_name" = "Расход";
+"document.entity_name" = "Документ";
+
 /* Menu */
 "Stats" = "Статистика";
 "Settings" = "Настройки";

@@ -27,6 +27,23 @@
 "Retry" = "Повторити";
 "OK" = "ОК";
 
+/* Move to Journey */
+"common.move_to_journey" = "Перемістити в подорож";
+"move_to_journey.title" = "Перемістити в подорож";
+"move_to_journey.select_journey" = "Виберіть подорож призначення";
+"move_to_journey.move" = "Перемістити";
+"move_to_journey.no_other_journeys" = "Немає інших подорожей";
+
+/* Entity Names */
+"hotel.entity_name" = "Готель";
+"transport.entity_name" = "Транспорт";
+"car_rental.entity_name" = "Оренда авто";
+"checklist.entity_name" = "Чек-лист";
+"place.entity_name" = "Місце";
+"note.entity_name" = "Нотатка";
+"expense.entity_name" = "Витрата";
+"document.entity_name" = "Документ";
+
 /* Menu */
 "Stats" = "Статистика";
 "Settings" = "Налаштування";

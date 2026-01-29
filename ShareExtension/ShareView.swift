@@ -39,6 +39,9 @@ struct ShareView: View {
             ProgressView()
         } else {
             Form {
+
+                journeySection
+                
                 if viewModel.isFileBased {
                     filesSection
                 } else {
@@ -46,8 +49,6 @@ struct ShareView: View {
                     entityTypeSection
                     entityFormSection
                 }
-
-                journeySection
 
                 if let error = viewModel.errorMessage {
                     errorSection(error)
