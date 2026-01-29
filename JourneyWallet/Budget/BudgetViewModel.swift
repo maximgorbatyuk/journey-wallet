@@ -107,6 +107,16 @@ class BudgetViewModel {
         }
     }
 
+    func moveToJourney(expense: Expense, newJourneyId: UUID) -> Bool {
+        if expensesRepository?.updateJourneyId(id: expense.id, newJourneyId: newJourneyId) == true {
+            logger.info("Moved expense \(expense.id) to journey \(newJourneyId)")
+            loadData()
+            return true
+        }
+        logger.error("Failed to move expense \(expense.id) to journey \(newJourneyId)")
+        return false
+    }
+
     // MARK: - Computed Properties
 
     var totalCount: Int {

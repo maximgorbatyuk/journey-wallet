@@ -20,6 +20,7 @@ struct PlaceFormView: View {
     let journeyId: UUID
     let mode: PlaceFormMode
     let onSave: (PlaceToVisit) -> Void
+    let onMove: ((UUID) -> Bool)?
 
     @Environment(\.dismiss) private var dismiss
     @ObservedObject private var analytics = AnalyticsService.shared
@@ -38,6 +39,16 @@ struct PlaceFormView: View {
     @State private var showValidationError: Bool = false
     @State private var validationMessage: String = ""
 
+    // Move sheet
+    @State private var showMoveSheet: Bool = false
+
+    init(journeyId: UUID, mode: PlaceFormMode, onSave: @escaping (PlaceToVisit) -> Void, onMove: ((UUID) -> Bool)? = nil) {
+        self.journeyId = journeyId
+        self.mode = mode
+        self.onSave = onSave
+        self.onMove = onMove
+    }
+
     var body: some View {
         NavigationView {
             Form {
@@ -46,6 +57,10 @@ struct PlaceFormView: View {
                 categorySection
                 dateSection
                 notesSection
+
+                if mode.isEditing, onMove != nil {
+                    moveSection
+                }
             }
             .navigationTitle(mode.isEditing ? L("place.form.edit_title") : L("place.form.add_title"))
             .navigationBarTitleDisplayMode(.inline)
@@ -71,6 +86,29 @@ struct PlaceFormView: View {
                 Button(L("OK"), role: .cancel) {}
             } message: {
                 Text(validationMessage)
+            }
+            .sheet(isPresented: $showMoveSheet) {
+                MoveToJourneySheet(
+                    currentJourneyId: journeyId,
+                    entityName: L("place.entity_name"),
+                    onMove: { newJourneyId in
+                        if onMove?(newJourneyId) == true {
+                            dismiss()
+                        }
+                    }
+                )
+            }
+        }
+    }
+
+    // MARK: - Move Section
+
+    private var moveSection: some View {
+        Section {
+            Button {
+                showMoveSheet = true
+            } label: {
+                Label(L("common.move_to_journey"), systemImage: "folder")
             }
         }
     }
@@ -287,6 +325,7 @@ struct PlaceFormView: View {
     PlaceFormView(
         journeyId: UUID(),
         mode: .add,
-        onSave: { _ in }
+        onSave: { _ in },
+        onMove: nil
     )
 }

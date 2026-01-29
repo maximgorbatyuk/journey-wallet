@@ -213,6 +213,21 @@ class PlacesToVisitRepository {
         }
     }
 
+    func updateJourneyId(id: UUID, newJourneyId: UUID) -> Bool {
+        let record = table.filter(idColumn == id.uuidString)
+
+        do {
+            try db.run(record.update(
+                journeyIdColumn <- newJourneyId.uuidString
+            ))
+            logger.info("Moved place \(id) to journey \(newJourneyId)")
+            return true
+        } catch {
+            logger.error("Failed to move place: \(error)")
+            return false
+        }
+    }
+
     func deleteAll() -> Bool {
         do {
             try db.run(table.delete())

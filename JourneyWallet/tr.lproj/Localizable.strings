@@ -27,6 +27,23 @@
 "Retry" = "Tekrar dene";
 "OK" = "Tamam";
 
+/* Move to Journey */
+"common.move_to_journey" = "Seyahate Taşı";
+"move_to_journey.title" = "Seyahate Taşı";
+"move_to_journey.select_journey" = "Hedef seyahati seçin";
+"move_to_journey.move" = "Taşı";
+"move_to_journey.no_other_journeys" = "Başka seyahat yok";
+
+/* Entity Names */
+"hotel.entity_name" = "Otel";
+"transport.entity_name" = "Ulaşım";
+"car_rental.entity_name" = "Araç Kiralama";
+"checklist.entity_name" = "Kontrol Listesi";
+"place.entity_name" = "Yer";
+"note.entity_name" = "Not";
+"expense.entity_name" = "Harcama";
+"document.entity_name" = "Belge";
+
 /* Menu */
 "Stats" = "İstatistikler";
 "Settings" = "Ayarlar";
@@ -735,6 +752,23 @@
 "place.form.planned_date" = "Planlanan tarih";
 "place.form.validation.error" = "Doğrulama Hatası";
 "place.form.validation.name_required" = "Lütfen bir yer adı girin.";
+
+/* Place Detail */
+"place.detail.title" = "Yer Detayları";
+"place.detail.category" = "Kategori";
+"place.detail.address" = "Adres";
+"place.detail.planned_date" = "Planlanan Tarih";
+"place.detail.url" = "Bağlantı";
+"place.detail.notes" = "Notlar";
+"place.detail.delete_confirm.title" = "Yer silinsin mi?";
+"place.detail.delete_confirm.message" = "Bu yer kalıcı olarak silinecek.";
+"place.detail.action.map" = "Haritada Aç";
+"place.detail.action.open_address_link" = "Harita Bağlantısını Aç";
+"place.detail.action.open_link" = "Bağlantıyı Aç";
+
+/* Place Status */
+"place.status.visited" = "Ziyaret Edildi";
+"place.status.not_visited" = "Ziyaret Edilecek";
 
 /* Budget Management */
 "budget.title" = "Bütçe";

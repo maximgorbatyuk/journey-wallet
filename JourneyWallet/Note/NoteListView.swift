@@ -66,6 +66,9 @@ struct NoteListView: View {
                 mode: .edit(note),
                 onSave: { updatedNote in
                     viewModel.updateNote(updatedNote)
+                },
+                onMove: { newJourneyId in
+                    viewModel.moveToJourney(note: note, newJourneyId: newJourneyId)
                 }
             )
         }

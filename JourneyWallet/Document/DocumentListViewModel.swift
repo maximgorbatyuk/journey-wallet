@@ -117,6 +117,14 @@ class DocumentListViewModel {
         return false
     }
 
+    func moveToJourney(document: Document, newJourneyId: UUID) -> Bool {
+        if documentsRepository?.updateJourneyId(id: document.id, newJourneyId: newJourneyId) == true {
+            loadDocuments()
+            return true
+        }
+        return false
+    }
+
     // MARK: - File Access
 
     func getDocumentURL(_ document: Document) -> URL {

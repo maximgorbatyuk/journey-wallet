@@ -75,6 +75,27 @@ class CarRentalDetailViewModel {
         }
     }
 
+    func moveToJourney(_ newJourneyId: UUID) -> Bool {
+        // Move the main entity
+        guard carRentalsRepository?.updateJourneyId(id: carRental.id, newJourneyId: newJourneyId) == true else {
+            logger.error("Failed to move car rental to new journey")
+            return false
+        }
+
+        // Move associated reminders
+        moveRemindersToJourney(newJourneyId)
+
+        logger.info("Moved car rental \(self.carRental.id) to journey \(newJourneyId)")
+        return true
+    }
+
+    private func moveRemindersToJourney(_ newJourneyId: UUID) {
+        let reminders = remindersRepository?.fetchByJourneyId(journeyId: journeyId) ?? []
+        for reminder in reminders where reminder.relatedEntityId == carRental.id {
+            _ = remindersRepository?.updateJourneyId(id: reminder.id, newJourneyId: newJourneyId)
+        }
+    }
+
     // MARK: - Private Methods
 
     private func deleteRemindersForCarRental() {

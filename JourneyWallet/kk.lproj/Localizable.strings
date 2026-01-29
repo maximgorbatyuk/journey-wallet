@@ -27,6 +27,23 @@
 "Retry" = "Қайтала";
 "OK" = "ОК";
 
+/* Move to Journey */
+"common.move_to_journey" = "Сапарға жылжыту";
+"move_to_journey.title" = "Сапарға жылжыту";
+"move_to_journey.select_journey" = "Мақсатты сапарды таңдаңыз";
+"move_to_journey.move" = "Жылжыту";
+"move_to_journey.no_other_journeys" = "Басқа сапарлар жоқ";
+
+/* Entity Names */
+"hotel.entity_name" = "Қонақүй";
+"transport.entity_name" = "Көлік";
+"car_rental.entity_name" = "Көлік жалдау";
+"checklist.entity_name" = "Тексеру тізімі";
+"place.entity_name" = "Орын";
+"note.entity_name" = "Жазба";
+"expense.entity_name" = "Шығын";
+"document.entity_name" = "Құжат";
+
 /* Menu */
 "Stats" = "Статистика";
 "Settings" = "Параметрлер";
@@ -739,6 +756,23 @@
 "place.form.planned_date" = "Жоспарланған күн";
 "place.form.validation.error" = "Тексеру қатесі";
 "place.form.validation.name_required" = "Орын атын енгізіңіз.";
+
+/* Place Detail */
+"place.detail.title" = "Орын мәліметтері";
+"place.detail.category" = "Санат";
+"place.detail.address" = "Мекенжай";
+"place.detail.planned_date" = "Жоспарланған күн";
+"place.detail.url" = "Сілтеме";
+"place.detail.notes" = "Жазбалар";
+"place.detail.delete_confirm.title" = "Орынды жою керек пе?";
+"place.detail.delete_confirm.message" = "Бұл орын біржола жойылады.";
+"place.detail.action.map" = "Картада ашу";
+"place.detail.action.open_address_link" = "Карта сілтемесін ашу";
+"place.detail.action.open_link" = "Сілтемені ашу";
+
+/* Place Status */
+"place.status.visited" = "Барылды";
+"place.status.not_visited" = "Бару керек";
 
 /* Budget Management */
 "budget.title" = "Бюджет";
