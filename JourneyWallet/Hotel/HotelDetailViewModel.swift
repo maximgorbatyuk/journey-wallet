@@ -75,6 +75,27 @@ class HotelDetailViewModel {
         }
     }
 
+    func moveToJourney(_ newJourneyId: UUID) -> Bool {
+        // Move the main entity
+        guard hotelsRepository?.updateJourneyId(id: hotel.id, newJourneyId: newJourneyId) == true else {
+            logger.error("Failed to move hotel to new journey")
+            return false
+        }
+
+        // Move associated reminders
+        moveRemindersToJourney(newJourneyId)
+
+        logger.info("Moved hotel \(self.hotel.id) to journey \(newJourneyId)")
+        return true
+    }
+
+    private func moveRemindersToJourney(_ newJourneyId: UUID) {
+        let reminders = remindersRepository?.fetchByJourneyId(journeyId: journeyId) ?? []
+        for reminder in reminders where reminder.relatedEntityId == hotel.id {
+            _ = remindersRepository?.updateJourneyId(id: reminder.id, newJourneyId: newJourneyId)
+        }
+    }
+
     // MARK: - Private Methods
 
     private func deleteRemindersForHotel() {

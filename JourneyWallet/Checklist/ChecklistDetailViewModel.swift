@@ -116,6 +116,17 @@ class ChecklistDetailViewModel {
         return false
     }
 
+    func moveToJourney(_ newJourneyId: UUID) -> Bool {
+        // Move the checklist (items follow via checklistId, no need to move separately)
+        guard checklistsRepository?.updateJourneyId(id: checklist.id, newJourneyId: newJourneyId) == true else {
+            logger.error("Failed to move checklist to new journey")
+            return false
+        }
+
+        logger.info("Moved checklist \(self.checklist.id) to journey \(newJourneyId)")
+        return true
+    }
+
     func moveItem(from source: IndexSet, to destination: Int) {
         var updatedItems = items
         updatedItems.move(fromOffsets: source, toOffset: destination)

@@ -27,6 +27,23 @@
 "Retry" = "Retry";
 "OK" = "OK";
 
+/* Move to Journey */
+"common.move_to_journey" = "Move to Journey";
+"move_to_journey.title" = "Move to Journey";
+"move_to_journey.select_journey" = "Select destination journey";
+"move_to_journey.move" = "Move";
+"move_to_journey.no_other_journeys" = "No other journeys available";
+
+/* Entity Names */
+"hotel.entity_name" = "Hotel";
+"transport.entity_name" = "Transport";
+"car_rental.entity_name" = "Car Rental";
+"checklist.entity_name" = "Checklist";
+"place.entity_name" = "Place";
+"note.entity_name" = "Note";
+"expense.entity_name" = "Expense";
+"document.entity_name" = "Document";
+
 /* Menu */
 "Stats" = "Stats";
 "Settings" = "Settings";
@@ -729,6 +746,23 @@
 "place.form.planned_date" = "Planned date";
 "place.form.validation.error" = "Validation Error";
 "place.form.validation.name_required" = "Please enter a place name.";
+
+/* Place Detail */
+"place.detail.title" = "Place Details";
+"place.detail.category" = "Category";
+"place.detail.address" = "Address";
+"place.detail.planned_date" = "Planned Date";
+"place.detail.url" = "Link";
+"place.detail.notes" = "Notes";
+"place.detail.delete_confirm.title" = "Delete Place?";
+"place.detail.delete_confirm.message" = "This will permanently delete this place.";
+"place.detail.action.map" = "Open in Maps";
+"place.detail.action.open_address_link" = "Open Map Link";
+"place.detail.action.open_link" = "Open Link";
+
+/* Place Status */
+"place.status.visited" = "Visited";
+"place.status.not_visited" = "To Visit";
 
 /* Budget Management */
 "budget.title" = "Budget";

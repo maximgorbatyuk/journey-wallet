@@ -24,6 +24,20 @@
 - Clickable link icon opens URL in browser when valid
 - Separate from address field for better organization
 
+### Checklists
+- Create multiple checklists per journey (e.g., "Packing", "Documents", "Before Departure")
+- Add unlimited items to each checklist with tap-to-check functionality
+- Track progress with visual progress bars showing completion percentage
+- Filter items by status: All, Pending, or Completed
+- "Move completed to end" action to organize checked items at the bottom
+- Last modified timestamp shown on checklist rows ("Today", "Yesterday", "N days ago")
+- Last modified timestamp shown on checked items only
+- Reorder checklists and items via drag-and-drop
+- Floating teal "Add" button for quick item creation
+- Add checklists from "Add to journey" quick menu
+- Checklists section displayed first on Journey Detail page
+- Full localization in all 6 languages (EN, RU, DE, UK, TR, KK)
+
 ### Color Scheme Selector
 - Choose between Dark, Light, or System appearance mode
 - System mode follows device settings automatically
@@ -91,9 +105,26 @@
 - `JourneyWallet/Journeys/JourneyStatsViewModel.swift` - Journey statistics view model
 - `docs/plans/SHARE_EXTENSION_PLAN.md` - Share Extension documentation
 - `docs/plans/SHARE_TEXT_EXTENSION_PLAN.md` - Text/Link sharing documentation
+- `BusinessLogic/Models/Checklist.swift` - Checklist data model
+- `BusinessLogic/Models/ChecklistItem.swift` - Checklist item data model
+- `BusinessLogic/Database/Repositories/ChecklistsRepository.swift` - Checklist CRUD operations
+- `BusinessLogic/Database/Repositories/ChecklistItemsRepository.swift` - Checklist item CRUD operations
+- `BusinessLogic/Database/Migrations/Migration_20260124_Checklists.swift` - Checklist tables migration
+- `JourneyWallet/Checklist/ChecklistsListView.swift` - Checklists list view
+- `JourneyWallet/Checklist/ChecklistsListViewModel.swift` - Checklists list view model
+- `JourneyWallet/Checklist/ChecklistRow.swift` - Checklist row component
+- `JourneyWallet/Checklist/ChecklistFormView.swift` - Add/Edit checklist form
+- `JourneyWallet/Checklist/ChecklistDetailView.swift` - Checklist detail with items
+- `JourneyWallet/Checklist/ChecklistDetailViewModel.swift` - Checklist detail view model
+- `JourneyWallet/Checklist/ChecklistItemRow.swift` - Checklist item row component
+- `JourneyWallet/Checklist/ChecklistItemFormView.swift` - Add/Edit item form
+- `JourneyWallet/Checklist/ChecklistItemFilter.swift` - Item filter enum
+- `JourneyWallet/JourneyDetail/QuickAddEntityType.swift` - Added checklist case
+- `IMPLEMENTATION_PLAN_CHECKLISTS.md` - Checklist feature implementation plan
 
 ### Database
 - Migration 6: Added `url` column to `places_to_visit` table
+- Migration 7: Added `checklists` and `checklist_items` tables with foreign key indices
 
 ### Configuration
 - Added `APP_GROUP_IDENTIFIER` to xcconfig files

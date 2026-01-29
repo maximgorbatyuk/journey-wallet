@@ -39,6 +39,9 @@ struct ShareView: View {
             ProgressView()
         } else {
             Form {
+
+                journeySection
+                
                 if viewModel.isFileBased {
                     filesSection
                 } else {
@@ -46,8 +49,6 @@ struct ShareView: View {
                     entityTypeSection
                     entityFormSection
                 }
-
-                journeySection
 
                 if let error = viewModel.errorMessage {
                     errorSection(error)
@@ -112,21 +113,15 @@ struct ShareView: View {
 
     private var entityTypeSection: some View {
         Section(header: Text(L("share.entity_type.title"))) {
-            LazyVGrid(columns: [
-                GridItem(.flexible()),
-                GridItem(.flexible()),
-                GridItem(.flexible())
-            ], spacing: 12) {
+            Picker(selection: $viewModel.selectedEntityType) {
                 ForEach(ShareEntityType.allCases) { entityType in
-                    EntityTypeButton(
-                        entityType: entityType,
-                        isSelected: viewModel.selectedEntityType == entityType
-                    ) {
-                        viewModel.selectedEntityType = entityType
-                    }
+                    Label(entityType.title, systemImage: entityType.icon)
+                        .tag(entityType)
                 }
+            } label: {
+                Label(viewModel.selectedEntityType.title, systemImage: viewModel.selectedEntityType.icon)
             }
-            .padding(.vertical, 8)
+            .pickerStyle(.menu)
         }
     }
 
@@ -192,14 +187,37 @@ struct ShareView: View {
             if viewModel.journeys.isEmpty {
                 noJourneysView
             } else {
-                Picker(L("share.journey_section"), selection: $viewModel.selectedJourneyId) {
+                Picker(selection: $viewModel.selectedJourneyId) {
                     ForEach(viewModel.journeys) { journey in
-                        journeyRow(journey)
+                        journeyPickerRow(journey)
                             .tag(journey.id as UUID?)
                     }
+                } label: {
+                    if let selectedId = viewModel.selectedJourneyId,
+                       let journey = viewModel.journeys.first(where: { $0.id == selectedId }) {
+                        journeyLabelRow(journey)
+                    } else {
+                        Text(L("Select"))
+                    }
                 }
-                .pickerStyle(.inline)
-                .labelsHidden()
+                .pickerStyle(.menu)
+            }
+        }
+    }
+
+    private func journeyPickerRow(_ journey: Journey) -> some View {
+        HStack {
+            Text(journey.name)
+        }
+    }
+
+    private func journeyLabelRow(_ journey: Journey) -> some View {
+        HStack {
+            Image(systemName: journey.isActive ? "suitcase.fill" : "suitcase")
+                .foregroundColor(.orange)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(journey.name)
+                    .font(.body)
             }
         }
     }
@@ -221,33 +239,6 @@ struct ShareView: View {
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 20)
-    }
-
-    private func journeyRow(_ journey: Journey) -> some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 2) {
-                Text(journey.name)
-                    .font(.body)
-
-                if !journey.destination.isEmpty {
-                    Text(journey.destination)
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                }
-            }
-
-            Spacer()
-
-            if journey.isActive {
-                Text(L("Active"))
-                    .font(.caption)
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 2)
-                    .background(Color.green)
-                    .cornerRadius(4)
-            }
-        }
     }
 
     // MARK: - Error & Saving
@@ -303,34 +294,5 @@ struct ShareView: View {
             .font(.title2)
             .foregroundColor(color)
             .frame(width: 32)
-    }
-}
-
-// MARK: - Entity Type Button
-
-struct EntityTypeButton: View {
-    let entityType: ShareEntityType
-    let isSelected: Bool
-    let action: () -> Void
-
-    var body: some View {
-        Button(action: action) {
-            VStack(spacing: 6) {
-                Image(systemName: entityType.icon)
-                    .font(.system(size: 24))
-                    .foregroundColor(isSelected ? .white : .primary)
-
-                Text(entityType.title)
-                    .font(.caption)
-                    .foregroundColor(isSelected ? .white : .primary)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.8)
-            }
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 12)
-            .background(isSelected ? Color.blue : Color.secondary.opacity(0.1))
-            .cornerRadius(10)
-        }
-        .buttonStyle(.plain)
     }
 }

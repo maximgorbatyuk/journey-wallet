@@ -80,6 +80,9 @@ struct BudgetView: View {
                 defaultCurrency: expense.currency,
                 onSave: { updatedExpense in
                     viewModel.updateExpense(updatedExpense)
+                },
+                onMove: { newJourneyId in
+                    viewModel.moveToJourney(expense: expense, newJourneyId: newJourneyId)
                 }
             )
         }

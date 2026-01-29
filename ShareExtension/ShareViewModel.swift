@@ -108,7 +108,7 @@ class ShareViewModel: ObservableObject {
             self.sharedURL = url
             self.sharedText = url.absoluteString
             self.selectedEntityType = ContentAnalyzer.suggestEntityType(for: url.absoluteString)
-            self.entityTitle = title ?? url.host ?? ""
+            self.entityTitle = title ?? ""
             self.entityNotes = url.absoluteString
 
         case .urlWithText(let url, let text):

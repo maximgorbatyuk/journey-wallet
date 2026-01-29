@@ -20,6 +20,7 @@ struct NoteFormView: View {
     let journeyId: UUID
     let mode: NoteFormMode
     let onSave: (Note) -> Void
+    let onMove: ((UUID) -> Bool)?
 
     @Environment(\.dismiss) private var dismiss
     @ObservedObject private var analytics = AnalyticsService.shared
@@ -31,6 +32,16 @@ struct NoteFormView: View {
     // Validation
     @State private var showValidationError: Bool = false
     @State private var validationMessage: String = ""
+
+    // Move sheet
+    @State private var showMoveSheet: Bool = false
+
+    init(journeyId: UUID, mode: NoteFormMode, onSave: @escaping (Note) -> Void, onMove: ((UUID) -> Bool)? = nil) {
+        self.journeyId = journeyId
+        self.mode = mode
+        self.onSave = onSave
+        self.onMove = onMove
+    }
 
     var body: some View {
         NavigationView {
@@ -48,6 +59,16 @@ struct NoteFormView: View {
                         .frame(minHeight: 200)
                 } header: {
                     Text(L("note.form.section.content"))
+                }
+
+                if mode.isEditing, onMove != nil {
+                    Section {
+                        Button {
+                            showMoveSheet = true
+                        } label: {
+                            Label(L("common.move_to_journey"), systemImage: "folder")
+                        }
+                    }
                 }
             }
             .navigationTitle(mode.isEditing ? L("note.form.edit_title") : L("note.form.add_title"))
@@ -74,6 +95,17 @@ struct NoteFormView: View {
                 Button(L("OK"), role: .cancel) {}
             } message: {
                 Text(validationMessage)
+            }
+            .sheet(isPresented: $showMoveSheet) {
+                MoveToJourneySheet(
+                    currentJourneyId: journeyId,
+                    entityName: L("note.entity_name"),
+                    onMove: { newJourneyId in
+                        if onMove?(newJourneyId) == true {
+                            dismiss()
+                        }
+                    }
+                )
             }
         }
     }
@@ -130,6 +162,7 @@ struct NoteFormView: View {
     NoteFormView(
         journeyId: UUID(),
         mode: .add,
-        onSave: { _ in }
+        onSave: { _ in },
+        onMove: nil
     )
 }

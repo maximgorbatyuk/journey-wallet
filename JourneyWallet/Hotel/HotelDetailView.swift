@@ -11,6 +11,7 @@ struct HotelDetailView: View {
     @State private var showEditSheet: Bool = false
     @State private var showDeleteConfirmation: Bool = false
     @State private var showReminderSheet: Bool = false
+    @State private var showMoveSheet: Bool = false
     @State private var copiedBookingRef: Bool = false
 
     init(hotel: Hotel, journeyId: UUID) {
@@ -67,6 +68,12 @@ struct HotelDetailView: View {
                         Label(L("hotel.detail.add_reminder"), systemImage: "bell.badge.fill")
                     }
 
+                    Button {
+                        showMoveSheet = true
+                    } label: {
+                        Label(L("common.move_to_journey"), systemImage: "folder")
+                    }
+
                     Divider()
 
                     Button(role: .destructive) {
@@ -93,6 +100,17 @@ struct HotelDetailView: View {
         }
         .sheet(isPresented: $showReminderSheet) {
             HotelReminderSheet(viewModel: viewModel)
+        }
+        .sheet(isPresented: $showMoveSheet) {
+            MoveToJourneySheet(
+                currentJourneyId: viewModel.journeyId,
+                entityName: L("hotel.entity_name"),
+                onMove: { newJourneyId in
+                    if viewModel.moveToJourney(newJourneyId) {
+                        dismiss()
+                    }
+                }
+            )
         }
         .alert(L("hotel.detail.delete_confirm.title"), isPresented: $showDeleteConfirmation) {
             Button(L("Cancel"), role: .cancel) {}

@@ -115,6 +115,16 @@ class PlaceListViewModel {
         }
     }
 
+    func moveToJourney(place: PlaceToVisit, newJourneyId: UUID) -> Bool {
+        if placesRepository?.updateJourneyId(id: place.id, newJourneyId: newJourneyId) == true {
+            logger.info("Moved place \(place.id) to journey \(newJourneyId)")
+            loadData()
+            return true
+        }
+        logger.error("Failed to move place \(place.id) to journey \(newJourneyId)")
+        return false
+    }
+
     // MARK: - Computed Properties
 
     var totalCount: Int {

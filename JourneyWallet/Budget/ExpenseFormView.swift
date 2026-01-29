@@ -21,6 +21,7 @@ struct ExpenseFormView: View {
     let mode: ExpenseFormMode
     let defaultCurrency: Currency
     let onSave: (Expense) -> Void
+    let onMove: ((UUID) -> Bool)?
 
     @Environment(\.dismiss) private var dismiss
     @ObservedObject private var analytics = AnalyticsService.shared
@@ -37,11 +38,15 @@ struct ExpenseFormView: View {
     @State private var showValidationError: Bool = false
     @State private var validationMessage: String = ""
 
-    init(journeyId: UUID, mode: ExpenseFormMode, defaultCurrency: Currency, onSave: @escaping (Expense) -> Void) {
+    // Move sheet
+    @State private var showMoveSheet: Bool = false
+
+    init(journeyId: UUID, mode: ExpenseFormMode, defaultCurrency: Currency, onSave: @escaping (Expense) -> Void, onMove: ((UUID) -> Bool)? = nil) {
         self.journeyId = journeyId
         self.mode = mode
         self.defaultCurrency = defaultCurrency
         self.onSave = onSave
+        self.onMove = onMove
 
         // Initialize currency from existing expense if editing, otherwise use default
         if case .edit(let expense) = mode {
@@ -59,6 +64,16 @@ struct ExpenseFormView: View {
                 categorySection
                 dateSection
                 notesSection
+
+                if mode.isEditing, onMove != nil {
+                    Section {
+                        Button {
+                            showMoveSheet = true
+                        } label: {
+                            Label(L("common.move_to_journey"), systemImage: "folder")
+                        }
+                    }
+                }
             }
             .navigationTitle(mode.isEditing ? L("expense.form.edit_title") : L("expense.form.add_title"))
             .navigationBarTitleDisplayMode(.inline)
@@ -84,6 +99,17 @@ struct ExpenseFormView: View {
                 Button(L("OK"), role: .cancel) {}
             } message: {
                 Text(validationMessage)
+            }
+            .sheet(isPresented: $showMoveSheet) {
+                MoveToJourneySheet(
+                    currentJourneyId: journeyId,
+                    entityName: L("expense.entity_name"),
+                    onMove: { newJourneyId in
+                        if onMove?(newJourneyId) == true {
+                            dismiss()
+                        }
+                    }
+                )
             }
         }
     }
@@ -224,6 +250,7 @@ struct ExpenseFormView: View {
         journeyId: UUID(),
         mode: .add,
         defaultCurrency: .usd,
-        onSave: { _ in }
+        onSave: { _ in },
+        onMove: nil
     )
 }

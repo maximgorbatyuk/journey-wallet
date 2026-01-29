@@ -71,6 +71,9 @@ struct PlaceListView: View {
                 mode: .edit(place),
                 onSave: { updatedPlace in
                     viewModel.updatePlace(updatedPlace)
+                },
+                onMove: { newJourneyId in
+                    viewModel.moveToJourney(place: place, newJourneyId: newJourneyId)
                 }
             )
         }
@@ -145,15 +148,13 @@ struct PlaceListView: View {
     private var placeList: some View {
         List {
             ForEach(viewModel.filteredPlaces) { place in
-                PlaceListRow(
-                    place: place,
-                    onToggleVisited: {
-                        viewModel.toggleVisited(place)
-                    }
-                )
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    viewModel.placeToEdit = place
+                NavigationLink(destination: PlaceDetailView(place: place, journeyId: journeyId)) {
+                    PlaceListRow(
+                        place: place,
+                        onToggleVisited: {
+                            viewModel.toggleVisited(place)
+                        }
+                    )
                 }
                 .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                     Button(role: .destructive) {
@@ -333,10 +334,6 @@ struct PlaceListRow: View {
             }
 
             Spacer()
-
-            Image(systemName: "chevron.right")
-                .font(.caption)
-                .foregroundColor(.secondary)
         }
         .padding(.vertical, 4)
         .opacity(place.isVisited ? 0.7 : 1.0)

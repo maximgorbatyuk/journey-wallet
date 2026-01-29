@@ -8,8 +8,8 @@ final class BackgroundTaskManager: ObservableObject {
 
     // MARK: - Constants
 
-    /// Background task identifier - must match Info.plist
-    static let dailyBackupTaskIdentifier = "com.awesomeapplication.daily-backup"
+    /// Background task identifier - must match Info.plist BGTaskSchedulerPermittedIdentifiers
+    static let dailyBackupTaskIdentifier = "dev.mgorbatyuk.journeywallet.daily-backup"
 
     /// UserDefaults keys
     private enum UserDefaultsKey {
@@ -23,7 +23,7 @@ final class BackgroundTaskManager: ObservableObject {
 
     static let shared = BackgroundTaskManager()
 
-    private let logger = Logger(subsystem: "com.awesomeapplication", category: "BackgroundTaskManager")
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "dev.mgorbatyuk.journeywallet", category: "BackgroundTaskManager")
     private let backupService: BackupService
 
     @Published var isAutomaticBackupEnabled: Bool {
