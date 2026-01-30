@@ -7,6 +7,7 @@ enum ShareEntityType: String, CaseIterable, Identifiable {
     case carRental
     case note
     case place
+    case idea
 
     var id: String { rawValue }
 
@@ -17,6 +18,7 @@ enum ShareEntityType: String, CaseIterable, Identifiable {
         case .carRental: return "car.fill"
         case .note: return "note.text"
         case .place: return "mappin.circle.fill"
+        case .idea: return "lightbulb.fill"
         }
     }
 
@@ -27,6 +29,7 @@ enum ShareEntityType: String, CaseIterable, Identifiable {
         case .carRental: return L("share.entity_type.car_rental")
         case .note: return L("share.entity_type.note")
         case .place: return L("share.entity_type.place")
+        case .idea: return L("share.entity_type.idea")
         }
     }
 }
