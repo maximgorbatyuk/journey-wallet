@@ -231,9 +231,9 @@ struct IdeaDetailView: View {
     // MARK: - Actions Section
 
     private var actionsSection: some View {
-        HStack(spacing: 0) {
+        CompactActionBar {
             // Mark as Done button
-            compactActionButton(
+            CompactActionButton(
                 icon: viewModel.idea.isDone ? "circle" : "checkmark.circle.fill",
                 label: viewModel.idea.isDone ? L("idea.action.undo") : L("idea.action.done"),
                 color: viewModel.idea.isDone ? .gray : .green
@@ -247,7 +247,7 @@ struct IdeaDetailView: View {
 
             // Open URL button (if URL exists)
             if let url = viewModel.idea.url, !url.isEmpty {
-                compactActionButton(
+                CompactActionButton(
                     icon: "link",
                     label: L("idea.action.open"),
                     color: .blue
@@ -258,7 +258,7 @@ struct IdeaDetailView: View {
             }
 
             // Share button
-            compactActionButton(
+            CompactActionButton(
                 icon: "square.and.arrow.up",
                 label: L("idea.action.share_short"),
                 color: .orange
@@ -267,32 +267,7 @@ struct IdeaDetailView: View {
                 analytics.trackEvent("idea_shared", properties: ["idea_id": viewModel.idea.id.uuidString])
             }
         }
-        .padding()
-        .background(Color(.systemBackground))
-        .cornerRadius(12)
         .padding(.top, 8)
-    }
-
-    private func compactActionButton(
-        icon: String,
-        label: String,
-        color: Color,
-        action: @escaping () -> Void
-    ) -> some View {
-        Button(action: action) {
-            VStack(spacing: 6) {
-                Image(systemName: icon)
-                    .font(.system(size: 24))
-                    .foregroundColor(color)
-
-                Text(label)
-                    .font(.caption2)
-                    .foregroundColor(.secondary)
-            }
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 8)
-        }
-        .buttonStyle(.plain)
     }
 
     // MARK: - Timestamps Section

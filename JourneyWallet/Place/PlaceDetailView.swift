@@ -360,9 +360,9 @@ struct PlaceDetailView: View {
     // MARK: - Actions Section
 
     private var actionsSection: some View {
-        HStack(spacing: 0) {
+        CompactActionBar {
             // Mark as Visited button
-            compactActionButton(
+            CompactActionButton(
                 icon: viewModel.place.isVisited ? "xmark.circle" : "checkmark.circle.fill",
                 label: viewModel.place.isVisited ? L("place.action.undo") : L("place.action.visited"),
                 color: viewModel.place.isVisited ? .gray : .green
@@ -376,7 +376,7 @@ struct PlaceDetailView: View {
 
             // Open Map / URL button (address or URL)
             if let address = viewModel.place.address, !address.isEmpty {
-                compactActionButton(
+                CompactActionButton(
                     icon: "map.fill",
                     label: L("place.action.map"),
                     color: .blue
@@ -388,7 +388,7 @@ struct PlaceDetailView: View {
                     }
                 }
             } else if let url = viewModel.place.url, !url.isEmpty {
-                compactActionButton(
+                CompactActionButton(
                     icon: "link",
                     label: L("place.action.open"),
                     color: .blue
@@ -398,7 +398,7 @@ struct PlaceDetailView: View {
             }
 
             // Share button
-            compactActionButton(
+            CompactActionButton(
                 icon: "square.and.arrow.up",
                 label: L("place.action.share_short"),
                 color: .orange
@@ -407,32 +407,7 @@ struct PlaceDetailView: View {
                 analytics.trackEvent("place_shared", properties: ["place_id": viewModel.place.id.uuidString])
             }
         }
-        .padding()
-        .background(Color(.systemBackground))
-        .cornerRadius(12)
         .padding(.top, 8)
-    }
-
-    private func compactActionButton(
-        icon: String,
-        label: String,
-        color: Color,
-        action: @escaping () -> Void
-    ) -> some View {
-        Button(action: action) {
-            VStack(spacing: 6) {
-                Image(systemName: icon)
-                    .font(.system(size: 24))
-                    .foregroundColor(color)
-
-                Text(label)
-                    .font(.caption2)
-                    .foregroundColor(.secondary)
-            }
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 8)
-        }
-        .buttonStyle(.plain)
     }
 
     // MARK: - Helper Methods
