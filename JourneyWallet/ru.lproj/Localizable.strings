@@ -89,6 +89,7 @@
 "share.entity_type.car_rental" = "Аренда авто";
 "share.entity_type.note" = "Заметка";
 "share.entity_type.place" = "Место";
+"share.entity_type.idea" = "Идея";
 
 /* Share Extension - Content & Form */
 "share.content_preview" = "Содержимое";
@@ -425,6 +426,9 @@
 "transport.detail.delete_confirm.title" = "Удалить транспорт?";
 "transport.detail.delete_confirm.message" = "Это навсегда удалит это бронирование и все связанные напоминания.";
 
+/* Transport Actions */
+"transport.action.reminder" = "Напомнить";
+
 /* Transport Form */
 "transport.form.add_title" = "Добавить транспорт";
 "transport.form.edit_title" = "Редактировать транспорт";
@@ -505,6 +509,16 @@
 "hotel.detail.action.call" = "Позвонить в отель";
 "hotel.detail.action.map" = "Открыть на карте";
 "hotel.detail.action.reminder" = "Добавить напоминание";
+
+/* Hotel Actions (compact) */
+"hotel.action.call" = "Звонок";
+"hotel.action.map" = "Карта";
+"hotel.action.reminder" = "Напомнить";
+"hotel.action.share" = "Поделиться отелем";
+"hotel.action.share_short" = "Поделиться";
+
+/* Hotel Share */
+"hotel.share.prefix" = "Посмотри мой отель:";
 
 /* Hotel Form */
 "hotel.form.add_title" = "Добавить отель";
@@ -589,6 +603,15 @@
 "car_rental.detail.action.pickup_map" = "Место получения на карте";
 "car_rental.detail.action.dropoff_map" = "Место возврата на карте";
 "car_rental.detail.action.reminder" = "Добавить напоминание";
+
+/* Car Rental Actions (compact) */
+"car_rental.action.map" = "Карта";
+"car_rental.action.reminder" = "Напомнить";
+"car_rental.action.share" = "Поделиться арендой";
+"car_rental.action.share_short" = "Поделиться";
+
+/* Car Rental Share */
+"car_rental.share.prefix" = "Моя аренда авто:";
 
 /* Car Rental Form */
 "car_rental.form.add_title" = "Добавить аренду авто";

@@ -89,6 +89,7 @@
 "share.entity_type.car_rental" = "Araç Kiralama";
 "share.entity_type.note" = "Not";
 "share.entity_type.place" = "Yer";
+"share.entity_type.idea" = "Fikir";
 
 /* Share Extension - Content & Form */
 "share.content_preview" = "Paylaşılan İçerik";
@@ -425,6 +426,9 @@
 "transport.detail.delete_confirm.title" = "Ulaşımı Sil?";
 "transport.detail.delete_confirm.message" = "Bu ulaşım rezervasyonu ve ilişkili tüm hatırlatmalar kalıcı olarak silinecek.";
 
+/* Transport Actions */
+"transport.action.reminder" = "Hatırlat";
+
 /* Transport Form */
 "transport.form.add_title" = "Ulaşım Ekle";
 "transport.form.edit_title" = "Ulaşımı Düzenle";
@@ -505,6 +509,16 @@
 "hotel.detail.action.call" = "Oteli Ara";
 "hotel.detail.action.map" = "Haritada Aç";
 "hotel.detail.action.reminder" = "Hatırlatıcı Ekle";
+
+/* Hotel Actions (compact) */
+"hotel.action.call" = "Ara";
+"hotel.action.map" = "Harita";
+"hotel.action.reminder" = "Hatırlat";
+"hotel.action.share" = "Oteli Paylaş";
+"hotel.action.share_short" = "Paylaş";
+
+/* Hotel Share */
+"hotel.share.prefix" = "Otel rezervasyonuma göz at:";
 
 /* Hotel Form */
 "hotel.form.add_title" = "Otel Ekle";
@@ -589,6 +603,15 @@
 "car_rental.detail.action.pickup_map" = "Alış Yerini Haritada Göster";
 "car_rental.detail.action.dropoff_map" = "Teslim Yerini Haritada Göster";
 "car_rental.detail.action.reminder" = "Hatırlatıcı Ekle";
+
+/* Car Rental Actions (compact) */
+"car_rental.action.map" = "Harita";
+"car_rental.action.reminder" = "Hatırlat";
+"car_rental.action.share" = "Kiralama Paylaş";
+"car_rental.action.share_short" = "Paylaş";
+
+/* Car Rental Share */
+"car_rental.share.prefix" = "Araç kiralamam:";
 
 /* Car Rental Form */
 "car_rental.form.add_title" = "Araç Kiralama Ekle";

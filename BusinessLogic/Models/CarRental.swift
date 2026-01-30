@@ -92,4 +92,21 @@ struct CarRental: Codable, Identifiable, Equatable {
 
         return displayName
     }
+
+    var shareText: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+
+        var text = L("car_rental.share.prefix") + " " + displayName
+        if let pickup = pickupLocation, !pickup.isEmpty {
+            text += "\n" + L("car_rental.detail.pickup_location") + ": " + pickup
+        }
+        text += "\n" + L("car_rental.detail.pickup") + ": " + dateFormatter.string(from: pickupDate)
+        text += "\n" + L("car_rental.detail.dropoff") + ": " + dateFormatter.string(from: dropoffDate)
+        if let ref = bookingReference, !ref.isEmpty {
+            text += "\n" + L("car_rental.detail.booking_reference") + ": " + ref
+        }
+        return text
+    }
 }

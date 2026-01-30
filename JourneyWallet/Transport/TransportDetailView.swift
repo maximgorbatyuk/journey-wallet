@@ -381,23 +381,17 @@ struct TransportDetailView: View {
     // MARK: - Actions Section
 
     private var actionsSection: some View {
-        VStack(spacing: 12) {
+        CompactActionBar {
             // Add reminder button
-            Button {
+            CompactActionButton(
+                icon: "bell.badge.fill",
+                label: L("transport.action.reminder"),
+                color: .purple
+            ) {
                 showReminderSheet = true
-            } label: {
-                HStack {
-                    Image(systemName: "bell.badge.fill")
-                    Text(L("transport.detail.add_reminder"))
-                }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(Color.orange)
-                .foregroundColor(.white)
-                .cornerRadius(12)
             }
         }
-        .padding(.top, 20)
+        .padding(.top, 8)
     }
 
     // MARK: - Helper Methods

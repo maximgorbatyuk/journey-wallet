@@ -89,6 +89,7 @@
 "share.entity_type.car_rental" = "Mietwagen";
 "share.entity_type.note" = "Notiz";
 "share.entity_type.place" = "Ort";
+"share.entity_type.idea" = "Idee";
 
 /* Share Extension - Content & Form */
 "share.content_preview" = "Geteilter Inhalt";
@@ -425,6 +426,9 @@
 "transport.detail.delete_confirm.title" = "Transport löschen?";
 "transport.detail.delete_confirm.message" = "Dies löscht diese Transportbuchung und alle zugehörigen Erinnerungen dauerhaft.";
 
+/* Transport Actions */
+"transport.action.reminder" = "Erinnern";
+
 /* Transport Form */
 "transport.form.add_title" = "Transport hinzufügen";
 "transport.form.edit_title" = "Transport bearbeiten";
@@ -506,6 +510,16 @@
 "hotel.detail.action.map" = "In Karten öffnen";
 "hotel.detail.action.reminder" = "Erinnerung hinzufügen";
 
+/* Hotel Actions (compact) */
+"hotel.action.call" = "Anrufen";
+"hotel.action.map" = "Karte";
+"hotel.action.reminder" = "Erinnern";
+"hotel.action.share" = "Hotel teilen";
+"hotel.action.share_short" = "Teilen";
+
+/* Hotel Share */
+"hotel.share.prefix" = "Schau dir meine Hotelbuchung an:";
+
 /* Hotel Form */
 "hotel.form.add_title" = "Hotel hinzufügen";
 "hotel.form.edit_title" = "Hotel bearbeiten";
@@ -586,6 +600,15 @@
 /* Car Rental Detail Actions */
 "car_rental.detail.action.map_pickup" = "Abholort in Karten öffnen";
 "car_rental.detail.action.reminder" = "Erinnerung hinzufügen";
+
+/* Car Rental Actions (compact) */
+"car_rental.action.map" = "Karte";
+"car_rental.action.reminder" = "Erinnern";
+"car_rental.action.share" = "Mietwagen teilen";
+"car_rental.action.share_short" = "Teilen";
+
+/* Car Rental Share */
+"car_rental.share.prefix" = "Meine Autovermietung:";
 
 /* Car Rental Form */
 "car_rental.form.add_title" = "Mietwagen hinzufügen";

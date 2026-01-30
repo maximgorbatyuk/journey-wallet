@@ -89,6 +89,7 @@
 "share.entity_type.car_rental" = "Оренда авто";
 "share.entity_type.note" = "Нотатка";
 "share.entity_type.place" = "Місце";
+"share.entity_type.idea" = "Ідея";
 
 /* Share Extension - Content & Form */
 "share.content_preview" = "Вміст";
@@ -425,6 +426,9 @@
 "transport.detail.delete_confirm.title" = "Видалити транспорт?";
 "transport.detail.delete_confirm.message" = "Це назавжди видалить це бронювання та всі пов'язані нагадування.";
 
+/* Transport Actions */
+"transport.action.reminder" = "Нагадати";
+
 /* Transport Form */
 "transport.form.add_title" = "Додати транспорт";
 "transport.form.edit_title" = "Редагувати транспорт";
@@ -505,6 +509,16 @@
 "hotel.detail.action.call" = "Зателефонувати в готель";
 "hotel.detail.action.map" = "Відкрити на карті";
 "hotel.detail.action.reminder" = "Додати нагадування";
+
+/* Hotel Actions (compact) */
+"hotel.action.call" = "Дзвінок";
+"hotel.action.map" = "Карта";
+"hotel.action.reminder" = "Нагадати";
+"hotel.action.share" = "Поділитися готелем";
+"hotel.action.share_short" = "Поділитися";
+
+/* Hotel Share */
+"hotel.share.prefix" = "Подивись моє бронювання готелю:";
 
 /* Hotel Form */
 "hotel.form.add_title" = "Додати готель";
@@ -589,6 +603,15 @@
 "car_rental.detail.action.pickup_map" = "Місце отримання на карті";
 "car_rental.detail.action.dropoff_map" = "Місце повернення на карті";
 "car_rental.detail.action.reminder" = "Додати нагадування";
+
+/* Car Rental Actions (compact) */
+"car_rental.action.map" = "Карта";
+"car_rental.action.reminder" = "Нагадати";
+"car_rental.action.share" = "Поділитися орендою";
+"car_rental.action.share_short" = "Поділитися";
+
+/* Car Rental Share */
+"car_rental.share.prefix" = "Моя оренда авто:";
 
 /* Car Rental Form */
 "car_rental.form.add_title" = "Додати оренду авто";

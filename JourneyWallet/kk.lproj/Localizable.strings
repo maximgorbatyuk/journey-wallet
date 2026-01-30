@@ -89,6 +89,7 @@
 "share.entity_type.car_rental" = "Көлік жалдау";
 "share.entity_type.note" = "Жазба";
 "share.entity_type.place" = "Орын";
+"share.entity_type.idea" = "Идея";
 
 /* Share Extension - Content & Form */
 "share.content_preview" = "Мазмұн";
@@ -425,6 +426,9 @@
 "transport.detail.delete_confirm.title" = "Көлікті жою?";
 "transport.detail.delete_confirm.message" = "Бұл көлік брондауы және барлық байланысты еске салулар біржола жойылады.";
 
+/* Transport Actions */
+"transport.action.reminder" = "Еске сал";
+
 /* Transport Form */
 "transport.form.add_title" = "Көлік қосу";
 "transport.form.edit_title" = "Көлікті өзгерту";
@@ -505,6 +509,16 @@
 "hotel.detail.action.call" = "Қонақ үйге қоңырау шалу";
 "hotel.detail.action.map" = "Картадан ашу";
 "hotel.detail.action.reminder" = "Еске салу қосу";
+
+/* Hotel Actions (compact) */
+"hotel.action.call" = "Қоңырау";
+"hotel.action.map" = "Карта";
+"hotel.action.reminder" = "Еске салу";
+"hotel.action.share" = "Қонақ үймен бөлісу";
+"hotel.action.share_short" = "Бөлісу";
+
+/* Hotel Share */
+"hotel.share.prefix" = "Менің қонақ үй брондауымды қара:";
 
 /* Hotel Form */
 "hotel.form.add_title" = "Қонақ үй қосу";
@@ -589,6 +603,15 @@
 "car_rental.detail.action.pickup_map" = "Алу орнын картадан көру";
 "car_rental.detail.action.dropoff_map" = "Қайтару орнын картадан көру";
 "car_rental.detail.action.reminder" = "Еске салу қосу";
+
+/* Car Rental Actions (compact) */
+"car_rental.action.map" = "Карта";
+"car_rental.action.reminder" = "Есте сақта";
+"car_rental.action.share" = "Жалдауды бөлісу";
+"car_rental.action.share_short" = "Бөлісу";
+
+/* Car Rental Share */
+"car_rental.share.prefix" = "Менің автокөлік жалдауым:";
 
 /* Car Rental Form */
 "car_rental.form.add_title" = "Автокөлік жалдау қосу";
