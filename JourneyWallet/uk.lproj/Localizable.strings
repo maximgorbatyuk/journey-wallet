@@ -377,6 +377,7 @@
 "journey.detail.section.documents" = "Документи";
 "journey.detail.section.notes" = "Нотатки";
 "journey.detail.section.places" = "Місця для відвідування";
+"journey.detail.section.ideas" = "Ідеї";
 "journey.detail.section.reminders" = "Нагадування";
 "journey.detail.section.budget" = "Бюджет";
 
@@ -391,6 +392,7 @@
 "journey.detail.documents.count" = "документів";
 "journey.detail.notes.empty" = "Нотаток поки немає";
 "journey.detail.places.empty" = "Місць для відвідування поки немає";
+"journey.detail.ideas.empty" = "Ідей поки немає";
 "journey.detail.reminders.empty" = "Нагадувань поки немає";
 "journey.detail.budget.empty" = "Витрати ще не відстежуються";
 
@@ -633,6 +635,7 @@
 "quick_add.place" = "Місце для відвідування";
 "quick_add.reminder" = "Нагадування";
 "quick_add.expense" = "Витрата";
+"quick_add.idea" = "Ідея";
 "quick_add.checklist" = "Чек-лист";
 "quick_add.coming_soon" = "Незабаром";
 
@@ -961,3 +964,50 @@
 /* Journey Detail - Checklists */
 "journey.detail.section.checklists" = "Чек-листи";
 "journey.detail.checklists.empty" = "Немає чек-листів";
+
+/* Idea Management */
+"idea.list.title" = "Ідеї";
+"idea.list.empty.title" = "Ідей немає";
+"idea.list.empty.message" = "Зберігайте надихаючі ідеї та поради для вашої подорожі.";
+"idea.list.add_first" = "Додати ідею";
+"idea.summary.done" = "виконано";
+
+/* Idea Form */
+"idea.form.add_title" = "Нова ідея";
+"idea.form.edit_title" = "Редагувати ідею";
+"idea.form.section.info" = "Інформація про ідею";
+"idea.form.section.url" = "Посилання";
+"idea.form.section.notes" = "Нотатки";
+"idea.form.title" = "Назва";
+"idea.form.title_placeholder" = "Назва ідеї";
+"idea.form.description" = "Опис";
+"idea.form.description_placeholder" = "Опишіть вашу ідею";
+"idea.form.url" = "URL";
+"idea.form.url_placeholder" = "Посилання на відео, пост або веб-сайт";
+"idea.form.url_hint" = "Instagram, YouTube, веб-сайт тощо";
+"idea.form.is_done" = "Позначити як виконану";
+"idea.form.validation.error" = "Помилка валідації";
+"idea.form.validation.title_required" = "Будь ласка, введіть назву ідеї.";
+
+/* Idea Detail */
+"idea.detail.title" = "Деталі ідеї";
+"idea.detail.description" = "Опис";
+"idea.detail.url" = "Посилання";
+"idea.detail.created" = "Створено";
+"idea.detail.updated" = "Оновлено";
+"idea.detail.status" = "Статус";
+"idea.detail.status.done" = "Виконано";
+"idea.detail.status.pending" = "Очікує";
+
+/* Idea Actions */
+"idea.action.mark_done" = "Позначити як виконану";
+"idea.action.mark_pending" = "Позначити як очікує";
+"idea.action.open_url" = "Відкрити посилання";
+"idea.action.share" = "Поділитися ідеєю";
+
+/* Idea Delete Confirmation */
+"idea.delete_confirm.title" = "Видалити ідею?";
+"idea.delete_confirm.message" = "Цю ідею буде видалено назавжди.";
+
+/* Idea Share */
+"idea.share.prefix" = "Гей! Я знайшов чудову ідею:";

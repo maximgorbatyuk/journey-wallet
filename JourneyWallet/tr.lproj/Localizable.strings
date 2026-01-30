@@ -377,6 +377,7 @@
 "journey.detail.section.documents" = "Belgeler";
 "journey.detail.section.notes" = "Notlar";
 "journey.detail.section.places" = "Gezilecek Yerler";
+"journey.detail.section.ideas" = "Fikirler";
 "journey.detail.section.reminders" = "Hatırlatmalar";
 "journey.detail.section.budget" = "Bütçe";
 
@@ -391,6 +392,7 @@
 "journey.detail.documents.count" = "belge";
 "journey.detail.notes.empty" = "Henüz not yok";
 "journey.detail.places.empty" = "Henüz gezilecek yer yok";
+"journey.detail.ideas.empty" = "Henüz fikir yok";
 "journey.detail.reminders.empty" = "Henüz hatırlatma yok";
 "journey.detail.budget.empty" = "Henüz harcama kaydedilmedi";
 
@@ -633,6 +635,7 @@
 "quick_add.place" = "Ziyaret Edilecek Yer";
 "quick_add.reminder" = "Hatırlatıcı";
 "quick_add.expense" = "Harcama";
+"quick_add.idea" = "Fikir";
 "quick_add.checklist" = "Kontrol Listesi";
 "quick_add.coming_soon" = "Yakında";
 
@@ -959,3 +962,50 @@
 /* Journey Detail - Checklists */
 "journey.detail.section.checklists" = "Kontrol Listeleri";
 "journey.detail.checklists.empty" = "Henüz kontrol listesi yok";
+
+/* Idea Management */
+"idea.list.title" = "Fikirler";
+"idea.list.empty.title" = "Fikir yok";
+"idea.list.empty.message" = "Seyahatiniz için ilham veren fikirleri ve ipuçlarını kaydedin.";
+"idea.list.add_first" = "Fikir Ekle";
+"idea.summary.done" = "tamamlandı";
+
+/* Idea Form */
+"idea.form.add_title" = "Yeni Fikir";
+"idea.form.edit_title" = "Fikri Düzenle";
+"idea.form.section.info" = "Fikir Bilgisi";
+"idea.form.section.url" = "Bağlantı";
+"idea.form.section.notes" = "Notlar";
+"idea.form.title" = "Başlık";
+"idea.form.title_placeholder" = "Fikir başlığı";
+"idea.form.description" = "Açıklama";
+"idea.form.description_placeholder" = "Fikrinizi açıklayın";
+"idea.form.url" = "URL";
+"idea.form.url_placeholder" = "Video, gönderi veya web sitesi bağlantısı";
+"idea.form.url_hint" = "Instagram, YouTube, web sitesi vb.";
+"idea.form.is_done" = "Tamamlandı olarak işaretle";
+"idea.form.validation.error" = "Doğrulama Hatası";
+"idea.form.validation.title_required" = "Lütfen bir fikir başlığı girin.";
+
+/* Idea Detail */
+"idea.detail.title" = "Fikir Detayları";
+"idea.detail.description" = "Açıklama";
+"idea.detail.url" = "Bağlantı";
+"idea.detail.created" = "Oluşturulma";
+"idea.detail.updated" = "Güncellendi";
+"idea.detail.status" = "Durum";
+"idea.detail.status.done" = "Tamamlandı";
+"idea.detail.status.pending" = "Beklemede";
+
+/* Idea Actions */
+"idea.action.mark_done" = "Tamamlandı Olarak İşaretle";
+"idea.action.mark_pending" = "Beklemede Olarak İşaretle";
+"idea.action.open_url" = "Bağlantıyı Aç";
+"idea.action.share" = "Fikri Paylaş";
+
+/* Idea Delete Confirmation */
+"idea.delete_confirm.title" = "Fikir Silinsin mi?";
+"idea.delete_confirm.message" = "Bu fikir kalıcı olarak silinecek.";
+
+/* Idea Share */
+"idea.share.prefix" = "Hey! Harika bir fikir buldum:";

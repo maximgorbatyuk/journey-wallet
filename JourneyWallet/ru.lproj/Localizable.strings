@@ -377,6 +377,7 @@
 "journey.detail.section.documents" = "Документы";
 "journey.detail.section.notes" = "Заметки";
 "journey.detail.section.places" = "Места для посещения";
+"journey.detail.section.ideas" = "Идеи";
 "journey.detail.section.reminders" = "Напоминания";
 "journey.detail.section.budget" = "Бюджет";
 
@@ -391,6 +392,7 @@
 "journey.detail.documents.count" = "документов";
 "journey.detail.notes.empty" = "Заметок пока нет";
 "journey.detail.places.empty" = "Мест для посещения пока нет";
+"journey.detail.ideas.empty" = "Идей пока нет";
 "journey.detail.reminders.empty" = "Напоминаний пока нет";
 "journey.detail.budget.empty" = "Расходы не отслеживаются";
 
@@ -634,6 +636,7 @@
 "quick_add.place" = "Место для посещения";
 "quick_add.reminder" = "Напоминание";
 "quick_add.expense" = "Расход";
+"quick_add.idea" = "Идея";
 "quick_add.coming_soon" = "Скоро будет доступно";
 
 /* Document Management */
@@ -769,6 +772,56 @@
 /* Place Status */
 "place.status.visited" = "Посещено";
 "place.status.not_visited" = "К посещению";
+
+/* Idea Management */
+"idea.list.title" = "Идеи";
+"idea.list.empty.title" = "Идей пока нет";
+"idea.list.empty.subtitle" = "Сохраняйте идеи для путешествий, советы, видео и контент";
+"idea.list.empty.button" = "Добавить идею";
+"idea.list.section.done" = "Выполнено";
+"idea.list.progress" = "%d/%d выполнено";
+
+/* Idea Form */
+"idea.form.title.new" = "Новая идея";
+"idea.form.title.edit" = "Редактировать идею";
+"idea.form.field.title" = "Заголовок";
+"idea.form.field.title.required" = "Заголовок обязателен";
+"idea.form.field.description" = "Описание";
+"idea.form.field.url" = "URL";
+"idea.form.field.url.hint" = "Видео, пост Instagram, статья";
+"idea.form.field.done" = "Выполнено";
+"idea.form.section.info" = "Информация";
+"idea.form.section.description" = "Описание";
+"idea.form.section.link" = "Ссылка";
+"idea.form.section.status" = "Статус";
+"idea.form.move_to_journey" = "Переместить в другое путешествие";
+
+/* Idea Detail */
+"idea.detail.title" = "Идея";
+"idea.detail.section.description" = "Описание";
+"idea.detail.section.link" = "Ссылка";
+"idea.detail.section.actions" = "Действия";
+"idea.detail.created" = "Создано";
+"idea.detail.updated" = "Обновлено";
+"idea.detail.status.done" = "Выполнено";
+"idea.detail.status.not_done" = "Не выполнено";
+
+/* Idea Actions */
+"idea.action.edit" = "Редактировать";
+"idea.action.delete" = "Удалить";
+"idea.action.move" = "Переместить";
+"idea.action.share" = "Поделиться";
+"idea.action.mark_done" = "Отметить выполненным";
+"idea.action.mark_not_done" = "Отметить невыполненным";
+"idea.action.open_url" = "Открыть URL";
+"idea.action.copy_url" = "Копировать URL";
+
+/* Idea Delete Confirmation */
+"idea.delete.confirm.title" = "Удалить идею?";
+"idea.delete.confirm.message" = "Вы уверены, что хотите удалить эту идею?";
+
+/* Idea Share */
+"idea.share.prefix" = "Привет! Я нашёл отличную идею:";
 
 /* Budget Management */
 "budget.title" = "Бюджет";

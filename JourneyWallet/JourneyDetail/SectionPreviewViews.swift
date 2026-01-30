@@ -410,6 +410,59 @@ struct ChecklistPreviewRow: View {
     }
 }
 
+// MARK: - Idea Preview Row
+
+struct IdeaPreviewRow: View {
+    let idea: Idea
+
+    var body: some View {
+        HStack(spacing: 12) {
+            // Icon
+            Image(systemName: idea.isDone ? "checkmark.circle.fill" : "lightbulb.fill")
+                .font(.title3)
+                .foregroundColor(idea.isDone ? .green : .yellow)
+                .frame(width: 32, height: 32)
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text(idea.title)
+                    .font(.subheadline)
+                    .fontWeight(.medium)
+                    .lineLimit(1)
+                    .strikethrough(idea.isDone)
+
+                if let url = idea.url, !url.isEmpty {
+                    HStack(spacing: 4) {
+                        Image(systemName: "link")
+                            .font(.caption2)
+                        Text(urlDisplayText(url))
+                            .lineLimit(1)
+                    }
+                    .font(.caption)
+                    .foregroundColor(.blue)
+                } else if let description = idea.description, !description.isEmpty {
+                    Text(description)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .lineLimit(1)
+                }
+            }
+
+            Spacer()
+
+            // Done status
+            Image(systemName: idea.isDone ? "checkmark.circle.fill" : "circle")
+                .foregroundColor(idea.isDone ? .green : .gray)
+        }
+        .padding(.horizontal)
+        .padding(.vertical, 8)
+    }
+
+    private func urlDisplayText(_ urlString: String) -> String {
+        guard let url = URL(string: urlString) else { return urlString }
+        return url.host ?? urlString
+    }
+}
+
 // MARK: - Empty Section View
 
 struct EmptySectionView: View {

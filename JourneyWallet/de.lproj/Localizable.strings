@@ -377,6 +377,7 @@
 "journey.detail.section.documents" = "Dokumente";
 "journey.detail.section.notes" = "Notizen";
 "journey.detail.section.places" = "Sehenswürdigkeiten";
+"journey.detail.section.ideas" = "Ideen";
 "journey.detail.section.reminders" = "Erinnerungen";
 "journey.detail.section.budget" = "Budget";
 
@@ -391,6 +392,7 @@
 "journey.detail.documents.count" = "Dokumente";
 "journey.detail.notes.empty" = "Noch keine Notizen";
 "journey.detail.places.empty" = "Noch keine Sehenswürdigkeiten";
+"journey.detail.ideas.empty" = "Noch keine Ideen";
 "journey.detail.reminders.empty" = "Noch keine Erinnerungen";
 "journey.detail.budget.empty" = "Noch keine Ausgaben erfasst";
 
@@ -631,6 +633,7 @@
 "quick_add.place" = "Sehenswürdigkeit";
 "quick_add.reminder" = "Erinnerung";
 "quick_add.expense" = "Ausgabe";
+"quick_add.idea" = "Idee";
 "quick_add.coming_soon" = "Demnächst verfügbar";
 
 /* Document Management */
@@ -766,6 +769,56 @@
 /* Place Status */
 "place.status.visited" = "Besucht";
 "place.status.not_visited" = "Zu besuchen";
+
+/* Idea Management */
+"idea.list.title" = "Ideen";
+"idea.list.empty.title" = "Noch keine Ideen";
+"idea.list.empty.subtitle" = "Speichern Sie Reiseinspirationen, Tipps, Videos und Inhalte";
+"idea.list.empty.button" = "Idee hinzufügen";
+"idea.list.section.done" = "Erledigt";
+"idea.list.progress" = "%d/%d erledigt";
+
+/* Idea Form */
+"idea.form.title.new" = "Neue Idee";
+"idea.form.title.edit" = "Idee bearbeiten";
+"idea.form.field.title" = "Titel";
+"idea.form.field.title.required" = "Titel ist erforderlich";
+"idea.form.field.description" = "Beschreibung";
+"idea.form.field.url" = "URL";
+"idea.form.field.url.hint" = "Video, Instagram-Post, Artikel";
+"idea.form.field.done" = "Erledigt";
+"idea.form.section.info" = "Info";
+"idea.form.section.description" = "Beschreibung";
+"idea.form.section.link" = "Link";
+"idea.form.section.status" = "Status";
+"idea.form.move_to_journey" = "Zu anderer Reise verschieben";
+
+/* Idea Detail */
+"idea.detail.title" = "Idee";
+"idea.detail.section.description" = "Beschreibung";
+"idea.detail.section.link" = "Link";
+"idea.detail.section.actions" = "Aktionen";
+"idea.detail.created" = "Erstellt";
+"idea.detail.updated" = "Aktualisiert";
+"idea.detail.status.done" = "Erledigt";
+"idea.detail.status.not_done" = "Nicht erledigt";
+
+/* Idea Actions */
+"idea.action.edit" = "Bearbeiten";
+"idea.action.delete" = "Löschen";
+"idea.action.move" = "Verschieben";
+"idea.action.share" = "Teilen";
+"idea.action.mark_done" = "Als erledigt markieren";
+"idea.action.mark_not_done" = "Als nicht erledigt markieren";
+"idea.action.open_url" = "URL öffnen";
+"idea.action.copy_url" = "URL kopieren";
+
+/* Idea Delete Confirmation */
+"idea.delete.confirm.title" = "Idee löschen?";
+"idea.delete.confirm.message" = "Möchten Sie diese Idee wirklich löschen?";
+
+/* Idea Share */
+"idea.share.prefix" = "Hey! Ich habe eine tolle Idee gefunden:";
 
 /* Budget Management */
 "budget.title" = "Budget";

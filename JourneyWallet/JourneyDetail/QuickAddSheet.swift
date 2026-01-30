@@ -161,6 +161,18 @@ struct QuickAddSheet: View {
                     }
                 }
             )
+
+        case .idea:
+            IdeaFormView(
+                journeyId: journeyId,
+                mode: .add,
+                onSave: { idea in
+                    if DatabaseManager.shared.ideasRepository?.insert(idea) == true {
+                        onEntityAdded()
+                        dismiss()
+                    }
+                }
+            )
         }
     }
 

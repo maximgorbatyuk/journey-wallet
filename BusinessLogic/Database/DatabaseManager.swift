@@ -22,6 +22,7 @@ class DatabaseManager : DatabaseManagerProtocol {
     static let ExpensesTableName = "expenses"
     static let ChecklistsTableName = "checklists"
     static let ChecklistItemsTableName = "checklist_items"
+    static let IdeasTableName = "ideas"
 
     static let shared = DatabaseManager()
 
@@ -39,10 +40,11 @@ class DatabaseManager : DatabaseManagerProtocol {
     var expensesRepository: ExpensesRepository?
     var checklistsRepository: ChecklistsRepository?
     var checklistItemsRepository: ChecklistItemsRepository?
+    var ideasRepository: IdeasRepository?
 
     private var db: Connection?
     private let logger: Logger
-    private let latestVersion = 7
+    private let latestVersion = 8
 
     private init() {
 
@@ -82,6 +84,7 @@ class DatabaseManager : DatabaseManagerProtocol {
                 tableName: DatabaseManager.ChecklistItemsTableName,
                 checklistsTableName: DatabaseManager.ChecklistsTableName
             )
+            self.ideasRepository = IdeasRepository(db: dbConnection, tableName: DatabaseManager.IdeasTableName)
 
             // Ensure user settings table exists
             self.userSettingsRepository?.createTable()
@@ -93,6 +96,7 @@ class DatabaseManager : DatabaseManagerProtocol {
     }
 
     func deleteAllData() {
+        _ = ideasRepository?.deleteAll()
         _ = checklistItemsRepository?.deleteAll()
         _ = checklistsRepository?.deleteAll()
         _ = expensesRepository?.deleteAll()
@@ -150,6 +154,9 @@ class DatabaseManager : DatabaseManagerProtocol {
 
             case 7:
                 Migration_20260124_Checklists(db: db!).execute()
+
+            case 8:
+                Migration_20260130_Ideas(db: db!).execute()
 
             default:
                 break
