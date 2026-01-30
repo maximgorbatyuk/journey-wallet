@@ -1,5 +1,63 @@
 # Changelog
 
+# 2026.1.4 (2026-01-30)
+
+## New Features
+
+### Ideas
+- Added new Ideas entity to capture travel inspirations and notes
+- Support for ideas with title, description, and optional URL
+- Mark ideas as done when you've acted on them
+- Share ideas with formatted text
+- Quick add to journeys from share extension
+
+### Share Functionality
+- Added share buttons to all detail views:
+  - Transport - Share all transport details (route, times, carrier, booking reference)
+  - Hotel - Share hotel booking information
+  - Car Rental - Share rental details
+  - Place - Share location information
+  - Idea - Share your travel ideas
+- Tap-to-copy functionality for key details:
+  - Transport: Booking reference, platform number, seat number
+  - Hotel: Phone number
+  - Car Rental: Booking reference
+
+### Developer Tools
+- Document Storage Browser - View all files in app's document storage
+- Browse journey folders and files independently of database
+- View file details (size, type, dates)
+- Quick Look preview for files
+- Delete files with confirmation
+- Storage usage statistics
+
+## UI Improvements
+
+### Compact Action Buttons
+- Replaced large action buttons with compact button bar
+- Consistent UI across Transport, Hotel, CarRental, and Idea detail views
+- Better visual hierarchy with icon-only buttons
+- More screen space for content
+
+## Bug Fixes
+- Fixed ShareSheet parameter naming (activityItems → items)
+- Various UI consistency improvements
+
+## Localization
+- Added 119 new localization strings for Ideas feature
+- Added 22 new localization strings for Document Storage Browser
+- Added 8 new localization strings for Transport share functionality
+- Full localization support in all 6 languages (English, Russian, German, Turkish, Kazakh, Ukrainian)
+
+## Technical Changes
+- Added IdeasRepository with full CRUD operations
+- Added database migration for Ideas entity
+- Added DocumentStorageService for raw file system access
+- Random data generator support for Ideas
+- Backup/Import service updated to include Ideas
+
+---
+
 # 2026.1.3 (2026-01-29)
 
 ## New Features
