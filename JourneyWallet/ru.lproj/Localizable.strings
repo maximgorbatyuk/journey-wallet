@@ -423,11 +423,19 @@
 "transport.detail.add_reminder" = "Добавить напоминание";
 "transport.detail.departs_in" = "Отправление через";
 "transport.detail.departing_soon" = "Скоро отправление";
+"transport.detail.departure" = "Отправление";
+"transport.detail.arrival" = "Прибытие";
 "transport.detail.delete_confirm.title" = "Удалить транспорт?";
 "transport.detail.delete_confirm.message" = "Это навсегда удалит это бронирование и все связанные напоминания.";
 
 /* Transport Actions */
 "transport.action.reminder" = "Напомнить";
+"transport.action.share" = "Поделиться транспортом";
+"transport.action.share_short" = "Поделиться";
+
+/* Transport Share */
+"transport.share.prefix" = "Мой транспорт:";
+"transport.detail.route" = "Маршрут";
 
 /* Transport Form */
 "transport.form.add_title" = "Добавить транспорт";

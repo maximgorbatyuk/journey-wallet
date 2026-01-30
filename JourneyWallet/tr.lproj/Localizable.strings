@@ -423,11 +423,19 @@
 "transport.detail.add_reminder" = "Hatırlatma Ekle";
 "transport.detail.departs_in" = "Kalkış";
 "transport.detail.departing_soon" = "Yakında kalkıyor";
+"transport.detail.departure" = "Kalkış";
+"transport.detail.arrival" = "Varış";
 "transport.detail.delete_confirm.title" = "Ulaşımı Sil?";
 "transport.detail.delete_confirm.message" = "Bu ulaşım rezervasyonu ve ilişkili tüm hatırlatmalar kalıcı olarak silinecek.";
 
 /* Transport Actions */
 "transport.action.reminder" = "Hatırlat";
+"transport.action.share" = "Ulaşımı Paylaş";
+"transport.action.share_short" = "Paylaş";
+
+/* Transport Share */
+"transport.share.prefix" = "Ulaşımım:";
+"transport.detail.route" = "Rota";
 
 /* Transport Form */
 "transport.form.add_title" = "Ulaşım Ekle";

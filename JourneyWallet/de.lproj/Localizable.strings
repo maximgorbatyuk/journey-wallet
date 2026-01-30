@@ -423,11 +423,19 @@
 "transport.detail.add_reminder" = "Erinnerung hinzufügen";
 "transport.detail.departs_in" = "Abfahrt in";
 "transport.detail.departing_soon" = "Abfahrt bald";
+"transport.detail.departure" = "Abfahrt";
+"transport.detail.arrival" = "Ankunft";
 "transport.detail.delete_confirm.title" = "Transport löschen?";
 "transport.detail.delete_confirm.message" = "Dies löscht diese Transportbuchung und alle zugehörigen Erinnerungen dauerhaft.";
 
 /* Transport Actions */
 "transport.action.reminder" = "Erinnern";
+"transport.action.share" = "Transport teilen";
+"transport.action.share_short" = "Teilen";
+
+/* Transport Share */
+"transport.share.prefix" = "Mein Transport:";
+"transport.detail.route" = "Route";
 
 /* Transport Form */
 "transport.form.add_title" = "Transport hinzufügen";

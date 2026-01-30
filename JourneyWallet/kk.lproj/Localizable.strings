@@ -423,11 +423,19 @@
 "transport.detail.add_reminder" = "Еске салу қосу";
 "transport.detail.departs_in" = "Шығу";
 "transport.detail.departing_soon" = "Жақында шығады";
+"transport.detail.departure" = "Шығу";
+"transport.detail.arrival" = "Келу";
 "transport.detail.delete_confirm.title" = "Көлікті жою?";
 "transport.detail.delete_confirm.message" = "Бұл көлік брондауы және барлық байланысты еске салулар біржола жойылады.";
 
 /* Transport Actions */
 "transport.action.reminder" = "Еске сал";
+"transport.action.share" = "Көлікті бөлісу";
+"transport.action.share_short" = "Бөлісу";
+
+/* Transport Share */
+"transport.share.prefix" = "Көлігім:";
+"transport.detail.route" = "Бағыт";
 
 /* Transport Form */
 "transport.form.add_title" = "Көлік қосу";

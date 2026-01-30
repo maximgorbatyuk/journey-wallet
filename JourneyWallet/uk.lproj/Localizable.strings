@@ -423,11 +423,19 @@
 "transport.detail.add_reminder" = "Додати нагадування";
 "transport.detail.departs_in" = "Відправлення через";
 "transport.detail.departing_soon" = "Скоро відправлення";
+"transport.detail.departure" = "Відправлення";
+"transport.detail.arrival" = "Прибуття";
 "transport.detail.delete_confirm.title" = "Видалити транспорт?";
 "transport.detail.delete_confirm.message" = "Це назавжди видалить це бронювання та всі пов'язані нагадування.";
 
 /* Transport Actions */
 "transport.action.reminder" = "Нагадати";
+"transport.action.share" = "Поділитися транспортом";
+"transport.action.share_short" = "Поділитися";
+
+/* Transport Share */
+"transport.share.prefix" = "Мій транспорт:";
+"transport.detail.route" = "Маршрут";
 
 /* Transport Form */
 "transport.form.add_title" = "Додати транспорт";

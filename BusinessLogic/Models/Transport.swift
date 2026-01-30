@@ -90,4 +90,26 @@ struct Transport: Codable, Identifiable, Equatable {
         guard let cost = cost, let currency = currency else { return nil }
         return "\(currency.rawValue)\(cost)"
     }
+
+    var shareText: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+
+        var text = L("transport.share.prefix") + " " + type.displayName
+        text += "\n" + L("transport.detail.route")
+        text += "\n" + departureLocation + " → " + arrivalLocation
+        text += "\n" + L("transport.detail.departure") + ": " + dateFormatter.string(from: departureDate)
+        text += "\n" + L("transport.detail.arrival") + ": " + dateFormatter.string(from: arrivalDate)
+        if let carrier = carrier, !carrier.isEmpty {
+            text += "\n" + type.carrierLabel + ": " + carrier
+        }
+        if let number = transportNumber, !number.isEmpty {
+            text += "\n" + type.numberLabel + ": " + number
+        }
+        if let ref = bookingReference, !ref.isEmpty {
+            text += "\n" + L("transport.detail.booking_reference") + ": " + ref
+        }
+        return text
+    }
 }
