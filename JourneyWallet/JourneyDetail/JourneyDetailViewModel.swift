@@ -16,6 +16,8 @@ struct JourneySectionCounts {
     var expenses: Int = 0
     var totalExpenses: Decimal = 0
     var expensesCurrency: Currency?
+    var ideas: Int = 0
+    var ideasDone: Int = 0
 }
 
 @MainActor
@@ -40,6 +42,7 @@ class JourneyDetailViewModel {
     var upcomingPlaces: [PlaceToVisit] = []
     var upcomingReminders: [Reminder] = []
     var recentExpenses: [Expense] = []
+    var recentIdeas: [Idea] = []
 
     // MARK: - Repositories
 
@@ -55,6 +58,7 @@ class JourneyDetailViewModel {
     private let remindersRepository: RemindersRepository?
     private let expensesRepository: ExpensesRepository?
     private let userSettingsRepository: UserSettingsRepository?
+    private let ideasRepository: IdeasRepository?
 
     private let logger: Logger
 
@@ -77,6 +81,7 @@ class JourneyDetailViewModel {
         self.remindersRepository = databaseManager.remindersRepository
         self.expensesRepository = databaseManager.expensesRepository
         self.userSettingsRepository = databaseManager.userSettingsRepository
+        self.ideasRepository = databaseManager.ideasRepository
         self.logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "-", category: "JourneyDetailViewModel")
     }
 
@@ -194,6 +199,12 @@ class JourneyDetailViewModel {
         let allReminders = remindersRepository?.fetchByJourneyId(journeyId: journeyId) ?? []
         upcomingReminders = Array(allReminders.filter { !$0.isCompleted }.prefix(3))
 
+        // Load ideas
+        sectionCounts.ideas = ideasRepository?.countByJourneyId(journeyId: journeyId) ?? 0
+        sectionCounts.ideasDone = ideasRepository?.countDone(journeyId: journeyId) ?? 0
+        let allIdeas = ideasRepository?.fetchByJourneyId(journeyId: journeyId) ?? []
+        recentIdeas = Array(allIdeas.prefix(3))
+
         logger.info("Loaded section data for journey \(journeyId)")
     }
 
@@ -208,5 +219,6 @@ class JourneyDetailViewModel {
         upcomingPlaces = []
         upcomingReminders = []
         recentExpenses = []
+        recentIdeas = []
     }
 }

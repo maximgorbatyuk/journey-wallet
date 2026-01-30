@@ -91,4 +91,15 @@ struct PlaceToVisit: Codable, Identifiable, Equatable {
         guard let plannedDate = plannedDate else { return false }
         return plannedDate < Date() && !isVisited
     }
+
+    var shareText: String {
+        var text = L("place.share.prefix") + " " + name
+        if let address = address, !address.isEmpty {
+            text += "\n" + address
+        }
+        if let url = url, !url.isEmpty {
+            text += "\n" + url
+        }
+        return text
+    }
 }

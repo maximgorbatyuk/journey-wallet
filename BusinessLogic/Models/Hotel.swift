@@ -74,4 +74,19 @@ struct Hotel: Codable, Identifiable, Equatable {
         guard let cost = cost, nightsCount > 0 else { return nil }
         return cost / Decimal(nightsCount)
     }
+
+    var shareText: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+
+        var text = L("hotel.share.prefix") + " " + name
+        text += "\n" + address
+        text += "\n" + L("hotel.detail.check_in") + ": " + dateFormatter.string(from: checkInDate)
+        text += "\n" + L("hotel.detail.check_out") + ": " + dateFormatter.string(from: checkOutDate)
+        if let ref = bookingReference, !ref.isEmpty {
+            text += "\n" + L("hotel.detail.booking_reference") + ": " + ref
+        }
+        return text
+    }
 }

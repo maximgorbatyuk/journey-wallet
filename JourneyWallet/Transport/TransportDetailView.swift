@@ -11,7 +11,10 @@ struct TransportDetailView: View {
     @State private var showDeleteConfirmation: Bool = false
     @State private var showReminderSheet: Bool = false
     @State private var showMoveSheet: Bool = false
+    @State private var showShareSheet: Bool = false
     @State private var copiedBookingRef: Bool = false
+    @State private var copiedSeatNumber: Bool = false
+    @State private var copiedPlatform: Bool = false
 
     init(transport: Transport, journeyId: UUID) {
         _viewModel = State(initialValue: TransportDetailViewModel(transport: transport, journeyId: journeyId))
@@ -73,6 +76,12 @@ struct TransportDetailView: View {
                         Label(L("common.move_to_journey"), systemImage: "folder")
                     }
 
+                    Button {
+                        showShareSheet = true
+                    } label: {
+                        Label(L("transport.action.share"), systemImage: "square.and.arrow.up")
+                    }
+
                     Divider()
 
                     Button(role: .destructive) {
@@ -120,6 +129,9 @@ struct TransportDetailView: View {
             }
         } message: {
             Text(L("transport.detail.delete_confirm.message"))
+        }
+        .sheet(isPresented: $showShareSheet) {
+            ShareSheet(items: [viewModel.transport.shareText])
         }
     }
 
@@ -274,20 +286,58 @@ struct TransportDetailView: View {
     private var detailsCard: some View {
         VStack(spacing: 0) {
             if let platform = viewModel.transport.platform {
-                DetailRow(
-                    label: viewModel.transport.type.platformLabel,
-                    value: platform,
-                    iconName: "signpost.right.fill"
-                )
+                HStack {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(viewModel.transport.type.platformLabel)
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        Text(platform)
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                    }
+
+                    Spacer()
+
+                    Button {
+                        UIPasteboard.general.string = platform
+                        copiedPlatform = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            copiedPlatform = false
+                        }
+                    } label: {
+                        Image(systemName: copiedPlatform ? "checkmark" : "doc.on.doc")
+                            .foregroundColor(copiedPlatform ? .green : .orange)
+                    }
+                }
+                .padding()
                 Divider().padding(.leading, 44)
             }
 
             if let seat = viewModel.transport.seatNumber {
-                DetailRow(
-                    label: L("transport.detail.seat"),
-                    value: seat,
-                    iconName: "chair.fill"
-                )
+                HStack {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(L("transport.detail.seat"))
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        Text(seat)
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                    }
+
+                    Spacer()
+
+                    Button {
+                        UIPasteboard.general.string = seat
+                        copiedSeatNumber = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            copiedSeatNumber = false
+                        }
+                    } label: {
+                        Image(systemName: copiedSeatNumber ? "checkmark" : "doc.on.doc")
+                            .foregroundColor(copiedSeatNumber ? .green : .orange)
+                    }
+                }
+                .padding()
             }
         }
         .background(Color(.systemBackground))
@@ -381,23 +431,27 @@ struct TransportDetailView: View {
     // MARK: - Actions Section
 
     private var actionsSection: some View {
-        VStack(spacing: 12) {
+        CompactActionBar {
             // Add reminder button
-            Button {
+            CompactActionButton(
+                icon: "bell.badge.fill",
+                label: L("transport.action.reminder"),
+                color: .purple
+            ) {
                 showReminderSheet = true
-            } label: {
-                HStack {
-                    Image(systemName: "bell.badge.fill")
-                    Text(L("transport.detail.add_reminder"))
-                }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(Color.orange)
-                .foregroundColor(.white)
-                .cornerRadius(12)
+            }
+
+            // Share button
+            CompactActionButton(
+                icon: "square.and.arrow.up",
+                label: L("transport.action.share_short"),
+                color: .orange
+            ) {
+                analytics.trackEvent("transport_shared", properties: ["transport_id": viewModel.transport.id.uuidString])
+                showShareSheet = true
             }
         }
-        .padding(.top, 20)
+        .padding(.top, 8)
     }
 
     // MARK: - Helper Methods

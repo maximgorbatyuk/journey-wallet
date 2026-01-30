@@ -11,6 +11,7 @@ struct JourneyDetailView: View {
     @State private var showDocumentList = false
     @State private var showNoteList = false
     @State private var showPlaceList = false
+    @State private var showIdeaList = false
     @State private var showBudgetView = false
     @State private var showQuickAddSheet = false
     @ObservedObject private var analytics = AnalyticsService.shared
@@ -323,6 +324,44 @@ struct JourneyDetailView: View {
                                 }
                             )
 
+                            // Ideas Section
+                            sectionContainer(
+                                header: SectionHeaderView(
+                                    title: L("journey.detail.section.ideas"),
+                                    iconName: "lightbulb.fill",
+                                    iconColor: .yellow,
+                                    itemCount: viewModel.sectionCounts.ideas,
+                                    badgeText: viewModel.sectionCounts.ideas > 0 ? "\(viewModel.sectionCounts.ideasDone)/\(viewModel.sectionCounts.ideas)" : nil,
+                                    onSeeAll: viewModel.selectedJourneyId != nil ? {
+                                        showIdeaList = true
+                                    } : nil
+                                ),
+                                content: {
+                                    if viewModel.recentIdeas.isEmpty {
+                                        Button {
+                                            showIdeaList = true
+                                        } label: {
+                                            EmptySectionView(
+                                                message: L("journey.detail.ideas.empty"),
+                                                iconName: "lightbulb"
+                                            )
+                                        }
+                                        .buttonStyle(.plain)
+                                    } else {
+                                        ForEach(viewModel.recentIdeas) { idea in
+                                            IdeaPreviewRow(idea: idea)
+                                                .contentShape(Rectangle())
+                                                .onTapGesture {
+                                                    showIdeaList = true
+                                                }
+                                            if idea.id != viewModel.recentIdeas.last?.id {
+                                                Divider().padding(.leading, 56)
+                                            }
+                                        }
+                                    }
+                                }
+                            )
+
                             // Reminders Section
                             sectionContainer(
                                 header: SectionHeaderView(
@@ -453,6 +492,9 @@ struct JourneyDetailView: View {
             }
             .navigationDestination(isPresented: $showPlaceList) {
                 PlaceListView(journeyId: viewModel.selectedJourneyId ?? UUID())
+            }
+            .navigationDestination(isPresented: $showIdeaList) {
+                IdeaListView(journeyId: viewModel.selectedJourneyId ?? UUID())
             }
             .navigationDestination(isPresented: $showBudgetView) {
                 BudgetView(journeyId: viewModel.selectedJourneyId ?? UUID())

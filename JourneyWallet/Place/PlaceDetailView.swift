@@ -11,6 +11,7 @@ struct PlaceDetailView: View {
     @State private var showEditSheet: Bool = false
     @State private var showDeleteConfirmation: Bool = false
     @State private var showMoveSheet: Bool = false
+    @State private var showShareSheet: Bool = false
 
     init(place: PlaceToVisit, journeyId: UUID) {
         _viewModel = State(initialValue: PlaceDetailViewModel(place: place, journeyId: journeyId))
@@ -72,6 +73,12 @@ struct PlaceDetailView: View {
                         Label(L("common.move_to_journey"), systemImage: "folder")
                     }
 
+                    Button {
+                        showShareSheet = true
+                    } label: {
+                        Label(L("place.action.share"), systemImage: "square.and.arrow.up")
+                    }
+
                     Divider()
 
                     Button(role: .destructive) {
@@ -113,6 +120,9 @@ struct PlaceDetailView: View {
                     }
                 }
             )
+        }
+        .sheet(isPresented: $showShareSheet) {
+            ShareSheet(items: [viewModel.place.shareText])
         }
         .alert(L("place.detail.delete_confirm.title"), isPresented: $showDeleteConfirmation) {
             Button(L("Cancel"), role: .cancel) {}
@@ -350,72 +360,51 @@ struct PlaceDetailView: View {
     // MARK: - Actions Section
 
     private var actionsSection: some View {
-        VStack(spacing: 12) {
-            // Toggle visited button
-            Button(action: {
+        CompactActionBar {
+            // Mark as Visited button
+            CompactActionButton(
+                icon: viewModel.place.isVisited ? "xmark.circle" : "checkmark.circle.fill",
+                label: viewModel.place.isVisited ? L("place.action.undo") : L("place.action.visited"),
+                color: viewModel.place.isVisited ? .gray : .green
+            ) {
                 viewModel.toggleVisited()
-            }) {
-                HStack {
-                    Image(systemName: viewModel.place.isVisited ? "xmark.circle" : "checkmark.circle.fill")
-                    Text(viewModel.place.isVisited ? L("place.action.mark_unvisited") : L("place.action.mark_visited"))
-                }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(viewModel.place.isVisited ? Color.gray : Color.green)
-                .foregroundColor(.white)
-                .cornerRadius(12)
+                analytics.trackEvent("place_visited_toggled", properties: [
+                    "place_id": viewModel.place.id.uuidString,
+                    "is_visited": String(!viewModel.place.isVisited)
+                ])
             }
 
-            // Address action button
+            // Open Map / URL button (address or URL)
             if let address = viewModel.place.address, !address.isEmpty {
-                if isURL(address) {
-                    // Open address URL button (e.g., Google Maps link)
-                    Button(action: {
+                CompactActionButton(
+                    icon: "map.fill",
+                    label: L("place.action.map"),
+                    color: .blue
+                ) {
+                    if isURL(address) {
                         openURLString(address)
-                    }) {
-                        HStack {
-                            Image(systemName: "map.fill")
-                            Text(L("place.detail.action.open_address_link"))
-                        }
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(12)
-                    }
-                } else {
-                    // Open in Apple Maps button
-                    Button(action: {
+                    } else {
                         openInMaps(address)
-                    }) {
-                        HStack {
-                            Image(systemName: "map.fill")
-                            Text(L("place.detail.action.map"))
-                        }
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(12)
                     }
+                }
+            } else if let url = viewModel.place.url, !url.isEmpty {
+                CompactActionButton(
+                    icon: "link",
+                    label: L("place.action.open"),
+                    color: .blue
+                ) {
+                    openURLString(url)
                 }
             }
 
-            // Open URL button (if URL exists)
-            if let url = viewModel.place.url, !url.isEmpty {
-                Button(action: {
-                    openURLString(url)
-                }) {
-                    HStack {
-                        Image(systemName: "link")
-                        Text(L("place.detail.action.open_link"))
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(12)
-                }
+            // Share button
+            CompactActionButton(
+                icon: "square.and.arrow.up",
+                label: L("place.action.share_short"),
+                color: .orange
+            ) {
+                showShareSheet = true
+                analytics.trackEvent("place_shared", properties: ["place_id": viewModel.place.id.uuidString])
             }
         }
         .padding(.top, 8)

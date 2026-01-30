@@ -89,6 +89,7 @@
 "share.entity_type.car_rental" = "Оренда авто";
 "share.entity_type.note" = "Нотатка";
 "share.entity_type.place" = "Місце";
+"share.entity_type.idea" = "Ідея";
 
 /* Share Extension - Content & Form */
 "share.content_preview" = "Вміст";
@@ -377,6 +378,7 @@
 "journey.detail.section.documents" = "Документи";
 "journey.detail.section.notes" = "Нотатки";
 "journey.detail.section.places" = "Місця для відвідування";
+"journey.detail.section.ideas" = "Ідеї";
 "journey.detail.section.reminders" = "Нагадування";
 "journey.detail.section.budget" = "Бюджет";
 
@@ -391,6 +393,7 @@
 "journey.detail.documents.count" = "документів";
 "journey.detail.notes.empty" = "Нотаток поки немає";
 "journey.detail.places.empty" = "Місць для відвідування поки немає";
+"journey.detail.ideas.empty" = "Ідей поки немає";
 "journey.detail.reminders.empty" = "Нагадувань поки немає";
 "journey.detail.budget.empty" = "Витрати ще не відстежуються";
 
@@ -420,8 +423,19 @@
 "transport.detail.add_reminder" = "Додати нагадування";
 "transport.detail.departs_in" = "Відправлення через";
 "transport.detail.departing_soon" = "Скоро відправлення";
+"transport.detail.departure" = "Відправлення";
+"transport.detail.arrival" = "Прибуття";
 "transport.detail.delete_confirm.title" = "Видалити транспорт?";
 "transport.detail.delete_confirm.message" = "Це назавжди видалить це бронювання та всі пов'язані нагадування.";
+
+/* Transport Actions */
+"transport.action.reminder" = "Нагадати";
+"transport.action.share" = "Поділитися транспортом";
+"transport.action.share_short" = "Поділитися";
+
+/* Transport Share */
+"transport.share.prefix" = "Мій транспорт:";
+"transport.detail.route" = "Маршрут";
 
 /* Transport Form */
 "transport.form.add_title" = "Додати транспорт";
@@ -503,6 +517,16 @@
 "hotel.detail.action.call" = "Зателефонувати в готель";
 "hotel.detail.action.map" = "Відкрити на карті";
 "hotel.detail.action.reminder" = "Додати нагадування";
+
+/* Hotel Actions (compact) */
+"hotel.action.call" = "Дзвінок";
+"hotel.action.map" = "Карта";
+"hotel.action.reminder" = "Нагадати";
+"hotel.action.share" = "Поділитися готелем";
+"hotel.action.share_short" = "Поділитися";
+
+/* Hotel Share */
+"hotel.share.prefix" = "Подивись моє бронювання готелю:";
 
 /* Hotel Form */
 "hotel.form.add_title" = "Додати готель";
@@ -588,6 +612,15 @@
 "car_rental.detail.action.dropoff_map" = "Місце повернення на карті";
 "car_rental.detail.action.reminder" = "Додати нагадування";
 
+/* Car Rental Actions (compact) */
+"car_rental.action.map" = "Карта";
+"car_rental.action.reminder" = "Нагадати";
+"car_rental.action.share" = "Поділитися орендою";
+"car_rental.action.share_short" = "Поділитися";
+
+/* Car Rental Share */
+"car_rental.share.prefix" = "Моя оренда авто:";
+
 /* Car Rental Form */
 "car_rental.form.add_title" = "Додати оренду авто";
 "car_rental.form.edit_title" = "Редагувати оренду";
@@ -633,6 +666,7 @@
 "quick_add.place" = "Місце для відвідування";
 "quick_add.reminder" = "Нагадування";
 "quick_add.expense" = "Витрата";
+"quick_add.idea" = "Ідея";
 "quick_add.checklist" = "Чек-лист";
 "quick_add.coming_soon" = "Незабаром";
 
@@ -736,6 +770,15 @@
 /* Place Actions */
 "place.action.mark_visited" = "Позначити відвіданим";
 "place.action.mark_unvisited" = "Позначити невідвіданим";
+"place.action.visited" = "Відвідано";
+"place.action.undo" = "Скасувати";
+"place.action.map" = "Карта";
+"place.action.open" = "Відкрити";
+"place.action.share" = "Поділитися місцем";
+"place.action.share_short" = "Поділитися";
+
+/* Place Share */
+"place.share.prefix" = "Подивись це місце:";
 
 /* Place Form */
 "place.form.add_title" = "Додати місце";
@@ -961,3 +1004,76 @@
 /* Journey Detail - Checklists */
 "journey.detail.section.checklists" = "Чек-листи";
 "journey.detail.checklists.empty" = "Немає чек-листів";
+
+/* Idea Management */
+"idea.list.title" = "Ідеї";
+"idea.list.empty.title" = "Ідей немає";
+"idea.list.empty.message" = "Зберігайте надихаючі ідеї та поради для вашої подорожі.";
+"idea.list.add_first" = "Додати ідею";
+"idea.summary.done" = "виконано";
+
+/* Idea Form */
+"idea.form.add_title" = "Нова ідея";
+"idea.form.edit_title" = "Редагувати ідею";
+"idea.form.section.info" = "Інформація про ідею";
+"idea.form.section.url" = "Посилання";
+"idea.form.section.notes" = "Нотатки";
+"idea.form.title" = "Назва";
+"idea.form.title_placeholder" = "Назва ідеї";
+"idea.form.description" = "Опис";
+"idea.form.description_placeholder" = "Опишіть вашу ідею";
+"idea.form.url" = "URL";
+"idea.form.url_placeholder" = "Посилання на відео, пост або веб-сайт";
+"idea.form.url_hint" = "Instagram, YouTube, веб-сайт тощо";
+"idea.form.is_done" = "Позначити як виконану";
+"idea.form.validation.error" = "Помилка валідації";
+"idea.form.validation.title_required" = "Будь ласка, введіть назву ідеї.";
+
+/* Idea Detail */
+"idea.detail.title" = "Деталі ідеї";
+"idea.detail.description" = "Опис";
+"idea.detail.url" = "Посилання";
+"idea.detail.created" = "Створено";
+"idea.detail.updated" = "Оновлено";
+"idea.detail.status" = "Статус";
+"idea.detail.status.done" = "Виконано";
+"idea.detail.status.pending" = "Очікує";
+
+/* Idea Actions */
+"idea.action.mark_done" = "Позначити як виконану";
+"idea.action.mark_pending" = "Позначити як очікує";
+"idea.action.open_url" = "Відкрити посилання";
+"idea.action.share" = "Поділитися ідеєю";
+"idea.action.done" = "Готово";
+"idea.action.undo" = "Скасувати";
+"idea.action.open" = "Відкрити";
+"idea.action.share_short" = "Поділитися";
+
+/* Idea Delete Confirmation */
+"idea.delete_confirm.title" = "Видалити ідею?";
+"idea.delete_confirm.message" = "Цю ідею буде видалено назавжди.";
+
+/* Idea Share */
+"idea.share.prefix" = "Гей! Я знайшов чудову ідею:";
+
+/* Developer - Document Storage Browser */
+"developer.document_storage.title" = "Сховище документів";
+"developer.document_storage.button" = "Переглянути сховище документів";
+"developer.document_storage.stats.title" = "Використання сховища";
+"developer.document_storage.stats.files_folders" = "%d файлів у %d папках";
+"developer.document_storage.stats.files" = "файли";
+"developer.document_storage.folders" = "папки";
+"developer.document_storage.root_files" = "Кореневі файли";
+"developer.document_storage.no_files" = "Немає файлів у цій директорії";
+"developer.document_storage.unknown_journey" = "Невідома подорож";
+"developer.document_storage.file_info" = "Інформація про файл";
+"developer.document_storage.type" = "Тип";
+"developer.document_storage.size" = "Розмір";
+"developer.document_storage.created" = "Створено";
+"developer.document_storage.modified" = "Змінено";
+"developer.document_storage.path" = "Шлях";
+"developer.document_storage.quick_look" = "Швидкий перегляд";
+"developer.document_storage.share" = "Поділитися файлом";
+"developer.document_storage.delete" = "Видалити файл";
+"developer.document_storage.delete_confirm.title" = "Видалити файл?";
+"developer.document_storage.delete_confirm.message" = "Цей файл буде назавжди видалено зі сховища.";

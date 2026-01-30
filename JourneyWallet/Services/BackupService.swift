@@ -58,6 +58,7 @@ final class BackupService: ObservableObject {
     private let placesToVisitRepository: PlacesToVisitRepository?
     private let remindersRepository: RemindersRepository?
     private let expensesRepository: ExpensesRepository?
+    private let ideasRepository: IdeasRepository?
     private let databaseManager: DatabaseManager
     private let networkMonitor: NetworkMonitor
     private let logger: Logger
@@ -79,6 +80,7 @@ final class BackupService: ObservableObject {
         self.placesToVisitRepository = self.databaseManager.placesToVisitRepository
         self.remindersRepository = self.databaseManager.remindersRepository
         self.expensesRepository = self.databaseManager.expensesRepository
+        self.ideasRepository = self.databaseManager.ideasRepository
         self.logger = Logger(subsystem: "dev.mgorbatyuk.awesomeapplication.businesslogic", category: "BackupService")
     }
     
@@ -109,6 +111,7 @@ final class BackupService: ObservableObject {
         let placesToVisit = placesToVisitRepository?.fetchAll()
         let reminders = remindersRepository?.fetchAll()
         let expenses = expensesRepository?.fetchAll()
+        let ideas = ideasRepository?.fetchAll()
 
         return ExportData(
             metadata: metadata,
@@ -121,7 +124,8 @@ final class BackupService: ObservableObject {
             notes: notes,
             placesToVisit: placesToVisit,
             reminders: reminders,
-            expenses: expenses
+            expenses: expenses,
+            ideas: ideas
         )
     }
     
@@ -343,6 +347,14 @@ final class BackupService: ObservableObject {
                 _ = expensesRepository?.insert(expense)
             }
             self.logger.info("Imported \(expenses.count) expenses")
+        }
+
+        // Import ideas
+        if let ideas = exportData.ideas {
+            for idea in ideas {
+                _ = ideasRepository?.insert(idea)
+            }
+            self.logger.info("Imported \(ideas.count) ideas")
         }
 
         self.logger.info("Successfully imported all data")

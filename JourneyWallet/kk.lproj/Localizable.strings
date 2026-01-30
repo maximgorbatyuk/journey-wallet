@@ -89,6 +89,7 @@
 "share.entity_type.car_rental" = "Көлік жалдау";
 "share.entity_type.note" = "Жазба";
 "share.entity_type.place" = "Орын";
+"share.entity_type.idea" = "Идея";
 
 /* Share Extension - Content & Form */
 "share.content_preview" = "Мазмұн";
@@ -377,6 +378,7 @@
 "journey.detail.section.documents" = "Құжаттар";
 "journey.detail.section.notes" = "Жазбалар";
 "journey.detail.section.places" = "Баратын орындар";
+"journey.detail.section.ideas" = "Идеялар";
 "journey.detail.section.reminders" = "Еске салулар";
 "journey.detail.section.budget" = "Бюджет";
 
@@ -391,6 +393,7 @@
 "journey.detail.documents.count" = "құжат";
 "journey.detail.notes.empty" = "Жазбалар жоқ";
 "journey.detail.places.empty" = "Баратын орындар жоқ";
+"journey.detail.ideas.empty" = "Идеялар жоқ";
 "journey.detail.reminders.empty" = "Еске салулар жоқ";
 "journey.detail.budget.empty" = "Шығындар тіркелмеген";
 
@@ -420,8 +423,19 @@
 "transport.detail.add_reminder" = "Еске салу қосу";
 "transport.detail.departs_in" = "Шығу";
 "transport.detail.departing_soon" = "Жақында шығады";
+"transport.detail.departure" = "Шығу";
+"transport.detail.arrival" = "Келу";
 "transport.detail.delete_confirm.title" = "Көлікті жою?";
 "transport.detail.delete_confirm.message" = "Бұл көлік брондауы және барлық байланысты еске салулар біржола жойылады.";
+
+/* Transport Actions */
+"transport.action.reminder" = "Еске сал";
+"transport.action.share" = "Көлікті бөлісу";
+"transport.action.share_short" = "Бөлісу";
+
+/* Transport Share */
+"transport.share.prefix" = "Көлігім:";
+"transport.detail.route" = "Бағыт";
 
 /* Transport Form */
 "transport.form.add_title" = "Көлік қосу";
@@ -503,6 +517,16 @@
 "hotel.detail.action.call" = "Қонақ үйге қоңырау шалу";
 "hotel.detail.action.map" = "Картадан ашу";
 "hotel.detail.action.reminder" = "Еске салу қосу";
+
+/* Hotel Actions (compact) */
+"hotel.action.call" = "Қоңырау";
+"hotel.action.map" = "Карта";
+"hotel.action.reminder" = "Еске салу";
+"hotel.action.share" = "Қонақ үймен бөлісу";
+"hotel.action.share_short" = "Бөлісу";
+
+/* Hotel Share */
+"hotel.share.prefix" = "Менің қонақ үй брондауымды қара:";
 
 /* Hotel Form */
 "hotel.form.add_title" = "Қонақ үй қосу";
@@ -588,6 +612,15 @@
 "car_rental.detail.action.dropoff_map" = "Қайтару орнын картадан көру";
 "car_rental.detail.action.reminder" = "Еске салу қосу";
 
+/* Car Rental Actions (compact) */
+"car_rental.action.map" = "Карта";
+"car_rental.action.reminder" = "Есте сақта";
+"car_rental.action.share" = "Жалдауды бөлісу";
+"car_rental.action.share_short" = "Бөлісу";
+
+/* Car Rental Share */
+"car_rental.share.prefix" = "Менің автокөлік жалдауым:";
+
 /* Car Rental Form */
 "car_rental.form.add_title" = "Автокөлік жалдау қосу";
 "car_rental.form.edit_title" = "Жалдауды өңдеу";
@@ -633,6 +666,7 @@
 "quick_add.place" = "Бару орны";
 "quick_add.reminder" = "Еске салу";
 "quick_add.expense" = "Шығын";
+"quick_add.idea" = "Идея";
 "quick_add.checklist" = "Тексеру тізімі";
 "quick_add.coming_soon" = "Жақында";
 
@@ -736,6 +770,15 @@
 /* Place Actions */
 "place.action.mark_visited" = "Барылған деп белгілеу";
 "place.action.mark_unvisited" = "Барылмаған деп белгілеу";
+"place.action.visited" = "Барылған";
+"place.action.undo" = "Қайтару";
+"place.action.map" = "Карта";
+"place.action.open" = "Ашу";
+"place.action.share" = "Орынмен бөлісу";
+"place.action.share_short" = "Бөлісу";
+
+/* Place Share */
+"place.share.prefix" = "Мына орынды қара:";
 
 /* Place Form */
 "place.form.add_title" = "Орын қосу";
@@ -963,3 +1006,76 @@
 /* Journey Detail - Checklists */
 "journey.detail.section.checklists" = "Тексеру тізімдері";
 "journey.detail.checklists.empty" = "Тексеру тізімдері жоқ";
+
+/* Idea Management */
+"idea.list.title" = "Идеялар";
+"idea.list.empty.title" = "Идеялар жоқ";
+"idea.list.empty.message" = "Саяхатыңыз үшін шабыт беретін идеялар мен кеңестерді сақтаңыз.";
+"idea.list.add_first" = "Идея қосу";
+"idea.summary.done" = "орындалған";
+
+/* Idea Form */
+"idea.form.add_title" = "Жаңа идея";
+"idea.form.edit_title" = "Идеяны өңдеу";
+"idea.form.section.info" = "Идея ақпараты";
+"idea.form.section.url" = "Сілтеме";
+"idea.form.section.notes" = "Жазбалар";
+"idea.form.title" = "Тақырып";
+"idea.form.title_placeholder" = "Идея тақырыбы";
+"idea.form.description" = "Сипаттама";
+"idea.form.description_placeholder" = "Идеяңызды сипаттаңыз";
+"idea.form.url" = "URL";
+"idea.form.url_placeholder" = "Бейне, пост немесе веб-сайт сілтемесі";
+"idea.form.url_hint" = "Instagram, YouTube, веб-сайт т.б.";
+"idea.form.is_done" = "Орындалған деп белгілеу";
+"idea.form.validation.error" = "Тексеру қатесі";
+"idea.form.validation.title_required" = "Идея тақырыбын енгізіңіз.";
+
+/* Idea Detail */
+"idea.detail.title" = "Идея мәліметтері";
+"idea.detail.description" = "Сипаттама";
+"idea.detail.url" = "Сілтеме";
+"idea.detail.created" = "Жасалған";
+"idea.detail.updated" = "Жаңартылған";
+"idea.detail.status" = "Күй";
+"idea.detail.status.done" = "Орындалды";
+"idea.detail.status.pending" = "Күтуде";
+
+/* Idea Actions */
+"idea.action.mark_done" = "Орындалған деп белгілеу";
+"idea.action.mark_pending" = "Күтуде деп белгілеу";
+"idea.action.open_url" = "Сілтемені ашу";
+"idea.action.share" = "Идеямен бөлісу";
+"idea.action.done" = "Дайын";
+"idea.action.undo" = "Қайтару";
+"idea.action.open" = "Ашу";
+"idea.action.share_short" = "Бөлісу";
+
+/* Idea Delete Confirmation */
+"idea.delete_confirm.title" = "Идеяны жою керек пе?";
+"idea.delete_confirm.message" = "Бұл идея біржола жойылады.";
+
+/* Idea Share */
+"idea.share.prefix" = "Эй! Мен керемет идея таптым:";
+
+/* Developer - Document Storage Browser */
+"developer.document_storage.title" = "Құжаттар сақтауышы";
+"developer.document_storage.button" = "Құжаттар сақтауышын қарау";
+"developer.document_storage.stats.title" = "Сақтау орнының қолданылуы";
+"developer.document_storage.stats.files_folders" = "%d файл %d қалта";
+"developer.document_storage.stats.files" = "файлдар";
+"developer.document_storage.folders" = "Қалталар";
+"developer.document_storage.root_files" = "Түбір файлдары";
+"developer.document_storage.no_files" = "Бул қалтада файл жо";
+"developer.document_storage.unknown_journey" = "Белгісіз саяхат";
+"developer.document_storage.file_info" = "Файл ақпараты";
+"developer.document_storage.type" = "Түрі";
+"developer.document_storage.size" = "Өлшемі";
+"developer.document_storage.created" = "Құрылды";
+"developer.document_storage.modified" = "Өзгертілді";
+"developer.document_storage.path" = "Жолы";
+"developer.document_storage.quick_look" = "Тез қарау";
+"developer.document_storage.share" = "Файлды бөлісу";
+"developer.document_storage.delete" = "Файлды жою";
+"developer.document_storage.delete_confirm.title" = "Файлды жою?";
+"developer.document_storage.delete_confirm.message" = "Бул файл сақтау орыннан біржола жойылады.";

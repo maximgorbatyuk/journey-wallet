@@ -63,6 +63,10 @@ class RandomDataGenerator {
             items.forEach { _ = db.checklistItemsRepository?.insert($0) }
         }
 
+        // Generate ideas (3-5)
+        let ideas = generateIdeas(for: journey)
+        ideas.forEach { _ = db.ideasRepository?.insert($0) }
+
         logger.info("Random data generation completed for journey: \(journey.name)")
     }
 
@@ -82,6 +86,7 @@ class RandomDataGenerator {
         _ = db.documentsRepository?.deleteByJourneyId(journeyId: journeyId)
         _ = db.checklistItemsRepository?.deleteByJourneyId(journeyId: journeyId)
         _ = db.checklistsRepository?.deleteByJourneyId(journeyId: journeyId)
+        _ = db.ideasRepository?.deleteByJourneyId(journeyId: journeyId)
 
         logger.debug("Existing data deleted for journey: \(journeyId)")
     }
@@ -574,6 +579,92 @@ class RandomDataGenerator {
         }
 
         return result
+    }
+
+    // MARK: - Ideas Generation
+
+    private func generateIdeas(for journey: Journey) -> [Idea] {
+        var ideas: [Idea] = []
+        let count = Int.random(in: 3...5)
+
+        let ideaData: [(title: String, description: String?, url: String?)] = [
+            (
+                "Try local street food tour",
+                "Found this amazing food tour on YouTube - covers all the hidden gems locals love. Should book in advance!",
+                "https://www.youtube.com/watch?v=example123"
+            ),
+            (
+                "Rooftop bar at sunset",
+                "Saw this on Instagram - stunning views of the city skyline. Best time is 30 min before sunset.",
+                "https://www.instagram.com/p/example456"
+            ),
+            (
+                "Hidden beach spot",
+                "A local recommended this secret beach - less crowded than the main ones. Need to take a small boat.",
+                nil
+            ),
+            (
+                "Vintage market on weekends",
+                "Opens only on Saturday mornings. Great for unique souvenirs and antiques.",
+                "https://maps.google.com/?q=vintage+market"
+            ),
+            (
+                "Cooking class experience",
+                "Learn to make traditional dishes. TripAdvisor highly recommended this one.",
+                "https://www.tripadvisor.com/example"
+            ),
+            (
+                "Sunrise hike viewpoint",
+                "Best spot for sunrise photos. Trail starts at 5 AM, takes about 45 minutes.",
+                nil
+            ),
+            (
+                "Local coffee roastery",
+                nil,
+                "https://www.instagram.com/p/coffeeroaster"
+            ),
+            (
+                "Underground jazz club",
+                "Live music every night after 9 PM. No reservations needed but arrive early for good seats.",
+                nil
+            ),
+            (
+                "Day trip to nearby island",
+                "Ferry runs every 2 hours. Can rent bikes on the island to explore.",
+                "https://www.viator.com/example-tour"
+            ),
+            (
+                "Artisan cheese shop",
+                "The owner gives free tastings! Must try the aged local variety.",
+                "https://maps.google.com/?q=artisan+cheese"
+            )
+        ]
+
+        var usedIndices: Set<Int> = []
+
+        for _ in 0..<count {
+            var index: Int
+            repeat {
+                index = Int.random(in: 0..<ideaData.count)
+            } while usedIndices.contains(index)
+            usedIndices.insert(index)
+
+            let data = ideaData[index]
+
+            // ~30% chance of being done
+            let isDone = Double.random(in: 0...1) < 0.3
+
+            let idea = Idea(
+                journeyId: journey.id,
+                title: data.title,
+                description: data.description,
+                url: data.url,
+                isDone: isDone
+            )
+            ideas.append(idea)
+        }
+
+        return ideas
     }
 
     // MARK: - Helpers

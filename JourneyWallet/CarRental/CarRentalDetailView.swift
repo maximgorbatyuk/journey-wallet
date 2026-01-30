@@ -13,6 +13,7 @@ struct CarRentalDetailView: View {
     @State private var showReminderSheet: Bool = false
     @State private var showMoveSheet: Bool = false
     @State private var copiedBookingRef: Bool = false
+    @State private var showShareSheet: Bool = false
 
     init(carRental: CarRental, journeyId: UUID) {
         _viewModel = State(initialValue: CarRentalDetailViewModel(carRental: carRental, journeyId: journeyId))
@@ -76,6 +77,12 @@ struct CarRentalDetailView: View {
                         Label(L("common.move_to_journey"), systemImage: "folder")
                     }
 
+                    Button {
+                        showShareSheet = true
+                    } label: {
+                        Label(L("car_rental.action.share"), systemImage: "square.and.arrow.up")
+                    }
+
                     Divider()
 
                     Button(role: .destructive) {
@@ -123,6 +130,9 @@ struct CarRentalDetailView: View {
             }
         } message: {
             Text(L("car_rental.detail.delete_confirm.message"))
+        }
+        .sheet(isPresented: $showShareSheet) {
+            ShareSheet(items: [viewModel.carRental.shareText])
         }
     }
 
@@ -495,38 +505,31 @@ struct CarRentalDetailView: View {
     // MARK: - Actions Section
 
     private var actionsSection: some View {
-        VStack(spacing: 12) {
-
+        CompactActionBar {
             if let pickupLocation = viewModel.carRental.pickupLocation, !pickupLocation.isEmpty {
-                // Open pickup location in Maps
-                Button(action: {
+                CompactActionButton(
+                    icon: "map.fill",
+                    label: L("car_rental.action.map"),
+                    color: .blue
+                ) {
                     openInMaps(location: pickupLocation)
-                }) {
-                    HStack {
-                        Image(systemName: "map.fill")
-                        Text(L("car_rental.detail.action.map_pickup"))
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(12)
                 }
             }
 
-            // Add reminder button
-            Button(action: {
+            CompactActionButton(
+                icon: "bell.badge.fill",
+                label: L("car_rental.action.reminder"),
+                color: .purple
+            ) {
                 showReminderSheet = true
-            }) {
-                HStack {
-                    Image(systemName: "bell.badge.fill")
-                    Text(L("car_rental.detail.action.reminder"))
-                }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(Color.orange)
-                .foregroundColor(.white)
-                .cornerRadius(12)
+            }
+
+            CompactActionButton(
+                icon: "square.and.arrow.up",
+                label: L("car_rental.action.share_short"),
+                color: .orange
+            ) {
+                showShareSheet = true
             }
         }
         .padding(.top, 8)

@@ -10,6 +10,7 @@ enum QuickAddEntityType: String, CaseIterable, Identifiable {
     case place
     case reminder
     case expense
+    case idea
 
     var id: String { rawValue }
 
@@ -24,6 +25,7 @@ enum QuickAddEntityType: String, CaseIterable, Identifiable {
         case .place: return L("quick_add.place")
         case .reminder: return L("quick_add.reminder")
         case .expense: return L("quick_add.expense")
+        case .idea: return L("quick_add.idea")
         }
     }
 
@@ -38,6 +40,7 @@ enum QuickAddEntityType: String, CaseIterable, Identifiable {
         case .place: return "mappin.circle.fill"
         case .reminder: return "bell.fill"
         case .expense: return "dollarsign.circle.fill"
+        case .idea: return "lightbulb.fill"
         }
     }
 
@@ -52,6 +55,7 @@ enum QuickAddEntityType: String, CaseIterable, Identifiable {
         case .place: return .red
         case .reminder: return .red
         case .expense: return .green
+        case .idea: return .yellow
         }
     }
 }

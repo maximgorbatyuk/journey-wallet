@@ -89,6 +89,7 @@
 "share.entity_type.car_rental" = "Mietwagen";
 "share.entity_type.note" = "Notiz";
 "share.entity_type.place" = "Ort";
+"share.entity_type.idea" = "Idee";
 
 /* Share Extension - Content & Form */
 "share.content_preview" = "Geteilter Inhalt";
@@ -377,6 +378,7 @@
 "journey.detail.section.documents" = "Dokumente";
 "journey.detail.section.notes" = "Notizen";
 "journey.detail.section.places" = "Sehenswürdigkeiten";
+"journey.detail.section.ideas" = "Ideen";
 "journey.detail.section.reminders" = "Erinnerungen";
 "journey.detail.section.budget" = "Budget";
 
@@ -391,6 +393,7 @@
 "journey.detail.documents.count" = "Dokumente";
 "journey.detail.notes.empty" = "Noch keine Notizen";
 "journey.detail.places.empty" = "Noch keine Sehenswürdigkeiten";
+"journey.detail.ideas.empty" = "Noch keine Ideen";
 "journey.detail.reminders.empty" = "Noch keine Erinnerungen";
 "journey.detail.budget.empty" = "Noch keine Ausgaben erfasst";
 
@@ -420,8 +423,19 @@
 "transport.detail.add_reminder" = "Erinnerung hinzufügen";
 "transport.detail.departs_in" = "Abfahrt in";
 "transport.detail.departing_soon" = "Abfahrt bald";
+"transport.detail.departure" = "Abfahrt";
+"transport.detail.arrival" = "Ankunft";
 "transport.detail.delete_confirm.title" = "Transport löschen?";
 "transport.detail.delete_confirm.message" = "Dies löscht diese Transportbuchung und alle zugehörigen Erinnerungen dauerhaft.";
+
+/* Transport Actions */
+"transport.action.reminder" = "Erinnern";
+"transport.action.share" = "Transport teilen";
+"transport.action.share_short" = "Teilen";
+
+/* Transport Share */
+"transport.share.prefix" = "Mein Transport:";
+"transport.detail.route" = "Route";
 
 /* Transport Form */
 "transport.form.add_title" = "Transport hinzufügen";
@@ -504,6 +518,16 @@
 "hotel.detail.action.map" = "In Karten öffnen";
 "hotel.detail.action.reminder" = "Erinnerung hinzufügen";
 
+/* Hotel Actions (compact) */
+"hotel.action.call" = "Anrufen";
+"hotel.action.map" = "Karte";
+"hotel.action.reminder" = "Erinnern";
+"hotel.action.share" = "Hotel teilen";
+"hotel.action.share_short" = "Teilen";
+
+/* Hotel Share */
+"hotel.share.prefix" = "Schau dir meine Hotelbuchung an:";
+
 /* Hotel Form */
 "hotel.form.add_title" = "Hotel hinzufügen";
 "hotel.form.edit_title" = "Hotel bearbeiten";
@@ -585,6 +609,15 @@
 "car_rental.detail.action.map_pickup" = "Abholort in Karten öffnen";
 "car_rental.detail.action.reminder" = "Erinnerung hinzufügen";
 
+/* Car Rental Actions (compact) */
+"car_rental.action.map" = "Karte";
+"car_rental.action.reminder" = "Erinnern";
+"car_rental.action.share" = "Mietwagen teilen";
+"car_rental.action.share_short" = "Teilen";
+
+/* Car Rental Share */
+"car_rental.share.prefix" = "Meine Autovermietung:";
+
 /* Car Rental Form */
 "car_rental.form.add_title" = "Mietwagen hinzufügen";
 "car_rental.form.edit_title" = "Mietwagen bearbeiten";
@@ -631,6 +664,7 @@
 "quick_add.place" = "Sehenswürdigkeit";
 "quick_add.reminder" = "Erinnerung";
 "quick_add.expense" = "Ausgabe";
+"quick_add.idea" = "Idee";
 "quick_add.coming_soon" = "Demnächst verfügbar";
 
 /* Document Management */
@@ -729,6 +763,15 @@
 /* Place Actions */
 "place.action.mark_visited" = "Als besucht markieren";
 "place.action.mark_unvisited" = "Als nicht besucht markieren";
+"place.action.visited" = "Besucht";
+"place.action.undo" = "Rückgängig";
+"place.action.map" = "Karte";
+"place.action.open" = "Öffnen";
+"place.action.share" = "Ort teilen";
+"place.action.share_short" = "Teilen";
+
+/* Place Share */
+"place.share.prefix" = "Schau dir diesen Ort an:";
 
 /* Place Form */
 "place.form.add_title" = "Ort hinzufügen";
@@ -766,6 +809,60 @@
 /* Place Status */
 "place.status.visited" = "Besucht";
 "place.status.not_visited" = "Zu besuchen";
+
+/* Idea Management */
+"idea.list.title" = "Ideen";
+"idea.list.empty.title" = "Noch keine Ideen";
+"idea.list.empty.subtitle" = "Speichern Sie Reiseinspirationen, Tipps, Videos und Inhalte";
+"idea.list.empty.button" = "Idee hinzufügen";
+"idea.list.section.done" = "Erledigt";
+"idea.list.progress" = "%d/%d erledigt";
+
+/* Idea Form */
+"idea.form.title.new" = "Neue Idee";
+"idea.form.title.edit" = "Idee bearbeiten";
+"idea.form.field.title" = "Titel";
+"idea.form.field.title.required" = "Titel ist erforderlich";
+"idea.form.field.description" = "Beschreibung";
+"idea.form.field.url" = "URL";
+"idea.form.field.url.hint" = "Video, Instagram-Post, Artikel";
+"idea.form.field.done" = "Erledigt";
+"idea.form.section.info" = "Info";
+"idea.form.section.description" = "Beschreibung";
+"idea.form.section.link" = "Link";
+"idea.form.section.status" = "Status";
+"idea.form.move_to_journey" = "Zu anderer Reise verschieben";
+
+/* Idea Detail */
+"idea.detail.title" = "Idee";
+"idea.detail.section.description" = "Beschreibung";
+"idea.detail.section.link" = "Link";
+"idea.detail.section.actions" = "Aktionen";
+"idea.detail.created" = "Erstellt";
+"idea.detail.updated" = "Aktualisiert";
+"idea.detail.status.done" = "Erledigt";
+"idea.detail.status.not_done" = "Nicht erledigt";
+
+/* Idea Actions */
+"idea.action.edit" = "Bearbeiten";
+"idea.action.delete" = "Löschen";
+"idea.action.move" = "Verschieben";
+"idea.action.share" = "Teilen";
+"idea.action.mark_done" = "Als erledigt markieren";
+"idea.action.mark_not_done" = "Als nicht erledigt markieren";
+"idea.action.open_url" = "URL öffnen";
+"idea.action.copy_url" = "URL kopieren";
+"idea.action.done" = "Fertig";
+"idea.action.undo" = "Rückgängig";
+"idea.action.open" = "Öffnen";
+"idea.action.share_short" = "Teilen";
+
+/* Idea Delete Confirmation */
+"idea.delete.confirm.title" = "Idee löschen?";
+"idea.delete.confirm.message" = "Möchten Sie diese Idee wirklich löschen?";
+
+/* Idea Share */
+"idea.share.prefix" = "Hey! Ich habe eine tolle Idee gefunden:";
 
 /* Budget Management */
 "budget.title" = "Budget";
@@ -956,3 +1053,25 @@
 /* Journey Detail - Checklists */
 "journey.detail.section.checklists" = "Checklisten";
 "journey.detail.checklists.empty" = "Noch keine Checklisten";
+
+/* Developer - Document Storage Browser */
+"developer.document_storage.title" = "Dokumentenspeicher";
+"developer.document_storage.button" = "Dokumentenspeicher durchsuchen";
+"developer.document_storage.stats.title" = "Speichernutzung";
+"developer.document_storage.stats.files_folders" = "%d Dateien in %d Ordnern";
+"developer.document_storage.stats.files" = "Dateien";
+"developer.document_storage.folders" = "Ordner";
+"developer.document_storage.root_files" = "Stammdateien";
+"developer.document_storage.no_files" = "Keine Dateien in diesem Verzeichnis";
+"developer.document_storage.unknown_journey" = "Unbekannte Reise";
+"developer.document_storage.file_info" = "Dateiinformationen";
+"developer.document_storage.type" = "Typ";
+"developer.document_storage.size" = "Größe";
+"developer.document_storage.created" = "Erstellt";
+"developer.document_storage.modified" = "Geändert";
+"developer.document_storage.path" = "Pfad";
+"developer.document_storage.quick_look" = "Quick Look";
+"developer.document_storage.share" = "Datei teilen";
+"developer.document_storage.delete" = "Datei löschen";
+"developer.document_storage.delete_confirm.title" = "Datei löschen?";
+"developer.document_storage.delete_confirm.message" = "Diese Datei wird dauerhaft aus dem Speicher gelöscht.";

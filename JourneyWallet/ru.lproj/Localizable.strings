@@ -89,6 +89,7 @@
 "share.entity_type.car_rental" = "Аренда авто";
 "share.entity_type.note" = "Заметка";
 "share.entity_type.place" = "Место";
+"share.entity_type.idea" = "Идея";
 
 /* Share Extension - Content & Form */
 "share.content_preview" = "Содержимое";
@@ -377,6 +378,7 @@
 "journey.detail.section.documents" = "Документы";
 "journey.detail.section.notes" = "Заметки";
 "journey.detail.section.places" = "Места для посещения";
+"journey.detail.section.ideas" = "Идеи";
 "journey.detail.section.reminders" = "Напоминания";
 "journey.detail.section.budget" = "Бюджет";
 
@@ -391,6 +393,7 @@
 "journey.detail.documents.count" = "документов";
 "journey.detail.notes.empty" = "Заметок пока нет";
 "journey.detail.places.empty" = "Мест для посещения пока нет";
+"journey.detail.ideas.empty" = "Идей пока нет";
 "journey.detail.reminders.empty" = "Напоминаний пока нет";
 "journey.detail.budget.empty" = "Расходы не отслеживаются";
 
@@ -420,8 +423,19 @@
 "transport.detail.add_reminder" = "Добавить напоминание";
 "transport.detail.departs_in" = "Отправление через";
 "transport.detail.departing_soon" = "Скоро отправление";
+"transport.detail.departure" = "Отправление";
+"transport.detail.arrival" = "Прибытие";
 "transport.detail.delete_confirm.title" = "Удалить транспорт?";
 "transport.detail.delete_confirm.message" = "Это навсегда удалит это бронирование и все связанные напоминания.";
+
+/* Transport Actions */
+"transport.action.reminder" = "Напомнить";
+"transport.action.share" = "Поделиться транспортом";
+"transport.action.share_short" = "Поделиться";
+
+/* Transport Share */
+"transport.share.prefix" = "Мой транспорт:";
+"transport.detail.route" = "Маршрут";
 
 /* Transport Form */
 "transport.form.add_title" = "Добавить транспорт";
@@ -503,6 +517,16 @@
 "hotel.detail.action.call" = "Позвонить в отель";
 "hotel.detail.action.map" = "Открыть на карте";
 "hotel.detail.action.reminder" = "Добавить напоминание";
+
+/* Hotel Actions (compact) */
+"hotel.action.call" = "Звонок";
+"hotel.action.map" = "Карта";
+"hotel.action.reminder" = "Напомнить";
+"hotel.action.share" = "Поделиться отелем";
+"hotel.action.share_short" = "Поделиться";
+
+/* Hotel Share */
+"hotel.share.prefix" = "Посмотри мой отель:";
 
 /* Hotel Form */
 "hotel.form.add_title" = "Добавить отель";
@@ -588,6 +612,15 @@
 "car_rental.detail.action.dropoff_map" = "Место возврата на карте";
 "car_rental.detail.action.reminder" = "Добавить напоминание";
 
+/* Car Rental Actions (compact) */
+"car_rental.action.map" = "Карта";
+"car_rental.action.reminder" = "Напомнить";
+"car_rental.action.share" = "Поделиться арендой";
+"car_rental.action.share_short" = "Поделиться";
+
+/* Car Rental Share */
+"car_rental.share.prefix" = "Моя аренда авто:";
+
 /* Car Rental Form */
 "car_rental.form.add_title" = "Добавить аренду авто";
 "car_rental.form.edit_title" = "Редактировать аренду";
@@ -634,6 +667,7 @@
 "quick_add.place" = "Место для посещения";
 "quick_add.reminder" = "Напоминание";
 "quick_add.expense" = "Расход";
+"quick_add.idea" = "Идея";
 "quick_add.coming_soon" = "Скоро будет доступно";
 
 /* Document Management */
@@ -732,6 +766,15 @@
 /* Place Actions */
 "place.action.mark_visited" = "Отметить посещённым";
 "place.action.mark_unvisited" = "Отметить непосещённым";
+"place.action.visited" = "Посещено";
+"place.action.undo" = "Отмена";
+"place.action.map" = "Карта";
+"place.action.open" = "Открыть";
+"place.action.share" = "Поделиться местом";
+"place.action.share_short" = "Поделиться";
+
+/* Place Share */
+"place.share.prefix" = "Посмотри это место:";
 
 /* Place Form */
 "place.form.add_title" = "Добавить место";
@@ -769,6 +812,60 @@
 /* Place Status */
 "place.status.visited" = "Посещено";
 "place.status.not_visited" = "К посещению";
+
+/* Idea Management */
+"idea.list.title" = "Идеи";
+"idea.list.empty.title" = "Идей пока нет";
+"idea.list.empty.subtitle" = "Сохраняйте идеи для путешествий, советы, видео и контент";
+"idea.list.empty.button" = "Добавить идею";
+"idea.list.section.done" = "Выполнено";
+"idea.list.progress" = "%d/%d выполнено";
+
+/* Idea Form */
+"idea.form.title.new" = "Новая идея";
+"idea.form.title.edit" = "Редактировать идею";
+"idea.form.field.title" = "Заголовок";
+"idea.form.field.title.required" = "Заголовок обязателен";
+"idea.form.field.description" = "Описание";
+"idea.form.field.url" = "URL";
+"idea.form.field.url.hint" = "Видео, пост Instagram, статья";
+"idea.form.field.done" = "Выполнено";
+"idea.form.section.info" = "Информация";
+"idea.form.section.description" = "Описание";
+"idea.form.section.link" = "Ссылка";
+"idea.form.section.status" = "Статус";
+"idea.form.move_to_journey" = "Переместить в другое путешествие";
+
+/* Idea Detail */
+"idea.detail.title" = "Идея";
+"idea.detail.section.description" = "Описание";
+"idea.detail.section.link" = "Ссылка";
+"idea.detail.section.actions" = "Действия";
+"idea.detail.created" = "Создано";
+"idea.detail.updated" = "Обновлено";
+"idea.detail.status.done" = "Выполнено";
+"idea.detail.status.not_done" = "Не выполнено";
+
+/* Idea Actions */
+"idea.action.edit" = "Редактировать";
+"idea.action.delete" = "Удалить";
+"idea.action.move" = "Переместить";
+"idea.action.share" = "Поделиться";
+"idea.action.mark_done" = "Отметить выполненным";
+"idea.action.mark_not_done" = "Отметить невыполненным";
+"idea.action.open_url" = "Открыть URL";
+"idea.action.copy_url" = "Копировать URL";
+"idea.action.done" = "Готово";
+"idea.action.undo" = "Отмена";
+"idea.action.open" = "Открыть";
+"idea.action.share_short" = "Поделиться";
+
+/* Idea Delete Confirmation */
+"idea.delete.confirm.title" = "Удалить идею?";
+"idea.delete.confirm.message" = "Вы уверены, что хотите удалить эту идею?";
+
+/* Idea Share */
+"idea.share.prefix" = "Привет! Я нашёл отличную идею:";
 
 /* Budget Management */
 "budget.title" = "Бюджет";
@@ -959,3 +1056,25 @@
 /* Journey Detail - Checklists */
 "journey.detail.section.checklists" = "Чек-листы";
 "journey.detail.checklists.empty" = "Нет чек-листов";
+
+/* Developer - Document Storage Browser */
+"developer.document_storage.title" = "Хранилище документов";
+"developer.document_storage.button" = "Просмотреть хранилище документов";
+"developer.document_storage.stats.title" = "Использование хранилища";
+"developer.document_storage.stats.files_folders" = "%d файлов в %d папках";
+"developer.document_storage.stats.files" = "файлов";
+"developer.document_storage.folders" = "Папки";
+"developer.document_storage.root_files" = "Файлы в корне";
+"developer.document_storage.no_files" = "Нет файлов в этой директории";
+"developer.document_storage.unknown_journey" = "Неизвестное путешествие";
+"developer.document_storage.file_info" = "Информация о файле";
+"developer.document_storage.type" = "Тип";
+"developer.document_storage.size" = "Размер";
+"developer.document_storage.created" = "Создан";
+"developer.document_storage.modified" = "Изменен";
+"developer.document_storage.path" = "Путь";
+"developer.document_storage.quick_look" = "Быстрый просмотр";
+"developer.document_storage.share" = "Поделиться файлом";
+"developer.document_storage.delete" = "Удалить файл";
+"developer.document_storage.delete_confirm.title" = "Удалить файл?";
+"developer.document_storage.delete_confirm.message" = "Этот файл будет безвозвратно удален из хранилища.";

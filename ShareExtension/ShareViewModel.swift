@@ -56,6 +56,7 @@ class ShareViewModel: ObservableObject {
     private let transportsRepository: TransportsRepository?
     private let hotelsRepository: HotelsRepository?
     private let carRentalsRepository: CarRentalsRepository?
+    private let ideasRepository: IdeasRepository?
     private let documentService: DocumentService
     private let logger = Logger(subsystem: "ShareExtension", category: "ShareViewModel")
 
@@ -88,6 +89,7 @@ class ShareViewModel: ObservableObject {
         self.transportsRepository = DatabaseManager.shared.transportsRepository
         self.hotelsRepository = DatabaseManager.shared.hotelsRepository
         self.carRentalsRepository = DatabaseManager.shared.carRentalsRepository
+        self.ideasRepository = DatabaseManager.shared.ideasRepository
         self.documentService = DocumentService.shared
 
         // Initialize based on content type
@@ -260,6 +262,8 @@ class ShareViewModel: ObservableObject {
             return saveHotel(journeyId: journeyId)
         case .carRental:
             return saveCarRental(journeyId: journeyId)
+        case .idea:
+            return saveIdea(journeyId: journeyId)
         }
     }
 
@@ -374,6 +378,34 @@ class ShareViewModel: ObservableObject {
         let success = carRentalsRepository?.insert(carRental) ?? false
         if success {
             logger.info("Saved car rental to journey: \(journeyId)")
+        }
+        return success
+    }
+
+    private func saveIdea(journeyId: UUID) -> Bool {
+        // Determine URL based on content type
+        let urlToSave: String?
+
+        switch contentType {
+        case .url(let url, _):
+            urlToSave = url.absoluteString
+        case .urlWithText(let url, _):
+            urlToSave = url.absoluteString
+        default:
+            urlToSave = sharedURL?.absoluteString
+        }
+
+        let idea = Idea(
+            journeyId: journeyId,
+            title: entityTitle.isEmpty ? L("share.entity_type.idea") : entityTitle,
+            description: entityNotes.isEmpty ? nil : entityNotes,
+            url: urlToSave,
+            isDone: false
+        )
+
+        let success = ideasRepository?.insert(idea) ?? false
+        if success {
+            logger.info("Saved idea to journey: \(journeyId)")
         }
         return success
     }

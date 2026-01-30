@@ -12,6 +12,7 @@ struct HotelDetailView: View {
     @State private var showDeleteConfirmation: Bool = false
     @State private var showReminderSheet: Bool = false
     @State private var showMoveSheet: Bool = false
+    @State private var showShareSheet: Bool = false
     @State private var copiedBookingRef: Bool = false
 
     init(hotel: Hotel, journeyId: UUID) {
@@ -74,6 +75,12 @@ struct HotelDetailView: View {
                         Label(L("common.move_to_journey"), systemImage: "folder")
                     }
 
+                    Button {
+                        showShareSheet = true
+                    } label: {
+                        Label(L("hotel.action.share"), systemImage: "square.and.arrow.up")
+                    }
+
                     Divider()
 
                     Button(role: .destructive) {
@@ -111,6 +118,9 @@ struct HotelDetailView: View {
                     }
                 }
             )
+        }
+        .sheet(isPresented: $showShareSheet) {
+            ShareSheet(items: [viewModel.hotel.shareText])
         }
         .alert(L("hotel.detail.delete_confirm.title"), isPresented: $showDeleteConfirmation) {
             Button(L("Cancel"), role: .cancel) {}
@@ -470,52 +480,46 @@ struct HotelDetailView: View {
     // MARK: - Actions Section
 
     private var actionsSection: some View {
-        VStack(spacing: 12) {
-            // Call hotel button
+        CompactActionBar {
+            // Call hotel button (if phone exists)
             if let phone = viewModel.hotel.contactPhone, !phone.isEmpty {
-                Button(action: {
+                CompactActionButton(
+                    icon: "phone.fill",
+                    label: L("hotel.action.call"),
+                    color: .green
+                ) {
                     callHotel(phone)
-                }) {
-                    HStack {
-                        Image(systemName: "phone.fill")
-                        Text(L("hotel.detail.action.call"))
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.green)
-                    .foregroundColor(.white)
-                    .cornerRadius(12)
+                    analytics.trackEvent("hotel_called", properties: ["hotel_id": viewModel.hotel.id.uuidString])
                 }
             }
 
             // Open in Maps button
-            Button(action: {
+            CompactActionButton(
+                icon: "map.fill",
+                label: L("hotel.action.map"),
+                color: .blue
+            ) {
                 openInMaps()
-            }) {
-                HStack {
-                    Image(systemName: "map.fill")
-                    Text(L("hotel.detail.action.map"))
-                }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .cornerRadius(12)
+                analytics.trackEvent("hotel_map_opened", properties: ["hotel_id": viewModel.hotel.id.uuidString])
             }
 
             // Add reminder button
-            Button(action: {
+            CompactActionButton(
+                icon: "bell.badge.fill",
+                label: L("hotel.action.reminder"),
+                color: .purple
+            ) {
                 showReminderSheet = true
-            }) {
-                HStack {
-                    Image(systemName: "bell.badge.fill")
-                    Text(L("hotel.detail.action.reminder"))
-                }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(Color.orange)
-                .foregroundColor(.white)
-                .cornerRadius(12)
+            }
+
+            // Share button
+            CompactActionButton(
+                icon: "square.and.arrow.up",
+                label: L("hotel.action.share_short"),
+                color: .orange
+            ) {
+                showShareSheet = true
+                analytics.trackEvent("hotel_shared", properties: ["hotel_id": viewModel.hotel.id.uuidString])
             }
         }
         .padding(.top, 8)
