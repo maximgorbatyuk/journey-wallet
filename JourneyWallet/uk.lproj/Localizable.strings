@@ -1047,3 +1047,25 @@
 
 /* Idea Share */
 "idea.share.prefix" = "Гей! Я знайшов чудову ідею:";
+
+/* Developer - Document Storage Browser */
+"developer.document_storage.title" = "Сховище документів";
+"developer.document_storage.button" = "Переглянути сховище документів";
+"developer.document_storage.stats.title" = "Використання сховища";
+"developer.document_storage.stats.files_folders" = "%d файлів у %d папках";
+"developer.document_storage.stats.files" = "файли";
+"developer.document_storage.folders" = "папки";
+"developer.document_storage.root_files" = "Кореневі файли";
+"developer.document_storage.no_files" = "Немає файлів у цій директорії";
+"developer.document_storage.unknown_journey" = "Невідома подорож";
+"developer.document_storage.file_info" = "Інформація про файл";
+"developer.document_storage.type" = "Тип";
+"developer.document_storage.size" = "Розмір";
+"developer.document_storage.created" = "Створено";
+"developer.document_storage.modified" = "Змінено";
+"developer.document_storage.path" = "Шлях";
+"developer.document_storage.quick_look" = "Швидкий перегляд";
+"developer.document_storage.share" = "Поділитися файлом";
+"developer.document_storage.delete" = "Видалити файл";
+"developer.document_storage.delete_confirm.title" = "Видалити файл?";
+"developer.document_storage.delete_confirm.message" = "Цей файл буде назавжди видалено зі сховища.";

@@ -1042,3 +1042,25 @@
 /* Journey Detail - Checklists Section */
 "journey.detail.section.checklists" = "Checklists";
 "journey.detail.checklists.empty" = "No checklists yet";
+
+/* Developer - Document Storage Browser */
+"developer.document_storage.title" = "Document Storage";
+"developer.document_storage.button" = "Browse Document Storage";
+"developer.document_storage.stats.title" = "Storage Usage";
+"developer.document_storage.stats.files_folders" = "%d files in %d folders";
+"developer.document_storage.stats.files" = "files";
+"developer.document_storage.folders" = "Folders";
+"developer.document_storage.root_files" = "Root Files";
+"developer.document_storage.no_files" = "No files in this directory";
+"developer.document_storage.unknown_journey" = "Unknown Journey";
+"developer.document_storage.file_info" = "File Information";
+"developer.document_storage.type" = "Type";
+"developer.document_storage.size" = "Size";
+"developer.document_storage.created" = "Created";
+"developer.document_storage.modified" = "Modified";
+"developer.document_storage.path" = "Path";
+"developer.document_storage.quick_look" = "Quick Look";
+"developer.document_storage.share" = "Share File";
+"developer.document_storage.delete" = "Delete File";
+"developer.document_storage.delete_confirm.title" = "Delete File?";
+"developer.document_storage.delete_confirm.message" = "This file will be permanently deleted from storage.";

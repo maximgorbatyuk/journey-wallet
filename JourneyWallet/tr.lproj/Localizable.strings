@@ -1045,3 +1045,25 @@
 
 /* Idea Share */
 "idea.share.prefix" = "Hey! Harika bir fikir buldum:";
+
+/* Developer - Document Storage Browser */
+"developer.document_storage.title" = "Belge Deposu";
+"developer.document_storage.button" = "Belge Deposuna Göz At";
+"developer.document_storage.stats.title" = "Depo Kullanımı";
+"developer.document_storage.stats.files_folders" = "%d dosya %d klasörde";
+"developer.document_storage.stats.files" = "dosyalar";
+"developer.document_storage.folders" = "Klasörler";
+"developer.document_storage.root_files" = "Kök Dosyalar";
+"developer.document_storage.no_files" = "Bu dizinde dosya yok";
+"developer.document_storage.unknown_journey" = "Bilinmeyen Seyahat";
+"developer.document_storage.file_info" = "Dosya Bilgileri";
+"developer.document_storage.type" = "Tür";
+"developer.document_storage.size" = "Boyut";
+"developer.document_storage.created" = "Oluşturuldu";
+"developer.document_storage.modified" = "Değiştirildi";
+"developer.document_storage.path" = "Yol";
+"developer.document_storage.quick_look" = "Hızlı Bakış";
+"developer.document_storage.share" = "Dosyayı Paylaş";
+"developer.document_storage.delete" = "Dosyayı Sil";
+"developer.document_storage.delete_confirm.title" = "Dosyayı Sil?";
+"developer.document_storage.delete_confirm.message" = "Bu dosya depodan kalıcı olarak silinecek.";

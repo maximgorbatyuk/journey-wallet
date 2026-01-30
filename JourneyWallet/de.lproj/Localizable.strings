@@ -1045,3 +1045,25 @@
 /* Journey Detail - Checklists */
 "journey.detail.section.checklists" = "Checklisten";
 "journey.detail.checklists.empty" = "Noch keine Checklisten";
+
+/* Developer - Document Storage Browser */
+"developer.document_storage.title" = "Dokumentenspeicher";
+"developer.document_storage.button" = "Dokumentenspeicher durchsuchen";
+"developer.document_storage.stats.title" = "Speichernutzung";
+"developer.document_storage.stats.files_folders" = "%d Dateien in %d Ordnern";
+"developer.document_storage.stats.files" = "Dateien";
+"developer.document_storage.folders" = "Ordner";
+"developer.document_storage.root_files" = "Stammdateien";
+"developer.document_storage.no_files" = "Keine Dateien in diesem Verzeichnis";
+"developer.document_storage.unknown_journey" = "Unbekannte Reise";
+"developer.document_storage.file_info" = "Dateiinformationen";
+"developer.document_storage.type" = "Typ";
+"developer.document_storage.size" = "Größe";
+"developer.document_storage.created" = "Erstellt";
+"developer.document_storage.modified" = "Geändert";
+"developer.document_storage.path" = "Pfad";
+"developer.document_storage.quick_look" = "Quick Look";
+"developer.document_storage.share" = "Datei teilen";
+"developer.document_storage.delete" = "Datei löschen";
+"developer.document_storage.delete_confirm.title" = "Datei löschen?";
+"developer.document_storage.delete_confirm.message" = "Diese Datei wird dauerhaft aus dem Speicher gelöscht.";

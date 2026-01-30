@@ -31,6 +31,9 @@ struct UserSettingsView: SwiftUICore.View {
     // Reset migration confirmation
     @State private var showResetMigrationConfirmation = false
 
+    // Document storage browser
+    @State private var showDocumentStorageBrowser = false
+
     @ObservedObject private var analytics = AnalyticsService.shared
     @ObservedObject private var notificationsManager = NotificationManager.shared
     @ObservedObject private var environment = EnvironmentService.shared
@@ -613,6 +616,18 @@ struct UserSettingsView: SwiftUICore.View {
                         } message: {
                             Text(L("settings.developer.reset_migration_warning"))
                         }
+
+                        Button(action: {
+                            showDocumentStorageBrowser = true
+                        }) {
+                            HStack {
+                                Image(systemName: "folder.fill")
+                                    .foregroundColor(.cyan)
+                                Text(L("developer.document_storage.button"))
+                                    .foregroundColor(.primary)
+                            }
+                        }
+                        .buttonStyle(.plain)
                     }
                 }
             }
@@ -737,6 +752,9 @@ struct UserSettingsView: SwiftUICore.View {
             }
             .sheet(isPresented: $showUserSettingsTableContent) {
                 UserSettingsTableContentView()
+            }
+            .sheet(isPresented: $showDocumentStorageBrowser) {
+                DocumentStorageBrowserView()
             }
         }
     }

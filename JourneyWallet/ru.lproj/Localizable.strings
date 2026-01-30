@@ -1048,3 +1048,25 @@
 /* Journey Detail - Checklists */
 "journey.detail.section.checklists" = "Чек-листы";
 "journey.detail.checklists.empty" = "Нет чек-листов";
+
+/* Developer - Document Storage Browser */
+"developer.document_storage.title" = "Хранилище документов";
+"developer.document_storage.button" = "Просмотреть хранилище документов";
+"developer.document_storage.stats.title" = "Использование хранилища";
+"developer.document_storage.stats.files_folders" = "%d файлов в %d папках";
+"developer.document_storage.stats.files" = "файлов";
+"developer.document_storage.folders" = "Папки";
+"developer.document_storage.root_files" = "Файлы в корне";
+"developer.document_storage.no_files" = "Нет файлов в этой директории";
+"developer.document_storage.unknown_journey" = "Неизвестное путешествие";
+"developer.document_storage.file_info" = "Информация о файле";
+"developer.document_storage.type" = "Тип";
+"developer.document_storage.size" = "Размер";
+"developer.document_storage.created" = "Создан";
+"developer.document_storage.modified" = "Изменен";
+"developer.document_storage.path" = "Путь";
+"developer.document_storage.quick_look" = "Быстрый просмотр";
+"developer.document_storage.share" = "Поделиться файлом";
+"developer.document_storage.delete" = "Удалить файл";
+"developer.document_storage.delete_confirm.title" = "Удалить файл?";
+"developer.document_storage.delete_confirm.message" = "Этот файл будет безвозвратно удален из хранилища.";

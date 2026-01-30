@@ -1049,3 +1049,25 @@
 
 /* Idea Share */
 "idea.share.prefix" = "Эй! Мен керемет идея таптым:";
+
+/* Developer - Document Storage Browser */
+"developer.document_storage.title" = "Құжаттар сақтауышы";
+"developer.document_storage.button" = "Құжаттар сақтауышын қарау";
+"developer.document_storage.stats.title" = "Сақтау орнының қолданылуы";
+"developer.document_storage.stats.files_folders" = "%d файл %d қалта";
+"developer.document_storage.stats.files" = "файлдар";
+"developer.document_storage.folders" = "Қалталар";
+"developer.document_storage.root_files" = "Түбір файлдары";
+"developer.document_storage.no_files" = "Бул қалтада файл жо";
+"developer.document_storage.unknown_journey" = "Белгісіз саяхат";
+"developer.document_storage.file_info" = "Файл ақпараты";
+"developer.document_storage.type" = "Түрі";
+"developer.document_storage.size" = "Өлшемі";
+"developer.document_storage.created" = "Құрылды";
+"developer.document_storage.modified" = "Өзгертілді";
+"developer.document_storage.path" = "Жолы";
+"developer.document_storage.quick_look" = "Тез қарау";
+"developer.document_storage.share" = "Файлды бөлісу";
+"developer.document_storage.delete" = "Файлды жою";
+"developer.document_storage.delete_confirm.title" = "Файлды жою?";
+"developer.document_storage.delete_confirm.message" = "Бул файл сақтау орыннан біржола жойылады.";
