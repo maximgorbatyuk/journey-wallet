@@ -735,6 +735,15 @@
 /* Place Actions */
 "place.action.mark_visited" = "Отметить посещённым";
 "place.action.mark_unvisited" = "Отметить непосещённым";
+"place.action.visited" = "Посещено";
+"place.action.undo" = "Отмена";
+"place.action.map" = "Карта";
+"place.action.open" = "Открыть";
+"place.action.share" = "Поделиться местом";
+"place.action.share_short" = "Поделиться";
+
+/* Place Share */
+"place.share.prefix" = "Посмотри это место:";
 
 /* Place Form */
 "place.form.add_title" = "Добавить место";
@@ -815,6 +824,10 @@
 "idea.action.mark_not_done" = "Отметить невыполненным";
 "idea.action.open_url" = "Открыть URL";
 "idea.action.copy_url" = "Копировать URL";
+"idea.action.done" = "Готово";
+"idea.action.undo" = "Отмена";
+"idea.action.open" = "Открыть";
+"idea.action.share_short" = "Поделиться";
 
 /* Idea Delete Confirmation */
 "idea.delete.confirm.title" = "Удалить идею?";

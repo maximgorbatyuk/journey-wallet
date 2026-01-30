@@ -739,6 +739,15 @@
 /* Place Actions */
 "place.action.mark_visited" = "Барылған деп белгілеу";
 "place.action.mark_unvisited" = "Барылмаған деп белгілеу";
+"place.action.visited" = "Барылған";
+"place.action.undo" = "Қайтару";
+"place.action.map" = "Карта";
+"place.action.open" = "Ашу";
+"place.action.share" = "Орынмен бөлісу";
+"place.action.share_short" = "Бөлісу";
+
+/* Place Share */
+"place.share.prefix" = "Мына орынды қара:";
 
 /* Place Form */
 "place.form.add_title" = "Орын қосу";
@@ -1006,6 +1015,10 @@
 "idea.action.mark_pending" = "Күтуде деп белгілеу";
 "idea.action.open_url" = "Сілтемені ашу";
 "idea.action.share" = "Идеямен бөлісу";
+"idea.action.done" = "Дайын";
+"idea.action.undo" = "Қайтару";
+"idea.action.open" = "Ашу";
+"idea.action.share_short" = "Бөлісу";
 
 /* Idea Delete Confirmation */
 "idea.delete_confirm.title" = "Идеяны жою керек пе?";

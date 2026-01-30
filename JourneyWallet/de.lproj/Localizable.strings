@@ -732,6 +732,15 @@
 /* Place Actions */
 "place.action.mark_visited" = "Als besucht markieren";
 "place.action.mark_unvisited" = "Als nicht besucht markieren";
+"place.action.visited" = "Besucht";
+"place.action.undo" = "Rückgängig";
+"place.action.map" = "Karte";
+"place.action.open" = "Öffnen";
+"place.action.share" = "Ort teilen";
+"place.action.share_short" = "Teilen";
+
+/* Place Share */
+"place.share.prefix" = "Schau dir diesen Ort an:";
 
 /* Place Form */
 "place.form.add_title" = "Ort hinzufügen";
@@ -812,6 +821,10 @@
 "idea.action.mark_not_done" = "Als nicht erledigt markieren";
 "idea.action.open_url" = "URL öffnen";
 "idea.action.copy_url" = "URL kopieren";
+"idea.action.done" = "Fertig";
+"idea.action.undo" = "Rückgängig";
+"idea.action.open" = "Öffnen";
+"idea.action.share_short" = "Teilen";
 
 /* Idea Delete Confirmation */
 "idea.delete.confirm.title" = "Idee löschen?";

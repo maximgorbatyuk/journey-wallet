@@ -739,6 +739,15 @@
 /* Place Actions */
 "place.action.mark_visited" = "Позначити відвіданим";
 "place.action.mark_unvisited" = "Позначити невідвіданим";
+"place.action.visited" = "Відвідано";
+"place.action.undo" = "Скасувати";
+"place.action.map" = "Карта";
+"place.action.open" = "Відкрити";
+"place.action.share" = "Поділитися місцем";
+"place.action.share_short" = "Поділитися";
+
+/* Place Share */
+"place.share.prefix" = "Подивись це місце:";
 
 /* Place Form */
 "place.form.add_title" = "Додати місце";
@@ -1004,6 +1013,10 @@
 "idea.action.mark_pending" = "Позначити як очікує";
 "idea.action.open_url" = "Відкрити посилання";
 "idea.action.share" = "Поділитися ідеєю";
+"idea.action.done" = "Готово";
+"idea.action.undo" = "Скасувати";
+"idea.action.open" = "Відкрити";
+"idea.action.share_short" = "Поділитися";
 
 /* Idea Delete Confirmation */
 "idea.delete_confirm.title" = "Видалити ідею?";

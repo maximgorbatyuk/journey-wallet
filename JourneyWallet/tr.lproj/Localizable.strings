@@ -735,6 +735,15 @@
 /* Place Actions */
 "place.action.mark_visited" = "Ziyaret Edildi Olarak İşaretle";
 "place.action.mark_unvisited" = "Ziyaret Edilmedi Olarak İşaretle";
+"place.action.visited" = "Ziyaret Edildi";
+"place.action.undo" = "Geri Al";
+"place.action.map" = "Harita";
+"place.action.open" = "Aç";
+"place.action.share" = "Yeri Paylaş";
+"place.action.share_short" = "Paylaş";
+
+/* Place Share */
+"place.share.prefix" = "Bu yere göz at:";
 
 /* Place Form */
 "place.form.add_title" = "Yer Ekle";
@@ -1002,6 +1011,10 @@
 "idea.action.mark_pending" = "Beklemede Olarak İşaretle";
 "idea.action.open_url" = "Bağlantıyı Aç";
 "idea.action.share" = "Fikri Paylaş";
+"idea.action.done" = "Tamam";
+"idea.action.undo" = "Geri Al";
+"idea.action.open" = "Aç";
+"idea.action.share_short" = "Paylaş";
 
 /* Idea Delete Confirmation */
 "idea.delete_confirm.title" = "Fikir Silinsin mi?";

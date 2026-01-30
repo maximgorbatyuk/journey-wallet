@@ -231,60 +231,68 @@ struct IdeaDetailView: View {
     // MARK: - Actions Section
 
     private var actionsSection: some View {
-        VStack(spacing: 12) {
-            // Toggle done button
-            Button(action: {
+        HStack(spacing: 0) {
+            // Mark as Done button
+            compactActionButton(
+                icon: viewModel.idea.isDone ? "circle" : "checkmark.circle.fill",
+                label: viewModel.idea.isDone ? L("idea.action.undo") : L("idea.action.done"),
+                color: viewModel.idea.isDone ? .gray : .green
+            ) {
                 viewModel.toggleDone()
                 analytics.trackEvent("idea_marked_done", properties: [
                     "idea_id": viewModel.idea.id.uuidString,
                     "is_done": String(!viewModel.idea.isDone)
                 ])
-            }) {
-                HStack {
-                    Image(systemName: viewModel.idea.isDone ? "circle" : "checkmark.circle.fill")
-                    Text(viewModel.idea.isDone ? L("idea.action.mark_not_done") : L("idea.action.mark_done"))
-                }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(viewModel.idea.isDone ? Color.gray : Color.green)
-                .foregroundColor(.white)
-                .cornerRadius(12)
-            }
-
-            // Share button
-            Button(action: {
-                showShareSheet = true
-                analytics.trackEvent("idea_shared", properties: ["idea_id": viewModel.idea.id.uuidString])
-            }) {
-                HStack {
-                    Image(systemName: "square.and.arrow.up")
-                    Text(L("idea.action.share"))
-                }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .cornerRadius(12)
             }
 
             // Open URL button (if URL exists)
             if let url = viewModel.idea.url, !url.isEmpty {
-                Button(action: {
+                compactActionButton(
+                    icon: "link",
+                    label: L("idea.action.open"),
+                    color: .blue
+                ) {
                     openURLString(url)
-                }) {
-                    HStack {
-                        Image(systemName: "link")
-                        Text(L("idea.action.open_url"))
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.blue.opacity(0.8))
-                    .foregroundColor(.white)
-                    .cornerRadius(12)
+                    analytics.trackEvent("idea_url_opened", properties: ["idea_id": viewModel.idea.id.uuidString])
                 }
             }
+
+            // Share button
+            compactActionButton(
+                icon: "square.and.arrow.up",
+                label: L("idea.action.share_short"),
+                color: .orange
+            ) {
+                showShareSheet = true
+                analytics.trackEvent("idea_shared", properties: ["idea_id": viewModel.idea.id.uuidString])
+            }
         }
+        .padding()
+        .background(Color(.systemBackground))
+        .cornerRadius(12)
         .padding(.top, 8)
+    }
+
+    private func compactActionButton(
+        icon: String,
+        label: String,
+        color: Color,
+        action: @escaping () -> Void
+    ) -> some View {
+        Button(action: action) {
+            VStack(spacing: 6) {
+                Image(systemName: icon)
+                    .font(.system(size: 24))
+                    .foregroundColor(color)
+
+                Text(label)
+                    .font(.caption2)
+                    .foregroundColor(.secondary)
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 8)
+        }
+        .buttonStyle(.plain)
     }
 
     // MARK: - Timestamps Section

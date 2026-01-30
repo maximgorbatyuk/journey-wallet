@@ -729,6 +729,15 @@
 /* Place Actions */
 "place.action.mark_visited" = "Mark Visited";
 "place.action.mark_unvisited" = "Mark Unvisited";
+"place.action.visited" = "Visited";
+"place.action.undo" = "Undo";
+"place.action.map" = "Map";
+"place.action.open" = "Open";
+"place.action.share" = "Share Place";
+"place.action.share_short" = "Share";
+
+/* Place Share */
+"place.share.prefix" = "Check out this place:";
 
 /* Place Form */
 "place.form.add_title" = "Add Place";
@@ -809,6 +818,10 @@
 "idea.action.mark_not_done" = "Mark as Not Done";
 "idea.action.open_url" = "Open URL";
 "idea.action.copy_url" = "Copy URL";
+"idea.action.done" = "Done";
+"idea.action.undo" = "Undo";
+"idea.action.open" = "Open";
+"idea.action.share_short" = "Share";
 
 /* Idea Delete Confirmation */
 "idea.delete.confirm.title" = "Delete Idea?";
