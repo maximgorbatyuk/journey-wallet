@@ -1102,3 +1102,6 @@
 "roadmap.detail.departure" = "Ayrılış";
 "roadmap.detail.attachments" = "Ekler";
 "roadmap.detail.transport_to_next" = "Sonraki Durağa Ulaşım";
+"roadmap.reset_timeline" = "Yol Haritasını Sıfırla";
+"roadmap.reset_timeline.title" = "Yol Haritasını Sıfırla?";
+"roadmap.reset_timeline.message" = "Tüm duraklar kaldırılacak. Rezervasyonlarınız, otelleriniz ve diğer seyahat öğeleriniz etkilenmeyecek.";

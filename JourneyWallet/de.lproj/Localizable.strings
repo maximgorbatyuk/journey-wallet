@@ -1102,3 +1102,6 @@
 "roadmap.detail.departure" = "Abreise";
 "roadmap.detail.attachments" = "Anhänge";
 "roadmap.detail.transport_to_next" = "Transport zur nächsten Station";
+"roadmap.reset_timeline" = "Reiseplan zurücksetzen";
+"roadmap.reset_timeline.title" = "Reiseplan zurücksetzen?";
+"roadmap.reset_timeline.message" = "Alle Stationen werden entfernt. Ihre Buchungen, Hotels und andere Reiseelemente bleiben erhalten.";

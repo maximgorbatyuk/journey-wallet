@@ -1099,3 +1099,6 @@
 "roadmap.detail.departure" = "Departure";
 "roadmap.detail.attachments" = "Attachments";
 "roadmap.detail.transport_to_next" = "Transport to Next Stop";
+"roadmap.reset_timeline" = "Reset Timeline";
+"roadmap.reset_timeline.title" = "Reset Timeline?";
+"roadmap.reset_timeline.message" = "All stops will be removed. Your bookings, hotels, and other travel items will not be affected.";

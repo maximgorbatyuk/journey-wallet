@@ -1106,3 +1106,6 @@
 "roadmap.detail.departure" = "Кету";
 "roadmap.detail.attachments" = "Тіркемелер";
 "roadmap.detail.transport_to_next" = "Келесі аялдамаға көлік";
+"roadmap.reset_timeline" = "Жол картасын тазалау";
+"roadmap.reset_timeline.title" = "Жол картасын тазалау?";
+"roadmap.reset_timeline.message" = "Барлық аялдамалар жойылады. Сіздің брондауларыңыз, қонақ үйлеріңіз және басқа саяхат элементтері сақталады.";

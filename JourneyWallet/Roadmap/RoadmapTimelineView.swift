@@ -7,6 +7,7 @@ struct RoadmapTimelineView: View {
 
     @State private var showAddStopSheet: Bool = false
     @State private var showCreateJourneySheet: Bool = false
+    @State private var showResetConfirmation: Bool = false
 
     var body: some View {
         NavigationStack {
@@ -34,6 +35,29 @@ struct RoadmapTimelineView: View {
             .background(Color(.systemGray6))
             .navigationTitle(L("roadmap.title"))
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                if viewModel.hasTimeline {
+                    ToolbarItem(placement: .primaryAction) {
+                        Menu {
+                            Button(role: .destructive) {
+                                showResetConfirmation = true
+                            } label: {
+                                Label(L("roadmap.reset_timeline"), systemImage: "arrow.counterclockwise")
+                            }
+                        } label: {
+                            Image(systemName: "ellipsis.circle")
+                        }
+                    }
+                }
+            }
+            .alert(L("roadmap.reset_timeline.title"), isPresented: $showResetConfirmation) {
+                Button(L("cancel"), role: .cancel) {}
+                Button(L("roadmap.reset_timeline"), role: .destructive) {
+                    viewModel.resetTimeline()
+                }
+            } message: {
+                Text(L("roadmap.reset_timeline.message"))
+            }
             .onAppear {
                 viewModel.loadInitialData()
                 analytics.trackScreen("roadmap_timeline_screen")

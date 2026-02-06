@@ -1105,3 +1105,6 @@
 "roadmap.detail.departure" = "Отъезд";
 "roadmap.detail.attachments" = "Прикреплённые элементы";
 "roadmap.detail.transport_to_next" = "Транспорт до следующей остановки";
+"roadmap.reset_timeline" = "Сбросить маршрут";
+"roadmap.reset_timeline.title" = "Сбросить маршрут?";
+"roadmap.reset_timeline.message" = "Все остановки будут удалены. Бронирования, отели и другие элементы поездки не будут затронуты.";

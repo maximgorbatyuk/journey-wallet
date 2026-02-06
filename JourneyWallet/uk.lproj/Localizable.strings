@@ -1104,3 +1104,6 @@
 "roadmap.detail.departure" = "Від'їзд";
 "roadmap.detail.attachments" = "Прикріплені елементи";
 "roadmap.detail.transport_to_next" = "Транспорт до наступної зупинки";
+"roadmap.reset_timeline" = "Скинути маршрут";
+"roadmap.reset_timeline.title" = "Скинути маршрут?";
+"roadmap.reset_timeline.message" = "Усі зупинки буде видалено. Ваші бронювання, готелі та інші елементи подорожі не будуть змінені.";

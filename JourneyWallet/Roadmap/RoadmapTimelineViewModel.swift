@@ -19,6 +19,10 @@ class RoadmapTimelineViewModel {
         allJourneys.first(where: { $0.id == selectedJourneyId })
     }
 
+    var hasTimeline: Bool {
+        !stops.isEmpty
+    }
+
     // MARK: - Entity name lookups for display
 
     var hotelNames: [UUID: String] = [:]
@@ -148,6 +152,21 @@ class RoadmapTimelineViewModel {
 
     func refreshData() {
         allJourneys = journeysRepository?.fetchAll() ?? []
+        loadStops()
+    }
+
+    func resetTimeline() {
+        guard let journeyId = selectedJourneyId else { return }
+
+        // Delete all attachments for each stop first
+        for stop in stops {
+            _ = roadmapStopAttachmentsRepository?.deleteByStopId(stopId: stop.id)
+        }
+
+        // Delete all stops for the journey
+        _ = roadmapStopsRepository?.deleteByJourneyId(journeyId: journeyId)
+        logger.info("Reset timeline for journey: \(journeyId)")
+
         loadStops()
     }
 

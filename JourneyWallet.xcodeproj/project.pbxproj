@@ -535,7 +535,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2026.1.4;
+				MARKETING_VERSION = 2026.1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.mgorbatyuk.JourneyWallet.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)-Dev";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -571,7 +571,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2026.1.4;
+				MARKETING_VERSION = 2026.1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.mgorbatyuk.JourneyWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
