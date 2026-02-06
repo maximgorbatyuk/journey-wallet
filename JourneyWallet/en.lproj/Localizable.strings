@@ -1072,3 +1072,24 @@
 "developer.document_storage.delete" = "Delete File";
 "developer.document_storage.delete_confirm.title" = "Delete File?";
 "developer.document_storage.delete_confirm.message" = "This file will be permanently deleted from storage.";
+
+// MARK: - Roadmap
+"tab.roadmap" = "Roadmap";
+"roadmap.title" = "Trip Roadmap";
+"roadmap.empty.title" = "No Stops Yet";
+"roadmap.empty.message" = "Add cities and places to plan your trip timeline";
+"roadmap.add_stop" = "Add Stop";
+"roadmap.edit_stop" = "Edit Stop";
+"roadmap.stop.title" = "Title";
+"roadmap.stop.subtitle" = "Description";
+"roadmap.stop.arrival_date" = "Arrival Date";
+"roadmap.stop.departure_date" = "Departure Date";
+"roadmap.stop.notes" = "Notes";
+"roadmap.stop.delete_confirm.title" = "Delete Stop?";
+"roadmap.stop.delete_confirm.message" = "This will remove the stop and all its attachments from the timeline.";
+"roadmap.attach_items" = "Attach Items";
+"roadmap.set_transport" = "Set Transport";
+"roadmap.attached_to" = "On timeline";
+"roadmap.detach" = "Remove from timeline";
+"roadmap.no_transport" = "No transport set";
+"roadmap.entity_name" = "Roadmap Stop";

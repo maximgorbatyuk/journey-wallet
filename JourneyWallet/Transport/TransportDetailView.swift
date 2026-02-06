@@ -26,6 +26,15 @@ struct TransportDetailView: View {
                 // Header with type icon and status
                 headerSection
 
+                // Roadmap attachment banner
+                if let stopTitle = viewModel.attachedStopTitle {
+                    RoadmapAttachmentBanner(
+                        stopTitle: stopTitle,
+                        onDetach: { viewModel.detachFromRoadmap() }
+                    )
+                    .padding(.bottom, 8)
+                }
+
                 // Main info card
                 mainInfoCard
 

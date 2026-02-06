@@ -9,11 +9,15 @@ class HotelDetailViewModel {
 
     var hotel: Hotel
     let journeyId: UUID
+    var roadmapAttachment: RoadmapStopAttachment?
+    var attachedStopTitle: String?
 
     // MARK: - Repositories
 
     private let hotelsRepository: HotelsRepository?
     private let remindersRepository: RemindersRepository?
+    private let roadmapStopAttachmentsRepository: RoadmapStopAttachmentsRepository?
+    private let roadmapStopsRepository: RoadmapStopsRepository?
     private let logger: Logger
 
     // MARK: - Init
@@ -23,7 +27,10 @@ class HotelDetailViewModel {
         self.journeyId = journeyId
         self.hotelsRepository = databaseManager.hotelsRepository
         self.remindersRepository = databaseManager.remindersRepository
+        self.roadmapStopAttachmentsRepository = databaseManager.roadmapStopAttachmentsRepository
+        self.roadmapStopsRepository = databaseManager.roadmapStopsRepository
         self.logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "-", category: "HotelDetailViewModel")
+        loadRoadmapAttachment()
     }
 
     // MARK: - Public Methods
@@ -93,6 +100,28 @@ class HotelDetailViewModel {
         let reminders = remindersRepository?.fetchByJourneyId(journeyId: journeyId) ?? []
         for reminder in reminders where reminder.relatedEntityId == hotel.id {
             _ = remindersRepository?.updateJourneyId(id: reminder.id, newJourneyId: newJourneyId)
+        }
+    }
+
+    func loadRoadmapAttachment() {
+        roadmapAttachment = roadmapStopAttachmentsRepository?.fetchByEntityId(
+            entityId: hotel.id,
+            entityType: RoadmapEntityType.hotel.rawValue
+        )
+        if let attachment = roadmapAttachment,
+           let stop = roadmapStopsRepository?.fetchById(id: attachment.roadmapStopId) {
+            attachedStopTitle = stop.title
+        } else {
+            attachedStopTitle = nil
+        }
+    }
+
+    func detachFromRoadmap() {
+        guard let attachment = roadmapAttachment else { return }
+        if roadmapStopAttachmentsRepository?.delete(id: attachment.id) == true {
+            roadmapAttachment = nil
+            attachedStopTitle = nil
+            logger.info("Detached hotel from roadmap: \(self.hotel.id)")
         }
     }
 

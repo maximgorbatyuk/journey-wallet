@@ -33,29 +33,37 @@ struct MainTabView: SwiftUI.View {
                     .tint(nil)
                     .tag(1)
 
-                // Tab 3: Reminders
+                // Tab 3: Roadmap
+                RoadmapTimelineView()
+                    .tabItem {
+                        Label(L("tab.roadmap"), systemImage: "map.fill")
+                    }
+                    .tint(nil)
+                    .tag(2)
+
+                // Tab 4: Reminders
                 NotificationsView()
                     .tabItem {
                         Label(L("tab.reminders"), systemImage: "bell.fill")
                     }
                     .tint(nil)
-                    .tag(2)
+                    .tag(3)
 
-                // Tab 4: All Journeys
+                // Tab 5: All Journeys
                 JourneysListView()
                     .tabItem {
                         Label(L("tab.journeys"), systemImage: "list.bullet.rectangle")
                     }
                     .tint(nil)
-                    .tag(3)
+                    .tag(4)
 
-                // Tab 5: Settings
+                // Tab 6: Settings
                 UserSettingsView(showAppUpdateButton: showAppVersionBadge)
                     .tabItem {
                         Label(L("tab.settings"), systemImage: "gear")
                     }
                     .tint(nil)
-                    .tag(4)
+                    .tag(5)
                     .badge(showAppVersionBadge ? "New!" : nil)
             }
             .tint(Color.orange)

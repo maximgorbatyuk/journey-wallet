@@ -1075,3 +1075,24 @@
 "developer.document_storage.delete" = "Dosyayı Sil";
 "developer.document_storage.delete_confirm.title" = "Dosyayı Sil?";
 "developer.document_storage.delete_confirm.message" = "Bu dosya depodan kalıcı olarak silinecek.";
+
+// MARK: - Roadmap
+"tab.roadmap" = "Yol Haritası";
+"roadmap.title" = "Gezi Yol Haritası";
+"roadmap.empty.title" = "Henüz Durak Yok";
+"roadmap.empty.message" = "Gezi planınızı oluşturmak için şehirler ve yerler ekleyin";
+"roadmap.add_stop" = "Durak Ekle";
+"roadmap.edit_stop" = "Durağı Düzenle";
+"roadmap.stop.title" = "Başlık";
+"roadmap.stop.subtitle" = "Açıklama";
+"roadmap.stop.arrival_date" = "Varış Tarihi";
+"roadmap.stop.departure_date" = "Ayrılış Tarihi";
+"roadmap.stop.notes" = "Notlar";
+"roadmap.stop.delete_confirm.title" = "Durağı Sil?";
+"roadmap.stop.delete_confirm.message" = "Durak ve tüm ekleri zaman çizelgesinden kaldırılacak.";
+"roadmap.attach_items" = "Öğe Ekle";
+"roadmap.set_transport" = "Ulaşım Belirle";
+"roadmap.attached_to" = "Yol haritasında";
+"roadmap.detach" = "Yol haritasından kaldır";
+"roadmap.no_transport" = "Ulaşım belirlenmedi";
+"roadmap.entity_name" = "Yol Haritası Durağı";

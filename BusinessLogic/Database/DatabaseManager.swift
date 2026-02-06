@@ -23,6 +23,8 @@ class DatabaseManager : DatabaseManagerProtocol {
     static let ChecklistsTableName = "checklists"
     static let ChecklistItemsTableName = "checklist_items"
     static let IdeasTableName = "ideas"
+    static let RoadmapStopsTableName = "roadmap_stops"
+    static let RoadmapStopAttachmentsTableName = "roadmap_stop_attachments"
 
     static let shared = DatabaseManager()
 
@@ -41,10 +43,12 @@ class DatabaseManager : DatabaseManagerProtocol {
     var checklistsRepository: ChecklistsRepository?
     var checklistItemsRepository: ChecklistItemsRepository?
     var ideasRepository: IdeasRepository?
+    var roadmapStopsRepository: RoadmapStopsRepository?
+    var roadmapStopAttachmentsRepository: RoadmapStopAttachmentsRepository?
 
     private var db: Connection?
     private let logger: Logger
-    private let latestVersion = 8
+    private let latestVersion = 9
 
     private init() {
 
@@ -85,6 +89,8 @@ class DatabaseManager : DatabaseManagerProtocol {
                 checklistsTableName: DatabaseManager.ChecklistsTableName
             )
             self.ideasRepository = IdeasRepository(db: dbConnection, tableName: DatabaseManager.IdeasTableName)
+            self.roadmapStopsRepository = RoadmapStopsRepository(db: dbConnection, tableName: DatabaseManager.RoadmapStopsTableName)
+            self.roadmapStopAttachmentsRepository = RoadmapStopAttachmentsRepository(db: dbConnection, tableName: DatabaseManager.RoadmapStopAttachmentsTableName)
 
             // Ensure user settings table exists
             self.userSettingsRepository?.createTable()
@@ -96,6 +102,8 @@ class DatabaseManager : DatabaseManagerProtocol {
     }
 
     func deleteAllData() {
+        _ = roadmapStopAttachmentsRepository?.deleteAll()
+        _ = roadmapStopsRepository?.deleteAll()
         _ = ideasRepository?.deleteAll()
         _ = checklistItemsRepository?.deleteAll()
         _ = checklistsRepository?.deleteAll()
@@ -157,6 +165,9 @@ class DatabaseManager : DatabaseManagerProtocol {
 
             case 8:
                 Migration_20260130_Ideas(db: db!).execute()
+
+            case 9:
+                Migration_20260206_RoadmapTables(db: db!).execute()
 
             default:
                 break

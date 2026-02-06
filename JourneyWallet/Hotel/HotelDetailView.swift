@@ -25,6 +25,15 @@ struct HotelDetailView: View {
                 // Header with status
                 headerSection
 
+                // Roadmap attachment banner
+                if let stopTitle = viewModel.attachedStopTitle {
+                    RoadmapAttachmentBanner(
+                        stopTitle: stopTitle,
+                        onDetach: { viewModel.detachFromRoadmap() }
+                    )
+                    .padding(.bottom, 8)
+                }
+
                 // Main info card
                 mainInfoCard
 

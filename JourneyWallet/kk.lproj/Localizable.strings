@@ -1079,3 +1079,24 @@
 "developer.document_storage.delete" = "Файлды жою";
 "developer.document_storage.delete_confirm.title" = "Файлды жою?";
 "developer.document_storage.delete_confirm.message" = "Бул файл сақтау орыннан біржола жойылады.";
+
+// MARK: - Roadmap
+"tab.roadmap" = "Жол картасы";
+"roadmap.title" = "Саяхат жол картасы";
+"roadmap.empty.title" = "Аялдамалар жоқ";
+"roadmap.empty.message" = "Саяхат жоспарын құру үшін қалалар мен орындар қосыңыз";
+"roadmap.add_stop" = "Аялдама қосу";
+"roadmap.edit_stop" = "Аялдаманы өзгерту";
+"roadmap.stop.title" = "Атауы";
+"roadmap.stop.subtitle" = "Сипаттама";
+"roadmap.stop.arrival_date" = "Келу күні";
+"roadmap.stop.departure_date" = "Кету күні";
+"roadmap.stop.notes" = "Жазбалар";
+"roadmap.stop.delete_confirm.title" = "Аялдаманы жою?";
+"roadmap.stop.delete_confirm.message" = "Аялдама мен барлық тіркемелер жол картасынан жойылады.";
+"roadmap.attach_items" = "Элементтерді тіркеу";
+"roadmap.set_transport" = "Көлікті белгілеу";
+"roadmap.attached_to" = "Жол картасында";
+"roadmap.detach" = "Жол картасынан алып тастау";
+"roadmap.no_transport" = "Көлік белгіленбеген";
+"roadmap.entity_name" = "Жол картасы аялдамасы";

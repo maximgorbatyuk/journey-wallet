@@ -1075,3 +1075,24 @@
 "developer.document_storage.delete" = "Datei löschen";
 "developer.document_storage.delete_confirm.title" = "Datei löschen?";
 "developer.document_storage.delete_confirm.message" = "Diese Datei wird dauerhaft aus dem Speicher gelöscht.";
+
+// MARK: - Roadmap
+"tab.roadmap" = "Reiseplan";
+"roadmap.title" = "Reiseplan";
+"roadmap.empty.title" = "Noch keine Stationen";
+"roadmap.empty.message" = "Fügen Sie Städte und Orte hinzu, um Ihren Reiseplan zu erstellen";
+"roadmap.add_stop" = "Station hinzufügen";
+"roadmap.edit_stop" = "Station bearbeiten";
+"roadmap.stop.title" = "Titel";
+"roadmap.stop.subtitle" = "Beschreibung";
+"roadmap.stop.arrival_date" = "Ankunftsdatum";
+"roadmap.stop.departure_date" = "Abreisedatum";
+"roadmap.stop.notes" = "Notizen";
+"roadmap.stop.delete_confirm.title" = "Station löschen?";
+"roadmap.stop.delete_confirm.message" = "Die Station und alle angehängten Elemente werden aus dem Reiseplan entfernt.";
+"roadmap.attach_items" = "Elemente anhängen";
+"roadmap.set_transport" = "Transport festlegen";
+"roadmap.attached_to" = "Im Reiseplan";
+"roadmap.detach" = "Aus Reiseplan entfernen";
+"roadmap.no_transport" = "Kein Transport festgelegt";
+"roadmap.entity_name" = "Reiseplan-Station";

@@ -1077,3 +1077,24 @@
 "developer.document_storage.delete" = "Видалити файл";
 "developer.document_storage.delete_confirm.title" = "Видалити файл?";
 "developer.document_storage.delete_confirm.message" = "Цей файл буде назавжди видалено зі сховища.";
+
+// MARK: - Roadmap
+"tab.roadmap" = "Маршрут";
+"roadmap.title" = "Маршрут подорожі";
+"roadmap.empty.title" = "Поки немає зупинок";
+"roadmap.empty.message" = "Додайте міста та місця, щоб спланувати маршрут подорожі";
+"roadmap.add_stop" = "Додати зупинку";
+"roadmap.edit_stop" = "Редагувати зупинку";
+"roadmap.stop.title" = "Назва";
+"roadmap.stop.subtitle" = "Опис";
+"roadmap.stop.arrival_date" = "Дата прибуття";
+"roadmap.stop.departure_date" = "Дата від'їзду";
+"roadmap.stop.notes" = "Нотатки";
+"roadmap.stop.delete_confirm.title" = "Видалити зупинку?";
+"roadmap.stop.delete_confirm.message" = "Зупинку та всі прикріплені елементи буде видалено з маршруту.";
+"roadmap.attach_items" = "Прикріпити елементи";
+"roadmap.set_transport" = "Вказати транспорт";
+"roadmap.attached_to" = "На маршруті";
+"roadmap.detach" = "Прибрати з маршруту";
+"roadmap.no_transport" = "Транспорт не вказано";
+"roadmap.entity_name" = "Зупинка маршруту";

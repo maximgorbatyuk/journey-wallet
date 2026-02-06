@@ -1078,3 +1078,24 @@
 "developer.document_storage.delete" = "Удалить файл";
 "developer.document_storage.delete_confirm.title" = "Удалить файл?";
 "developer.document_storage.delete_confirm.message" = "Этот файл будет безвозвратно удален из хранилища.";
+
+// MARK: - Roadmap
+"tab.roadmap" = "Маршрут";
+"roadmap.title" = "Маршрут поездки";
+"roadmap.empty.title" = "Пока нет остановок";
+"roadmap.empty.message" = "Добавьте города и места, чтобы спланировать маршрут поездки";
+"roadmap.add_stop" = "Добавить остановку";
+"roadmap.edit_stop" = "Редактировать остановку";
+"roadmap.stop.title" = "Название";
+"roadmap.stop.subtitle" = "Описание";
+"roadmap.stop.arrival_date" = "Дата прибытия";
+"roadmap.stop.departure_date" = "Дата отъезда";
+"roadmap.stop.notes" = "Заметки";
+"roadmap.stop.delete_confirm.title" = "Удалить остановку?";
+"roadmap.stop.delete_confirm.message" = "Остановка и все прикрепленные элементы будут удалены из маршрута.";
+"roadmap.attach_items" = "Прикрепить элементы";
+"roadmap.set_transport" = "Указать транспорт";
+"roadmap.attached_to" = "На маршруте";
+"roadmap.detach" = "Убрать из маршрута";
+"roadmap.no_transport" = "Транспорт не указан";
+"roadmap.entity_name" = "Остановка маршрута";
