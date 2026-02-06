@@ -1096,3 +1096,9 @@
 "roadmap.detach" = "Aus Reiseplan entfernen";
 "roadmap.no_transport" = "Kein Transport festgelegt";
 "roadmap.entity_name" = "Reiseplan-Station";
+"roadmap.detail.title" = "Stationsdetails";
+"roadmap.detail.dates" = "Daten";
+"roadmap.detail.arrival" = "Ankunft";
+"roadmap.detail.departure" = "Abreise";
+"roadmap.detail.attachments" = "Anhänge";
+"roadmap.detail.transport_to_next" = "Transport zur nächsten Station";

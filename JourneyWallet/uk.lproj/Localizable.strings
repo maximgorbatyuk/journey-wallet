@@ -1098,3 +1098,9 @@
 "roadmap.detach" = "Прибрати з маршруту";
 "roadmap.no_transport" = "Транспорт не вказано";
 "roadmap.entity_name" = "Зупинка маршруту";
+"roadmap.detail.title" = "Деталі зупинки";
+"roadmap.detail.dates" = "Дати";
+"roadmap.detail.arrival" = "Прибуття";
+"roadmap.detail.departure" = "Від'їзд";
+"roadmap.detail.attachments" = "Прикріплені елементи";
+"roadmap.detail.transport_to_next" = "Транспорт до наступної зупинки";

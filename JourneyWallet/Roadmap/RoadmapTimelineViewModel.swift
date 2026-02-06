@@ -151,6 +151,15 @@ class RoadmapTimelineViewModel {
         loadStops()
     }
 
+    func removeAttachment(id: UUID) {
+        if roadmapStopAttachmentsRepository?.delete(id: id) == true {
+            loadStops()
+            logger.info("Removed roadmap stop attachment: \(id)")
+        } else {
+            logger.error("Failed to remove roadmap stop attachment: \(id)")
+        }
+    }
+
     func addAttachments(_ attachments: [RoadmapStopAttachment]) {
         for attachment in attachments {
             _ = roadmapStopAttachmentsRepository?.insert(attachment)

@@ -38,6 +38,9 @@ class CarRentalDetailViewModel {
     func updateCarRental(_ updatedCarRental: CarRental) {
         if carRentalsRepository?.update(updatedCarRental) == true {
             carRental = updatedCarRental
+            if let refreshed = carRentalsRepository?.fetchById(id: carRental.id) {
+                carRental = refreshed
+            }
             logger.info("Updated car rental: \(updatedCarRental.id)")
         } else {
             logger.error("Failed to update car rental: \(updatedCarRental.id)")

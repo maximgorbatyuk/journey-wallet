@@ -38,6 +38,9 @@ class TransportDetailViewModel {
     func updateTransport(_ updatedTransport: Transport) {
         if transportsRepository?.update(updatedTransport) == true {
             transport = updatedTransport
+            if let refreshed = transportsRepository?.fetchById(id: transport.id) {
+                transport = refreshed
+            }
             logger.info("Updated transport: \(self.transport.id)")
         } else {
             logger.error("Failed to update transport: \(self.transport.id)")

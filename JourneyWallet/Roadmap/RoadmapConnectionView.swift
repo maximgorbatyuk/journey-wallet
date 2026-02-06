@@ -11,7 +11,7 @@ struct RoadmapConnectionView: View {
     @State private var selectedTransportId: UUID?
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 // None option
                 Button {
@@ -90,8 +90,6 @@ struct RoadmapConnectionView: View {
     }
 
     private func formatDate(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMM d, HH:mm"
-        return formatter.string(from: date)
+        date.formatted(.dateTime.month(.abbreviated).day().hour().minute())
     }
 }

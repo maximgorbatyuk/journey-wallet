@@ -1100,3 +1100,9 @@
 "roadmap.detach" = "Жол картасынан алып тастау";
 "roadmap.no_transport" = "Көлік белгіленбеген";
 "roadmap.entity_name" = "Жол картасы аялдамасы";
+"roadmap.detail.title" = "Аялдама мәліметтері";
+"roadmap.detail.dates" = "Күндер";
+"roadmap.detail.arrival" = "Келу";
+"roadmap.detail.departure" = "Кету";
+"roadmap.detail.attachments" = "Тіркемелер";
+"roadmap.detail.transport_to_next" = "Келесі аялдамаға көлік";

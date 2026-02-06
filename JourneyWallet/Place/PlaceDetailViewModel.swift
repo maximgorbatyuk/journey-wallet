@@ -36,6 +36,9 @@ class PlaceDetailViewModel {
     func updatePlace(_ updatedPlace: PlaceToVisit) {
         if placesRepository?.update(updatedPlace) == true {
             place = updatedPlace
+            if let refreshed = placesRepository?.fetchById(id: place.id) {
+                place = refreshed
+            }
             logger.info("Updated place: \(self.place.id)")
         } else {
             logger.error("Failed to update place: \(self.place.id)")
@@ -55,6 +58,9 @@ class PlaceDetailViewModel {
     func toggleVisited() {
         if placesRepository?.toggleVisited(id: place.id) == true {
             place.isVisited.toggle()
+            if let refreshed = placesRepository?.fetchById(id: place.id) {
+                place = refreshed
+            }
             logger.info("Toggled visited status for place: \(self.place.id)")
         } else {
             logger.error("Failed to toggle visited status for place: \(self.place.id)")

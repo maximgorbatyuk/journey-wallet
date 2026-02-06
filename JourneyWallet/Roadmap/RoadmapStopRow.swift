@@ -9,10 +9,7 @@ struct RoadmapStopRow: View {
     let viewModel: RoadmapTimelineViewModel
 
     @State private var isExpanded: Bool = false
-    @State private var showEditSheet: Bool = false
-    @State private var showDeleteConfirmation: Bool = false
-    @State private var showAttachmentPicker: Bool = false
-    @State private var showConnectionPicker: Bool = false
+    @State private var showDetailView: Bool = false
 
     private var isPast: Bool {
         if let departureDate = stop.departureDate {
@@ -35,10 +32,8 @@ struct RoadmapStopRow: View {
 
             // Content
             VStack(alignment: .leading, spacing: 8) {
-                // Stop header
                 stopHeader
 
-                // Expanded content
                 if isExpanded {
                     expandedContent
                 }
@@ -51,32 +46,14 @@ struct RoadmapStopRow: View {
                 isExpanded.toggle()
             }
         }
-        .sheet(isPresented: $showEditSheet) {
-            RoadmapStopFormView(
-                journeyId: stop.journeyId,
-                mode: .edit(stop),
-                nextSortOrder: stop.sortOrder
-            ) { updatedStop in
-                viewModel.updateStop(updatedStop)
-            }
-        }
-        .sheet(isPresented: $showAttachmentPicker) {
-            RoadmapAttachmentPicker(stopId: stop.id, viewModel: viewModel)
-        }
-        .sheet(isPresented: $showConnectionPicker) {
-            RoadmapConnectionView(
-                stopId: stop.id,
-                currentTransportId: stop.outgoingTransportId,
-                viewModel: viewModel
+        .sheet(isPresented: $showDetailView) {
+            RoadmapStopDetailView(
+                stop: stop,
+                attachments: attachments,
+                outgoingTransport: outgoingTransport,
+                viewModel: viewModel,
+                onDelete: {}
             )
-        }
-        .alert(L("roadmap.stop.delete_confirm.title"), isPresented: $showDeleteConfirmation) {
-            Button(L("Cancel"), role: .cancel) {}
-            Button(L("Delete"), role: .destructive) {
-                viewModel.deleteStop(id: stop.id)
-            }
-        } message: {
-            Text(L("roadmap.stop.delete_confirm.message"))
         }
     }
 
@@ -224,37 +201,13 @@ struct RoadmapStopRow: View {
                 .cornerRadius(8)
             }
 
-            // Action buttons
-            HStack(spacing: 12) {
-                Button {
-                    showAttachmentPicker = true
-                } label: {
-                    Label(L("roadmap.attach_items"), systemImage: "paperclip")
-                        .font(.caption)
-                }
-
-                Button {
-                    showConnectionPicker = true
-                } label: {
-                    Label(L("roadmap.set_transport"), systemImage: "arrow.right")
-                        .font(.caption)
-                }
-
-                Spacer()
-
-                Button {
-                    showEditSheet = true
-                } label: {
-                    Image(systemName: "pencil")
-                        .font(.caption)
-                }
-
-                Button(role: .destructive) {
-                    showDeleteConfirmation = true
-                } label: {
-                    Image(systemName: "trash")
-                        .font(.caption)
-                }
+            // Open detail button
+            Button {
+                showDetailView = true
+            } label: {
+                Label(L("Open"), systemImage: "arrow.up.right")
+                    .font(.caption)
+                    .foregroundColor(.orange)
             }
             .padding(.horizontal, 12)
             .padding(.top, 4)

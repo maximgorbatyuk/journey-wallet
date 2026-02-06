@@ -1096,3 +1096,9 @@
 "roadmap.detach" = "Yol haritasından kaldır";
 "roadmap.no_transport" = "Ulaşım belirlenmedi";
 "roadmap.entity_name" = "Yol Haritası Durağı";
+"roadmap.detail.title" = "Durak Detayları";
+"roadmap.detail.dates" = "Tarihler";
+"roadmap.detail.arrival" = "Varış";
+"roadmap.detail.departure" = "Ayrılış";
+"roadmap.detail.attachments" = "Ekler";
+"roadmap.detail.transport_to_next" = "Sonraki Durağa Ulaşım";

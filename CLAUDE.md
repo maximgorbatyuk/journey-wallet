@@ -139,6 +139,9 @@ Supported languages: English (en), Russian (ru), Kazakh (kk), Turkish (tr), Germ
 
 Localization files are in `JourneyWallet/{lang}.lproj/Localizable.strings`.
 
+### Navigation
+Use `NavigationStack` for all navigation containers. Never use `NavigationView` — it is deprecated and causes layout issues (unwanted split view on iPad in sheets).
+
 ## Currency
 
 Monetary values must use `Decimal` type. Supported currencies are defined in `BusinessLogic/Models/Currency.swift`.

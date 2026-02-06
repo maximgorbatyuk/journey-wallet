@@ -1099,3 +1099,9 @@
 "roadmap.detach" = "Убрать из маршрута";
 "roadmap.no_transport" = "Транспорт не указан";
 "roadmap.entity_name" = "Остановка маршрута";
+"roadmap.detail.title" = "Детали остановки";
+"roadmap.detail.dates" = "Даты";
+"roadmap.detail.arrival" = "Прибытие";
+"roadmap.detail.departure" = "Отъезд";
+"roadmap.detail.attachments" = "Прикреплённые элементы";
+"roadmap.detail.transport_to_next" = "Транспорт до следующей остановки";

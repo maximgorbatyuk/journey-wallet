@@ -65,7 +65,7 @@ struct RoadmapStopFormView: View {
     }
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Form {
                 // Title Section
                 Section(header: Text(L("roadmap.stop.title"))) {
@@ -85,7 +85,7 @@ struct RoadmapStopFormView: View {
                         DatePicker(
                             L("roadmap.stop.arrival_date"),
                             selection: $arrivalDate,
-                            displayedComponents: [.date]
+                            displayedComponents: [.date, .hourAndMinute]
                         )
                     }
                 }
@@ -98,7 +98,7 @@ struct RoadmapStopFormView: View {
                         DatePicker(
                             L("roadmap.stop.departure_date"),
                             selection: $departureDate,
-                            displayedComponents: [.date]
+                            displayedComponents: [.date, .hourAndMinute]
                         )
                     }
                 }

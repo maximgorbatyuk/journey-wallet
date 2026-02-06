@@ -38,6 +38,9 @@ class HotelDetailViewModel {
     func updateHotel(_ updatedHotel: Hotel) {
         if hotelsRepository?.update(updatedHotel) == true {
             hotel = updatedHotel
+            if let refreshed = hotelsRepository?.fetchById(id: hotel.id) {
+                hotel = refreshed
+            }
             logger.info("Updated hotel: \(self.hotel.id)")
         } else {
             logger.error("Failed to update hotel: \(self.hotel.id)")

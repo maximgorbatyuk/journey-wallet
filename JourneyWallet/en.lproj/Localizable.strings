@@ -1093,3 +1093,9 @@
 "roadmap.detach" = "Remove from timeline";
 "roadmap.no_transport" = "No transport set";
 "roadmap.entity_name" = "Roadmap Stop";
+"roadmap.detail.title" = "Stop Details";
+"roadmap.detail.dates" = "Dates";
+"roadmap.detail.arrival" = "Arrival";
+"roadmap.detail.departure" = "Departure";
+"roadmap.detail.attachments" = "Attachments";
+"roadmap.detail.transport_to_next" = "Transport to Next Stop";
