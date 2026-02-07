@@ -1,6 +1,6 @@
 # Changelog
 
-# 2026.1.5 (2025-02-07)
+# 2026.1.5 (2026-02-07)
 
 ## New Features
 
@@ -51,7 +51,7 @@
 - Attaches hotels, car rentals, places, and ideas to stops
 - Creates 2-3 transport connections between stops
 
-## Localization
+### Localization
 - Added 46 new localization keys for the roadmap feature across all 6 supported languages (EN, RU, DE, UK, TR, KK)
 - Added `app.name`, `open.details`, `main.stats.reminders`, `journey.stats.created_at`, `journey.stats.updated_at` keys
 - Added onboarding keys for checklists and roadmap pages
