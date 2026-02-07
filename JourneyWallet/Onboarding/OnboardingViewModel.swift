@@ -44,6 +44,18 @@ class OnboardingViewModel: ObservableObject {
                 color: .green
             ),
             OnboardingPageViewModelItem(
+                icon: "checklist",
+                title: L("onboarding.checklists", language: selectedLanguage),
+                description: L("onboarding.checklists__subtitle", language: selectedLanguage),
+                color: .mint
+            ),
+            OnboardingPageViewModelItem(
+                icon: "map.fill",
+                title: L("onboarding.roadmap", language: selectedLanguage),
+                description: L("onboarding.roadmap__subtitle", language: selectedLanguage),
+                color: .indigo
+            ),
+            OnboardingPageViewModelItem(
                 icon: "chart.bar.fill",
                 title: L("onboarding.view_statistics", language: selectedLanguage),
                 description: L("onboarding.view_statistics__subtitle", language: selectedLanguage),

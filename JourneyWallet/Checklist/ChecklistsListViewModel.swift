@@ -64,6 +64,7 @@ class ChecklistsListViewModel {
 
         if checklistsRepository?.insert(checklist) == true {
             logger.info("Added checklist: \(checklist.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -71,6 +72,7 @@ class ChecklistsListViewModel {
     func updateChecklist(_ checklist: Checklist) {
         if checklistsRepository?.update(checklist) == true {
             logger.info("Updated checklist: \(checklist.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -81,6 +83,7 @@ class ChecklistsListViewModel {
 
         if checklistsRepository?.delete(id: checklist.id) == true {
             logger.info("Deleted checklist: \(checklist.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }

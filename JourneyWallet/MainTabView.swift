@@ -33,10 +33,10 @@ struct MainTabView: SwiftUI.View {
                     .tint(nil)
                     .tag(1)
 
-                // Tab 3: Reminders
-                NotificationsView()
+                // Tab 3: Roadmap
+                RoadmapTimelineView()
                     .tabItem {
-                        Label(L("tab.reminders"), systemImage: "bell.fill")
+                        Label(L("tab.roadmap"), systemImage: "map.fill")
                     }
                     .tint(nil)
                     .tag(2)

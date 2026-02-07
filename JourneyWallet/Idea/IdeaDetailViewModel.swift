@@ -9,10 +9,15 @@ class IdeaDetailViewModel {
 
     var idea: Idea
     let journeyId: UUID
+    var roadmapAttachment: RoadmapStopAttachment?
+    var attachedStopTitle: String?
 
     // MARK: - Repositories
 
     private let ideasRepository: IdeasRepository?
+    private let journeysRepository: JourneysRepository?
+    private let roadmapStopAttachmentsRepository: RoadmapStopAttachmentsRepository?
+    private let roadmapStopsRepository: RoadmapStopsRepository?
     private let logger: Logger
 
     // MARK: - Init
@@ -21,7 +26,11 @@ class IdeaDetailViewModel {
         self.idea = idea
         self.journeyId = journeyId
         self.ideasRepository = databaseManager.ideasRepository
+        self.journeysRepository = databaseManager.journeysRepository
+        self.roadmapStopAttachmentsRepository = databaseManager.roadmapStopAttachmentsRepository
+        self.roadmapStopsRepository = databaseManager.roadmapStopsRepository
         self.logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "-", category: "IdeaDetailViewModel")
+        loadRoadmapAttachment()
     }
 
     // MARK: - Public Methods
@@ -33,6 +42,7 @@ class IdeaDetailViewModel {
             if let refreshed = ideasRepository?.fetchById(id: idea.id) {
                 idea = refreshed
             }
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             logger.info("Updated idea: \(self.idea.id)")
         } else {
             logger.error("Failed to update idea: \(self.idea.id)")
@@ -41,6 +51,7 @@ class IdeaDetailViewModel {
 
     func deleteIdea() -> Bool {
         if ideasRepository?.delete(id: idea.id) == true {
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             logger.info("Deleted idea: \(self.idea.id)")
             return true
         } else {
@@ -56,6 +67,7 @@ class IdeaDetailViewModel {
             if let refreshed = ideasRepository?.fetchById(id: idea.id) {
                 idea = refreshed
             }
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             logger.info("Toggled done status for idea: \(self.idea.id)")
         } else {
             logger.error("Failed to toggle done status for idea: \(self.idea.id)")
@@ -68,7 +80,31 @@ class IdeaDetailViewModel {
             return false
         }
 
+        journeysRepository?.touchUpdatedAt(journeyId: journeyId)
+        journeysRepository?.touchUpdatedAt(journeyId: newJourneyId)
         logger.info("Moved idea \(self.idea.id) to journey \(newJourneyId)")
         return true
+    }
+
+    func loadRoadmapAttachment() {
+        roadmapAttachment = roadmapStopAttachmentsRepository?.fetchByEntityId(
+            entityId: idea.id,
+            entityType: RoadmapEntityType.idea.rawValue
+        )
+        if let attachment = roadmapAttachment,
+           let stop = roadmapStopsRepository?.fetchById(id: attachment.roadmapStopId) {
+            attachedStopTitle = stop.title
+        } else {
+            attachedStopTitle = nil
+        }
+    }
+
+    func detachFromRoadmap() {
+        guard let attachment = roadmapAttachment else { return }
+        if roadmapStopAttachmentsRepository?.delete(id: attachment.id) == true {
+            roadmapAttachment = nil
+            attachedStopTitle = nil
+            logger.info("Detached idea from roadmap: \(self.idea.id)")
+        }
     }
 }

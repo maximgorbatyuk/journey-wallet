@@ -1,5 +1,8 @@
 /* Russian localization */
 
+/* App */
+"app.name" = "Journey Wallet";
+
 /* Common UI */
 "Cancel" = "Отмена";
 "Save" = "Сохранить";
@@ -16,6 +19,7 @@
 "Add" = "Добавить";
 "Edit" = "Редактировать";
 "Open" = "Открыть";
+"open.details" = "Открыть детали";
 "Create" = "Создать";
 "Select" = "Выбрать";
 "Loading" = "Загрузка";
@@ -115,6 +119,10 @@
 "onboarding.store_bookings__subtitle" = "Сохраняйте билеты, брони отелей и документы. Доступ ко всему даже без интернета.";
 "onboarding.travel_reminders" = "Получайте напоминания";
 "onboarding.travel_reminders__subtitle" = "Не пропустите рейс или заселение. Устанавливайте напоминания для важных событий.";
+"onboarding.checklists" = "Списки для сборов";
+"onboarding.checklists__subtitle" = "Создавайте чек-листы для каждой поездки, чтобы ничего не забыть. Отмечайте, что уже собрано.";
+"onboarding.roadmap" = "Постройте маршрут";
+"onboarding.roadmap__subtitle" = "Планируйте путь остановка за остановкой. Прикрепляйте бронирования, указывайте транспорт и следите за маршрутом.";
 "onboarding.view_statistics" = "Смотрите статистику";
 "onboarding.view_statistics__subtitle" = "Вся история путешествий на одном экране. Отслеживайте расходы, посещённые места и многое другое.";
 
@@ -303,6 +311,7 @@
 "main.stats.total_journeys" = "Всего поездок";
 "main.stats.upcoming" = "Предстоящие";
 "main.stats.destinations" = "Направления";
+"main.stats.reminders" = "Напоминания";
 "main.active_journeys.title" = "Ваши поездки";
 "main.empty.title" = "Поездок пока нет";
 "main.empty.subtitle" = "Начните планировать своё следующее путешествие, добавив поездку.";
@@ -344,6 +353,8 @@
 "journey.stats.documents" = "Документы";
 "journey.stats.places" = "Места";
 "journey.stats.notes" = "Заметки";
+"journey.stats.created_at" = "Создано";
+"journey.stats.updated_at" = "Обновлено";
 
 /* Journey Form */
 "journey.form.add_title" = "Новая поездка";
@@ -1078,3 +1089,38 @@
 "developer.document_storage.delete" = "Удалить файл";
 "developer.document_storage.delete_confirm.title" = "Удалить файл?";
 "developer.document_storage.delete_confirm.message" = "Этот файл будет безвозвратно удален из хранилища.";
+
+// MARK: - Roadmap
+"tab.roadmap" = "Маршрут";
+"roadmap.title" = "Маршрут поездки";
+"roadmap.empty.title" = "Пока нет остановок";
+"roadmap.empty.message" = "Добавьте города и места, чтобы спланировать маршрут поездки";
+"roadmap.add_stop" = "Добавить остановку";
+"roadmap.more_options" = "Ещё";
+"roadmap.edit_stop" = "Редактировать остановку";
+"roadmap.stop.title" = "Название";
+"roadmap.stop.subtitle" = "Описание";
+"roadmap.stop.arrival_date" = "Дата прибытия";
+"roadmap.stop.departure_date" = "Дата отъезда";
+"roadmap.stop.notes" = "Заметки";
+"roadmap.stop.delete_confirm.title" = "Удалить остановку?";
+"roadmap.stop.delete_confirm.message" = "Остановка и все прикрепленные элементы будут удалены из маршрута.";
+"roadmap.attach_items" = "Прикрепить элементы";
+"roadmap.set_transport" = "Указать транспорт";
+"roadmap.attached_to" = "На маршруте";
+"roadmap.detach" = "Убрать из маршрута";
+"roadmap.detach.confirm.title" = "Убрать из маршрута";
+"roadmap.detach.confirm.message" = "Вы уверены, что хотите убрать этот элемент из остановки маршрута?";
+"roadmap.no_transport" = "Транспорт не указан";
+"roadmap.hint.tap_to_expand" = "Прикрепляйте любые объекты путешествия к остановкам для удобного планирования";
+"roadmap.date_inconsistency" = "Даты пересекаются со следующей остановкой";
+"roadmap.entity_name" = "Остановка маршрута";
+"roadmap.detail.title" = "Детали остановки";
+"roadmap.detail.dates" = "Даты";
+"roadmap.detail.arrival" = "Прибытие";
+"roadmap.detail.departure" = "Отъезд";
+"roadmap.detail.attachments" = "Прикреплённые элементы";
+"roadmap.detail.transport_to_next" = "Транспорт до следующей остановки";
+"roadmap.reset_timeline" = "Сбросить маршрут";
+"roadmap.reset_timeline.title" = "Сбросить маршрут?";
+"roadmap.reset_timeline.message" = "Все остановки будут удалены. Бронирования, отели и другие элементы поездки не будут затронуты.";

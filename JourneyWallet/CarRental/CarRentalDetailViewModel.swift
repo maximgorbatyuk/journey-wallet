@@ -9,11 +9,16 @@ class CarRentalDetailViewModel {
 
     var carRental: CarRental
     let journeyId: UUID
+    var roadmapAttachment: RoadmapStopAttachment?
+    var attachedStopTitle: String?
 
     // MARK: - Repositories
 
     private let carRentalsRepository: CarRentalsRepository?
+    private let journeysRepository: JourneysRepository?
     private let remindersRepository: RemindersRepository?
+    private let roadmapStopAttachmentsRepository: RoadmapStopAttachmentsRepository?
+    private let roadmapStopsRepository: RoadmapStopsRepository?
     private let logger: Logger
 
     // MARK: - Init
@@ -22,8 +27,12 @@ class CarRentalDetailViewModel {
         self.carRental = carRental
         self.journeyId = journeyId
         self.carRentalsRepository = databaseManager.carRentalsRepository
+        self.journeysRepository = databaseManager.journeysRepository
         self.remindersRepository = databaseManager.remindersRepository
+        self.roadmapStopAttachmentsRepository = databaseManager.roadmapStopAttachmentsRepository
+        self.roadmapStopsRepository = databaseManager.roadmapStopsRepository
         self.logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "-", category: "CarRentalDetailViewModel")
+        loadRoadmapAttachment()
     }
 
     // MARK: - Public Methods
@@ -31,6 +40,10 @@ class CarRentalDetailViewModel {
     func updateCarRental(_ updatedCarRental: CarRental) {
         if carRentalsRepository?.update(updatedCarRental) == true {
             carRental = updatedCarRental
+            if let refreshed = carRentalsRepository?.fetchById(id: carRental.id) {
+                carRental = refreshed
+            }
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             logger.info("Updated car rental: \(updatedCarRental.id)")
         } else {
             logger.error("Failed to update car rental: \(updatedCarRental.id)")
@@ -43,6 +56,7 @@ class CarRentalDetailViewModel {
 
         // Delete car rental
         if carRentalsRepository?.delete(id: carRental.id) == true {
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             logger.info("Deleted car rental: \(self.carRental.id)")
             return true
         } else {
@@ -69,6 +83,7 @@ class CarRentalDetailViewModel {
         )
 
         if remindersRepository?.insert(reminder) == true {
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             logger.info("Added reminder for car rental: \(self.carRental.id)")
         } else {
             logger.error("Failed to add reminder for car rental: \(self.carRental.id)")
@@ -85,6 +100,8 @@ class CarRentalDetailViewModel {
         // Move associated reminders
         moveRemindersToJourney(newJourneyId)
 
+        journeysRepository?.touchUpdatedAt(journeyId: journeyId)
+        journeysRepository?.touchUpdatedAt(journeyId: newJourneyId)
         logger.info("Moved car rental \(self.carRental.id) to journey \(newJourneyId)")
         return true
     }
@@ -93,6 +110,28 @@ class CarRentalDetailViewModel {
         let reminders = remindersRepository?.fetchByJourneyId(journeyId: journeyId) ?? []
         for reminder in reminders where reminder.relatedEntityId == carRental.id {
             _ = remindersRepository?.updateJourneyId(id: reminder.id, newJourneyId: newJourneyId)
+        }
+    }
+
+    func loadRoadmapAttachment() {
+        roadmapAttachment = roadmapStopAttachmentsRepository?.fetchByEntityId(
+            entityId: carRental.id,
+            entityType: RoadmapEntityType.carRental.rawValue
+        )
+        if let attachment = roadmapAttachment,
+           let stop = roadmapStopsRepository?.fetchById(id: attachment.roadmapStopId) {
+            attachedStopTitle = stop.title
+        } else {
+            attachedStopTitle = nil
+        }
+    }
+
+    func detachFromRoadmap() {
+        guard let attachment = roadmapAttachment else { return }
+        if roadmapStopAttachmentsRepository?.delete(id: attachment.id) == true {
+            roadmapAttachment = nil
+            attachedStopTitle = nil
+            logger.info("Detached car rental from roadmap: \(self.carRental.id)")
         }
     }
 

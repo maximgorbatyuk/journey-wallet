@@ -1,5 +1,45 @@
 # App Store Releases
 
+## 2026.1.5
+
+### English
+
+```
+We added a trip Roadmap — plan your route stop by stop, attach hotels, transport, and places to each stop, and see your entire journey as a timeline. We also added a launch screen and improved how journeys are sorted so your most recently edited trip is always on top.
+```
+
+### Russian
+
+```
+Мы добавили Маршрут поездки — планируйте маршрут по остановкам, прикрепляйте отели, транспорт и места к каждой остановке и видьте всё путешествие на таймлайне. Также добавили экран запуска и улучшили сортировку поездок, чтобы последняя редактированная всегда была наверху.
+```
+
+### Kazakh
+
+```
+Сапар маршрутын қостық — аялдамалар бойынша жоспарлаңыз, әр аялдамаға қонақүйлер, көлік пен орындарды бекітіңіз және бүкіл сапарды уақыт шкаласында көріңіз. Сондай-ақ іске қосу экранын қостық және сапарларды сұрыптауды жақсарттық, соңғы өңделген сапар әрқашан жоғарыда болады.
+```
+
+### Turkish
+
+```
+Yolculuk Haritası ekledik — rotanızı durak durak planlayın, her durağa otelleri, ulaşımı ve yerleri ekleyin, tüm yolculuğunuzu bir zaman çizelgesinde görün. Ayrıca açılış ekranı ekledik ve seyahat sıralamasını iyileştirdik, böylece en son düzenlenen seyahat her zaman en üstte olur.
+```
+
+---
+
+### German
+
+```
+Wir haben eine Reise-Roadmap hinzugefügt — planen Sie Ihre Route Stopp für Stopp, hängen Sie Hotels, Transport und Orte an jeden Stopp an und sehen Sie Ihre gesamte Reise als Zeitleiste. Außerdem haben wir einen Startbildschirm hinzugefügt und die Sortierung verbessert, sodass die zuletzt bearbeitete Reise immer oben steht.
+```
+
+### Ukrainian
+
+```
+Ми додали Маршрут подорожі — плануйте маршрут зупинка за зупинкою, прикріплюйте готелі, транспорт та місця до кожної зупинки і бачте всю подорож на таймлайні. Також додали екран запуску та покращили сортування подорожей, щоб остання редагована завжди була зверху.
+```
+
 ## 2026.1.4
 
 ### English

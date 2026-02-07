@@ -1,5 +1,63 @@
 # Changelog
 
+# 2026.1.5 (2026-02-07)
+
+## New Features
+
+### Roadmap Timeline
+- Added a new **Roadmap** tab replacing the Reminders tab in the main tab bar, providing a visual trip timeline
+- New `RoadmapStop` model with title, subtitle, arrival/departure dates, notes, and sort order
+- New `RoadmapStopAttachment` model to link existing journey entities (hotels, car rentals, transport, places, ideas) to timeline stops
+- Full timeline UI: `RoadmapTimelineView`, `RoadmapStopRow`, `RoadmapStopDetailView`, `RoadmapStopFormView`, and `RoadmapConnectionView`
+- `RoadmapAttachmentPicker` for attaching journey items to stops
+- `RoadmapAttachmentBanner` displayed on detail views (hotels, car rentals, transport, places, ideas) showing which timeline stop an entity is attached to, with a detach action
+- Transport connection support between stops with visual connectors
+- Date inconsistency warnings when stop dates overlap with the next stop
+- "Reset Timeline" option to clear all stops without affecting other journey data
+- Drag-to-reorder support for stops
+- Database migration v9: `roadmap_stops` and `roadmap_stop_attachments` tables
+- New repositories: `RoadmapStopsRepository` and `RoadmapStopAttachmentsRepository`
+
+### Launch Screen
+- Added animated launch screen showing the app icon, app name, version, and developer name
+- Smooth fade transition from launch screen into the main content
+
+### Reminders Stat Card
+- Replaced the "Upcoming Trips" stat card on the main screen with a "Reminders" card showing incomplete reminder count
+- Reminders card navigates directly to the Notifications view on tap
+
+## Improvements
+
+### Journey "Last Updated" Tracking
+- Added `touchUpdatedAt()` to `JourneysRepository` to update a journey's timestamp when its child entities change
+- All ViewModels (budget, car rentals, checklists, documents, hotels, ideas, notes, places, transport) now update the parent journey's `updatedAt` on create, update, delete, and move operations
+- Journeys list now sorts by `updatedAt` (most recently modified first) instead of `startDate`
+- Share Extension journey list also sorted by `updatedAt`
+
+### Journey Stats
+- Added "Created" and "Last Updated" date rows to the journey statistics view
+
+### Onboarding
+- Added two new onboarding pages: "Packing Checklists" and "Build Your Roadmap"
+
+### Navigation
+- Migrated `MainView` from deprecated `NavigationView` to `NavigationStack`
+
+### Backup & Export
+- Roadmap stops and stop attachments are now included in data export and import
+
+### Random Data Generator
+- Generates 5-10 roadmap stops per journey with randomized dates, notes, and names
+- Attaches hotels, car rentals, places, and ideas to stops
+- Creates 2-3 transport connections between stops
+
+### Localization
+- Added 46 new localization keys for the roadmap feature across all 6 supported languages (EN, RU, DE, UK, TR, KK)
+- Added `app.name`, `open.details`, `main.stats.reminders`, `journey.stats.created_at`, `journey.stats.updated_at` keys
+- Added onboarding keys for checklists and roadmap pages
+
+---
+
 # 2026.1.4 (2026-01-30)
 
 ## New Features

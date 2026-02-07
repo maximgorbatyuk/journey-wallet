@@ -17,6 +17,7 @@ class MainViewModel {
     var totalJourneysCount: Int = 0
     var upcomingTripsCount: Int = 0
     var totalDestinations: Int = 0
+    var incompleteRemindersCount: Int = 0
 
     // Extended Stats
     var overviewStats: OverviewStatistics?
@@ -33,6 +34,7 @@ class MainViewModel {
     private let placesToVisitRepository: PlacesToVisitRepository?
     private let notesRepository: NotesRepository?
     private let documentsRepository: DocumentsRepository?
+    private let remindersRepository: RemindersRepository?
     private let searchService: SearchService
     private let statisticsService: StatisticsService
     private let logger: Logger
@@ -49,6 +51,7 @@ class MainViewModel {
         self.placesToVisitRepository = databaseManager.placesToVisitRepository
         self.notesRepository = databaseManager.notesRepository
         self.documentsRepository = databaseManager.documentsRepository
+        self.remindersRepository = databaseManager.remindersRepository
         self.searchService = searchService
         self.statisticsService = statisticsService
         self.logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "-", category: "MainViewModel")
@@ -68,6 +71,9 @@ class MainViewModel {
         // Count unique destinations
         let uniqueDestinations = Set(journeys.map { $0.destination.lowercased() })
         totalDestinations = uniqueDestinations.count
+
+        // Count incomplete reminders
+        incompleteRemindersCount = remindersRepository?.countIncomplete() ?? 0
 
         // Load extended statistics
         loadExtendedStatistics()

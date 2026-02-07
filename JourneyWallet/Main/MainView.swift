@@ -7,7 +7,7 @@ struct MainView: View {
     @FocusState private var isSearchFieldFocused: Bool
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
                 VStack(spacing: 20) {
                     // Search Bar
@@ -89,12 +89,15 @@ struct MainView: View {
                     color: .orange
                 )
 
-                StatCardView(
-                    title: L("main.stats.upcoming"),
-                    value: "\(viewModel.upcomingTripsCount)",
-                    icon: "calendar",
-                    color: .blue
-                )
+                NavigationLink(destination: NotificationsView()) {
+                    StatCardView(
+                        title: L("main.stats.reminders"),
+                        value: "\(viewModel.incompleteRemindersCount)",
+                        icon: "bell.fill",
+                        color: .red
+                    )
+                }
+                .buttonStyle(.plain)
 
                 StatCardView(
                     title: L("main.stats.destinations"),

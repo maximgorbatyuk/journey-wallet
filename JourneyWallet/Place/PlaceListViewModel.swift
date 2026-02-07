@@ -36,6 +36,7 @@ class PlaceListViewModel {
     // MARK: - Repositories
 
     private let placesRepository: PlacesToVisitRepository?
+    private let journeysRepository: JourneysRepository?
     private let logger: Logger
 
     // MARK: - Init
@@ -43,6 +44,7 @@ class PlaceListViewModel {
     init(journeyId: UUID, databaseManager: DatabaseManager = .shared) {
         self.journeyId = journeyId
         self.placesRepository = databaseManager.placesToVisitRepository
+        self.journeysRepository = databaseManager.journeysRepository
         self.logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "-", category: "PlaceListViewModel")
     }
 
@@ -90,6 +92,7 @@ class PlaceListViewModel {
     func addPlace(_ place: PlaceToVisit) {
         if placesRepository?.insert(place) == true {
             logger.info("Added place: \(place.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -97,6 +100,7 @@ class PlaceListViewModel {
     func updatePlace(_ place: PlaceToVisit) {
         if placesRepository?.update(place) == true {
             logger.info("Updated place: \(place.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -104,6 +108,7 @@ class PlaceListViewModel {
     func deletePlace(_ place: PlaceToVisit) {
         if placesRepository?.delete(id: place.id) == true {
             logger.info("Deleted place: \(place.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -111,6 +116,7 @@ class PlaceListViewModel {
     func toggleVisited(_ place: PlaceToVisit) {
         if placesRepository?.toggleVisited(id: place.id) == true {
             logger.info("Toggled visited status for place: \(place.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -118,6 +124,8 @@ class PlaceListViewModel {
     func moveToJourney(place: PlaceToVisit, newJourneyId: UUID) -> Bool {
         if placesRepository?.updateJourneyId(id: place.id, newJourneyId: newJourneyId) == true {
             logger.info("Moved place \(place.id) to journey \(newJourneyId)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
+            journeysRepository?.touchUpdatedAt(journeyId: newJourneyId)
             loadData()
             return true
         }

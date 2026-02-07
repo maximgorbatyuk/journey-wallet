@@ -59,6 +59,8 @@ final class BackupService: ObservableObject {
     private let remindersRepository: RemindersRepository?
     private let expensesRepository: ExpensesRepository?
     private let ideasRepository: IdeasRepository?
+    private let roadmapStopsRepository: RoadmapStopsRepository?
+    private let roadmapStopAttachmentsRepository: RoadmapStopAttachmentsRepository?
     private let databaseManager: DatabaseManager
     private let networkMonitor: NetworkMonitor
     private let logger: Logger
@@ -81,6 +83,8 @@ final class BackupService: ObservableObject {
         self.remindersRepository = self.databaseManager.remindersRepository
         self.expensesRepository = self.databaseManager.expensesRepository
         self.ideasRepository = self.databaseManager.ideasRepository
+        self.roadmapStopsRepository = self.databaseManager.roadmapStopsRepository
+        self.roadmapStopAttachmentsRepository = self.databaseManager.roadmapStopAttachmentsRepository
         self.logger = Logger(subsystem: "dev.mgorbatyuk.awesomeapplication.businesslogic", category: "BackupService")
     }
     
@@ -112,6 +116,8 @@ final class BackupService: ObservableObject {
         let reminders = remindersRepository?.fetchAll()
         let expenses = expensesRepository?.fetchAll()
         let ideas = ideasRepository?.fetchAll()
+        let roadmapStops = roadmapStopsRepository?.fetchAll()
+        let roadmapStopAttachments = roadmapStopAttachmentsRepository?.fetchAll()
 
         return ExportData(
             metadata: metadata,
@@ -125,7 +131,9 @@ final class BackupService: ObservableObject {
             placesToVisit: placesToVisit,
             reminders: reminders,
             expenses: expenses,
-            ideas: ideas
+            ideas: ideas,
+            roadmapStops: roadmapStops,
+            roadmapStopAttachments: roadmapStopAttachments
         )
     }
     
@@ -355,6 +363,22 @@ final class BackupService: ObservableObject {
                 _ = ideasRepository?.insert(idea)
             }
             self.logger.info("Imported \(ideas.count) ideas")
+        }
+
+        // Import roadmap stops (before attachments)
+        if let roadmapStops = exportData.roadmapStops {
+            for stop in roadmapStops {
+                _ = roadmapStopsRepository?.insert(stop)
+            }
+            self.logger.info("Imported \(roadmapStops.count) roadmap stops")
+        }
+
+        // Import roadmap stop attachments
+        if let roadmapStopAttachments = exportData.roadmapStopAttachments {
+            for attachment in roadmapStopAttachments {
+                _ = roadmapStopAttachmentsRepository?.insert(attachment)
+            }
+            self.logger.info("Imported \(roadmapStopAttachments.count) roadmap stop attachments")
         }
 
         self.logger.info("Successfully imported all data")
