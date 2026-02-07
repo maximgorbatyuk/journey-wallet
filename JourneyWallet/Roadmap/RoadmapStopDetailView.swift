@@ -6,7 +6,6 @@ struct RoadmapStopDetailView: View {
     let attachments: [RoadmapStopAttachment]
     let outgoingTransport: Transport?
     let viewModel: RoadmapTimelineViewModel
-    let onDelete: () -> Void
 
     @Environment(\.dismiss) private var dismiss
     @ObservedObject private var analytics = AnalyticsService.shared
@@ -120,7 +119,6 @@ struct RoadmapStopDetailView: View {
                 Button(L("Cancel"), role: .cancel) {}
                 Button(L("Delete"), role: .destructive) {
                     viewModel.deleteStop(id: stop.id)
-                    onDelete()
                     dismiss()
                 }
             } message: {

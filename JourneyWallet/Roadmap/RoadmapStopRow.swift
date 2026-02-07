@@ -94,8 +94,7 @@ struct RoadmapStopRow: View {
                 stop: stop,
                 attachments: attachments,
                 outgoingTransport: outgoingTransport,
-                viewModel: viewModel,
-                onDelete: {}
+                viewModel: viewModel
             )
         }
     }
