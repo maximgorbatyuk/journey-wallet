@@ -140,12 +140,17 @@ struct RoadmapTimelineView: View {
 
             List {
                 ForEach(Array(viewModel.stops.enumerated()), id: \.element.id) { index, stop in
+                    let dateInconsistent = hasDateInconsistency(
+                        stop: stop,
+                        nextStop: index + 1 < viewModel.stops.count ? viewModel.stops[index + 1] : nil
+                    )
                     RoadmapStopRow(
                         stop: stop,
                         isFirst: index == 0,
                         isLast: index == viewModel.stops.count - 1,
                         attachments: viewModel.attachmentsByStopId[stop.id] ?? [],
                         outgoingTransport: viewModel.transportsByStopId[stop.id],
+                        hasDateInconsistency: dateInconsistent,
                         viewModel: viewModel
                     )
                     .listRowInsets(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
@@ -176,6 +181,20 @@ struct RoadmapTimelineView: View {
             .padding(.trailing, 20)
             .padding(.bottom, 20)
         }
+    }
+    // MARK: - Helpers
+
+    private func hasDateInconsistency(stop: RoadmapStop, nextStop: RoadmapStop?) -> Bool {
+        guard let nextStop else { return false }
+
+        let currentLatest = stop.departureDate ?? stop.arrivalDate
+        let nextEarliest = nextStop.arrivalDate ?? nextStop.departureDate
+
+        guard let currentDate = currentLatest, let nextDate = nextEarliest else {
+            return false
+        }
+
+        return currentDate > nextDate
     }
 }
 

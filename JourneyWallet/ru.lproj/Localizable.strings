@@ -1,5 +1,8 @@
 /* Russian localization */
 
+/* App */
+"app.name" = "Journey Wallet";
+
 /* Common UI */
 "Cancel" = "Отмена";
 "Save" = "Сохранить";
@@ -116,6 +119,10 @@
 "onboarding.store_bookings__subtitle" = "Сохраняйте билеты, брони отелей и документы. Доступ ко всему даже без интернета.";
 "onboarding.travel_reminders" = "Получайте напоминания";
 "onboarding.travel_reminders__subtitle" = "Не пропустите рейс или заселение. Устанавливайте напоминания для важных событий.";
+"onboarding.checklists" = "Списки для сборов";
+"onboarding.checklists__subtitle" = "Создавайте чек-листы для каждой поездки, чтобы ничего не забыть. Отмечайте, что уже собрано.";
+"onboarding.roadmap" = "Постройте маршрут";
+"onboarding.roadmap__subtitle" = "Планируйте путь остановка за остановкой. Прикрепляйте бронирования, указывайте транспорт и следите за маршрутом.";
 "onboarding.view_statistics" = "Смотрите статистику";
 "onboarding.view_statistics__subtitle" = "Вся история путешествий на одном экране. Отслеживайте расходы, посещённые места и многое другое.";
 
@@ -1103,6 +1110,7 @@
 "roadmap.detach.confirm.message" = "Вы уверены, что хотите убрать этот элемент из остановки маршрута?";
 "roadmap.no_transport" = "Транспорт не указан";
 "roadmap.hint.tap_to_expand" = "Нажмите на остановку для подробностей";
+"roadmap.date_inconsistency" = "Даты пересекаются со следующей остановкой";
 "roadmap.entity_name" = "Остановка маршрута";
 "roadmap.detail.title" = "Детали остановки";
 "roadmap.detail.dates" = "Даты";

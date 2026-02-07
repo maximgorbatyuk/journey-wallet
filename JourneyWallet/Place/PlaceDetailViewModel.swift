@@ -15,6 +15,7 @@ class PlaceDetailViewModel {
     // MARK: - Repositories
 
     private let placesRepository: PlacesToVisitRepository?
+    private let journeysRepository: JourneysRepository?
     private let roadmapStopAttachmentsRepository: RoadmapStopAttachmentsRepository?
     private let roadmapStopsRepository: RoadmapStopsRepository?
     private let logger: Logger
@@ -25,6 +26,7 @@ class PlaceDetailViewModel {
         self.place = place
         self.journeyId = journeyId
         self.placesRepository = databaseManager.placesToVisitRepository
+        self.journeysRepository = databaseManager.journeysRepository
         self.roadmapStopAttachmentsRepository = databaseManager.roadmapStopAttachmentsRepository
         self.roadmapStopsRepository = databaseManager.roadmapStopsRepository
         self.logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "-", category: "PlaceDetailViewModel")
@@ -39,6 +41,7 @@ class PlaceDetailViewModel {
             if let refreshed = placesRepository?.fetchById(id: place.id) {
                 place = refreshed
             }
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             logger.info("Updated place: \(self.place.id)")
         } else {
             logger.error("Failed to update place: \(self.place.id)")
@@ -47,6 +50,7 @@ class PlaceDetailViewModel {
 
     func deletePlace() -> Bool {
         if placesRepository?.delete(id: place.id) == true {
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             logger.info("Deleted place: \(self.place.id)")
             return true
         } else {
@@ -61,6 +65,7 @@ class PlaceDetailViewModel {
             if let refreshed = placesRepository?.fetchById(id: place.id) {
                 place = refreshed
             }
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             logger.info("Toggled visited status for place: \(self.place.id)")
         } else {
             logger.error("Failed to toggle visited status for place: \(self.place.id)")
@@ -73,6 +78,8 @@ class PlaceDetailViewModel {
             return false
         }
 
+        journeysRepository?.touchUpdatedAt(journeyId: journeyId)
+        journeysRepository?.touchUpdatedAt(journeyId: newJourneyId)
         logger.info("Moved place \(self.place.id) to journey \(newJourneyId)")
         return true
     }

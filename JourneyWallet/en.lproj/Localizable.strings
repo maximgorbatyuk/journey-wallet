@@ -1,5 +1,8 @@
 /* English localization */
 
+/* App */
+"app.name" = "Journey Wallet";
+
 /* Common UI */
 "Cancel" = "Cancel";
 "Save" = "Save";
@@ -116,6 +119,10 @@
 "onboarding.store_bookings__subtitle" = "Save flight tickets, hotel reservations, and travel documents. Access everything offline.";
 "onboarding.travel_reminders" = "Get Travel Reminders";
 "onboarding.travel_reminders__subtitle" = "Never miss a flight or check-in. Set reminders for all your important travel events.";
+"onboarding.checklists" = "Packing Checklists";
+"onboarding.checklists__subtitle" = "Create checklists for each trip so you never forget anything. Track what's packed and what's left.";
+"onboarding.roadmap" = "Build Your Roadmap";
+"onboarding.roadmap__subtitle" = "Plan your route stop by stop. Attach bookings, set transport connections, and see your journey timeline.";
 "onboarding.view_statistics" = "View Travel Statistics";
 "onboarding.view_statistics__subtitle" = "See your travel history at a glance. Track expenses, destinations visited, and more.";
 
@@ -1097,6 +1104,7 @@
 "roadmap.detach.confirm.message" = "Are you sure you want to remove this item from the timeline stop?";
 "roadmap.no_transport" = "No transport set";
 "roadmap.hint.tap_to_expand" = "Tap a stop to see details";
+"roadmap.date_inconsistency" = "Dates overlap with the next stop";
 "roadmap.entity_name" = "Roadmap Stop";
 "roadmap.detail.title" = "Stop Details";
 "roadmap.detail.dates" = "Dates";

@@ -102,6 +102,9 @@ class RoadmapTimelineViewModel {
 
     func addStop(_ stop: RoadmapStop) {
         if roadmapStopsRepository?.insert(stop) == true {
+            if let journeyId = selectedJourneyId {
+                journeysRepository?.touchUpdatedAt(journeyId: journeyId)
+            }
             loadStops()
             logger.info("Added roadmap stop: \(stop.id)")
         } else {
@@ -111,6 +114,9 @@ class RoadmapTimelineViewModel {
 
     func updateStop(_ stop: RoadmapStop) {
         if roadmapStopsRepository?.update(stop) == true {
+            if let journeyId = selectedJourneyId {
+                journeysRepository?.touchUpdatedAt(journeyId: journeyId)
+            }
             loadStops()
             logger.info("Updated roadmap stop: \(stop.id)")
         } else {
@@ -123,6 +129,9 @@ class RoadmapTimelineViewModel {
         _ = roadmapStopAttachmentsRepository?.deleteByStopId(stopId: id)
 
         if roadmapStopsRepository?.delete(id: id) == true {
+            if let journeyId = selectedJourneyId {
+                journeysRepository?.touchUpdatedAt(journeyId: journeyId)
+            }
             loadStops()
             logger.info("Deleted roadmap stop: \(id)")
         } else {
@@ -143,6 +152,9 @@ class RoadmapTimelineViewModel {
                 var updated = stop
                 updated.sortOrder = index
                 return updated
+            }
+            if let journeyId = selectedJourneyId {
+                journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             }
             logger.info("Reordered roadmap stops")
         } else {
@@ -172,6 +184,9 @@ class RoadmapTimelineViewModel {
 
     func removeAttachment(id: UUID) {
         if roadmapStopAttachmentsRepository?.delete(id: id) == true {
+            if let journeyId = selectedJourneyId {
+                journeysRepository?.touchUpdatedAt(journeyId: journeyId)
+            }
             loadStops()
             logger.info("Removed roadmap stop attachment: \(id)")
         } else {
@@ -182,6 +197,9 @@ class RoadmapTimelineViewModel {
     func addAttachments(_ attachments: [RoadmapStopAttachment]) {
         for attachment in attachments {
             _ = roadmapStopAttachmentsRepository?.insert(attachment)
+        }
+        if let journeyId = selectedJourneyId {
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
         }
         loadStops()
     }

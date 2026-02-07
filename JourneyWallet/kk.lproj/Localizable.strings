@@ -1,5 +1,8 @@
 /* Kazakh localization */
 
+/* App */
+"app.name" = "Journey Wallet";
+
 /* Common UI */
 "Cancel" = "Бас тарт";
 "Save" = "Сақтау";
@@ -116,6 +119,10 @@
 "onboarding.store_bookings__subtitle" = "Ұшақ билеттерін, қонақүй брондауларын және саяхат құжаттарын сақтаңыз. Барлығына офлайн кіріңіз.";
 "onboarding.travel_reminders" = "Саяхат еске салуларын алыңыз";
 "onboarding.travel_reminders__subtitle" = "Ешбір рейсті немесе тіркелуді жіберіп алмаңыз. Барлық маңызды саяхат оқиғалары үшін еске салулар орнатыңыз.";
+"onboarding.checklists" = "Жинау тізімдері";
+"onboarding.checklists__subtitle" = "Әр сапар үшін тізім жасаңыз, ештеңені ұмытпаңыз. Нені жинағаныңызды қадағалаңыз.";
+"onboarding.roadmap" = "Жол картаңызды құрыңыз";
+"onboarding.roadmap__subtitle" = "Маршрутыңызды аялдама бойынша жоспарлаңыз. Брондарды тіркеңіз, көлікті белгілеңіз және сапар уақыт кестесін көріңіз.";
 "onboarding.view_statistics" = "Саяхат статистикасын көріңіз";
 "onboarding.view_statistics__subtitle" = "Саяхат тарихыңызды бір қарағанда көріңіз. Шығындарды, барған жерлерді және т.б. қадағалаңыз.";
 
@@ -1104,6 +1111,7 @@
 "roadmap.detach.confirm.message" = "Бұл элементті аялдамадан алып тастағыңыз келетініне сенімдісіз бе?";
 "roadmap.no_transport" = "Көлік белгіленбеген";
 "roadmap.hint.tap_to_expand" = "Мәліметтер үшін аялдамаға басыңыз";
+"roadmap.date_inconsistency" = "Күндер келесі аялдамамен сәйкес келмейді";
 "roadmap.entity_name" = "Жол картасы аялдамасы";
 "roadmap.detail.title" = "Аялдама мәліметтері";
 "roadmap.detail.dates" = "Күндер";

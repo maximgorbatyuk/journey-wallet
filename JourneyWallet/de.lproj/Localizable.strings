@@ -1,5 +1,8 @@
 /* German localization */
 
+/* App */
+"app.name" = "Journey Wallet";
+
 /* Common UI */
 "Cancel" = "Abbrechen";
 "Save" = "Speichern";
@@ -116,6 +119,10 @@
 "onboarding.store_bookings__subtitle" = "Speichere Flugtickets, Hotelreservierungen und Reisedokumente. Greife auch offline auf alles zu.";
 "onboarding.travel_reminders" = "Reiseerinnerungen erhalten";
 "onboarding.travel_reminders__subtitle" = "Verpasse nie wieder einen Flug oder Check-in. Setze Erinnerungen für alle wichtigen Reiseereignisse.";
+"onboarding.checklists" = "Packlisten";
+"onboarding.checklists__subtitle" = "Erstelle Checklisten für jede Reise, damit du nichts vergisst. Verfolge, was eingepackt ist und was noch fehlt.";
+"onboarding.roadmap" = "Erstelle deine Reiseroute";
+"onboarding.roadmap__subtitle" = "Plane deine Route Station für Station. Verknüpfe Buchungen, lege Verbindungen fest und sieh deinen Reiseverlauf.";
 "onboarding.view_statistics" = "Reisestatistiken ansehen";
 "onboarding.view_statistics__subtitle" = "Sieh deine Reisehistorie auf einen Blick. Verfolge Ausgaben, besuchte Ziele und mehr.";
 
@@ -1100,6 +1107,7 @@
 "roadmap.detach.confirm.message" = "Möchten Sie dieses Element wirklich aus der Station entfernen?";
 "roadmap.no_transport" = "Kein Transport festgelegt";
 "roadmap.hint.tap_to_expand" = "Tippen Sie auf eine Station für Details";
+"roadmap.date_inconsistency" = "Daten überschneiden sich mit der nächsten Station";
 "roadmap.entity_name" = "Reiseplan-Station";
 "roadmap.detail.title" = "Stationsdetails";
 "roadmap.detail.dates" = "Daten";

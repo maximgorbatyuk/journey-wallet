@@ -1,5 +1,8 @@
 /* Turkish localization */
 
+/* App */
+"app.name" = "Journey Wallet";
+
 /* Common UI */
 "Cancel" = "İptal";
 "Save" = "Kaydet";
@@ -116,6 +119,10 @@
 "onboarding.store_bookings__subtitle" = "Uçak biletlerini, otel rezervasyonlarını ve seyahat belgelerini kaydedin. Her şeye çevrimdışı erişin.";
 "onboarding.travel_reminders" = "Seyahat Hatırlatıcıları Alın";
 "onboarding.travel_reminders__subtitle" = "Hiçbir uçuşu veya check-in'i kaçırmayın. Tüm önemli seyahat etkinlikleri için hatırlatıcılar ayarlayın.";
+"onboarding.checklists" = "Bavul Listeleri";
+"onboarding.checklists__subtitle" = "Her seyahat için kontrol listeleri oluşturun, hiçbir şeyi unutmayın. Nelerin hazır olduğunu takip edin.";
+"onboarding.roadmap" = "Yol Haritanızı Oluşturun";
+"onboarding.roadmap__subtitle" = "Rotanızı durak durak planlayın. Rezervasyonları ekleyin, ulaşım bağlantılarını belirleyin ve seyahat zaman çizelgenizi görün.";
 "onboarding.view_statistics" = "Seyahat İstatistiklerini Görüntüleyin";
 "onboarding.view_statistics__subtitle" = "Seyahat geçmişinizi bir bakışta görün. Harcamaları, ziyaret edilen yerleri ve daha fazlasını takip edin.";
 
@@ -1100,6 +1107,7 @@
 "roadmap.detach.confirm.message" = "Bu öğeyi duraktan kaldırmak istediğinizden emin misiniz?";
 "roadmap.no_transport" = "Ulaşım belirlenmedi";
 "roadmap.hint.tap_to_expand" = "Ayrıntılar için bir durağa dokunun";
+"roadmap.date_inconsistency" = "Tarihler bir sonraki durakla çakışıyor";
 "roadmap.entity_name" = "Yol Haritası Durağı";
 "roadmap.detail.title" = "Durak Detayları";
 "roadmap.detail.dates" = "Tarihler";

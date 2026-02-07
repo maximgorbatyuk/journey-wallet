@@ -18,6 +18,7 @@ class NoteListViewModel {
     // MARK: - Repositories
 
     private let notesRepository: NotesRepository?
+    private let journeysRepository: JourneysRepository?
     private let logger: Logger
 
     // MARK: - Init
@@ -25,6 +26,7 @@ class NoteListViewModel {
     init(journeyId: UUID, databaseManager: DatabaseManager = .shared) {
         self.journeyId = journeyId
         self.notesRepository = databaseManager.notesRepository
+        self.journeysRepository = databaseManager.journeysRepository
         self.logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "-", category: "NoteListViewModel")
     }
 
@@ -39,6 +41,7 @@ class NoteListViewModel {
     func addNote(_ note: Note) {
         if notesRepository?.insert(note) == true {
             logger.info("Added note: \(note.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -46,6 +49,7 @@ class NoteListViewModel {
     func updateNote(_ note: Note) {
         if notesRepository?.update(note) == true {
             logger.info("Updated note: \(note.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -53,6 +57,7 @@ class NoteListViewModel {
     func deleteNote(_ note: Note) {
         if notesRepository?.delete(id: note.id) == true {
             logger.info("Deleted note: \(note.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -60,6 +65,8 @@ class NoteListViewModel {
     func moveToJourney(note: Note, newJourneyId: UUID) -> Bool {
         if notesRepository?.updateJourneyId(id: note.id, newJourneyId: newJourneyId) == true {
             logger.info("Moved note \(note.id) to journey \(newJourneyId)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
+            journeysRepository?.touchUpdatedAt(journeyId: newJourneyId)
             loadData()
             return true
         }

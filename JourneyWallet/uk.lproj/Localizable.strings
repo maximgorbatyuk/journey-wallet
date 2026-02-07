@@ -1,5 +1,8 @@
 /* Ukrainian localization */
 
+/* App */
+"app.name" = "Journey Wallet";
+
 /* Common UI */
 "Cancel" = "Скасувати";
 "Save" = "Зберегти";
@@ -116,6 +119,10 @@
 "onboarding.store_bookings__subtitle" = "Зберігайте квитки, бронювання готелів та документи. Доступ до всього навіть без інтернету.";
 "onboarding.travel_reminders" = "Отримуйте нагадування";
 "onboarding.travel_reminders__subtitle" = "Не пропустіть рейс або заселення. Встановлюйте нагадування для важливих подій.";
+"onboarding.checklists" = "Списки для зборів";
+"onboarding.checklists__subtitle" = "Створюйте чек-листи для кожної подорожі, щоб нічого не забути. Відмічайте, що вже зібрано.";
+"onboarding.roadmap" = "Побудуйте маршрут";
+"onboarding.roadmap__subtitle" = "Плануйте шлях зупинка за зупинкою. Прикріплюйте бронювання, вказуйте транспорт та стежте за маршрутом.";
 "onboarding.view_statistics" = "Переглядайте статистику";
 "onboarding.view_statistics__subtitle" = "Вся історія подорожей на одному екрані. Відстежуйте витрати, відвідані місця та багато іншого.";
 
@@ -1102,6 +1109,7 @@
 "roadmap.detach.confirm.message" = "Ви впевнені, що хочете прибрати цей елемент із зупинки маршруту?";
 "roadmap.no_transport" = "Транспорт не вказано";
 "roadmap.hint.tap_to_expand" = "Натисніть на зупинку для деталей";
+"roadmap.date_inconsistency" = "Дати перетинаються з наступною зупинкою";
 "roadmap.entity_name" = "Зупинка маршруту";
 "roadmap.detail.title" = "Деталі зупинки";
 "roadmap.detail.dates" = "Дати";

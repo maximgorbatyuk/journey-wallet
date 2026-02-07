@@ -29,11 +29,13 @@ class DocumentListViewModel {
 
     private let journeyId: UUID
     private let documentsRepository: DocumentsRepository?
+    private let journeysRepository: JourneysRepository?
     private let documentService = DocumentService.shared
 
-    init(journeyId: UUID) {
+    init(journeyId: UUID, databaseManager: DatabaseManager = .shared) {
         self.journeyId = journeyId
-        self.documentsRepository = DatabaseManager.shared.documentsRepository
+        self.documentsRepository = databaseManager.documentsRepository
+        self.journeysRepository = databaseManager.journeysRepository
     }
 
     // MARK: - Data Loading
@@ -84,6 +86,7 @@ class DocumentListViewModel {
         )
 
         if documentsRepository?.insert(document) == true {
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadDocuments()
             return true
         } else {
@@ -100,6 +103,7 @@ class DocumentListViewModel {
 
         // Delete from database
         if documentsRepository?.delete(id: document.id) == true {
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadDocuments()
             return true
         }
@@ -111,6 +115,7 @@ class DocumentListViewModel {
         updatedDocument.name = newName
 
         if documentsRepository?.update(updatedDocument) == true {
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadDocuments()
             return true
         }
@@ -119,6 +124,8 @@ class DocumentListViewModel {
 
     func moveToJourney(document: Document, newJourneyId: UUID) -> Bool {
         if documentsRepository?.updateJourneyId(id: document.id, newJourneyId: newJourneyId) == true {
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
+            journeysRepository?.touchUpdatedAt(journeyId: newJourneyId)
             loadDocuments()
             return true
         }

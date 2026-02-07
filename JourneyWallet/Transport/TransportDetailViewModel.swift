@@ -15,6 +15,7 @@ class TransportDetailViewModel {
     // MARK: - Repositories
 
     private let transportsRepository: TransportsRepository?
+    private let journeysRepository: JourneysRepository?
     private let remindersRepository: RemindersRepository?
     private let roadmapStopAttachmentsRepository: RoadmapStopAttachmentsRepository?
     private let roadmapStopsRepository: RoadmapStopsRepository?
@@ -26,6 +27,7 @@ class TransportDetailViewModel {
         self.transport = transport
         self.journeyId = journeyId
         self.transportsRepository = databaseManager.transportsRepository
+        self.journeysRepository = databaseManager.journeysRepository
         self.remindersRepository = databaseManager.remindersRepository
         self.roadmapStopAttachmentsRepository = databaseManager.roadmapStopAttachmentsRepository
         self.roadmapStopsRepository = databaseManager.roadmapStopsRepository
@@ -41,6 +43,7 @@ class TransportDetailViewModel {
             if let refreshed = transportsRepository?.fetchById(id: transport.id) {
                 transport = refreshed
             }
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             logger.info("Updated transport: \(self.transport.id)")
         } else {
             logger.error("Failed to update transport: \(self.transport.id)")
@@ -53,6 +56,7 @@ class TransportDetailViewModel {
 
         // Delete transport
         if transportsRepository?.delete(id: transport.id) == true {
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             logger.info("Deleted transport: \(self.transport.id)")
             return true
         } else {
@@ -79,6 +83,7 @@ class TransportDetailViewModel {
         )
 
         if remindersRepository?.insert(reminder) == true {
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             logger.info("Added reminder for transport: \(self.transport.id)")
         } else {
             logger.error("Failed to add reminder for transport: \(self.transport.id)")
@@ -95,6 +100,8 @@ class TransportDetailViewModel {
         // Move associated reminders
         moveRemindersToJourney(newJourneyId)
 
+        journeysRepository?.touchUpdatedAt(journeyId: journeyId)
+        journeysRepository?.touchUpdatedAt(journeyId: newJourneyId)
         logger.info("Moved transport \(self.transport.id) to journey \(newJourneyId)")
         return true
     }

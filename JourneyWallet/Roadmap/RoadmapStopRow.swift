@@ -7,6 +7,7 @@ struct RoadmapStopRow: View {
     let isLast: Bool
     let attachments: [RoadmapStopAttachment]
     let outgoingTransport: Transport?
+    let hasDateInconsistency: Bool
     let viewModel: RoadmapTimelineViewModel
 
     @State private var isExpanded: Bool = false
@@ -114,6 +115,18 @@ struct RoadmapStopRow: View {
                     Text(formatDateRange(arrival: stop.arrivalDate, departure: stop.departureDate))
                         .font(.caption)
                         .foregroundColor(.secondary)
+                }
+            }
+
+            // Date inconsistency warning
+            if hasDateInconsistency {
+                HStack(spacing: 4) {
+                    Image(systemName: "exclamationmark.triangle.fill")
+                        .font(.caption2)
+                        .foregroundColor(.yellow)
+                    Text(L("roadmap.date_inconsistency"))
+                        .font(.caption2)
+                        .foregroundColor(.orange)
                 }
             }
 

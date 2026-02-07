@@ -15,6 +15,7 @@ class CarRentalDetailViewModel {
     // MARK: - Repositories
 
     private let carRentalsRepository: CarRentalsRepository?
+    private let journeysRepository: JourneysRepository?
     private let remindersRepository: RemindersRepository?
     private let roadmapStopAttachmentsRepository: RoadmapStopAttachmentsRepository?
     private let roadmapStopsRepository: RoadmapStopsRepository?
@@ -26,6 +27,7 @@ class CarRentalDetailViewModel {
         self.carRental = carRental
         self.journeyId = journeyId
         self.carRentalsRepository = databaseManager.carRentalsRepository
+        self.journeysRepository = databaseManager.journeysRepository
         self.remindersRepository = databaseManager.remindersRepository
         self.roadmapStopAttachmentsRepository = databaseManager.roadmapStopAttachmentsRepository
         self.roadmapStopsRepository = databaseManager.roadmapStopsRepository
@@ -41,6 +43,7 @@ class CarRentalDetailViewModel {
             if let refreshed = carRentalsRepository?.fetchById(id: carRental.id) {
                 carRental = refreshed
             }
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             logger.info("Updated car rental: \(updatedCarRental.id)")
         } else {
             logger.error("Failed to update car rental: \(updatedCarRental.id)")
@@ -53,6 +56,7 @@ class CarRentalDetailViewModel {
 
         // Delete car rental
         if carRentalsRepository?.delete(id: carRental.id) == true {
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             logger.info("Deleted car rental: \(self.carRental.id)")
             return true
         } else {
@@ -79,6 +83,7 @@ class CarRentalDetailViewModel {
         )
 
         if remindersRepository?.insert(reminder) == true {
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             logger.info("Added reminder for car rental: \(self.carRental.id)")
         } else {
             logger.error("Failed to add reminder for car rental: \(self.carRental.id)")
@@ -95,6 +100,8 @@ class CarRentalDetailViewModel {
         // Move associated reminders
         moveRemindersToJourney(newJourneyId)
 
+        journeysRepository?.touchUpdatedAt(journeyId: journeyId)
+        journeysRepository?.touchUpdatedAt(journeyId: newJourneyId)
         logger.info("Moved car rental \(self.carRental.id) to journey \(newJourneyId)")
         return true
     }
