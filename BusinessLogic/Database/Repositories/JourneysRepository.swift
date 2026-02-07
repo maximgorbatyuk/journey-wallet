@@ -27,7 +27,7 @@ class JourneysRepository {
         var journeys: [Journey] = []
 
         do {
-            for row in try db.prepare(table.order(startDateColumn.desc)) {
+            for row in try db.prepare(table.order(updatedAtColumn.desc)) {
                 if let journey = mapRowToJourney(row) {
                     journeys.append(journey)
                 }
@@ -156,6 +156,15 @@ class JourneysRepository {
         } catch {
             logger.error("Failed to delete journey: \(error)")
             return false
+        }
+    }
+
+    func touchUpdatedAt(journeyId: UUID) {
+        let record = table.filter(idColumn == journeyId.uuidString)
+        do {
+            try db.run(record.update(updatedAtColumn <- Date()))
+        } catch {
+            logger.error("Failed to touch updatedAt for journey \(journeyId): \(error)")
         }
     }
 

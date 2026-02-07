@@ -87,6 +87,7 @@ class CarRentalListViewModel {
     func addCarRental(_ carRental: CarRental) {
         if carRentalsRepository?.insert(carRental) == true {
             logger.info("Added car rental: \(carRental.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -94,6 +95,7 @@ class CarRentalListViewModel {
     func updateCarRental(_ carRental: CarRental) {
         if carRentalsRepository?.update(carRental) == true {
             logger.info("Updated car rental: \(carRental.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -104,6 +106,7 @@ class CarRentalListViewModel {
 
         if carRentalsRepository?.delete(id: carRental.id) == true {
             logger.info("Deleted car rental: \(carRental.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }

@@ -55,6 +55,7 @@ class BudgetViewModel {
     // MARK: - Repositories
 
     private let expensesRepository: ExpensesRepository?
+    private let journeysRepository: JourneysRepository?
     private let logger: Logger
 
     // MARK: - Init
@@ -62,6 +63,7 @@ class BudgetViewModel {
     init(journeyId: UUID, databaseManager: DatabaseManager = .shared) {
         self.journeyId = journeyId
         self.expensesRepository = databaseManager.expensesRepository
+        self.journeysRepository = databaseManager.journeysRepository
         self.logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "-", category: "BudgetViewModel")
     }
 
@@ -89,6 +91,7 @@ class BudgetViewModel {
     func addExpense(_ expense: Expense) {
         if expensesRepository?.insert(expense) == true {
             logger.info("Added expense: \(expense.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -96,6 +99,7 @@ class BudgetViewModel {
     func updateExpense(_ expense: Expense) {
         if expensesRepository?.update(expense) == true {
             logger.info("Updated expense: \(expense.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -103,6 +107,7 @@ class BudgetViewModel {
     func deleteExpense(_ expense: Expense) {
         if expensesRepository?.delete(id: expense.id) == true {
             logger.info("Deleted expense: \(expense.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -110,6 +115,8 @@ class BudgetViewModel {
     func moveToJourney(expense: Expense, newJourneyId: UUID) -> Bool {
         if expensesRepository?.updateJourneyId(id: expense.id, newJourneyId: newJourneyId) == true {
             logger.info("Moved expense \(expense.id) to journey \(newJourneyId)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
+            journeysRepository?.touchUpdatedAt(journeyId: newJourneyId)
             loadData()
             return true
         }

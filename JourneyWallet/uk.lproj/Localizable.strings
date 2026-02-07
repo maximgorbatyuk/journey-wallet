@@ -1,5 +1,8 @@
 /* Ukrainian localization */
 
+/* App */
+"app.name" = "Journey Wallet";
+
 /* Common UI */
 "Cancel" = "Скасувати";
 "Save" = "Зберегти";
@@ -16,6 +19,7 @@
 "Add" = "Додати";
 "Edit" = "Редагувати";
 "Open" = "Відкрити";
+"open.details" = "Відкрити деталі";
 "Create" = "Створити";
 "Select" = "Вибрати";
 "Loading" = "Завантаження";
@@ -115,6 +119,10 @@
 "onboarding.store_bookings__subtitle" = "Зберігайте квитки, бронювання готелів та документи. Доступ до всього навіть без інтернету.";
 "onboarding.travel_reminders" = "Отримуйте нагадування";
 "onboarding.travel_reminders__subtitle" = "Не пропустіть рейс або заселення. Встановлюйте нагадування для важливих подій.";
+"onboarding.checklists" = "Списки для зборів";
+"onboarding.checklists__subtitle" = "Створюйте чек-листи для кожної подорожі, щоб нічого не забути. Відмічайте, що вже зібрано.";
+"onboarding.roadmap" = "Побудуйте маршрут";
+"onboarding.roadmap__subtitle" = "Плануйте шлях зупинка за зупинкою. Прикріплюйте бронювання, вказуйте транспорт та стежте за маршрутом.";
 "onboarding.view_statistics" = "Переглядайте статистику";
 "onboarding.view_statistics__subtitle" = "Вся історія подорожей на одному екрані. Відстежуйте витрати, відвідані місця та багато іншого.";
 
@@ -303,6 +311,7 @@
 "main.stats.total_journeys" = "Всього подорожей";
 "main.stats.upcoming" = "Майбутні";
 "main.stats.destinations" = "Напрямки";
+"main.stats.reminders" = "Нагадування";
 "main.active_journeys.title" = "Ваші подорожі";
 "main.empty.title" = "Подорожей ще немає";
 "main.empty.subtitle" = "Почніть планувати свою наступну пригоду, додавши подорож.";
@@ -344,6 +353,8 @@
 "journey.stats.documents" = "Документи";
 "journey.stats.places" = "Місця";
 "journey.stats.notes" = "Нотатки";
+"journey.stats.created_at" = "Створено";
+"journey.stats.updated_at" = "Оновлено";
 
 /* Journey Form */
 "journey.form.add_title" = "Нова подорож";
@@ -1077,3 +1088,38 @@
 "developer.document_storage.delete" = "Видалити файл";
 "developer.document_storage.delete_confirm.title" = "Видалити файл?";
 "developer.document_storage.delete_confirm.message" = "Цей файл буде назавжди видалено зі сховища.";
+
+// MARK: - Roadmap
+"tab.roadmap" = "Маршрут";
+"roadmap.title" = "Маршрут подорожі";
+"roadmap.empty.title" = "Поки немає зупинок";
+"roadmap.empty.message" = "Додайте міста та місця, щоб спланувати маршрут подорожі";
+"roadmap.add_stop" = "Додати зупинку";
+"roadmap.more_options" = "Більше";
+"roadmap.edit_stop" = "Редагувати зупинку";
+"roadmap.stop.title" = "Назва";
+"roadmap.stop.subtitle" = "Опис";
+"roadmap.stop.arrival_date" = "Дата прибуття";
+"roadmap.stop.departure_date" = "Дата від'їзду";
+"roadmap.stop.notes" = "Нотатки";
+"roadmap.stop.delete_confirm.title" = "Видалити зупинку?";
+"roadmap.stop.delete_confirm.message" = "Зупинку та всі прикріплені елементи буде видалено з маршруту.";
+"roadmap.attach_items" = "Прикріпити елементи";
+"roadmap.set_transport" = "Вказати транспорт";
+"roadmap.attached_to" = "На маршруті";
+"roadmap.detach" = "Прибрати з маршруту";
+"roadmap.detach.confirm.title" = "Прибрати з маршруту";
+"roadmap.detach.confirm.message" = "Ви впевнені, що хочете прибрати цей елемент із зупинки маршруту?";
+"roadmap.no_transport" = "Транспорт не вказано";
+"roadmap.hint.tap_to_expand" = "Прикріплюйте будь-які об'єкти подорожі до зупинок для зручного планування";
+"roadmap.date_inconsistency" = "Дати перетинаються з наступною зупинкою";
+"roadmap.entity_name" = "Зупинка маршруту";
+"roadmap.detail.title" = "Деталі зупинки";
+"roadmap.detail.dates" = "Дати";
+"roadmap.detail.arrival" = "Прибуття";
+"roadmap.detail.departure" = "Від'їзд";
+"roadmap.detail.attachments" = "Прикріплені елементи";
+"roadmap.detail.transport_to_next" = "Транспорт до наступної зупинки";
+"roadmap.reset_timeline" = "Скинути маршрут";
+"roadmap.reset_timeline.title" = "Скинути маршрут?";
+"roadmap.reset_timeline.message" = "Усі зупинки буде видалено. Ваші бронювання, готелі та інші елементи подорожі не будуть змінені.";

@@ -1,5 +1,8 @@
 /* German localization */
 
+/* App */
+"app.name" = "Journey Wallet";
+
 /* Common UI */
 "Cancel" = "Abbrechen";
 "Save" = "Speichern";
@@ -16,6 +19,7 @@
 "Add" = "Hinzufügen";
 "Edit" = "Bearbeiten";
 "Open" = "Öffnen";
+"open.details" = "Details öffnen";
 "Create" = "Erstellen";
 "Select" = "Auswählen";
 "Loading" = "Laden";
@@ -115,6 +119,10 @@
 "onboarding.store_bookings__subtitle" = "Speichere Flugtickets, Hotelreservierungen und Reisedokumente. Greife auch offline auf alles zu.";
 "onboarding.travel_reminders" = "Reiseerinnerungen erhalten";
 "onboarding.travel_reminders__subtitle" = "Verpasse nie wieder einen Flug oder Check-in. Setze Erinnerungen für alle wichtigen Reiseereignisse.";
+"onboarding.checklists" = "Packlisten";
+"onboarding.checklists__subtitle" = "Erstelle Checklisten für jede Reise, damit du nichts vergisst. Verfolge, was eingepackt ist und was noch fehlt.";
+"onboarding.roadmap" = "Erstelle deine Reiseroute";
+"onboarding.roadmap__subtitle" = "Plane deine Route Station für Station. Verknüpfe Buchungen, lege Verbindungen fest und sieh deinen Reiseverlauf.";
 "onboarding.view_statistics" = "Reisestatistiken ansehen";
 "onboarding.view_statistics__subtitle" = "Sieh deine Reisehistorie auf einen Blick. Verfolge Ausgaben, besuchte Ziele und mehr.";
 
@@ -303,6 +311,7 @@
 "main.stats.total_journeys" = "Reisen gesamt";
 "main.stats.upcoming" = "Bevorstehend";
 "main.stats.destinations" = "Reiseziele";
+"main.stats.reminders" = "Erinnerungen";
 "main.active_journeys.title" = "Ihre Reisen";
 "main.empty.title" = "Noch keine Reisen";
 "main.empty.subtitle" = "Beginnen Sie mit der Planung Ihres nächsten Abenteuers, indem Sie eine Reise hinzufügen.";
@@ -344,6 +353,8 @@
 "journey.stats.documents" = "Dokumente";
 "journey.stats.places" = "Orte";
 "journey.stats.notes" = "Notizen";
+"journey.stats.created_at" = "Erstellt";
+"journey.stats.updated_at" = "Zuletzt aktualisiert";
 
 /* Journey Form */
 "journey.form.add_title" = "Neue Reise";
@@ -1075,3 +1086,38 @@
 "developer.document_storage.delete" = "Datei löschen";
 "developer.document_storage.delete_confirm.title" = "Datei löschen?";
 "developer.document_storage.delete_confirm.message" = "Diese Datei wird dauerhaft aus dem Speicher gelöscht.";
+
+// MARK: - Roadmap
+"tab.roadmap" = "Reiseplan";
+"roadmap.title" = "Reiseplan";
+"roadmap.empty.title" = "Noch keine Stationen";
+"roadmap.empty.message" = "Fügen Sie Städte und Orte hinzu, um Ihren Reiseplan zu erstellen";
+"roadmap.add_stop" = "Station hinzufügen";
+"roadmap.more_options" = "Weitere Optionen";
+"roadmap.edit_stop" = "Station bearbeiten";
+"roadmap.stop.title" = "Titel";
+"roadmap.stop.subtitle" = "Beschreibung";
+"roadmap.stop.arrival_date" = "Ankunftsdatum";
+"roadmap.stop.departure_date" = "Abreisedatum";
+"roadmap.stop.notes" = "Notizen";
+"roadmap.stop.delete_confirm.title" = "Station löschen?";
+"roadmap.stop.delete_confirm.message" = "Die Station und alle angehängten Elemente werden aus dem Reiseplan entfernt.";
+"roadmap.attach_items" = "Elemente anhängen";
+"roadmap.set_transport" = "Transport festlegen";
+"roadmap.attached_to" = "Im Reiseplan";
+"roadmap.detach" = "Aus Reiseplan entfernen";
+"roadmap.detach.confirm.title" = "Aus Reiseplan entfernen";
+"roadmap.detach.confirm.message" = "Möchten Sie dieses Element wirklich aus der Station entfernen?";
+"roadmap.no_transport" = "Kein Transport festgelegt";
+"roadmap.hint.tap_to_expand" = "Verknüpfen Sie beliebige Reiseobjekte mit Stationen für eine bessere Planung";
+"roadmap.date_inconsistency" = "Daten überschneiden sich mit der nächsten Station";
+"roadmap.entity_name" = "Reiseplan-Station";
+"roadmap.detail.title" = "Stationsdetails";
+"roadmap.detail.dates" = "Daten";
+"roadmap.detail.arrival" = "Ankunft";
+"roadmap.detail.departure" = "Abreise";
+"roadmap.detail.attachments" = "Anhänge";
+"roadmap.detail.transport_to_next" = "Transport zur nächsten Station";
+"roadmap.reset_timeline" = "Reiseplan zurücksetzen";
+"roadmap.reset_timeline.title" = "Reiseplan zurücksetzen?";
+"roadmap.reset_timeline.message" = "Alle Stationen werden entfernt. Ihre Buchungen, Hotels und andere Reiseelemente bleiben erhalten.";

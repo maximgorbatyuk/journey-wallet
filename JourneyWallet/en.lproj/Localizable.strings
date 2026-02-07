@@ -1,5 +1,8 @@
 /* English localization */
 
+/* App */
+"app.name" = "Journey Wallet";
+
 /* Common UI */
 "Cancel" = "Cancel";
 "Save" = "Save";
@@ -16,6 +19,7 @@
 "Add" = "Add";
 "Edit" = "Edit";
 "Open" = "Open";
+"open.details" = "Open details";
 "Create" = "Create";
 "Select" = "Select";
 "Loading" = "Loading";
@@ -115,6 +119,10 @@
 "onboarding.store_bookings__subtitle" = "Save flight tickets, hotel reservations, and travel documents. Access everything offline.";
 "onboarding.travel_reminders" = "Get Travel Reminders";
 "onboarding.travel_reminders__subtitle" = "Never miss a flight or check-in. Set reminders for all your important travel events.";
+"onboarding.checklists" = "Packing Checklists";
+"onboarding.checklists__subtitle" = "Create checklists for each trip so you never forget anything. Track what's packed and what's left.";
+"onboarding.roadmap" = "Build Your Roadmap";
+"onboarding.roadmap__subtitle" = "Plan your route stop by stop. Attach bookings, set transport connections, and see your journey timeline.";
 "onboarding.view_statistics" = "View Travel Statistics";
 "onboarding.view_statistics__subtitle" = "See your travel history at a glance. Track expenses, destinations visited, and more.";
 
@@ -303,6 +311,7 @@
 "main.stats.total_journeys" = "Total Journeys";
 "main.stats.upcoming" = "Upcoming";
 "main.stats.destinations" = "Destinations";
+"main.stats.reminders" = "Reminders";
 "main.active_journeys.title" = "Your Journeys";
 "main.empty.title" = "No journeys yet";
 "main.empty.subtitle" = "Start planning your next adventure by adding a journey.";
@@ -344,6 +353,8 @@
 "journey.stats.documents" = "Documents";
 "journey.stats.places" = "Places";
 "journey.stats.notes" = "Notes";
+"journey.stats.created_at" = "Created";
+"journey.stats.updated_at" = "Last Updated";
 
 /* Journey Form */
 "journey.form.add_title" = "New Journey";
@@ -1072,3 +1083,38 @@
 "developer.document_storage.delete" = "Delete File";
 "developer.document_storage.delete_confirm.title" = "Delete File?";
 "developer.document_storage.delete_confirm.message" = "This file will be permanently deleted from storage.";
+
+// MARK: - Roadmap
+"tab.roadmap" = "Roadmap";
+"roadmap.title" = "Trip Roadmap";
+"roadmap.empty.title" = "No Stops Yet";
+"roadmap.empty.message" = "Add cities and places to plan your trip timeline";
+"roadmap.add_stop" = "Add Stop";
+"roadmap.more_options" = "More Options";
+"roadmap.edit_stop" = "Edit Stop";
+"roadmap.stop.title" = "Title";
+"roadmap.stop.subtitle" = "Description";
+"roadmap.stop.arrival_date" = "Arrival Date";
+"roadmap.stop.departure_date" = "Departure Date";
+"roadmap.stop.notes" = "Notes";
+"roadmap.stop.delete_confirm.title" = "Delete Stop?";
+"roadmap.stop.delete_confirm.message" = "This will remove the stop and all its attachments from the timeline.";
+"roadmap.attach_items" = "Attach Items";
+"roadmap.set_transport" = "Set Transport";
+"roadmap.attached_to" = "On timeline";
+"roadmap.detach" = "Remove from timeline";
+"roadmap.detach.confirm.title" = "Detach from Timeline";
+"roadmap.detach.confirm.message" = "Are you sure you want to remove this item from the timeline stop?";
+"roadmap.no_transport" = "No transport set";
+"roadmap.hint.tap_to_expand" = "Feel free to attach any Journey object to any stop, for better planning";
+"roadmap.date_inconsistency" = "Dates overlap with the next stop";
+"roadmap.entity_name" = "Roadmap Stop";
+"roadmap.detail.title" = "Stop Details";
+"roadmap.detail.dates" = "Dates";
+"roadmap.detail.arrival" = "Arrival";
+"roadmap.detail.departure" = "Departure";
+"roadmap.detail.attachments" = "Attachments";
+"roadmap.detail.transport_to_next" = "Transport to Next Stop";
+"roadmap.reset_timeline" = "Reset Timeline";
+"roadmap.reset_timeline.title" = "Reset Timeline?";
+"roadmap.reset_timeline.message" = "All stops will be removed. Your bookings, hotels, and other travel items will not be affected.";

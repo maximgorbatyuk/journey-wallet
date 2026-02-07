@@ -92,6 +92,7 @@ class TransportListViewModel {
     func addTransport(_ transport: Transport) {
         if transportsRepository?.insert(transport) == true {
             logger.info("Added transport: \(transport.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -99,6 +100,7 @@ class TransportListViewModel {
     func updateTransport(_ transport: Transport) {
         if transportsRepository?.update(transport) == true {
             logger.info("Updated transport: \(transport.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -109,6 +111,7 @@ class TransportListViewModel {
 
         if transportsRepository?.delete(id: transport.id) == true {
             logger.info("Deleted transport: \(transport.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }

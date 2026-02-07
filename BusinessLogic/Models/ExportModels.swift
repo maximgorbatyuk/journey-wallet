@@ -13,6 +13,8 @@ struct ExportData: Codable {
     let reminders: [Reminder]?
     let expenses: [Expense]?
     let ideas: [Idea]?
+    let roadmapStops: [RoadmapStop]?
+    let roadmapStopAttachments: [RoadmapStopAttachment]?
 
     init(
         metadata: ExportMetadata,
@@ -26,7 +28,9 @@ struct ExportData: Codable {
         placesToVisit: [PlaceToVisit]? = nil,
         reminders: [Reminder]? = nil,
         expenses: [Expense]? = nil,
-        ideas: [Idea]? = nil
+        ideas: [Idea]? = nil,
+        roadmapStops: [RoadmapStop]? = nil,
+        roadmapStopAttachments: [RoadmapStopAttachment]? = nil
     ) {
         self.metadata = metadata
         self.userSettings = userSettings
@@ -40,6 +44,8 @@ struct ExportData: Codable {
         self.reminders = reminders
         self.expenses = expenses
         self.ideas = ideas
+        self.roadmapStops = roadmapStops
+        self.roadmapStopAttachments = roadmapStopAttachments
     }
 }
 

@@ -87,6 +87,7 @@ class HotelListViewModel {
     func addHotel(_ hotel: Hotel) {
         if hotelsRepository?.insert(hotel) == true {
             logger.info("Added hotel: \(hotel.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -94,6 +95,7 @@ class HotelListViewModel {
     func updateHotel(_ hotel: Hotel) {
         if hotelsRepository?.update(hotel) == true {
             logger.info("Updated hotel: \(hotel.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -104,6 +106,7 @@ class HotelListViewModel {
 
         if hotelsRepository?.delete(id: hotel.id) == true {
             logger.info("Deleted hotel: \(hotel.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }

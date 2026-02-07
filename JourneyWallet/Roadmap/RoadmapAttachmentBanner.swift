@@ -1,0 +1,58 @@
+import SwiftUI
+
+struct RoadmapAttachmentBanner: View {
+
+    let stopTitle: String
+    let onDetach: () -> Void
+
+    @State private var showDetachConfirmation: Bool = false
+
+    var body: some View {
+        HStack(spacing: 8) {
+            Image(systemName: "map.fill")
+                .font(.caption)
+                .foregroundColor(.orange)
+
+            Text(L("roadmap.attached_to"))
+                .font(.caption)
+                .foregroundColor(.secondary)
+
+            Text(stopTitle)
+                .font(.caption)
+                .fontWeight(.semibold)
+                .foregroundColor(.primary)
+                .lineLimit(1)
+
+            Spacer()
+
+            Button {
+                showDetachConfirmation = true
+            } label: {
+                Image(systemName: "xmark.circle.fill")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+            .accessibilityLabel(L("roadmap.detach"))
+        }
+        .padding(.horizontal, 12)
+        .padding(.vertical, 8)
+        .background(.ultraThinMaterial)
+        .cornerRadius(10)
+        .alert(L("roadmap.detach.confirm.title"), isPresented: $showDetachConfirmation) {
+            Button(L("Cancel"), role: .cancel) {}
+            Button(L("roadmap.detach"), role: .destructive) {
+                onDetach()
+            }
+        } message: {
+            Text(L("roadmap.detach.confirm.message"))
+        }
+    }
+}
+
+#Preview {
+    RoadmapAttachmentBanner(
+        stopTitle: "Paris",
+        onDetach: {}
+    )
+    .padding()
+}

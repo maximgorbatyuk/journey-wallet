@@ -9,11 +9,16 @@ class HotelDetailViewModel {
 
     var hotel: Hotel
     let journeyId: UUID
+    var roadmapAttachment: RoadmapStopAttachment?
+    var attachedStopTitle: String?
 
     // MARK: - Repositories
 
     private let hotelsRepository: HotelsRepository?
+    private let journeysRepository: JourneysRepository?
     private let remindersRepository: RemindersRepository?
+    private let roadmapStopAttachmentsRepository: RoadmapStopAttachmentsRepository?
+    private let roadmapStopsRepository: RoadmapStopsRepository?
     private let logger: Logger
 
     // MARK: - Init
@@ -22,8 +27,12 @@ class HotelDetailViewModel {
         self.hotel = hotel
         self.journeyId = journeyId
         self.hotelsRepository = databaseManager.hotelsRepository
+        self.journeysRepository = databaseManager.journeysRepository
         self.remindersRepository = databaseManager.remindersRepository
+        self.roadmapStopAttachmentsRepository = databaseManager.roadmapStopAttachmentsRepository
+        self.roadmapStopsRepository = databaseManager.roadmapStopsRepository
         self.logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "-", category: "HotelDetailViewModel")
+        loadRoadmapAttachment()
     }
 
     // MARK: - Public Methods
@@ -31,6 +40,10 @@ class HotelDetailViewModel {
     func updateHotel(_ updatedHotel: Hotel) {
         if hotelsRepository?.update(updatedHotel) == true {
             hotel = updatedHotel
+            if let refreshed = hotelsRepository?.fetchById(id: hotel.id) {
+                hotel = refreshed
+            }
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             logger.info("Updated hotel: \(self.hotel.id)")
         } else {
             logger.error("Failed to update hotel: \(self.hotel.id)")
@@ -43,6 +56,7 @@ class HotelDetailViewModel {
 
         // Delete hotel
         if hotelsRepository?.delete(id: hotel.id) == true {
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             logger.info("Deleted hotel: \(self.hotel.id)")
             return true
         } else {
@@ -69,6 +83,7 @@ class HotelDetailViewModel {
         )
 
         if remindersRepository?.insert(reminder) == true {
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             logger.info("Added reminder for hotel: \(self.hotel.id)")
         } else {
             logger.error("Failed to add reminder for hotel: \(self.hotel.id)")
@@ -85,6 +100,8 @@ class HotelDetailViewModel {
         // Move associated reminders
         moveRemindersToJourney(newJourneyId)
 
+        journeysRepository?.touchUpdatedAt(journeyId: journeyId)
+        journeysRepository?.touchUpdatedAt(journeyId: newJourneyId)
         logger.info("Moved hotel \(self.hotel.id) to journey \(newJourneyId)")
         return true
     }
@@ -93,6 +110,28 @@ class HotelDetailViewModel {
         let reminders = remindersRepository?.fetchByJourneyId(journeyId: journeyId) ?? []
         for reminder in reminders where reminder.relatedEntityId == hotel.id {
             _ = remindersRepository?.updateJourneyId(id: reminder.id, newJourneyId: newJourneyId)
+        }
+    }
+
+    func loadRoadmapAttachment() {
+        roadmapAttachment = roadmapStopAttachmentsRepository?.fetchByEntityId(
+            entityId: hotel.id,
+            entityType: RoadmapEntityType.hotel.rawValue
+        )
+        if let attachment = roadmapAttachment,
+           let stop = roadmapStopsRepository?.fetchById(id: attachment.roadmapStopId) {
+            attachedStopTitle = stop.title
+        } else {
+            attachedStopTitle = nil
+        }
+    }
+
+    func detachFromRoadmap() {
+        guard let attachment = roadmapAttachment else { return }
+        if roadmapStopAttachmentsRepository?.delete(id: attachment.id) == true {
+            roadmapAttachment = nil
+            attachedStopTitle = nil
+            logger.info("Detached hotel from roadmap: \(self.hotel.id)")
         }
     }
 

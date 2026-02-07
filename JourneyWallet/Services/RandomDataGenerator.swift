@@ -67,6 +67,17 @@ class RandomDataGenerator {
         let ideas = generateIdeas(for: journey)
         ideas.forEach { _ = db.ideasRepository?.insert($0) }
 
+        // Generate roadmap timeline (5-10 stops with attachments and 2-3 transport connections)
+        generateRoadmapTimeline(
+            for: journey,
+            flights: flights,
+            groundTransport: groundTransport,
+            hotels: hotels,
+            carRentals: carRentals,
+            places: places,
+            ideas: ideas
+        )
+
         logger.info("Random data generation completed for journey: \(journey.name)")
     }
 
@@ -87,6 +98,13 @@ class RandomDataGenerator {
         _ = db.checklistItemsRepository?.deleteByJourneyId(journeyId: journeyId)
         _ = db.checklistsRepository?.deleteByJourneyId(journeyId: journeyId)
         _ = db.ideasRepository?.deleteByJourneyId(journeyId: journeyId)
+
+        // Delete roadmap data (attachments before stops due to foreign key order)
+        let existingStops = db.roadmapStopsRepository?.fetchByJourneyId(journeyId: journeyId) ?? []
+        for stop in existingStops {
+            _ = db.roadmapStopAttachmentsRepository?.deleteByStopId(stopId: stop.id)
+        }
+        _ = db.roadmapStopsRepository?.deleteByJourneyId(journeyId: journeyId)
 
         logger.debug("Existing data deleted for journey: \(journeyId)")
     }
@@ -665,6 +683,188 @@ class RandomDataGenerator {
         }
 
         return ideas
+    }
+
+    // MARK: - Roadmap Timeline Generation
+
+    private func generateRoadmapTimeline(
+        for journey: Journey,
+        flights: [Transport],
+        groundTransport: [Transport],
+        hotels: [Hotel],
+        carRentals: [CarRental],
+        places: [PlaceToVisit],
+        ideas: [Idea]
+    ) {
+        let stopCount = Int.random(in: 5...10)
+        let journeyDays = Calendar.current.dateComponents(
+            [.day],
+            from: journey.startDate,
+            to: journey.endDate
+        ).day ?? 7
+
+        let stopNames: [(String, String?)] = [
+            ("Arrive at destination", "Airport pickup and transfer"),
+            ("City center exploration", "Walking tour of the old town"),
+            ("Museum & culture day", "Visit main museums and galleries"),
+            ("Food & market tour", "Local cuisine and street food"),
+            ("Day trip to coast", "Beach and seaside village"),
+            ("Mountain excursion", "Hiking trail and panoramic views"),
+            ("Shopping district", "Souvenirs and local crafts"),
+            ("Relaxation day", "Spa, pool, and slow morning"),
+            ("Nightlife experience", "Rooftop bar and live music"),
+            ("Departure day", "Pack up and head to airport")
+        ]
+
+        let selectedStops = Array(stopNames.shuffled().prefix(stopCount))
+        var stops: [RoadmapStop] = []
+
+        for (index, (title, subtitle)) in selectedStops.enumerated() {
+            /// Spread stops evenly across the journey
+            let dayOffset = journeyDays > 1
+                ? (index * journeyDays) / max(1, stopCount - 1)
+                : 0
+            let stopDate = Calendar.current.date(
+                byAdding: .day,
+                value: min(dayOffset, journeyDays),
+                to: journey.startDate
+            )!
+
+            let arrivalHour = Int.random(in: 8...14)
+            let arrivalDate = Calendar.current.date(
+                bySettingHour: arrivalHour,
+                minute: Int.random(in: 0...59),
+                second: 0,
+                of: stopDate
+            )
+
+            /// Some stops have a departure time (2-8 hours after arrival)
+            let hasDeparture = Bool.random()
+            var departureDate: Date?
+            if hasDeparture,
+               let arrival = arrivalDate
+            {
+                departureDate = arrival.addingTimeInterval(
+                    Double.random(in: 2...8) * 3600
+                )
+            }
+
+            let hasNotes = Double.random(in: 0...1) < 0.3
+            let noteTexts = [
+                "Don't forget to bring sunscreen and water",
+                "Check opening hours before going",
+                "Book tickets in advance online",
+                "Ask the hotel concierge for directions",
+                "Best spot for photos is near the entrance"
+            ]
+
+            let stop = RoadmapStop(
+                journeyId: journey.id,
+                title: title,
+                subtitle: subtitle,
+                arrivalDate: arrivalDate,
+                departureDate: departureDate,
+                sortOrder: index,
+                notes: hasNotes ? noteTexts.randomElement() : nil
+            )
+
+            if db.roadmapStopsRepository?.insert(stop) == true {
+                stops.append(stop)
+            }
+        }
+
+        guard !stops.isEmpty else {
+            return
+        }
+
+        // Attach 2-3 transport connections to random stops
+        let allTransports = flights + groundTransport
+        let transportCount = min(Int.random(in: 2...3), allTransports.count, stops.count - 1)
+        var usedStopIndices: Set<Int> = []
+
+        for i in 0..<transportCount {
+            var stopIndex: Int
+            repeat {
+                stopIndex = Int.random(in: 0..<(stops.count - 1))
+            } while usedStopIndices.contains(stopIndex)
+            usedStopIndices.insert(stopIndex)
+
+            let transport = allTransports[i % allTransports.count]
+            _ = db.roadmapStopsRepository?.updateOutgoingTransportId(
+                id: stops[stopIndex].id,
+                transportId: transport.id
+            )
+        }
+
+        // Attach entities to random stops
+        var availableHotels = hotels
+        var availablePlaces = Array(places.prefix(6))
+        var availableIdeas = Array(ideas.prefix(3))
+        var availableCarRentals = carRentals
+
+        for stop in stops {
+            /// Each stop gets 0-3 random attachments
+            let attachmentCount = Int.random(in: 0...3)
+
+            guard attachmentCount > 0 else {
+                continue
+            }
+
+            var attachmentsAdded = 0
+
+            if !availableHotels.isEmpty,
+               attachmentsAdded < attachmentCount
+            {
+                let hotel = availableHotels.removeFirst()
+                let attachment = RoadmapStopAttachment(
+                    roadmapStopId: stop.id,
+                    entityType: RoadmapEntityType.hotel.rawValue,
+                    entityId: hotel.id
+                )
+                _ = db.roadmapStopAttachmentsRepository?.insert(attachment)
+                attachmentsAdded += 1
+            }
+
+            if !availableCarRentals.isEmpty,
+               attachmentsAdded < attachmentCount
+            {
+                let rental = availableCarRentals.removeFirst()
+                let attachment = RoadmapStopAttachment(
+                    roadmapStopId: stop.id,
+                    entityType: RoadmapEntityType.carRental.rawValue,
+                    entityId: rental.id
+                )
+                _ = db.roadmapStopAttachmentsRepository?.insert(attachment)
+                attachmentsAdded += 1
+            }
+
+            if !availablePlaces.isEmpty,
+               attachmentsAdded < attachmentCount
+            {
+                let place = availablePlaces.removeFirst()
+                let attachment = RoadmapStopAttachment(
+                    roadmapStopId: stop.id,
+                    entityType: RoadmapEntityType.placeToVisit.rawValue,
+                    entityId: place.id
+                )
+                _ = db.roadmapStopAttachmentsRepository?.insert(attachment)
+                attachmentsAdded += 1
+            }
+
+            if !availableIdeas.isEmpty,
+               attachmentsAdded < attachmentCount
+            {
+                let idea = availableIdeas.removeFirst()
+                let attachment = RoadmapStopAttachment(
+                    roadmapStopId: stop.id,
+                    entityType: RoadmapEntityType.idea.rawValue,
+                    entityId: idea.id
+                )
+                _ = db.roadmapStopAttachmentsRepository?.insert(attachment)
+            }
+        }
+
+        logger.info("Generated \(stops.count) roadmap stops with attachments and transport connections")
     }
 
     // MARK: - Helpers

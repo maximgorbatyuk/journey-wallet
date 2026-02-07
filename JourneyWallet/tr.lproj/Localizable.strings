@@ -1,5 +1,8 @@
 /* Turkish localization */
 
+/* App */
+"app.name" = "Journey Wallet";
+
 /* Common UI */
 "Cancel" = "İptal";
 "Save" = "Kaydet";
@@ -16,6 +19,7 @@
 "Add" = "Ekle";
 "Edit" = "Düzenle";
 "Open" = "Aç";
+"open.details" = "Detayları aç";
 "Create" = "Oluştur";
 "Select" = "Seç";
 "Loading" = "Yükleniyor";
@@ -115,6 +119,10 @@
 "onboarding.store_bookings__subtitle" = "Uçak biletlerini, otel rezervasyonlarını ve seyahat belgelerini kaydedin. Her şeye çevrimdışı erişin.";
 "onboarding.travel_reminders" = "Seyahat Hatırlatıcıları Alın";
 "onboarding.travel_reminders__subtitle" = "Hiçbir uçuşu veya check-in'i kaçırmayın. Tüm önemli seyahat etkinlikleri için hatırlatıcılar ayarlayın.";
+"onboarding.checklists" = "Bavul Listeleri";
+"onboarding.checklists__subtitle" = "Her seyahat için kontrol listeleri oluşturun, hiçbir şeyi unutmayın. Nelerin hazır olduğunu takip edin.";
+"onboarding.roadmap" = "Yol Haritanızı Oluşturun";
+"onboarding.roadmap__subtitle" = "Rotanızı durak durak planlayın. Rezervasyonları ekleyin, ulaşım bağlantılarını belirleyin ve seyahat zaman çizelgenizi görün.";
 "onboarding.view_statistics" = "Seyahat İstatistiklerini Görüntüleyin";
 "onboarding.view_statistics__subtitle" = "Seyahat geçmişinizi bir bakışta görün. Harcamaları, ziyaret edilen yerleri ve daha fazlasını takip edin.";
 
@@ -303,6 +311,7 @@
 "main.stats.total_journeys" = "Toplam Seyahat";
 "main.stats.upcoming" = "Yaklaşan";
 "main.stats.destinations" = "Hedefler";
+"main.stats.reminders" = "Hatırlatmalar";
 "main.active_journeys.title" = "Seyahatleriniz";
 "main.empty.title" = "Henüz seyahat yok";
 "main.empty.subtitle" = "Bir seyahat ekleyerek bir sonraki maceranızı planlamaya başlayın.";
@@ -344,6 +353,8 @@
 "journey.stats.documents" = "Belgeler";
 "journey.stats.places" = "Yerler";
 "journey.stats.notes" = "Notlar";
+"journey.stats.created_at" = "Oluşturulma";
+"journey.stats.updated_at" = "Son Güncelleme";
 
 /* Journey Form */
 "journey.form.add_title" = "Yeni Seyahat";
@@ -1075,3 +1086,38 @@
 "developer.document_storage.delete" = "Dosyayı Sil";
 "developer.document_storage.delete_confirm.title" = "Dosyayı Sil?";
 "developer.document_storage.delete_confirm.message" = "Bu dosya depodan kalıcı olarak silinecek.";
+
+// MARK: - Roadmap
+"tab.roadmap" = "Yol Haritası";
+"roadmap.title" = "Gezi Yol Haritası";
+"roadmap.empty.title" = "Henüz Durak Yok";
+"roadmap.empty.message" = "Gezi planınızı oluşturmak için şehirler ve yerler ekleyin";
+"roadmap.add_stop" = "Durak Ekle";
+"roadmap.more_options" = "Diğer Seçenekler";
+"roadmap.edit_stop" = "Durağı Düzenle";
+"roadmap.stop.title" = "Başlık";
+"roadmap.stop.subtitle" = "Açıklama";
+"roadmap.stop.arrival_date" = "Varış Tarihi";
+"roadmap.stop.departure_date" = "Ayrılış Tarihi";
+"roadmap.stop.notes" = "Notlar";
+"roadmap.stop.delete_confirm.title" = "Durağı Sil?";
+"roadmap.stop.delete_confirm.message" = "Durak ve tüm ekleri zaman çizelgesinden kaldırılacak.";
+"roadmap.attach_items" = "Öğe Ekle";
+"roadmap.set_transport" = "Ulaşım Belirle";
+"roadmap.attached_to" = "Yol haritasında";
+"roadmap.detach" = "Yol haritasından kaldır";
+"roadmap.detach.confirm.title" = "Yol haritasından kaldır";
+"roadmap.detach.confirm.message" = "Bu öğeyi duraktan kaldırmak istediğinizden emin misiniz?";
+"roadmap.no_transport" = "Ulaşım belirlenmedi";
+"roadmap.hint.tap_to_expand" = "Daha iyi planlama için herhangi bir seyahat nesnesini duraklara ekleyin";
+"roadmap.date_inconsistency" = "Tarihler bir sonraki durakla çakışıyor";
+"roadmap.entity_name" = "Yol Haritası Durağı";
+"roadmap.detail.title" = "Durak Detayları";
+"roadmap.detail.dates" = "Tarihler";
+"roadmap.detail.arrival" = "Varış";
+"roadmap.detail.departure" = "Ayrılış";
+"roadmap.detail.attachments" = "Ekler";
+"roadmap.detail.transport_to_next" = "Sonraki Durağa Ulaşım";
+"roadmap.reset_timeline" = "Yol Haritasını Sıfırla";
+"roadmap.reset_timeline.title" = "Yol Haritasını Sıfırla?";
+"roadmap.reset_timeline.message" = "Tüm duraklar kaldırılacak. Rezervasyonlarınız, otelleriniz ve diğer seyahat öğeleriniz etkilenmeyecek.";

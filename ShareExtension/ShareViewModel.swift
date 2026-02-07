@@ -140,26 +140,8 @@ class ShareViewModel: ObservableObject {
 
         let allJourneys = repository.fetchAll()
 
-        // Sort: active first, then upcoming by start date, then past by end date (recent first)
+        journeys = allJourneys.sorted { $0.updatedAt > $1.updatedAt }
         let now = Date()
-        journeys = allJourneys.sorted { j1, j2 in
-            let j1Active = j1.isActive
-            let j2Active = j2.isActive
-            let j1Upcoming = j1.startDate > now
-            let j2Upcoming = j2.startDate > now
-
-            // Active journeys first
-            if j1Active && !j2Active { return true }
-            if !j1Active && j2Active { return false }
-
-            // Then upcoming journeys (sorted by start date, soonest first)
-            if j1Upcoming && j2Upcoming { return j1.startDate < j2.startDate }
-            if j1Upcoming && !j2Upcoming { return true }
-            if !j1Upcoming && j2Upcoming { return false }
-
-            // Then past journeys (sorted by end date, most recent first)
-            return j1.endDate > j2.endDate
-        }
 
         // Pre-select first active journey, or first upcoming, or first in list
         selectedJourneyId = journeys.first(where: { $0.isActive })?.id

@@ -18,6 +18,7 @@ class IdeaListViewModel {
     // MARK: - Repositories
 
     private let ideasRepository: IdeasRepository?
+    private let journeysRepository: JourneysRepository?
     private let logger: Logger
 
     // MARK: - Init
@@ -25,6 +26,7 @@ class IdeaListViewModel {
     init(journeyId: UUID, databaseManager: DatabaseManager = .shared) {
         self.journeyId = journeyId
         self.ideasRepository = databaseManager.ideasRepository
+        self.journeysRepository = databaseManager.journeysRepository
         self.logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "-", category: "IdeaListViewModel")
     }
 
@@ -39,6 +41,7 @@ class IdeaListViewModel {
     func addIdea(_ idea: Idea) {
         if ideasRepository?.insert(idea) == true {
             logger.info("Added idea: \(idea.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -46,6 +49,7 @@ class IdeaListViewModel {
     func updateIdea(_ idea: Idea) {
         if ideasRepository?.update(idea) == true {
             logger.info("Updated idea: \(idea.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -53,6 +57,7 @@ class IdeaListViewModel {
     func deleteIdea(_ idea: Idea) {
         if ideasRepository?.delete(id: idea.id) == true {
             logger.info("Deleted idea: \(idea.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -60,6 +65,7 @@ class IdeaListViewModel {
     func toggleDone(_ idea: Idea) {
         if ideasRepository?.toggleDone(id: idea.id) == true {
             logger.info("Toggled done status for idea: \(idea.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -67,6 +73,8 @@ class IdeaListViewModel {
     func moveToJourney(idea: Idea, newJourneyId: UUID) -> Bool {
         if ideasRepository?.updateJourneyId(id: idea.id, newJourneyId: newJourneyId) == true {
             logger.info("Moved idea \(idea.id) to journey \(newJourneyId)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
+            journeysRepository?.touchUpdatedAt(journeyId: newJourneyId)
             loadData()
             return true
         }

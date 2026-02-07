@@ -23,6 +23,7 @@ class ChecklistDetailViewModel {
 
     private let checklistsRepository: ChecklistsRepository?
     private let checklistItemsRepository: ChecklistItemsRepository?
+    private let journeysRepository: JourneysRepository?
     private let logger: Logger
 
     // MARK: - Init
@@ -32,6 +33,7 @@ class ChecklistDetailViewModel {
         self.journeyId = journeyId
         self.checklistsRepository = databaseManager.checklistsRepository
         self.checklistItemsRepository = databaseManager.checklistItemsRepository
+        self.journeysRepository = databaseManager.journeysRepository
         self.logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "-", category: "ChecklistDetailViewModel")
     }
 
@@ -65,6 +67,7 @@ class ChecklistDetailViewModel {
     func toggleItem(_ item: ChecklistItem) {
         if checklistItemsRepository?.toggleChecked(id: item.id) == true {
             logger.info("Toggled item: \(item.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -79,6 +82,7 @@ class ChecklistDetailViewModel {
 
         if checklistItemsRepository?.insert(item) == true {
             logger.info("Added item: \(item.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -86,6 +90,7 @@ class ChecklistDetailViewModel {
     func updateItem(_ item: ChecklistItem) {
         if checklistItemsRepository?.update(item) == true {
             logger.info("Updated item: \(item.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -93,6 +98,7 @@ class ChecklistDetailViewModel {
     func deleteItem(_ item: ChecklistItem) {
         if checklistItemsRepository?.delete(id: item.id) == true {
             logger.info("Deleted item: \(item.id)")
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadData()
         }
     }
@@ -100,6 +106,7 @@ class ChecklistDetailViewModel {
     func updateChecklist(_ updated: Checklist) {
         if checklistsRepository?.update(updated) == true {
             checklist = updated
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             logger.info("Updated checklist: \(updated.id)")
         }
     }
@@ -110,6 +117,7 @@ class ChecklistDetailViewModel {
         _ = checklistItemsRepository?.deleteByChecklistId(checklistId: checklistId)
 
         if checklistsRepository?.delete(id: checklistId) == true {
+            journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             logger.info("Deleted checklist: \(checklistId)")
             return true
         }
@@ -123,6 +131,8 @@ class ChecklistDetailViewModel {
             return false
         }
 
+        journeysRepository?.touchUpdatedAt(journeyId: journeyId)
+        journeysRepository?.touchUpdatedAt(journeyId: newJourneyId)
         logger.info("Moved checklist \(self.checklist.id) to journey \(newJourneyId)")
         return true
     }

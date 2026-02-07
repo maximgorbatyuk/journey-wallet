@@ -75,7 +75,7 @@ class JourneysListViewModel {
         }
 
         journeys.insert(journey, at: 0)
-        journeys.sort { $0.startDate > $1.startDate }
+        journeys.sort { $0.updatedAt > $1.updatedAt }
         applyFilter()
         logger.info("Added journey \(journey.id)")
     }
@@ -89,7 +89,7 @@ class JourneysListViewModel {
         if let index = journeys.firstIndex(where: { $0.id == journey.id }) {
             journeys[index] = journey
         }
-        journeys.sort { $0.startDate > $1.startDate }
+        journeys.sort { $0.updatedAt > $1.updatedAt }
         applyFilter()
         logger.info("Updated journey \(journey.id)")
     }

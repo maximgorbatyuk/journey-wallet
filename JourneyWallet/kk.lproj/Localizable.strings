@@ -1,5 +1,8 @@
 /* Kazakh localization */
 
+/* App */
+"app.name" = "Journey Wallet";
+
 /* Common UI */
 "Cancel" = "Бас тарт";
 "Save" = "Сақтау";
@@ -16,6 +19,7 @@
 "Add" = "Қосу";
 "Edit" = "Өзгерту";
 "Open" = "Ашу";
+"open.details" = "Мәліметтерді ашу";
 "Create" = "Жасау";
 "Select" = "Таңда";
 "Loading" = "Жүктелуде";
@@ -115,6 +119,10 @@
 "onboarding.store_bookings__subtitle" = "Ұшақ билеттерін, қонақүй брондауларын және саяхат құжаттарын сақтаңыз. Барлығына офлайн кіріңіз.";
 "onboarding.travel_reminders" = "Саяхат еске салуларын алыңыз";
 "onboarding.travel_reminders__subtitle" = "Ешбір рейсті немесе тіркелуді жіберіп алмаңыз. Барлық маңызды саяхат оқиғалары үшін еске салулар орнатыңыз.";
+"onboarding.checklists" = "Жинау тізімдері";
+"onboarding.checklists__subtitle" = "Әр сапар үшін тізім жасаңыз, ештеңені ұмытпаңыз. Нені жинағаныңызды қадағалаңыз.";
+"onboarding.roadmap" = "Жол картаңызды құрыңыз";
+"onboarding.roadmap__subtitle" = "Маршрутыңызды аялдама бойынша жоспарлаңыз. Брондарды тіркеңіз, көлікті белгілеңіз және сапар уақыт кестесін көріңіз.";
 "onboarding.view_statistics" = "Саяхат статистикасын көріңіз";
 "onboarding.view_statistics__subtitle" = "Саяхат тарихыңызды бір қарағанда көріңіз. Шығындарды, барған жерлерді және т.б. қадағалаңыз.";
 
@@ -303,6 +311,7 @@
 "main.stats.total_journeys" = "Барлық сапарлар";
 "main.stats.upcoming" = "Алдағы";
 "main.stats.destinations" = "Бағыттар";
+"main.stats.reminders" = "Еске салулар";
 "main.active_journeys.title" = "Сіздің сапарларыңыз";
 "main.empty.title" = "Сапарлар жоқ";
 "main.empty.subtitle" = "Сапар қосу арқылы келесі саяхатыңызды жоспарлауды бастаңыз.";
@@ -344,6 +353,8 @@
 "journey.stats.documents" = "Құжаттар";
 "journey.stats.places" = "Орындар";
 "journey.stats.notes" = "Жазбалар";
+"journey.stats.created_at" = "Құрылған";
+"journey.stats.updated_at" = "Соңғы жаңарту";
 
 /* Journey Form */
 "journey.form.add_title" = "Жаңа сапар";
@@ -1079,3 +1090,38 @@
 "developer.document_storage.delete" = "Файлды жою";
 "developer.document_storage.delete_confirm.title" = "Файлды жою?";
 "developer.document_storage.delete_confirm.message" = "Бул файл сақтау орыннан біржола жойылады.";
+
+// MARK: - Roadmap
+"tab.roadmap" = "Жол картасы";
+"roadmap.title" = "Саяхат жол картасы";
+"roadmap.empty.title" = "Аялдамалар жоқ";
+"roadmap.empty.message" = "Саяхат жоспарын құру үшін қалалар мен орындар қосыңыз";
+"roadmap.add_stop" = "Аялдама қосу";
+"roadmap.more_options" = "Қосымша";
+"roadmap.edit_stop" = "Аялдаманы өзгерту";
+"roadmap.stop.title" = "Атауы";
+"roadmap.stop.subtitle" = "Сипаттама";
+"roadmap.stop.arrival_date" = "Келу күні";
+"roadmap.stop.departure_date" = "Кету күні";
+"roadmap.stop.notes" = "Жазбалар";
+"roadmap.stop.delete_confirm.title" = "Аялдаманы жою?";
+"roadmap.stop.delete_confirm.message" = "Аялдама мен барлық тіркемелер жол картасынан жойылады.";
+"roadmap.attach_items" = "Элементтерді тіркеу";
+"roadmap.set_transport" = "Көлікті белгілеу";
+"roadmap.attached_to" = "Жол картасында";
+"roadmap.detach" = "Жол картасынан алып тастау";
+"roadmap.detach.confirm.title" = "Жол картасынан алып тастау";
+"roadmap.detach.confirm.message" = "Бұл элементті аялдамадан алып тастағыңыз келетініне сенімдісіз бе?";
+"roadmap.no_transport" = "Көлік белгіленбеген";
+"roadmap.hint.tap_to_expand" = "Жақсы жоспарлау үшін кез келген саяхат нысанын аялдамаларға тіркеңіз";
+"roadmap.date_inconsistency" = "Күндер келесі аялдамамен сәйкес келмейді";
+"roadmap.entity_name" = "Жол картасы аялдамасы";
+"roadmap.detail.title" = "Аялдама мәліметтері";
+"roadmap.detail.dates" = "Күндер";
+"roadmap.detail.arrival" = "Келу";
+"roadmap.detail.departure" = "Кету";
+"roadmap.detail.attachments" = "Тіркемелер";
+"roadmap.detail.transport_to_next" = "Келесі аялдамаға көлік";
+"roadmap.reset_timeline" = "Жол картасын тазалау";
+"roadmap.reset_timeline.title" = "Жол картасын тазалау?";
+"roadmap.reset_timeline.message" = "Барлық аялдамалар жойылады. Сіздің брондауларыңыз, қонақ үйлеріңіз және басқа саяхат элементтері сақталады.";
