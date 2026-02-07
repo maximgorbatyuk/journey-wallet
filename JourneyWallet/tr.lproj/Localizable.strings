@@ -353,6 +353,8 @@
 "journey.stats.documents" = "Belgeler";
 "journey.stats.places" = "Yerler";
 "journey.stats.notes" = "Notlar";
+"journey.stats.created_at" = "Oluşturulma";
+"journey.stats.updated_at" = "Son Güncelleme";
 
 /* Journey Form */
 "journey.form.add_title" = "Yeni Seyahat";

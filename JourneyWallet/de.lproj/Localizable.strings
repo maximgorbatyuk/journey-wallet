@@ -353,6 +353,8 @@
 "journey.stats.documents" = "Dokumente";
 "journey.stats.places" = "Orte";
 "journey.stats.notes" = "Notizen";
+"journey.stats.created_at" = "Erstellt";
+"journey.stats.updated_at" = "Zuletzt aktualisiert";
 
 /* Journey Form */
 "journey.form.add_title" = "Neue Reise";

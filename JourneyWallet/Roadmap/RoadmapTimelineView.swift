@@ -134,7 +134,7 @@ struct RoadmapTimelineView: View {
         ZStack(alignment: .bottomTrailing) {
             VStack(spacing: 0) {
                 HStack(spacing: 4) {
-                    Image(systemName: "hand.tap")
+                    Image(systemName: "lightbulb")
                         .font(.caption2)
                     Text(L("roadmap.hint.tap_to_expand"))
                         .font(.caption2)

@@ -353,6 +353,8 @@
 "journey.stats.documents" = "Документи";
 "journey.stats.places" = "Місця";
 "journey.stats.notes" = "Нотатки";
+"journey.stats.created_at" = "Створено";
+"journey.stats.updated_at" = "Оновлено";
 
 /* Journey Form */
 "journey.form.add_title" = "Нова подорож";

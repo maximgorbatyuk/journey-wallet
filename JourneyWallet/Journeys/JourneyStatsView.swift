@@ -21,6 +21,9 @@ struct JourneyStatsView: View {
                     } else {
                         // Stats grid
                         statsGrid
+
+                        // Dates section
+                        datesSection
                     }
                 }
                 .padding()
@@ -133,6 +136,36 @@ struct JourneyStatsView: View {
                 label: L("journey.stats.notes")
             )
         }
+    }
+
+    // MARK: - Dates Section
+
+    private var datesSection: some View {
+        VStack(spacing: 0) {
+            dateRow(label: L("journey.stats.created_at"), date: viewModel.journey.createdAt)
+            Divider()
+            dateRow(label: L("journey.stats.updated_at"), date: viewModel.journey.updatedAt)
+        }
+        .background(Color(.systemBackground))
+        .cornerRadius(12)
+    }
+
+    private func dateRow(label: String, date: Date) -> some View {
+        HStack {
+            Text(label)
+                .foregroundColor(.secondary)
+            Spacer()
+            Text(formatDateTime(date))
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 12)
+    }
+
+    private func formatDateTime(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        return formatter.string(from: date)
     }
 
     // MARK: - Helpers

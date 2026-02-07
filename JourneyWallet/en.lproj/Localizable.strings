@@ -353,6 +353,8 @@
 "journey.stats.documents" = "Documents";
 "journey.stats.places" = "Places";
 "journey.stats.notes" = "Notes";
+"journey.stats.created_at" = "Created";
+"journey.stats.updated_at" = "Last Updated";
 
 /* Journey Form */
 "journey.form.add_title" = "New Journey";

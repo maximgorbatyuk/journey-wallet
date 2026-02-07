@@ -13,8 +13,6 @@ class RoadmapTimelineViewModel {
     var stops: [RoadmapStop] = []
     var attachmentsByStopId: [UUID: [RoadmapStopAttachment]] = [:]
     var transportsByStopId: [UUID: Transport] = [:]
-    var isLoading: Bool = false
-
     var selectedJourney: Journey? {
         allJourneys.first(where: { $0.id == selectedJourneyId })
     }
@@ -43,7 +41,7 @@ class RoadmapTimelineViewModel {
     private let ideasRepository: IdeasRepository?
     private let logger: Logger
 
-    private let selectedJourneyKey = "selectedRoadmapJourneyId"
+    private let selectedJourneyKey = "selectedJourneyId"
 
     // MARK: - Init
 
@@ -62,7 +60,6 @@ class RoadmapTimelineViewModel {
     // MARK: - Public Methods
 
     func loadInitialData() {
-        isLoading = true
         allJourneys = journeysRepository?.fetchAll() ?? []
 
         // Restore saved journey selection
@@ -77,7 +74,6 @@ class RoadmapTimelineViewModel {
         }
 
         loadStops()
-        isLoading = false
     }
 
     func selectJourney(id: UUID) {

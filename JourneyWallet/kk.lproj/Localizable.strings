@@ -353,6 +353,8 @@
 "journey.stats.documents" = "Құжаттар";
 "journey.stats.places" = "Орындар";
 "journey.stats.notes" = "Жазбалар";
+"journey.stats.created_at" = "Құрылған";
+"journey.stats.updated_at" = "Соңғы жаңарту";
 
 /* Journey Form */
 "journey.form.add_title" = "Жаңа сапар";

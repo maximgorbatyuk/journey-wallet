@@ -12,20 +12,6 @@ struct RoadmapStopRow: View {
 
     @State private var showDetailView: Bool = false
 
-    private var isPast: Bool {
-        if let departureDate = stop.departureDate {
-            return departureDate < Date()
-        }
-        if let arrivalDate = stop.arrivalDate {
-            return arrivalDate < Date()
-        }
-        return false
-    }
-
-    private var dotColor: Color {
-        isPast ? .orange : .blue
-    }
-
     var body: some View {
         VStack(spacing: 0) {
             // Stop content
