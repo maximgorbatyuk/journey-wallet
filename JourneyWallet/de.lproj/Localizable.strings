@@ -16,6 +16,7 @@
 "Add" = "Hinzufügen";
 "Edit" = "Bearbeiten";
 "Open" = "Öffnen";
+"open.details" = "Details öffnen";
 "Create" = "Erstellen";
 "Select" = "Auswählen";
 "Loading" = "Laden";
@@ -303,6 +304,7 @@
 "main.stats.total_journeys" = "Reisen gesamt";
 "main.stats.upcoming" = "Bevorstehend";
 "main.stats.destinations" = "Reiseziele";
+"main.stats.reminders" = "Erinnerungen";
 "main.active_journeys.title" = "Ihre Reisen";
 "main.empty.title" = "Noch keine Reisen";
 "main.empty.subtitle" = "Beginnen Sie mit der Planung Ihres nächsten Abenteuers, indem Sie eine Reise hinzufügen.";
@@ -1094,7 +1096,10 @@
 "roadmap.set_transport" = "Transport festlegen";
 "roadmap.attached_to" = "Im Reiseplan";
 "roadmap.detach" = "Aus Reiseplan entfernen";
+"roadmap.detach.confirm.title" = "Aus Reiseplan entfernen";
+"roadmap.detach.confirm.message" = "Möchten Sie dieses Element wirklich aus der Station entfernen?";
 "roadmap.no_transport" = "Kein Transport festgelegt";
+"roadmap.hint.tap_to_expand" = "Tippen Sie auf eine Station für Details";
 "roadmap.entity_name" = "Reiseplan-Station";
 "roadmap.detail.title" = "Stationsdetails";
 "roadmap.detail.dates" = "Daten";

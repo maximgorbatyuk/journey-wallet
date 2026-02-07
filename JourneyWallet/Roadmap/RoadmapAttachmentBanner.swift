@@ -5,6 +5,8 @@ struct RoadmapAttachmentBanner: View {
     let stopTitle: String
     let onDetach: () -> Void
 
+    @State private var showDetachConfirmation: Bool = false
+
     var body: some View {
         HStack(spacing: 8) {
             Image(systemName: "map.fill")
@@ -24,7 +26,7 @@ struct RoadmapAttachmentBanner: View {
             Spacer()
 
             Button {
-                onDetach()
+                showDetachConfirmation = true
             } label: {
                 Image(systemName: "xmark.circle.fill")
                     .font(.caption)
@@ -35,6 +37,14 @@ struct RoadmapAttachmentBanner: View {
         .padding(.vertical, 8)
         .background(.ultraThinMaterial)
         .cornerRadius(10)
+        .alert(L("roadmap.detach.confirm.title"), isPresented: $showDetachConfirmation) {
+            Button(L("Cancel"), role: .cancel) {}
+            Button(L("roadmap.detach"), role: .destructive) {
+                onDetach()
+            }
+        } message: {
+            Text(L("roadmap.detach.confirm.message"))
+        }
     }
 }
 

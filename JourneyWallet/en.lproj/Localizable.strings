@@ -16,6 +16,7 @@
 "Add" = "Add";
 "Edit" = "Edit";
 "Open" = "Open";
+"open.details" = "Open details";
 "Create" = "Create";
 "Select" = "Select";
 "Loading" = "Loading";
@@ -303,6 +304,7 @@
 "main.stats.total_journeys" = "Total Journeys";
 "main.stats.upcoming" = "Upcoming";
 "main.stats.destinations" = "Destinations";
+"main.stats.reminders" = "Reminders";
 "main.active_journeys.title" = "Your Journeys";
 "main.empty.title" = "No journeys yet";
 "main.empty.subtitle" = "Start planning your next adventure by adding a journey.";
@@ -1091,7 +1093,10 @@
 "roadmap.set_transport" = "Set Transport";
 "roadmap.attached_to" = "On timeline";
 "roadmap.detach" = "Remove from timeline";
+"roadmap.detach.confirm.title" = "Detach from Timeline";
+"roadmap.detach.confirm.message" = "Are you sure you want to remove this item from the timeline stop?";
 "roadmap.no_transport" = "No transport set";
+"roadmap.hint.tap_to_expand" = "Tap a stop to see details";
 "roadmap.entity_name" = "Roadmap Stop";
 "roadmap.detail.title" = "Stop Details";
 "roadmap.detail.dates" = "Dates";

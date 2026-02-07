@@ -16,6 +16,7 @@
 "Add" = "Ekle";
 "Edit" = "Düzenle";
 "Open" = "Aç";
+"open.details" = "Detayları aç";
 "Create" = "Oluştur";
 "Select" = "Seç";
 "Loading" = "Yükleniyor";
@@ -303,6 +304,7 @@
 "main.stats.total_journeys" = "Toplam Seyahat";
 "main.stats.upcoming" = "Yaklaşan";
 "main.stats.destinations" = "Hedefler";
+"main.stats.reminders" = "Hatırlatmalar";
 "main.active_journeys.title" = "Seyahatleriniz";
 "main.empty.title" = "Henüz seyahat yok";
 "main.empty.subtitle" = "Bir seyahat ekleyerek bir sonraki maceranızı planlamaya başlayın.";
@@ -1094,7 +1096,10 @@
 "roadmap.set_transport" = "Ulaşım Belirle";
 "roadmap.attached_to" = "Yol haritasında";
 "roadmap.detach" = "Yol haritasından kaldır";
+"roadmap.detach.confirm.title" = "Yol haritasından kaldır";
+"roadmap.detach.confirm.message" = "Bu öğeyi duraktan kaldırmak istediğinizden emin misiniz?";
 "roadmap.no_transport" = "Ulaşım belirlenmedi";
+"roadmap.hint.tap_to_expand" = "Ayrıntılar için bir durağa dokunun";
 "roadmap.entity_name" = "Yol Haritası Durağı";
 "roadmap.detail.title" = "Durak Detayları";
 "roadmap.detail.dates" = "Tarihler";

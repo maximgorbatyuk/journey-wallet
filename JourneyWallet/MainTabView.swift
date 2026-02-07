@@ -41,29 +41,21 @@ struct MainTabView: SwiftUI.View {
                     .tint(nil)
                     .tag(2)
 
-                // Tab 4: Reminders
-                NotificationsView()
-                    .tabItem {
-                        Label(L("tab.reminders"), systemImage: "bell.fill")
-                    }
-                    .tint(nil)
-                    .tag(3)
-
-                // Tab 5: All Journeys
+                // Tab 4: All Journeys
                 JourneysListView()
                     .tabItem {
                         Label(L("tab.journeys"), systemImage: "list.bullet.rectangle")
                     }
                     .tint(nil)
-                    .tag(4)
+                    .tag(3)
 
-                // Tab 6: Settings
+                // Tab 5: Settings
                 UserSettingsView(showAppUpdateButton: showAppVersionBadge)
                     .tabItem {
                         Label(L("tab.settings"), systemImage: "gear")
                     }
                     .tint(nil)
-                    .tag(5)
+                    .tag(4)
                     .badge(showAppVersionBadge ? "New!" : nil)
             }
             .tint(Color.orange)

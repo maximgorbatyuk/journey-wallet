@@ -16,6 +16,7 @@
 "Add" = "Добавить";
 "Edit" = "Редактировать";
 "Open" = "Открыть";
+"open.details" = "Открыть детали";
 "Create" = "Создать";
 "Select" = "Выбрать";
 "Loading" = "Загрузка";
@@ -303,6 +304,7 @@
 "main.stats.total_journeys" = "Всего поездок";
 "main.stats.upcoming" = "Предстоящие";
 "main.stats.destinations" = "Направления";
+"main.stats.reminders" = "Напоминания";
 "main.active_journeys.title" = "Ваши поездки";
 "main.empty.title" = "Поездок пока нет";
 "main.empty.subtitle" = "Начните планировать своё следующее путешествие, добавив поездку.";
@@ -1097,7 +1099,10 @@
 "roadmap.set_transport" = "Указать транспорт";
 "roadmap.attached_to" = "На маршруте";
 "roadmap.detach" = "Убрать из маршрута";
+"roadmap.detach.confirm.title" = "Убрать из маршрута";
+"roadmap.detach.confirm.message" = "Вы уверены, что хотите убрать этот элемент из остановки маршрута?";
 "roadmap.no_transport" = "Транспорт не указан";
+"roadmap.hint.tap_to_expand" = "Нажмите на остановку для подробностей";
 "roadmap.entity_name" = "Остановка маршрута";
 "roadmap.detail.title" = "Детали остановки";
 "roadmap.detail.dates" = "Даты";

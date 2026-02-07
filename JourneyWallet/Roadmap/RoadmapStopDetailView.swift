@@ -15,6 +15,7 @@ struct RoadmapStopDetailView: View {
     @State private var showDeleteConfirmation: Bool = false
     @State private var showAttachmentPicker: Bool = false
     @State private var showConnectionPicker: Bool = false
+    @State private var attachmentToDetach: RoadmapStopAttachment?
 
     private var isPast: Bool {
         if let departureDate = stop.departureDate {
@@ -123,6 +124,25 @@ struct RoadmapStopDetailView: View {
                 }
             } message: {
                 Text(L("roadmap.stop.delete_confirm.message"))
+            }
+            .alert(
+                L("roadmap.detach.confirm.title"),
+                isPresented: Binding(
+                    get: { attachmentToDetach != nil },
+                    set: { if !$0 { attachmentToDetach = nil } }
+                )
+            ) {
+                Button(L("Cancel"), role: .cancel) {
+                    attachmentToDetach = nil
+                }
+                Button(L("roadmap.detach"), role: .destructive) {
+                    if let attachment = attachmentToDetach {
+                        viewModel.removeAttachment(id: attachment.id)
+                    }
+                    attachmentToDetach = nil
+                }
+            } message: {
+                Text(L("roadmap.detach.confirm.message"))
             }
         }
     }
@@ -256,7 +276,7 @@ struct RoadmapStopDetailView: View {
                     Spacer()
 
                     Button {
-                        viewModel.removeAttachment(id: attachment.id)
+                        attachmentToDetach = attachment
                     } label: {
                         Image(systemName: "xmark.circle.fill")
                             .font(.subheadline)

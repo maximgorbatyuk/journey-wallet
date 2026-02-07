@@ -3,6 +3,7 @@ import SwiftUI
 struct RoadmapStopRow: View {
 
     let stop: RoadmapStop
+    let isFirst: Bool
     let isLast: Bool
     let attachments: [RoadmapStopAttachment]
     let outgoingTransport: Transport?
@@ -26,11 +27,13 @@ struct RoadmapStopRow: View {
     }
 
     var body: some View {
-        HStack(alignment: .top, spacing: 12) {
-            // Timeline visual
-            timelineDot
+        VStack(spacing: 0) {
+            // Incoming section: line + optional transport label
+            if !isFirst {
+                incomingSection
+            }
 
-            // Content
+            // Stop content
             VStack(alignment: .leading, spacing: 8) {
                 stopHeader
 
@@ -38,13 +41,7 @@ struct RoadmapStopRow: View {
                     expandedContent
                 }
             }
-        }
-        .padding(.vertical, 8)
-        .contentShape(Rectangle())
-        .onTapGesture {
-            withAnimation(.easeInOut(duration: 0.2)) {
-                isExpanded.toggle()
-            }
+            .padding(.bottom, 4)
         }
         .sheet(isPresented: $showDetailView) {
             RoadmapStopDetailView(
@@ -57,29 +54,33 @@ struct RoadmapStopRow: View {
         }
     }
 
-    // MARK: - Timeline Dot
+    // MARK: - Incoming Section
 
-    private var timelineDot: some View {
+    private var incomingSection: some View {
         VStack(spacing: 0) {
-            // Dot
-            Circle()
-                .fill(isPast ? dotColor : Color.clear)
-                .overlay(
-                    Circle()
-                        .stroke(dotColor, lineWidth: 2)
-                )
-                .frame(width: 16, height: 16)
-                .padding(.top, 4)
+            if let transport = outgoingTransport {
+                Spacer().frame(height: 20)
 
-            // Line to next stop
-            if !isLast {
-                Rectangle()
-                    .fill(outgoingTransport != nil ? Color.orange : Color.gray.opacity(0.3))
-                    .frame(width: outgoingTransport != nil ? 2 : 1)
-                    .frame(maxHeight: .infinity)
+                HStack(spacing: 4) {
+                    Image(systemName: transport.type.iconName)
+                        .font(.caption2)
+                        .foregroundColor(transport.type.color)
+                    Text("\(transport.departureLocation) → \(transport.arrivalLocation)")
+                        .font(.caption2)
+                        .foregroundColor(.secondary)
+                        .lineLimit(1)
+                }
+                .padding(.vertical, 6)
+                .padding(.horizontal, 8)
+                .background(Color.orange.opacity(0.1))
+                .cornerRadius(6)
+                .frame(maxWidth: .infinity, alignment: .leading)
+
+                Spacer().frame(height: 6)
+            } else {
+                Spacer().frame(height: 8)
             }
         }
-        .frame(width: 16)
     }
 
     // MARK: - Stop Header
@@ -110,23 +111,9 @@ struct RoadmapStopRow: View {
                         .font(.caption)
                         .foregroundColor(.orange)
 
-                    if let arrival = stop.arrivalDate {
-                        Text(formatDate(arrival))
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                    }
-
-                    if stop.arrivalDate != nil && stop.departureDate != nil {
-                        Text("-")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                    }
-
-                    if let departure = stop.departureDate {
-                        Text(formatDate(departure))
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                    }
+                    Text(formatDateRange(arrival: stop.arrivalDate, departure: stop.departureDate))
+                        .font(.caption)
+                        .foregroundColor(.secondary)
                 }
             }
 
@@ -145,6 +132,10 @@ struct RoadmapStopRow: View {
         .padding(12)
         .background(Color(.systemBackground))
         .cornerRadius(10)
+        .contentShape(Rectangle())
+        .onTapGesture {
+            isExpanded.toggle()
+        }
     }
 
     // MARK: - Expanded Content
@@ -205,9 +196,15 @@ struct RoadmapStopRow: View {
             Button {
                 showDetailView = true
             } label: {
-                Label(L("Open"), systemImage: "arrow.up.right")
+                Label(L("open.details"), systemImage: "arrow.up.right")
                     .font(.caption)
                     .foregroundColor(.orange)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 6)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.orange, lineWidth: 1)
+                    )
             }
             .padding(.horizontal, 12)
             .padding(.top, 4)
@@ -216,7 +213,31 @@ struct RoadmapStopRow: View {
 
     // MARK: - Helpers
 
+    private func formatDateRange(arrival: Date?, departure: Date?) -> String {
+        if let arrival, let departure,
+           Calendar.current.isDate(arrival, inSameDayAs: departure) {
+            let day = arrival.formatted(.dateTime.day().month(.abbreviated))
+            let startTime = arrival.formatted(.dateTime.hour(.twoDigits(amPM: .omitted)).minute())
+            let endTime = departure.formatted(.dateTime.hour(.twoDigits(amPM: .omitted)).minute())
+            return "\(day), \(startTime) - \(endTime)"
+        }
+
+        if let arrival, let departure {
+            return "\(formatDate(arrival)) - \(formatDate(departure))"
+        }
+
+        if let arrival {
+            return formatDate(arrival)
+        }
+
+        if let departure {
+            return formatDate(departure)
+        }
+
+        return ""
+    }
+
     private func formatDate(_ date: Date) -> String {
-        date.formatted(.dateTime.month(.abbreviated).day())
+        date.formatted(.dateTime.day().month(.abbreviated))
     }
 }

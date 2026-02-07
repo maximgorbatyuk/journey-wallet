@@ -139,12 +139,22 @@ Supported languages: English (en), Russian (ru), Kazakh (kk), Turkish (tr), Germ
 
 Localization files are in `JourneyWallet/{lang}.lproj/Localizable.strings`.
 
+Before adding any localization strings (NSLocalizedString, etc.), verify the translation key exists in all .strings/.xcstrings files. Never add untranslated keys without flagging them.
+
 ### Navigation
 Use `NavigationStack` for all navigation containers. Never use `NavigationView` — it is deprecated and causes layout issues (unwanted split view on iPad in sheets).
 
 ## Currency
 
 Monetary values must use `Decimal` type. Supported currencies are defined in `BusinessLogic/Models/Currency.swift`.
+
+## Documentation
+
+When editing existing documentation (README.md, CHANGELOG.md, etc.), preserve the original content and structure. Only add or modify the specific sections relevant to the task. Do not rewrite existing text.
+
+## Pagination
+
+When implementing pagination or filtering, always default to SQL-level implementation unless explicitly told otherwise. Never implement in-memory pagination for data that comes from a database.
 
 ## Git Workflow
 

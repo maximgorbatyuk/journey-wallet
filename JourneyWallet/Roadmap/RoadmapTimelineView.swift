@@ -126,10 +126,23 @@ struct RoadmapTimelineView: View {
 
     private var timelineContent: some View {
         ZStack(alignment: .bottomTrailing) {
+            VStack(spacing: 0) {
+                HStack(spacing: 4) {
+                    Image(systemName: "hand.tap")
+                        .font(.caption2)
+                    Text(L("roadmap.hint.tap_to_expand"))
+                        .font(.caption2)
+                }
+                .foregroundColor(.secondary)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 6)
+                .frame(maxWidth: .infinity, alignment: .leading)
+
             List {
                 ForEach(Array(viewModel.stops.enumerated()), id: \.element.id) { index, stop in
                     RoadmapStopRow(
                         stop: stop,
+                        isFirst: index == 0,
                         isLast: index == viewModel.stops.count - 1,
                         attachments: viewModel.attachmentsByStopId[stop.id] ?? [],
                         outgoingTransport: viewModel.transportsByStopId[stop.id],
@@ -145,6 +158,7 @@ struct RoadmapTimelineView: View {
             }
             .listStyle(.plain)
             .environment(\.editMode, .constant(.active))
+            }
 
             // FAB
             Button {

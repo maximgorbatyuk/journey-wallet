@@ -16,6 +16,7 @@
 "Add" = "Додати";
 "Edit" = "Редагувати";
 "Open" = "Відкрити";
+"open.details" = "Відкрити деталі";
 "Create" = "Створити";
 "Select" = "Вибрати";
 "Loading" = "Завантаження";
@@ -303,6 +304,7 @@
 "main.stats.total_journeys" = "Всього подорожей";
 "main.stats.upcoming" = "Майбутні";
 "main.stats.destinations" = "Напрямки";
+"main.stats.reminders" = "Нагадування";
 "main.active_journeys.title" = "Ваші подорожі";
 "main.empty.title" = "Подорожей ще немає";
 "main.empty.subtitle" = "Почніть планувати свою наступну пригоду, додавши подорож.";
@@ -1096,7 +1098,10 @@
 "roadmap.set_transport" = "Вказати транспорт";
 "roadmap.attached_to" = "На маршруті";
 "roadmap.detach" = "Прибрати з маршруту";
+"roadmap.detach.confirm.title" = "Прибрати з маршруту";
+"roadmap.detach.confirm.message" = "Ви впевнені, що хочете прибрати цей елемент із зупинки маршруту?";
 "roadmap.no_transport" = "Транспорт не вказано";
+"roadmap.hint.tap_to_expand" = "Натисніть на зупинку для деталей";
 "roadmap.entity_name" = "Зупинка маршруту";
 "roadmap.detail.title" = "Деталі зупинки";
 "roadmap.detail.dates" = "Дати";
