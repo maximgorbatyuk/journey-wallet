@@ -49,6 +49,7 @@ struct RoadmapTimelineView: View {
                         } label: {
                             Image(systemName: "ellipsis.circle")
                         }
+                        .accessibilityLabel(L("roadmap.more_options"))
                     }
                 }
             }
@@ -123,6 +124,7 @@ struct RoadmapTimelineView: View {
                     .cornerRadius(25)
             }
             .disabled(viewModel.selectedJourneyId == nil)
+            .accessibilityLabel(L("roadmap.add_stop"))
 
             Spacer()
         }
@@ -186,6 +188,7 @@ struct RoadmapTimelineView: View {
                     .clipShape(Circle())
                     .shadow(color: .orange.opacity(0.4), radius: 8, x: 0, y: 4)
             }
+            .accessibilityLabel(L("roadmap.add_stop"))
             .padding(.trailing, 20)
             .padding(.bottom, 20)
         }

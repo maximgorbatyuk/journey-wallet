@@ -32,6 +32,7 @@ struct RoadmapAttachmentBanner: View {
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
+            .accessibilityLabel(L("roadmap.detach"))
         }
         .padding(.horizontal, 12)
         .padding(.vertical, 8)

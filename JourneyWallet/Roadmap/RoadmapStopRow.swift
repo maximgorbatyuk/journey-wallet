@@ -79,6 +79,7 @@ struct RoadmapStopRow: View {
                         .font(.caption)
                         .foregroundColor(.orange)
                 }
+                .accessibilityLabel(L("open.details"))
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(12)

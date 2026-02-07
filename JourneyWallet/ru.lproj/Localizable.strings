@@ -1096,6 +1096,7 @@
 "roadmap.empty.title" = "Пока нет остановок";
 "roadmap.empty.message" = "Добавьте города и места, чтобы спланировать маршрут поездки";
 "roadmap.add_stop" = "Добавить остановку";
+"roadmap.more_options" = "Ещё";
 "roadmap.edit_stop" = "Редактировать остановку";
 "roadmap.stop.title" = "Название";
 "roadmap.stop.subtitle" = "Описание";

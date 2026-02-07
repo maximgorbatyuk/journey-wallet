@@ -1097,6 +1097,7 @@
 "roadmap.empty.title" = "Аялдамалар жоқ";
 "roadmap.empty.message" = "Саяхат жоспарын құру үшін қалалар мен орындар қосыңыз";
 "roadmap.add_stop" = "Аялдама қосу";
+"roadmap.more_options" = "Қосымша";
 "roadmap.edit_stop" = "Аялдаманы өзгерту";
 "roadmap.stop.title" = "Атауы";
 "roadmap.stop.subtitle" = "Сипаттама";

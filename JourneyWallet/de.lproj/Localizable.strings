@@ -1093,6 +1093,7 @@
 "roadmap.empty.title" = "Noch keine Stationen";
 "roadmap.empty.message" = "Fügen Sie Städte und Orte hinzu, um Ihren Reiseplan zu erstellen";
 "roadmap.add_stop" = "Station hinzufügen";
+"roadmap.more_options" = "Weitere Optionen";
 "roadmap.edit_stop" = "Station bearbeiten";
 "roadmap.stop.title" = "Titel";
 "roadmap.stop.subtitle" = "Beschreibung";

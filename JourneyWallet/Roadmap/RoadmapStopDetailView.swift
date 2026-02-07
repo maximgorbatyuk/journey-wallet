@@ -91,6 +91,7 @@ struct RoadmapStopDetailView: View {
                     } label: {
                         Image(systemName: "ellipsis.circle")
                     }
+                    .accessibilityLabel(L("roadmap.more_options"))
                 }
             }
             .onAppear {
@@ -283,6 +284,7 @@ struct RoadmapStopDetailView: View {
                             .foregroundColor(.secondary)
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel(L("roadmap.detach"))
                 }
                 .padding(.vertical, 4)
             }

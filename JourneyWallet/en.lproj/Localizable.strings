@@ -1090,6 +1090,7 @@
 "roadmap.empty.title" = "No Stops Yet";
 "roadmap.empty.message" = "Add cities and places to plan your trip timeline";
 "roadmap.add_stop" = "Add Stop";
+"roadmap.more_options" = "More Options";
 "roadmap.edit_stop" = "Edit Stop";
 "roadmap.stop.title" = "Title";
 "roadmap.stop.subtitle" = "Description";

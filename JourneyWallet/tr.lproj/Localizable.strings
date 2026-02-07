@@ -1093,6 +1093,7 @@
 "roadmap.empty.title" = "Henüz Durak Yok";
 "roadmap.empty.message" = "Gezi planınızı oluşturmak için şehirler ve yerler ekleyin";
 "roadmap.add_stop" = "Durak Ekle";
+"roadmap.more_options" = "Diğer Seçenekler";
 "roadmap.edit_stop" = "Durağı Düzenle";
 "roadmap.stop.title" = "Başlık";
 "roadmap.stop.subtitle" = "Açıklama";
