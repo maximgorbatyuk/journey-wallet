@@ -10,7 +10,6 @@ struct RoadmapStopRow: View {
     let hasDateInconsistency: Bool
     let viewModel: RoadmapTimelineViewModel
 
-    @State private var isExpanded: Bool = false
     @State private var showDetailView: Bool = false
 
     private var isPast: Bool {
@@ -29,21 +28,80 @@ struct RoadmapStopRow: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // Incoming section: line + optional transport label
-            if !isFirst {
-                incomingSection
-            }
-
             // Stop content
             VStack(alignment: .leading, spacing: 8) {
-                stopHeader
+                // Title
+                Text(stop.title)
+                    .font(.headline)
 
-                if isExpanded {
-                    expandedContent
+                if let subtitle = stop.subtitle, !subtitle.isEmpty {
+                    Text(subtitle)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+
+                // Date range
+                if stop.arrivalDate != nil || stop.departureDate != nil {
+                    HStack(spacing: 4) {
+                        Image(systemName: "calendar")
+                            .font(.caption)
+                            .foregroundColor(.orange)
+
+                        Text(formatDateRange(arrival: stop.arrivalDate, departure: stop.departureDate))
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                }
+
+                // Date inconsistency warning
+                if hasDateInconsistency {
+                    HStack(spacing: 4) {
+                        Image(systemName: "exclamationmark.triangle.fill")
+                            .font(.caption2)
+                            .foregroundColor(.yellow)
+                        Text(L("roadmap.date_inconsistency"))
+                            .font(.caption2)
+                            .foregroundColor(.orange)
+                    }
+                }
+
+                // Attached entities as small labels
+                if !attachments.isEmpty {
+                    FlowLayout(spacing: 6) {
+                        ForEach(attachments) { attachment in
+                            HStack(spacing: 4) {
+                                Image(systemName: viewModel.entityIcon(for: attachment.entityType))
+                                    .font(.system(size: 10))
+                                Text(viewModel.entityDisplayName(for: attachment))
+                                    .font(.caption2)
+                                    .lineLimit(1)
+                            }
+                            .foregroundColor(viewModel.entityColor(for: attachment.entityType))
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 4)
+                            .background(viewModel.entityColor(for: attachment.entityType).opacity(0.12))
+                            .cornerRadius(6)
+                        }
+                    }
+                }
+
+                // Details button
+                Button {
+                    showDetailView = true
+                } label: {
+                    Text(L("open.details"))
+                        .font(.caption)
+                        .foregroundColor(.orange)
                 }
             }
-            .padding(.bottom, 4)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(12)
+            .background(Color(.systemBackground))
+            .cornerRadius(10)
+
+            Color.clear.frame(height: 36)
         }
+        .background(timelineLine)
         .sheet(isPresented: $showDetailView) {
             RoadmapStopDetailView(
                 stop: stop,
@@ -55,172 +113,29 @@ struct RoadmapStopRow: View {
         }
     }
 
-    // MARK: - Incoming Section
+    // MARK: - Timeline Line
 
-    private var incomingSection: some View {
-        VStack(spacing: 0) {
-            if let transport = outgoingTransport {
-                Spacer().frame(height: 20)
+    private var timelineLine: some View {
+        GeometryReader { geo in
+            let midY = geo.size.height / 2
+            let centerX = geo.size.width / 2
 
-                HStack(spacing: 4) {
-                    Image(systemName: transport.type.iconName)
-                        .font(.caption2)
-                        .foregroundColor(transport.type.color)
-                    Text("\(transport.departureLocation) → \(transport.arrivalLocation)")
-                        .font(.caption2)
-                        .foregroundColor(.secondary)
-                        .lineLimit(1)
-                }
-                .padding(.vertical, 6)
-                .padding(.horizontal, 8)
-                .background(Color.orange.opacity(0.1))
-                .cornerRadius(6)
-                .frame(maxWidth: .infinity, alignment: .leading)
-
-                Spacer().frame(height: 6)
-            } else {
-                Spacer().frame(height: 8)
-            }
-        }
-    }
-
-    // MARK: - Stop Header
-
-    private var stopHeader: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            HStack {
-                Text(stop.title)
-                    .font(.headline)
-
-                Spacer()
-
-                Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-            }
-
-            if let subtitle = stop.subtitle, !subtitle.isEmpty {
-                Text(subtitle)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-            }
-
-            // Date range
-            if stop.arrivalDate != nil || stop.departureDate != nil {
-                HStack(spacing: 4) {
-                    Image(systemName: "calendar")
-                        .font(.caption)
-                        .foregroundColor(.orange)
-
-                    Text(formatDateRange(arrival: stop.arrivalDate, departure: stop.departureDate))
-                        .font(.caption)
-                        .foregroundColor(.secondary)
+            Path { path in
+                if isFirst {
+                    path.move(to: CGPoint(x: centerX, y: midY))
+                    path.addLine(to: CGPoint(x: centerX, y: geo.size.height))
+                } else if isLast {
+                    path.move(to: CGPoint(x: centerX, y: 0))
+                    path.addLine(to: CGPoint(x: centerX, y: midY))
+                } else {
+                    path.move(to: CGPoint(x: centerX, y: 0))
+                    path.addLine(to: CGPoint(x: centerX, y: geo.size.height))
                 }
             }
-
-            // Date inconsistency warning
-            if hasDateInconsistency {
-                HStack(spacing: 4) {
-                    Image(systemName: "exclamationmark.triangle.fill")
-                        .font(.caption2)
-                        .foregroundColor(.yellow)
-                    Text(L("roadmap.date_inconsistency"))
-                        .font(.caption2)
-                        .foregroundColor(.orange)
-                }
-            }
-
-            // Attachment count badge
-            if !attachments.isEmpty {
-                HStack(spacing: 4) {
-                    Image(systemName: "paperclip")
-                        .font(.caption2)
-                        .foregroundColor(.orange)
-                    Text("\(attachments.count)")
-                        .font(.caption2)
-                        .foregroundColor(.secondary)
-                }
-            }
-        }
-        .padding(12)
-        .background(Color(.systemBackground))
-        .cornerRadius(10)
-        .contentShape(Rectangle())
-        .onTapGesture {
-            isExpanded.toggle()
-        }
-    }
-
-    // MARK: - Expanded Content
-
-    private var expandedContent: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            // Notes
-            if let notes = stop.notes, !notes.isEmpty {
-                Text(notes)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                    .padding(.horizontal, 12)
-            }
-
-            // Attached entities
-            if !attachments.isEmpty {
-                VStack(alignment: .leading, spacing: 4) {
-                    ForEach(attachments) { attachment in
-                        HStack(spacing: 8) {
-                            Image(systemName: viewModel.entityIcon(for: attachment.entityType))
-                                .font(.caption)
-                                .foregroundColor(viewModel.entityColor(for: attachment.entityType))
-                                .frame(width: 20)
-
-                            Text(viewModel.entityDisplayName(for: attachment))
-                                .font(.caption)
-                                .lineLimit(1)
-
-                            Spacer()
-                        }
-                        .padding(.vertical, 4)
-                        .padding(.horizontal, 12)
-                    }
-                }
-                .background(Color(.systemBackground).opacity(0.5))
-                .cornerRadius(8)
-            }
-
-            // Outgoing transport card
-            if let transport = outgoingTransport {
-                HStack(spacing: 8) {
-                    Image(systemName: transport.type.iconName)
-                        .font(.caption)
-                        .foregroundColor(transport.type.color)
-
-                    Text("\(transport.departureLocation) → \(transport.arrivalLocation)")
-                        .font(.caption)
-                        .lineLimit(1)
-
-                    Spacer()
-                }
-                .padding(8)
-                .background(Color.orange.opacity(0.1))
-                .cornerRadius(8)
-            }
-
-            // Open detail button
-            Button {
-                showDetailView = true
-            } label: {
-                Label(L("open.details"), systemImage: "arrow.up.right")
-                    .font(.caption)
-                    .foregroundColor(.orange)
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 6)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.orange, lineWidth: 1)
-                    )
-            }
-            .padding(.horizontal, 12)
-            .padding(.top, 4)
+            .stroke(
+                Color.orange.opacity(0.3),
+                style: StrokeStyle(lineWidth: 1.5, dash: [6, 4])
+            )
         }
     }
 
@@ -252,5 +167,48 @@ struct RoadmapStopRow: View {
 
     private func formatDate(_ date: Date) -> String {
         date.formatted(.dateTime.day().month(.abbreviated))
+    }
+}
+
+// MARK: - Flow Layout
+
+private struct FlowLayout: Layout {
+    var spacing: CGFloat = 6
+
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+        let result = arrange(proposal: proposal, subviews: subviews)
+        return result.size
+    }
+
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+        let result = arrange(proposal: proposal, subviews: subviews)
+        for (index, position) in result.positions.enumerated() {
+            subviews[index].place(at: CGPoint(x: bounds.minX + position.x, y: bounds.minY + position.y),
+                                  proposal: .unspecified)
+        }
+    }
+
+    private func arrange(proposal: ProposedViewSize, subviews: Subviews) -> (size: CGSize, positions: [CGPoint]) {
+        let maxWidth = proposal.width ?? .infinity
+        var positions: [CGPoint] = []
+        var x: CGFloat = 0
+        var y: CGFloat = 0
+        var rowHeight: CGFloat = 0
+        var totalHeight: CGFloat = 0
+
+        for subview in subviews {
+            let size = subview.sizeThatFits(.unspecified)
+            if x + size.width > maxWidth, x > 0 {
+                x = 0
+                y += rowHeight + spacing
+                rowHeight = 0
+            }
+            positions.append(CGPoint(x: x, y: y))
+            rowHeight = max(rowHeight, size.height)
+            x += size.width + spacing
+        }
+        totalHeight = y + rowHeight
+
+        return (CGSize(width: maxWidth, height: totalHeight), positions)
     }
 }

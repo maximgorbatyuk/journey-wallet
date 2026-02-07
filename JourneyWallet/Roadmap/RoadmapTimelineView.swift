@@ -5,9 +5,11 @@ struct RoadmapTimelineView: View {
     @State private var viewModel = RoadmapTimelineViewModel()
     @ObservedObject private var analytics = AnalyticsService.shared
 
+    @State private var localStops: [RoadmapStop] = []
     @State private var showAddStopSheet: Bool = false
     @State private var showCreateJourneySheet: Bool = false
     @State private var showResetConfirmation: Bool = false
+    @State private var editMode: EditMode = .active
 
     var body: some View {
         NavigationStack {
@@ -60,7 +62,11 @@ struct RoadmapTimelineView: View {
             }
             .onAppear {
                 viewModel.loadInitialData()
+                localStops = viewModel.stops
                 analytics.trackScreen("roadmap_timeline_screen")
+            }
+            .onChange(of: viewModel.stops) { _, newStops in
+                localStops = newStops
             }
             .refreshable {
                 viewModel.refreshData()
@@ -139,15 +145,16 @@ struct RoadmapTimelineView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
 
             List {
-                ForEach(Array(viewModel.stops.enumerated()), id: \.element.id) { index, stop in
+                ForEach(localStops) { stop in
+                    let index = localStops.firstIndex(where: { $0.id == stop.id }) ?? 0
                     let dateInconsistent = hasDateInconsistency(
                         stop: stop,
-                        nextStop: index + 1 < viewModel.stops.count ? viewModel.stops[index + 1] : nil
+                        nextStop: index + 1 < localStops.count ? localStops[index + 1] : nil
                     )
                     RoadmapStopRow(
                         stop: stop,
                         isFirst: index == 0,
-                        isLast: index == viewModel.stops.count - 1,
+                        isLast: index == localStops.count - 1,
                         attachments: viewModel.attachmentsByStopId[stop.id] ?? [],
                         outgoingTransport: viewModel.transportsByStopId[stop.id],
                         hasDateInconsistency: dateInconsistent,
@@ -158,11 +165,12 @@ struct RoadmapTimelineView: View {
                     .listRowBackground(Color.clear)
                 }
                 .onMove { source, destination in
-                    viewModel.moveStops(from: source, to: destination)
+                    localStops.move(fromOffsets: source, toOffset: destination)
+                    viewModel.persistStopReorder(localStops)
                 }
             }
             .listStyle(.plain)
-            .environment(\.editMode, .constant(.active))
+            .environment(\.editMode, $editMode)
             }
 
             // FAB

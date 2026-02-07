@@ -1103,7 +1103,7 @@
 "roadmap.detach.confirm.title" = "Detach from Timeline";
 "roadmap.detach.confirm.message" = "Are you sure you want to remove this item from the timeline stop?";
 "roadmap.no_transport" = "No transport set";
-"roadmap.hint.tap_to_expand" = "Tap a stop to see details";
+"roadmap.hint.tap_to_expand" = "Feel free to attach any Journey object to any stop, for better planning";
 "roadmap.date_inconsistency" = "Dates overlap with the next stop";
 "roadmap.entity_name" = "Roadmap Stop";
 "roadmap.detail.title" = "Stop Details";

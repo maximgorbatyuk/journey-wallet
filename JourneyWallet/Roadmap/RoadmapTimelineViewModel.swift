@@ -139,20 +139,12 @@ class RoadmapTimelineViewModel {
         }
     }
 
-    func moveStops(from source: IndexSet, to destination: Int) {
-        var reordered = stops
-        reordered.move(fromOffsets: source, toOffset: destination)
-
-        let updates = reordered.enumerated().map { (index, stop) in
+    func persistStopReorder(_ reorderedStops: [RoadmapStop]) {
+        let updates = reorderedStops.enumerated().map { (index, stop) in
             (id: stop.id, sortOrder: index)
         }
 
         if roadmapStopsRepository?.updateSortOrders(updates) == true {
-            stops = reordered.enumerated().map { (index, stop) in
-                var updated = stop
-                updated.sortOrder = index
-                return updated
-            }
             if let journeyId = selectedJourneyId {
                 journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             }
@@ -160,6 +152,8 @@ class RoadmapTimelineViewModel {
         } else {
             logger.error("Failed to reorder roadmap stops")
         }
+
+        loadStops()
     }
 
     func refreshData() {

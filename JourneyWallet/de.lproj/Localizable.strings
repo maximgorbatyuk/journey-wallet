@@ -1106,7 +1106,7 @@
 "roadmap.detach.confirm.title" = "Aus Reiseplan entfernen";
 "roadmap.detach.confirm.message" = "Möchten Sie dieses Element wirklich aus der Station entfernen?";
 "roadmap.no_transport" = "Kein Transport festgelegt";
-"roadmap.hint.tap_to_expand" = "Tippen Sie auf eine Station für Details";
+"roadmap.hint.tap_to_expand" = "Verknüpfen Sie beliebige Reiseobjekte mit Stationen für eine bessere Planung";
 "roadmap.date_inconsistency" = "Daten überschneiden sich mit der nächsten Station";
 "roadmap.entity_name" = "Reiseplan-Station";
 "roadmap.detail.title" = "Stationsdetails";

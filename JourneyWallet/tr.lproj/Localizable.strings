@@ -1106,7 +1106,7 @@
 "roadmap.detach.confirm.title" = "Yol haritasından kaldır";
 "roadmap.detach.confirm.message" = "Bu öğeyi duraktan kaldırmak istediğinizden emin misiniz?";
 "roadmap.no_transport" = "Ulaşım belirlenmedi";
-"roadmap.hint.tap_to_expand" = "Ayrıntılar için bir durağa dokunun";
+"roadmap.hint.tap_to_expand" = "Daha iyi planlama için herhangi bir seyahat nesnesini duraklara ekleyin";
 "roadmap.date_inconsistency" = "Tarihler bir sonraki durakla çakışıyor";
 "roadmap.entity_name" = "Yol Haritası Durağı";
 "roadmap.detail.title" = "Durak Detayları";

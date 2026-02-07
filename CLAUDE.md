@@ -156,6 +156,27 @@ When editing existing documentation (README.md, CHANGELOG.md, etc.), preserve th
 
 When implementing pagination or filtering, always default to SQL-level implementation unless explicitly told otherwise. Never implement in-memory pagination for data that comes from a database.
 
+## List Reordering with @Observable
+
+SwiftUI's `List` suppresses `@Observable`-driven re-renders during `.onMove` gesture processing. Never mutate an `@Observable` array directly in `.onMove` — the UI won't update.
+
+**Fix:** Use a local `@State` array for `ForEach`, mutate it directly in `.onMove`, and sync with the ViewModel via `onChange(of:)`. The ViewModel only handles DB persistence; visual reordering is driven by `@State`.
+
+```swift
+@State private var localItems: [Item] = []
+
+List {
+    ForEach(localItems) { item in ... }
+        .onMove { source, destination in
+            localItems.move(fromOffsets: source, toOffset: destination)
+            viewModel.persistReorder(localItems)
+        }
+}
+.onChange(of: viewModel.items) { _, newItems in
+    localItems = newItems
+}
+```
+
 ## Git Workflow
 
 - Main branch: `main`

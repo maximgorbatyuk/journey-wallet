@@ -1108,7 +1108,7 @@
 "roadmap.detach.confirm.title" = "Прибрати з маршруту";
 "roadmap.detach.confirm.message" = "Ви впевнені, що хочете прибрати цей елемент із зупинки маршруту?";
 "roadmap.no_transport" = "Транспорт не вказано";
-"roadmap.hint.tap_to_expand" = "Натисніть на зупинку для деталей";
+"roadmap.hint.tap_to_expand" = "Прикріплюйте будь-які об'єкти подорожі до зупинок для зручного планування";
 "roadmap.date_inconsistency" = "Дати перетинаються з наступною зупинкою";
 "roadmap.entity_name" = "Зупинка маршруту";
 "roadmap.detail.title" = "Деталі зупинки";
