@@ -182,3 +182,22 @@ List {
 - Main branch: `main`
 - Development branch: `develop`
 - PRs target `develop` for review
+
+## Agent Instructions
+
+When generating code for this project:
+
+1. **Always ask for clarification** if requirements are ambiguous
+2. **Provide complete, runnable code** — no placeholders or TODOs unless requested
+3. **Include error handling** in all async operations
+4. **Add brief comments** for complex logic only
+5. **Follow existing patterns** in the codebase
+6. **Consider edge cases**: empty states, loading states, error states
+7. **Suggest tests** for critical business logic
+8. **Respect the localization requirement** — never hardcode strings
+
+When modifying existing code:
+1. Understand the current implementation first
+2. Make minimal changes to achieve the goal
+3. Maintain consistency with surrounding code style
+4. Don't refactor unrelated code unless asked
