@@ -1070,6 +1070,7 @@
 /* Developer - Document Storage Browser */
 "developer.document_storage.title" = "Сховище документів";
 "developer.document_storage.button" = "Переглянути сховище документів";
+"developer.launch_screen.button" = "Показати екран запуску";
 "developer.document_storage.stats.title" = "Використання сховища";
 "developer.document_storage.stats.files_folders" = "%d файлів у %d папках";
 "developer.document_storage.stats.files" = "файли";

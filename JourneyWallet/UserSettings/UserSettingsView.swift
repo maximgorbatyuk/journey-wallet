@@ -33,6 +33,7 @@ struct UserSettingsView: SwiftUICore.View {
 
     // Document storage browser
     @State private var showDocumentStorageBrowser = false
+    @State private var showLaunchScreen = false
 
     @ObservedObject private var analytics = AnalyticsService.shared
     @ObservedObject private var notificationsManager = NotificationManager.shared
@@ -628,6 +629,18 @@ struct UserSettingsView: SwiftUICore.View {
                             }
                         }
                         .buttonStyle(.plain)
+
+                        Button(action: {
+                            showLaunchScreen = true
+                        }) {
+                            HStack {
+                                Image(systemName: "sparkles.rectangle.stack")
+                                    .foregroundColor(.orange)
+                                Text(L("developer.launch_screen.button"))
+                                    .foregroundColor(.primary)
+                            }
+                        }
+                        .buttonStyle(.plain)
                     }
                 }
             }
@@ -755,6 +768,9 @@ struct UserSettingsView: SwiftUICore.View {
             }
             .sheet(isPresented: $showDocumentStorageBrowser) {
                 DocumentStorageBrowserView()
+            }
+            .sheet(isPresented: $showLaunchScreen) {
+                LaunchScreenView()
             }
         }
     }
