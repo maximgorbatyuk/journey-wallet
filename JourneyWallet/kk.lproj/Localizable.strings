@@ -1072,6 +1072,7 @@
 /* Developer - Document Storage Browser */
 "developer.document_storage.title" = "Құжаттар сақтауышы";
 "developer.document_storage.button" = "Құжаттар сақтауышын қарау";
+"developer.launch_screen.button" = "Іске қосу экранын көрсету";
 "developer.document_storage.stats.title" = "Сақтау орнының қолданылуы";
 "developer.document_storage.stats.files_folders" = "%d файл %d қалта";
 "developer.document_storage.stats.files" = "файлдар";

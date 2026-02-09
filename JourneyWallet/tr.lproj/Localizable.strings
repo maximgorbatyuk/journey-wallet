@@ -1068,6 +1068,7 @@
 /* Developer - Document Storage Browser */
 "developer.document_storage.title" = "Belge Deposu";
 "developer.document_storage.button" = "Belge Deposuna Göz At";
+"developer.launch_screen.button" = "Başlatma Ekranını Göster";
 "developer.document_storage.stats.title" = "Depo Kullanımı";
 "developer.document_storage.stats.files_folders" = "%d dosya %d klasörde";
 "developer.document_storage.stats.files" = "dosyalar";

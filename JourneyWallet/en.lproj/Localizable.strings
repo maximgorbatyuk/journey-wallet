@@ -1065,6 +1065,7 @@
 /* Developer - Document Storage Browser */
 "developer.document_storage.title" = "Document Storage";
 "developer.document_storage.button" = "Browse Document Storage";
+"developer.launch_screen.button" = "Show Launch Screen";
 "developer.document_storage.stats.title" = "Storage Usage";
 "developer.document_storage.stats.files_folders" = "%d files in %d folders";
 "developer.document_storage.stats.files" = "files";

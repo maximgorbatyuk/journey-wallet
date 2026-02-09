@@ -1071,6 +1071,7 @@
 /* Developer - Document Storage Browser */
 "developer.document_storage.title" = "Хранилище документов";
 "developer.document_storage.button" = "Просмотреть хранилище документов";
+"developer.launch_screen.button" = "Показать экран запуска";
 "developer.document_storage.stats.title" = "Использование хранилища";
 "developer.document_storage.stats.files_folders" = "%d файлов в %d папках";
 "developer.document_storage.stats.files" = "файлов";
