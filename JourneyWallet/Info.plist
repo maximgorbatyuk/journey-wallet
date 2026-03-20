@@ -20,6 +20,8 @@
 	<string>$(DEVELOPER_TELEGRAM_LINK)</string>
 	<key>GithubRepoUrl</key>
 	<string>$(GITHUB_REPO_URL)</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera access is needed to take photos of your documents</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

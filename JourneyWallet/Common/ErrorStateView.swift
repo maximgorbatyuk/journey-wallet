@@ -168,7 +168,7 @@ struct ErrorAlertModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .alert(L("Error"), isPresented: .constant(error != nil)) {
+            .alert(L("Error"), isPresented: isErrorPresented) {
                 Button(L("OK")) {
                     error = nil
                 }
@@ -184,11 +184,36 @@ struct ErrorAlertModifier: ViewModifier {
                 }
             }
     }
+
+    private var isErrorPresented: SwiftUI.Binding<Bool> {
+        SwiftUI.Binding(
+            get: {
+                error != nil
+            },
+            set: { isPresented in
+                if !isPresented {
+                    error = nil
+                }
+            }
+        )
+    }
 }
 
 extension View {
     func errorAlert(_ error: Binding<String?>, retryAction: (() -> Void)? = nil) -> some View {
-        self.alert(L("Error"), isPresented: .constant(error.wrappedValue != nil)) {
+        self.alert(
+            L("Error"),
+            isPresented: SwiftUI.Binding(
+                get: {
+                    error.wrappedValue != nil
+                },
+                set: { isPresented in
+                    if !isPresented {
+                        error.wrappedValue = nil
+                    }
+                }
+            )
+        ) {
             Button(L("OK")) {
                 error.wrappedValue = nil
             }

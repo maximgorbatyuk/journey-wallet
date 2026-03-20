@@ -22,7 +22,7 @@ struct DocumentNameEntryView: View {
     }
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Form {
                 Section {
                     // File info (read-only)
