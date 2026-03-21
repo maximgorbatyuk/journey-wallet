@@ -10,6 +10,7 @@ struct PendingDocument: Identifiable {
     let fileName: String
     let fileSize: Int64
     let nameRequired: Bool
+    let source: String
 }
 
 struct DocumentPickerView: View {
@@ -31,7 +32,7 @@ struct DocumentPickerView: View {
     @ObservedObject private var analytics = AnalyticsService.shared
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 Section {
                     // Import from Files
@@ -70,21 +71,23 @@ struct DocumentPickerView: View {
                         }
                     }
 
-                    // Take Photo
-                    Button {
-                        showCamera = true
-                    } label: {
-                        Label {
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text(L("document.import.camera"))
-                                    .foregroundColor(.primary)
-                                Text(L("document.import.camera.description"))
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
+                    // Take Photo (only shown when camera is available)
+                    if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                        Button {
+                            showCamera = true
+                        } label: {
+                            Label {
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text(L("document.import.camera"))
+                                        .foregroundColor(.primary)
+                                    Text(L("document.import.camera.description"))
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                }
+                            } icon: {
+                                Image(systemName: "camera.fill")
+                                    .foregroundColor(.orange)
                             }
-                        } icon: {
-                            Image(systemName: "camera.fill")
-                                .foregroundColor(.orange)
                         }
                     }
                 } header: {
@@ -139,6 +142,7 @@ struct DocumentPickerView: View {
             }
             .fullScreenCover(isPresented: $showCamera) {
                 CameraView { image in
+                    showCamera = false
                     handleCapturedImage(image)
                 }
             }
@@ -216,10 +220,11 @@ struct DocumentPickerView: View {
                             originalPath: originalPath,
                             fileName: fileName,
                             fileSize: fileSize,
-                            nameRequired: false
+                            nameRequired: false,
+                            source: "files"
                         ))
                     } catch {
-                        print("Failed to copy file to temp: \(error)")
+                        GlobalLogger.shared.error("Failed to copy file to temp: \(error)")
                     }
                 }
             }
@@ -248,7 +253,14 @@ struct DocumentPickerView: View {
         let viewModel = DocumentListViewModel(journeyId: journeyId)
 
         // Save with optional name and file path
-        _ = viewModel.addDocument(from: pending.tempURL, name: name, filePath: pending.originalPath)
+        let success = viewModel.addDocument(from: pending.tempURL, name: name, filePath: pending.originalPath)
+
+        if success {
+            analytics.trackEvent("document_added", properties: [
+                "screen": "document_picker",
+                "source": pending.source
+            ])
+        }
 
         // Clean up temp file
         try? FileManager.default.removeItem(at: pending.tempURL)
@@ -304,10 +316,11 @@ struct DocumentPickerView: View {
                             originalPath: L("document.source.photo_library"),
                             fileName: fileName,
                             fileSize: fileSize,
-                            nameRequired: true
+                            nameRequired: true,
+                            source: "photo_library"
                         ))
                     } catch {
-                        print("Failed to process photo: \(error)")
+                        GlobalLogger.shared.error("Failed to process photo: \(error)")
                     }
                 }
             }
@@ -353,7 +366,8 @@ struct DocumentPickerView: View {
                         originalPath: L("document.source.camera"),
                         fileName: fileName,
                         fileSize: fileSize,
-                        nameRequired: true
+                        nameRequired: true,
+                        source: "camera"
                     )]
                     currentPendingIndex = 0
                     showNameEntry = true
@@ -365,45 +379,6 @@ struct DocumentPickerView: View {
                     showError = true
                 }
             }
-        }
-    }
-}
-
-// MARK: - Camera View
-
-struct CameraView: UIViewControllerRepresentable {
-
-    let onCapture: (UIImage?) -> Void
-
-    func makeUIViewController(context: Context) -> UIImagePickerController {
-        let picker = UIImagePickerController()
-        picker.sourceType = .camera
-        picker.delegate = context.coordinator
-        return picker
-    }
-
-    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {}
-
-    func makeCoordinator() -> Coordinator {
-        Coordinator(onCapture: onCapture)
-    }
-
-    class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-        let onCapture: (UIImage?) -> Void
-
-        init(onCapture: @escaping (UIImage?) -> Void) {
-            self.onCapture = onCapture
-        }
-
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-            let image = info[.originalImage] as? UIImage
-            picker.dismiss(animated: true)
-            onCapture(image)
-        }
-
-        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-            picker.dismiss(animated: true)
-            onCapture(nil)
         }
     }
 }

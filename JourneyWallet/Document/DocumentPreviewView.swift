@@ -27,7 +27,7 @@ struct DocumentPreviewView: View {
     }
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Group {
                 if document.isPDF {
                     PDFViewerView(url: documentURL)

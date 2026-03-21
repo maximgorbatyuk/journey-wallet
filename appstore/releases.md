@@ -1,5 +1,43 @@
 # App Store Releases
 
+## 2026.1.6
+
+### English
+
+```
+We improved document management — you can now take photos of documents directly from the camera, and we track where each document comes from so everything stays organized. We also fixed alert dialogs that could get stuck on screen and improved overall app stability.
+```
+
+### Russian
+
+```
+Мы улучшили работу с документами — теперь можно фотографировать документы прямо из камеры, а приложение запоминает, откуда добавлен каждый документ. Также исправили диалоговые окна ошибок, которые могли зависать на экране, и повысили общую стабильность приложения.
+```
+
+### Kazakh
+
+```
+Құжаттармен жұмысты жақсарттық — енді құжаттарды тікелей камерадан түсіруге болады, ал қолданба әр құжаттың қайдан қосылғанын есте сақтайды. Сондай-ақ экранда қалып қоятын қате терезелерін түзеттік және қолданбаның тұрақтылығын арттырдық.
+```
+
+### Turkish
+
+```
+Belge yönetimini iyileştirdik — artık belgeleri doğrudan kameradan çekebilirsiniz ve uygulama her belgenin nereden eklendiğini takip eder. Ayrıca ekranda takılı kalabilen hata bildirimlerini düzelttik ve genel uygulama kararlılığını artırdık.
+```
+
+### German
+
+```
+Wir haben die Dokumentenverwaltung verbessert — Sie können Dokumente jetzt direkt mit der Kamera aufnehmen, und die App merkt sich, woher jedes Dokument stammt. Außerdem haben wir Fehlermeldungen behoben, die auf dem Bildschirm hängen bleiben konnten, und die allgemeine Stabilität der App verbessert.
+```
+
+### Ukrainian
+
+```
+Ми покращили роботу з документами — тепер можна фотографувати документи прямо з камери, а застосунок запам'ятовує, звідки додано кожен документ. Також виправили діалогові вікна помилок, які могли зависати на екрані, та підвищили загальну стабільність застосунку.
+```
+
 ## 2026.1.5
 
 ### English

@@ -44,10 +44,14 @@ xcodebuild -project JourneyWallet.xcodeproj -scheme JourneyWallet \
   - `MainTabView.swift` - Tab navigation controller
   - Language directories (`en.lproj/`, `ru.lproj/`, etc.) - Localization files
 - **BusinessLogic/** - Shared business logic layer
+  - `Components/` - Reusable UI components
   - `Database/` - SQLite database manager, repositories, and migrations
+  - `Errors/` - Error types and logging
+  - `Extensions/` - Swift type extensions
+  - `Helpers/` - Utility helpers (L() function, AppLogger, etc.)
   - `Models/` - Data models (Currency, UserSettings, etc.)
   - `Services/` - App services (Analytics, Backup, Notifications, Localization, etc.)
-  - `Errors/` - Error types and logging
+  - `Theme/` - Theming and appearance
 
 ### Key Patterns
 

@@ -1,5 +1,34 @@
 # Changelog
 
+# 2026.1.6 (2026-03-21)
+
+## Improvements
+
+### Document Viewer
+- Extracted `CameraView` into a shared reusable component at `JourneyWallet/Shared/CameraView.swift`, removed inline implementation from `DocumentPickerView`
+- Added `source` field to `PendingDocument` to track document origin (`camera`, `photo_library`, `files`)
+- Added analytics event `document_added` with `screen` and `source` properties when a document is successfully saved
+- Migrated `DocumentPickerView`, `DocumentNameEntryView`, and `DocumentPreviewView` from deprecated `NavigationView` to `NavigationStack`
+- Replaced `print()` calls with `GlobalLogger.shared.error()` for proper error logging
+
+### Camera Permission Localization
+- Added `NSCameraUsageDescription` to `Info.plist` with base English string
+- Added localized camera permission descriptions in all 6 supported languages (EN, DE, RU, TR, KK, UK) via `InfoPlist.strings`
+
+### Error Alert Bindings
+- Fixed `.alert` bindings in `ErrorStateView`, `UserSettingsView`, and `iCloudBackupListView` — replaced `.constant(error != nil)` with proper computed `Binding<Bool>` that correctly dismisses alerts on user interaction
+
+### Website
+- Redesigned landing page footer with a 3-column grid layout (brand column, app links, resources)
+- Added responsive CSS for mobile breakpoints, hover states, and brutalism card styling for the footer
+
+## Internal
+
+- Version bumped from 2026.1.5 to 2026.1.6 across all targets (app and share extension, Debug and Release)
+- Updated `CLAUDE.md` directory structure documentation
+
+---
+
 # 2026.1.5 (2026-02-07)
 
 ## New Features
