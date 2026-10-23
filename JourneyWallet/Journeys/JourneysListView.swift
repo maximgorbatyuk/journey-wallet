@@ -7,7 +7,7 @@ struct JourneysListView: View {
     @ObservedObject private var analytics = AnalyticsService.shared
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack(alignment: .bottomTrailing) {
                 VStack(spacing: 0) {
                     // Filter Buttons

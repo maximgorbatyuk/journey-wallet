@@ -3,70 +3,74 @@ import SwiftUI
 struct OnboardingLanguageSelectionView: SwiftUICore.View {
 
     let onCurrentLanguageSelected: (_ selectedLanguage: AppLanguage) -> Void
-    
+
     @ObservedObject var localizationManager: LocalizationManager = .shared
     @ObservedObject var analytics: AnalyticsService = .shared
 
     @State var selectedLanguage: AppLanguage
 
     var body: some SwiftUICore.View {
-        VStack(spacing: 20) {
-            Spacer()
+        ScrollView {
+            VStack(spacing: 20) {
+                Spacer()
 
-            Image("BackgroundImage")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 100, height: 100) // Adjust size as needed
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-                .shadow(radius: 10)
+                Image("BackgroundImage")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100, height: 100)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .shadow(radius: 10)
 
-            VStack(spacing: 6) {
-                Text(L("Welcome to"))
-                    .font(.title2)
+                VStack(spacing: 6) {
+                    Text(L("Welcome to"))
+                        .font(.title2)
+                        .foregroundColor(.secondary)
+
+                    Text("Journey Wallet")
+                        .font(.largeTitle)
+                        .bold()
+                        .multilineTextAlignment(.center)
+                }
+
+                Text(L("Select your language"))
+                    .font(.headline)
                     .foregroundColor(.secondary)
+                    .padding(.top, 5)
 
-                Text("Journey Wallet")
-                    .font(.largeTitle)
-                    .bold()
-                    .multilineTextAlignment(.center)
-            }
+                VStack(spacing: 10) {
+                    ForEach(AppLanguage.allCases, id: \.self) { language in
+                        LanguageButton(
+                            language: language,
+                            isSelected: selectedLanguage == language
+                        ) {
+                            withAnimation(.spring()) {
+                                selectedLanguage = language
+                                do {
+                                    try localizationManager.setLanguage(language)
+                                } catch {
+                                    GlobalLogger.shared.error(
+                                        "Failed to set language to \(language.rawValue): \(error)"
+                                    )
+                                }
 
-            Text(L("Select your language"))
-                .font(.headline)
-                .foregroundColor(.secondary)
-                .padding(.top, 5)
+                                onCurrentLanguageSelected(language)
 
-            // Language options
-            VStack(spacing: 10) {
-                ForEach(AppLanguage.allCases, id: \.self) { language in
-                    LanguageButton(
-                        language: language,
-                        isSelected: selectedLanguage == language
-                    ) {
-                        withAnimation(.spring()) {
-                            selectedLanguage = language
-                            do {
-                                try localizationManager.setLanguage(language)
-                            } catch {
-                                GlobalLogger.shared.error("Failed to set language to \(language.rawValue): \(error)")
+                                analytics.trackEvent("language_selected", properties: [
+                                    "language": language.rawValue,
+                                    "screen": "onboarding_language_selection"
+                                ])
                             }
-
-                            onCurrentLanguageSelected(language)
-
-                            analytics.trackEvent("language_selected", properties: [
-                                "language": language.rawValue,
-                                "screen": "onboarding_language_selection"
-                            ])
                         }
                     }
                 }
+                .padding(.horizontal)
+
+                Spacer()
             }
-            .padding(.horizontal)
-            
-            Spacer()
+            .padding()
         }
-        .padding()
-    } // end of body
+        .defaultScrollAnchor(.center, for: .alignment)
+    }
 }
 
 struct LanguageButton: SwiftUICore.View {
@@ -82,7 +86,7 @@ struct LanguageButton: SwiftUICore.View {
                     .foregroundColor(isSelected ? .white : .primary)
 
                 Spacer()
-                
+
                 if isSelected {
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundColor(.white)
