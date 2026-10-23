@@ -1,0 +1,125 @@
+{
+  "app": "Journey Wallet",
+  "version": "2026.1.7",
+  "captured_on": "2026-10-23",
+  "device": "iPhone Duo",
+  "runtime": "iOS 27.1",
+  "appearance": "light",
+  "text_size": "large (default)",
+  "data": "Fictional demonstration records in an isolated simulator",
+  "status": "Prepared locally; not uploaded or published",
+  "assets": [
+    {
+      "file": "en/raw/01-overview-closed.png",
+      "locale": "en",
+      "width": 1398,
+      "height": 2034,
+      "channels": 3,
+      "sha256": "e6319ffcda005d2640cd31a18ab65c121b482c87bdbb411e6e1dd0666d3f0986"
+    },
+    {
+      "file": "en/raw/02-overview-open.png",
+      "locale": "en",
+      "width": 2853,
+      "height": 2007,
+      "channels": 3,
+      "sha256": "74959b69f16f548c6be308d7ed73279b59b10bc310989253157ddd5e1eed63a6"
+    },
+    {
+      "file": "en/raw/03-detail-closed.png",
+      "locale": "en",
+      "width": 1398,
+      "height": 2034,
+      "channels": 3,
+      "sha256": "82b3545b9d68d07fda191a194770f294b52d7ea1004a564866d2efca47086195"
+    },
+    {
+      "file": "en/raw/04-detail-open.png",
+      "locale": "en",
+      "width": 2853,
+      "height": 2007,
+      "channels": 3,
+      "sha256": "0a474b9ab4627d32efe4d5276537ece0f3fb4cb6b63f4892ebe5d98327d536e3"
+    },
+    {
+      "file": "en/appstore/01-duo-closed.png",
+      "locale": "en",
+      "width": 1398,
+      "height": 2034,
+      "channels": 3,
+      "sha256": "47c596f044f663dc2573f4b9b0088b63c939a58792f48caff7bcd12e2c3308be"
+    },
+    {
+      "file": "en/appstore/02-duo-open.png",
+      "locale": "en",
+      "width": 2853,
+      "height": 2007,
+      "channels": 3,
+      "sha256": "b6b30ac21b3050df996ae4eb36f107bdc63354faf9f87e124d4336decd799d0a"
+    },
+    {
+      "file": "en/announcement.png",
+      "locale": "en",
+      "width": 1080,
+      "height": 1350,
+      "channels": 3,
+      "sha256": "cda263af1acc27ba548e1032bdc772f74c60ff4aef94655a5ccd722df85d4c61"
+    },
+    {
+      "file": "ru/raw/01-overview-closed.png",
+      "locale": "ru",
+      "width": 1398,
+      "height": 2034,
+      "channels": 3,
+      "sha256": "e9640ae9a16a0fb5170dacaf90e8073433f0b6ce3d61a7db72aa6a25a3dd841e"
+    },
+    {
+      "file": "ru/raw/02-overview-open.png",
+      "locale": "ru",
+      "width": 2853,
+      "height": 2007,
+      "channels": 3,
+      "sha256": "11b04ec25ded915527bf31c704328de61c85d3ad67088cbded91859875f126d5"
+    },
+    {
+      "file": "ru/raw/03-detail-closed.png",
+      "locale": "ru",
+      "width": 1398,
+      "height": 2034,
+      "channels": 3,
+      "sha256": "b20060c5292c814cf12175afd6159a5f3d15d37a02ab1605c780c3fb0c5c808a"
+    },
+    {
+      "file": "ru/raw/04-detail-open.png",
+      "locale": "ru",
+      "width": 2853,
+      "height": 2007,
+      "channels": 3,
+      "sha256": "cde58586e4f4aa9d06b5900130f5e35a17e8e2400a406d52c514515f98dd78cd"
+    },
+    {
+      "file": "ru/appstore/01-duo-closed.png",
+      "locale": "ru",
+      "width": 1398,
+      "height": 2034,
+      "channels": 3,
+      "sha256": "3f92239729bdc6b800c2701d8b1d73782447f7e0175304af3d2055ca7790d402"
+    },
+    {
+      "file": "ru/appstore/02-duo-open.png",
+      "locale": "ru",
+      "width": 2853,
+      "height": 2007,
+      "channels": 3,
+      "sha256": "3048946a9d3145b7b2927e7a29a0659cd108f6010ba084a3adc058e3deb9b4be"
+    },
+    {
+      "file": "ru/announcement.png",
+      "locale": "ru",
+      "width": 1080,
+      "height": 1350,
+      "channels": 3,
+      "sha256": "c50faa34cfc87d3e95da702ff9d684999b8860c9c042cae9d18224fbc1db83bd"
+    }
+  ]
+}

@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026.1.7
+
+- Enjoy more room for your trips and settings on the unfolded iPhone Duo screen.
+- Read every introduction page and reach every language option with larger text.
+
 # 2026.1.6 (2026-03-21)
 
 ## Improvements

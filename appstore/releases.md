@@ -1,5 +1,43 @@
 # App Store Releases
 
+## 2026.1.7
+
+### English
+
+```
+We optimized Journey Wallet for iPhone Duo so your trips and settings make better use of the unfolded screen. We also improved the introduction with larger text, keeping every description and language option within reach.
+```
+
+### Russian
+
+```
+Мы адаптировали Journey Wallet для iPhone Duo — теперь поездки и настройки используют больше места на раскрытом экране. Ещё улучшили первые экраны с крупным текстом, чтобы вы могли прочитать все описания и выбрать любой язык.
+```
+
+### Kazakh
+
+```
+Journey Wallet қолданбасын iPhone Duo құрылғысына бейімдедік — енді телефонды ашқанда сапарларыңыз бен баптауларға көбірек орын беріледі. Сондай-ақ алғашқы экрандарды ірі мәтінмен оқуды жеңілдеттік, барлық сипаттамалар мен тілдерді айналдыру арқылы көруге болады.
+```
+
+### Turkish
+
+```
+Journey Wallet’ı iPhone Duo’ya uyarladık — artık seyahatleriniz ve ayarlarınız açılmış ekrandan daha iyi yararlanıyor. İlk ekranları da büyük metinle daha rahat kullanabilmeniz için iyileştirdik, böylece tüm açıklamalara ve dil seçeneklerine ulaşabilirsiniz.
+```
+
+### German
+
+```
+Wir haben Journey Wallet für das iPhone Duo optimiert, damit Ihre Reisen und Einstellungen den aufgeklappten Bildschirm besser nutzen. Außerdem haben wir die Einführung bei großer Schrift verbessert, sodass alle Beschreibungen und Sprachoptionen erreichbar bleiben.
+```
+
+### Ukrainian
+
+```
+Ми адаптували Journey Wallet для iPhone Duo — тепер подорожі й налаштування краще використовують розгорнутий екран. Також покращили перші екрани з великим текстом, щоб ви могли прочитати всі описи й вибрати будь-яку мову.
+```
+
 ## 2026.1.6
 
 ### English

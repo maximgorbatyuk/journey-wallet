@@ -1,0 +1,20 @@
+{
+  "app": "Journey Wallet",
+  "version": "2026.1.7",
+  "background": "#FFF8F0",
+  "accent": "#E65235",
+  "locales": {
+    "en": {
+      "headline": "Ready for iPhone Duo",
+      "subtitle": "Plan your journeys on a bigger screen"
+    },
+    "ru": {
+      "headline": "Поддержка iPhone Duo",
+      "subtitle": "Планируйте поездки на большом экране"
+    }
+  },
+  "featured_capture": {
+    "closed": "03-detail-closed.png",
+    "open": "04-detail-open.png"
+  }
+}
