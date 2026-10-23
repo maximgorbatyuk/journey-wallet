@@ -62,6 +62,7 @@ struct OnboardingView: SwiftUI.View {
                             onOnboardingSkipped()
                         }
                         .foregroundColor(.secondary)
+                        .accessibilityIdentifier("onboarding.skip")
                         .padding()
                     }
                 }
@@ -116,6 +117,7 @@ struct OnboardingView: SwiftUI.View {
                                 .background(Color.blue)
                                 .cornerRadius(12)
                         }
+                        .accessibilityIdentifier("onboarding.continue")
                         .padding(.horizontal)
                     } else if currentPage == viewModel.totalPages - 1 {
                         // Get Started button on last page
@@ -136,6 +138,7 @@ struct OnboardingView: SwiftUI.View {
                                 .background(viewModel.pages[currentPage - 1].color)
                                 .cornerRadius(12)
                         }
+                        .accessibilityIdentifier("onboarding.continue")
                         .padding(.horizontal)
                     } else {
                         // Next button on other pages
@@ -152,6 +155,7 @@ struct OnboardingView: SwiftUI.View {
                                 .background(viewModel.pages[currentPage - 1].color)
                                 .cornerRadius(12)
                         }
+                        .accessibilityIdentifier("onboarding.continue")
                         .padding(.horizontal)
                     }
                 }

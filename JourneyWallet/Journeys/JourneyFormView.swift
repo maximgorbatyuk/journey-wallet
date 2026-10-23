@@ -57,9 +57,11 @@ struct JourneyFormView: View {
             Form {
                 Section(header: Text(L("journey.form.section.basic"))) {
                     TextField(L("journey.form.name"), text: $name)
+                        .accessibilityIdentifier("entity.name")
                         .textContentType(.name)
 
                     TextField(L("journey.form.destination"), text: $destination)
+                        .accessibilityIdentifier("entity.secondary")
                         .textContentType(.addressCity)
                 }
 
@@ -94,6 +96,7 @@ struct JourneyFormView: View {
                     Button(L("Cancel")) {
                         dismiss()
                     }
+                    .accessibilityIdentifier("entity.cancel")
                 }
 
                 ToolbarItem(placement: .confirmationAction) {
@@ -101,6 +104,7 @@ struct JourneyFormView: View {
                         saveJourney()
                     }
                     .fontWeight(.semibold)
+                    .accessibilityIdentifier("entity.save")
                 }
             }
             .alert(L("Error"), isPresented: $showValidationError) {
