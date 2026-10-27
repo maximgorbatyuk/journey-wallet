@@ -16,6 +16,7 @@ struct PendingDocument: Identifiable {
 struct DocumentPickerView: View {
 
     let journeyId: UUID
+    let onImported: (([Document]) -> Void)?
     let onComplete: (Bool) -> Void
 
     @Environment(\.dismiss) private var dismiss
@@ -28,8 +29,15 @@ struct DocumentPickerView: View {
     @State private var showError = false
     @State private var pendingDocuments: [PendingDocument] = []
     @State private var currentPendingIndex: Int = 0
+    @State private var importedCount = 0
     @State private var showNameEntry = false
     @ObservedObject private var analytics = AnalyticsService.shared
+
+    init(journeyId: UUID, onImported: (([Document]) -> Void)? = nil, onComplete: @escaping (Bool) -> Void) {
+        self.journeyId = journeyId
+        self.onImported = onImported
+        self.onComplete = onComplete
+    }
 
     var body: some View {
         NavigationStack {
@@ -70,6 +78,7 @@ struct DocumentPickerView: View {
                                 .foregroundColor(.green)
                         }
                     }
+                    .accessibilityIdentifier("document.import.photos")
 
                     // Take Photo (only shown when camera is available)
                     if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -101,8 +110,11 @@ struct DocumentPickerView: View {
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button(L("Cancel")) {
+                        cancelPendingDocuments()
+                        onComplete(importedCount > 0)
                         dismiss()
                     }
+                    .disabled(isProcessing)
                 }
             }
             .overlay {
@@ -171,6 +183,10 @@ struct DocumentPickerView: View {
             .onAppear {
                 analytics.trackScreen("document_picker_screen")
             }
+            .onDisappear {
+                cancelPendingDocuments()
+            }
+            .interactiveDismissDisabled(isProcessing)
         }
     }
 
@@ -246,21 +262,23 @@ struct DocumentPickerView: View {
 
     // MARK: - Pending Document Handling
 
-    private func saveCurrentPendingDocument(withName name: String?) {
-        guard currentPendingIndex < pendingDocuments.count else { return }
+    private func saveCurrentPendingDocument(withName name: String?) -> Bool {
+        guard currentPendingIndex < pendingDocuments.count else { return false }
 
         let pending = pendingDocuments[currentPendingIndex]
         let viewModel = DocumentListViewModel(journeyId: journeyId)
 
-        // Save with optional name and file path
-        let success = viewModel.addDocument(from: pending.tempURL, name: name, filePath: pending.originalPath)
-
-        if success {
-            analytics.trackEvent("document_added", properties: [
-                "screen": "document_picker",
-                "source": pending.source
-            ])
+        guard let document = viewModel.importDocument(
+            from: pending.tempURL, name: name, filePath: pending.originalPath
+        ) else {
+            return false
         }
+        importedCount += 1
+        onImported?([document])
+        analytics.trackEvent("document_added", properties: [
+            "screen": "document_picker",
+            "source": pending.source
+        ])
 
         // Clean up temp file
         try? FileManager.default.removeItem(at: pending.tempURL)
@@ -275,11 +293,12 @@ struct DocumentPickerView: View {
             }
         } else {
             // All documents processed
-            analytics.trackEvent("documents_imported", properties: ["count": pendingDocuments.count])
+            analytics.trackEvent("documents_imported", properties: ["count": importedCount])
             pendingDocuments = []
-            onComplete(true)
+            onComplete(importedCount > 0)
             dismiss()
         }
+        return true
     }
 
     private func cancelPendingDocuments() {

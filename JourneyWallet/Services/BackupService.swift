@@ -112,6 +112,8 @@ final class BackupService: ObservableObject {
         let carRentals = carRentalsRepository?.fetchAll()
         let documents = documentsRepository?.fetchAll()
         let notes = notesRepository?.fetchAll()
+        let noteLinks = notesRepository?.fetchAllLinks()
+        let noteDocumentAttachments = notesRepository?.fetchAllDocumentAttachments()
         let placesToVisit = placesToVisitRepository?.fetchAll()
         let reminders = remindersRepository?.fetchAll()
         let expenses = expensesRepository?.fetchAll()
@@ -128,6 +130,8 @@ final class BackupService: ObservableObject {
             carRentals: carRentals,
             documents: documents,
             notes: notes,
+            noteLinks: noteLinks,
+            noteDocumentAttachments: noteDocumentAttachments,
             placesToVisit: placesToVisit,
             reminders: reminders,
             expenses: expenses,
@@ -206,6 +210,21 @@ final class BackupService: ObservableObject {
                 current: currentSchemaVersion,
                 file: metadata.databaseSchemaVersion
             )
+        }
+
+        let notes = Dictionary((exportData.notes ?? []).map { ($0.id, $0) }, uniquingKeysWith: { first, _ in first })
+        let documents = Dictionary(
+            (exportData.documents ?? []).map { ($0.id, $0) }, uniquingKeysWith: { first, _ in first }
+        )
+        for link in exportData.noteLinks ?? [] where notes[link.noteId] == nil {
+            throw ExportValidationError.corruptedData
+        }
+        for attachment in exportData.noteDocumentAttachments ?? [] {
+            guard let note = notes[attachment.noteId],
+                  let document = documents[attachment.documentId],
+                  note.journeyId == document.journeyId else {
+                throw ExportValidationError.corruptedData
+            }
         }
     }
     
@@ -320,7 +339,9 @@ final class BackupService: ObservableObject {
         // Import documents (metadata only, files handled separately)
         if let documents = exportData.documents {
             for document in documents {
-                _ = documentsRepository?.insert(document)
+                guard documentsRepository?.insert(document) == true else {
+                    throw ExportValidationError.corruptedData
+                }
             }
             self.logger.info("Imported \(documents.count) documents")
         }
@@ -328,9 +349,24 @@ final class BackupService: ObservableObject {
         // Import notes
         if let notes = exportData.notes {
             for note in notes {
-                _ = notesRepository?.insert(note)
+                guard notesRepository?.insert(note) == true else {
+                    throw ExportValidationError.corruptedData
+                }
             }
             self.logger.info("Imported \(notes.count) notes")
+        }
+
+        if let notesRepository {
+            do {
+                try notesRepository.restoreAttachments(
+                    links: exportData.noteLinks ?? [],
+                    documentAttachments: exportData.noteDocumentAttachments ?? []
+                )
+            } catch {
+                throw ExportValidationError.corruptedData
+            }
+        } else if !(exportData.noteLinks ?? []).isEmpty || !(exportData.noteDocumentAttachments ?? []).isEmpty {
+            throw ExportValidationError.corruptedData
         }
 
         // Import places to visit

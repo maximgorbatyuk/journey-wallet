@@ -30,12 +30,21 @@ class DocumentListViewModel {
     private let journeyId: UUID
     private let documentsRepository: DocumentsRepository?
     private let journeysRepository: JourneysRepository?
+    private let notesRepository: NotesRepository?
     private let documentService = DocumentService.shared
 
     init(journeyId: UUID, databaseManager: DatabaseManager = .shared) {
         self.journeyId = journeyId
         self.documentsRepository = databaseManager.documentsRepository
         self.journeysRepository = databaseManager.journeysRepository
+        self.notesRepository = databaseManager.notesRepository
+    }
+
+    init(journeyId: UUID, documentsRepository: DocumentsRepository?, journeysRepository: JourneysRepository? = nil) {
+        self.journeyId = journeyId
+        self.documentsRepository = documentsRepository
+        self.journeysRepository = journeysRepository
+        self.notesRepository = nil
     }
 
     // MARK: - Data Loading
@@ -67,13 +76,17 @@ class DocumentListViewModel {
     // MARK: - CRUD Operations
 
     func addDocument(from url: URL, name: String? = nil, filePath: String? = nil) -> Bool {
+        importDocument(from: url, name: name, filePath: filePath) != nil
+    }
+
+    func importDocument(from url: URL, name: String? = nil, filePath: String? = nil) -> Document? {
+        errorMessage = nil
         guard let result = documentService.saveDocument(from: url, journeyId: journeyId) else {
             errorMessage = L("document.error.save_failed")
-            return false
+            return nil
         }
 
         let documentType = documentService.getDocumentType(from: url)
-        // Name is now optional - pass nil or empty string means no custom name
         let documentName: String? = (name?.isEmpty == false) ? name : nil
 
         let document = Document(
@@ -88,12 +101,12 @@ class DocumentListViewModel {
         if documentsRepository?.insert(document) == true {
             journeysRepository?.touchUpdatedAt(journeyId: journeyId)
             loadDocuments()
-            return true
+            return document
         } else {
             // Clean up file if database insert fails
             _ = documentService.deleteDocument(fileName: result.fileName, journeyId: journeyId)
             errorMessage = L("document.error.save_failed")
-            return false
+            return nil
         }
     }
 
@@ -130,6 +143,10 @@ class DocumentListViewModel {
             return true
         }
         return false
+    }
+
+    func hasNoteAttachments(_ document: Document) -> Bool {
+        notesRepository?.fetchAllDocumentAttachments().contains { $0.documentId == document.id } ?? false
     }
 
     // MARK: - File Access

@@ -113,11 +113,9 @@ struct QuickAddSheet: View {
             NoteFormView(
                 journeyId: journeyId,
                 mode: .add,
-                onSave: { note in
-                    if DatabaseManager.shared.notesRepository?.insert(note) == true {
-                        onEntityAdded()
-                        dismiss()
-                    }
+                onSave: { _ in
+                    onEntityAdded()
+                    dismiss()
                 }
             )
 

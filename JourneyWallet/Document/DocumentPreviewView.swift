@@ -58,6 +58,7 @@ struct DocumentPreviewView: View {
                     Button(L("Close")) {
                         dismiss()
                     }
+                    .accessibilityIdentifier("document.close")
                 }
 
                 ToolbarItem(placement: .primaryAction) {

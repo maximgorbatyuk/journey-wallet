@@ -5,6 +5,7 @@ struct NoteListView: View {
     let journeyId: UUID
 
     @State private var viewModel: NoteListViewModel
+    @State private var noteToRead: UUID?
     @ObservedObject private var analytics = AnalyticsService.shared
 
     init(journeyId: UUID) {
@@ -42,6 +43,7 @@ struct NoteListView: View {
                 }) {
                     Image(systemName: "plus")
                 }
+                .accessibilityIdentifier("note.add")
             }
         }
         .onAppear {
@@ -55,8 +57,8 @@ struct NoteListView: View {
             NoteFormView(
                 journeyId: journeyId,
                 mode: .add,
-                onSave: { note in
-                    viewModel.addNote(note)
+                onSave: { _ in
+                    viewModel.loadData()
                 }
             )
         }
@@ -64,13 +66,16 @@ struct NoteListView: View {
             NoteFormView(
                 journeyId: journeyId,
                 mode: .edit(note),
-                onSave: { updatedNote in
-                    viewModel.updateNote(updatedNote)
+                onSave: { _ in
+                    viewModel.loadData()
                 },
                 onMove: { newJourneyId in
                     viewModel.moveToJourney(note: note, newJourneyId: newJourneyId)
                 }
             )
+        }
+        .navigationDestination(item: $noteToRead) { noteId in
+            NoteDetailView(noteId: noteId)
         }
     }
 
@@ -95,11 +100,13 @@ struct NoteListView: View {
     private var noteList: some View {
         List {
             ForEach(viewModel.notes) { note in
-                NoteListRow(note: note)
-                    .contentShape(Rectangle())
-                    .onTapGesture {
-                        viewModel.noteToEdit = note
-                    }
+                Button {
+                    noteToRead = note.id
+                } label: {
+                    NoteListRow(note: note)
+                }
+                    .buttonStyle(.plain)
+                    .accessibilityIdentifier("note.open")
                     .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                         Button(role: .destructive) {
                             viewModel.deleteNote(note)
@@ -198,6 +205,7 @@ struct NoteListRow: View {
                 .foregroundColor(.secondary)
         }
         .padding(.vertical, 4)
+        .contentShape(Rectangle())
     }
 
     private func formatDate(_ date: Date) -> String {

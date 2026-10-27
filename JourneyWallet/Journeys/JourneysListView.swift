@@ -102,6 +102,7 @@ struct JourneysListView: View {
                             Label(L("Edit"), systemImage: "pencil")
                         }
                         .tint(.blue)
+                        .accessibilityIdentifier("entity.edit")
                     }
             }
 
@@ -132,6 +133,7 @@ struct JourneysListView: View {
         }
         .padding(.trailing, 20)
         .padding(.bottom, 20)
+        .accessibilityIdentifier("entity.add")
     }
 
     // MARK: - Empty State

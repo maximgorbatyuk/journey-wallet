@@ -213,13 +213,8 @@ struct MainView: View {
                 .buttonStyle(.plain)
             }
         case .note:
-            if let note = viewModel.getNote(by: result.id),
-               let journeyId = result.journeyId {
-                NavigationLink(destination: NoteFormView(
-                    journeyId: journeyId,
-                    mode: .edit(note),
-                    onSave: { _ in }
-                )) {
+            if let note = viewModel.getNote(by: result.id) {
+                NavigationLink(destination: NoteDetailView(noteId: note.id)) {
                     SearchResultRow(result: result)
                 }
                 .buttonStyle(.plain)

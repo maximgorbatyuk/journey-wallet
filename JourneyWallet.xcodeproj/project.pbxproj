@@ -13,6 +13,7 @@
 		87756C032E963DBC0055273C /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 87756C022E963DBC0055273C /* SQLite */; };
 		87D58E522EA5036100F4454C /* privacy-policy.md in Resources */ = {isa = PBXBuildFile; fileRef = 87D58E512EA5035A00F4454C /* privacy-policy.md */; };
 		87DD139B2EBB7949005982AB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 87DD139A2EBB7949005982AB /* FirebaseAnalytics */; };
+		A10000000000000000000001 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000002 /* SQLite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 8774963C2F228481001F6CAD;
 			remoteInfo = ShareExtension;
+		};
+		8AD479EEEBBDFB86F9E5616B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 87756BCF2E963D230055273C;
+			proxyType = 1;
+			remoteGlobalIDString = 87756BD62E963D240055273C;
+			remoteInfo = JourneyWallet;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -51,6 +59,8 @@
 		8774963D2F228481001F6CAD /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		87756BD72E963D240055273C /* JourneyWallet-Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JourneyWallet-Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87D58E512EA5035A00F4454C /* privacy-policy.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "privacy-policy.md"; sourceTree = "<group>"; };
+		EDD358F6649187BE4092A498 /* JourneyWalletScenarioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JourneyWalletScenarioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A10000000000000000000003 /* JourneyWalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = JourneyWalletTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -108,6 +118,12 @@
 			path = JourneyWallet;
 			sourceTree = "<group>";
 		};
+		B171DB5E2E5930C13BF8B1E7 /* UITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = UITests;
+			sourceTree = "<group>";
+		};
+		A10000000000000000000004 /* UnitTests */ = {isa = PBXFileSystemSynchronizedRootGroup; path = UnitTests; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +144,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E9BB874A2758D04B724ED64F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A10000000000000000000005 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (A10000000000000000000001); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -141,6 +164,8 @@
 		87756BCE2E963D230055273C = {
 			isa = PBXGroup;
 			children = (
+				A10000000000000000000004 /* UnitTests */,
+				B171DB5E2E5930C13BF8B1E7 /* UITests */,
 				877499342F228D47001F6CAD /* BusinessLogic */,
 				87D58E512EA5035A00F4454C /* privacy-policy.md */,
 				874BB4FF2EA265B2004AFFD5 /* readme.md */,
@@ -155,6 +180,8 @@
 		87756BD82E963D240055273C /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				A10000000000000000000003 /* JourneyWalletTests.xctest */,
+				EDD358F6649187BE4092A498 /* JourneyWalletScenarioUITests.xctest */,
 				87756BD72E963D240055273C /* JourneyWallet-Dev.app */,
 				8774963D2F228481001F6CAD /* ShareExtension.appex */,
 			);
@@ -216,6 +243,31 @@
 			productReference = 87756BD72E963D240055273C /* JourneyWallet-Dev.app */;
 			productType = "com.apple.product-type.application";
 		};
+		127AEC7DDAD012EC743AB4C1 /* JourneyWalletScenarioUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2DD1CD0B1971FAEFC9EB10FD;
+			buildPhases = (CF9E07E6F165DFF8AA51F8FA, E9BB874A2758D04B724ED64F, 335E9B4BBEDB10863379025E);
+			buildRules = ();
+			dependencies = (16C3DD0A05968479C286B7FB);
+			fileSystemSynchronizedGroups = (B171DB5E2E5930C13BF8B1E7);
+			name = JourneyWalletScenarioUITests;
+			productName = JourneyWalletScenarioUITests;
+			productReference = EDD358F6649187BE4092A498;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		A10000000000000000000008 /* JourneyWalletTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A10000000000000000000009;
+			buildPhases = (A10000000000000000000006, A10000000000000000000005, A10000000000000000000007);
+			buildRules = ();
+			dependencies = (16C3DD0A05968479C286B7FB);
+			fileSystemSynchronizedGroups = (A10000000000000000000004);
+			name = JourneyWalletTests;
+			packageProductDependencies = (A10000000000000000000002);
+			productName = JourneyWalletTests;
+			productReference = A10000000000000000000003;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -228,9 +280,13 @@
 				TargetAttributes = {
 					8774963C2F228481001F6CAD = {
 						CreatedOnToolsVersion = 26.2;
+						DevelopmentTeam = EKKL63HDHJ;
+						ProvisioningStyle = Automatic;
 					};
 					87756BD62E963D240055273C = {
 						CreatedOnToolsVersion = 16.4;
+						DevelopmentTeam = EKKL63HDHJ;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -257,6 +313,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				A10000000000000000000008 /* JourneyWalletTests */,
+				127AEC7DDAD012EC743AB4C1 /* JourneyWalletScenarioUITests */,
 				87756BD62E963D240055273C /* JourneyWallet */,
 				8774963C2F228481001F6CAD /* ShareExtension */,
 			);
@@ -280,6 +338,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		335E9B4BBEDB10863379025E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A10000000000000000000007 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -297,6 +362,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CF9E07E6F165DFF8AA51F8FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A10000000000000000000006 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -309,6 +381,11 @@
 			isa = PBXTargetDependency;
 			target = 8774963C2F228481001F6CAD /* ShareExtension */;
 			targetProxy = 877499BB2F229159001F6CAD /* PBXContainerItemProxy */;
+		};
+		16C3DD0A05968479C286B7FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 87756BD62E963D240055273C;
+			targetProxy = 8AD479EEEBBDFB86F9E5616B;
 		};
 /* End PBXTargetDependency section */
 
@@ -332,7 +409,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2026.1.7;
+				MARKETING_VERSION = 2026.1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(SHARE_EXTENSION_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -364,7 +441,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2026.1.7;
+				MARKETING_VERSION = 2026.1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(SHARE_EXTENSION_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -535,7 +612,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2026.1.7;
+				MARKETING_VERSION = 2026.1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.mgorbatyuk.JourneyWallet.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)-Dev";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -571,12 +648,74 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2026.1.7;
+				MARKETING_VERSION = 2026.1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.mgorbatyuk.JourneyWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		BA78F3C8A154C2A86786C860 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EKKL63HDHJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.mgorbatyuk.JourneyWalletScenarioUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = JourneyWallet;
+			};
+			name = Debug;
+		};
+		1C4CA2D6888454A8F2020B14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EKKL63HDHJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.mgorbatyuk.JourneyWalletScenarioUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = JourneyWallet;
+			};
+			name = Release;
+		};
+		A1000000000000000000000A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EKKL63HDHJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.mgorbatyuk.JourneyWalletTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JourneyWallet-Dev.app/JourneyWallet-Dev";
+			};
+			name = Debug;
+		};
+		A1000000000000000000000B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EKKL63HDHJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.mgorbatyuk.JourneyWalletTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JourneyWallet.app/JourneyWallet";
 			};
 			name = Release;
 		};
@@ -610,6 +749,13 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		2DD1CD0B1971FAEFC9EB10FD /* JourneyWalletScenarioUITests */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (BA78F3C8A154C2A86786C860, 1C4CA2D6888454A8F2020B14);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A10000000000000000000009 /* JourneyWalletTests */ = {isa = XCConfigurationList; buildConfigurations = (A1000000000000000000000A, A1000000000000000000000B); defaultConfigurationIsVisible = 0; defaultConfigurationName = Debug; };
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -647,6 +793,7 @@
 			package = 87DD13992EBB7949005982AB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
 		};
+		A10000000000000000000002 /* SQLite */ = {isa = XCSwiftPackageProductDependency; package = 87756C012E963D5F0055273C; productName = SQLite; };
 /* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 87756BCF2E963D230055273C /* Project object */;

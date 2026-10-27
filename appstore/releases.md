@@ -1,5 +1,43 @@
 # App Store Releases
 
+## 2026.1.8
+
+### English
+
+```
+We expanded Notes — keep travel instructions together with named links to maps, social posts, and other useful pages. You can also attach documents already saved in your trip or add files, photos, and camera captures while editing a note, so everything you need is close at hand.
+```
+
+### Russian
+
+```
+Мы расширили заметки — теперь к инструкциям можно добавлять ссылки с собственными названиями, чтобы быстро открывать карты, публикации и полезные страницы. Ещё вы можете прикреплять документы путешествия или добавлять файлы, фото и снимки с камеры прямо при редактировании заметки, чтобы всё нужное было под рукой.
+```
+
+### Kazakh
+
+```
+Жазбаларды толықтырдық — енді саяхат нұсқаулықтарына өзіңіз атау берген сілтемелерді қосып, карталарды, жарияланымдарды және пайдалы беттерді тез аша аласыз. Сондай-ақ саяхатта сақталған құжаттарды тіркеуге немесе жазбаны өңдеу кезінде файлдардан, фотолардан және камерадан жаңаларын қосуға болады, сонда қажет нәрсенің бәрі бір жерде тұрады.
+```
+
+### Turkish
+
+```
+Notları geliştirdik — seyahat talimatlarınıza istediğiniz gibi adlandırabileceğiniz bağlantılar ekleyerek haritalara, sosyal medya paylaşımlarına ve yararlı sayfalara kolayca ulaşabilirsiniz. Ayrıca seyahatinizde kayıtlı belgeleri ekleyebilir veya notu düzenlerken Dosyalar, Fotoğraflar ve Kamera üzerinden yeni belgeler ekleyerek ihtiyaç duyduğunuz her şeyi bir arada tutabilirsiniz.
+```
+
+### German
+
+```
+Wir haben die Notizen erweitert — Sie können Ihren Reisehinweisen jetzt Links mit eigenen Namen hinzufügen und Karten, Beiträge oder hilfreiche Seiten direkt öffnen. Außerdem lassen sich gespeicherte Reisedokumente anhängen oder beim Bearbeiten neue Dateien, Fotos und Kameraaufnahmen hinzufügen, damit alles griffbereit bleibt.
+```
+
+### Ukrainian
+
+```
+Ми розширили нотатки — тепер до інструкцій можна додавати посилання з власними назвами, щоб швидко відкривати карти, публікації та корисні сторінки. Також ви можете прикріплювати документи подорожі або додавати файли, фото й знімки з камери під час редагування нотатки, щоб усе потрібне було під рукою.
+```
+
 ## 2026.1.7
 
 ### English

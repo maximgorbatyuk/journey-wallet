@@ -6,11 +6,12 @@ struct DocumentNameEntryView: View {
     let filePath: String
     let fileSize: Int64
     let nameRequired: Bool
-    let onSave: (String?) -> Void
+    let onSave: (String?) -> Bool
     let onCancel: () -> Void
 
     @Environment(\.dismiss) private var dismiss
     @State private var documentName: String = ""
+    @State private var showSaveError = false
     @FocusState private var isNameFieldFocused: Bool
 
     /// Check if the save button should be enabled
@@ -51,6 +52,7 @@ struct DocumentNameEntryView: View {
 
                 Section {
                     TextField(L("document.name_entry.name_placeholder"), text: $documentName)
+                        .accessibilityIdentifier("document.name")
                         .focused($isNameFieldFocused)
                         .textContentType(.name)
                 } header: {
@@ -79,16 +81,24 @@ struct DocumentNameEntryView: View {
 
                 ToolbarItem(placement: .confirmationAction) {
                     Button(L("Save")) {
-                        // Pass nil if name is empty, otherwise pass the trimmed name
                         let trimmedName = documentName.trimmingCharacters(in: .whitespacesAndNewlines)
-                        onSave(trimmedName.isEmpty ? nil : trimmedName)
-                        dismiss()
+                        if onSave(trimmedName.isEmpty ? nil : trimmedName) {
+                            dismiss()
+                        } else {
+                            showSaveError = true
+                        }
                     }
                     .disabled(!canSave)
+                    .accessibilityIdentifier("document.save")
                 }
             }
             .onAppear {
                 isNameFieldFocused = true
+            }
+            .alert(L("Error"), isPresented: $showSaveError) {
+                Button(L("OK"), role: .cancel) {}
+            } message: {
+                Text(L("document.error.save_failed"))
             }
         }
     }
@@ -106,7 +116,7 @@ struct DocumentNameEntryView: View {
         filePath: "/Users/example/Downloads/boarding_pass.pdf",
         fileSize: 245_000,
         nameRequired: false,
-        onSave: { _ in },
+        onSave: { _ in true },
         onCancel: {}
     )
 }

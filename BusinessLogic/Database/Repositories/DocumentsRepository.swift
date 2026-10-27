@@ -45,11 +45,7 @@ class DocumentsRepository {
 
         do {
             let query = table.filter(journeyIdColumn == journeyId.uuidString).order(createdAtColumn.desc)
-            for row in try db.prepare(query) {
-                if let document = mapRowToDocument(row) {
-                    documents.append(document)
-                }
-            }
+            documents = try db.prepareRowIterator(query).map { mapRowToDocument($0) }.compactMap { $0 }
         } catch {
             logger.error("Failed to fetch documents for journey \(journeyId): \(error)")
         }
@@ -58,15 +54,22 @@ class DocumentsRepository {
     }
 
     func fetchById(id: UUID) -> Document? {
-        let query = table.filter(idColumn == id.uuidString)
         do {
-            if let row = try db.pluck(query) {
-                return mapRowToDocument(row)
-            }
+            return try loadById(id: id)
         } catch {
             logger.error("Failed to fetch document by id \(id): \(error)")
         }
         return nil
+    }
+
+    func loadById(id: UUID) throws -> Document? {
+        let query = table.select(
+            table[idColumn], table[journeyIdColumn], table[nameColumn], table[fileTypeColumn], table[fileNameColumn],
+            table[filePathColumn], table[fileSizeColumn], table[notesColumn], table[createdAtColumn]
+        ).filter(table[idColumn] == id.uuidString)
+        guard let row = try db.pluck(query) else { return nil }
+        guard let document = mapRowToDocument(row) else { throw LookupError.invalidRecord }
+        return document
     }
 
     func fetchByFileType(fileType: DocumentType) -> [Document] {
@@ -91,7 +94,7 @@ class DocumentsRepository {
             let insert = table.insert(
                 idColumn <- document.id.uuidString,
                 journeyIdColumn <- document.journeyId.uuidString,
-                nameColumn <- document.name,
+                nameColumn <- document.name ?? "",
                 fileTypeColumn <- document.fileType.rawValue,
                 fileNameColumn <- document.fileName,
                 filePathColumn <- document.filePath,
@@ -113,7 +116,7 @@ class DocumentsRepository {
 
         do {
             try db.run(record.update(
-                nameColumn <- document.name,
+                nameColumn <- document.name ?? "",
                 fileTypeColumn <- document.fileType.rawValue,
                 fileNameColumn <- document.fileName,
                 filePathColumn <- document.filePath,
@@ -226,7 +229,7 @@ class DocumentsRepository {
         return Document(
             id: id,
             journeyId: journeyId,
-            name: row[nameColumn],
+            name: row[nameColumn].flatMap { $0.isEmpty ? nil : $0 },
             fileType: fileType,
             fileName: row[fileNameColumn],
             filePath: row[filePathColumn],
@@ -234,5 +237,9 @@ class DocumentsRepository {
             notes: row[notesColumn],
             createdAt: row[createdAtColumn]
         )
+    }
+
+    private enum LookupError: Error {
+        case invalidRecord
     }
 }

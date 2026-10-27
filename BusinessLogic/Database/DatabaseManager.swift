@@ -48,7 +48,7 @@ class DatabaseManager : DatabaseManagerProtocol {
 
     private var db: Connection?
     private let logger: Logger
-    private let latestVersion = 9
+    private let latestVersion = 10
 
     private init() {
 
@@ -168,6 +168,14 @@ class DatabaseManager : DatabaseManagerProtocol {
 
             case 9:
                 Migration_20260206_RoadmapTables(db: db!).execute()
+
+            case 10:
+                do {
+                    try Migration20261027NoteAttachments(db: db!).execute()
+                } catch {
+                    logger.error("Unable to migrate note attachments: \(error)")
+                    return
+                }
 
             default:
                 break

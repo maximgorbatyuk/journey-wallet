@@ -105,3 +105,7 @@ ci_scripts/.env
 # Firebase config (generated from env vars)
 GoogleService-Info.plist
 **/GoogleService-Info.plist
+# Local UI regression runs
+/.ui-test-cache/
+/ui-test-results/
+__pycache__/

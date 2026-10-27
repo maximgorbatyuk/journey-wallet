@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026.1.8
+
+- Keep travel instructions with named links to maps, social posts, and useful pages.
+- Attach trip documents to notes or add files, photos, and camera captures while editing.
+- Read instructions and open their links and documents without entering the editor.
+
 ## 2026.1.7
 
 - Enjoy more room for your trips and settings on the unfolded iPhone Duo screen.
