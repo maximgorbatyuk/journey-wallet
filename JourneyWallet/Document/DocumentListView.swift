@@ -11,6 +11,7 @@ struct DocumentListView: View {
     @State private var showDeleteConfirmation = false
     @State private var documentToDelete: Document?
     @State private var showMoveSheet = false
+    @State private var showMoveWarning = false
     @State private var documentToMove: Document?
     @State private var hasOpenedInitialDocument = false
     @ObservedObject private var analytics = AnalyticsService.shared
@@ -100,6 +101,12 @@ struct DocumentListView: View {
                     }
                 )
             }
+        }
+        .alert(L("common.move_to_journey"), isPresented: $showMoveWarning) {
+            Button(L("Cancel"), role: .cancel) {}
+            Button(L("note.move.continue")) { showMoveSheet = true }
+        } message: {
+            Text(L("note.document.move_warning"))
         }
     }
 
@@ -195,7 +202,11 @@ struct DocumentListView: View {
 
                         Button {
                             documentToMove = document
-                            showMoveSheet = true
+                            if viewModel.hasNoteAttachments(document) {
+                                showMoveWarning = true
+                            } else {
+                                showMoveSheet = true
+                            }
                         } label: {
                             Label(L("common.move_to_journey"), systemImage: "folder")
                         }

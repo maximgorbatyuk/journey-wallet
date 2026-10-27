@@ -191,7 +191,7 @@ struct NotePreviewRow: View {
                 .frame(width: 32, height: 32)
 
             VStack(alignment: .leading, spacing: 4) {
-                Text(note.title)
+                Text(note.title.isEmpty ? L("note.untitled") : note.title)
                     .font(.subheadline)
                     .fontWeight(.medium)
 

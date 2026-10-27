@@ -9,6 +9,8 @@ struct ExportData: Codable {
     let carRentals: [CarRental]?
     let documents: [Document]?
     let notes: [Note]?
+    let noteLinks: [NoteLink]?
+    let noteDocumentAttachments: [NoteDocumentAttachment]?
     let placesToVisit: [PlaceToVisit]?
     let reminders: [Reminder]?
     let expenses: [Expense]?
@@ -25,6 +27,8 @@ struct ExportData: Codable {
         carRentals: [CarRental]? = nil,
         documents: [Document]? = nil,
         notes: [Note]? = nil,
+        noteLinks: [NoteLink]? = nil,
+        noteDocumentAttachments: [NoteDocumentAttachment]? = nil,
         placesToVisit: [PlaceToVisit]? = nil,
         reminders: [Reminder]? = nil,
         expenses: [Expense]? = nil,
@@ -40,6 +44,8 @@ struct ExportData: Codable {
         self.carRentals = carRentals
         self.documents = documents
         self.notes = notes
+        self.noteLinks = noteLinks
+        self.noteDocumentAttachments = noteDocumentAttachments
         self.placesToVisit = placesToVisit
         self.reminders = reminders
         self.expenses = expenses

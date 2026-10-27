@@ -1,27 +1,22 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
-echo "🧹 Cleaning build folder..."
+cd "$(dirname "$0")"
 
-# Remove local build folder if it exists
-if [ -d "./build" ]; then
-  rm -rf ./build
-  echo "✅ Removed ./build folder"
-fi
-
-# Clean xcodebuild artifacts
-xcodebuild clean \
-  -scheme JourneyWallet
-
-echo "✅ Build artifacts cleaned"
-echo ""
-echo "🧪 Running tests..."
+test_destination="${TEST_DESTINATION:-platform=iOS Simulator,name=iPhone 17 Pro Max,OS=26.5}"
+test_derived_data="${TEST_DERIVED_DATA:-.ui-test-cache/UnitDerivedData}"
+test_results="build/UnitTests-$(date -u +%Y%m%dT%H%M%SZ).xcresult"
+mkdir -p build
 
 xcodebuild test \
-  -scheme JourneyWallet \
-  -destination 'platform=iOS Simulator,name=iPhone 17 Pro Max,OS=26.2' \
+  -project JourneyWallet.xcodeproj \
+  -scheme JourneyWalletTests \
+  -destination "$test_destination" \
+  -derivedDataPath "$test_derived_data" \
+  -clonedSourcePackagesDirPath .ui-test-cache/DerivedData/SourcePackages \
   -enableCodeCoverage YES \
-  -resultBundlePath ./build/TestResults.xcresult
+  -resultBundlePath "$test_results"
 
-echo "✅ Tests completed successfully!"
-echo "📊 Code coverage report available in ./build/TestResults.xcresult"
+python3 -m unittest discover -s scripts -p 'test_*.py' -v
+python3 scripts/run_ui_scenario.py --scenario create-edit-cancel
+python3 scripts/run_ui_scenario.py --scenario notes-links-documents

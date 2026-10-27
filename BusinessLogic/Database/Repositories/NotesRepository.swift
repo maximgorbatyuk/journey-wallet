@@ -11,6 +11,12 @@ class NotesRepository {
     private let contentColumn = Expression<String>("content")
     private let createdAtColumn = Expression<Date>("created_at")
     private let updatedAtColumn = Expression<Date>("updated_at")
+    private let linksTable = Table("note_links")
+    private let attachmentsTable = Table("note_documents")
+    private let noteIdColumn = Expression<String>("note_id")
+    private let documentIdColumn = Expression<String>("document_id")
+    private let urlColumn = Expression<String>("url")
+    private let sortOrderColumn = Expression<Int>("sort_order")
 
     private var db: Connection
     private let logger: Logger
@@ -192,6 +198,182 @@ class NotesRepository {
             logger.error("Failed to count notes for journey: \(error)")
             return 0
         }
+    }
+}
+
+extension NotesRepository {
+    func loadAttachments(noteId: UUID) throws -> (links: [NoteLink], documents: [Document]) {
+        var attachments: (links: [NoteLink], documents: [Document]) = ([], [])
+        try db.transaction(.deferred) {
+            let query = table.select(
+                table[idColumn], table[journeyIdColumn], table[titleColumn],
+                table[contentColumn], table[createdAtColumn], table[updatedAtColumn]
+            ).filter(table[idColumn] == noteId.uuidString)
+            guard let row = try db.pluck(query), let note = mapRowToNote(row) else {
+                throw AttachmentError.invalidReference
+            }
+            let links = try loadLinks(
+                linksTable.filter(linksTable[noteIdColumn] == noteId.uuidString)
+                    .order(linksTable[sortOrderColumn].asc, linksTable[idColumn].asc)
+            )
+            let documents = try loadDocuments(noteId: noteId)
+            guard documents.allSatisfy({ $0.journeyId == note.journeyId }) else {
+                throw AttachmentError.invalidReference
+            }
+            attachments = (links, documents)
+        }
+        return attachments
+    }
+
+    func fetchLinks(noteId: UUID) -> [NoteLink] {
+        readLinks(linksTable.filter(linksTable[noteIdColumn] == noteId.uuidString)
+            .order(linksTable[sortOrderColumn].asc, linksTable[idColumn].asc))
+    }
+
+    func fetchAllLinks() -> [NoteLink] {
+        readLinks(linksTable.order(
+            linksTable[noteIdColumn].asc, linksTable[sortOrderColumn].asc, linksTable[idColumn].asc
+        ))
+    }
+
+    func fetchDocuments(noteId: UUID) -> [Document] {
+        do {
+            return try loadDocuments(noteId: noteId)
+        } catch {
+            logger.error("Failed to fetch note documents: \(error)")
+            return []
+        }
+    }
+
+    func fetchAllDocumentAttachments() -> [NoteDocumentAttachment] {
+        do {
+            let query = attachmentsTable.select(
+                attachmentsTable[noteIdColumn], attachmentsTable[documentIdColumn], attachmentsTable[sortOrderColumn]
+            ).order(attachmentsTable[noteIdColumn].asc, attachmentsTable[sortOrderColumn].asc)
+            return try db.prepareRowIterator(query).map { row in
+                guard let noteId = UUID(uuidString: row[noteIdColumn]),
+                      let documentId = UUID(uuidString: row[documentIdColumn]) else {
+                    throw AttachmentError.invalidReference
+                }
+                return NoteDocumentAttachment(noteId: noteId, documentId: documentId, sortOrder: row[sortOrderColumn])
+            }
+        } catch {
+            logger.error("Failed to fetch note document attachments: \(error)")
+            return []
+        }
+    }
+
+    func save(_ note: Note, links: [NoteLink], documentIds: [UUID]) -> Bool {
+        do {
+            try db.transaction(.immediate) {
+                if let existing = fetchById(id: note.id) {
+                    guard existing.journeyId == note.journeyId, update(note) else {
+                        throw AttachmentError.invalidReference
+                    }
+                } else if !insert(note) {
+                    throw AttachmentError.saveFailed
+                }
+
+                try db.run(linksTable.filter(noteIdColumn == note.id.uuidString).delete())
+                try db.run(attachmentsTable.filter(noteIdColumn == note.id.uuidString).delete())
+                for link in links {
+                    guard link.noteId == note.id else { throw AttachmentError.invalidReference }
+                    try insertLink(link)
+                }
+
+                var attachedIds = Set<UUID>()
+                for id in documentIds where attachedIds.insert(id).inserted {
+                    try insertAttachment(NoteDocumentAttachment(
+                        noteId: note.id, documentId: id, sortOrder: attachedIds.count - 1
+                    ))
+                }
+            }
+            return true
+        } catch {
+            logger.error("Failed to save note and attachments: \(error)")
+            return false
+        }
+    }
+
+    func restoreAttachments(links: [NoteLink], documentAttachments: [NoteDocumentAttachment]) throws {
+        try db.transaction(.immediate) {
+            for link in links {
+                try insertLink(link)
+            }
+            for attachment in documentAttachments {
+                try insertAttachment(attachment)
+            }
+        }
+    }
+
+    private func readLinks(_ query: Table) -> [NoteLink] {
+        do {
+            return try loadLinks(query)
+        } catch {
+            logger.error("Failed to fetch note links: \(error)")
+            return []
+        }
+    }
+
+    private func loadLinks(_ query: Table) throws -> [NoteLink] {
+        let columns = query.select(
+            linksTable[idColumn], linksTable[noteIdColumn], linksTable[titleColumn],
+            linksTable[urlColumn], linksTable[sortOrderColumn]
+        )
+        return try db.prepareRowIterator(columns).map { row in
+            guard let id = UUID(uuidString: row[idColumn]),
+                  let noteId = UUID(uuidString: row[noteIdColumn]) else {
+                throw AttachmentError.invalidReference
+            }
+            return NoteLink(
+                id: id, noteId: noteId, title: row[titleColumn],
+                url: row[urlColumn], sortOrder: row[sortOrderColumn]
+            )
+        }
+    }
+
+    private func loadDocuments(noteId: UUID) throws -> [Document] {
+        let repository = DocumentsRepository(db: db, tableName: DatabaseManager.DocumentsTableName)
+        let query = attachmentsTable.select(
+            attachmentsTable[noteIdColumn], attachmentsTable[documentIdColumn], attachmentsTable[sortOrderColumn]
+        ).filter(attachmentsTable[noteIdColumn] == noteId.uuidString).order(attachmentsTable[sortOrderColumn].asc)
+        return try db.prepareRowIterator(query).map { row in
+            guard let id = UUID(uuidString: row[documentIdColumn]),
+                  let document = try repository.loadById(id: id) else {
+                throw AttachmentError.invalidReference
+            }
+            return document
+        }
+    }
+
+    private func insertLink(_ link: NoteLink) throws {
+        guard !link.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
+              let url = URLComponents(string: link.url),
+              let scheme = url.scheme?.lowercased(), ["https", "http"].contains(scheme),
+              let host = url.host, !host.isEmpty else {
+            throw AttachmentError.invalidLink
+        }
+        try db.run(linksTable.insert(
+            idColumn <- link.id.uuidString,
+            noteIdColumn <- link.noteId.uuidString,
+            titleColumn <- link.title,
+            urlColumn <- link.url,
+            sortOrderColumn <- link.sortOrder
+        ))
+    }
+
+    private func insertAttachment(_ attachment: NoteDocumentAttachment) throws {
+        try db.run(attachmentsTable.insert(
+            noteIdColumn <- attachment.noteId.uuidString,
+            documentIdColumn <- attachment.documentId.uuidString,
+            sortOrderColumn <- attachment.sortOrder
+        ))
+    }
+
+    private enum AttachmentError: Error {
+        case invalidReference
+        case invalidLink
+        case saveFailed
     }
 
     private func mapRowToNote(_ row: Row) -> Note? {

@@ -272,13 +272,17 @@ struct JourneyDetailView: View {
                                             )
                                         }
                                         .buttonStyle(.plain)
+                                        .accessibilityIdentifier("journey.notes")
                                     } else {
                                         ForEach(viewModel.recentNotes) { note in
-                                            NotePreviewRow(note: note)
-                                                .contentShape(Rectangle())
-                                                .onTapGesture {
-                                                    showNoteList = true
-                                                }
+                                            Button {
+                                                showNoteList = true
+                                            } label: {
+                                                NotePreviewRow(note: note)
+                                                    .contentShape(Rectangle())
+                                            }
+                                            .buttonStyle(.plain)
+                                            .accessibilityIdentifier("journey.notes")
                                             if note.id != viewModel.recentNotes.last?.id {
                                                 Divider().padding(.leading, 56)
                                             }

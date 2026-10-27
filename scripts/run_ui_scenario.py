@@ -6,9 +6,11 @@ import datetime
 import fcntl
 import json
 import plistlib
+import struct
 import subprocess
 import sys
 import uuid
+import zlib
 from pathlib import Path
 
 TEXT_SIZES = (
@@ -17,6 +19,22 @@ TEXT_SIZES = (
     "accessibility-extra-large", "accessibility-extra-extra-large",
     "accessibility-extra-extra-extra-large",
 )
+SCENARIOS = {
+    "create-edit-cancel": "testCreateEditCancel",
+    "notes-links-documents": "testNotesLinksAndDocuments",
+}
+
+
+def seed_document_photo(simulator, output):
+    def chunk(kind, data):
+        return struct.pack(">I", len(data)) + kind + data + struct.pack(">I", zlib.crc32(kind + data))
+
+    width = height = 64
+    pixels = (b"\x00" + bytes((245, 155, 45)) * width) * height
+    header = struct.pack(">IIBBBBB", width, height, 8, 2, 0, 0, 0)
+    photo = output / "notes-document.png"
+    photo.write_bytes(b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", header) + chunk(b"IDAT", zlib.compress(pixels)) + chunk(b"IEND", b""))
+    command(["xcrun", "simctl", "addmedia", simulator, str(photo)])
 
 
 def configure_test_run(data, language):
@@ -47,7 +65,7 @@ def command(arguments, log=None, check=True, timeout=120):
 
 def main(argv=None, root=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--scenario", choices=["create-edit-cancel"], default="create-edit-cancel")
+    parser.add_argument("--scenario", choices=SCENARIOS, default="create-edit-cancel")
     parser.add_argument("--device", default="iPhone 17 Pro Max")
     parser.add_argument("--runtime", default="26.5")
     parser.add_argument("--language", choices=["en", "ru"], default="en")
@@ -63,6 +81,7 @@ def main(argv=None, root=None):
     profile = vars(args).copy()
     profile["project"] = project.name
     profile["scheme"] = project.stem + "UI"
+    profile["test_method"] = SCENARIOS[args.scenario]
     if args.dry_run:
         print(json.dumps(profile, indent=2))
         return 0
@@ -103,6 +122,8 @@ def run_profile(root, project, args, profile, cache):
         command(["xcrun", "simctl", "bootstatus", created, "-b"], timeout=300)
         command(["xcrun", "simctl", "ui", created, "appearance", args.appearance])
         command(["xcrun", "simctl", "ui", created, "content_size", args.text_size])
+        if args.scenario == "notes-links-documents":
+            seed_document_photo(created, output)
 
         destination = "platform=iOS Simulator,id=" + created
         derived = cache / "DerivedData"
@@ -119,7 +140,8 @@ def run_profile(root, project, args, profile, cache):
 
         result_bundle = output / "Results.xcresult"
         print("Running fixed scenario: " + args.scenario, flush=True)
-        command(["xcodebuild", "test-without-building", "-xctestrun", str(patched), "-destination", destination, "-parallel-testing-enabled", "NO", "-maximum-concurrent-test-simulator-destinations", "1", "-only-testing:" + project.stem + "ScenarioUITests/ScenarioTests/testCreateEditCancel", "-resultBundlePath", str(result_bundle)], output / "test.log", timeout=900)
+        test_identifier = project.stem + "ScenarioUITests/ScenarioTests/" + profile["test_method"]
+        command(["xcodebuild", "test-without-building", "-xctestrun", str(patched), "-destination", destination, "-parallel-testing-enabled", "NO", "-maximum-concurrent-test-simulator-destinations", "1", "-only-testing:" + test_identifier, "-resultBundlePath", str(result_bundle)], output / "test.log", timeout=900)
         summary = json.loads(command(["xcrun", "xcresulttool", "get", "test-results", "summary", "--path", str(result_bundle), "--format", "json"]))
         (output / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
         if summary.get("result") != "Passed" or summary.get("passedTests") != 1 or summary.get("skippedTests") != 0 or summary.get("failedTests") != 0:
